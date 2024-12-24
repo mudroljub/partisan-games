@@ -80,6 +80,7 @@ export default class Scena {
 
   set bojaPozadine(boja) {
     this.podloga.fillStyle = boja
+    this.platno.style.backgroundColor = boja
   }
 
   get bojaPozadine() {

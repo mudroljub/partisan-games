@@ -26,8 +26,8 @@ const strazar = new Okupator()
 /*** EXPORT ***/
 
 export default class OtpisaniScena extends Scena {
-  constructor() {
-    super()
+  constructor(...args) {
+    super(...args)
     mish.dodajNishan()
     this.zvuk = new Audio(zvukOtpisani)
     this.zvuk.play()
