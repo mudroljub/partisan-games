@@ -16,14 +16,8 @@ import slikaPozadinaBeton from 'slike/teksture/beton.gif'
 import slikaPatrolaNemci from 'slike/2d-odozgo/nemci-patrola.gif'
 import slikaPatrolaTalijani from 'slike/2d-odozgo/talijani-patrola.gif'
 
-/*** KONFIG ***/
-
-let scena = 0
-let strelicaVidljiva = false
-const pauzaCrtanja = 3000
 const trajanjeStrelice = 500
-
-/*** FUNKCIJE ***/
+const pauzaCrtanja = 3000
 
 const crtajStrelicu = () => {
   podloga.lineWidth = 5
@@ -37,22 +31,27 @@ const crtajStrelicu = () => {
   podloga.stroke()
 }
 
-const pozadina = new Pozadina(slikaPozadinaSumarak)
-const ranjenik = new Ranjenik()
-const patrola = new Patrola(slikaPatrolaNemci)
-
 export default class RanjenikScena extends Scena {
   constructor(...args) {
     super(...args)
+    this.init()
+  }
+
+  init() {
+    this.scena = 0
+    this.strelicaVidljiva = false
     this.vreme = new Vreme()
-    patrola.polozaj(this.sirina * 3/4, this.visina * 3/4)
-    ranjenik.polozaj(this.sirina / 4, this.visina / 2)
-    this.dodaj(pozadina, ranjenik, patrola, this.ui)
+    const pozadina = new Pozadina(slikaPozadinaSumarak)
+    this.ranjenik = new Ranjenik()
+    this.patrola = new Patrola(slikaPatrolaNemci)
+    this.patrola.polozaj(this.sirina * 3/4, this.visina * 3/4)
+    this.ranjenik.polozaj(this.sirina / 4, this.visina / 2)
+    this.dodaj(pozadina, this.ranjenik, this.patrola)
   }
 
   update() {
     super.update()
-    patrola.zvuk.volume = skaliranRazmak(patrola, ranjenik)
+    this.patrola.zvuk.volume = skaliranRazmak(this.patrola, this.ranjenik)
     this.proveriSudare()
     this.proveriPobedu()
     this.smenjujStrelicu()
@@ -60,41 +59,41 @@ export default class RanjenikScena extends Scena {
 
   render() {
     super.render()
-    if (strelicaVidljiva) crtajStrelicu()
+    if (this.strelicaVidljiva) crtajStrelicu()
   }
 
   smenjujStrelicu() {
-    if (!strelicaVidljiva && this.vreme.proteklo < pauzaCrtanja) return
-    if (strelicaVidljiva && this.vreme.proteklo < trajanjeStrelice) return
-    strelicaVidljiva = !strelicaVidljiva
+    if (!this.strelicaVidljiva && this.vreme.proteklo < pauzaCrtanja) return
+    if (this.strelicaVidljiva && this.vreme.proteklo < trajanjeStrelice) return
+    this.strelicaVidljiva = !this.strelicaVidljiva
     this.vreme.reset()
   }
 
   proveriSudare() {
-    if (patrola.sudara(ranjenik)) {
-      patrola.stop()
-      patrola.vikniZaredom(2)
+    if (this.patrola.sudara(this.ranjenik)) {
+      this.patrola.stop()
+      this.patrola.vikniZaredom(2)
       console.log('Uhvaćen si...')
       this.stop()
     }
   }
 
   proveriPobedu() {
-    if (izasaoDesno(ranjenik)) this.promeniScenu()
-    if (scena < 4) return
+    if (izasaoDesno(this.ranjenik)) this.promeniScenu()
+    if (this.scena < 4) return
     console.log('pobeda!')
     this.stop()
   }
 
   promeniScenu() {
-    const parna = scena % 2 === 0
+    const parna = this.scena % 2 === 0
     const slikaPozadine = parna ? slikaPozadinaBeton : slikaPozadinaSumarak
     const slikaPatrole = parna ? slikaPatrolaTalijani : slikaPatrolaNemci
     pozadina.zameniSliku(slikaPozadine)
-    patrola.zameniSliku(slikaPatrole)
-    patrola.postaviRandom()
-    ranjenik.x = 10
-    scena++
+    this.patrola.zameniSliku(slikaPatrole)
+    this.patrola.postaviRandom()
+    this.ranjenik.x = 10
+    this.scena++
   }
 
   sablon() {
@@ -111,6 +110,6 @@ export default class RanjenikScena extends Scena {
   
   end() {
     super.end()
-    patrola.zvuk.pause()
+    this.patrola.zvuk.pause()
   }
 }
