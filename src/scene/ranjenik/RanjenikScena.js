@@ -11,7 +11,6 @@ import Pozadina from 'core/Pozadina'
 import Ranjenik from './Ranjenik'
 import Patrola from './Patrola'
 import Vreme from 'core/Vreme'
-import UI from 'core/UI'
 import slikaPozadinaSumarak from 'slike/2d-odozgo/shumarak-pozadina.png'
 import slikaPozadinaBeton from 'slike/teksture/beton.gif'
 import slikaPatrolaNemci from 'slike/2d-odozgo/nemci-patrola.gif'
@@ -38,28 +37,13 @@ const crtajStrelicu = () => {
   podloga.stroke()
 }
 
-const sablon = () => {
-  return `
-    <div class='komande bg-poluprovidno komande1'>
-     <b>Komande</b>
-     <br> A - levo
-     <br> D - desno
-     <br> W - napred
-     <br> S - nazad
-   </div>
-  `
-}
-
-/*** INIT ***/
-
 const pozadina = new Pozadina(slikaPozadinaSumarak)
 const ranjenik = new Ranjenik()
 const patrola = new Patrola(slikaPatrolaNemci)
 
 export default class RanjenikScena extends Scena {
-  constructor() {
-    super()
-    this.ui = new UI(sablon)
+  constructor(...args) {
+    super(...args)
     this.vreme = new Vreme()
     patrola.polozaj(this.sirina * 3/4, this.visina * 3/4)
     ranjenik.polozaj(this.sirina / 4, this.visina / 2)
@@ -113,6 +97,18 @@ export default class RanjenikScena extends Scena {
     scena++
   }
 
+  sablon() {
+    return `
+      <div class='komande bg-poluprovidno komande1'>
+       <b>Komande</b>
+       <br> A - levo
+       <br> D - desno
+       <br> W - napred
+       <br> S - nazad
+     </div>
+    `
+  }
+  
   end() {
     super.end()
     patrola.zvuk.pause()

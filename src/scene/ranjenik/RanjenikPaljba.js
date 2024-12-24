@@ -42,8 +42,8 @@ function sablon() {
 }
 
 export default class RanjenikPaljba extends Scena {
-  constructor() {
-    super()
+  constructor(...args) {
+    super(...args)
     this.dodaj(pozadina, ranjenik, ui)
   }
 
