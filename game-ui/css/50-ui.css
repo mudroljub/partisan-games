@@ -1,0 +1,49 @@
+/* KOMANDE */
+
+.komande {
+  position: absolute;
+  padding: .25em;
+  border-radius: 5px;
+}
+
+.komande1,
+.komande2 {
+  top: 30px;
+}
+
+.komande1 {
+  left: 30px;
+}
+
+.komande2 {
+  left: 700px;
+}
+
+/* POENI */
+
+.energija1,
+.progres1 {
+  left: -0.25em;
+}
+
+.energija1,
+.energija2 {
+  width: 100%;
+  text-align: center;
+}
+
+.progres1,
+.progres2 {
+  width: 100%;
+}
+
+.tabela {
+  position: absolute;
+  font-family: monospace;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px #000;
+  left: 30px;
+  top: 30px;
+  z-index: 999;
+  color: white;
+}

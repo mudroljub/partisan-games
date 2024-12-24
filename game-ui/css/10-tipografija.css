@@ -1,0 +1,36 @@
+/* TIPOGRAFIJA */
+
+/** FONTOVI **/
+
+.1942 {
+  font-family: '1942';
+}
+
+.elite {
+  font-family: 'Special Elite';
+}
+
+
+/** PORAVNANJE **/
+
+.levo {
+  text-align: left;
+}
+
+.desno {
+  text-align: right;
+}
+
+.centar {
+  text-align: center;
+}
+
+/** POMOCNO **/
+
+.bold {
+  font-weight: bold;
+}
+
+.pocetno-veliko:first-letter {
+  text-transform: capitalize;
+}

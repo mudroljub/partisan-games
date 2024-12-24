@@ -1,0 +1,51 @@
+button {
+  background-color: #D94A38;
+  border-radius: .3em;
+  border: 1px solid gray;
+  cursor: pointer;
+  font-family: Courier;
+  font-size: 110%;
+  font-weight: bold;
+  padding: 1em 1.6em;
+  transition: background-color .4s;
+}
+
+button:hover {
+  background-color: red;
+}
+
+/* KONTEKST */
+
+.tri-dugmeta button {
+  max-width: 30%;
+  margin: 0.62em;
+}
+
+/* KLASE */
+
+.kockice {
+  border-radius: 20px;
+  display: block;
+  letter-spacing: 0.04em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.3em;
+  width: 200px;
+}
+
+.dugme-uranja {
+  animation: uranja 10s;
+  left: 60%;
+  position: relative;
+}
+
+@keyframes uranja {
+  from {
+    background: #ddd;
+    left: 0;
+  }
+  to {
+    background: #D94A38;
+    left: 60%;
+  }
+}

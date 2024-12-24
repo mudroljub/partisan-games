@@ -1,0 +1,32 @@
+/*
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+*/
+
+body {
+  background-color: #DDD;
+  font-size: 110%;
+  font-family: 'Special Elite', Courier;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+}
+
+ul {
+  text-align: left;
+}
+
+input {
+  border: 0;
+  padding: 0.625em;
+  font-family: Courier;
+  font-size: inherit;
+}
