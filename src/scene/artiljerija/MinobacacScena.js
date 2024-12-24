@@ -24,7 +24,6 @@ export default class MinobacacScena extends Scena {
     brdo = new Predmet(slikaBrdo, 85, 280, 500, 50)
     minobacac = new Minobacac(10, 280, 200, 20)
     tlo = new Kvadrat(0, 300, 600, 30, 'rgb(10,250,0)')
-    this.start()
   }
 
   update() {

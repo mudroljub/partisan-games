@@ -6,7 +6,6 @@ export default class TopScena extends Scena {
     super(...args)
     this.top = new Top()
     this.dodaj(this.top)
-    this.start()
   }
 
   sablon() {

@@ -27,10 +27,8 @@ P.S. ako izbacuje grešku proveri jel već pokrenut webpack-dev-server.
 
 ## TODO:
 
-- prosleđivati ui svakoj sceni?
-- napraviti jasan interfejs za Scene
 - upozorenje na back napuštate igru
-- ukloniti submodule??
+- ići kroz scene i uraditi todo
 
 ### Faza 1: refaktor i sredjivanje
 - Avionce: promeniti zvuk motora
