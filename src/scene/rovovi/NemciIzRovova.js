@@ -9,8 +9,8 @@ import Pozadina from 'core/Pozadina'
 import Svabo from './Svabo'
 import Vreme from 'core/Vreme'
 
-const DALJI_ROVOVI_Y = 150
-const BLIZI_ROVOVI_Y = 300
+const DALJI_Y = 150
+const BLIZI_Y = 300
 
 export default class NemciIzRovova extends Scena {
   constructor(...args) {
@@ -23,11 +23,9 @@ export default class NemciIzRovova extends Scena {
     this.pogoci = 0
     this.rekord = 0
     this.energija = 100
-    this.bliziRovovi = new Array(10)
-    this.daljiRovovi = new Array(10)
+    this.bliziRovovi = this.praviSvabe(10, BLIZI_Y, {sirina: 100, visina: 150, ucestalost: 0.03})
+    this.daljiRovovi = this.praviSvabe(10, DALJI_Y, {sirina: 50, visina: 75, ucestalost: 0.02})
     this.ucitajRekord()
-    this.praviSvabe(this.bliziRovovi, BLIZI_ROVOVI_Y, {sirina: 100, visina: 150, ucestalost: 0.03})
-    this.praviSvabe(this.daljiRovovi, DALJI_ROVOVI_Y, {sirina: 50, visina: 75, ucestalost: 0.02})
     mish.dodajNishan()
     this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
     this.handleClick = this.handleClick.bind(this)
@@ -53,7 +51,7 @@ export default class NemciIzRovova extends Scena {
   }
 
   handleClick() {
-    const ciljaniRovovi = (mish.y <= DALJI_ROVOVI_Y) ? this.daljiRovovi : this.bliziRovovi
+    const ciljaniRovovi = (mish.y <= DALJI_Y) ? this.daljiRovovi : this.bliziRovovi
     this.proveriPogotke(ciljaniRovovi)
   }
 
@@ -66,12 +64,13 @@ export default class NemciIzRovova extends Scena {
     }
   }  
 
-  praviSvabe(rovovi, y, params) {
-    for (let i = 0; i < rovovi.length; i++) {
-      rovovi[i] = new Svabo(params.sirina, params.visina, params.ucestalost)
-      let randomX = Math.random() * this.sirina
-      rovovi[i].polozaj(randomX, y)
-    }
+  praviSvabe(num, y, params) {
+    return Array.from({ length: num }, () => {
+      const rov = new Svabo(params.sirina, params.visina, params.ucestalost)
+      const randomX = Math.random() * this.sirina
+      rov.polozaj(randomX, y)
+      return rov
+    })    
   }
 
   azurirajSvabe(rovovi) {
