@@ -1,4 +1,3 @@
-// da se ubrzava
 // zvuk rafala kad pripucaju
 // promena slike na pogodak?
 
@@ -24,11 +23,13 @@ export default class NemciIzRovova extends Scena {
     this.energija = 100
     this.bliziRovovi = this.praviSvabe(10, BLIZI_Y, { sirina: 100, visina: 150, ucestalost: 0.03 })
     this.daljiRovovi = this.praviSvabe(12, DALJI_Y, { sirina: 50, visina: 75, ucestalost: 0.02 })
+    this.sveSvabe = [...this.bliziRovovi, ...this.daljiRovovi]
     this.ucitajRekord()
     mish.dodajNishan()
     this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
     this.handleClick = this.handleClick.bind(this)
     document.addEventListener('click', this.handleClick)
+    this.ubrzano = false
   }
 
   praviSvabe(n, y, params) {
@@ -85,11 +86,15 @@ export default class NemciIzRovova extends Scena {
   update() {
     this.cisti()
     this.pozadina.update()
-    this.azurirajSvabe([...this.bliziRovovi, ...this.daljiRovovi])
+    this.azurirajSvabe(this.sveSvabe)
     this.proveriKraj()
-    // ;[...this.bliziRovovi, ...this.daljiRovovi].forEach(svabo => {
-    //   svabo.ucestalost += 0.01 * this.vreme.deltaSekundi
-    // })
+
+    if (!this.ubrzano && this.vreme.protekloSekundi >= 30) {
+      this.sveSvabe.forEach(svabo => {
+        svabo.ucestalost *= 2
+      })
+      this.ubrzano = true
+    }
   }
 
   end() {
