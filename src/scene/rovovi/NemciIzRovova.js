@@ -35,9 +35,9 @@ export default class NemciIzRovova extends Scena {
   sablon() {
     return `
     <div class="komande bg-poluprovidno komande1">
-      Pogoci: ${this.pogoci} <br>
+      Ubijeno: ${this.pogoci} <br>
       Rekord: ${this.rekord} <br>
-      Energija: <br>
+      Energija <br>
       <div class="komande bg-poluprovidno energija1">${Math.round(this.energija)}</div>
       <progress class="komande poluprovidno progres1" value="${this.energija}" max="100"></progress>
     </div>
