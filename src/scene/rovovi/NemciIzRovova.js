@@ -1,5 +1,6 @@
-// da se ne sudaraju?
 // da se ubrzava
+// zvuk rafala kad pripucaju
+// promena slike na pogodak?
 
 import mish from 'io/mish'
 import Scena from 'core/Scena'
@@ -22,7 +23,7 @@ export default class NemciIzRovova extends Scena {
     this.rekord = 0
     this.energija = 100
     this.bliziRovovi = this.praviSvabe(10, BLIZI_Y, { sirina: 100, visina: 150, ucestalost: 0.03 })
-    this.daljiRovovi = this.praviSvabe(10, DALJI_Y, { sirina: 50, visina: 75, ucestalost: 0.02 })
+    this.daljiRovovi = this.praviSvabe(12, DALJI_Y, { sirina: 50, visina: 75, ucestalost: 0.02 })
     this.ucitajRekord()
     mish.dodajNishan()
     this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
@@ -30,11 +31,13 @@ export default class NemciIzRovova extends Scena {
     document.addEventListener('click', this.handleClick)
   }
 
-  praviSvabe(length, y, params) {
-    return Array.from({ length }, () => {
+  praviSvabe(n, y, params) {
+    const razmak = this.sirina / n
+    const polaRazmaka = razmak / 2
+    return Array.from({ length: n }, (_, i) => {
+      const x = i * razmak + polaRazmaka    
       const rov = new Svabo(params.sirina, params.visina, params.ucestalost)
-      const randomX = Math.random() * this.sirina
-      rov.polozaj(randomX, y)
+      rov.polozaj(x, y)
       return rov
     })
   }
@@ -98,7 +101,7 @@ export default class NemciIzRovova extends Scena {
   sablon() {
     return `
     <div class="komande bg-poluprovidno komande1">
-      Ubijeno: ${this.pogoci} <br>
+      Pogoci: ${this.pogoci} <br>
       Rekord: ${this.rekord} <br>
       Energija <br>
       <div class="komande bg-poluprovidno energija1">${Math.round(this.energija)}</div>
