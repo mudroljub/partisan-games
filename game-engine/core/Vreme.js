@@ -5,7 +5,7 @@ export default class Vreme {
   }
 
   reset() {
-    this.upamceno = Date.now()
+    this.upamceno = this.lastDelta = Date.now()
   }
 
   get trenutno() {
@@ -21,8 +21,8 @@ export default class Vreme {
   }
 
   get delta() {
-    const prosloUpamceno = this.upamceno
-    this.upamceno = this.trenutno
-    return this.upamceno - prosloUpamceno
+    const prosloDelta = this.lastDelta
+    this.lastDelta = this.trenutno
+    return this.lastDelta - prosloDelta
   }
 }
