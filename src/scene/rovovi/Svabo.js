@@ -12,10 +12,10 @@ export default class Svabo extends Predmet {
 
   init() {
     this.stoji = false
+    this.vreme = new Vreme()
+    this.vremeNisanjenja = 2.5
     this.slikaGore = '/assets/slike/2d-prvo-lice/nemac-rov.gif'
     this.slikaDole = '/assets/slike/2d-prvo-lice/rov-prazan.gif'
-    this.vremeNisanjenja = 2.5 // koliko sekundi stoji pre nego zapuca
-    this.vreme = new Vreme()
   }
 
   update() {

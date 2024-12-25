@@ -21,15 +21,17 @@ export default class NemciIzRovova extends Scena {
     this.pogoci = 0
     this.rekord = 0
     this.energija = 100
+    this.ubrzano = false
     this.bliziRovovi = this.praviSvabe(10, BLIZI_Y, { sirina: 100, visina: 150, ucestalost: 0.03 })
     this.daljiRovovi = this.praviSvabe(12, DALJI_Y, { sirina: 50, visina: 75, ucestalost: 0.02 })
     this.sveSvabe = [...this.bliziRovovi, ...this.daljiRovovi]
+    this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
+    this.rafal = new Audio('/assets/zvuci/rafal.mp3')
+    
     this.ucitajRekord()
     mish.dodajNishan()
-    this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
     this.handleClick = this.handleClick.bind(this)
     document.addEventListener('click', this.handleClick)
-    this.ubrzano = false
   }
 
   praviSvabe(n, y, params) {
@@ -56,6 +58,8 @@ export default class NemciIzRovova extends Scena {
     for (let i = 0; i < rovovi.length; i++) {
       if (rovovi[i].jeSpreman()) {
         rovovi[i].puca()
+        this.rafal.play()
+        // BUG: delta se akumulira ako nema poziva
         this.energija = Math.max(0, this.energija - 5 * this.vreme.deltaSekundi)
       }
       rovovi[i].update()

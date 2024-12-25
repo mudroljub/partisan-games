@@ -4,8 +4,6 @@ import Vreme from 'core/Vreme'
 import Metak from './Metak'
 import platno from 'io/platno'
 import { ogranici } from 'akcije/granice'
-import slikaAvionce from 'slike/2d-odozgo/avionce.gif'
-import zvukMotora from 'zvuci/engine.mp3'
 
 const BROJ_METAKA = 999
 const SIRINA_PALJBE = 13
@@ -14,10 +12,10 @@ const PAUZA_PALJBE = 0.1
 export class Avionce extends Igrac {
 
   constructor() {
-    super(slikaAvionce)
+    super('/assets/slike/2d-odozgo/avionce.gif')
     this.prevelicaj(0.75)
     this.vreme = new Vreme()
-    this.zvukMotora = new Audio(zvukMotora)
+    this.zvukMotora = new Audio('/assets/zvuci/engine.mp3')
     this.meci = []
     this.trenutniMetak = 0
     this.brzina = 0

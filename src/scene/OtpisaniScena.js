@@ -4,16 +4,14 @@ import Pozadina from 'core/Pozadina'
 import Okupator from '../2d-prvo-lice/Okupator'
 import platno from 'io/platno'
 import mish from 'io/mish'
-import slikaPozadina from 'slike/pozadine/rusevine-varsava.jpg'
-import zvukOtpisani from 'zvuci/otpisani.mp3'
 
 export default class OtpisaniScena extends Scena {
   constructor(...args) {
     super(...args)
-    this.pozadina = new Pozadina(slikaPozadina)
+    this.pozadina = new Pozadina('/assets/slike/pozadine/rusevine-varsava.jpg')
     this.strazar = new Okupator()
     mish.dodajNishan()
-    this.zvuk = new Audio(zvukOtpisani)
+    this.zvuk = new Audio('/assets/zvuci/otpisani.mp3')
     this.zvuk.play()
     platno.addEventListener('click', () => this.strazar.proveriPogodak())
   }
