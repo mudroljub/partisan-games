@@ -1,7 +1,7 @@
 import * as $ from 'konstante'
 import Igrac from 'core/Igrac'
 import Granata from './Granata'
-import {odbij} from 'akcije/granice'
+import { odbij } from 'akcije/granice'
 
 export default class VoziloIgracOdozgo extends Igrac {
 

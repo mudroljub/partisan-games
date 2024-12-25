@@ -1,4 +1,4 @@
-import {platno, podloga} from '../io/platno'
+import { platno, podloga } from '../io/platno'
 
 export default class Scena {
 
@@ -12,7 +12,9 @@ export default class Scena {
     this.ui.sablon = () => this.sablon() // očekuje da scene imaju UI šablon
   }
 
-  sablon() { return ''}
+  sablon() {
+    return ''
+  }
 
   dodaj(...premeti) {
     this.predmeti.push(...premeti)

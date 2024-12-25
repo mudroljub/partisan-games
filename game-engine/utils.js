@@ -1,4 +1,4 @@
-import {dijagonalaPlatna} from './io/platno'
+import { dijagonalaPlatna } from './io/platno'
 
 export function dajSliku(src) {
   const slika = new Image()

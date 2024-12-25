@@ -1,5 +1,5 @@
 import Predmet from 'core/Predmet'
-import {vracaVodoravno} from 'akcije/granice'
+import { vracaVodoravno } from 'akcije/granice'
 import slikaRuina from 'slike/2d-bocno/zgrade/ruina.png'
 
 export default class Zgrada extends Predmet {

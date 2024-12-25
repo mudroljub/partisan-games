@@ -1,5 +1,5 @@
 import Predmet from 'core/Predmet'
-import {nestani} from 'akcije/granice'
+import { nestani } from 'akcije/granice'
 import slikaRaketa from 'slike/raketa.png'
 
 export default class Raketa extends Predmet {

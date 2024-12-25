@@ -39,19 +39,19 @@ export default class Igrac extends Predmet {
   }
 
   nalevo() {
-    if (this.komandeNapredne) {
+    if (this.komandeNapredne)
       this.ugao -= OKRET
-    } else {
+    else
       this.dodajSilu(this.potisak, $.KRUZNICA / 2)
-    }
+
   }
 
   nadesno() {
-    if (this.komandeNapredne) {
+    if (this.komandeNapredne)
       this.ugao += OKRET
-    } else {
+    else
       this.dodajSilu(this.potisak, 0)
-    }
+
   }
 
   nagore() {

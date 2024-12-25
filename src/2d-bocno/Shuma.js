@@ -1,6 +1,6 @@
 import Predmet from 'core/Predmet'
 import platno from 'io/platno'
-import {vracaVodoravno} from 'akcije/granice'
+import { vracaVodoravno } from 'akcije/granice'
 import slikaShumarak from 'slike/2d-bocno/priroda/shumarak.png'
 
 export default class Shuma extends Predmet {

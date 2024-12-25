@@ -1,6 +1,6 @@
 import Vreme from './Vreme'
 import Predmet from './Predmet'
-import {podloga} from '../io/platno'
+import { podloga } from '../io/platno'
 
 export default class Animiran extends Predmet {
 
@@ -46,7 +46,7 @@ export default class Animiran extends Predmet {
   }
 
   nePonavljaAnimaciju(ime) {
-    this.animacije.map((animacija) => {
+    this.animacije.map(animacija => {
       if (animacija.ime === ime) animacija.ponavlja = false
     })
   }

@@ -8,7 +8,7 @@ import Kvadrat from 'core/Kvadrat'
 import Minobacac from './Minobacac'
 import slikaBrdo from 'slike/brdo.jpg'
 
-/*** KONFIG ***/
+/** * KONFIG ***/
 
 let brdo
 let minobacac
@@ -35,9 +35,9 @@ export default class MinobacacScena extends Scena {
   }
 
   proveriPogodak() {
-    if (minobacac.projektil.sudara(brdo) || minobacac.projektil.sudara(tlo)) {
+    if (minobacac.projektil.sudara(brdo) || minobacac.projektil.sudara(tlo))
       // TODO: reset()
       this.stop()
-    }
+
   }
 }

@@ -15,5 +15,5 @@ export default class TopScena extends Scena {
       brzina: ${this.top.brzina}
     </div>
     `
-  }  
+  }
 }

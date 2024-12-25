@@ -2,7 +2,7 @@ import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import Igrac from 'core/Igrac'
 import Raketa from './Raketa'
-import {ogranici} from 'akcije/granice'
+import { ogranici } from 'akcije/granice'
 import avionSrc from 'slike/2d-bocno/spitfire.png'
 import slikaMrtav from 'slike/2d-bocno/spitfire-gori.png'
 
@@ -33,13 +33,13 @@ export default class AvionIgrac extends Igrac {
     this.raketa.update()
   }
 
-  /*** KOMANDE ***/
+  /** * KOMANDE ***/
 
   proveriTipke() {
     super.proveriTipke()
-    if (tipke.stisnute[$.ENTER]) {
+    if (tipke.stisnute[$.ENTER])
       this.raketa.pucaPratecu()
-    }
+
   }
 
   nalevo() {
@@ -60,7 +60,7 @@ export default class AvionIgrac extends Igrac {
     this.raketa.puca()
   }
 
-  /*** OSTALO ***/
+  /** * OSTALO ***/
 
   ispraviAvion() {
     if (tipke.stisnute[$.W] || tipke.stisnute[$.S]) return

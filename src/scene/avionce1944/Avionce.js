@@ -1,9 +1,9 @@
-import {KRUZNICA} from 'konstante'
+import { KRUZNICA } from 'konstante'
 import Igrac from 'core/Igrac'
 import Vreme from 'core/Vreme'
 import Metak from './Metak'
 import platno from 'io/platno'
-import {ogranici} from 'akcije/granice'
+import { ogranici } from 'akcije/granice'
 import slikaAvionce from 'slike/2d-odozgo/avionce.gif'
 import zvukMotora from 'zvuci/engine.mp3'
 
@@ -21,7 +21,7 @@ export class Avionce extends Igrac {
     this.meci = []
     this.trenutniMetak = 0
     this.brzina = 0
-    this.ugao = KRUZNICA * 3/ 4
+    this.ugao = KRUZNICA * 3 / 4
     this.polozaj(platno.width / 2, platno.height - this.visina)
     this.praviMetke()
     this.granice = ogranici
@@ -52,15 +52,15 @@ export class Avionce extends Igrac {
   }
 
   praviMetke() {
-    for (let i = 0; i < BROJ_METAKA; i++) {
+    for (let i = 0; i < BROJ_METAKA; i++)
       this.meci[i] = new Metak(this)
-    }
+
   }
 
   azurirajMetke() {
-    for (let i = 0; i < BROJ_METAKA; i++) {
+    for (let i = 0; i < BROJ_METAKA; i++)
       this.meci[i].update()
-    }
+
   }
 
   preostaloMetaka() {

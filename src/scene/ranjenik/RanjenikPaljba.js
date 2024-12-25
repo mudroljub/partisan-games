@@ -6,7 +6,7 @@ import Pozadina from 'core/Pozadina'
 import Paljba from './Paljba'
 import slikaPozadina from 'slike/teksture/beton.gif'
 
-/*** KONFIG ***/
+/** * KONFIG ***/
 
 const BROJ_PLOTUNA = 15
 const RITAM_PALJBE = 1500
@@ -17,14 +17,14 @@ let vremeIgre = 0
 let protekleMilisekunde = 0
 let pocetakPaljbe = 500
 
-/*** INIT ***/
+/** * INIT ***/
 
 const pozadina = new Pozadina(slikaPozadina)
 const ranjenik = new Ranjenik()
 const vreme = new Vreme()
 const ui = new UI(sablon)
 
-/*** FUNKCIJE ***/
+/** * FUNKCIJE ***/
 
 function pali() {
   if (protekleMilisekunde < pocetakPaljbe || ovajPlotun >= BROJ_PLOTUNA) return
@@ -57,9 +57,9 @@ export default class RanjenikPaljba extends Scena {
   proveriVreme() {
     protekleMilisekunde = vreme.proteklo
     vremeIgre = vreme.protekloSekundi
-    if (vremeIgre > ZADATO_VREME) {
+    if (vremeIgre > ZADATO_VREME)
       this.stop()
       // javi game over
-    }
+
   }
 }

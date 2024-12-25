@@ -7,7 +7,7 @@ export class Okean extends Predmet {
     super(slikaOkean, sirina, visina)
     this.dx = 0
     this.dy = brzinaPozadine
-    this.polozaj(sirina/2, 0)
+    this.polozaj(sirina / 2, 0)
   }
 
   proveriGranice() {
@@ -15,6 +15,6 @@ export class Okean extends Predmet {
   }
 
   ponavljaSliku() {
-    if (this.y > this.visina/2) this.polozaj(this.sirina/2, -this.visina/12)
+    if (this.y > this.visina / 2) this.polozaj(this.sirina / 2, -this.visina / 12)
   }
 }

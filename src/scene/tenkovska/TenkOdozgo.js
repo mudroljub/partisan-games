@@ -1,4 +1,4 @@
-import {KRUZNICA} from 'konstante'
+import { KRUZNICA } from 'konstante'
 import Predmet from 'core/Predmet'
 import slikaTenk from 'slike/2d-odozgo/tenk-rdjavi.gif'
 import zvukTenka from 'zvuci/zvuk-tenka.mp3'

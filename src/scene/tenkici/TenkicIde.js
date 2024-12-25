@@ -19,7 +19,7 @@ export default class TenkicIde extends Scena {
     super(...args)
     this.init()
   }
-  
+
   init() {
     this.nivoTla = platno.height - 100
     this.tenk = new TenkPartizanski(100, this.nivoTla)
@@ -35,11 +35,11 @@ export default class TenkicIde extends Scena {
       this.zbunovi[i] = new Zbun(this.nivoTla)
       this.zbunovi[i].dx = PARALAX_1
     }
-    
+
     for (let i = 0; i < BROJ_OBLAKA; i++) {
       this.oblaci[i] = new Oblak(150, 100)
       this.oblaci[i].dx = PARALAX_1
-    }    
+    }
   }
 
   azurirajZbunje() {
@@ -48,13 +48,13 @@ export default class TenkicIde extends Scena {
       this.zbunovi[i].proveriGranice(10)
     }
   }
-  
+
   azurirajOblake() {
     for (let i = 0; i < this.oblaci.length; i++) {
       this.oblaci[i].update()
       this.oblaci[i].proveriGranice()
     }
-  }  
+  }
 
   update() {
     this.crtaNeboZemlju(this.nivoTla)
@@ -80,5 +80,5 @@ export default class TenkicIde extends Scena {
        <progress class="komande poluprovidno progres1" value="${this.tenk.energija}" max="100"></progress>
      </div>
     `
-  }  
+  }
 }

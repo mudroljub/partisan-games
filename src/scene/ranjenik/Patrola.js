@@ -1,5 +1,5 @@
-import {kruzi} from 'akcije/granice'
-import {nasumicnoOkruglo} from 'utils'
+import { kruzi } from 'akcije/granice'
+import { nasumicnoOkruglo } from 'utils'
 import Predmet from 'core/Predmet'
 import Vreme from 'core/Vreme'
 import slikaNemciPatrola from 'slike/2d-odozgo/nemci-patrola.gif'
@@ -41,12 +41,12 @@ export default class Patrola extends Predmet {
   zuji() {
     if (this.brzina === 0) return
     if (Math.random() > 0.5) return
-    const nasumicno = Math.random() * Math.PI/2 - Math.PI/4
+    const nasumicno = Math.random() * Math.PI / 2 - Math.PI / 4
     this.ugao += nasumicno
   }
 
   pustiNasumicno(zvuci) {
-    const zvuk = zvuci[nasumicnoOkruglo(0, zvuci.length-1)]
+    const zvuk = zvuci[nasumicnoOkruglo(0, zvuci.length - 1)]
     this.zvuk.src = `${__dirname}assets/zvuci/patrola/${zvuk}`
     this.zvuk.play()
   }

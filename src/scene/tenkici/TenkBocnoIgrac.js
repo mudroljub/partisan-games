@@ -8,7 +8,7 @@ import * as _ from 'utils'
 import Predmet from 'core/Predmet'
 import Igrac from 'core/Igrac'
 import platno from 'io/platno'
-import {ogranici} from 'akcije/granice'
+import { ogranici } from 'akcije/granice'
 import slikaGranata from 'slike/granata.gif'
 
 export default class TenkBocnoIgrac extends Igrac {
@@ -83,9 +83,9 @@ export default class TenkBocnoIgrac extends Igrac {
       this.brzina = Math.random() * 10 - 5
       this.ugaoKretanja = 180
     }
-    if (this.x >= platno.width - 10) {
+    if (this.x >= platno.width - 10)
       this.x = platno.width - 10
-    }
+
     if (this.x <= 450) {
       this.brzina = Math.random() * 10 - 5
       this.ugaoKretanja = 0

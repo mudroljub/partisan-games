@@ -1,4 +1,4 @@
-import {unutar} from 'akcije/sudari'
+import { unutar } from 'akcije/sudari'
 import nisan from 'slike/2d-prvo-lice/nisan.png'
 import zvukPucnja from 'zvuci/pucanj.wav'
 

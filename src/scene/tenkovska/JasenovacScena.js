@@ -7,13 +7,13 @@ import TenkOdozgo from './TenkOdozgo'
 import slikaBeton from 'slike/teksture/beton.gif'
 import slikaZica from 'slike/2d-bocno/stvari/bodljikava-zica.gif'
 
-/*** INIT ***/
+/** * INIT ***/
 
 const pozadina = new Pozadina(slikaBeton)
 const tenk = new TenkOdozgo(100, 200)
 const zica = new Predmet(slikaZica)
 
-/*** EXPORT ***/
+/** * EXPORT ***/
 
 export default class JasenovacScena extends Scena {
   constructor(...args) {

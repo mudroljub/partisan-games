@@ -17,7 +17,7 @@ export default class Bombas extends Igrac {
     console.log('bacaBombu')
   }
 
-  reset () {
+  reset() {
     this.polozaj(Math.random() * 800, Math.random() * 600)
     this.brzina = 0
   }

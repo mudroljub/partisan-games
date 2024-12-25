@@ -1,7 +1,7 @@
 import * as _ from 'utils'
 import Predmet from 'core/Predmet'
 import platno from 'io/platno'
-import {vracaVodoravno} from 'akcije/granice'
+import { vracaVodoravno } from 'akcije/granice'
 import oblakSlika from 'slike/oblak.gif'
 
 export default class Oblak extends Predmet {

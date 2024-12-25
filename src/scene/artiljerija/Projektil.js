@@ -1,9 +1,9 @@
-import {podloga} from 'io/platno'
+import { podloga } from 'io/platno'
 
 const GRAVITACIJA = 0.9
 
 export default class Projektil {
-  constructor(vlasnik, poluprec, boja='rgb(250,0,0)') {
+  constructor(vlasnik, poluprec, boja = 'rgb(250,0,0)') {
     this.vlasnik = vlasnik
     this.poluprec = poluprec
     this.boja = boja
@@ -29,7 +29,7 @@ export default class Projektil {
   }
 
   leti() {
-    this.dy = this.dy + GRAVITACIJA
+    this.dy += GRAVITACIJA
     this.x += this.dx
     this.y += this.dy
   }

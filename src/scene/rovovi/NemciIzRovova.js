@@ -21,8 +21,8 @@ export default class NemciIzRovova extends Scena {
     this.pogoci = 0
     this.rekord = 0
     this.energija = 100
-    this.bliziRovovi = this.praviSvabe(10, BLIZI_Y, {sirina: 100, visina: 150, ucestalost: 0.03})
-    this.daljiRovovi = this.praviSvabe(10, DALJI_Y, {sirina: 50, visina: 75, ucestalost: 0.02})
+    this.bliziRovovi = this.praviSvabe(10, BLIZI_Y, { sirina: 100, visina: 150, ucestalost: 0.03 })
+    this.daljiRovovi = this.praviSvabe(10, DALJI_Y, { sirina: 50, visina: 75, ucestalost: 0.02 })
     this.ucitajRekord()
     mish.dodajNishan()
     this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
@@ -30,49 +30,22 @@ export default class NemciIzRovova extends Scena {
     document.addEventListener('click', this.handleClick)
   }
 
-  sablon() {
-    return `
-    <div class="komande bg-poluprovidno komande1">
-      Ubijeno: ${this.pogoci} <br>
-      Rekord: ${this.rekord} <br>
-      Energija <br>
-      <div class="komande bg-poluprovidno energija1">${Math.round(this.energija)}</div>
-      <progress class="komande poluprovidno progres1" value="${this.energija}" max="100"></progress>
-    </div>
-    `
-  }
-  
-  update() {
-    this.cisti()
-    this.pozadina.update()
-    this.azurirajSvabe([...this.bliziRovovi, ...this.daljiRovovi])
-    this.proveriKraj()
-    // ;[...this.bliziRovovi, ...this.daljiRovovi].forEach(svabo => {
-    //   svabo.ucestalost += 0.01 * this.vreme.deltaSekundi
-    // })
-  }
-
-  handleClick() {
-    const ciljaniRovovi = (mish.y <= DALJI_Y) ? this.daljiRovovi : this.bliziRovovi
-    this.proveriPogotke(ciljaniRovovi)
-  }
-
-  proveriPogotke(rovovi) {
-    for (let i = 0; i < rovovi.length; i++) {
-      if (rovovi[i].jePogodjen()) {
-        rovovi[i].padni()
-        this.pogoci++
-      }
-    }
-  }  
-
-  praviSvabe(num, y, params) {
-    return Array.from({ length: num }, () => {
+  praviSvabe(length, y, params) {
+    return Array.from({ length }, () => {
       const rov = new Svabo(params.sirina, params.visina, params.ucestalost)
       const randomX = Math.random() * this.sirina
       rov.polozaj(randomX, y)
       return rov
-    })    
+    })
+  }
+
+  proveriPogotke(rovovi) {
+    for (let i = 0; i < rovovi.length; i++)
+      if (rovovi[i].jePogodjen()) {
+        rovovi[i].padni()
+        this.pogoci++
+      }
+
   }
 
   azurirajSvabe(rovovi) {
@@ -100,10 +73,37 @@ export default class NemciIzRovova extends Scena {
     this.rekord = parseInt(localStorage.getItem('svabeRekord'))
     if (!this.rekord) this.rekord = 0
   }
-  
+
+  handleClick() {
+    const ciljaniRovovi = (mish.y <= DALJI_Y) ? this.daljiRovovi : this.bliziRovovi
+    this.proveriPogotke(ciljaniRovovi)
+  }
+
+  update() {
+    this.cisti()
+    this.pozadina.update()
+    this.azurirajSvabe([...this.bliziRovovi, ...this.daljiRovovi])
+    this.proveriKraj()
+    // ;[...this.bliziRovovi, ...this.daljiRovovi].forEach(svabo => {
+    //   svabo.ucestalost += 0.01 * this.vreme.deltaSekundi
+    // })
+  }
+
   end() {
     super.end()
     document.removeEventListener('click', this.handleClick)
     mish.ukloniNishan()
+  }
+
+  sablon() {
+    return `
+    <div class="komande bg-poluprovidno komande1">
+      Ubijeno: ${this.pogoci} <br>
+      Rekord: ${this.rekord} <br>
+      Energija <br>
+      <div class="komande bg-poluprovidno energija1">${Math.round(this.energija)}</div>
+      <progress class="komande poluprovidno progres1" value="${this.energija}" max="100"></progress>
+    </div>
+    `
   }
 }

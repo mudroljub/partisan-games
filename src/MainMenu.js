@@ -1,18 +1,18 @@
 import Scena from 'core/Scena.js'
 
-const items = { 
-  BombasScena: "Bombaš", 
-  NemciIzRovova: "Nemci iz rovova", 
-  Avionce1942: "Avionče 1942", 
-  TenkOdozgoScena: "Tenk odozgo", 
-  TopScena: "Artiljerija", 
-  MinobacacScena: "Minobacač", 
-  CamacScena: "Čamac", 
-  OtpisaniScena: "Ubij okupatora!", 
-  Scena1944: "Avionče 1944", 
-  TenkicIde: "Tenkić ide",
-  RanjenikScena: "Ranjenik",
-  JasenovacScena: "Bekstvo iz Jasenovca"
+const items = {
+  BombasScena: 'Bombaš',
+  NemciIzRovova: 'Nemci iz rovova',
+  Avionce1942: 'Avionče 1942',
+  TenkOdozgoScena: 'Tenk odozgo',
+  TopScena: 'Artiljerija',
+  MinobacacScena: 'Minobacač',
+  CamacScena: 'Čamac',
+  OtpisaniScena: 'Ubij okupatora!',
+  Scena1944: 'Avionče 1944',
+  TenkicIde: 'Tenkić ide',
+  RanjenikScena: 'Ranjenik',
+  JasenovacScena: 'Bekstvo iz Jasenovca'
 }
 
 export default class MainMenu extends Scena {
@@ -36,12 +36,12 @@ export default class MainMenu extends Scena {
     const izbornik = Object.entries(items).map(([kljuc, naziv]) =>
       `<button value='${kljuc}' class='js-start full'>${naziv}</button>`
     ).join('')
-  
+
     return `
       <h1>Partisan Games ★</h1>
       ${izbornik}
     `
-  }  
+  }
 
   end() {
     super.end()

@@ -23,8 +23,8 @@ export default class Svabo extends Predmet {
     this.povremenoUstaje()
   }
 
-  povremenoUstaje() {   
-    if (!this.stoji && Math.random() < this.ucestalost * this.vreme.deltaSekundi) 
+  povremenoUstaje() {
+    if (!this.stoji && Math.random() < this.ucestalost * this.vreme.deltaSekundi)
       this.ustani()
   }
 

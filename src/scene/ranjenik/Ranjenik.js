@@ -24,6 +24,6 @@ export default class Ranjenik extends Igrac {
   }
 
   nadole() {
-    this.pomeri(-this.korak/5)
+    this.pomeri(-this.korak / 5)
   }
 }

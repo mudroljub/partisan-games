@@ -9,7 +9,7 @@ import TenkPartizanski from './TenkPartizanski'
 import TenkNemacki from './TenkNemacki'
 import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
 
-/*** INIT ***/
+/** * INIT ***/
 
 const tenk1 = new TenkPartizanski(100, 450)
 const tenk2 = new TenkNemacki()
@@ -32,7 +32,7 @@ export default class TenkicAI extends Scena {
   }
 }
 
-/*** FUNKCIJE ***/
+/** * FUNKCIJE ***/
 
 function proveriPogodak(granata, tenk, pomak) {
   if (granata.sudara(tenk)) {

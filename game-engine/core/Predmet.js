@@ -1,8 +1,8 @@
 import Slika from './Slika'
-import {platno, podloga} from '../io/platno'
+import { platno, podloga } from '../io/platno'
 import mish from '../io/mish'
-import {randomRange} from '../utils'
-import {sudar} from '../akcije/sudari'
+import { randomRange } from '../utils'
+import { sudar } from '../akcije/sudari'
 
 export default class Predmet extends Slika {
 
@@ -43,11 +43,11 @@ export default class Predmet extends Slika {
     this.polozaj(Math.random() * platno.width, Math.random() * platno.height)
   }
 
-  randomX(pocetnoX = this.sirina/2, zavrsnoX = platno.width - this.sirina/2) {
+  randomX(pocetnoX = this.sirina / 2, zavrsnoX = platno.width - this.sirina / 2) {
     this.x = randomRange(pocetnoX, zavrsnoX)
   }
 
-  randomY(pocetnoY = this.visina/2, zavrsnoY = platno.height - this.visina/2) {
+  randomY(pocetnoY = this.visina / 2, zavrsnoY = platno.height - this.visina / 2) {
     this.y = randomRange(pocetnoY, zavrsnoY)
   }
 

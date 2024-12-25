@@ -34,7 +34,7 @@ export default class UI {
       const btn = document.createElement('button')
       btn.textContent = txt
       btn.addEventListener('click', callback)
-      div.appendChild(btn)    
+      div.appendChild(btn)
     }
 
     const start = scena => {

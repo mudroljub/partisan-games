@@ -37,5 +37,5 @@ export default class OtpisaniScena extends Scena {
         <p>Oslobođenje se bliži</p>
       </main>
     `
-  }  
+  }
 }

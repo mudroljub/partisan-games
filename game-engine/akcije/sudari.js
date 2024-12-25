@@ -1,20 +1,12 @@
 /* POMOCNE FUNKCIJE */
 
-const levo = predmet => {
-  return predmet.x - predmet.sirina / 2
-}
+const levo = predmet => predmet.x - predmet.sirina / 2
 
-const desno = predmet => {
-  return predmet.x + predmet.sirina / 2
-}
+const desno = predmet => predmet.x + predmet.sirina / 2
 
-const gore = predmet => {
-  return predmet.y - predmet.visina / 2
-}
+const gore = predmet => predmet.y - predmet.visina / 2
 
-const dole = predmet => {
-  return predmet.y + predmet.visina / 2
-}
+const dole = predmet => predmet.y + predmet.visina / 2
 
 /* SUDARNE FUNKCIJE */
 

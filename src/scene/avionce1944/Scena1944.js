@@ -3,9 +3,9 @@
 // BUG: pozadina preskače
 
 import Scena from 'core/Scena'
-import {Avionce} from './Avionce'
-import {Okean} from './Okean'
-import {Ostrvo} from './Ostrvo'
+import { Avionce } from './Avionce'
+import { Okean } from './Okean'
+import { Ostrvo } from './Ostrvo'
 import Oblak from './Oblak'
 import platno from 'io/platno'
 

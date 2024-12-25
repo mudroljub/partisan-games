@@ -3,9 +3,9 @@
 // povecavati broj patrola
 // u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
 
-import {izasaoDesno} from 'akcije/granice'
-import {platno, podloga} from 'io/platno'
-import {skaliranRazmak} from 'utils'
+import { izasaoDesno } from 'akcije/granice'
+import { platno, podloga } from 'io/platno'
+import { skaliranRazmak } from 'utils'
 import Scena from 'core/Scena'
 import Pozadina from 'core/Pozadina'
 import Ranjenik from './Ranjenik'
@@ -44,7 +44,7 @@ export default class RanjenikScena extends Scena {
     const pozadina = new Pozadina(slikaPozadinaSumarak)
     this.ranjenik = new Ranjenik()
     this.patrola = new Patrola(slikaPatrolaNemci)
-    this.patrola.polozaj(this.sirina * 3/4, this.visina * 3/4)
+    this.patrola.polozaj(this.sirina * 3 / 4, this.visina * 3 / 4)
     this.ranjenik.polozaj(this.sirina / 4, this.visina / 2)
     this.dodaj(pozadina, this.ranjenik, this.patrola)
   }
@@ -107,7 +107,7 @@ export default class RanjenikScena extends Scena {
      </div>
     `
   }
-  
+
   end() {
     super.end()
     this.patrola.zvuk.pause()

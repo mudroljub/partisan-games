@@ -13,7 +13,7 @@ import slikaBombas from 'slike/2d-bocno/partizani/vojnici/bombasi/partizan-bomba
 
 const ZADATO_VREME = 10
 const BROJ_PREPREKA = 10
-let nivo = 1
+const nivo = 1
 
 export default class BombasScena extends Scena {
   constructor(...args) {
@@ -33,10 +33,10 @@ export default class BombasScena extends Scena {
 
   praviPrepreke() {
     this.prepreke = []
-    for (let i = 0; i < BROJ_PREPREKA; i++) {
+    for (let i = 0; i < BROJ_PREPREKA; i++)
       this.prepreke[i] = new Prepreka([this.bunker, this.bombas])
-    }
-  }  
+
+  }
 
   update() {
     super.update()
@@ -53,16 +53,16 @@ export default class BombasScena extends Scena {
   }
 
   proveriVreme() {
-    if (this.vreme.protekloSekundi > ZADATO_VREME) {
+    if (this.vreme.protekloSekundi > ZADATO_VREME)
       this.zavrsiIgru('Tvoje vreme je isteklo. Izgubio si!')
-    }
+
   }
 
   proveriPrepreke() {
     for (let i = 0; i < BROJ_PREPREKA; i++) {
-      if (this.bombas.sudara(this.prepreke[i])) {
+      if (this.bombas.sudara(this.prepreke[i]))
         this.zavrsiIgru('Poginuo si. Igra je završena.')
-      }
+
       this.prepreke[i].update()
     }
   }
@@ -84,5 +84,5 @@ export default class BombasScena extends Scena {
         </div>
       </main>
     `
-  }  
+  }
 }

@@ -1,4 +1,4 @@
-// avion Potez 25 
+// avion Potez 25
 // letenje unazad srediti
 // dodati pobedu?
 // da izbegava neke prepreke, možda zgrade
@@ -16,7 +16,7 @@ import Shuma from 'src/2d-bocno/Shuma'
 import slikaAerodrom from 'slike/2d-bocno/zgrade/aerodrom.png'
 import slikaRuina from 'slike/2d-bocno/zgrade/ruina.png'
 
-/*** KONFIG ***/
+/** * KONFIG ***/
 
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10
@@ -31,7 +31,7 @@ const MAX_BRZINA = 20
 const DIZAJ = 10
 const MAX_DIGNUTOST = 5555
 
-/*** INIT ***/
+/** * INIT ***/
 
 export default class Avionce1942 extends Scena {
   constructor(...args) {
@@ -47,7 +47,7 @@ export default class Avionce1942 extends Scena {
     this.igrac = new AvionIgrac(this)
     this.vozilo = new Hummel(this.nivoTla)
     this.aerodrom = new Zgrada(this.nivoTla, slikaAerodrom)
-    this.ruina = new Zgrada(this.nivoTla, slikaRuina)    
+    this.ruina = new Zgrada(this.nivoTla, slikaRuina)
 
     this.ruina.x = -this.ruina.sirina
     this.ruina.procenatVracanja = 0.01
@@ -56,11 +56,11 @@ export default class Avionce1942 extends Scena {
     this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak())
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun())
     this.shume = Array.from({ length: BROJ_SHUME }, () => new Shuma())
-    
+
     this.dodaj(this.igrac, this.vozilo, this.aerodrom, this.ruina, ...this.oblaci, ...this.zbunovi, ...this.shume)
     this.pocniParalax()
   }
-  
+
   update() {
     this.crtaNebo(this.nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
     super.update()
@@ -72,15 +72,15 @@ export default class Avionce1942 extends Scena {
 
   proveriTipke() {
     if (!this.igrac.ziv) return
-    if (tipke.stisnute[$.D] && this.brzinaScene < MAX_BRZINA) this.ubrzavaPredmete($.KRUZNICA/2, POTISAK)
-    if (tipke.stisnute[$.A] && this.brzinaScene >= MIN_BRZINA) this.ubrzavaPredmete($.KRUZNICA/2, -POTISAK)
+    if (tipke.stisnute[$.D] && this.brzinaScene < MAX_BRZINA) this.ubrzavaPredmete($.KRUZNICA / 2, POTISAK)
+    if (tipke.stisnute[$.A] && this.brzinaScene >= MIN_BRZINA) this.ubrzavaPredmete($.KRUZNICA / 2, -POTISAK)
     if (tipke.stisnute[$.W] && this.dignutostScene - DIZAJ < MAX_DIGNUTOST) {
-      if (this.igrac.y < this.visina * 3/4) this.dizePredmete(DIZAJ)
+      if (this.igrac.y < this.visina * 3 / 4) this.dizePredmete(DIZAJ)
       if (this.brzinaScene === 0) this.pocniParalax() // kada avion ponovo uzlece
     }
-    if (tipke.stisnute[$.S] && this.dignutostScene - DIZAJ >= 0) {
+    if (tipke.stisnute[$.S] && this.dignutostScene - DIZAJ >= 0)
       if (this.igrac.y > this.visina / 4) this.dizePredmete(-DIZAJ)
-    }
+
   }
 
   pocniParalax() {
@@ -112,12 +112,12 @@ export default class Avionce1942 extends Scena {
     this.igrac.sviOstali(predmet => {
       if (predmet.mrtav) predmet.dx = PARALAX_1 - this.brzinaScene
     })
-    if (this.igrac.mrtav && this.dignutostScene > 0) 
+    if (this.igrac.mrtav && this.dignutostScene > 0)
       this.dizePredmete(-DIZAJ)
 
-    if (this.igrac.mrtav) {
+    if (this.igrac.mrtav)
       this.endScreen()
-    }
+
   }
 
   proveriTlo() {

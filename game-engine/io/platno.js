@@ -21,5 +21,5 @@ const pokaziPlatno = () => {
 
 const dijagonalaPlatna = Math.sqrt(platno.height * platno.height + platno.width * platno.width)
 
-export {platno, podloga, sakrijPlatno, pokaziPlatno, dijagonalaPlatna}
+export { platno, podloga, sakrijPlatno, pokaziPlatno, dijagonalaPlatna }
 export default platno

@@ -1,6 +1,6 @@
 import * as $ from 'konstante'
 import tipke from 'io/tipke'
-import {platno, podloga} from 'io/platno'
+import { platno, podloga } from 'io/platno'
 import Slika from 'core/Slika'
 import topPostolje from 'slike/2d-bocno/top-postolje.gif'
 import topCev from 'slike/2d-bocno/top-cev.gif'
@@ -56,7 +56,7 @@ export default class Top {
   pozicioniraProjektil() {
     const centarCeviX = this.cev.x + this.cev.sirina / 4
     const centarCeviY = this.cev.y + this.cev.visina * 0.71
-    const dijagonalaCevi = this.cev.sirina * 3/4
+    const dijagonalaCevi = this.cev.sirina * 3 / 4
     this.projektil.x = centarCeviX + dijagonalaCevi * Math.cos(this.ugao * Math.PI / 180)
     this.projektil.y = centarCeviY - dijagonalaCevi * Math.sin(this.ugao * Math.PI / 180)
   }
@@ -69,17 +69,17 @@ export default class Top {
   /* UNOS */
 
   proveriTipke() {
-    if(tipke.stisnute[$.RAZMAK]) {
+    if (tipke.stisnute[$.RAZMAK]) {
       this.puca()
       return
     }
-    if(tipke.stisnute[$.LEVO] && !this.projektil.ispaljen) this.brzina--
-    if(tipke.stisnute[$.DESNO] && !this.projektil.ispaljen) this.brzina++
-    if(this.brzina <= MIN_BRZINA) this.brzina = MIN_BRZINA
-    if(tipke.stisnute[$.GORE]) this.ugao += 0.5
-    if(tipke.stisnute[$.DOLE]) this.ugao -= 0.5
-    if(this.ugao >= MAX_UGAO) this.ugao = MAX_UGAO
-    if(this.ugao <= MIN_UGAO) this.ugao = MIN_UGAO
+    if (tipke.stisnute[$.LEVO] && !this.projektil.ispaljen) this.brzina--
+    if (tipke.stisnute[$.DESNO] && !this.projektil.ispaljen) this.brzina++
+    if (this.brzina <= MIN_BRZINA) this.brzina = MIN_BRZINA
+    if (tipke.stisnute[$.GORE]) this.ugao += 0.5
+    if (tipke.stisnute[$.DOLE]) this.ugao -= 0.5
+    if (this.ugao >= MAX_UGAO) this.ugao = MAX_UGAO
+    if (this.ugao <= MIN_UGAO) this.ugao = MIN_UGAO
   }
 
   /* RENDER */
