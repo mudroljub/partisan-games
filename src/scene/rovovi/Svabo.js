@@ -53,8 +53,6 @@ export default class Svabo extends Predmet {
 
   jeSpreman() {
     if (!this.stoji) return false
-    const duzinaOstanka = this.vreme.protekloSekundi
-    if (duzinaOstanka <= this.vremeNisanjenja / 2) return false
-    if (duzinaOstanka > this.vremeNisanjenja) return true
+    return this.vreme.protekloSekundi >= this.vremeNisanjenja
   }
 }
