@@ -1,10 +1,10 @@
-// prepreke da budu nagazne mine ili nešto opasno
 // sukcesivno se povećava broj prepreka i težina igre
 // svaki nivo novi random raspored, igrač igra dok ne izgubi
 // minimalno rastojanje bombaša i bunkera?
 // vremenski ograniceno?
 // mitraljez puca iz bunkera, prepreke su zakloni
 // BUG: popraviti bunker.gori()
+// napraviti smrt (mina eksplodira, vojnik padne)
 
 import Scena from 'core/Scena'
 import Vreme from 'core/Vreme'

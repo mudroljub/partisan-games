@@ -1,10 +1,9 @@
-import Predmet from 'core/Predmet'
-import slikaKutija from 'slike/2d-bocno/stvari/kutija.png'
+import Predmet from 'core/Predmet.js'
 
 export default class Prepreka extends Predmet {
 
   constructor(nizPredmeta) {
-    super(slikaKutija, 50, 50)
+    super('/game-assets/slike/2d-bocno/stvari/nagazna.png', 40, 30)
     this.nemojPreko (nizPredmeta)
   }
 
