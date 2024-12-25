@@ -42,8 +42,7 @@ export default class NemciIzRovova extends Scena {
   update() {
     this.cisti()
     this.pozadina.update()
-    this.azurirajSvabe(this.bliziRovovi)
-    this.azurirajSvabe(this.daljiRovovi)
+    this.azurirajSvabe([...this.bliziRovovi, ...this.daljiRovovi])
     this.proveriKraj()
   }
 
