@@ -18,13 +18,13 @@ export default class Svabo extends Predmet {
     this.slikaDole = '/assets/slike/2d-prvo-lice/rov-prazan.gif'
   }
 
-  update() {
+  update(dt) {
     super.update()
-    this.povremenoUstaje()
+    this.povremenoUstaje(dt)
   }
 
-  povremenoUstaje() {
-    if (!this.stoji && Math.random() < this.ucestalost * this.vreme.deltaSekundi)
+  povremenoUstaje(dt) {
+    if (!this.stoji && Math.random() < this.ucestalost * dt)
       this.ustani()
   }
 

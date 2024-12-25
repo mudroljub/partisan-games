@@ -30,6 +30,7 @@ P.S. ako izbacuje grešku proveri jel već pokrenut webpack-dev-server.
 - upozorenje na back napuštate igru
 - ići kroz scene i uraditi todo
 - BUG: pojavljuje se vertikalni slajer na rovovima, videti i drugde
+- BUG: bez veze ide petlja za glavni meni
 
 ### Faza 1: refaktor i sredjivanje
 - Avionce: promeniti zvuk motora

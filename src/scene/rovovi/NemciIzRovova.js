@@ -1,4 +1,3 @@
-// zvuk rafala kad pripucaju
 // promena slike na pogodak?
 
 import mish from 'io/mish'
@@ -54,15 +53,14 @@ export default class NemciIzRovova extends Scena {
 
   }
 
-  azurirajSvabe(rovovi) {
+  azurirajSvabe(rovovi, dt) {
     for (let i = 0; i < rovovi.length; i++) {
       if (rovovi[i].jeSpreman()) {
         rovovi[i].puca()
         this.rafal.play()
-        // BUG: delta se akumulira ako nema poziva
-        this.energija = Math.max(0, this.energija - 5 * this.vreme.deltaSekundi)
+        this.energija = Math.max(0, this.energija - 5 * dt)
       }
-      rovovi[i].update()
+      rovovi[i].update(dt)
     }
   }
 
@@ -87,10 +85,10 @@ export default class NemciIzRovova extends Scena {
     this.proveriPogotke(ciljaniRovovi)
   }
 
-  update() {
+  update(dt) {
     this.cisti()
     this.pozadina.update()
-    this.azurirajSvabe(this.sveSvabe)
+    this.azurirajSvabe(this.sveSvabe, dt)
     this.proveriKraj()
 
     if (!this.ubrzano && this.vreme.protekloSekundi >= 30) {

@@ -10,6 +10,8 @@ export default class Scena {
     this.loopID = null
     this.ui = ui
     this.ui.sablon = () => this.sablon() // očekuje da scene imaju UI šablon
+    this.lastTime = performance.now()
+    this.loop = this.loop.bind(this)
   }
 
   sablon() {
@@ -54,21 +56,24 @@ export default class Scena {
     this.ui.render()
   }
 
-  loop() {
-    this.loopID = window.requestAnimationFrame(this.loop.bind(this))
+  loop(timestamp) {
+    this.loopID = requestAnimationFrame(this.loop)
+    const dt = (timestamp - this.lastTime) / 1000 // sekunde
+    this.lastTime = timestamp
+
     this.cisti()
-    this.update()
+    this.update(dt, timestamp)
     this.render()
   }
 
   start() {
     if (this.loopID) return
-    this.loop()
+    requestAnimationFrame(this.loop)
   }
 
   stop() {
     if (!this.loopID) return
-    window.cancelAnimationFrame(this.loopID)
+    cancelAnimationFrame(this.loopID)
     this.loopID = null
   }
 
