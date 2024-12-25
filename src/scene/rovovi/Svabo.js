@@ -6,7 +6,7 @@ const VREME_NISANJENJA = 3
 
 export default class Svabo extends Predmet {
 
-  constructor(sirina = 100, visina = 150, PROCENAT_POJAVLJIVANJA = 0.003) {
+  constructor(sirina = 100, visina = 150, PROCENAT_POJAVLJIVANJA = 0.03) {
     super ('/assets/slike/2d-prvo-lice/rov-prazan.gif', sirina, visina)
     this.PROCENAT_POJAVLJIVANJA = PROCENAT_POJAVLJIVANJA
     this.init()
@@ -26,9 +26,10 @@ export default class Svabo extends Predmet {
   }
 
   povremenoUstaje() {
-    const delta = this.vreme.delta / 100
+    const delta = this.vreme.delta / 1000
     
-    if (!this.stoji && Math.random() < this.PROCENAT_POJAVLJIVANJA * delta) this.ustani()
+    if (!this.stoji && Math.random() < this.PROCENAT_POJAVLJIVANJA * delta) 
+      this.ustani()
   }
 
   stav(bul) {
