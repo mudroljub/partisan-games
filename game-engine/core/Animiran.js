@@ -63,7 +63,7 @@ export default class Animiran extends Predmet {
 
   crtaKadar() {
     const tekuca = this.animacije[this.tekucaAnimacija]
-    const duzinaFrejma = this.vreme.korak
+    const duzinaFrejma = this.vreme.delta
     const nijeZavrsena = this.protekloAnimacije + duzinaFrejma < this.duzinaAnimacije
     if (tekuca.ponavlja || nijeZavrsena) this.protekloAnimacije += duzinaFrejma
 

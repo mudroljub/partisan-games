@@ -20,7 +20,7 @@ export default class Vreme {
     return this.proteklo / 1000
   }
 
-  get korak() {
+  get delta() {
     const prosloUpamceno = this.upamceno
     this.upamceno = this.trenutno
     return this.upamceno - prosloUpamceno

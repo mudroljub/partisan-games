@@ -1,20 +1,21 @@
 import Predmet from 'core/Predmet'
 import Vreme from 'core/Vreme'
 import mish from 'io/mish'
-import slikaNemac from 'slike/2d-prvo-lice/nemac-rov.gif'
-import slikaRovPrazan from 'slike/2d-prvo-lice/rov-prazan.gif'
-import slikaNemacPuca from 'slike/2d-prvo-lice/nemac-rov-puca.gif'
 
 const VREME_NISANJENJA = 3
 
 export default class Svabo extends Predmet {
 
   constructor(sirina = 100, visina = 150, PROCENAT_POJAVLJIVANJA = 0.003) {
-    super (slikaRovPrazan, sirina, visina)
-    this.stoji = false
-    this.slikaGore = slikaNemac
-    this.slikaDole = slikaRovPrazan
+    super ('/assets/slike/2d-prvo-lice/rov-prazan.gif', sirina, visina)
     this.PROCENAT_POJAVLJIVANJA = PROCENAT_POJAVLJIVANJA
+    this.init()
+  }
+
+  init() {
+    this.stoji = false
+    this.slikaGore = '/assets/slike/2d-prvo-lice/nemac-rov.gif'
+    this.slikaDole = '/assets/slike/2d-prvo-lice/rov-prazan.gif'
     this.VREME_NISANJENJA = VREME_NISANJENJA //koliko sekundi stoji pre nego zapuca
     this.vreme = new Vreme()
   }
@@ -44,7 +45,7 @@ export default class Svabo extends Predmet {
   }
 
   puca() {
-    this.slika.src = slikaNemacPuca
+    this.slika.src = '/assets/slike/2d-prvo-lice/nemac-rov-puca.gif'
   }
 
   jePogodjen() {
