@@ -27,8 +27,9 @@ export default class NemciIzRovova extends Scena {
     this.praviSvabe(this.bliziRovovi, BLIZI_ROVOVI_Y, {sirina: 100, visina: 150, procenatPojavljivanja: 0.03})
     this.praviSvabe(this.daljiRovovi, DALJI_ROVOVI_Y, {sirina: 50, visina: 75, procenatPojavljivanja: 0.02})
     mish.dodajNishan()
-    this.dodajKlik()
     this.pozadina = new Pozadina(slikaPozadina)
+    this.handleClick = this.handleClick.bind(this)
+    document.addEventListener('click', this.handleClick)
   }
 
   sablon() {
@@ -46,11 +47,9 @@ export default class NemciIzRovova extends Scena {
     this.proveriKraj()
   }
 
-  dodajKlik() {
-    document.onclick = () => {
-      const ciljaniRovovi = (mish.y <= DALJI_ROVOVI_Y) ? this.daljiRovovi : this.bliziRovovi
-      this.proveriPogotke(ciljaniRovovi)
-    }
+  handleClick() {
+    const ciljaniRovovi = (mish.y <= DALJI_ROVOVI_Y) ? this.daljiRovovi : this.bliziRovovi
+    this.proveriPogotke(ciljaniRovovi)
   }
 
   proveriPogotke(rovovi) {
@@ -98,6 +97,7 @@ export default class NemciIzRovova extends Scena {
   
   end() {
     super.end()
+    document.removeEventListener('click', this.handleClick)
     mish.ukloniNishan()
   }
 }

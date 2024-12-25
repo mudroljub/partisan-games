@@ -2,8 +2,6 @@ import Predmet from 'core/Predmet'
 import Vreme from 'core/Vreme'
 import mish from 'io/mish'
 
-const VREME_NISANJENJA = 3
-
 export default class Svabo extends Predmet {
 
   constructor(sirina = 100, visina = 150, PROCENAT_POJAVLJIVANJA = 0.03) {
@@ -16,7 +14,7 @@ export default class Svabo extends Predmet {
     this.stoji = false
     this.slikaGore = '/assets/slike/2d-prvo-lice/nemac-rov.gif'
     this.slikaDole = '/assets/slike/2d-prvo-lice/rov-prazan.gif'
-    this.VREME_NISANJENJA = VREME_NISANJENJA //koliko sekundi stoji pre nego zapuca
+    this.VREME_NISANJENJA = 3 // koliko sekundi stoji pre nego zapuca
     this.vreme = new Vreme()
   }
 
