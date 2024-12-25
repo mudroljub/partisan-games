@@ -41,12 +41,12 @@ export default class RanjenikScena extends Scena {
     this.scena = 0
     this.strelicaVidljiva = false
     this.vreme = new Vreme()
-    const pozadina = new Pozadina(slikaPozadinaSumarak)
+    this.pozadina = new Pozadina(slikaPozadinaSumarak)
     this.ranjenik = new Ranjenik()
     this.patrola = new Patrola(slikaPatrolaNemci)
     this.patrola.polozaj(this.sirina * 3 / 4, this.visina * 3 / 4)
     this.ranjenik.polozaj(this.sirina / 4, this.visina / 2)
-    this.dodaj(pozadina, this.ranjenik, this.patrola)
+    this.dodaj(this.pozadina, this.ranjenik, this.patrola)
   }
 
   update() {
@@ -89,7 +89,7 @@ export default class RanjenikScena extends Scena {
     const parna = this.scena % 2 === 0
     const slikaPozadine = parna ? slikaPozadinaBeton : slikaPozadinaSumarak
     const slikaPatrole = parna ? slikaPatrolaTalijani : slikaPatrolaNemci
-    pozadina.zameniSliku(slikaPozadine)
+    this.pozadina.zameniSliku(slikaPozadine)
     this.patrola.zameniSliku(slikaPatrole)
     this.patrola.postaviRandom()
     this.ranjenik.x = 10
