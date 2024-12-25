@@ -26,8 +26,8 @@ export default class NemciIzRovova extends Scena {
     this.bliziRovovi = new Array(10)
     this.daljiRovovi = new Array(10)
     this.ucitajRekord()
-    this.praviSvabe(this.bliziRovovi, BLIZI_ROVOVI_Y, {sirina: 100, visina: 150, procenatPojavljivanja: 0.03})
-    this.praviSvabe(this.daljiRovovi, DALJI_ROVOVI_Y, {sirina: 50, visina: 75, procenatPojavljivanja: 0.02})
+    this.praviSvabe(this.bliziRovovi, BLIZI_ROVOVI_Y, {sirina: 100, visina: 150, ucestalost: 0.03})
+    this.praviSvabe(this.daljiRovovi, DALJI_ROVOVI_Y, {sirina: 50, visina: 75, ucestalost: 0.02})
     mish.dodajNishan()
     this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
     this.handleClick = this.handleClick.bind(this)
@@ -47,6 +47,9 @@ export default class NemciIzRovova extends Scena {
     this.pozadina.update()
     this.azurirajSvabe([...this.bliziRovovi, ...this.daljiRovovi])
     this.proveriKraj()
+    // ;[...this.bliziRovovi, ...this.daljiRovovi].forEach(svabo => {
+    //   svabo.ucestalost += 0.01 * this.vreme.deltaSekundi
+    // })
   }
 
   handleClick() {
@@ -65,7 +68,7 @@ export default class NemciIzRovova extends Scena {
 
   praviSvabe(rovovi, y, params) {
     for (let i = 0; i < rovovi.length; i++) {
-      rovovi[i] = new Svabo(params.sirina, params.visina, params.procenatPojavljivanja)
+      rovovi[i] = new Svabo(params.sirina, params.visina, params.ucestalost)
       let randomX = Math.random() * this.sirina
       rovovi[i].polozaj(randomX, y)
     }

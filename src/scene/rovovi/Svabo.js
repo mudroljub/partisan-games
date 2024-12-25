@@ -4,9 +4,9 @@ import mish from 'io/mish'
 
 export default class Svabo extends Predmet {
 
-  constructor(sirina = 100, visina = 150, procenatPojavljivanja = 0.03) {
+  constructor(sirina = 100, visina = 150, ucestalost = 0.03) {
     super ('/assets/slike/2d-prvo-lice/rov-prazan.gif', sirina, visina)
-    this.procenatPojavljivanja = procenatPojavljivanja
+    this.ucestalost = ucestalost
     this.init()
   }
 
@@ -23,10 +23,8 @@ export default class Svabo extends Predmet {
     this.povremenoUstaje()
   }
 
-  povremenoUstaje() {
-    const delta = this.vreme.deltaSekundi
-    
-    if (!this.stoji && Math.random() < this.procenatPojavljivanja * delta) 
+  povremenoUstaje() {   
+    if (!this.stoji && Math.random() < this.ucestalost * this.vreme.deltaSekundi) 
       this.ustani()
   }
 
