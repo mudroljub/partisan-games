@@ -1,7 +1,7 @@
-// da se ubrzava
 // dodati indikator
 // animirati švabu kako se dize i pada
 // da se ne sudaraju?
+// da se ubrzava
 
 import mish from 'io/mish'
 import Scena from 'core/Scena'
@@ -34,9 +34,13 @@ export default class NemciIzRovova extends Scena {
 
   sablon() {
     return `
+    <div class="komande bg-poluprovidno komande1">
       Pogoci: ${this.pogoci} <br>
-      Energija: ${Math.round(this.energija)} <br>
-      Rekord: ${this.rekord}
+      Rekord: ${this.rekord} <br>
+      Energija: <br>
+      <div class="komande bg-poluprovidno energija1">${Math.round(this.energija)}</div>
+      <progress class="komande poluprovidno progres1" value="${this.energija}" max="100"></progress>
+    </div>
     `
   }
   
