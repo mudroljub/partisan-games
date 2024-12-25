@@ -1,5 +1,3 @@
-// dodati indikator
-// animirati švabu kako se dize i pada
 // da se ne sudaraju?
 // da se ubrzava
 
