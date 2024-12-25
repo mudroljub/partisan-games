@@ -32,7 +32,7 @@ export default class Svabo extends Predmet {
     this.stoji = bul
     const slika = bul ? this.slikaGore : this.slikaDole
     this.zameniSliku(slika)
-    if (bul) this.vreme.reset() // startuje tajmer
+    if (bul) this.vreme.reset()
   }
 
   ustani() {
