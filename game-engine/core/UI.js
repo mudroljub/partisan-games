@@ -21,22 +21,27 @@ export default class UI {
   endScreen(poruka = 'Igra je završena.', imeScene = '') {
     if (this.prozor.innerHTML) return
 
-    const start = scena => {
-      this.manager.start(scena)
-      this.prozor.innerHTML = ''
-    }
+    const div = document.createElement('div')
+    div.className = 'prozorce centar'
+
+    const p = document.createElement('p')
+    p.textContent = poruka
+    div.appendChild(p)
+
+    this.prozor.appendChild(div)
 
     const dodajDugme = (txt, callback) => {
       const btn = document.createElement('button')
       btn.textContent = txt
       btn.addEventListener('click', callback)
-      this.prozor.appendChild(btn)    
+      div.appendChild(btn)    
     }
 
-    const p = document.createElement('p')
-    p.textContent = poruka
-    this.prozor.appendChild(p)
-  
+    const start = scena => {
+      this.manager.start(scena)
+      this.prozor.innerHTML = ''
+    }
+
     dodajDugme('Igraj opet', () => start(imeScene))
     dodajDugme('Glavni meni', () => start('MainMenu'))
   }

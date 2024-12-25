@@ -1,10 +1,7 @@
-// sukcesivno se povećava broj prepreka i težina igre
-// svaki nivo novi random raspored, igrač igra dok ne izgubi
-// minimalno rastojanje bombaša i bunkera?
-// vremenski ograniceno?
-// mitraljez puca iz bunkera, prepreke su zakloni
 // BUG: popraviti bunker.gori()
+// mitraljez puca iz bunkera, prepreke su zakloni
 // napraviti smrt (mina eksplodira, vojnik padne)
+// sukcesivno se povećava broj prepreka i težina igre
 
 import Scena from 'core/Scena'
 import Vreme from 'core/Vreme'
@@ -15,7 +12,7 @@ import Prepreka from './Prepreka'
 import slikaBeton from 'slike/teksture/beton.gif'
 import slikaBombas from 'slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif'
 
-const ZADATO_VREME = 50
+const ZADATO_VREME = 10
 const BROJ_PREPREKA = 10
 let nivo = 1
 
@@ -58,7 +55,7 @@ export default class BombasScena extends Scena {
 
   proveriVreme() {
     if (this.vreme.protekloSekundi > ZADATO_VREME) {
-      this.zavrsiIgru('Tvoje vremeIgre je isteklo. Igra je završena!')
+      this.zavrsiIgru('Tvoje vreme je isteklo. Izgubio si!')
     }
   }
 
