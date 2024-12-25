@@ -4,9 +4,9 @@ import mish from 'io/mish'
 
 export default class Svabo extends Predmet {
 
-  constructor(sirina = 100, visina = 150, PROCENAT_POJAVLJIVANJA = 0.03) {
+  constructor(sirina = 100, visina = 150, procenatPojavljivanja = 0.03) {
     super ('/assets/slike/2d-prvo-lice/rov-prazan.gif', sirina, visina)
-    this.PROCENAT_POJAVLJIVANJA = PROCENAT_POJAVLJIVANJA
+    this.procenatPojavljivanja = procenatPojavljivanja
     this.init()
   }
 
@@ -14,7 +14,7 @@ export default class Svabo extends Predmet {
     this.stoji = false
     this.slikaGore = '/assets/slike/2d-prvo-lice/nemac-rov.gif'
     this.slikaDole = '/assets/slike/2d-prvo-lice/rov-prazan.gif'
-    this.VREME_NISANJENJA = 3 // koliko sekundi stoji pre nego zapuca
+    this.vremeNisanjenja = 2.5 // koliko sekundi stoji pre nego zapuca
     this.vreme = new Vreme()
   }
 
@@ -26,7 +26,7 @@ export default class Svabo extends Predmet {
   povremenoUstaje() {
     const delta = this.vreme.deltaSekundi
     
-    if (!this.stoji && Math.random() < this.PROCENAT_POJAVLJIVANJA * delta) 
+    if (!this.stoji && Math.random() < this.procenatPojavljivanja * delta) 
       this.ustani()
   }
 
@@ -56,7 +56,7 @@ export default class Svabo extends Predmet {
   jeSpreman() {
     if (!this.stoji) return false
     const duzinaOstanka = this.vreme.protekloSekundi
-    if (duzinaOstanka <= this.VREME_NISANJENJA / 2) return false
-    if (duzinaOstanka > this.VREME_NISANJENJA) return true
+    if (duzinaOstanka <= this.vremeNisanjenja / 2) return false
+    if (duzinaOstanka > this.vremeNisanjenja) return true
   }
 }

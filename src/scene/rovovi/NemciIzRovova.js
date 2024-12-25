@@ -1,4 +1,5 @@
 // da se ubrzava
+// dodati indikator
 // animirati švabu kako se dize i pada
 // da se ne sudaraju?
 
@@ -6,7 +7,7 @@ import mish from 'io/mish'
 import Scena from 'core/Scena'
 import Pozadina from 'core/Pozadina'
 import Svabo from './Svabo'
-import slikaPozadina from 'slike/teksture/suva-trava.jpg'
+import Vreme from 'core/Vreme'
 
 const DALJI_ROVOVI_Y = 150
 const BLIZI_ROVOVI_Y = 300
@@ -18,6 +19,7 @@ export default class NemciIzRovova extends Scena {
   }
 
   init() {
+    this.vreme = new Vreme()
     this.pogoci = 0
     this.rekord = 0
     this.energija = 100
@@ -27,7 +29,7 @@ export default class NemciIzRovova extends Scena {
     this.praviSvabe(this.bliziRovovi, BLIZI_ROVOVI_Y, {sirina: 100, visina: 150, procenatPojavljivanja: 0.03})
     this.praviSvabe(this.daljiRovovi, DALJI_ROVOVI_Y, {sirina: 50, visina: 75, procenatPojavljivanja: 0.02})
     mish.dodajNishan()
-    this.pozadina = new Pozadina(slikaPozadina)
+    this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
     this.handleClick = this.handleClick.bind(this)
     document.addEventListener('click', this.handleClick)
   }
@@ -35,7 +37,7 @@ export default class NemciIzRovova extends Scena {
   sablon() {
     return `
       Pogoci: ${this.pogoci} <br>
-      Energija: ${this.energija} <br>
+      Energija: ${Math.round(this.energija)} <br>
       Rekord: ${this.rekord}
     `
   }
@@ -73,11 +75,11 @@ export default class NemciIzRovova extends Scena {
     for (let i = 0; i < rovovi.length; i++) {
       if (rovovi[i].jeSpreman()) {
         rovovi[i].puca()
-        this.energija--
+        this.energija = Math.max(0, this.energija - 5 * this.vreme.deltaSekundi)
       }
       rovovi[i].update()
     }
-  }  
+  }
 
   proveriKraj() {
     if (this.energija > 0) return
