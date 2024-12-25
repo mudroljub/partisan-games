@@ -1,7 +1,6 @@
 export default class Vreme {
 
   constructor() {
-    this.lastDelta = Date.now()
     this.reset()
   }
 
@@ -19,15 +18,5 @@ export default class Vreme {
 
   get protekloSekundi() {
     return this.proteklo / 1000
-  }
-
-  get delta() {
-    const prosloDelta = this.lastDelta
-    this.lastDelta = this.trenutno
-    return this.lastDelta - prosloDelta
-  }
-
-  get deltaSekundi() {
-    return this.delta / 1000
   }
 }
