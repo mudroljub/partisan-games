@@ -1,5 +1,3 @@
-// promena slike na pogodak?
-
 import mish from 'io/mish'
 import Scena from 'core/Scena'
 import Pozadina from 'core/Pozadina'

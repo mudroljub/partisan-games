@@ -3,8 +3,6 @@ import tipke from 'io/tipke'
 import Igrac from 'core/Igrac'
 import Raketa from './Raketa'
 import { ogranici } from 'akcije/granice'
-import avionSrc from 'slike/2d-bocno/spitfire.png'
-import slikaMrtav from 'slike/2d-bocno/spitfire-gori.png'
 
 const OKRET = 0.01
 const DOZVOLJEN_UGAO = 0.066
@@ -12,7 +10,7 @@ const GRAVITACIJA = 0.3
 
 export default class AvionIgrac extends Igrac {
   // treba scena zbog pratecih
-  constructor(scena, src = avionSrc, sirina = 200, visina = 60) {
+  constructor(scena, src = '/assets/slike/2d-bocno/spitfire.png', sirina = 200, visina = 60) {
     super(src, sirina, visina)
     this.scena = scena
     this.brzina = 0
@@ -20,7 +18,7 @@ export default class AvionIgrac extends Igrac {
     this.nivoTla = scena.nivoTla
     this.oznake.igrac = true
     this.raketa = new Raketa(this)
-    this.slikaMrtav = slikaMrtav
+    this.slikaMrtav = '/assets/slike/2d-bocno/spitfire-gori.png'
   }
 
   update() {
