@@ -1,11 +1,9 @@
 import Predmet from 'core/Predmet'
-import slikaBunker from 'slike/2d-bocno/kuca-bunker.png'
-import slikaBunkerGori from 'slike/2d-bocno/kuca-bunker-gori.png'
 
 export default class Bunker extends Predmet {
 
-  constructor(sirina, visina) {
-    super(slikaBunker, sirina, visina)
+  constructor(sirina = 112, visina = 103) {
+    super('/assets/slike/2d-bocno/kuca-bunker.png', sirina, visina)
     this.brzina = 0
     this.polozaj(400, 100)
   }
@@ -18,7 +16,6 @@ export default class Bunker extends Predmet {
   }
 
   gori() {
-    this.slika.src = slikaBunkerGori
+    this.slika.src = '/assets/slike/2d-bocno/kuca-bunker-gori.png'
   }
-
 }

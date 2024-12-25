@@ -3,7 +3,7 @@ import Predmet from 'core/Predmet.js'
 export default class Prepreka extends Predmet {
 
   constructor(nizPredmeta) {
-    super('/game-assets/slike/2d-bocno/stvari/nagazna.png', 40, 30)
+    super('/assets/slike/2d-bocno/stvari/nagazna.png', 40, 30)
     this.nemojPreko (nizPredmeta)
   }
 

@@ -1,4 +1,3 @@
-// BUG: popraviti bunker.gori()
 // mitraljez puca iz bunkera, prepreke su zakloni
 // napraviti smrt (mina eksplodira, vojnik padne)
 // sukcesivno se povećava broj prepreka i težina igre
@@ -26,7 +25,7 @@ export default class BombasScena extends Scena {
     this.vreme = new Vreme()
     const pozadina = new Pozadina(slikaBeton)
     this.bombas = new Bombas(slikaBombas, 50, 55)
-    this.bunker = new Bunker(112, 103)
+    this.bunker = new Bunker()
     this.bunker.nemojPreko(this.bombas)
     this.dodaj(pozadina, this.bunker, this.bombas)
     this.praviPrepreke()
@@ -69,8 +68,8 @@ export default class BombasScena extends Scena {
   }
 
   zavrsiIgru(text) {
-    this.stop()
     this.endScreen(text)
+    setTimeout(() => this.stop(), 1000)
   }
 
   sablon() {

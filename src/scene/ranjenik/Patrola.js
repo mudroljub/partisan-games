@@ -47,7 +47,7 @@ export default class Patrola extends Predmet {
 
   pustiNasumicno(zvuci) {
     const zvuk = zvuci[nasumicnoOkruglo(0, zvuci.length-1)]
-    this.zvuk.src = `${__dirname}game-assets/zvuci/patrola/${zvuk}`
+    this.zvuk.src = `${__dirname}assets/zvuci/patrola/${zvuk}`
     this.zvuk.play()
   }
 
