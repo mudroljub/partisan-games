@@ -26,7 +26,7 @@ export default class Svabo extends Predmet {
   }
 
   povremenoUstaje() {
-    const delta = this.vreme.delta / 1000
+    const delta = this.vreme.deltaSekundi
     
     if (!this.stoji && Math.random() < this.PROCENAT_POJAVLJIVANJA * delta) 
       this.ustani()

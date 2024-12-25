@@ -1,11 +1,12 @@
 export default class Vreme {
 
   constructor() {
+    this.lastDelta = Date.now()
     this.reset()
   }
 
   reset() {
-    this.upamceno = this.lastDelta = Date.now()
+    this.upamceno = Date.now()
   }
 
   get trenutno() {
@@ -24,5 +25,9 @@ export default class Vreme {
     const prosloDelta = this.lastDelta
     this.lastDelta = this.trenutno
     return this.lastDelta - prosloDelta
+  }
+
+  get deltaSekundi() {
+    return this.delta / 1000
   }
 }
