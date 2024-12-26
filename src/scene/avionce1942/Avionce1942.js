@@ -1,4 +1,4 @@
-// možda plamen na tenk
+// popraviti raketu
 // letenje unazad srediti
 // da izbegava neke prepreke, možda zgrade
 // dodati pobedu?

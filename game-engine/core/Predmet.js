@@ -1,5 +1,4 @@
 import Slika from './Slika'
-import Plamen from './Plamen'
 import { platno, podloga } from '../io/platno'
 import mish from '../io/mish'
 import { randomRange } from '../utils'
@@ -21,7 +20,10 @@ export default class Predmet extends Slika {
   }
 
   set zapaljiv(bul) {
-    if (bul) this.plamen = new Plamen()
+    if (bul) import('./Plamen.js')
+      .then(module => {
+        this.plamen = new module.default()
+      })
   }
 
   get zapaljiv() {
