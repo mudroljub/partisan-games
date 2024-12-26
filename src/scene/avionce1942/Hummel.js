@@ -1,23 +1,21 @@
 import VoziloBocno from './VoziloBocno'
 import Raketa from './Raketa'
-import slikaHummel from 'slike/2d-bocno/hummel.png'
-import slikaMrtav from 'slike/2d-bocno/unisten-tenk-gori.png'
 
 const SANSA_PUCNJA = 0.01
 
 export default class Hummel extends VoziloBocno {
-
   constructor(nivoTla) {
-    super(nivoTla, slikaHummel, 150, 70)
-    this.slikaMrtav = slikaMrtav
+    super(nivoTla, '/assets/slike/2d-bocno/hummel.png', 150, 70)
+    this.slikaMrtav = '/assets/slike/2d-bocno/unisten-tenk-gori.png'
     this.oznake.add('neprijatelj')
     this.raketa = new Raketa(this)
     this.raketa.cilj = 'igrac'
+    this.neprijatelji = []
   }
 
   update() {
     super.update()
-    // this.povremenoPuca() // BUG: nema this.scena
+    this.povremenoPuca()
     this.raketa.update()
   }
 

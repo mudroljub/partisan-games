@@ -1,4 +1,4 @@
-// popraviti raketu
+// popraviti da igrač ispaljuje više raketa
 // letenje unazad srediti
 // da izbegava neke prepreke, možda zgrade
 // dodati pobedu?
@@ -14,8 +14,6 @@ import Oblak from 'src/2d-bocno/Oblak'
 import Zbun from 'src/2d-bocno/Zbun'
 import Shuma from 'src/2d-bocno/Shuma'
 
-/** * KONFIG ***/
-
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10
 const BROJ_SHUME = 10
@@ -29,8 +27,6 @@ const MAX_BRZINA = 20
 const DIZAJ = 10
 const MAX_DIGNUTOST = 5555
 
-/** * INIT ***/
-
 export default class Avionce1942 extends Scena {
   constructor(...args) {
     super(...args)
@@ -42,10 +38,13 @@ export default class Avionce1942 extends Scena {
     this.brzinaScene = 0
     this.dignutostScene = 0
 
-    this.vozilo = new Hummel(this.nivoTla)
     this.aerodrom = new Zgrada(this.nivoTla, '/assets/slike/2d-bocno/zgrade/aerodrom.png')
     this.ruina = new Zgrada(this.nivoTla, '/assets/slike/2d-bocno/zgrade/ruina.png')
-    this.igrac = new AvionIgrac(this.nivoTla, [this.vozilo])
+    this.vozilo = new Hummel(this.nivoTla)
+    this.igrac = new AvionIgrac(this.nivoTla)
+
+    this.vozilo.neprijatelji.push(this.igrac)
+    this.igrac.neprijatelji.push(this.vozilo)
 
     this.ruina.x = -this.ruina.sirina
     this.ruina.procenatVracanja = 0.01
@@ -89,33 +88,31 @@ export default class Avionce1942 extends Scena {
     this.oblaci.map(oblak => oblak.dx = PARALAX_4)
   }
 
-  // TODO: refaktor to filter
-  sviOstali(callback) {
-    for (const predmet of this.predmeti) {
-      if (predmet.oznake.has('igrac') || predmet.oznake.has('raketa')) continue
-      callback(predmet)
-    }
+  get ostaliPredmeti() {
+    return this.predmeti.filter(predmet => !predmet.oznake.has('igrac') && !predmet.oznake.has('raketa'))
   }
 
   zaustaviParalax() {
-    this.sviOstali(predmet => {
-      if (!(predmet.oznake.has('neprijatelj'))) predmet.dx *= 0.9
-    })
+    this.ostaliPredmeti
+      .filter(predmet => !predmet.oznake.has('neprijatelj'))
+      .forEach(predmet => {
+        predmet.dx *= 0.9
+      })
     this.brzinaScene = 0
   }
 
   ubrzavaPredmete(ugao, pomak) {
-    this.sviOstali(predmet => predmet.dodajSilu(pomak, ugao))
+    this.ostaliPredmeti.forEach(predmet => predmet.dodajSilu(pomak, ugao))
     this.brzinaScene += pomak
   }
 
   dizePredmete(pomak) {
-    this.sviOstali(predmet => predmet.y += pomak)
+    this.ostaliPredmeti.forEach(predmet => predmet.y += pomak)
     this.dignutostScene += pomak
   }
 
   proveriSmrt() {
-    this.sviOstali(predmet => {
+    this.ostaliPredmeti.forEach(predmet => {
       if (predmet.mrtav) predmet.dx = PARALAX_1 - this.brzinaScene
     })
     if (this.igrac.mrtav && this.dignutostScene > 0)

@@ -9,7 +9,7 @@ const DOZVOLJEN_UGAO = 0.066
 const GRAVITACIJA = 0.3
 
 export default class AvionIgrac extends Igrac {
-  constructor(nivoTla, neprijatelji = [], src = '/assets/slike/2d-bocno/partizani/potez-25.png', sirina = 200, visina = 87) {
+  constructor(nivoTla, src = '/assets/slike/2d-bocno/partizani/potez-25.png', sirina = 200, visina = 87) {
     super(src, sirina, visina)
     this.brzina = 0
     this.granice = ogranici
@@ -17,7 +17,7 @@ export default class AvionIgrac extends Igrac {
     this.oznake.add('igrac')
     this.raketa = new Raketa(this)
     this.zapaljiv = true
-    this.neprijatelji = neprijatelji
+    this.neprijatelji = []
   }
 
   update() {
