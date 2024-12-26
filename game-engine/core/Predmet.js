@@ -1,4 +1,5 @@
 import Slika from './Slika'
+import Plamen from './Plamen'
 import { platno, podloga } from '../io/platno'
 import mish from '../io/mish'
 import { randomRange } from '../utils'
@@ -19,25 +20,24 @@ export default class Predmet extends Slika {
     this.oznake = {}
   }
 
-  update() {
-    this.x += this.dx
-    this.y += this.dy
-    this.proveriGranice()
-    this.crta()
+  set zapaljiv(bul) {
+    if (bul) this.plamen = new Plamen()
+  }
+
+  get zapaljiv() {
+    return Boolean(this.plamen)
   }
 
   /* POLOZAJ */
-
-  tlo(y) {
-    this.y = y - this.visina / 2
-  }
 
   polozaj(x, y) {
     this.x = x
     this.y = y
   }
 
-  /* POLOZAJ RANDOM */
+  tlo(y) {
+    this.y = y - this.visina / 2
+  }
 
   postaviRandom() {
     this.polozaj(Math.random() * platno.width, Math.random() * platno.height)
@@ -58,6 +58,14 @@ export default class Predmet extends Slika {
 
   /* KRETANJE */
 
+  get brzina() {
+    return Math.sqrt(this.dx * this.dx + this.dy * this.dy)
+  }
+
+  set brzina(novaBrzina) {
+    this.azurirajSilu(novaBrzina, this.ugao)
+  }
+
   azurirajSilu(jacina = this.brzina, ugao = this.ugao) {
     this.dx = jacina * Math.cos(ugao)
     this.dy = jacina * Math.sin(ugao)
@@ -66,14 +74,6 @@ export default class Predmet extends Slika {
   dodajSilu(jacina, ugao = this.ugao) {
     this.dx += jacina * Math.cos(ugao)
     this.dy += jacina * Math.sin(ugao)
-  }
-
-  get brzina() {
-    return Math.sqrt(this.dx * this.dx + this.dy * this.dy)
-  }
-
-  set brzina(novaBrzina) {
-    this.azurirajSilu(novaBrzina, this.ugao)
   }
 
   pomeri(razmak) {
@@ -157,7 +157,19 @@ export default class Predmet extends Slika {
     this.y = mish.y - platno.offsetTop
   }
 
-  /* RENDER */
+  /* DEBUG */
+
+  log() {
+    const x = this.x.toFixed()
+    const y = this.y.toFixed()
+    const dx = this.dx.toFixed(2)
+    const dy = this.dy.toFixed(2)
+    const brzina = this.brzina.toFixed(2)
+    const ugao = this.ugao.toFixed(2)
+    console.log(`x: ${x}, y: ${y}, dx: ${dx}, dy: ${dy}, brzina: ${brzina}, ugao: ${ugao}, ziv: ${this.ziv}`)
+  }
+
+  /* LOOP */
 
   crta() {
     if (!this.vidljiv) return
@@ -169,15 +181,16 @@ export default class Predmet extends Slika {
     podloga.restore()
   }
 
-  /* DEBUG */
-
-  log() {
-    const x = this.x.toFixed()
-    const y = this.y.toFixed()
-    const dx = this.dx.toFixed(2)
-    const dy = this.dy.toFixed(2)
-    const brzina = this.brzina.toFixed(2)
-    const ugao = this.ugao.toFixed(2)
-    console.log(`x: ${x}, y: ${y}, dx: ${dx}, dy: ${dy}, brzina: ${brzina}, ugao: ${ugao}, ziv: ${this.ziv}`)
+  update() {
+    this.x += this.dx
+    this.y += this.dy
+    this.proveriGranice()
+    this.crta()
+    if (this.mrtav && this.zapaljiv) {
+      this.plamen.x = this.x
+      this.plamen.y = this.y
+      this.plamen.update()
+      this.plamen.render()
+    }
   }
 }

@@ -1,7 +1,6 @@
 import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import Igrac from 'core/Igrac'
-import Plamen from 'core/Plamen'
 import Raketa from './Raketa'
 import { ogranici } from 'akcije/granice'
 
@@ -19,7 +18,7 @@ export default class AvionIgrac extends Igrac {
     this.nivoTla = scena.nivoTla
     this.oznake.igrac = true
     this.raketa = new Raketa(this)
-    this.plamen = new Plamen()
+    this.zapaljiv = true
   }
 
   update() {
@@ -30,12 +29,6 @@ export default class AvionIgrac extends Igrac {
     this.proveriGravitaciju()
     this.ispraviAvion()
     this.raketa.update()
-    if (this.mrtav) {
-      this.plamen.x = this.x
-      this.plamen.y = this.y
-      this.plamen.update()
-      this.plamen.render()
-    }
   }
 
   /** * KOMANDE ***/

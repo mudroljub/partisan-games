@@ -8,6 +8,7 @@ export default class VoziloBocno extends Predmet {
     this.dodajSilu(3)
     this.x = 100
     this.y = nivoTla - this.visina / 2
+    this.zapaljiv = true
   }
 
   patroliraj() {
