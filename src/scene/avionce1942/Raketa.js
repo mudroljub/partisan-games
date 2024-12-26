@@ -58,7 +58,6 @@ export default class Raketa extends Predmet {
       if (this.nijeValidnaMeta(predmet)) return
 
       const razmak = this.razmakDo(predmet)
-      console.log(razmak)
       if (!minRazmak) minRazmak = razmak
       if (!najblizaMeta) najblizaMeta = predmet
       if (razmak < minRazmak) minRazmak = razmak

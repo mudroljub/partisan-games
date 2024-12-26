@@ -3,6 +3,7 @@
 // da izbegava neke prepreke, možda zgrade
 // dodati pobedu?
 // BUG: kada nema keširane slike prvi put ne učita zgrade
+// dodati UI, prateća je enter
 import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import platno from 'io/platno'
