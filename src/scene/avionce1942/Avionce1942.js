@@ -1,4 +1,3 @@
-// možda neka zgrada da bude iza aviona
 // da izbegava neke prepreke, možda zgrade
 // cilj da ubije tenk i sleti
 // BUG: kada nema keširane slike prvi put ne učita zgrade
@@ -54,7 +53,7 @@ export default class Avionce1942 extends Scena {
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun())
     this.shume = Array.from({ length: BROJ_SHUME }, () => new Shuma())
 
-    this.dodaj(this.igrac, this.vozilo, this.aerodrom, this.ruina, ...this.oblaci, ...this.zbunovi, ...this.shume)
+    this.dodaj(this.aerodrom, this.igrac, this.vozilo, this.ruina, ...this.oblaci, ...this.zbunovi, ...this.shume)
     this.pocniParalax()
   }
 
