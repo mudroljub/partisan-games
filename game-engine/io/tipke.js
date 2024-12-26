@@ -2,10 +2,11 @@ import * as $ from '../konstante'
 
 const tipke = {
   stisnute: new Array(256),
-  ukupnoStisnutih: 0,
+
+  ukupnoStisnutih: () => tipke.stisnute.filter(t => t).length,
 
   reset: () => {
-    tipke.stisnute.map(tipka => tipke.stisnute[tipka] = false)
+    tipke.stisnute.forEach(tipka => tipke.stisnute[tipka] = false)
   }
 }
 
@@ -25,14 +26,12 @@ const odluciKomandu = dodir => {
 /* EVENTS */
 
 document.addEventListener('keydown', e => {
-  if (!tipke.stisnute[e.keyCode]) tipke.ukupnoStisnutih++
   tipke.stisnute[e.keyCode] = true
   neTresi(e)
 })
 
 document.addEventListener('keyup', e => {
   tipke.stisnute[e.keyCode] = false
-  tipke.ukupnoStisnutih--
 })
 
 document.addEventListener('touchstart', e => odluciKomandu(e.touches[0]))

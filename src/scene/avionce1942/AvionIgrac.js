@@ -60,7 +60,7 @@ export default class AvionIgrac extends Igrac {
   /** * OSTALO ***/
 
   ispraviAvion() {
-    if (tipke.stisnute[$.W] || tipke.stisnute[$.S]) return
+    if (tipke.ukupnoStisnutih()) return
     if (this.ugao > 0) this.ugao -= OKRET
     if (this.ugao < 0) this.ugao += OKRET
   }
@@ -76,7 +76,6 @@ export default class AvionIgrac extends Igrac {
   proveriTlo() {
     if (!this.jePrizemljen()) return
     if (this.ugao > DOZVOLJEN_UGAO / 2) return this.umri()
-    // this.dodajOtporTla()
   }
 
   proveriGravitaciju() {

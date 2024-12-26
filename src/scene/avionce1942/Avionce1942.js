@@ -1,6 +1,6 @@
-// letenje unazad srediti
+// možda neka zgrada da bude iza aviona
 // da izbegava neke prepreke, možda zgrade
-// dodati pobedu?
+// cilj da ubije tenk i sleti
 // BUG: kada nema keširane slike prvi put ne učita zgrade
 // dodati UI, prateća je enter
 import * as $ from 'konstante'
@@ -69,23 +69,34 @@ export default class Avionce1942 extends Scena {
 
   proveriTipke() {
     if (!this.igrac.ziv) return
-    if (tipke.stisnute[$.D] && this.brzinaScene < MAX_BRZINA) this.ubrzavaPredmete($.KRUZNICA / 2, POTISAK)
-    if (tipke.stisnute[$.A] && this.brzinaScene >= MIN_BRZINA) this.ubrzavaPredmete($.KRUZNICA / 2, -POTISAK)
+
+    if (tipke.stisnute[$.D] && this.brzinaScene < MAX_BRZINA)
+      this.ubrzavaPredmete($.KRUZNICA / 2, POTISAK)
+
+    if (tipke.stisnute[$.A] && this.brzinaScene >= MIN_BRZINA)
+      this.ubrzavaPredmete($.KRUZNICA / 2, -POTISAK)
+
     if (tipke.stisnute[$.W] && this.dignutostScene - DIZAJ < MAX_DIGNUTOST) {
       if (this.igrac.y < this.visina * 3 / 4) this.dizePredmete(DIZAJ)
       if (this.brzinaScene === 0) this.pocniParalax() // kada avion ponovo uzlece
     }
+
     if (tipke.stisnute[$.S] && this.dignutostScene - DIZAJ >= 0)
       if (this.igrac.y > this.visina / 4) this.dizePredmete(-DIZAJ)
-
   }
 
   pocniParalax() {
-    this.zbunovi.map(zbun => zbun.dx = PARALAX_1)
+    this.zbunovi.forEach(zbun => {
+      zbun.dx = PARALAX_1
+    })
     this.ruina.dx = PARALAX_2
     this.aerodrom.dx = PARALAX_3
-    this.shume.map(shuma => shuma.dx = PARALAX_3)
-    this.oblaci.map(oblak => oblak.dx = PARALAX_4)
+    this.shume.forEach(shuma => {
+      shuma.dx = PARALAX_3
+    })
+    this.oblaci.forEach(oblak => {
+      oblak.dx = PARALAX_4
+    })
   }
 
   get ostaliPredmeti() {
@@ -107,7 +118,9 @@ export default class Avionce1942 extends Scena {
   }
 
   dizePredmete(pomak) {
-    this.ostaliPredmeti.forEach(predmet => predmet.y += pomak)
+    this.ostaliPredmeti.forEach(predmet => {
+      predmet.y += pomak
+    })
     this.dignutostScene += pomak
   }
 
@@ -120,7 +133,6 @@ export default class Avionce1942 extends Scena {
 
     if (this.igrac.mrtav)
       this.endScreen()
-
   }
 
   proveriTlo() {
