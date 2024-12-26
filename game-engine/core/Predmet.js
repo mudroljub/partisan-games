@@ -127,7 +127,7 @@ export default class Predmet extends Slika {
 
   umri() {
     this.stani()
-    this.zameniSliku(this.slikaMrtav)
+    if (this.slikaMrtav) this.zameniSliku(this.slikaMrtav)
     this.ziv = false
   }
 

@@ -1,6 +1,7 @@
 import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import Igrac from 'core/Igrac'
+import Plamen from 'core/Plamen'
 import Raketa from './Raketa'
 import { ogranici } from 'akcije/granice'
 
@@ -10,7 +11,7 @@ const GRAVITACIJA = 0.3
 
 export default class AvionIgrac extends Igrac {
   // treba scena zbog pratecih
-  constructor(scena, src = '/assets/slike/2d-bocno/spitfire.png', sirina = 200, visina = 60) {
+  constructor(scena, src = '/assets/slike/2d-bocno/partizani/potez-25.png', sirina = 200, visina = 87) {
     super(src, sirina, visina)
     this.scena = scena
     this.brzina = 0
@@ -18,7 +19,7 @@ export default class AvionIgrac extends Igrac {
     this.nivoTla = scena.nivoTla
     this.oznake.igrac = true
     this.raketa = new Raketa(this)
-    this.slikaMrtav = '/assets/slike/2d-bocno/spitfire-gori.png'
+    this.plamen = new Plamen()
   }
 
   update() {
@@ -29,6 +30,12 @@ export default class AvionIgrac extends Igrac {
     this.proveriGravitaciju()
     this.ispraviAvion()
     this.raketa.update()
+    if (this.mrtav) {
+      this.plamen.x = this.x
+      this.plamen.y = this.y
+      this.plamen.update()
+      this.plamen.render()
+    }
   }
 
   /** * KOMANDE ***/

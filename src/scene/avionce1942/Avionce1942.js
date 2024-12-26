@@ -1,8 +1,8 @@
-// avion Potez 25
+// možda plamen na tenk
 // letenje unazad srediti
-// dodati pobedu?
 // da izbegava neke prepreke, možda zgrade
-
+// dodati pobedu?
+// BUG: kada nema keširane slike prvi put ne učita zgrade
 import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import platno from 'io/platno'
@@ -13,8 +13,6 @@ import Zgrada from './Zgrada'
 import Oblak from 'src/2d-bocno/Oblak'
 import Zbun from 'src/2d-bocno/Zbun'
 import Shuma from 'src/2d-bocno/Shuma'
-import slikaAerodrom from 'slike/2d-bocno/zgrade/aerodrom.png'
-import slikaRuina from 'slike/2d-bocno/zgrade/ruina.png'
 
 /** * KONFIG ***/
 
@@ -46,8 +44,8 @@ export default class Avionce1942 extends Scena {
 
     this.igrac = new AvionIgrac(this)
     this.vozilo = new Hummel(this.nivoTla)
-    this.aerodrom = new Zgrada(this.nivoTla, slikaAerodrom)
-    this.ruina = new Zgrada(this.nivoTla, slikaRuina)
+    this.aerodrom = new Zgrada(this.nivoTla, '/assets/slike/2d-bocno/zgrade/aerodrom.png')
+    this.ruina = new Zgrada(this.nivoTla, '/assets/slike/2d-bocno/zgrade/ruina.png')
 
     this.ruina.x = -this.ruina.sirina
     this.ruina.procenatVracanja = 0.01
