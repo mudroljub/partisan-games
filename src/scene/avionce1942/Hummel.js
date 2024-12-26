@@ -10,7 +10,7 @@ export default class Hummel extends VoziloBocno {
   constructor(nivoTla) {
     super(nivoTla, slikaHummel, 150, 70)
     this.slikaMrtav = slikaMrtav
-    this.oznake.neprijatelj = true
+    this.oznake.add('neprijatelj')
     this.raketa = new Raketa(this)
     this.raketa.cilj = 'igrac'
   }

@@ -8,7 +8,7 @@ export default class Igrac extends Predmet {
 
   constructor(src, sirina, visina) {
     super(src, sirina, visina)
-    this.oznake.igrac = true // naslednik moze delete this.oznake.igrac da ukine tipke
+    this.oznake.add('igrac') // naslednik ako ukloni igrac nema tipke
     this.potisak = 0.5
     this.prohodnost = 0.9
     this.podesiTipke()
@@ -30,7 +30,7 @@ export default class Igrac extends Predmet {
   }
 
   proveriTipke() {
-    if (!this.ziv || !('igrac' in this.oznake)) return
+    if (!this.ziv || !(this.oznake.has('igrac'))) return
     if (tipke.stisnute[this.tipkaLevo]) this.nalevo()
     if (tipke.stisnute[this.tipkaDesno]) this.nadesno()
     if (tipke.stisnute[this.tipkaGore]) this.nagore()

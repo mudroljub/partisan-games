@@ -14,7 +14,7 @@ export default class AvionIgrac extends Igrac {
     this.brzina = 0
     this.granice = ogranici
     this.nivoTla = nivoTla
-    this.oznake.igrac = true
+    this.oznake.add('igrac')
     this.raketa = new Raketa(this)
     this.zapaljiv = true
     this.neprijatelji = neprijatelji

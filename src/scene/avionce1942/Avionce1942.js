@@ -89,16 +89,17 @@ export default class Avionce1942 extends Scena {
     this.oblaci.map(oblak => oblak.dx = PARALAX_4)
   }
 
+  // TODO: refaktor to filter
   sviOstali(callback) {
     for (const predmet of this.predmeti) {
-      if ('igrac' in predmet.oznake || 'raketa' in predmet.oznake) continue
+      if (predmet.oznake.has('igrac') || predmet.oznake.has('raketa')) continue
       callback(predmet)
     }
   }
 
   zaustaviParalax() {
     this.sviOstali(predmet => {
-      if (!('neprijatelj' in predmet.oznake)) predmet.dx *= 0.9
+      if (!(predmet.oznake.has('neprijatelj'))) predmet.dx *= 0.9
     })
     this.brzinaScene = 0
   }

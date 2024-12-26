@@ -3,14 +3,13 @@ import { nestani } from 'akcije/granice'
 import slikaRaketa from 'slike/raketa.png'
 
 export default class Raketa extends Predmet {
-
   constructor(vlasnik) {
     super(slikaRaketa, 30, 20)
     this.vlasnik = vlasnik
     this.granice = nestani
     this.pocetniUgao = this.vlasnik.ugao + 19
     this.ispaljena = false
-    this.oznake.raketa = true
+    this.oznake.add('raketa')
     this.cilj = 'neprijatelj'
     this.sakrij()
   }
@@ -67,12 +66,12 @@ export default class Raketa extends Predmet {
   }
 
   nijeValidnaMeta(predmet) {
-    return predmet === this || !(this.cilj in predmet.oznake) || !predmet.ziv || !predmet.vidljiv || !predmet.naEkranu
+    return predmet === this || !(predmet.oznake.has(this.cilj)) || !predmet.ziv || !predmet.vidljiv || !predmet.naEkranu
   }
 
   proveriSudare() {
     this.vlasnik.neprijatelji.map(predmet => {
-      if (!(this.cilj in predmet.oznake) || !this.sudara(predmet)) return
+      if (!(predmet.oznake.has(this.cilj)) || !this.sudara(predmet)) return
       predmet.umri()
       this.nestani()
     })

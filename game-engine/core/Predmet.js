@@ -16,7 +16,7 @@ export default class Predmet extends Slika {
     this.brzina = 0
     this.skalarX = 1
     this.skalarY = 1
-    this.oznake = {}
+    this.oznake = new Set()
   }
 
   set zapaljiv(bul) {

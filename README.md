@@ -27,9 +27,6 @@ P.S. ako izbacuje grešku proveri jel već pokrenut webpack-dev-server.
 
 ## TODO:
 
-- proveriti gde se koristi vlasnik.scena
-- oznake da budu niz ne objekat
-
 - ići kroz scene i raditi todo
 - BUG: pojavljuje se vertikalni slajer na rovovima, videti i drugde
 - otkriti zašto Zgrada neće da koristi prirodnu veličinu slike?
