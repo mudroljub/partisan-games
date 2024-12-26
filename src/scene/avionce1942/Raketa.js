@@ -8,13 +8,11 @@ export default class Raketa extends Predmet {
     this.pocetniUgao = this.vlasnik.ugao + 19
     this.oznake.add('raketa')
     this.cilj = 'neprijatelj'
-    this.ispaljena = false
-    this.sakrij()
+    this.reset()
   }
 
   update() {
     super.update()
-    if (!this.ispaljena) this.pripremi()
     if (this.ispaljena) this.proveriSudare()
   }
 
@@ -25,7 +23,6 @@ export default class Raketa extends Predmet {
   reset() {
     this.ispaljena = false
     this.sakrij()
-    this.pripremi()
   }
 
   pripremi() {
@@ -57,7 +54,7 @@ export default class Raketa extends Predmet {
   traziNajblizuMetu() {
     let minRazmak
     let najblizaMeta
-    this.vlasnik.neprijatelji.map(predmet => {
+    this.vlasnik.neprijatelji.forEach(predmet => {
       if (this.nijeValidnaMeta(predmet)) return
 
       const razmak = this.razmakDo(predmet)
@@ -73,7 +70,7 @@ export default class Raketa extends Predmet {
   }
 
   proveriSudare() {
-    this.vlasnik.neprijatelji.map(predmet => {
+    this.vlasnik.neprijatelji.forEach(predmet => {
       if (!(predmet.oznake.has(this.cilj)) || !this.sudara(predmet)) return
       predmet.umri()
       this.nestani()

@@ -1,4 +1,3 @@
-// popraviti da igrač ispaljuje više raketa
 // letenje unazad srediti
 // da izbegava neke prepreke, možda zgrade
 // dodati pobedu?
