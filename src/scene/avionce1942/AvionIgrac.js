@@ -34,9 +34,8 @@ export default class AvionIgrac extends Igrac {
 
   proveriTipke() {
     super.proveriTipke()
-    if (tipke.stisnute[$.ENTER])
+    if (tipke.stisnute[$.ENTER] && !this.raketa.ispaljena)
       this.raketa.pucaPratecu()
-
   }
 
   nalevo() {
@@ -54,7 +53,8 @@ export default class AvionIgrac extends Igrac {
   }
 
   puca() {
-    this.raketa.puca()
+    if (!this.raketa.ispaljena)
+      this.raketa.puca()
   }
 
   /** * OSTALO ***/

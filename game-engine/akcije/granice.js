@@ -57,6 +57,7 @@ const ogranici = predmet => {
 
 export {
   izasaoDesno,
+  izasaoIgde,
   kruzi,
   kruziSire,
   vracaVodoravno,
