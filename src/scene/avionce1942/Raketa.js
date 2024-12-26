@@ -55,7 +55,7 @@ export default class Raketa extends Predmet {
   traziNajblizuMetu() {
     let minRazmak
     let najblizaMeta
-    this.vlasnik.scena.predmeti.map(predmet => {
+    this.vlasnik.neprijatelji.map(predmet => {
       if (this.nijeValidnaMeta(predmet)) return
 
       const razmak = this.razmakDo(predmet)
@@ -71,7 +71,7 @@ export default class Raketa extends Predmet {
   }
 
   proveriSudare() {
-    this.vlasnik.scena.predmeti.map(predmet => {
+    this.vlasnik.neprijatelji.map(predmet => {
       if (!(this.cilj in predmet.oznake) || !this.sudara(predmet)) return
       predmet.umri()
       this.nestani()

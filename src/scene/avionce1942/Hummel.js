@@ -17,7 +17,7 @@ export default class Hummel extends VoziloBocno {
 
   update() {
     super.update()
-    this.povremenoPuca() // BUG: nema this.scena
+    // this.povremenoPuca() // BUG: nema this.scena
     this.raketa.update()
   }
 

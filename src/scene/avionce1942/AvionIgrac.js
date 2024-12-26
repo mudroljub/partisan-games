@@ -9,16 +9,15 @@ const DOZVOLJEN_UGAO = 0.066
 const GRAVITACIJA = 0.3
 
 export default class AvionIgrac extends Igrac {
-  // treba scena zbog pratecih
-  constructor(scena, src = '/assets/slike/2d-bocno/partizani/potez-25.png', sirina = 200, visina = 87) {
+  constructor(nivoTla, neprijatelji = [], src = '/assets/slike/2d-bocno/partizani/potez-25.png', sirina = 200, visina = 87) {
     super(src, sirina, visina)
-    this.scena = scena
     this.brzina = 0
     this.granice = ogranici
-    this.nivoTla = scena.nivoTla
+    this.nivoTla = nivoTla
     this.oznake.igrac = true
     this.raketa = new Raketa(this)
     this.zapaljiv = true
+    this.neprijatelji = neprijatelji
   }
 
   update() {
@@ -85,18 +84,11 @@ export default class AvionIgrac extends Igrac {
     if (this.mrtav && !this.jePrizemljen()) this.y += GRAVITACIJA * 70
   }
 
-  sviOstali(callback) {
-    for (const predmet of this.scena.predmeti) {
-      if ('igrac' in predmet.oznake || 'raketa' in predmet.oznake) continue
-      callback(predmet)
-    }
-  }
-
   proveriSudare() {
-    this.sviOstali(predmet => {
-      if ('neprijatelj' in predmet.oznake && this.sudara(predmet)) {
+    this.neprijatelji.forEach(neprijatelj => {
+      if (this.sudara(neprijatelj)) {
         this.umri()
-        predmet.umri()
+        neprijatelj.umri()
       }
     })
   }

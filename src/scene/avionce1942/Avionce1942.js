@@ -42,10 +42,10 @@ export default class Avionce1942 extends Scena {
     this.brzinaScene = 0
     this.dignutostScene = 0
 
-    this.igrac = new AvionIgrac(this)
     this.vozilo = new Hummel(this.nivoTla)
     this.aerodrom = new Zgrada(this.nivoTla, '/assets/slike/2d-bocno/zgrade/aerodrom.png')
     this.ruina = new Zgrada(this.nivoTla, '/assets/slike/2d-bocno/zgrade/ruina.png')
+    this.igrac = new AvionIgrac(this.nivoTla, [this.vozilo])
 
     this.ruina.x = -this.ruina.sirina
     this.ruina.procenatVracanja = 0.01
@@ -89,25 +89,32 @@ export default class Avionce1942 extends Scena {
     this.oblaci.map(oblak => oblak.dx = PARALAX_4)
   }
 
+  sviOstali(callback) {
+    for (const predmet of this.predmeti) {
+      if ('igrac' in predmet.oznake || 'raketa' in predmet.oznake) continue
+      callback(predmet)
+    }
+  }
+
   zaustaviParalax() {
-    this.igrac.sviOstali(predmet => {
+    this.sviOstali(predmet => {
       if (!('neprijatelj' in predmet.oznake)) predmet.dx *= 0.9
     })
     this.brzinaScene = 0
   }
 
   ubrzavaPredmete(ugao, pomak) {
-    this.igrac.sviOstali(predmet => predmet.dodajSilu(pomak, ugao))
+    this.sviOstali(predmet => predmet.dodajSilu(pomak, ugao))
     this.brzinaScene += pomak
   }
 
   dizePredmete(pomak) {
-    this.igrac.sviOstali(predmet => predmet.y += pomak)
+    this.sviOstali(predmet => predmet.y += pomak)
     this.dignutostScene += pomak
   }
 
   proveriSmrt() {
-    this.igrac.sviOstali(predmet => {
+    this.sviOstali(predmet => {
       if (predmet.mrtav) predmet.dx = PARALAX_1 - this.brzinaScene
     })
     if (this.igrac.mrtav && this.dignutostScene > 0)
