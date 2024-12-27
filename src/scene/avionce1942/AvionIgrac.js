@@ -1,8 +1,7 @@
-import * as $ from 'konstante'
-import tipke from 'io/tipke'
-import Igrac from 'core/Igrac'
-import Raketa from './Raketa'
-import { ogranici } from 'akcije/granice'
+import { keyboard } from 'io/Keyboard.js'
+import Igrac from 'core/Igrac.js'
+import Raketa from './Raketa.js'
+import { ogranici } from 'akcije/granice.js'
 
 const OKRET = 0.01
 const DOZVOLJEN_UGAO = 0.066
@@ -33,7 +32,7 @@ export default class AvionIgrac extends Igrac {
 
   proveriTipke() {
     super.proveriTipke()
-    if (tipke.stisnute[$.ENTER] && !this.raketa.ispaljena)
+    if (keyboard.pressed.Enter && !this.raketa.ispaljena)
       this.raketa.pucaPratecu()
   }
 
@@ -59,7 +58,7 @@ export default class AvionIgrac extends Igrac {
   /** * OSTALO ***/
 
   ispraviAvion() {
-    if (tipke.ukupnoStisnutih()) return
+    if (keyboard.keyPressed) return
     if (this.ugao > 0) this.ugao -= OKRET
     if (this.ugao < 0) this.ugao += OKRET
   }
