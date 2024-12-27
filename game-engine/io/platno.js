@@ -1,25 +1,33 @@
-const platno = document.getElementById('platno') || document.createElement('canvas')
+const platno = document.getElementById('platno')
 const podloga = platno.getContext('2d')
-
-if (!document.getElementById('platno')) {
-  document.body.appendChild(platno)
-  platno.id = 'platno'
-}
 
 platno.height = window.innerHeight || 600 // mora prvo visina
 platno.width = document.body.clientWidth || 800
 platno.style.backgroundColor = 'lightgray'
 platno.focus()
 
-const sakrijPlatno = () => {
-  platno.style.display = 'none'
-}
-
-const pokaziPlatno = () => {
-  platno.style.display = 'block'
-}
-
 const dijagonalaPlatna = Math.sqrt(platno.height * platno.height + platno.width * platno.width)
 
-export { platno, podloga, sakrijPlatno, pokaziPlatno, dijagonalaPlatna }
+function crtaNebo(nivoTla, bojaNeba = 'blue', bojaNebaPreliv = 'lightblue', pocetakPreliva = 0) {
+    podloga.fillStyle = bojaNeba
+    if (bojaNebaPreliv) {
+        const preliv = podloga.createLinearGradient(0, pocetakPreliva, 0, nivoTla)
+        preliv.addColorStop(0, bojaNeba)
+        preliv.addColorStop(1, bojaNebaPreliv)
+        podloga.fillStyle = preliv
+    }
+    podloga.fillRect(0, 0, platno.width, nivoTla)
+}
+
+function crtaZemlju(nivoTla, bojaZemlje = '#00b011') {
+    podloga.fillStyle = bojaZemlje
+    podloga.fillRect(0, nivoTla, platno.width, platno.height)
+}
+
+function crtaNeboZemlju(nivoTla, bojaNeba = 'lightblue', bojaZemlje = 'green', bojaNebaPreliv = 'blue') {
+    crtaNebo(nivoTla, bojaNeba, bojaNebaPreliv)
+    crtaZemlju(nivoTla, bojaZemlje)
+}
+
+export { platno, podloga, dijagonalaPlatna, crtaNeboZemlju }
 export default platno

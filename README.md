@@ -33,6 +33,7 @@ P.S. ako izbacuje grešku proveri jel već pokrenut webpack-dev-server.
 - prebaciti Input manager iz create 3D worlds
 - otkriti zašto Zgrada neće da koristi prirodnu veličinu slike?
 - prebaciti engine u src
+- na esc napuštati nivo
 
 ### Faza 1: refaktor i sredjivanje
 - Avionce: promeniti zvuk motora

@@ -1,5 +1,5 @@
 // cilj da ubije tenk i sleti
-// dodati startProzor
+// dodati startProzor (mozda i pauzu scene)
 // dodati UI, prateća je enter
 
 import * as $ from '/game-engine/konstante.js'
