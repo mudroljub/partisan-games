@@ -1,4 +1,3 @@
-import * as $ from '../konstante.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Predmet from './Predmet.js'
 
@@ -23,7 +22,7 @@ export default class Igrac extends Predmet {
   }
 
   // TODO: trenutno ne radi. popraviti ili brisati
-  podesiTipke(tipkaLevo = $.A, tipkaDesno = $.D, tipkaGore = $.W, tipkaDole = $.S, tipkaPucanje = $.RAZMAK) {
+  podesiTipke(tipkaLevo, tipkaDesno, tipkaGore, tipkaDole, tipkaPucanje) {
     this.tipkaLevo = tipkaLevo
     this.tipkaDesno = tipkaDesno
     this.tipkaGore = tipkaGore

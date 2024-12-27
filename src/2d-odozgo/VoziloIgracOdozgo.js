@@ -1,4 +1,3 @@
-import * as $ from '/game-engine/konstante.js'
 import Igrac from '/game-engine/core/Igrac.js'
 import Granata from './Granata.js'
 import { odbij } from '/game-engine/akcije/granice.js'

@@ -1,4 +1,3 @@
-import * as $ from '/game-engine/konstante.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import { podloga } from '/game-engine/io/platno.js'
 import Kvadrat from '/game-engine/core/Kvadrat.js'
