@@ -56,7 +56,9 @@ export default class Avionce1942 extends Scena {
 
     this.dodaj(this.aerodrom, this.igrac, this.vozilo, this.ruina, ...this.oblaci, ...this.zbunovi, ...this.shume)
     this.pocniParalax()
-    this.pocetniProzor('Tvoj zadatak je da uništiš neprijateljski tenk i uspešno sletiš')
+    // setTimeout(() =>
+    //   this.pocetniProzor('Uništi neprijateljski tenk i izvrši uspešno sletanje.'), 10
+    // )
   }
 
   pocniParalax() {
