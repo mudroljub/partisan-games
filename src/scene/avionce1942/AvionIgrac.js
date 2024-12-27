@@ -59,7 +59,6 @@ export default class AvionIgrac extends Igrac {
   /** * OSTALO ***/
 
   ispraviAvion() {
-    console.log(tipke.ukupnoStisnutih())
     if (tipke.ukupnoStisnutih()) return
     if (this.ugao > 0) this.ugao -= OKRET
     if (this.ugao < 0) this.ugao += OKRET

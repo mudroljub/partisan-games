@@ -1,7 +1,6 @@
-// poboljšati spuštanje kamere
 // cilj da ubije tenk i sleti
-// BUG: kada nema keširane slike prvi put ne učita zgrade
 // dodati UI, prateća je enter
+// BUG: nekad ne učita zgrade
 import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import platno from 'io/platno'
@@ -77,12 +76,12 @@ export default class Avionce1942 extends Scena {
       this.ubrzavaPredmete($.KRUZNICA / 2, -POTISAK)
 
     if (tipke.stisnute[$.W] && this.dignutostScene - DIZAJ < MAX_DIGNUTOST) {
-      if (this.igrac.y < this.visina * 3 / 4) this.dizePredmete(DIZAJ)
+      if (this.igrac.y < this.visina * 0.5) this.dizePredmete(DIZAJ)
       if (this.brzinaScene === 0) this.pocniParalax() // kada avion ponovo uzlece
     }
 
     if (tipke.stisnute[$.S] && this.dignutostScene - DIZAJ >= 0)
-      if (this.igrac.y > this.visina / 4) this.dizePredmete(-DIZAJ)
+      if (this.igrac.y > this.visina * 0.125) this.dizePredmete(-DIZAJ)
   }
 
   pocniParalax() {
