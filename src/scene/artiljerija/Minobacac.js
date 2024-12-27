@@ -1,5 +1,5 @@
 import * as $ from '/game-engine/konstante.js'
-import tipke from '/game-engine/io/tipke.js'
+import { keyboard } from '/game-engine/io/Keyboard.js'
 import { podloga } from '/game-engine/io/platno.js'
 import Kvadrat from '/game-engine/core/Kvadrat.js'
 import Projektil from './Projektil.js'
@@ -53,11 +53,11 @@ export default class Minobacac extends Kvadrat {
   }
 
   proveriTipke() {
-    if (tipke.stisnute[$.RAZMAK]) this.pali()
-    if (tipke.stisnute[$.GORE]) this.ugao += POMERAJ_UGLA
-    if (tipke.stisnute[$.DOLE]) this.ugao -= POMERAJ_UGLA
-    if (tipke.stisnute[$.LEVO]) this.brzina -= POMERAJ_BRZINE
-    if (tipke.stisnute[$.DESNO]) this.brzina += POMERAJ_BRZINE
+    if (keyboard.space) this.pali()
+    if (keyboard.up) this.ugao += POMERAJ_UGLA
+    if (keyboard.down) this.ugao -= POMERAJ_UGLA
+    if (keyboard.left) this.brzina -= POMERAJ_BRZINE
+    if (keyboard.right) this.brzina += POMERAJ_BRZINE
     if (this.brzina <= 0) this.brzina = 0
   }
 }

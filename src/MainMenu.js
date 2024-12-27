@@ -11,7 +11,7 @@ const items = {
   OtpisaniScena: 'Ubij okupatora!',
   Scena1944: 'Avionče 1944',
   TenkicIde: 'Tenkić ide',
-  RanjenikScena: 'Ranjenik.js',
+  RanjenikScena: 'Ranjenik',
   JasenovacScena: 'Bekstvo iz Jasenovca'
 }
 

@@ -1,5 +1,4 @@
-import * as $ from '/game-engine/konstante.js'
-import tipke from '/game-engine/io/tipke.js'
+import { keyboard } from '/game-engine/io/Keyboard.js'
 import { platno, podloga } from '/game-engine/io/platno.js'
 import Slika from '/game-engine/core/Slika.js'
 
@@ -67,15 +66,15 @@ export default class Top {
   /* UNOS */
 
   proveriTipke() {
-    if (tipke.stisnute[$.RAZMAK]) {
+    if (keyboard.space) {
       this.puca()
       return
     }
-    if (tipke.stisnute[$.LEVO] && !this.projektil.ispaljen) this.brzina--
-    if (tipke.stisnute[$.DESNO] && !this.projektil.ispaljen) this.brzina++
+    if (keyboard.left && !this.projektil.ispaljen) this.brzina--
+    if (keyboard.right && !this.projektil.ispaljen) this.brzina++
     if (this.brzina <= MIN_BRZINA) this.brzina = MIN_BRZINA
-    if (tipke.stisnute[$.GORE]) this.ugao += 0.5
-    if (tipke.stisnute[$.DOLE]) this.ugao -= 0.5
+    if (keyboard.up) this.ugao += 0.5
+    if (keyboard.down) this.ugao -= 0.5
     if (this.ugao >= MAX_UGAO) this.ugao = MAX_UGAO
     if (this.ugao <= MIN_UGAO) this.ugao = MIN_UGAO
   }

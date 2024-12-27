@@ -8,7 +8,7 @@ export default class Igrac extends Predmet {
 
   constructor(src, sirina, visina) {
     super(src, sirina, visina)
-    this.oznake.add('igrac') // naslednik ako ukloni igrac nema tipke
+    this.oznake.add('igrac')
     this.potisak = 0.5
     this.prohodnost = 0.9
     this.komandeNapredne = false // da se okreće oko svoje ose

@@ -27,7 +27,6 @@ P.S. ako izbacuje grešku proveri jel već pokrenut webpack-dev-server.
 
 ## TODO:
 
-- zameni tipke sa keyboard
 - BUG: nekad ne učita slike
     - da prvo učita sve slike pre nego što scena krene
 - BUG: pojavljuje se vertikalni skrol na rovovima, videti i drugde
