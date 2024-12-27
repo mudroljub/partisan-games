@@ -1,6 +1,7 @@
 // cilj da ubije tenk i sleti
+// dodati startProzor
 // dodati UI, prateća je enter
-// BUG: nekad ne učita zgrade
+
 import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import platno from 'io/platno'
@@ -131,7 +132,7 @@ export default class Avionce1942 extends Scena {
       this.dizePredmete(-DIZAJ)
 
     if (this.igrac.mrtav)
-      this.endScreen()
+      this.zavrsniProzor()
   }
 
   proveriTlo() {

@@ -18,7 +18,7 @@ export default class UI {
     this.element.innerHTML = ''
   }
 
-  endScreen(poruka = 'Igra je završena.', imeScene = '') {
+  zavrsniProzor(poruka = 'Igra je završena.', imeScene = '') {
     if (this.prozor.innerHTML) return
 
     const div = document.createElement('div')

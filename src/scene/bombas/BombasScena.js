@@ -68,7 +68,7 @@ export default class BombasScena extends Scena {
   }
 
   zavrsiIgru(text) {
-    this.endScreen(text)
+    this.zavrsniProzor(text)
     setTimeout(() => this.stop(), 1000)
   }
 

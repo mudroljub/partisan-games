@@ -100,8 +100,8 @@ export default class Scena {
 
   /* UI */
 
-  endScreen(poruka) {
-    this.ui.endScreen(poruka, this.constructor.name)
+  zavrsniProzor(poruka) {
+    this.ui.zavrsniProzor(poruka, this.constructor.name)
   }
 
   /* CRTANJE (prebaciti na pozadinu?) */
