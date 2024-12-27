@@ -56,9 +56,6 @@ export default class Avionce1942 extends Scena {
 
     this.dodaj(this.aerodrom, this.igrac, this.vozilo, this.ruina, ...this.oblaci, ...this.zbunovi, ...this.shume)
     this.pocniParalax()
-    // setTimeout(() =>
-    //   this.pocetniProzor('Uništi neprijateljski tenk i izvrši uspešno sletanje.'), 10
-    // )
   }
 
   pocniParalax() {
@@ -133,8 +130,11 @@ export default class Avionce1942 extends Scena {
       if (this.igrac.y > this.visina * 0.125) this.dizePredmete(-DIZAJ)
   }
 
-  update() {
+  cisti() {
     crtaNebo(this.nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
+  }
+
+  update() {
     super.update()
     this.proveriTipke()
     this.vozilo.patroliraj()

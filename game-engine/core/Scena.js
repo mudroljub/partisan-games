@@ -1,4 +1,5 @@
 import { platno, podloga } from '../io/platno.js'
+import GameLoop from './GameLoop.js'
 
 export default class Scena {
   constructor(ui) {
@@ -6,12 +7,12 @@ export default class Scena {
     this.platno = platno
     this.podloga = podloga
     this.nivoTla = this.visina
-    this.loopID = null
     this.ui = ui
     this.ui.sablon = () => this.sablon() // očekuje da scene imaju UI šablon
     this.lastTime = performance.now()
-    this.loop = this.loop.bind(this)
     this.pauza = false
+    this.update = this.update.bind(this)
+    this.gameLoop = new GameLoop(this.update, false)
   }
 
   dodaj(...premeti) {
@@ -44,7 +45,9 @@ export default class Scena {
   /* PETLJA */
 
   update() {
+    this.cisti()
     this.predmeti.map(predmet => 'update' in predmet && predmet.update())
+    this.render()
   }
 
   render() {
@@ -52,30 +55,12 @@ export default class Scena {
     this.ui.render()
   }
 
-  loop(timestamp) {
-    if (this.pauza) {
-      this.lastTime = timestamp
-      requestAnimationFrame(this.loop)
-      return
-    }
-    this.loopID = requestAnimationFrame(this.loop)
-    const dt = (timestamp - this.lastTime) / 1000 // sekunde
-    this.lastTime = timestamp
-
-    this.cisti()
-    this.update(dt, timestamp)
-    this.render()
-  }
-
   start() {
-    if (this.loopID) return
-    requestAnimationFrame(this.loop)
+    this.gameLoop.start()
   }
 
   stop() {
-    if (!this.loopID) return
-    cancelAnimationFrame(this.loopID)
-    this.loopID = null
+    this.gameLoop.stop()
   }
 
   end() {
