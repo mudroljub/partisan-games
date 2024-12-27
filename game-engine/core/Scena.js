@@ -47,10 +47,6 @@ export default class Scena {
   update(dt) {
     this.cisti()
     this.predmeti.map(predmet => 'update' in predmet && predmet.update(dt))
-    this.render()
-  }
-
-  render() {
     this.predmeti.map(predmet => 'render' in predmet && predmet.render())
     this.ui.render()
   }

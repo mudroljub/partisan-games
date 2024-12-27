@@ -16,7 +16,7 @@ import TenkNemacki from './TenkNemacki.js'
 const tenk1 = new TenkPartizanski(100, 450)
 const tenk2 = new TenkNemacki(650, 450)
 const pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
-const interfejs = new UI(sablon)
+const ui = new UI(sablon)
 
 export default class TenkiciScena extends Scena {
   constructor() {
@@ -35,7 +35,7 @@ export default class TenkiciScena extends Scena {
   }
 
   render() {
-    interfejs.render()
+    ui.render()
   }
 }
 

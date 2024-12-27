@@ -51,10 +51,6 @@ export default class RanjenikScena extends Scena {
     this.proveriSudare()
     this.proveriPobedu()
     this.smenjujStrelicu()
-  }
-
-  render() {
-    super.render()
     if (this.strelicaVidljiva) crtajStrelicu()
   }
 
