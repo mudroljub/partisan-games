@@ -61,7 +61,6 @@ export default class Scena {
 
   end() {
     this.gameLoop.stop()
-    this.cisti()
     this.predmeti = []
   }
 
