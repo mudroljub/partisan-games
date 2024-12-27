@@ -1,10 +1,9 @@
 import Predmet from 'core/Predmet'
 import platno from 'io/platno'
-import slikaOblak from 'slike/oblak.gif'
 
 export default class Oblak extends Predmet {
   constructor(brzina) {
-    super(slikaOblak, 150, 100)
+    super('/assets/slike/oblak.gif', 150, 100)
     this.brzina = brzina
     this.reset()
   }

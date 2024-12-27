@@ -1,9 +1,8 @@
 import Predmet from 'core/Predmet'
-import slikaGranata from 'slike/granata.gif'
 
 export default class Granata extends Predmet {
 
-  constructor(vlasnik, src = slikaGranata) {
+  constructor(vlasnik, src = '/assets/slike/granata.gif') {
     super(src, 24, 6)
     this.sakrij()
     this.vlasnik = vlasnik

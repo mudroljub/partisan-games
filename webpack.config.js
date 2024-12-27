@@ -21,9 +21,7 @@ module.exports = {
       akcije: path.resolve(__dirname, 'game-engine/akcije/'),
       io: path.resolve(__dirname, 'game-engine/io/'),
       konstante: path.resolve(__dirname, 'game-engine/konstante'),
-      utils: path.resolve(__dirname, 'game-engine/utils'),
-      slike: path.resolve(__dirname, 'assets/slike/'),
-      zvuci: path.resolve(__dirname, 'assets/zvuci/')
+      utils: path.resolve(__dirname, 'game-engine/utils')
     }
   },
   module: {

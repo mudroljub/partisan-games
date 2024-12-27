@@ -1,10 +1,9 @@
 import Predmet from 'core/Predmet'
-import slikaOkean from 'slike/teksture/okean.gif'
 
 export class Okean extends Predmet {
 
   constructor(brzinaPozadine = 10, sirina = window.innerWidth, visina = 1440) {
-    super(slikaOkean, sirina, visina)
+    super('/assets/slike/teksture/okean.gif', sirina, visina)
     this.dx = 0
     this.dy = brzinaPozadine
     this.polozaj(sirina / 2, 0)

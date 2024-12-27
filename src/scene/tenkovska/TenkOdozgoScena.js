@@ -6,12 +6,11 @@
 import Scena from 'core/Scena'
 import Pozadina from 'core/Pozadina'
 import { TenkIgracOdozgo } from './TenkIgracOdozgo'
-import slikaPozadina from 'slike/2d-odozgo/shumarak-pozadina.png'
 
 export default class TenkOdozgoScena extends Scena {
   constructor(...args) {
     super(...args)
-    this.pozadina = new Pozadina(slikaPozadina)
+    this.pozadina = new Pozadina('/assets/slike/2d-odozgo/shumarak-pozadina.png')
     this.tenk = new TenkIgracOdozgo()
   }
 

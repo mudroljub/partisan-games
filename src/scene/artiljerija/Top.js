@@ -2,8 +2,6 @@ import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import { platno, podloga } from 'io/platno'
 import Slika from 'core/Slika'
-import topPostolje from 'slike/2d-bocno/top-postolje.gif'
-import topCev from 'slike/2d-bocno/top-cev.gif'
 
 const MIN_UGAO = 0
 const MAX_UGAO = 65
@@ -16,7 +14,7 @@ export default class Top {
     this.y = y
     this.ugao = 20
     this.brzina = 30
-    this.postolje = new Slika(topPostolje)
+    this.postolje = new Slika('/assets/slike/2d-bocno/top-postolje.gif')
     this.cev = {}
     this.postaviCev()
     this.projektil = {}
@@ -31,7 +29,7 @@ export default class Top {
   }
 
   postaviCev() {
-    this.cev = new Slika(topCev)
+    this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif')
     this.cev.x = this.x + (this.cev.slika.width / 2)
     this.cev.y = this.y
   }

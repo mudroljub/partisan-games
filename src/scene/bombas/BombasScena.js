@@ -8,8 +8,6 @@ import Pozadina from 'core/Pozadina'
 import Bombas from './Bombas'
 import Bunker from './Bunker'
 import Prepreka from './Prepreka'
-import slikaBeton from 'slike/teksture/beton.gif'
-import slikaBombas from 'slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif'
 
 const ZADATO_VREME = 10
 const BROJ_PREPREKA = 10
@@ -23,8 +21,8 @@ export default class BombasScena extends Scena {
 
   init() {
     this.vreme = new Vreme()
-    const pozadina = new Pozadina(slikaBeton)
-    this.bombas = new Bombas(slikaBombas, 50, 55)
+    const pozadina = new Pozadina('/assets/slike/teksture/beton.gif')
+    this.bombas = new Bombas('/assets/slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif', 50, 55)
     this.bunker = new Bunker()
     this.bunker.nemojPreko(this.bombas)
     this.dodaj(pozadina, this.bunker, this.bombas)

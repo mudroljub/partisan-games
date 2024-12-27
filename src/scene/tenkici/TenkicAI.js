@@ -7,13 +7,12 @@ import Scena from 'core/Scena'
 import Pozadina from 'core/Pozadina'
 import TenkPartizanski from './TenkPartizanski'
 import TenkNemacki from './TenkNemacki'
-import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
 
 /** * INIT ***/
 
 const tenk1 = new TenkPartizanski(100, 450)
 const tenk2 = new TenkNemacki()
-const pozadina = new Pozadina(slikaPozadina)
+const pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
 const interfejs = new UI(sablon)
 
 export default class TenkicAI extends Scena {

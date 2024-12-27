@@ -1,11 +1,10 @@
 import Predmet from 'core/Predmet'
 import platno from 'io/platno'
-import slikaOstrvo from 'slike/oblak.gif'
 
 export class Ostrvo extends Predmet {
 
   constructor(brzina) {
-    super(slikaOstrvo, 100, 100)
+    super('/assets/slike/oblak.gif', 100, 100)
     this.reset(brzina)
   }
 

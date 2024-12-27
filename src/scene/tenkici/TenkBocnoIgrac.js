@@ -9,7 +9,6 @@ import Predmet from 'core/Predmet'
 import Igrac from 'core/Igrac'
 import platno from 'io/platno'
 import { ogranici } from 'akcije/granice'
-import slikaGranata from 'slike/granata.gif'
 
 export default class TenkBocnoIgrac extends Igrac {
 
@@ -51,7 +50,7 @@ export default class TenkBocnoIgrac extends Igrac {
   }
 
   postaviGranatu() {
-    this.granata = new Predmet(slikaGranata, 12, 3)
+    this.granata = new Predmet('/assets/slike/granata.gif', 12, 3)
     this.granata.sakrij()
   }
 

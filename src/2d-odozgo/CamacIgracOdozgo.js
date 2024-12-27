@@ -1,11 +1,10 @@
 import VoziloIgracOdozgo from '../2d-odozgo/VoziloIgracOdozgo'
-import slikaCamac from 'slike/2d-odozgo/camac.png'
 
 const JACINA_STRUJE = 0.1
 
 export default class CamacIgracOdozgo extends VoziloIgracOdozgo {
 
-  constructor(src = slikaCamac, sirina = 100, visina = 50) {
+  constructor(src = '/assets/slike/2d-odozgo/camac.png', sirina = 100, visina = 50) {
     super(src, sirina, visina)
     this.potisak = 0.8
   }

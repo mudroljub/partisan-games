@@ -4,7 +4,6 @@ import UI from 'core/UI'
 import Ranjenik from './Ranjenik'
 import Pozadina from 'core/Pozadina'
 import Paljba from './Paljba'
-import slikaPozadina from 'slike/teksture/beton.gif'
 
 /** * KONFIG ***/
 
@@ -19,7 +18,7 @@ let pocetakPaljbe = 500
 
 /** * INIT ***/
 
-const pozadina = new Pozadina(slikaPozadina)
+const pozadina = new Pozadina('/assets/slike/teksture/beton.gif')
 const ranjenik = new Ranjenik()
 const vreme = new Vreme()
 const ui = new UI(sablon)

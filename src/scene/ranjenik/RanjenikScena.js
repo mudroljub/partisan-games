@@ -11,10 +11,6 @@ import Pozadina from 'core/Pozadina'
 import Ranjenik from './Ranjenik'
 import Patrola from './Patrola'
 import Vreme from 'core/Vreme'
-import slikaPozadinaSumarak from 'slike/2d-odozgo/shumarak-pozadina.png'
-import slikaPozadinaBeton from 'slike/teksture/beton.gif'
-import slikaPatrolaNemci from 'slike/2d-odozgo/nemci-patrola.gif'
-import slikaPatrolaTalijani from 'slike/2d-odozgo/talijani-patrola.gif'
 
 const trajanjeStrelice = 500
 const pauzaCrtanja = 3000
@@ -41,9 +37,9 @@ export default class RanjenikScena extends Scena {
     this.scena = 0
     this.strelicaVidljiva = false
     this.vreme = new Vreme()
-    this.pozadina = new Pozadina(slikaPozadinaSumarak)
+    this.pozadina = new Pozadina('/assets/slike/2d-odozgo/shumarak-pozadina.png')
     this.ranjenik = new Ranjenik()
-    this.patrola = new Patrola(slikaPatrolaNemci)
+    this.patrola = new Patrola('/assets/slike/2d-odozgo/nemci-patrola.gif')
     this.patrola.polozaj(this.sirina * 3 / 4, this.visina * 3 / 4)
     this.ranjenik.polozaj(this.sirina / 4, this.visina / 2)
     this.dodaj(this.pozadina, this.ranjenik, this.patrola)
@@ -87,8 +83,8 @@ export default class RanjenikScena extends Scena {
 
   promeniScenu() {
     const parna = this.scena % 2 === 0
-    const slikaPozadine = parna ? slikaPozadinaBeton : slikaPozadinaSumarak
-    const slikaPatrole = parna ? slikaPatrolaTalijani : slikaPatrolaNemci
+    const slikaPozadine = parna ? '/assets/slike/teksture/beton.gif' : '/assets/slike/2d-odozgo/shumarak-pozadina.png'
+    const slikaPatrole = parna ? '/assets/slike/2d-odozgo/talijani-patrola.gif' : '/assets/slike/2d-odozgo/nemci-patrola.gif'
     this.pozadina.zameniSliku(slikaPozadine)
     this.patrola.zameniSliku(slikaPatrole)
     this.patrola.postaviRandom()

@@ -2,8 +2,6 @@ import { kruzi } from 'akcije/granice'
 import { nasumicnoOkruglo } from 'utils'
 import Predmet from 'core/Predmet'
 import Vreme from 'core/Vreme'
-import slikaNemciPatrola from 'slike/2d-odozgo/nemci-patrola.gif'
-import zvukStop from 'zvuci/patrola/Stop.wav'
 
 const zvuciTraganje = [
   'eatdirtpig.wav',
@@ -24,10 +22,10 @@ let brojac = 0
 
 export default class Patrola extends Predmet {
 
-  constructor(src = slikaNemciPatrola) {
+  constructor(src = '/assets/slike/2d-odozgo/nemci-patrola.gif') {
     super(src)
     this.vreme = new Vreme()
-    this.zvuk = new Audio(zvukStop)
+    this.zvuk = new Audio('/assets/zvuci/patrola/Stop.wav')
     this.brzina = 6
     this.granice = kruzi
   }
