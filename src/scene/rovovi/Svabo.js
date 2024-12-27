@@ -2,6 +2,8 @@ import Predmet from '/game-engine/core/Predmet.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import mish from '/game-engine/io/mish.js'
 
+const rafal = new Audio('/assets/zvuci/rafal.mp3')
+
 export default class Svabo extends Predmet {
 
   constructor(sirina = 100, visina = 150, ucestalost = 0.03) {
@@ -16,11 +18,6 @@ export default class Svabo extends Predmet {
     this.vremeNisanjenja = 2.5
     this.slikaGore = '/assets/slike/2d-prvo-lice/nemac-rov.gif'
     this.slikaDole = '/assets/slike/2d-prvo-lice/rov-prazan.gif'
-  }
-
-  update(dt) {
-    super.update()
-    this.povremenoUstaje(dt)
   }
 
   povremenoUstaje(dt) {
@@ -54,5 +51,19 @@ export default class Svabo extends Predmet {
   jeSpreman() {
     if (!this.stoji) return false
     return this.vreme.protekloSekundi >= this.vremeNisanjenja
+  }
+
+  ubrzaj(n) {
+    this.ucestalost *= n
+  }
+
+  update(dt, povredi) {
+    super.update()
+    this.povremenoUstaje(dt)
+    if (this.jeSpreman()) {
+      this.puca()
+      rafal.play()
+      povredi(10, dt)
+    }
   }
 }

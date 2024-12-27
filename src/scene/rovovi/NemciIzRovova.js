@@ -2,7 +2,6 @@ import mish from '/game-engine/io/mish.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
 import Svabo from './Svabo.js'
-import Vreme from '/game-engine/core/Vreme.js'
 
 const DALJI_Y = 150
 const BLIZI_Y = 300
@@ -14,7 +13,6 @@ export default class NemciIzRovova extends Scena {
   }
 
   init() {
-    this.vreme = new Vreme()
     this.pogoci = 0
     this.rekord = 0
     this.energija = 100
@@ -23,8 +21,7 @@ export default class NemciIzRovova extends Scena {
     this.daljiRovovi = this.praviSvabe(12, DALJI_Y, { sirina: 50, visina: 75, ucestalost: 0.02 })
     this.sveSvabe = [...this.bliziRovovi, ...this.daljiRovovi]
     this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
-    this.rafal = new Audio('/assets/zvuci/rafal.mp3')
-    
+
     this.ucitajRekord()
     mish.dodajNishan()
     this.handleClick = this.handleClick.bind(this)
@@ -35,10 +32,10 @@ export default class NemciIzRovova extends Scena {
     const razmak = this.sirina / n
     const polaRazmaka = razmak / 2
     return Array.from({ length: n }, (_, i) => {
-      const x = i * razmak + polaRazmaka    
-      const rov = new Svabo(params.sirina, params.visina, params.ucestalost)
-      rov.polozaj(x, y)
-      return rov
+      const x = i * razmak + polaRazmaka
+      const svabo = new Svabo(params.sirina, params.visina, params.ucestalost)
+      svabo.polozaj(x, y)
+      return svabo
     })
   }
 
@@ -48,18 +45,6 @@ export default class NemciIzRovova extends Scena {
         rovovi[i].padni()
         this.pogoci++
       }
-
-  }
-
-  azurirajSvabe(rovovi, dt) {
-    for (let i = 0; i < rovovi.length; i++) {
-      if (rovovi[i].jeSpreman()) {
-        rovovi[i].puca()
-        this.rafal.play()
-        this.energija = Math.max(0, this.energija - 5 * dt)
-      }
-      rovovi[i].update(dt)
-    }
   }
 
   proveriKraj() {
@@ -83,18 +68,20 @@ export default class NemciIzRovova extends Scena {
     this.proveriPogotke(ciljaniRovovi)
   }
 
-  update(dt) {
-    this.cisti()
-    this.pozadina.update()
-    this.azurirajSvabe(this.sveSvabe, dt)
-    this.proveriKraj()
+  povrediMe = (damage, dt) => {
+    this.energija = Math.max(0, this.energija - damage * dt)
+  }
 
-    if (!this.ubrzano && this.vreme.protekloSekundi >= 30) {
-      this.sveSvabe.forEach(svabo => {
-        svabo.ucestalost *= 2
-      })
+  update(dt, protekloSekundi) {
+    this.pozadina.update()
+    this.sveSvabe.forEach(svabo => svabo.update(dt, this.povrediMe))
+
+    if (!this.ubrzano && protekloSekundi >= 30) {
+      this.sveSvabe.forEach(svabo => svabo.ubrzaj(2))
       this.ubrzano = true
     }
+    this.proveriKraj()
+    this.ui.render()
   }
 
   end() {
