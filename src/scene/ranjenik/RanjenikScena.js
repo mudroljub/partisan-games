@@ -70,7 +70,7 @@ export default class RanjenikScena extends Scena {
       this.patrola.stop()
       this.patrola.vikniZaredom(2)
       console.log('Uhvaćen si...')
-      this.stop()
+      this.end()
     }
   }
 
@@ -78,7 +78,7 @@ export default class RanjenikScena extends Scena {
     if (izasaoDesno(this.ranjenik)) this.promeniScenu()
     if (this.scena < 4) return
     console.log('pobeda!')
-    this.stop()
+    this.end()
   }
 
   promeniScenu() {

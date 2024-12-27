@@ -36,7 +36,6 @@ export default class MinobacacScena extends Scena {
   proveriPogodak() {
     if (minobacac.projektil.sudara(brdo) || minobacac.projektil.sudara(tlo))
       // TODO: reset()
-      this.stop()
-
+      this.end()
   }
 }

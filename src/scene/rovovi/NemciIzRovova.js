@@ -64,7 +64,7 @@ export default class NemciIzRovova extends Scena {
 
   proveriKraj() {
     if (this.energija > 0) return
-    this.stop()
+    this.end()
     let poruka = 'Hrabro si pao. '
     if (this.pogoci > this.rekord) {
       poruka += `Ubio si ${this.pogoci} okupatora. To je novi rekord!`
