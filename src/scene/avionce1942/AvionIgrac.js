@@ -17,7 +17,6 @@ export default class AvionIgrac extends Igrac {
     this.oznake.add('igrac')
     this.raketa = new Raketa(this)
     this.zapaljiv = true
-    this.neprijatelji = []
   }
 
   update() {
@@ -85,10 +84,10 @@ export default class AvionIgrac extends Igrac {
   }
 
   proveriSudare() {
-    this.neprijatelji.forEach(neprijatelj => {
-      if (this.sudara(neprijatelj)) {
+    this.predmeti.forEach(predmet => {
+      if (this.sudara(predmet)) {
         this.umri()
-        neprijatelj.umri()
+        predmet.umri()
       }
     })
   }

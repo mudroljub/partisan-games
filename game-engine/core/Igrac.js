@@ -13,6 +13,8 @@ export default class Igrac extends Predmet {
     this.prohodnost = 0.9
     this.podesiTipke()
     this.komandeNapredne = false // da se okreće oko svoje ose
+    this.neprijatelji = []
+    this.predmeti = []
   }
 
   update() {
@@ -43,7 +45,6 @@ export default class Igrac extends Predmet {
       this.ugao -= OKRET
     else
       this.dodajSilu(this.potisak, $.KRUZNICA / 2)
-
   }
 
   nadesno() {
@@ -51,7 +52,6 @@ export default class Igrac extends Predmet {
       this.ugao += OKRET
     else
       this.dodajSilu(this.potisak, 0)
-
   }
 
   nagore() {
@@ -73,5 +73,4 @@ export default class Igrac extends Predmet {
     this.dx *= this.prohodnost
     this.dy *= this.prohodnost
   }
-
 }

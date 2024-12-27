@@ -1,4 +1,4 @@
-// da izbegava neke prepreke, možda zgrade
+// poboljšati spuštanje kamere
 // cilj da ubije tenk i sleti
 // BUG: kada nema keširane slike prvi put ne učita zgrade
 // dodati UI, prateća je enter
@@ -44,6 +44,7 @@ export default class Avionce1942 extends Scena {
 
     this.vozilo.neprijatelji.push(this.igrac)
     this.igrac.neprijatelji.push(this.vozilo)
+    this.igrac.predmeti.push(this.vozilo, this.ruina)
 
     this.ruina.x = -this.ruina.sirina
     this.ruina.procenatVracanja = 0.01
