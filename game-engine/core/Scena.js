@@ -44,9 +44,9 @@ export default class Scena {
 
   /* PETLJA */
 
-  update() {
+  update(dt) {
     this.cisti()
-    this.predmeti.map(predmet => 'update' in predmet && predmet.update())
+    this.predmeti.map(predmet => 'update' in predmet && predmet.update(dt))
     this.render()
   }
 

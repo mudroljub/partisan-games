@@ -96,8 +96,8 @@ export default class GameLoop {
     this.lastTimestamp = timestamp
     this.time += deltaTime
 
-    // TODO: ispitati kad je undefined
-    if (this.update) this.update(deltaTime / 1000, this.time / 1000) // to seconds
+    if (this.update)
+      this.update(deltaTime * 0.001, this.time * 0.001) // to seconds
 
     requestAnimationFrame(this.loop)
   }
