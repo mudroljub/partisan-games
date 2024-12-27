@@ -1,10 +1,10 @@
-// cilj da ubije tenk i sleti
 // dodati startProzor (mozda i pauzu scene)
+// cilj da ubije tenk i sleti
 // dodati UI, prateća je enter
 
 import * as $ from '/game-engine/konstante.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
-import platno from '/game-engine/io/platno.js'
+import platno, { crtaNebo } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import AvionIgrac from './AvionIgrac.js'
 import Hummel from './Hummel.js'
@@ -56,33 +56,7 @@ export default class Avionce1942 extends Scena {
 
     this.dodaj(this.aerodrom, this.igrac, this.vozilo, this.ruina, ...this.oblaci, ...this.zbunovi, ...this.shume)
     this.pocniParalax()
-  }
-
-  update() {
-    this.crtaNebo(this.nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
-    super.update()
-    this.proveriTipke()
-    this.vozilo.patroliraj()
-    this.proveriTlo()
-    this.proveriSmrt()
-  }
-
-  proveriTipke() {
-    if (!this.igrac.ziv) return
-
-    if (keyboard.right && this.brzinaScene < MAX_BRZINA)
-      this.ubrzavaPredmete($.KRUZNICA / 2, POTISAK)
-
-    if (keyboard.left && this.brzinaScene >= MIN_BRZINA)
-      this.ubrzavaPredmete($.KRUZNICA / 2, -POTISAK)
-
-    if (keyboard.up && this.dignutostScene - DIZAJ < MAX_DIGNUTOST) {
-      if (this.igrac.y < this.visina * 0.5) this.dizePredmete(DIZAJ)
-      if (this.brzinaScene === 0) this.pocniParalax() // kada avion ponovo uzlece
-    }
-
-    if (keyboard.down && this.dignutostScene - DIZAJ >= 0)
-      if (this.igrac.y > this.visina * 0.125) this.dizePredmete(-DIZAJ)
+    this.pocetniProzor('Tvoj zadatak je da uništiš neprijateljski tenk i uspešno sletiš')
   }
 
   pocniParalax() {
@@ -137,5 +111,32 @@ export default class Avionce1942 extends Scena {
 
   proveriTlo() {
     if (this.igrac.jePrizemljen() && this.dignutostScene === 0) this.zaustaviParalax()
+  }
+
+  proveriTipke() {
+    if (!this.igrac.ziv) return
+
+    if (keyboard.right && this.brzinaScene < MAX_BRZINA)
+      this.ubrzavaPredmete($.KRUZNICA / 2, POTISAK)
+
+    if (keyboard.left && this.brzinaScene >= MIN_BRZINA)
+      this.ubrzavaPredmete($.KRUZNICA / 2, -POTISAK)
+
+    if (keyboard.up && this.dignutostScene - DIZAJ < MAX_DIGNUTOST) {
+      if (this.igrac.y < this.visina * 0.5) this.dizePredmete(DIZAJ)
+      if (this.brzinaScene === 0) this.pocniParalax() // kada avion ponovo uzlece
+    }
+
+    if (keyboard.down && this.dignutostScene - DIZAJ >= 0)
+      if (this.igrac.y > this.visina * 0.125) this.dizePredmete(-DIZAJ)
+  }
+
+  update() {
+    crtaNebo(this.nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
+    super.update()
+    this.proveriTipke()
+    this.vozilo.patroliraj()
+    this.proveriTlo()
+    this.proveriSmrt()
   }
 }

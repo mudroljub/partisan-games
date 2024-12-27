@@ -1,14 +1,14 @@
-const platno = document.getElementById('platno')
-const podloga = platno.getContext('2d')
+export const platno = document.getElementById('platno')
+export const podloga = platno.getContext('2d')
 
 platno.height = window.innerHeight || 600 // mora prvo visina
 platno.width = document.body.clientWidth || 800
 platno.style.backgroundColor = 'lightgray'
 platno.focus()
 
-const dijagonalaPlatna = Math.sqrt(platno.height * platno.height + platno.width * platno.width)
+export const dijagonalaPlatna = Math.sqrt(platno.height * platno.height + platno.width * platno.width)
 
-function crtaNebo(nivoTla, bojaNeba = 'blue', bojaNebaPreliv = 'lightblue', pocetakPreliva = 0) {
+export function crtaNebo(nivoTla, bojaNeba = 'blue', bojaNebaPreliv = 'lightblue', pocetakPreliva = 0) {
     podloga.fillStyle = bojaNeba
     if (bojaNebaPreliv) {
         const preliv = podloga.createLinearGradient(0, pocetakPreliva, 0, nivoTla)
@@ -24,10 +24,9 @@ function crtaZemlju(nivoTla, bojaZemlje = '#00b011') {
     podloga.fillRect(0, nivoTla, platno.width, platno.height)
 }
 
-function crtaNeboZemlju(nivoTla, bojaNeba = 'lightblue', bojaZemlje = 'green', bojaNebaPreliv = 'blue') {
+export function crtaNeboZemlju(nivoTla, bojaNeba = 'lightblue', bojaZemlje = 'green', bojaNebaPreliv = 'blue') {
     crtaNebo(nivoTla, bojaNeba, bojaNebaPreliv)
     crtaZemlju(nivoTla, bojaZemlje)
 }
 
-export { platno, podloga, dijagonalaPlatna, crtaNeboZemlju }
 export default platno

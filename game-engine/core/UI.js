@@ -18,14 +18,41 @@ export default class UI {
     this.element.innerHTML = ''
   }
 
-  zavrsniProzor(poruka = 'Igra je završena.', imeScene = '') {
+  pocetniProzor(text = 'Spremi se za borbu.', callback) {
     if (this.prozor.innerHTML) return
 
     const div = document.createElement('div')
     div.className = 'prozorce centar'
 
     const p = document.createElement('p')
-    p.textContent = poruka
+    p.textContent = text
+    div.appendChild(p)
+
+    this.prozor.appendChild(div)
+
+    const start = () => {
+      this.prozor.innerHTML = ''
+      callback()
+    }
+
+    const dodajDugme = txt => {
+      const btn = document.createElement('button')
+      btn.textContent = txt
+      btn.addEventListener('click', start)
+      div.appendChild(btn)
+    }
+
+    dodajDugme('Idemo')
+  }
+
+  zavrsniProzor(text = 'Igra je završena.', imeScene = '') {
+    if (this.prozor.innerHTML) return
+
+    const div = document.createElement('div')
+    div.className = 'prozorce centar'
+
+    const p = document.createElement('p')
+    p.textContent = text
     div.appendChild(p)
 
     this.prozor.appendChild(div)
@@ -38,8 +65,8 @@ export default class UI {
     }
 
     const start = scena => {
-      this.manager.start(scena)
       this.prozor.innerHTML = ''
+      this.manager.start(scena)
     }
 
     dodajDugme('Igraj opet', () => start(imeScene))

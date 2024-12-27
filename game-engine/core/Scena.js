@@ -1,7 +1,6 @@
 import { platno, podloga } from '../io/platno.js'
 
 export default class Scena {
-
   constructor(ui) {
     this.predmeti = []
     this.platno = platno
@@ -12,10 +11,7 @@ export default class Scena {
     this.ui.sablon = () => this.sablon() // očekuje da scene imaju UI šablon
     this.lastTime = performance.now()
     this.loop = this.loop.bind(this)
-  }
-
-  sablon() {
-    return ''
+    this.pauza = false
   }
 
   dodaj(...premeti) {
@@ -57,6 +53,11 @@ export default class Scena {
   }
 
   loop(timestamp) {
+    if (this.pauza) {
+      this.lastTime = timestamp
+      requestAnimationFrame(this.loop)
+      return
+    }
     this.loopID = requestAnimationFrame(this.loop)
     const dt = (timestamp - this.lastTime) / 1000 // sekunde
     this.lastTime = timestamp
@@ -100,7 +101,16 @@ export default class Scena {
 
   /* UI */
 
-  zavrsniProzor(poruka) {
-    this.ui.zavrsniProzor(poruka, this.constructor.name)
+  pocetniProzor(text) {
+    this.ui.pocetniProzor(text, () => this.pauza = false)
+    this.pauza = true
+  }
+
+  zavrsniProzor(text) {
+    this.ui.zavrsniProzor(text, this.constructor.name)
+  }
+
+  sablon() {
+    return ''
   }
 }
