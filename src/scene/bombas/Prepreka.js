@@ -1,4 +1,4 @@
-import Predmet from 'core/Predmet.js'
+import Predmet from '/game-engine/core/Predmet.js'
 
 export default class Prepreka extends Predmet {
 

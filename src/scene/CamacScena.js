@@ -3,8 +3,8 @@
 // mozda ubaciti obale da promiču
 // nailazi na prepreke, stenje, brodolomnike, čamce, krstarice, brodove....
 
-import Scena from 'core/Scena'
-import CamacIgracOdozgo from '../2d-odozgo/CamacIgracOdozgo'
+import Scena from '/game-engine/core/Scena.js'
+import CamacIgracOdozgo from '../2d-odozgo/CamacIgracOdozgo.js'
 
 export default class CamacScena extends Scena {
   constructor(...args) {

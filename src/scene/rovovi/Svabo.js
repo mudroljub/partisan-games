@@ -1,6 +1,6 @@
-import Predmet from 'core/Predmet'
-import Vreme from 'core/Vreme'
-import mish from 'io/mish'
+import Predmet from '/game-engine/core/Predmet.js'
+import Vreme from '/game-engine/core/Vreme.js'
+import mish from '/game-engine/io/mish.js'
 
 export default class Svabo extends Predmet {
 

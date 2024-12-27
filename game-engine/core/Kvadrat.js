@@ -1,4 +1,4 @@
-import { podloga } from '../io/platno'
+import { podloga } from '../io/platno.js'
 
 export default class Kvadrat {
 

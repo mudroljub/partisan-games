@@ -2,16 +2,16 @@
 // dodati startProzor
 // dodati UI, prateća je enter
 
-import * as $ from 'konstante'
-import { keyboard } from 'io/Keyboard.js'
-import platno from 'io/platno'
-import Scena from 'core/Scena'
-import AvionIgrac from './AvionIgrac'
-import Hummel from './Hummel'
-import Zgrada from './Zgrada'
-import Oblak from 'src/2d-bocno/Oblak'
-import Zbun from 'src/2d-bocno/Zbun'
-import Shuma from 'src/2d-bocno/Shuma'
+import * as $ from '/game-engine/konstante.js'
+import { keyboard } from '/game-engine/io/Keyboard.js'
+import platno from '/game-engine/io/platno.js'
+import Scena from '/game-engine/core/Scena.js'
+import AvionIgrac from './AvionIgrac.js'
+import Hummel from './Hummel.js'
+import Zgrada from './Zgrada.js'
+import Oblak from '/src/2d-bocno/Oblak.js'
+import Zbun from '/src/2d-bocno/Zbun.js'
+import Shuma from '/src/2d-bocno/Shuma.js'
 
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10

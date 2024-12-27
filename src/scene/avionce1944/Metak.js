@@ -1,5 +1,5 @@
-import Predmet from 'core/Predmet'
-import { nestani } from 'akcije/granice'
+import Predmet from '/game-engine/core/Predmet.js'
+import { nestani } from '/game-engine/akcije/granice.js'
 
 export default class Metak extends Predmet {
 

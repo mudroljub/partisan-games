@@ -1,4 +1,4 @@
-import { podloga } from 'io/platno'
+import { podloga } from '/game-engine/io/platno.js'
 
 const GRAVITACIJA = 0.9
 

@@ -1,8 +1,8 @@
-import * as $ from 'konstante'
-import tipke from 'io/tipke'
-import { podloga } from 'io/platno'
-import Kvadrat from 'core/Kvadrat'
-import Projektil from './Projektil'
+import * as $ from '/game-engine/konstante.js'
+import tipke from '/game-engine/io/tipke.js'
+import { podloga } from '/game-engine/io/platno.js'
+import Kvadrat from '/game-engine/core/Kvadrat.js'
+import Projektil from './Projektil.js'
 
 const POMERAJ_UGLA = 0.008
 const POMERAJ_BRZINE = 0.3

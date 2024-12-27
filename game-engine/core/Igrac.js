@@ -1,6 +1,6 @@
-import * as $ from '../konstante'
-import tipke from '../io/tipke'
-import Predmet from './Predmet'
+import * as $ from '../konstante.js'
+import tipke from '../io/tipke.js'
+import Predmet from './Predmet.js'
 
 const OKRET = 0.087
 

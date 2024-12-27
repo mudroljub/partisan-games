@@ -42,6 +42,8 @@ export default [{
       SwitchCase: 1,
     }],
 
+    'import/extensions': ['error', 'always'],
+
     'key-spacing': ['warn', {
       afterColon: true,
     }],

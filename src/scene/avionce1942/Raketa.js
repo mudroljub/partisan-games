@@ -1,5 +1,5 @@
-import Predmet from 'core/Predmet'
-import { izasaoIgde } from 'akcije/granice'
+import Predmet from '/game-engine/core/Predmet.js'
+import { izasaoIgde } from '/game-engine/akcije/granice.js'
 
 export default class Raketa extends Predmet {
   constructor(vlasnik) {

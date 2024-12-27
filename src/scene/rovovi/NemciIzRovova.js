@@ -1,8 +1,8 @@
-import mish from 'io/mish'
-import Scena from 'core/Scena'
-import Pozadina from 'core/Pozadina'
-import Svabo from './Svabo'
-import Vreme from 'core/Vreme'
+import mish from '/game-engine/io/mish.js'
+import Scena from '/game-engine/core/Scena.js'
+import Pozadina from '/game-engine/core/Pozadina.js'
+import Svabo from './Svabo.js'
+import Vreme from '/game-engine/core/Vreme.js'
 
 const DALJI_Y = 150
 const BLIZI_Y = 300

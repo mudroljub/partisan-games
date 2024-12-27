@@ -1,7 +1,7 @@
-import { keyboard } from 'io/Keyboard.js'
-import Igrac from 'core/Igrac.js'
+import { keyboard } from '/game-engine/io/Keyboard.js'
+import Igrac from '/game-engine/core/Igrac.js'
 import Raketa from './Raketa.js'
-import { ogranici } from 'akcije/granice.js'
+import { ogranici } from '/game-engine/akcije/granice.js'
 
 const OKRET = 0.01
 const DOZVOLJEN_UGAO = 0.066

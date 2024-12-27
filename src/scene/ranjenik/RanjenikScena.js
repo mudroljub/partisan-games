@@ -3,14 +3,14 @@
 // povecavati broj patrola
 // u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
 
-import { izasaoDesno } from 'akcije/granice'
-import { platno, podloga } from 'io/platno'
-import { skaliranRazmak } from 'utils'
-import Scena from 'core/Scena'
-import Pozadina from 'core/Pozadina'
-import Ranjenik from './Ranjenik'
-import Patrola from './Patrola'
-import Vreme from 'core/Vreme'
+import { izasaoDesno } from '/game-engine/akcije/granice.js'
+import { platno, podloga } from '/game-engine/io/platno.js'
+import { skaliranRazmak } from '/game-engine/utils.js'
+import Scena from '/game-engine/core/Scena.js'
+import Pozadina from '/game-engine/core/Pozadina.js'
+import Ranjenik from './Ranjenik.js'
+import Patrola from './Patrola.js'
+import Vreme from '/game-engine/core/Vreme.js'
 
 const trajanjeStrelice = 500
 const pauzaCrtanja = 3000

@@ -1,4 +1,4 @@
-import * as $ from '../konstante'
+import * as $ from '../konstante.js'
 
 const tipke = {
   stisnute: new Array(256),

@@ -1,7 +1,7 @@
-import * as $ from 'konstante'
-import tipke from 'io/tipke'
-import { platno, podloga } from 'io/platno'
-import Slika from 'core/Slika'
+import * as $ from '/game-engine/konstante.js'
+import tipke from '/game-engine/io/tipke.js'
+import { platno, podloga } from '/game-engine/io/platno.js'
+import Slika from '/game-engine/core/Slika.js'
 
 const MIN_UGAO = 0
 const MAX_UGAO = 65

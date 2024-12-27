@@ -3,12 +3,12 @@
 // napraviti niz granata, da puca zaredom
 // popraviti granatu, da menja ugaoCevi sukladno gravitaciji
 
-import * as $ from 'konstante'
-import * as _ from 'utils'
-import Predmet from 'core/Predmet'
-import Igrac from 'core/Igrac'
-import platno from 'io/platno'
-import { ogranici } from 'akcije/granice'
+import * as $ from '/game-engine/konstante.js'
+import * as _ from '/game-engine/utils.js'
+import Predmet from '/game-engine/core/Predmet.js'
+import Igrac from '/game-engine/core/Igrac.js'
+import platno from '/game-engine/io/platno.js'
+import { ogranici } from '/game-engine/akcije/granice.js'
 
 export default class TenkBocnoIgrac extends Igrac {
 

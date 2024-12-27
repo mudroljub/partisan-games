@@ -2,12 +2,12 @@
 // senku ispod aviona, kao u avion.png
 // BUG: pozadina preskače
 
-import Scena from 'core/Scena'
-import { Avionce } from './Avionce'
-import { Okean } from './Okean'
-import { Ostrvo } from './Ostrvo'
-import Oblak from './Oblak'
-import platno from 'io/platno'
+import Scena from '/game-engine/core/Scena.js'
+import { Avionce } from './Avionce.js'
+import { Okean } from './Okean.js'
+import { Ostrvo } from './Ostrvo.js'
+import Oblak from './Oblak.js'
+import platno from '/game-engine/io/platno.js'
 
 const brojOblaka = 3
 const brzinaPozadine = 10

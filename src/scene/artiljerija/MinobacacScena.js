@@ -2,10 +2,10 @@
 // ubaciti sliku minobacača
 // bodovi, mozda pogoci prema pokušajima, mozda dva igraca
 
-import Scena from 'core/Scena'
-import Predmet from 'core/Predmet'
-import Kvadrat from 'core/Kvadrat'
-import Minobacac from './Minobacac'
+import Scena from '/game-engine/core/Scena.js'
+import Predmet from '/game-engine/core/Predmet.js'
+import Kvadrat from '/game-engine/core/Kvadrat.js'
+import Minobacac from './Minobacac.js'
 
 /** * KONFIG ***/
 

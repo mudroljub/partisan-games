@@ -1,4 +1,4 @@
-import TenkBocnoIgrac from './TenkBocnoIgrac'
+import TenkBocnoIgrac from './TenkBocnoIgrac.js'
 
 export default class TenkPartizanski extends TenkBocnoIgrac {
 

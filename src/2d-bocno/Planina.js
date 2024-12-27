@@ -1,6 +1,6 @@
-import Predmet from 'core/Predmet'
-import platno from 'io/platno'
-import { kruzi } from 'akcije/granice'
+import Predmet from '/game-engine/core/Predmet.js'
+import platno from '/game-engine/io/platno.js'
+import { kruzi } from '/game-engine/akcije/granice.js'
 
 export default class Planina extends Predmet {
 

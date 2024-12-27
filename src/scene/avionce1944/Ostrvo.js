@@ -1,5 +1,5 @@
-import Predmet from 'core/Predmet'
-import platno from 'io/platno'
+import Predmet from '/game-engine/core/Predmet.js'
+import platno from '/game-engine/io/platno.js'
 
 export class Ostrvo extends Predmet {
 

@@ -1,5 +1,5 @@
-import VoziloBocno from './VoziloBocno'
-import Raketa from './Raketa'
+import VoziloBocno from './VoziloBocno.js'
+import Raketa from './Raketa.js'
 
 const SANSA_PUCNJA = 0.01
 

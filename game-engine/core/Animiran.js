@@ -1,6 +1,6 @@
-import Vreme from './Vreme'
-import Predmet from './Predmet'
-import { podloga } from '../io/platno'
+import Vreme from './Vreme.js'
+import Predmet from './Predmet.js'
+import { podloga } from '../io/platno.js'
 
 export default class Animiran extends Predmet {
 

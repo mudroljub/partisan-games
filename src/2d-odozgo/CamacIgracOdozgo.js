@@ -1,4 +1,4 @@
-import VoziloIgracOdozgo from '../2d-odozgo/VoziloIgracOdozgo'
+import VoziloIgracOdozgo from '../2d-odozgo/VoziloIgracOdozgo.js'
 
 const JACINA_STRUJE = 0.1
 

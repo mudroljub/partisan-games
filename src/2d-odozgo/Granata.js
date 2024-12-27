@@ -1,4 +1,4 @@
-import Predmet from 'core/Predmet'
+import Predmet from '/game-engine/core/Predmet.js'
 
 export default class Granata extends Predmet {
 

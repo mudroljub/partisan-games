@@ -1,4 +1,4 @@
-import Scena from 'core/Scena.js'
+import Scena from '/game-engine/core/Scena.js'
 
 const items = {
   BombasScena: 'Bombaš',
@@ -11,7 +11,7 @@ const items = {
   OtpisaniScena: 'Ubij okupatora!',
   Scena1944: 'Avionče 1944',
   TenkicIde: 'Tenkić ide',
-  RanjenikScena: 'Ranjenik',
+  RanjenikScena: 'Ranjenik.js',
   JasenovacScena: 'Bekstvo iz Jasenovca'
 }
 

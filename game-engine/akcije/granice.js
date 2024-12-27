@@ -1,4 +1,4 @@
-import platno from '../io/platno'
+import platno from '../io/platno.js'
 
 /* POMOCNE FUNKCIJE */
 

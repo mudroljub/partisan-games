@@ -1,9 +1,9 @@
-import { KRUZNICA } from 'konstante'
-import Igrac from 'core/Igrac'
-import Vreme from 'core/Vreme'
-import Metak from './Metak'
-import platno from 'io/platno'
-import { ogranici } from 'akcije/granice'
+import { KRUZNICA } from '/game-engine/konstante.js'
+import Igrac from '/game-engine/core/Igrac.js'
+import Vreme from '/game-engine/core/Vreme.js'
+import Metak from './Metak.js'
+import platno from '/game-engine/io/platno.js'
+import { ogranici } from '/game-engine/akcije/granice.js'
 
 const BROJ_METAKA = 999
 const SIRINA_PALJBE = 13

@@ -2,11 +2,11 @@
 // ukloniti dvostruki interval
 // ubaciti uništen tenk
 
-import UI from 'core/UI'
-import Scena from 'core/Scena'
-import Pozadina from 'core/Pozadina'
-import TenkPartizanski from './TenkPartizanski'
-import TenkNemacki from './TenkNemacki'
+import UI from '/game-engine/core/UI.js'
+import Scena from '/game-engine/core/Scena.js'
+import Pozadina from '/game-engine/core/Pozadina.js'
+import TenkPartizanski from './TenkPartizanski.js'
+import TenkNemacki from './TenkNemacki.js'
 
 /** * INIT ***/
 

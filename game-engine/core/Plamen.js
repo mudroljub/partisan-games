@@ -1,4 +1,4 @@
-import { podloga } from '../io/platno'
+import { podloga } from '../io/platno.js'
 
 const maxLife = 60
 const speed = 3

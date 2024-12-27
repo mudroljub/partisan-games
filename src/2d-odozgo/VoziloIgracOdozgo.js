@@ -1,7 +1,7 @@
-import * as $ from 'konstante'
-import Igrac from 'core/Igrac'
-import Granata from './Granata'
-import { odbij } from 'akcije/granice'
+import * as $ from '/game-engine/konstante.js'
+import Igrac from '/game-engine/core/Igrac.js'
+import Granata from './Granata.js'
+import { odbij } from '/game-engine/akcije/granice.js'
 
 export default class VoziloIgracOdozgo extends Igrac {
 

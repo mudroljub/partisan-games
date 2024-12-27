@@ -1,5 +1,5 @@
-import { KRUZNICA } from 'konstante'
-import Predmet from 'core/Predmet'
+import { KRUZNICA } from '/game-engine/konstante.js'
+import Predmet from '/game-engine/core/Predmet.js'
 
 export default class VoziloBocno extends Predmet {
 

@@ -1,9 +1,9 @@
 // h1: Bekstvo iz Jasenovca
 
-import Scena from 'core/Scena'
-import Predmet from 'core/Predmet'
-import Pozadina from 'core/Pozadina'
-import TenkOdozgo from './TenkOdozgo'
+import Scena from '/game-engine/core/Scena.js'
+import Predmet from '/game-engine/core/Predmet.js'
+import Pozadina from '/game-engine/core/Pozadina.js'
+import TenkOdozgo from './TenkOdozgo.js'
 
 /** * INIT ***/
 

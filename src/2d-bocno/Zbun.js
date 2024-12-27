@@ -1,7 +1,7 @@
-import * as _ from 'utils'
-import Predmet from 'core/Predmet'
-import platno from 'io/platno'
-import { vracaVodoravno } from 'akcije/granice'
+import * as _ from '/game-engine/utils.js'
+import Predmet from '/game-engine/core/Predmet.js'
+import platno from '/game-engine/io/platno.js'
+import { vracaVodoravno } from '/game-engine/akcije/granice.js'
 
 export default class Zbun extends Predmet {
   constructor(nivoTla = platno.height, src = '/assets/slike/2d-bocno/priroda/zbun.png') {

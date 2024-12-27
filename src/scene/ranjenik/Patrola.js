@@ -1,7 +1,7 @@
-import { kruzi } from 'akcije/granice'
-import { nasumicnoOkruglo } from 'utils'
-import Predmet from 'core/Predmet'
-import Vreme from 'core/Vreme'
+import { kruzi } from '/game-engine/akcije/granice.js'
+import { nasumicnoOkruglo } from '/game-engine/utils.js'
+import Predmet from '/game-engine/core/Predmet.js'
+import Vreme from '/game-engine/core/Vreme.js'
 
 const zvuciTraganje = [
   'eatdirtpig.wav',

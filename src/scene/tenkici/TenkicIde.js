@@ -2,13 +2,13 @@
 // predmeti ne kruze
 // tenkovi, bunkeri, vojnici...
 
-import Scena from 'core/Scena'
-import TenkPartizanski from './TenkPartizanski'
-import Zbun from 'src/2d-bocno/Zbun'
-import Shuma from 'src/2d-bocno/Shuma'
-import Planina from 'src/2d-bocno/Planina'
-import Oblak from 'src/2d-bocno/Oblak'
-import platno from 'io/platno'
+import Scena from '/game-engine/core/Scena.js'
+import TenkPartizanski from './TenkPartizanski.js'
+import Zbun from '/src/2d-bocno/Zbun.js'
+import Shuma from '/src/2d-bocno/Shuma.js'
+import Planina from '/src/2d-bocno/Planina.js'
+import Oblak from '/src/2d-bocno/Oblak.js'
+import platno from '/game-engine/io/platno.js'
 
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10

@@ -1,9 +1,9 @@
-import Scena from 'core/Scena'
-import Vreme from 'core/Vreme'
-import UI from 'core/UI'
-import Ranjenik from './Ranjenik'
-import Pozadina from 'core/Pozadina'
-import Paljba from './Paljba'
+import Scena from '/game-engine/core/Scena.js'
+import Vreme from '/game-engine/core/Vreme.js'
+import UI from '/game-engine/core/UI.js'
+import Ranjenik from './Ranjenik.js'
+import Pozadina from '/game-engine/core/Pozadina.js'
+import Paljba from './Paljba.js'
 
 /** * KONFIG ***/
 

@@ -2,12 +2,12 @@
 // napraviti smrt (mina eksplodira, vojnik padne)
 // sukcesivno se povećava broj prepreka i težina igre
 
-import Scena from 'core/Scena'
-import Vreme from 'core/Vreme'
-import Pozadina from 'core/Pozadina'
-import Bombas from './Bombas'
-import Bunker from './Bunker'
-import Prepreka from './Prepreka'
+import Scena from '/game-engine/core/Scena.js'
+import Vreme from '/game-engine/core/Vreme.js'
+import Pozadina from '/game-engine/core/Pozadina.js'
+import Bombas from './Bombas.js'
+import Bunker from './Bunker.js'
+import Prepreka from './Prepreka.js'
 
 const ZADATO_VREME = 10
 const BROJ_PREPREKA = 10

@@ -1,8 +1,8 @@
-import Slika from './Slika'
-import { platno, podloga } from '../io/platno'
-import mish from '../io/mish'
-import { randomRange } from '../utils'
-import { sudar } from '../akcije/sudari'
+import Slika from './Slika.js'
+import { platno, podloga } from '../io/platno.js'
+import mish from '../io/mish.js'
+import { randomRange } from '../utils.js'
+import { sudar } from '../akcije/sudari.js'
 
 export default class Predmet extends Slika {
 

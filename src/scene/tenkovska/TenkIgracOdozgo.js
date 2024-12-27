@@ -1,4 +1,4 @@
-import VoziloIgracOdozgo from 'src/2d-odozgo/VoziloIgracOdozgo'
+import VoziloIgracOdozgo from '/src/2d-odozgo/VoziloIgracOdozgo.js'
 
 export class TenkIgracOdozgo extends VoziloIgracOdozgo {
 

@@ -1,5 +1,5 @@
-import Scena from 'core/Scena'
-import Top from './Top'
+import Scena from '/game-engine/core/Scena.js'
+import Top from './Top.js'
 
 export default class TopScena extends Scena {
   constructor(...args) {

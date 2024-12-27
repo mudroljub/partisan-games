@@ -1,6 +1,6 @@
-import Animiran from 'core/Animiran'
-import platno from 'io/platno'
-import mish from 'io/mish'
+import Animiran from '/game-engine/core/Animiran.js'
+import platno from '/game-engine/io/platno.js'
+import mish from '/game-engine/io/mish.js'
 
 export default class Okupator extends Animiran {
 

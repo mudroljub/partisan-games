@@ -1,9 +1,9 @@
 // BUG: mrtav reaguje na pogodak
-import Scena from 'core/Scena'
-import Pozadina from 'core/Pozadina'
-import Okupator from '../2d-prvo-lice/Okupator'
-import platno from 'io/platno'
-import mish from 'io/mish'
+import Scena from '/game-engine/core/Scena.js'
+import Pozadina from '/game-engine/core/Pozadina.js'
+import Okupator from '../2d-prvo-lice/Okupator.js'
+import platno from '/game-engine/io/platno.js'
+import mish from '/game-engine/io/mish.js'
 
 export default class OtpisaniScena extends Scena {
   constructor(...args) {

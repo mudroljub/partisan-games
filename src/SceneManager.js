@@ -1,4 +1,4 @@
-import UI from 'core/UI'
+import UI from '/game-engine/core/UI.js'
 import scene from './scene.js'
 
 export default class SceneManager {

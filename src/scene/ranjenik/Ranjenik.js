@@ -1,4 +1,4 @@
-import Igrac from 'core/Igrac'
+import Igrac from '/game-engine/core/Igrac.js'
 
 const OKRET = 0.035
 

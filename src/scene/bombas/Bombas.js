@@ -1,6 +1,6 @@
-import tipke from 'io/tipke.js'
-import mish from 'io/mish.js'
-import Igrac from 'core/Igrac.js'
+import tipke from '/game-engine/io/tipke.js'
+import mish from '/game-engine/io/mish.js'
+import Igrac from '/game-engine/core/Igrac.js'
 
 export default class Bombas extends Igrac {
 
