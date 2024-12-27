@@ -3,7 +3,7 @@
 // dodati UI, prateća je enter
 
 import * as $ from 'konstante'
-import tipke from 'io/tipke'
+import { keyboard } from 'io/Keyboard.js'
 import platno from 'io/platno'
 import Scena from 'core/Scena'
 import AvionIgrac from './AvionIgrac'
@@ -70,18 +70,18 @@ export default class Avionce1942 extends Scena {
   proveriTipke() {
     if (!this.igrac.ziv) return
 
-    if (tipke.stisnute[$.D] && this.brzinaScene < MAX_BRZINA)
+    if (keyboard.right && this.brzinaScene < MAX_BRZINA)
       this.ubrzavaPredmete($.KRUZNICA / 2, POTISAK)
 
-    if (tipke.stisnute[$.A] && this.brzinaScene >= MIN_BRZINA)
+    if (keyboard.left && this.brzinaScene >= MIN_BRZINA)
       this.ubrzavaPredmete($.KRUZNICA / 2, -POTISAK)
 
-    if (tipke.stisnute[$.W] && this.dignutostScene - DIZAJ < MAX_DIGNUTOST) {
+    if (keyboard.up && this.dignutostScene - DIZAJ < MAX_DIGNUTOST) {
       if (this.igrac.y < this.visina * 0.5) this.dizePredmete(DIZAJ)
       if (this.brzinaScene === 0) this.pocniParalax() // kada avion ponovo uzlece
     }
 
-    if (tipke.stisnute[$.S] && this.dignutostScene - DIZAJ >= 0)
+    if (keyboard.down && this.dignutostScene - DIZAJ >= 0)
       if (this.igrac.y > this.visina * 0.125) this.dizePredmete(-DIZAJ)
   }
 
