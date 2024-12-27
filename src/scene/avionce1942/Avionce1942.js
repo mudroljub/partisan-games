@@ -1,6 +1,6 @@
-// dodati startProzor (mozda i pauzu scene)
-// cilj da ubije tenk i sleti
-// dodati UI, prateća je enter
+// dodati pobedu
+// raketa da puca malo niže
+// probati da tenkovi dolaze i pucaju
 
 import * as $ from '/game-engine/konstante.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
@@ -140,5 +140,17 @@ export default class Avionce1942 extends Scena {
     this.vozilo.patroliraj()
     this.proveriTlo()
     this.proveriSmrt()
+  }
+
+  sablon() {
+    return `
+      <main class='centar'>
+        <h3>Uništi nemački tenk i bezbedno sleti! </h3>
+        <div class='tabela'>
+          Pucanje: Space <br>
+          Prateća: Enter <br>
+        </div>
+      </main>
+    `
   }
 }

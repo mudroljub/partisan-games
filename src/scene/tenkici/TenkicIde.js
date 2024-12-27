@@ -8,8 +8,7 @@ import Zbun from '/src/2d-bocno/Zbun.js'
 import Shuma from '/src/2d-bocno/Shuma.js'
 import Planina from '/src/2d-bocno/Planina.js'
 import Oblak from '/src/2d-bocno/Oblak.js'
-import platno from '/game-engine/io/platno.js'
-import { crtaNeboZemlju } from '/game-engine/io/platno.js'
+import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
 
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10

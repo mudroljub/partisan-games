@@ -10,7 +10,6 @@ export default class VoziloIgracOdozgo extends Igrac {
     this.potisak = 2
     this.prohodnost = 0.85
     this.granata = new Granata(this)
-    this.podesiTipke($.LEVO, $.DESNO, $.GORE, $.DOLE)
     this.komandeNapredne = true
     this.granice = odbij
   }

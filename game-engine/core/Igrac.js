@@ -1,5 +1,5 @@
 import * as $ from '../konstante.js'
-import tipke from '../io/tipke.js'
+import { keyboard } from '/game-engine/io/Keyboard.js'
 import Predmet from './Predmet.js'
 
 const OKRET = 0.087
@@ -11,7 +11,6 @@ export default class Igrac extends Predmet {
     this.oznake.add('igrac') // naslednik ako ukloni igrac nema tipke
     this.potisak = 0.5
     this.prohodnost = 0.9
-    this.podesiTipke()
     this.komandeNapredne = false // da se okreće oko svoje ose
     this.neprijatelji = []
     this.predmeti = []
@@ -23,6 +22,7 @@ export default class Igrac extends Predmet {
     this.praviTrenje()
   }
 
+  // TODO: trenutno ne radi. popraviti ili brisati
   podesiTipke(tipkaLevo = $.A, tipkaDesno = $.D, tipkaGore = $.W, tipkaDole = $.S, tipkaPucanje = $.RAZMAK) {
     this.tipkaLevo = tipkaLevo
     this.tipkaDesno = tipkaDesno
@@ -33,11 +33,11 @@ export default class Igrac extends Predmet {
 
   proveriTipke() {
     if (!this.ziv || !(this.oznake.has('igrac'))) return
-    if (tipke.stisnute[this.tipkaLevo]) this.nalevo()
-    if (tipke.stisnute[this.tipkaDesno]) this.nadesno()
-    if (tipke.stisnute[this.tipkaGore]) this.nagore()
-    if (tipke.stisnute[this.tipkaDole]) this.nadole()
-    if (tipke.stisnute[this.tipkaPucanje]) this.puca()
+    if (keyboard.left) this.nalevo()
+    if (keyboard.right) this.nadesno()
+    if (keyboard.up) this.nagore()
+    if (keyboard.down) this.nadole()
+    if (keyboard.space) this.puca()
   }
 
   nalevo() {

@@ -73,7 +73,6 @@ export default class BombasScena extends Scena {
   sablon() {
     return `
       <main class='centar'>
-        <h1>Bombaš</h1>
         <h3>Dovedi Žikicu Jovanovića Španca do nemačkog bunkera! </h3>
         <div class='tabela'>
           Nivo: ${nivo} <br>

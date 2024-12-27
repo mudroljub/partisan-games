@@ -81,7 +81,7 @@ class Keyboard {
     this.#capsLock = bool
   }
 
-  get jump() {
+  get space() {
     return this.pressed.Space
   }
 
