@@ -29,6 +29,7 @@ P.S. ako izbacuje grešku proveri jel već pokrenut webpack-dev-server.
 
 - ići kroz scene i raditi todo
 - BUG: pojavljuje se vertikalni slajer na rovovima, videti i drugde
+- prebaciti Input manager iz create 3D worlds
 - otkriti zašto Zgrada neće da koristi prirodnu veličinu slike?
 
 ### Faza 1: refaktor i sredjivanje
