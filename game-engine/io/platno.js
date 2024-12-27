@@ -1,9 +1,8 @@
 export const platno = document.getElementById('platno')
 export const podloga = platno.getContext('2d')
 
-platno.height = window.innerHeight || 600 // mora prvo visina
-platno.width = document.body.clientWidth || 800
-platno.style.backgroundColor = 'lightgray'
+platno.width = window.innerWidth
+platno.height = window.innerHeight
 platno.focus()
 
 export const dijagonalaPlatna = Math.sqrt(platno.height * platno.height + platno.width * platno.width)

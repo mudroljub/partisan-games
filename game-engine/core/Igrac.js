@@ -1,3 +1,4 @@
+import { KRUZNICA } from '/game-engine/konstante.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Predmet from './Predmet.js'
 
@@ -43,7 +44,7 @@ export default class Igrac extends Predmet {
     if (this.komandeNapredne)
       this.ugao -= OKRET
     else
-      this.dodajSilu(this.potisak, $.KRUZNICA / 2)
+      this.dodajSilu(this.potisak, KRUZNICA / 2)
   }
 
   nadesno() {
@@ -54,12 +55,12 @@ export default class Igrac extends Predmet {
   }
 
   nagore() {
-    const ugao = this.komandeNapredne ? this.ugao : -$.KRUZNICA / 4
+    const ugao = this.komandeNapredne ? this.ugao : -KRUZNICA / 4
     this.dodajSilu(this.potisak, ugao)
   }
 
   nadole() {
-    const ugao = this.komandeNapredne ? this.ugao : $.KRUZNICA / 4
+    const ugao = this.komandeNapredne ? this.ugao : KRUZNICA / 4
     const potisak = this.komandeNapredne ? (-this.potisak / 10) : this.potisak
     this.dodajSilu(potisak, ugao)
   }

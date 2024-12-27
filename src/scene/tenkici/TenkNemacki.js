@@ -7,5 +7,4 @@ export default class TenkNemacki extends TenkBocnoIgrac {
     this.postaviCev('/assets/slike/2d-bocno/nemacki-tenk-cev.png', 100, 7)
     this.polozaj(x, y)
   }
-
 }
