@@ -5,17 +5,13 @@ const preventSome = e => {
 }
 
 class Keyboard {
+  #capsLock = false
 
   constructor({ listen = true, attackKey = 'Enter' } = {}) {
-    this._capsLock = false
     this.pressed = {}
     this.attackKey = attackKey
 
     if (!listen) return
-
-    this.handlePointerDown = this.handlePointerDown.bind(this)
-    this.handlePointerUp = this.handlePointerUp.bind(this)
-    this.reset = this.reset.bind(this)
 
     document.addEventListener('contextmenu', e => e.preventDefault())
 
@@ -35,15 +31,15 @@ class Keyboard {
     window.addEventListener('blur', this.reset)
   }
 
-  handlePointerDown(e) {
+  handlePointerDown = e => {
     if (e.button === 0) this.pressed.pointer = true
   }
 
-  handlePointerUp(e) {
+  handlePointerUp = e => {
     if (e.button === 0) this.pressed.pointer = false
   }
 
-  reset() {
+  reset = () => {
     for (const key in this.pressed) delete this.pressed[key]
   }
 
@@ -78,11 +74,11 @@ class Keyboard {
   }
 
   get run() {
-    return this._capsLock
+    return this.#capsLock
   }
 
   set run(bool) {
-    this._capsLock = bool
+    this.#capsLock = bool
   }
 
   get jump() {
