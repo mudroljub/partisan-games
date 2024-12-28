@@ -1,6 +1,4 @@
-// popraviti zgrade
 // dodati pobedu
-// raketa da puca malo niže
 // probati da tenkovi dolaze i pucaju
 import { KRUZNICA } from '/game-engine/konstante.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'

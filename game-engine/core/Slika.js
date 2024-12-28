@@ -18,6 +18,7 @@ export default class Slika {
     this.slikaMrtav = src
   }
 
+  /* ovde postaje dostupna visina i širina slike */
   onload() {}
 
   set slikaMrtav(src) {
@@ -43,5 +44,4 @@ export default class Slika {
     this.sirina *= procenat
     this.visina *= procenat
   }
-
 }

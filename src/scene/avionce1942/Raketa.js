@@ -5,7 +5,7 @@ export default class Raketa extends Predmet {
   constructor(vlasnik) {
     super('/assets/slike/raketa.png', 30, 20)
     this.vlasnik = vlasnik
-    this.pocetniUgao = this.vlasnik.ugao + 19
+    this.pocetniUgao = this.vlasnik.ugao + Math.PI / 16
     this.oznake.add('raketa')
     this.cilj = 'neprijatelj'
     this.reset()
