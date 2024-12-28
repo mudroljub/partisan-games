@@ -1,4 +1,3 @@
-// dodati pobedu
 // probati da tenkovi dolaze i pucaju
 import { KRUZNICA } from '/game-engine/konstante.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
@@ -100,11 +99,14 @@ export default class Avionce1942 extends Scena {
       this.dizePredmete(-DIZAJ)
 
     if (this.igrac.mrtav)
-      this.zavrsniProzor()
+      this.zavrsniProzor('Slavno si pao.')
   }
 
   proveriTlo() {
-    if (this.igrac.jePrizemljen() && this.dignutostScene === 0) this.zaustaviParalax()
+    if (this.igrac.jePrizemljen() && this.dignutostScene === 0) {
+      this.zaustaviParalax()
+      if (this.igrac.ziv && this.vozilo.mrtav) this.zavrsniProzor('Misija je uspešno završena!')
+    }
   }
 
   proveriTipke() {
