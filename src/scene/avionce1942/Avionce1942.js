@@ -8,7 +8,7 @@ import platno, { crtaNebo } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import AvionIgrac from './AvionIgrac.js'
 import Hummel from './Hummel.js'
-import Zgrada from './Zgrada.js'
+import Aerodrom from './Aerodrom.js'
 import Ruina from './Ruina.js'
 import Oblak from '/src/2d-bocno/Oblak.js'
 import Zbun from '/src/2d-bocno/Zbun.js'
@@ -38,7 +38,7 @@ export default class Avionce1942 extends Scena {
     this.brzinaScene = 0
     this.dignutostScene = 0
 
-    this.aerodrom = new Zgrada(this.nivoTla)
+    this.aerodrom = new Aerodrom(this.nivoTla)
     this.ruina = new Ruina(this.nivoTla)
     this.vozilo = new Hummel(this.nivoTla)
     this.igrac = new AvionIgrac(this.nivoTla)
@@ -46,9 +46,6 @@ export default class Avionce1942 extends Scena {
     this.vozilo.neprijatelji.push(this.igrac)
     this.igrac.neprijatelji.push(this.vozilo)
     this.igrac.predmeti.push(this.vozilo, this.ruina)
-
-    this.ruina.procenatVracanja = 0.01
-    this.aerodrom.procenatVracanja = 0.001
 
     this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak())
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun())

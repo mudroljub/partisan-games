@@ -8,12 +8,13 @@ Male igrice o Nemcima i partizanima.
 
 - BUG: nekad ne učita slike
     - da prvo učita sve slike pre nego što scena krene
-- otkriti zašto Zgrada neće da koristi prirodnu veličinu slike?
 - da na esc napuštati nivo
 - refaktor Pozadina da nasleđuje Slika, ne Predmet
 - OPTIMIZACIJA
     - proveriti šta se učitava na naslovnoj, šta se instancira
     - uklanjati događaje i sve čistiti na kraju nivoa
+- TEST:
+    - proveriti sve nivoe sa sporijim i bržim fps
 
 ### Faza 1: refaktor i sredjivanje
 - Avionce: promeniti zvuk motora
