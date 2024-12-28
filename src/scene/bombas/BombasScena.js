@@ -1,3 +1,4 @@
+// FIX: da se ne preklapa bombaš sa minama, dodeliti jedinstvene pozicije
 // mitraljez puca iz bunkera, prepreke su zakloni
 // napraviti smrt (mina eksplodira, vojnik padne)
 // sukcesivno se povećava broj prepreka i težina igre
@@ -24,7 +25,7 @@ export default class BombasScena extends Scena {
     const pozadina = new Pozadina('/assets/slike/teksture/beton.gif')
     this.bombas = new Bombas('/assets/slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif', 50, 55)
     this.bunker = new Bunker()
-    this.bunker.nemojPreko(this.bombas)
+    this.bunker.onload = () => this.bunker.nemojPreko(this.bombas)
     this.dodaj(pozadina, this.bunker, this.bombas)
     this.praviPrepreke()
   }

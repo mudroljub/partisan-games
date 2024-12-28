@@ -1,8 +1,7 @@
 // dodati pobedu
 // raketa da puca malo niže
 // probati da tenkovi dolaze i pucaju
-
-import * as $ from '/game-engine/konstante.js'
+import { KRUZNICA } from '/game-engine/konstante.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import platno, { crtaNebo } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
@@ -116,10 +115,10 @@ export default class Avionce1942 extends Scena {
     if (!this.igrac.ziv) return
 
     if (keyboard.right && this.brzinaScene < MAX_BRZINA)
-      this.ubrzavaPredmete($.KRUZNICA / 2, POTISAK)
+      this.ubrzavaPredmete(KRUZNICA / 2, POTISAK)
 
     if (keyboard.left && this.brzinaScene >= MIN_BRZINA)
-      this.ubrzavaPredmete($.KRUZNICA / 2, -POTISAK)
+      this.ubrzavaPredmete(KRUZNICA / 2, -POTISAK)
 
     if (keyboard.up && this.dignutostScene - DIZAJ < MAX_DIGNUTOST) {
       if (this.igrac.y < this.visina * 0.5) this.dizePredmete(DIZAJ)
