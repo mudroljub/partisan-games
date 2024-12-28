@@ -9,6 +9,7 @@ import Scena from '/game-engine/core/Scena.js'
 import AvionIgrac from './AvionIgrac.js'
 import Hummel from './Hummel.js'
 import Zgrada from './Zgrada.js'
+import Ruina from './Ruina.js'
 import Oblak from '/src/2d-bocno/Oblak.js'
 import Zbun from '/src/2d-bocno/Zbun.js'
 import Shuma from '/src/2d-bocno/Shuma.js'
@@ -37,8 +38,8 @@ export default class Avionce1942 extends Scena {
     this.brzinaScene = 0
     this.dignutostScene = 0
 
-    this.aerodrom = new Zgrada(this.nivoTla, '/assets/slike/2d-bocno/zgrade/aerodrom.png')
-    this.ruina = new Zgrada(this.nivoTla, '/assets/slike/2d-bocno/zgrade/ruina.png')
+    this.aerodrom = new Zgrada(this.nivoTla)
+    this.ruina = new Ruina(this.nivoTla)
     this.vozilo = new Hummel(this.nivoTla)
     this.igrac = new AvionIgrac(this.nivoTla)
 
@@ -46,10 +47,6 @@ export default class Avionce1942 extends Scena {
     this.igrac.neprijatelji.push(this.vozilo)
     this.igrac.predmeti.push(this.vozilo, this.ruina)
 
-    this.ruina.onload = () => {
-      this.ruina.x = -this.ruina.sirina
-      this.ruina.tlo(this.nivoTla)
-    }
     this.ruina.procenatVracanja = 0.01
     this.aerodrom.procenatVracanja = 0.001
 
