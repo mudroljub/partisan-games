@@ -6,8 +6,8 @@ import OtpisaniScena from './scene/OtpisaniScena.js'
 import Scena1944 from './scene/avionce1944/Scena1944.js'
 
 // za spajanje
-import MinobacacScena from './scene/artiljerija/MinobacacScena.js'
-import TopScena from './scene/artiljerija/TopScena.js'
+import MinobacacScena from './scene/minobacac/MinobacacScena.js'
+import TopScena from './scene/top/TopScena.js'
 
 // za spajanje
 import TenkicIde from './scene/tenkici/TenkicIde.js'

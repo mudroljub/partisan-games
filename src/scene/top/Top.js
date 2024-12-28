@@ -19,17 +19,11 @@ export default class Top {
     this.projektil = {}
   }
 
-  update() {
-    this.proveriTipke()
-    this.azuriraProjektil()
-    this.crtaProjektil()
-    this.crtaCev()
-    this.crtaPostolje()
-  }
-
   postaviCev() {
     this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif')
-    this.cev.x = this.x + (this.cev.slika.width / 2)
+    this.cev.onload = () => {
+      this.cev.x = this.x + (this.cev.slika.width / 2)
+    }
     this.cev.y = this.y
   }
 
@@ -66,13 +60,12 @@ export default class Top {
   /* UNOS */
 
   proveriTipke() {
-    if (keyboard.space) {
-      this.puca()
-      return
-    }
+    if (keyboard.space) this.puca()
+
     if (keyboard.left && !this.projektil.ispaljen) this.brzina--
     if (keyboard.right && !this.projektil.ispaljen) this.brzina++
     if (this.brzina <= MIN_BRZINA) this.brzina = MIN_BRZINA
+
     if (keyboard.up) this.ugao += 0.5
     if (keyboard.down) this.ugao -= 0.5
     if (this.ugao >= MAX_UGAO) this.ugao = MAX_UGAO
@@ -94,9 +87,18 @@ export default class Top {
   }
 
   crtaProjektil() {
+    if (!this.projektil.ispaljen) return
     podloga.fillStyle = 'black'
     podloga.beginPath()
     podloga.arc(this.projektil.x, this.projektil.y, 5, 0, Math.PI * 2)
     podloga.fill()
+  }
+
+  update() {
+    this.proveriTipke()
+    this.azuriraProjektil()
+    this.crtaProjektil()
+    this.crtaCev()
+    this.crtaPostolje()
   }
 }
