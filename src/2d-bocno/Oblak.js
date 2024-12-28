@@ -7,9 +7,12 @@ export default class Oblak extends Predmet {
 
   constructor(sirina, visina, src = '/assets/slike/oblak.gif') {
     super(src, sirina, visina)
-    this.polozaj(Math.random() * platno.width, _.randomRange(0, platno.height - this.visina))
     this.dy = Math.random() * 2 - 1
     this.procenatVracanja = 1
+  }
+
+  onload() {
+    this.polozaj(Math.random() * platno.width, _.randomRange(0, platno.height - this.visina))
   }
 
   proveriGranice() {

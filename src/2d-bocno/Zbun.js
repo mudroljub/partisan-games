@@ -7,7 +7,7 @@ export default class Zbun extends Predmet {
   constructor(nivoTla = platno.height, src = '/assets/slike/2d-bocno/priroda/zbun.png') {
     super (src)
     this.procenatVracanja = 1
-    this.randomDoTla(nivoTla)
+    this.onload = () => this.randomDoTla(nivoTla)
   }
 
   randomDoTla(nivoTla) {
