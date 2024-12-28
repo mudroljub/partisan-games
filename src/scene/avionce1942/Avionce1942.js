@@ -1,3 +1,4 @@
+// popraviti zgrade
 // dodati pobedu
 // raketa da puca malo niže
 // probati da tenkovi dolaze i pucaju
@@ -45,7 +46,10 @@ export default class Avionce1942 extends Scena {
     this.igrac.neprijatelji.push(this.vozilo)
     this.igrac.predmeti.push(this.vozilo, this.ruina)
 
-    this.ruina.x = -this.ruina.sirina
+    this.ruina.onload = () => {
+      this.ruina.x = -this.ruina.sirina
+      this.ruina.tlo(this.nivoTla)
+    }
     this.ruina.procenatVracanja = 0.01
     this.aerodrom.procenatVracanja = 0.001
 
