@@ -15,17 +15,12 @@ export default class Top {
     this.ugao = 20
     this.brzina = 30
     this.postolje = new Slika('/assets/slike/2d-bocno/top-postolje.gif')
-    this.cev = {}
-    this.postaviCev()
-    this.projektil = new Projektil()
-  }
-
-  postaviCev() {
     this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif')
     this.cev.onload = () => {
       this.cev.x = this.x + (this.cev.slika.width / 2)
     }
     this.cev.y = this.y
+    this.projektil = new Projektil(this)
   }
 
   puca() {
@@ -82,18 +77,10 @@ export default class Top {
     podloga.restore()
   }
 
-  crtaProjektil() {
-    if (!this.projektil.ispaljen) return
-    podloga.fillStyle = 'black'
-    podloga.beginPath()
-    podloga.arc(this.projektil.x, this.projektil.y, 5, 0, Math.PI * 2)
-    podloga.fill()
-  }
-
   update() {
     this.proveriTipke()
     this.azuriraProjektil()
-    this.crtaProjektil()
+    this.projektil.crta()
     this.crtaCev()
     this.crtaPostolje()
   }
