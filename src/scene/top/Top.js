@@ -20,7 +20,7 @@ export default class Top {
     if (!this.projektil.ispaljen && keyboard.space)
       this.sila += 10
     else if (this.sila > this.minSila)
-      this.puca()
+      this.pali()
 
     if (keyboard.up) this.cev.ugao = Math.max(this.cev.ugao - 0.5 * dt, MAX_UGAO)
     if (keyboard.down) this.cev.ugao = Math.min(this.cev.ugao + 0.5 * dt, MIN_UGAO)
@@ -32,9 +32,9 @@ export default class Top {
     this.projektil.y = this.cev.y - poluprecnik * Math.sin(-this.cev.ugao) + 8
   }
 
-  puca() {
+  pali() {
     this.pripremi()
-    this.projektil.puca(this.sila, this.cev.ugao)
+    this.projektil.pali(this.sila, this.cev.ugao)
     this.sila = this.minSila
   }
 
