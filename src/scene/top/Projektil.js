@@ -16,20 +16,7 @@ export default class Projektil {
     this.ispaljen = false
   }
 
-  crta() {
-    if (!this.ispaljen) return
-    podloga.fillStyle = 'black'
-    podloga.beginPath()
-    podloga.arc(this.x, this.y, 5, 0, Math.PI * 2)
-    podloga.fill()
-  }
-
-  leti() {
-    this.x += this.vlasnik.brzina * Math.cos(this.vlasnik.ugao * Math.PI / 180)
-    this.y -= this.vlasnik.brzina * Math.sin(this.vlasnik.ugao * Math.PI / 180)
-  }
-
-  pozicioniraj() {
+  pozicionira() {
     const centarCeviX = this.vlasnik.cev.x + this.vlasnik.cev.sirina / 4
     const centarCeviY = this.vlasnik.cev.y + this.vlasnik.cev.visina * 0.71
     const dijagonalaCevi = this.vlasnik.cev.sirina * 3 / 4
@@ -37,8 +24,22 @@ export default class Projektil {
     this.y = centarCeviY - dijagonalaCevi * Math.sin(this.vlasnik.ugao * Math.PI / 180)
   }
 
+  leti() {
+    this.x += this.vlasnik.brzina * Math.cos(this.vlasnik.ugao * Math.PI / 180)
+    this.y -= this.vlasnik.brzina * Math.sin(this.vlasnik.ugao * Math.PI / 180)
+  }
+
+  crta() {
+    if (!this.ispaljen) return
+
+    podloga.fillStyle = 'black'
+    podloga.beginPath()
+    podloga.arc(this.x, this.y, 5, 0, Math.PI * 2)
+    podloga.fill()
+  }
+
   update() {
-    if (!this.ispaljen) this.pozicioniraj()
+    if (!this.ispaljen) this.pozicionira()
     if (this.ispaljen) this.leti()
     if (this.jeVanEkrana) this.reset()
   }
