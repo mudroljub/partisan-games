@@ -1,6 +1,6 @@
 import { platno, ctx } from '/game-engine/io/platno.js'
 
-const g = -98
+const g = -9.8
 
 export default class Projektil {
   constructor(x = 0, y = 0) {
@@ -25,8 +25,8 @@ export default class Projektil {
 
   leti(dt) {
     this.x += this.vx * dt
-    this.y += this.vy * dt - 0.5 * g * dt ** 2
-    this.vy -= g * dt
+    this.y += this.vy * dt
+    this.vy -= g
   }
 
   crta() {
@@ -37,10 +37,9 @@ export default class Projektil {
   }
 
   update(dt) {
-    if (this.ispaljen) {
-      this.leti(dt)
-      this.crta()
-    }
+    if (!this.ispaljen) return
+    this.leti(dt)
+    this.crta()
     if (this.jeVanEkrana) this.reset()
   }
 }

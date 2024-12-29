@@ -11,7 +11,7 @@ export default class TopScena extends Scena {
   }
 
   sablon() {
-    const max = 1000
+    const max = 1500
     const procenat = (this.top.sila - this.top.minSila) / (max - this.top.minSila) * 100
 
     return `
