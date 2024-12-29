@@ -1,5 +1,6 @@
 // smanjiti malo top
 // srediti trajektoriju
+// da ispaljuje više kugli
 // dodati progres bar
 // dodati metu
 import Scena from '/game-engine/core/Scena.js'
