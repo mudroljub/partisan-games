@@ -31,8 +31,14 @@ export default class Minobacac extends Kvadrat {
     return this.y + this.visina * 0.5 - this.sirina * Math.sin(this.ugao)
   }
 
+  pripremi() {
+    this.projektil.x = this.vrhCeviX - this.dx
+    this.projektil.y = this.vrhCeviY - this.dy
+  }
+
   pali() {
-    this.projektil.pali()
+    this.pripremi()
+    this.projektil.pali(this.sila, this.ugao)
   }
 
   proveriTipke() {

@@ -10,16 +10,10 @@ export default class Projektil {
     this.ispaljeno = false
   }
 
-  pripremi() {
-    this.dx = this.vlasnik.dx
-    this.dy = this.vlasnik.dy
-    this.x = this.vlasnik.vrhCeviX - this.dx
-    this.y = this.vlasnik.vrhCeviY - this.dy
-  }
-
-  pali() {
-    this.pripremi()
+  pali(sila, ugao) {
     this.ispaljeno = true
+    this.dx = sila * Math.cos(ugao)
+    this.dy = -sila * Math.sin(ugao)
   }
 
   leti(dt) {
