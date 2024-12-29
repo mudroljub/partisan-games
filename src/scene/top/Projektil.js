@@ -24,4 +24,8 @@ export default class Projektil {
     podloga.fill()
   }
 
+  leti() {
+    this.x += this.vlasnik.brzina * Math.cos(this.vlasnik.ugao * Math.PI / 180)
+    this.y -= this.vlasnik.brzina * Math.sin(this.vlasnik.ugao * Math.PI / 180)
+  }
 }

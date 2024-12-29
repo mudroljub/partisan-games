@@ -31,7 +31,7 @@ export default class Top {
 
   azuriraProjektil() {
     if (!this.projektil.ispaljen) this.pozicioniraProjektil()
-    if (this.projektil.ispaljen) this.letiProjektil()
+    if (this.projektil.ispaljen) this.projektil.leti()
     if (this.projektil.jeVanEkrana) this.projektil.reset()
   }
 
@@ -41,11 +41,6 @@ export default class Top {
     const dijagonalaCevi = this.cev.sirina * 3 / 4
     this.projektil.x = centarCeviX + dijagonalaCevi * Math.cos(this.ugao * Math.PI / 180)
     this.projektil.y = centarCeviY - dijagonalaCevi * Math.sin(this.ugao * Math.PI / 180)
-  }
-
-  letiProjektil() {
-    this.projektil.x += this.brzina * Math.cos(this.ugao * Math.PI / 180)
-    this.projektil.y -= this.brzina * Math.sin(this.ugao * Math.PI / 180)
   }
 
   /* UNOS */
