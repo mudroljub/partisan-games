@@ -20,7 +20,7 @@ export default class Top {
     }
     this.cev.y = this.y
     this.cev.ugaoStepeni = 20
-    this.projektil = new Projektil(this)
+    this.projektil = new Projektil(this.cev)
   }
 
   puca() {

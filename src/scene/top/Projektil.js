@@ -1,11 +1,11 @@
 import { platno, ctx } from '/game-engine/io/platno.js'
 
 export default class Projektil {
-  constructor(vlasnik) {
+  constructor(cev) {
     this.x = 0
     this.y = 0
     this.ispaljen = false
-    this.vlasnik = vlasnik
+    this.cev = cev
   }
 
   get jeVanEkrana() {
@@ -23,11 +23,11 @@ export default class Projektil {
   }
 
   pozicioniraj() {
-    const centarCeviX = this.vlasnik.cev.x + this.vlasnik.cev.sirina / 4
-    const centarCeviY = this.vlasnik.cev.y + this.vlasnik.cev.visina * 0.71
-    const dijagonalaCevi = this.vlasnik.cev.sirina * 3 / 4
-    this.x = centarCeviX + dijagonalaCevi * Math.cos(this.vlasnik.cev.ugao)
-    this.y = centarCeviY - dijagonalaCevi * Math.sin(this.vlasnik.cev.ugao)
+    const centarCeviX = this.cev.x + this.cev.sirina / 4
+    const centarCeviY = this.cev.y + this.cev.visina * 0.71
+    const dijagonalaCevi = this.cev.sirina * 3 / 4
+    this.x = centarCeviX + dijagonalaCevi * Math.cos(this.cev.ugao)
+    this.y = centarCeviY - dijagonalaCevi * Math.sin(this.cev.ugao)
   }
 
   leti(dt) {
