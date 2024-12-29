@@ -2,7 +2,7 @@ import { ctx } from '../io/platno.js'
 
 export default class Slika {
 
-  constructor(src, sirina, visina, x = 200, y = 200) {
+  constructor(src, x = 200, y = 200, sirina, visina) {
     this.slika = new Image()
     this.sirina = sirina
     this.visina = visina
