@@ -10,12 +10,6 @@ export default class Projektil {
     this.ispaljeno = false
   }
 
-  update() {
-    if (!this.ispaljeno) return
-    this.leti()
-    this.crta()
-  }
-
   pripremi() {
     this.dx = this.vlasnik.dx
     this.dy = this.vlasnik.dy
@@ -34,6 +28,11 @@ export default class Projektil {
     this.y += this.dy
   }
 
+  sudara(predmet) {
+    return (this.x >= predmet.x) && (this.x <= (predmet.x + predmet.sirina)) &&
+      (this.y >= predmet.y) && (this.y <= (predmet.y + predmet.visina))
+  }
+
   crta() {
     ctx.fillStyle = this.boja
     ctx.beginPath()
@@ -41,8 +40,9 @@ export default class Projektil {
     ctx.fill()
   }
 
-  sudara(predmet) {
-    return (this.x >= predmet.x) && (this.x <= (predmet.x + predmet.sirina)) &&
-      (this.y >= predmet.y) && (this.y <= (predmet.y + predmet.visina))
+  update() {
+    if (!this.ispaljeno) return
+    this.leti()
+    this.crta()
   }
 }

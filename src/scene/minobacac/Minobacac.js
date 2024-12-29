@@ -29,7 +29,7 @@ export default class Minobacac extends Kvadrat {
   }
 
   get vrhCeviY() {
-    return this.y + (this.visina * 0.5) - this.sirina * Math.sin(this.ugao)
+    return this.y + this.visina * 0.5 - this.sirina * Math.sin(this.ugao)
   }
 
   pali() {
