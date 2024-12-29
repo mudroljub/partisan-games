@@ -6,6 +6,5 @@ export default class Pozadina extends Slika {
     super(slika, { sirina: platno.width, visina: platno.height })
     this.x = platno.width / 2
     this.y = platno.height / 2
-    // this.oznake.add('pozadina')
   }
 }

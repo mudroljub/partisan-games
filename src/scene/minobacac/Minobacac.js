@@ -10,7 +10,7 @@ export default class Minobacac extends Kvadrat {
   constructor(x, y, sirina, visina, boja = 'rgb(40,40,0)') {
     super(x, y, sirina, visina, boja)
     this.ugao = 0.5
-    this.sila = 500
+    this.sila = this.minSila = 400
     this.projektil = new Projektil()
   }
 
@@ -30,16 +30,19 @@ export default class Minobacac extends Kvadrat {
   pali() {
     this.pripremi()
     this.projektil.pali(this.sila, this.ugao)
+    this.sila = this.minSila
   }
 
   proveriTipke() {
-    if (keyboard.space) this.pali()
-    if (keyboard.up) this.ugao += POMERAJ_UGLA
-    if (keyboard.down) this.ugao -= POMERAJ_UGLA
+    if (!this.projektil.ispaljen && keyboard.space)
+      this.sila += KORAK_SILE
+    else if (this.sila > this.minSila)
+      this.pali()
 
-    if (keyboard.left) this.sila -= KORAK_SILE
-    if (keyboard.right) this.sila += KORAK_SILE
-    if (this.sila <= 0) this.sila = 0
+    if (keyboard.up || keyboard.left)
+      this.ugao += POMERAJ_UGLA
+    if (keyboard.down || keyboard.right)
+      this.ugao -= POMERAJ_UGLA
   }
 
   update(dt) {

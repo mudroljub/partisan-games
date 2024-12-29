@@ -1,4 +1,3 @@
-// dodati punjenje na space
 // ubaciti sliku minobacača i posadu
 // bodovi, mozda pogoci prema pokušajima
 // mozda dva igraca, odnosno jedan po jedan potezno
