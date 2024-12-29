@@ -1,6 +1,7 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import { platno, podloga } from '/game-engine/io/platno.js'
 import Slika from '/game-engine/core/Slika.js'
+import Projektil from './Projektil.js'
 
 const MIN_UGAO = 0
 const MAX_UGAO = 65
@@ -16,7 +17,7 @@ export default class Top {
     this.postolje = new Slika('/assets/slike/2d-bocno/top-postolje.gif')
     this.cev = {}
     this.postaviCev()
-    this.projektil = {}
+    this.projektil = new Projektil()
   }
 
   postaviCev() {
@@ -25,10 +26,6 @@ export default class Top {
       this.cev.x = this.x + (this.cev.slika.width / 2)
     }
     this.cev.y = this.y
-  }
-
-  puni() {
-    this.projektil.ispaljen = false
   }
 
   puca() {
@@ -40,8 +37,7 @@ export default class Top {
   azuriraProjektil() {
     if (!this.projektil.ispaljen) this.pozicioniraProjektil()
     if (this.projektil.ispaljen) this.letiProjektil()
-    const jeVanEkrana = this.projektil.x > platno.width || this.projektil.y > platno.height
-    if (jeVanEkrana) this.puni()
+    if (this.projektil.jeVanEkrana) this.projektil.reset()
   }
 
   pozicioniraProjektil() {
