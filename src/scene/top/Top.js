@@ -14,9 +14,13 @@ export default class Top {
     this.y = y
     this.sila = MIN_SILA
     this.postolje = new Slika('/assets/slike/2d-bocno/top-postolje.gif')
+    this.postolje.onload = () => {
+      this.postolje.x = this.x + (this.postolje.sirina / 2)
+      this.postolje.y = this.y + (this.postolje.visina / 2)
+    }
     this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif')
     this.cev.onload = () => {
-      this.cev.x = this.x + (this.cev.slika.width / 2)
+      this.cev.x = this.x + (this.cev.sirina / 2)
     }
     this.cev.y = this.y
     this.cev.ugaoStepeni = 20
@@ -60,6 +64,7 @@ export default class Top {
     this.proveriTipke()
     this.projektil.update(dt)
     this.crtaCev()
-    this.crtaPostolje()
+    // this.crtaPostolje()
+    this.postolje.crta()
   }
 }
