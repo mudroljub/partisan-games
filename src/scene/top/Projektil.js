@@ -12,11 +12,17 @@ export default class Projektil {
     return this.x > platno.width || this.y > platno.height
   }
 
+  puca(sila, ugao) {
+    this.sila = sila
+    this.ugao = ugao
+    this.ispaljen = true
+  }
+
   reset() {
     this.ispaljen = false
   }
 
-  pozicionira() {
+  pozicioniraj() {
     const centarCeviX = this.vlasnik.cev.x + this.vlasnik.cev.sirina / 4
     const centarCeviY = this.vlasnik.cev.y + this.vlasnik.cev.visina * 0.71
     const dijagonalaCevi = this.vlasnik.cev.sirina * 3 / 4
@@ -25,8 +31,8 @@ export default class Projektil {
   }
 
   leti(dt) {
-    this.x += this.vlasnik.brzina * Math.cos(this.vlasnik.ugao * Math.PI / 180) * dt
-    this.y -= this.vlasnik.brzina * Math.sin(this.vlasnik.ugao * Math.PI / 180) * dt
+    this.x += this.sila * Math.cos(this.ugao * Math.PI / 180) * dt
+    this.y -= this.sila * Math.sin(this.ugao * Math.PI / 180) * dt
   }
 
   crta() {
@@ -39,8 +45,9 @@ export default class Projektil {
   }
 
   update(dt) {
-    if (!this.ispaljen) this.pozicionira()
+    if (!this.ispaljen) this.pozicioniraj()
     if (this.ispaljen) this.leti(dt)
     if (this.jeVanEkrana) this.reset()
+    this.crta()
   }
 }

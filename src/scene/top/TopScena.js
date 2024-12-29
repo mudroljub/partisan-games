@@ -1,7 +1,7 @@
-// brzina/sila da se puni na space
 // dodati metu
 // smanjiti malo top
 // srediti trajektoriju
+// sila progres bar
 import Scena from '/game-engine/core/Scena.js'
 import Top from './Top.js'
 
@@ -14,9 +14,9 @@ export default class TopScena extends Scena {
 
   sablon() {
     return `
-    <div>
+    <div class="komande">
       ugao: ${this.top.ugao}<br>
-      brzina: ${this.top.brzina}
+      sila: ${this.top.sila}
     </div>
     `
   }

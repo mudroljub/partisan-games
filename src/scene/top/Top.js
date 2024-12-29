@@ -5,7 +5,7 @@ import Projektil from './Projektil.js'
 
 const MIN_UGAO = 0
 const MAX_UGAO = 45
-const MIN_BRZINA = 700
+const MIN_SILA = 300
 
 export default class Top {
 
@@ -13,7 +13,7 @@ export default class Top {
     this.x = x
     this.y = y
     this.ugao = 20
-    this.brzina = MIN_BRZINA
+    this.sila = MIN_SILA
     this.postolje = new Slika('/assets/slike/2d-bocno/top-postolje.gif')
     this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif')
     this.cev.onload = () => {
@@ -24,17 +24,17 @@ export default class Top {
   }
 
   puca() {
-    this.projektil.ispaljen = true
+    this.projektil.puca(this.sila, this.ugao)
+    this.sila = MIN_SILA
   }
 
   /* UNOS */
 
   proveriTipke() {
-    if (keyboard.space) this.puca()
-
-    if (keyboard.left && !this.projektil.ispaljen) this.brzina--
-    if (keyboard.right && !this.projektil.ispaljen) this.brzina++
-    if (this.brzina <= MIN_BRZINA) this.brzina = MIN_BRZINA
+    if (!this.projektil.ispaljen && keyboard.space)
+      this.sila += 10
+    else if (this.sila > MIN_SILA)
+      this.puca()
 
     if (keyboard.up) this.ugao += 0.5
     if (keyboard.down) this.ugao -= 0.5
@@ -59,7 +59,6 @@ export default class Top {
   update(dt) {
     this.proveriTipke()
     this.projektil.update(dt)
-    this.projektil.crta()
     this.crtaCev()
     this.crtaPostolje()
   }
