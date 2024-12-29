@@ -1,11 +1,11 @@
-import Predmet from '../core/Predmet.js'
+import Slika from '../core/Slika.js'
 import platno from '../io/platno.js'
 
-export default class Pozadina extends Predmet {
+export default class Pozadina extends Slika {
   constructor(slika) {
-    super(slika, platno.width, platno.height)
+    super(slika, { sirina: platno.width, visina: platno.height })
     this.x = platno.width / 2
     this.y = platno.height / 2
-    this.oznake.add('pozadina')
+    // this.oznake.add('pozadina')
   }
 }

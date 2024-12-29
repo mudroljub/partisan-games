@@ -15,11 +15,6 @@ const BROJ_PREPREKA = 10
 const nivo = 1
 
 export default class BombasScena extends Scena {
-  constructor(...args) {
-    super(...args)
-    this.init()
-  }
-
   init() {
     this.vreme = new Vreme()
     const pozadina = new Pozadina('/assets/slike/teksture/beton.gif')

@@ -26,7 +26,7 @@ export default class TenkiciScena extends Scena {
   }
 
   update() {
-    pozadina.update()
+    pozadina.render()
     tenk2.proveriTipke()
     tenk1.update()
     tenk2.update()

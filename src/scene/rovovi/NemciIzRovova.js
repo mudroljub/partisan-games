@@ -73,7 +73,7 @@ export default class NemciIzRovova extends Scena {
   }
 
   update(dt, protekloSekundi) {
-    this.pozadina.update()
+    this.pozadina.render()
     this.sveSvabe.forEach(svabo => svabo.update(dt, this.povrediMe))
 
     if (!this.ubrzano && protekloSekundi >= 30) {

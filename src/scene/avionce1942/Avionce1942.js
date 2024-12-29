@@ -25,11 +25,6 @@ const DIZAJ = 10
 const MAX_DIGNUTOST = 5555
 
 export default class Avionce1942 extends Scena {
-  constructor(...args) {
-    super(...args)
-    this.init()
-  }
-
   init() {
     this.nivoTla = platno.height
     this.brzinaScene = 0

@@ -17,7 +17,7 @@ export default class OtpisaniScena extends Scena {
   }
 
   update() {
-    this.pozadina.update()
+    this.pozadina.render()
     this.strazar.patroliraj()
     this.strazar.update()
   }

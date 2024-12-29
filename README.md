@@ -6,10 +6,7 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
-- BUG: nekad ne učita slike
-    - da prvo učita sve slike pre nego što scena krene
 - da na esc napuštati nivo
-- refaktor Pozadina da nasleđuje Slika, ne Predmet
 - OPTIMIZACIJA
     - proveriti šta se učitava na naslovnoj, šta se instancira
     - uklanjati događaje i sve čistiti na kraju nivoa

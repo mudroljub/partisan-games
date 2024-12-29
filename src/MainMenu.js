@@ -16,17 +16,12 @@ const items = {
 }
 
 export default class MainMenu extends Scena {
-  constructor(...args) {
-    super(...args)
-    this.pustiScenu = this.pustiScenu.bind(this)
-  }
-
   start() {
     super.start()
     document.addEventListener('click', this.pustiScenu)
   }
 
-  pustiScenu(e) {
+  pustiScenu = e => {
     if (!e.target.classList.contains('js-start')) return
 
     this.ui.manager.start(e.target.value)
