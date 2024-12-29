@@ -26,8 +26,8 @@ export default class Projektil {
     const centarCeviX = this.vlasnik.cev.x + this.vlasnik.cev.sirina / 4
     const centarCeviY = this.vlasnik.cev.y + this.vlasnik.cev.visina * 0.71
     const dijagonalaCevi = this.vlasnik.cev.sirina * 3 / 4
-    this.x = centarCeviX + dijagonalaCevi * Math.cos(this.vlasnik.cev.ugaoStepeni * Math.PI / 180)
-    this.y = centarCeviY - dijagonalaCevi * Math.sin(this.vlasnik.cev.ugaoStepeni * Math.PI / 180)
+    this.x = centarCeviX + dijagonalaCevi * Math.cos(this.vlasnik.cev.ugao)
+    this.y = centarCeviY - dijagonalaCevi * Math.sin(this.vlasnik.cev.ugao)
   }
 
   leti(dt) {
