@@ -53,6 +53,10 @@ export default class Slika {
 
   /* VELICINA */
 
+  set skalar(procenat) {
+    this.skalarX = this.skalarY = procenat
+  }
+
   velicina(sirina, visina) {
     this.sirina = sirina
     this.visina = visina
