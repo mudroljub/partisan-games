@@ -24,9 +24,9 @@ export default class Projektil {
     this.y = centarCeviY - dijagonalaCevi * Math.sin(this.vlasnik.ugao * Math.PI / 180)
   }
 
-  leti() {
-    this.x += this.vlasnik.brzina * Math.cos(this.vlasnik.ugao * Math.PI / 180)
-    this.y -= this.vlasnik.brzina * Math.sin(this.vlasnik.ugao * Math.PI / 180)
+  leti(dt) {
+    this.x += this.vlasnik.brzina * Math.cos(this.vlasnik.ugao * Math.PI / 180) * dt
+    this.y -= this.vlasnik.brzina * Math.sin(this.vlasnik.ugao * Math.PI / 180) * dt
   }
 
   crta() {
@@ -38,9 +38,9 @@ export default class Projektil {
     podloga.fill()
   }
 
-  update() {
+  update(dt) {
     if (!this.ispaljen) this.pozicionira()
-    if (this.ispaljen) this.leti()
+    if (this.ispaljen) this.leti(dt)
     if (this.jeVanEkrana) this.reset()
   }
 }

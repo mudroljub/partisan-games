@@ -1,3 +1,7 @@
+// brzina/sila da se puni na space
+// dodati metu
+// smanjiti malo top
+// srediti trajektoriju
 import Scena from '/game-engine/core/Scena.js'
 import Top from './Top.js'
 

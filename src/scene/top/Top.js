@@ -4,8 +4,8 @@ import Slika from '/game-engine/core/Slika.js'
 import Projektil from './Projektil.js'
 
 const MIN_UGAO = 0
-const MAX_UGAO = 65
-const MIN_BRZINA = 20
+const MAX_UGAO = 45
+const MIN_BRZINA = 700
 
 export default class Top {
 
@@ -13,7 +13,7 @@ export default class Top {
     this.x = x
     this.y = y
     this.ugao = 20
-    this.brzina = 30
+    this.brzina = MIN_BRZINA
     this.postolje = new Slika('/assets/slike/2d-bocno/top-postolje.gif')
     this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif')
     this.cev.onload = () => {
@@ -56,9 +56,9 @@ export default class Top {
     podloga.restore()
   }
 
-  update() {
+  update(dt) {
     this.proveriTipke()
-    this.projektil.update()
+    this.projektil.update(dt)
     this.projektil.crta()
     this.crtaCev()
     this.crtaPostolje()
