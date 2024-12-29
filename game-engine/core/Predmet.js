@@ -7,7 +7,7 @@ import { sudar } from '../akcije/sudari.js'
 export default class Predmet extends Slika {
 
   constructor(src, sirina, visina, x, y) {
-    super(src, x, y, sirina, visina)
+    super(src, sirina, visina, x, y)
     this.ziv = true
     this.vidljiv = true
     this.brzina = 0

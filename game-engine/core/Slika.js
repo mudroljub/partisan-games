@@ -2,15 +2,19 @@ import { ctx } from '../io/platno.js'
 
 export default class Slika {
 
-  constructor(src, x = 200, y = 200, skalar = 1) {
+  constructor(src, sirina, visina, x = 200, y = 200, skalar = 1) {
     this.slika = new Image()
     this.x = x
     this.y = y
     this.ugao = 0
+    this.sirina = sirina
+    this.visina = visina
 
     this.slika.onload = () => {
-      this.sirina = this.slika.naturalWidth * skalar
-      this.visina = this.slika.naturalHeight * skalar
+      if (!sirina && !visina) {
+        this.sirina = this.slika.naturalWidth * skalar
+        this.visina = this.slika.naturalHeight * skalar
+      }
       this.onload() // za naslednike
       this.slika.onload = null
     }
