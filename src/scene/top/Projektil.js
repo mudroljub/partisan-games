@@ -19,14 +19,14 @@ export default class Projektil {
 
   pali(sila, ugao) {
     this.ispaljen = true
-    this.vx = sila * Math.cos(ugao)
-    this.vy = sila * Math.sin(ugao)
+    this.dx = sila * Math.cos(ugao)
+    this.dy = sila * Math.sin(ugao)
   }
 
   leti(dt) {
-    this.vy += g
-    this.x += this.vx * dt
-    this.y += this.vy * dt
+    this.dy += g
+    this.x += this.dx * dt
+    this.y += this.dy * dt
   }
 
   crta() {
