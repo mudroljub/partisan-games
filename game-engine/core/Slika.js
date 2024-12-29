@@ -43,6 +43,14 @@ export default class Slika {
     // this.azurirajSilu()
   }
 
+  get ugaoStepeni() {
+    return this.ugao * 180 / Math.PI
+  }
+
+  set ugaoStepeni(ugaoRadijani) {
+    this.ugao = ugaoRadijani * Math.PI / 180
+  }
+
   /* VELICINA */
 
   velicina(sirina, visina) {

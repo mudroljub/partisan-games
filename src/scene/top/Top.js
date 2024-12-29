@@ -12,7 +12,7 @@ export default class Top {
   constructor(x = platno.width / 8, y = platno.height / 2) {
     this.x = x
     this.y = y
-    this.ugao = 20
+    this.ugaoStepeni = 20
     this.sila = MIN_SILA
     this.postolje = new Slika('/assets/slike/2d-bocno/top-postolje.gif')
     this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif')
@@ -24,7 +24,7 @@ export default class Top {
   }
 
   puca() {
-    this.projektil.puca(this.sila, this.ugao)
+    this.projektil.puca(this.sila, this.ugaoStepeni)
     this.sila = MIN_SILA
   }
 
@@ -36,10 +36,10 @@ export default class Top {
     else if (this.sila > MIN_SILA)
       this.puca()
 
-    if (keyboard.up) this.ugao += 0.5
-    if (keyboard.down) this.ugao -= 0.5
-    if (this.ugao >= MAX_UGAO) this.ugao = MAX_UGAO
-    if (this.ugao <= MIN_UGAO) this.ugao = MIN_UGAO
+    if (keyboard.up) this.ugaoStepeni += 0.5
+    if (keyboard.down) this.ugaoStepeni -= 0.5
+    if (this.ugaoStepeni >= MAX_UGAO) this.ugaoStepeni = MAX_UGAO
+    if (this.ugaoStepeni <= MIN_UGAO) this.ugaoStepeni = MIN_UGAO
   }
 
   /* RENDER */
@@ -51,7 +51,7 @@ export default class Top {
   crtaCev() {
     ctx.save()
     ctx.translate(this.cev.x + this.cev.sirina / 4, this.cev.y + this.cev.visina / 2)
-    ctx.rotate(-this.ugao * Math.PI / 180)
+    ctx.rotate(-this.ugaoStepeni * Math.PI / 180)
     ctx.drawImage(this.cev.slika, -this.cev.sirina / 4, -this.cev.visina / 2)
     ctx.restore()
   }

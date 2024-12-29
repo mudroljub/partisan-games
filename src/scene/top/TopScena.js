@@ -15,7 +15,7 @@ export default class TopScena extends Scena {
   sablon() {
     return `
     <div class="komande">
-      ugao: ${this.top.ugao}<br>
+      ugao: ${this.top.ugaoStepeni}<br>
       sila: ${this.top.sila}
     </div>
     `
