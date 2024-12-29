@@ -16,10 +16,17 @@ export default class Top {
     this.projektil = new Projektil()
   }
 
+  get vrhCeviX() {
+    return this.cev.x + this.cev.sirina * 0.5 * Math.cos(-this.cev.ugao)
+  }
+
+  get vrhCeviY() {
+    return this.cev.y - this.cev.sirina * 0.5 * Math.sin(-this.cev.ugao) + 8
+  }
+
   pripremi() {
-    const poluprecnik = this.cev.sirina * 0.5
-    this.projektil.x = this.cev.x + poluprecnik * Math.cos(-this.cev.ugao)
-    this.projektil.y = this.cev.y - poluprecnik * Math.sin(-this.cev.ugao) + 8
+    this.projektil.x = this.vrhCeviX
+    this.projektil.y = this.vrhCeviY
   }
 
   pali() {
