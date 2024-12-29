@@ -10,7 +10,7 @@ export default class Minobacac extends Kvadrat {
   constructor(x, y, sirina, visina, boja = 'rgb(40,40,0)') {
     super(x, y, sirina, visina, boja)
     this.ugao = 0.5
-    this.sila = 20
+    this.sila = 500
     this.projektil = new Projektil()
   }
 
