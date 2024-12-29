@@ -28,4 +28,18 @@ export default class Projektil {
     this.x += this.vlasnik.brzina * Math.cos(this.vlasnik.ugao * Math.PI / 180)
     this.y -= this.vlasnik.brzina * Math.sin(this.vlasnik.ugao * Math.PI / 180)
   }
+
+  pozicioniraj() {
+    const centarCeviX = this.vlasnik.cev.x + this.vlasnik.cev.sirina / 4
+    const centarCeviY = this.vlasnik.cev.y + this.vlasnik.cev.visina * 0.71
+    const dijagonalaCevi = this.vlasnik.cev.sirina * 3 / 4
+    this.x = centarCeviX + dijagonalaCevi * Math.cos(this.vlasnik.ugao * Math.PI / 180)
+    this.y = centarCeviY - dijagonalaCevi * Math.sin(this.vlasnik.ugao * Math.PI / 180)
+  }
+
+  update() {
+    if (!this.ispaljen) this.pozicioniraj()
+    if (this.ispaljen) this.leti()
+    if (this.jeVanEkrana) this.reset()
+  }
 }

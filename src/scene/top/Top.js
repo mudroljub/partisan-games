@@ -27,22 +27,6 @@ export default class Top {
     this.projektil.ispaljen = true
   }
 
-  /* PROJEKTIL */
-
-  azuriraProjektil() {
-    if (!this.projektil.ispaljen) this.pozicioniraProjektil()
-    if (this.projektil.ispaljen) this.projektil.leti()
-    if (this.projektil.jeVanEkrana) this.projektil.reset()
-  }
-
-  pozicioniraProjektil() {
-    const centarCeviX = this.cev.x + this.cev.sirina / 4
-    const centarCeviY = this.cev.y + this.cev.visina * 0.71
-    const dijagonalaCevi = this.cev.sirina * 3 / 4
-    this.projektil.x = centarCeviX + dijagonalaCevi * Math.cos(this.ugao * Math.PI / 180)
-    this.projektil.y = centarCeviY - dijagonalaCevi * Math.sin(this.ugao * Math.PI / 180)
-  }
-
   /* UNOS */
 
   proveriTipke() {
@@ -74,7 +58,7 @@ export default class Top {
 
   update() {
     this.proveriTipke()
-    this.azuriraProjektil()
+    this.projektil.update()
     this.projektil.crta()
     this.crtaCev()
     this.crtaPostolje()
