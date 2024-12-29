@@ -3,24 +3,22 @@ import Slika from '/game-engine/core/Slika.js'
 import Projektil from './Projektil.js'
 
 const MIN_UGAO = -0.02
-const MAX_UGAO = -0.7
-const MIN_SILA = 300
+const MAX_UGAO = -0.6
 
 export default class Top {
-
   constructor(x, y) {
     this.x = x
     this.y = y
-    this.sila = MIN_SILA
+    this.sila = this.minSila = 300
     this.postolje = new Slika('/assets/slike/2d-bocno/top-postolje.gif', undefined, undefined, this.x, this.y, .75)
-    this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif', undefined, undefined, this.x + 30, this.y - 30, .75)
+    this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif', undefined, undefined, this.x + 40, this.y - 32, .75)
     this.cev.ugao = -0.2
     this.projektil = new Projektil(this.cev)
   }
 
   puca() {
     this.projektil.puca(this.sila, this.cev.ugao)
-    this.sila = MIN_SILA
+    this.sila = this.minSila
   }
 
   /* UNOS */
@@ -28,7 +26,7 @@ export default class Top {
   proveriTipke(dt) {
     if (!this.projektil.ispaljen && keyboard.space)
       this.sila += 10
-    else if (this.sila > MIN_SILA)
+    else if (this.sila > this.minSila)
       this.puca()
 
     if (keyboard.up) this.cev.ugao = Math.max(this.cev.ugao - 0.5 * dt, MAX_UGAO)

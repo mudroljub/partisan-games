@@ -1,6 +1,4 @@
-// smanjiti malo top
 // srediti trajektoriju
-// dodati progres bar
 // dodati metu
 import Scena from '/game-engine/core/Scena.js'
 import Top from './Top.js'
@@ -14,11 +12,13 @@ export default class TopScena extends Scena {
   }
 
   sablon() {
+    const max = 1000
+    const procenat = (this.top.sila - this.top.minSila) / (max - this.top.minSila) * 100
+
     return `
-    <div class="komande">
-      ugao: ${this.top.cev.ugao}<br>
-      sila: ${this.top.sila}
-    </div>
+      <div class="komande">
+        <progress value="${procenat}" max=100></progress>
+      </div>
     `
   }
 }
