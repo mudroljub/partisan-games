@@ -8,10 +8,16 @@ export default class Kvadrat {
     this.sirina = sirina
     this.visina = visina
     this.fillstyle = boja
+    this.ugao = 0
   }
 
   crta() {
     ctx.fillStyle = this.fillstyle
+    ctx.save()
+    ctx.translate(this.x, this.y)
+    ctx.rotate(-this.ugao)
+    ctx.translate(-this.x, -this.y)
     ctx.fillRect(this.x, this.y, this.sirina, this.visina)
+    ctx.restore()
   }
 }
