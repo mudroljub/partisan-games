@@ -3,7 +3,7 @@ import Kvadrat from '/game-engine/core/Kvadrat.js'
 import Projektil from './Projektil.js'
 
 const POMERAJ_UGLA = 0.008
-const KORAK_SILE = 0.3
+const KORAK_SILE = 3
 
 export default class Minobacac extends Kvadrat {
 
@@ -45,6 +45,6 @@ export default class Minobacac extends Kvadrat {
   update(dt) {
     this.proveriTipke()
     this.projektil.update(dt)
-    this.crta()
+    this.render()
   }
 }

@@ -13,7 +13,10 @@ export default class Scena {
     this.pauza = false
     this.update = this.update.bind(this)
     this.gameLoop = new GameLoop(this.update, false)
+    this.init()
   }
+
+  init() {}
 
   dodaj(...premeti) {
     this.predmeti.push(...premeti)

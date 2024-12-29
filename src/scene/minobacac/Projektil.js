@@ -26,7 +26,7 @@ export default class Projektil {
       (this.y >= predmet.y) && (this.y <= (predmet.y + predmet.visina))
   }
 
-  crta() {
+  render() {
     ctx.fillStyle = this.boja
     ctx.beginPath()
     ctx.arc(this.x, this.y, this.poluprecnik, 0, Math.PI * 2, true)
@@ -36,6 +36,6 @@ export default class Projektil {
   update(dt) {
     if (!this.ispaljeno) return
     this.leti(dt)
-    this.crta()
+    this.render()
   }
 }

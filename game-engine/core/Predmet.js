@@ -166,7 +166,7 @@ export default class Predmet extends Slika {
     this.x += this.dx
     this.y += this.dy
     this.proveriGranice()
-    if (this.vidljiv) this.crta()
+    if (this.vidljiv) this.render()
     if (this.mrtav && this.zapaljiv) {
       this.plamen.x = this.x
       this.plamen.y = this.y

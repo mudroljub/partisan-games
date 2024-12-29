@@ -29,7 +29,7 @@ export default class Projektil {
     this.y += this.dy * dt
   }
 
-  crta() {
+  render() {
     ctx.fillStyle = 'black'
     ctx.beginPath()
     ctx.arc(this.x, this.y, 4, 0, Math.PI * 2)
@@ -39,7 +39,7 @@ export default class Projektil {
   update(dt) {
     if (!this.ispaljen) return
     this.leti(dt)
-    this.crta()
+    this.render()
     if (this.jeVanEkrana) this.reset()
   }
 }

@@ -61,7 +61,7 @@ export default class Slika {
     this.visina *= procenat
   }
 
-  crta() {
+  render() {
     ctx.save()
     ctx.translate(this.x, this.y)
     ctx.rotate(this.ugao)

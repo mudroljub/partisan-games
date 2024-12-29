@@ -47,8 +47,8 @@ export default class Top {
 
   update(dt) {
     this.proveriTipke(dt)
-    this.postolje.crta()
-    this.cev.crta()
+    this.postolje.render()
+    this.cev.render()
     this.projektil.update(dt)
   }
 }

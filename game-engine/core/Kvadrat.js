@@ -11,7 +11,7 @@ export default class Kvadrat {
     this.ugao = 0
   }
 
-  crta() {
+  render() {
     ctx.fillStyle = this.fillstyle
     ctx.save()
     ctx.translate(this.x, this.y)
