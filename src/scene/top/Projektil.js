@@ -12,9 +12,9 @@ export default class Projektil {
     return this.x > platno.width || this.y > platno.height
   }
 
-  puca(sila, ugaoStepeni) {
+  puca(sila, ugao) {
     this.sila = sila
-    this.ugaoStepeni = ugaoStepeni
+    this.ugao = ugao
     this.ispaljen = true
   }
 
@@ -31,8 +31,8 @@ export default class Projektil {
   }
 
   leti(dt) {
-    this.x += this.sila * Math.cos(this.ugaoStepeni * Math.PI / 180) * dt
-    this.y -= this.sila * Math.sin(this.ugaoStepeni * Math.PI / 180) * dt
+    this.x += this.sila * Math.cos(this.ugao) * dt
+    this.y -= this.sila * Math.sin(this.ugao) * dt
   }
 
   crta() {

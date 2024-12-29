@@ -24,7 +24,7 @@ export default class Top {
   }
 
   puca() {
-    this.projektil.puca(this.sila, this.cev.ugaoStepeni)
+    this.projektil.puca(this.sila, this.cev.ugao)
     this.sila = MIN_SILA
   }
 
