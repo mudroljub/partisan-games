@@ -12,8 +12,8 @@ export default class Top {
     this.x = x
     this.y = y
     this.sila = MIN_SILA
-    this.postolje = new Slika('/assets/slike/2d-bocno/top-postolje.gif', this.x, this.y, .75)
-    this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif', this.x + 30, this.y - 30, .75)
+    this.postolje = new Slika('/assets/slike/2d-bocno/top-postolje.gif', undefined, undefined, this.x, this.y, .75)
+    this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif', undefined, undefined, this.x + 30, this.y - 30, .75)
     this.cev.ugao = -0.2
     this.projektil = new Projektil(this.cev)
   }
