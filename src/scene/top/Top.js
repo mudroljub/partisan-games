@@ -1,5 +1,5 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
-import { platno, ctx } from '/game-engine/io/platno.js'
+import { ctx } from '/game-engine/io/platno.js'
 import Slika from '/game-engine/core/Slika.js'
 import Projektil from './Projektil.js'
 
@@ -9,7 +9,7 @@ const MIN_SILA = 300
 
 export default class Top {
 
-  constructor(x = platno.width / 8, y = platno.height / 2) {
+  constructor(x, y) {
     this.x = x
     this.y = y
     this.sila = MIN_SILA
