@@ -1,11 +1,11 @@
-import { platno, podloga } from '../io/platno.js'
+import { platno, ctx } from '../io/platno.js'
 import GameLoop from './GameLoop.js'
 
 export default class Scena {
   constructor(ui) {
     this.predmeti = []
     this.platno = platno
-    this.podloga = podloga
+    this.ctx = ctx
     this.nivoTla = this.visina
     this.ui = ui
     this.ui.sablon = () => this.sablon() // očekuje da scene imaju UI šablon
@@ -63,16 +63,16 @@ export default class Scena {
   /* POZADINA */
 
   set bojaPozadine(boja) {
-    this.podloga.fillStyle = boja
+    this.ctx.fillStyle = boja
     this.platno.style.backgroundColor = boja
   }
 
   get bojaPozadine() {
-    return this.podloga.fillStyle
+    return this.ctx.fillStyle
   }
 
   cisti() {
-    this.podloga.clearRect(0, 0, this.sirina, this.visina)
+    this.ctx.clearRect(0, 0, this.sirina, this.visina)
   }
 
   /* UI */

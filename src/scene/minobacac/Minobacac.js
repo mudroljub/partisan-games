@@ -1,5 +1,5 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
-import { podloga } from '/game-engine/io/platno.js'
+import { ctx } from '/game-engine/io/platno.js'
 import Kvadrat from '/game-engine/core/Kvadrat.js'
 import Projektil from './Projektil.js'
 
@@ -23,12 +23,12 @@ export default class Minobacac extends Kvadrat {
   }
 
   crta() {
-    podloga.save()
-    podloga.translate(this.x, this.y)
-    podloga.rotate(-this.ugao)
-    podloga.translate(-this.x, -this.y)
+    ctx.save()
+    ctx.translate(this.x, this.y)
+    ctx.rotate(-this.ugao)
+    ctx.translate(-this.x, -this.y)
     super.crta()
-    podloga.restore()
+    ctx.restore()
   }
 
   dajDx() {

@@ -1,6 +1,6 @@
 import Vreme from './Vreme.js'
 import Predmet from './Predmet.js'
-import { podloga } from '../io/platno.js'
+import { ctx } from '../io/platno.js'
 
 export default class Animiran extends Predmet {
 
@@ -74,16 +74,16 @@ export default class Animiran extends Predmet {
     const slikaX = trenutnaKolona * tekuca.sirinaKadra
     const slikaY = trenutniRed * tekuca.visinaKadra
 
-    podloga.drawImage(this.slika, slikaX, slikaY, tekuca.sirinaKadra, tekuca.visinaKadra, 0 - (tekuca.sirinaKadra / 2), 0 - (tekuca.visinaKadra / 2), tekuca.sirinaKadra, tekuca.visinaKadra)
+    ctx.drawImage(this.slika, slikaX, slikaY, tekuca.sirinaKadra, tekuca.visinaKadra, 0 - (tekuca.sirinaKadra / 2), 0 - (tekuca.visinaKadra / 2), tekuca.sirinaKadra, tekuca.visinaKadra)
   }
 
   crta() {
     if (!this.vidljiv) return
-    podloga.save()
-    podloga.translate(this.x, this.y)
-    podloga.rotate(this._ugaoSlike)
+    ctx.save()
+    ctx.translate(this.x, this.y)
+    ctx.rotate(this._ugaoSlike)
     this.crtaKadar()
-    podloga.restore()
+    ctx.restore()
   }
 
 }

@@ -1,4 +1,4 @@
-import { podloga } from '../io/platno.js'
+import { ctx } from '../io/platno.js'
 
 export default class Kvadrat {
 
@@ -11,7 +11,7 @@ export default class Kvadrat {
   }
 
   crta() {
-    podloga.fillStyle = this.fillstyle
-    podloga.fillRect(this.x, this.y, this.sirina, this.visina)
+    ctx.fillStyle = this.fillstyle
+    ctx.fillRect(this.x, this.y, this.sirina, this.visina)
   }
 }

@@ -1,4 +1,4 @@
-import { podloga } from '../io/platno.js'
+import { ctx } from '../io/platno.js'
 
 export default class Slika {
 
@@ -56,11 +56,11 @@ export default class Slika {
   }
 
   crta() {
-    podloga.save()
-    podloga.translate(this.x, this.y)
-    podloga.rotate(this.ugao)
-    podloga.scale(this.skalarX, this.skalarY)
-    podloga.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
-    podloga.restore()
+    ctx.save()
+    ctx.translate(this.x, this.y)
+    ctx.rotate(this.ugao)
+    ctx.scale(this.skalarX, this.skalarY)
+    ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
+    ctx.restore()
   }
 }

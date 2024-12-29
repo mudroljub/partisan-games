@@ -1,4 +1,4 @@
-import { podloga } from '/game-engine/io/platno.js'
+import { ctx } from '/game-engine/io/platno.js'
 
 const GRAVITACIJA = 0.9
 
@@ -35,10 +35,10 @@ export default class Projektil {
   }
 
   crta() {
-    podloga.fillStyle = this.boja
-    podloga.beginPath()
-    podloga.arc(this.x, this.y, this.poluprec, 0, Math.PI * 2, true)
-    podloga.fill()
+    ctx.fillStyle = this.boja
+    ctx.beginPath()
+    ctx.arc(this.x, this.y, this.poluprec, 0, Math.PI * 2, true)
+    ctx.fill()
   }
 
   sudara(predmet) {

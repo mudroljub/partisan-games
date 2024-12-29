@@ -1,4 +1,4 @@
-import { podloga } from '../io/platno.js'
+import { ctx } from '../io/platno.js'
 
 const maxLife = 60
 const speed = 3
@@ -25,11 +25,11 @@ class Iskra {
     const green = this.life * 2 + 50
     const blue = this.life * 2
     const opacity = (maxLife - this.life) / maxLife * 0.4
-    podloga.fillStyle = `rgba(${red}, ${green}, ${blue}, ${opacity})`
-    podloga.beginPath()
+    ctx.fillStyle = `rgba(${red}, ${green}, ${blue}, ${opacity})`
+    ctx.beginPath()
     const radius = (maxLife - this.life) / maxLife * size / 2 + size / 2
-    podloga.arc(this.x, this.y, radius, 0, 2 * Math.PI)
-    podloga.fill()
+    ctx.arc(this.x, this.y, radius, 0, 2 * Math.PI)
+    ctx.fill()
   }
 }
 
@@ -57,8 +57,8 @@ export default class Plamen {
   }
 
   render() {
-    podloga.globalCompositeOperation = 'lighter'
+    ctx.globalCompositeOperation = 'lighter'
     this.iskre.map(p => p.render())
-    podloga.globalCompositeOperation = 'source-over'
+    ctx.globalCompositeOperation = 'source-over'
   }
 }

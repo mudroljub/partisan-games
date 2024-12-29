@@ -1,5 +1,5 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
-import { platno, podloga } from '/game-engine/io/platno.js'
+import { platno, ctx } from '/game-engine/io/platno.js'
 import Slika from '/game-engine/core/Slika.js'
 import Projektil from './Projektil.js'
 
@@ -45,15 +45,15 @@ export default class Top {
   /* RENDER */
 
   crtaPostolje() {
-    podloga.drawImage(this.postolje.slika, this.x, this.y)
+    ctx.drawImage(this.postolje.slika, this.x, this.y)
   }
 
   crtaCev() {
-    podloga.save()
-    podloga.translate(this.cev.x + this.cev.sirina / 4, this.cev.y + this.cev.visina / 2)
-    podloga.rotate(-this.ugao * Math.PI / 180)
-    podloga.drawImage(this.cev.slika, -this.cev.sirina / 4, -this.cev.visina / 2)
-    podloga.restore()
+    ctx.save()
+    ctx.translate(this.cev.x + this.cev.sirina / 4, this.cev.y + this.cev.visina / 2)
+    ctx.rotate(-this.ugao * Math.PI / 180)
+    ctx.drawImage(this.cev.slika, -this.cev.sirina / 4, -this.cev.visina / 2)
+    ctx.restore()
   }
 
   update(dt) {

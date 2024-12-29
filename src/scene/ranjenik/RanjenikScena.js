@@ -4,7 +4,7 @@
 // u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
 
 import { izasaoDesno } from '/game-engine/akcije/granice.js'
-import { platno, podloga } from '/game-engine/io/platno.js'
+import { platno, ctx } from '/game-engine/io/platno.js'
 import { skaliranRazmak } from '/game-engine/utils.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
@@ -16,15 +16,15 @@ const trajanjeStrelice = 500
 const pauzaCrtanja = 3000
 
 const crtajStrelicu = () => {
-  podloga.lineWidth = 5
-  podloga.strokeStyle = 'red'
-  podloga.beginPath()
-  podloga.moveTo(platno.width * 0.6, platno.height * 0.5)
-  podloga.lineTo(platno.width * 0.9, platno.height * 0.5)
-  podloga.moveTo(platno.width * 0.8, platno.height * 0.4)
-  podloga.lineTo(platno.width * 0.9, platno.height * 0.5)
-  podloga.lineTo(platno.width * 0.8, platno.height * 0.6)
-  podloga.stroke()
+  ctx.lineWidth = 5
+  ctx.strokeStyle = 'red'
+  ctx.beginPath()
+  ctx.moveTo(platno.width * 0.6, platno.height * 0.5)
+  ctx.lineTo(platno.width * 0.9, platno.height * 0.5)
+  ctx.moveTo(platno.width * 0.8, platno.height * 0.4)
+  ctx.lineTo(platno.width * 0.9, platno.height * 0.5)
+  ctx.lineTo(platno.width * 0.8, platno.height * 0.6)
+  ctx.stroke()
 }
 
 export default class RanjenikScena extends Scena {
