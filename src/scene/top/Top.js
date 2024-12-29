@@ -16,13 +16,6 @@ export default class Top {
     this.projektil = new Projektil()
   }
 
-  puca() {
-    this.projektil.puca(this.sila, this.cev.ugao)
-    this.sila = this.minSila
-  }
-
-  /* UNOS */
-
   proveriTipke(dt) {
     if (!this.projektil.ispaljen && keyboard.space)
       this.sila += 10
@@ -33,17 +26,22 @@ export default class Top {
     if (keyboard.down) this.cev.ugao = Math.min(this.cev.ugao + 0.5 * dt, MIN_UGAO)
   }
 
-  pozicionirajProjektil() {
+  pripremi() {
     const poluprecnik = this.cev.sirina * 0.5
     this.projektil.x = this.cev.x + poluprecnik * Math.cos(-this.cev.ugao)
     this.projektil.y = this.cev.y - poluprecnik * Math.sin(-this.cev.ugao) + 8
+  }
+
+  puca() {
+    this.pripremi()
+    this.projektil.puca(this.sila, this.cev.ugao)
+    this.sila = this.minSila
   }
 
   update(dt) {
     this.proveriTipke(dt)
     this.postolje.crta()
     this.cev.crta()
-    if (!this.projektil.ispaljen) this.pozicionirajProjektil()
     this.projektil.update(dt)
   }
 }
