@@ -32,7 +32,7 @@ export default class Projektil {
   crta() {
     ctx.fillStyle = 'black'
     ctx.beginPath()
-    ctx.arc(this.x, this.y, 5, 0, Math.PI * 2)
+    ctx.arc(this.x, this.y, 4, 0, Math.PI * 2)
     ctx.fill()
   }
 
