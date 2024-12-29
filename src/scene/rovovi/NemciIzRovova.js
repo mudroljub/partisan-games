@@ -7,11 +7,6 @@ const DALJI_Y = 150
 const BLIZI_Y = 300
 
 export default class NemciIzRovova extends Scena {
-  constructor(...args) {
-    super(...args)
-    this.init()
-  }
-
   init() {
     this.pogoci = 0
     this.rekord = 0
