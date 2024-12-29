@@ -1,6 +1,7 @@
 // dodati punjenje na space
-// ubaciti sliku minobacača
-// bodovi, mozda pogoci prema pokušajima, mozda dva igraca
+// ubaciti sliku minobacača i posadu
+// bodovi, mozda pogoci prema pokušajima
+// mozda dva igraca, odnosno jedan po jedan potezno
 import Scena from '/game-engine/core/Scena.js'
 import Kvadrat from '/game-engine/core/Kvadrat.js'
 import Minobacac from './Minobacac.js'

@@ -4,8 +4,7 @@ import Top from './Top.js'
 import { platno } from '/game-engine/io/platno.js'
 
 export default class TopScena extends Scena {
-  constructor(...args) {
-    super(...args)
+  init() {
     this.top = new Top(150, platno.height * .75)
     this.dodaj(this.top)
   }
