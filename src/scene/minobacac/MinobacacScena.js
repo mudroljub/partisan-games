@@ -17,11 +17,11 @@ export default class MinobacacScena extends Scena {
     this.minobacac = new Minobacac(10, 280, 200, 20)
   }
 
-  update() {
+  update(dt) {
     this.cisti()
     this.brdo.crta()
     this.tlo.crta()
-    this.minobacac.update()
+    this.minobacac.update(dt)
     this.proveriPogodak()
   }
 

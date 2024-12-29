@@ -22,7 +22,7 @@ export default class Projektil {
     this.ispaljeno = true
   }
 
-  leti() {
+  leti(dt) {
     this.dy += GRAVITACIJA
     this.x += this.dx
     this.y += this.dy
@@ -40,9 +40,9 @@ export default class Projektil {
     ctx.fill()
   }
 
-  update() {
+  update(dt) {
     if (!this.ispaljeno) return
-    this.leti()
+    this.leti(dt)
     this.crta()
   }
 }

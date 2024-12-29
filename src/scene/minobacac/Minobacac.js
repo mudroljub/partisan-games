@@ -45,9 +45,9 @@ export default class Minobacac extends Kvadrat {
     if (this.sila <= 0) this.sila = 0
   }
 
-  update() {
+  update(dt) {
     this.proveriTipke()
-    this.projektil.update()
+    this.projektil.update(dt)
     this.crta()
   }
 }
