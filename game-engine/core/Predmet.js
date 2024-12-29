@@ -6,10 +6,8 @@ import { sudar } from '../akcije/sudari.js'
 
 export default class Predmet extends Slika {
 
-  constructor(src, sirina, visina, x = 200, y = 200) {
-    super(src, sirina, visina)
-    this.x = x
-    this.y = y
+  constructor(src, sirina, visina, x, y) {
+    super(src, sirina, visina, x, y)
     this.ziv = true
     this.vidljiv = true
     this.ugao = 0
@@ -31,11 +29,6 @@ export default class Predmet extends Slika {
   }
 
   /* POLOZAJ */
-
-  polozaj(x, y) {
-    this.x = x
-    this.y = y
-  }
 
   tlo(y) {
     this.y = y - this.visina / 2
@@ -125,6 +118,14 @@ export default class Predmet extends Slika {
 
   get mrtav() {
     return !this.ziv
+  }
+
+  set slikaMrtav(src) {
+    this._slikaMrtav = src
+  }
+
+  get slikaMrtav() {
+    return this._slikaMrtav
   }
 
   umri() {

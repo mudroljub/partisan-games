@@ -1,32 +1,28 @@
 export default class Slika {
 
-  constructor(src, sirina, visina) {
+  constructor(src, sirina, visina, x = 200, y = 200) {
     this.slika = new Image()
     this.sirina = sirina
     this.visina = visina
+    this.x = x
+    this.y = y
 
     this.slika.onload = () => {
       if (!sirina && !visina) {
         this.sirina = this.slika.naturalWidth
         this.visina = this.slika.naturalHeight
       }
-      this.onload()
+      this.onload() // implementiraju naslednici kad im trebaju širina i visina
       this.slika.onload = null
     }
-
     this.slika.src = src
-    this.slikaMrtav = src
   }
 
-  /* ovde postaje dostupna visina i širina slike */
   onload() {}
 
-  set slikaMrtav(src) {
-    this._slikaMrtav = src
-  }
-
-  get slikaMrtav() {
-    return this._slikaMrtav
+  polozaj(x, y) {
+    this.x = x
+    this.y = y
   }
 
   zameniSliku(src) {

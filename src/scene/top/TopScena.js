@@ -1,7 +1,7 @@
-// dodati metu
 // smanjiti malo top
 // srediti trajektoriju
-// sila progres bar
+// dodati progres bar
+// dodati metu
 import Scena from '/game-engine/core/Scena.js'
 import Top from './Top.js'
 
