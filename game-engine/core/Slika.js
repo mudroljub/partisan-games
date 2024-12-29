@@ -2,22 +2,16 @@ import { ctx } from '../io/platno.js'
 
 export default class Slika {
 
-  constructor(src, x = 200, y = 200, sirina, visina) {
+  constructor(src, x = 200, y = 200, skalar = 1) {
     this.slika = new Image()
-    this.sirina = sirina
-    this.visina = visina
     this.x = x
     this.y = y
     this.ugao = 0
-    this.skalarX = 1
-    this.skalarY = 1
 
     this.slika.onload = () => {
-      if (!sirina && !visina) {
-        this.sirina = this.slika.naturalWidth
-        this.visina = this.slika.naturalHeight
-      }
-      this.onload() // implementiraju naslednici kad im trebaju širina i visina
+      this.sirina = this.slika.naturalWidth * skalar
+      this.visina = this.slika.naturalHeight * skalar
+      this.onload() // za naslednike
       this.slika.onload = null
     }
     this.slika.src = src
@@ -53,10 +47,6 @@ export default class Slika {
 
   /* VELICINA */
 
-  set skalar(procenat) {
-    this.skalarX = this.skalarY = procenat
-  }
-
   velicina(sirina, visina) {
     this.sirina = sirina
     this.visina = visina
@@ -71,7 +61,6 @@ export default class Slika {
     ctx.save()
     ctx.translate(this.x, this.y)
     ctx.rotate(this.ugao)
-    ctx.scale(this.skalarX, this.skalarY)
     ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
     ctx.restore()
   }

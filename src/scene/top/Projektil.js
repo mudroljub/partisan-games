@@ -22,22 +22,13 @@ export default class Projektil {
     this.ispaljen = false
   }
 
-  pozicioniraj() {
-    const centarCeviX = this.cev.x + this.cev.sirina / 4
-    const centarCeviY = this.cev.y + this.cev.visina * 0.71
-    const dijagonalaCevi = this.cev.sirina * 3 / 4
-    this.x = centarCeviX + dijagonalaCevi * Math.cos(this.cev.ugao)
-    this.y = centarCeviY - dijagonalaCevi * Math.sin(this.cev.ugao)
-  }
-
   leti(dt) {
-    this.x += this.sila * Math.cos(this.ugao) * dt
-    this.y -= this.sila * Math.sin(this.ugao) * dt
+    this.x += this.sila * Math.cos(-this.ugao) * dt
+    this.y -= this.sila * Math.sin(-this.ugao) * dt
   }
 
   crta() {
     if (!this.ispaljen) return
-
     ctx.fillStyle = 'black'
     ctx.beginPath()
     ctx.arc(this.x, this.y, 5, 0, Math.PI * 2)
@@ -45,7 +36,6 @@ export default class Projektil {
   }
 
   update(dt) {
-    if (!this.ispaljen) this.pozicioniraj()
     if (this.ispaljen) this.leti(dt)
     if (this.jeVanEkrana) this.reset()
     this.crta()
