@@ -51,7 +51,7 @@ export default class Top {
   crtaCev() {
     ctx.save()
     ctx.translate(this.cev.x + this.cev.sirina / 4, this.cev.y + this.cev.visina / 2)
-    ctx.rotate(-this.cev.ugaoStepeni * Math.PI / 180)
+    ctx.rotate(-this.cev.ugao)
     ctx.drawImage(this.cev.slika, -this.cev.sirina / 4, -this.cev.visina / 2)
     ctx.restore()
   }
