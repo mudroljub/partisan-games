@@ -32,8 +32,8 @@ export default class Minobacac extends Kvadrat {
   }
 
   pripremi() {
-    this.projektil.x = this.vrhCeviX - this.dx
-    this.projektil.y = this.vrhCeviY - this.dy
+    this.projektil.x = this.vrhCeviX
+    this.projektil.y = this.vrhCeviY
   }
 
   pali() {
