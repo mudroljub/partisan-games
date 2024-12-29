@@ -1,4 +1,3 @@
-// srediti trajektoriju
 // dodati metu
 import Scena from '/game-engine/core/Scena.js'
 import Top from './Top.js'
