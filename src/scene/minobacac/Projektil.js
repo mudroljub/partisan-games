@@ -3,10 +3,9 @@ import { ctx } from '/game-engine/io/platno.js'
 const GRAVITACIJA = 0.9
 
 export default class Projektil {
-  constructor(vlasnik, poluprec, boja = 'rgb(250,0,0)') {
-    this.vlasnik = vlasnik
-    this.poluprec = poluprec
-    this.boja = boja
+  constructor() {
+    this.poluprecnik = 9
+    this.boja = 'black'
     this.ispaljeno = false
   }
 
@@ -30,7 +29,7 @@ export default class Projektil {
   crta() {
     ctx.fillStyle = this.boja
     ctx.beginPath()
-    ctx.arc(this.x, this.y, this.poluprec, 0, Math.PI * 2, true)
+    ctx.arc(this.x, this.y, this.poluprecnik, 0, Math.PI * 2, true)
     ctx.fill()
   }
 

@@ -4,7 +4,6 @@ import Projektil from './Projektil.js'
 
 const POMERAJ_UGLA = 0.008
 const KORAK_SILE = 0.3
-const DJULE_POLUPRECNIK = 10
 
 export default class Minobacac extends Kvadrat {
 
@@ -12,7 +11,7 @@ export default class Minobacac extends Kvadrat {
     super(x, y, sirina, visina, boja)
     this.ugao = 0.5
     this.sila = 20
-    this.projektil = new Projektil(this, DJULE_POLUPRECNIK)
+    this.projektil = new Projektil()
   }
 
   get vrhCeviX() {
