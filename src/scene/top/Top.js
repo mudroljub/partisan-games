@@ -16,16 +16,6 @@ export default class Top {
     this.projektil = new Projektil()
   }
 
-  proveriTipke(dt) {
-    if (!this.projektil.ispaljen && keyboard.space)
-      this.sila += 10
-    else if (this.sila > this.minSila)
-      this.pali()
-
-    if (keyboard.up) this.cev.ugao = Math.max(this.cev.ugao - 0.5 * dt, MAX_UGAO)
-    if (keyboard.down) this.cev.ugao = Math.min(this.cev.ugao + 0.5 * dt, MIN_UGAO)
-  }
-
   pripremi() {
     const poluprecnik = this.cev.sirina * 0.5
     this.projektil.x = this.cev.x + poluprecnik * Math.cos(-this.cev.ugao)
@@ -36,6 +26,16 @@ export default class Top {
     this.pripremi()
     this.projektil.pali(this.sila, this.cev.ugao)
     this.sila = this.minSila
+  }
+
+  proveriTipke(dt) {
+    if (!this.projektil.ispaljen && keyboard.space)
+      this.sila += 10
+    else if (this.sila > this.minSila)
+      this.pali()
+
+    if (keyboard.up) this.cev.ugao = Math.max(this.cev.ugao - 0.5 * dt, MAX_UGAO)
+    if (keyboard.down) this.cev.ugao = Math.min(this.cev.ugao + 0.5 * dt, MIN_UGAO)
   }
 
   update(dt) {

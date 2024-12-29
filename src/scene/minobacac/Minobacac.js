@@ -15,14 +15,6 @@ export default class Minobacac extends Kvadrat {
     this.projektil = new Projektil(this, DJULE_POLUPRECNIK)
   }
 
-  get dx() {
-    return this.sila * Math.cos(this.ugao)
-  }
-
-  get dy() {
-    return -this.sila * Math.sin(this.ugao)
-  }
-
   get vrhCeviX() {
     return this.x + this.sirina * Math.cos(this.ugao)
   }
