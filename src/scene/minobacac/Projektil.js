@@ -17,10 +17,10 @@ export default class Projektil {
   }
 
   pripremi() {
-    this.dx = this.vlasnik.dajDx()
-    this.dy = this.vlasnik.dajDy()
-    this.x = this.vlasnik.dajVrhCeviX() - this.dx
-    this.y = this.vlasnik.dajVrhCeviY() - this.dy
+    this.dx = this.vlasnik.dx
+    this.dy = this.vlasnik.dy
+    this.x = this.vlasnik.vrhCeviX - this.dx
+    this.y = this.vlasnik.vrhCeviY - this.dy
   }
 
   pali() {
