@@ -1,5 +1,5 @@
 import Slika from './Slika.js'
-import { platno, podloga } from '../io/platno.js'
+import { platno } from '../io/platno.js'
 import mish from '../io/mish.js'
 import { randomRange } from '../utils.js'
 import { sudar } from '../akcije/sudari.js'
@@ -10,10 +10,7 @@ export default class Predmet extends Slika {
     super(src, sirina, visina, x, y)
     this.ziv = true
     this.vidljiv = true
-    this.ugao = 0
     this.brzina = 0
-    this.skalarX = 1
-    this.skalarY = 1
     this.oznake = new Set()
   }
 
@@ -81,15 +78,6 @@ export default class Predmet extends Slika {
   }
 
   /* UGLOVI */
-
-  get ugao() {
-    return this._ugao
-  }
-
-  set ugao(noviUgao) {
-    this._ugao = noviUgao % (Math.PI * 2)
-    this.azurirajSilu()
-  }
 
   ugaoKa(predmet) {
     const mojX = this.x + this.sirina / 2
@@ -174,21 +162,11 @@ export default class Predmet extends Slika {
 
   /* LOOP */
 
-  crta() {
-    if (!this.vidljiv) return
-    podloga.save()
-    podloga.translate(this.x, this.y)
-    podloga.rotate(this.ugao)
-    podloga.scale(this.skalarX, this.skalarY)
-    podloga.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
-    podloga.restore()
-  }
-
   update() {
     this.x += this.dx
     this.y += this.dy
     this.proveriGranice()
-    this.crta()
+    if (this.vidljiv) this.crta()
     if (this.mrtav && this.zapaljiv) {
       this.plamen.x = this.x
       this.plamen.y = this.y
