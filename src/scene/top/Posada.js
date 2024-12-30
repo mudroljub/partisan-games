@@ -3,18 +3,18 @@ import Slika from '/game-engine/core/Slika.js'
 export default class Posada extends Slika {
   constructor(x, y) {
     super('/assets/slike/2d-bocno/partizani/artiljerija/posada-01.png', { x, y })
-    this.ucestalost = 2
+    this.ucestalost = 1
     this.poslednje = 0
     this.napred = true
   }
 
-  update(dt, proteklo) {
-    const sekunde = Math.round(proteklo)
+  update(dt) {
+    this.poslednje += dt
 
-    if (sekunde % this.ucestalost === 0 && this.poslednje !== sekunde) {
-      this.x += this.napred ? 1 : -1
+    if (this.poslednje >= this.ucestalost) {
+      this.y += this.napred ? .5 : -.5
       this.napred = !this.napred
-      this.poslednje = sekunde
+      this.poslednje = 0
     }
   }
 }
