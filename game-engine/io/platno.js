@@ -23,8 +23,18 @@ function crtaZemlju(nivoTla, bojaZemlje = '#00b011') {
   ctx.fillRect(0, nivoTla, platno.width, platno.height)
 }
 
-export function crtaNeboZemlju(nivoTla, bojaNeba = '#3299CC', bojaZemlje = '#32cd32', bojaNebaPreliv = 'lightblue') {
+function crtaLiniju(nivoTla) {
+  ctx.beginPath()
+  ctx.moveTo(0, nivoTla)
+  ctx.lineTo(platno.width, nivoTla)
+  ctx.stroke()
+}
+
+export function crtaNeboZemlju(nivoTla,
+  { bojaNeba = '#3299CC', bojaZemlje = '#32cd32', bojaNebaPreliv = 'lightblue', linija = true } = {}
+) {
   crtaNebo(nivoTla, bojaNeba, bojaNebaPreliv)
+  if (linija) crtaLiniju(nivoTla)
   crtaZemlju(nivoTla, bojaZemlje)
 }
 
