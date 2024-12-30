@@ -23,7 +23,7 @@ function crtaZemlju(nivoTla, bojaZemlje = '#00b011') {
   ctx.fillRect(0, nivoTla, platno.width, platno.height)
 }
 
-export function crtaNeboZemlju(nivoTla, bojaNeba = 'lightblue', bojaZemlje = 'green', bojaNebaPreliv = 'blue') {
+export function crtaNeboZemlju(nivoTla, bojaNeba = '#3299CC', bojaZemlje = '#32cd32', bojaNebaPreliv = 'lightblue') {
   crtaNebo(nivoTla, bojaNeba, bojaNebaPreliv)
   crtaZemlju(nivoTla, bojaZemlje)
 }
