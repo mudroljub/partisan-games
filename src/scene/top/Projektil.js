@@ -24,7 +24,7 @@ export default class Projektil {
   }
 
   leti(dt) {
-    this.dy += g
+    this.dy += g * dt * 33
     this.x += this.dx * dt
     this.y += this.dy * dt
   }
