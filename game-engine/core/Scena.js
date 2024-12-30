@@ -81,7 +81,6 @@ export default class Scena {
   update(dt, proteklo) {
     this.cisti()
     const rekurzivnoAzuriraj = predmet => {
-      if ('proveriTipke' in predmet) predmet.proveriTipke(dt)
       if ('update' in predmet) predmet.update(dt, proteklo)
       if ('render' in predmet) predmet.render()
       if (predmet?.predmeti?.length) predmet.predmeti.forEach(rekurzivnoAzuriraj)

@@ -43,8 +43,9 @@ Male igrice o Nemcima i partizanima.
 
 Ako scena ima niz `predmeti`, svaki frejm se pozivaju njihove metode:
 
-- predmet.proveriTipke()
 - predmet.update()
 - predmet.render()
 
 Ako predmeti scene imaju predmete unutar sebe, i njihove metode će se rekurzivno pozivati.
+
+Ako nasledna scena pregazi roditeljski `update` metod, onda ova logika ne važi.
