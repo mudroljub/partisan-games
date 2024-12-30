@@ -1,9 +1,5 @@
-import { keyboard } from '/game-engine/io/Keyboard.js'
 import TopPostolje from './TopPostolje.js'
 import TopCev from './TopCev.js'
-
-const MIN_UGAO = -0.02
-const MAX_UGAO = -0.6
 
 export default class Top {
   constructor(x, y) {
@@ -27,18 +23,8 @@ export default class Top {
     }
   }
 
-  proveriTipke(dt) {
-    if (!this.cev.projektil.ispaljen && keyboard.space)
-      this.cev.sila += 10
-    else if (this.cev.sila > this.cev.minSila)
-      this.cev.pali()
-
-    if (keyboard.up) this.cev.ugao = Math.max(this.cev.ugao - 0.5 * dt, MAX_UGAO)
-    if (keyboard.down) this.cev.ugao = Math.min(this.cev.ugao + 0.5 * dt, MIN_UGAO)
-  }
-
   update(dt) {
-    this.proveriTipke(dt)
+    this.cev.proveriTipke(dt)
     this.cev.render()
     this.cev.projektil.update(dt)
   }
