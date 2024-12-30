@@ -6,6 +6,7 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
+- dodati u top/minobacac https://mudroljub.github.io/partizani-animacija/
 - da na esc napuštati nivo
 - OPTIMIZACIJA
     - proveriti šta se učitava na naslovnoj, šta se instancira
@@ -14,7 +15,7 @@ Male igrice o Nemcima i partizanima.
     - proveriti sve nivoe sa sporijim i bržim fps
 
 ### Faza 1: refaktor i sredjivanje
-- Avionce: promeniti zvuk motora
+- Avionce: dodati zvuk motora
 - spojiti ranjenike
 - preimenovati u ranjenici na sutjesci
 - spojiti tenkic dva igraca i tenkic protiv kompa, jedina razlika je mrdaNasumicno
@@ -24,7 +25,6 @@ Male igrice o Nemcima i partizanima.
 - TenkOdozgo: spojiti sa TenkIgracOdozgo
 - camac: popraviti odbijanje
 - da svi ispaljuju više projektila (radi na Avionce.js)
-- Humel: dodati sliku gori
 
 ### Faza 3: 3D
 - dodati predmetima z osu (default 0)

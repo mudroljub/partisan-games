@@ -27,10 +27,6 @@ export default class Predmet extends Slika {
 
   /* POLOZAJ */
 
-  tlo(y) {
-    this.y = y - this.visina / 2
-  }
-
   postaviRandom() {
     this.polozaj(Math.random() * platno.width, Math.random() * platno.height)
   }

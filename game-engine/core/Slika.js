@@ -28,6 +28,10 @@ export default class Slika {
     this.y = y
   }
 
+  tlo(y) {
+    this.y = y - this.visina / 2
+  }
+
   zameniSliku(src) {
     this.slika.src = src
   }
