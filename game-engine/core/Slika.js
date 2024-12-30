@@ -4,14 +4,15 @@ export default class Slika {
   #x = 0
   #y = 0
 
-  constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1, parent = null } = {}) {
+  constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1 } = {}) {
     this.slika = new Image()
     this.x = x
     this.y = y
     this.ugao = 0
     this.sirina = sirina
     this.visina = visina
-    this.parent = parent
+    this.predmeti = []
+    this.parent = null
 
     this.slika.onload = () => {
       if (!sirina && !visina) {
@@ -54,6 +55,15 @@ export default class Slika {
   zameniSliku(src) {
     this.slika.src = src
   }
+
+  dodaj(...premeti) {
+    for (const predmet of premeti) {
+      predmet.parent = this
+      this.predmeti.push(predmet)
+    }
+  }
+
+  /* UGAO */
 
   get ugao() {
     return this._ugao

@@ -1,6 +1,7 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
-import Slika from '/game-engine/core/Slika.js'
 import Projektil from './Projektil.js'
+import TopPostolje from './TopPostolje.js'
+import TopCev from './TopCev.js'
 
 const MIN_UGAO = -0.02
 const MAX_UGAO = -0.6
@@ -10,23 +11,23 @@ export default class Top {
     this.x = x
     this.y = y
     this.sila = this.minSila = 800
-    this.postolje = new Slika('/assets/slike/2d-bocno/top-postolje.gif', { x: this.x, y: this.y, skalar: .75 })
-    this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif', { x: this.x + 40, y: this.y - 32, skalar: .75 })
-    this.cev.ugao = -0.2
+    this.postolje = new TopPostolje(0, 0)
+    this.cev = new TopCev(this.x + 40, this.y - 32)
     this.projektil = new Projektil()
+    this.predmeti = []
+    this.dodaj(this.postolje)
   }
 
-  get vrhCeviX() {
-    return this.cev.x + this.cev.sirina * 0.5 * Math.cos(-this.cev.ugao)
-  }
-
-  get vrhCeviY() {
-    return this.cev.y - this.cev.sirina * 0.5 * Math.sin(-this.cev.ugao) + 8
+  dodaj(...premeti) {
+    for (const predmet of premeti) {
+      predmet.parent = this
+      this.predmeti.push(predmet)
+    }
   }
 
   pripremi() {
-    this.projektil.x = this.vrhCeviX
-    this.projektil.y = this.vrhCeviY
+    this.projektil.x = this.cev.vrhX
+    this.projektil.y = this.cev.vrhY
   }
 
   pali() {
@@ -47,7 +48,6 @@ export default class Top {
 
   update(dt) {
     this.proveriTipke(dt)
-    this.postolje.render()
     this.cev.render()
     this.projektil.update(dt)
   }
