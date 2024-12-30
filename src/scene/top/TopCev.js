@@ -6,6 +6,8 @@ export default class TopCev extends Slika {
   constructor(x, y) {
     super('/assets/slike/2d-bocno/top-cev.gif', { x, y, skalar: .75 })
     this.ugao = -0.2
+    this.projektil = new Projektil()
+    this.sila = this.minSila = 800
   }
 
   get vrhX() {
@@ -16,8 +18,14 @@ export default class TopCev extends Slika {
     return this.y - this.sirina * 0.5 * Math.sin(-this.ugao) + 8
   }
 
-//   pripremi() {
-//     this.projektil.x = this.vrhX
-//     this.projektil.y = this.vrhY
-//   }
+  pripremi() {
+    this.projektil.x = this.vrhX
+    this.projektil.y = this.vrhY
+  }
+
+  pali() {
+    this.pripremi()
+    this.projektil.pali(this.sila, this.ugao)
+    this.sila = this.minSila
+  }
 }

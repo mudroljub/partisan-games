@@ -17,12 +17,9 @@ export default class TopScena extends Scena {
   }
 
   sablon() {
-    const max = 1500
-    const procenat = (this.top.sila - this.top.minSila) / (max - this.top.minSila) * 100
-
     return `
       <div class="komande">
-        <progress value="${procenat}" max=100></progress>
+        <progress value="${this.top.sila}" max=1600></progress>
       </div>
     `
   }

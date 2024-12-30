@@ -1,5 +1,4 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
-import Projektil from './Projektil.js'
 import TopPostolje from './TopPostolje.js'
 import TopCev from './TopCev.js'
 
@@ -10,12 +9,15 @@ export default class Top {
   constructor(x, y) {
     this.x = x
     this.y = y
-    this.sila = this.minSila = 800
+
     this.postolje = new TopPostolje(0, 0)
     this.cev = new TopCev(this.x + 40, this.y - 32)
-    this.projektil = new Projektil()
     this.predmeti = []
     this.dodaj(this.postolje)
+  }
+
+  get sila() {
+    return this.cev.sila
   }
 
   dodaj(...premeti) {
@@ -25,22 +27,11 @@ export default class Top {
     }
   }
 
-  pripremi() {
-    this.projektil.x = this.cev.vrhX
-    this.projektil.y = this.cev.vrhY
-  }
-
-  pali() {
-    this.pripremi()
-    this.projektil.pali(this.sila, this.cev.ugao)
-    this.sila = this.minSila
-  }
-
   proveriTipke(dt) {
-    if (!this.projektil.ispaljen && keyboard.space)
-      this.sila += 10
-    else if (this.sila > this.minSila)
-      this.pali()
+    if (!this.cev.projektil.ispaljen && keyboard.space)
+      this.cev.sila += 10
+    else if (this.cev.sila > this.cev.minSila)
+      this.cev.pali()
 
     if (keyboard.up) this.cev.ugao = Math.max(this.cev.ugao - 0.5 * dt, MAX_UGAO)
     if (keyboard.down) this.cev.ugao = Math.min(this.cev.ugao + 0.5 * dt, MIN_UGAO)
@@ -49,6 +40,6 @@ export default class Top {
   update(dt) {
     this.proveriTipke(dt)
     this.cev.render()
-    this.projektil.update(dt)
+    this.cev.projektil.update(dt)
   }
 }
