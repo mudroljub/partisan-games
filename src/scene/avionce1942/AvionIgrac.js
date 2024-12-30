@@ -82,7 +82,7 @@ export default class AvionIgrac extends Igrac {
   }
 
   proveriSudare() {
-    this.predmeti.forEach(predmet => {
+    this.cvrstaTela.forEach(predmet => {
       if (this.sudara(predmet)) {
         this.umri()
         predmet.umri()

@@ -37,7 +37,7 @@ export default class Avionce1942 extends Scena {
 
     this.vozilo.neprijatelji.push(this.igrac)
     this.igrac.neprijatelji.push(this.vozilo)
-    this.igrac.predmeti.push(this.vozilo, this.ruina)
+    this.igrac.cvrstaTela.push(this.vozilo, this.ruina)
 
     this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak())
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun())

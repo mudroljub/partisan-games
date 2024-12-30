@@ -13,7 +13,7 @@ export default class Igrac extends Predmet {
     this.prohodnost = 0.9
     this.komandeNapredne = false // da se okreće oko svoje ose
     this.neprijatelji = []
-    this.predmeti = []
+    this.cvrstaTela = []
   }
 
   update() {

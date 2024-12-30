@@ -1,3 +1,4 @@
+// PROBLEM: kompozitno telo, njegova pozicija treba auto ažurira dečje pozicije
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Slika from '/game-engine/core/Slika.js'
 import Projektil from './Projektil.js'
@@ -14,6 +15,12 @@ export default class Top {
     this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif', { x: this.x + 40, y: this.y - 32, skalar: .75 })
     this.cev.ugao = -0.2
     this.projektil = new Projektil()
+
+    this.originalX = x
+    this.trzaj = false
+    this.trzajStart = 0
+    this.trzajIntenzitet = -10
+    this.trzajTrajanje = 1.5
   }
 
   get vrhCeviX() {
@@ -29,26 +36,46 @@ export default class Top {
     this.projektil.y = this.vrhCeviY
   }
 
-  pali() {
+  pali(protekloVreme) {
     this.pripremi()
     this.projektil.pali(this.sila, this.cev.ugao)
     this.sila = this.minSila
+
+    if (!this.trzaj) {
+      this.trzaj = true
+      this.trzajStart = protekloVreme
+      this.originalX = this.x
+    }
   }
 
-  proveriTipke(dt) {
+  proveriTipke(dt, protekloVreme) {
     if (!this.projektil.ispaljen && keyboard.space)
       this.sila += 10
     else if (this.sila > this.minSila)
-      this.pali()
+      this.pali(protekloVreme)
 
     if (keyboard.up) this.cev.ugao = Math.max(this.cev.ugao - 0.5 * dt, MAX_UGAO)
     if (keyboard.down) this.cev.ugao = Math.min(this.cev.ugao + 0.5 * dt, MIN_UGAO)
   }
 
-  update(dt) {
-    this.proveriTipke(dt)
+  trzajniEfekat(protekloVreme) {
+    const progres = (protekloVreme - this.trzajStart) / this.trzajTrajanje
+    if (progres >= 1) {
+      this.x = this.originalX
+      this.trzaj = false
+    } else {
+      console.log('nazad', this.x)
+      this.x--
+    }
+  }
+
+  update(dt, protekloVreme) {
+    this.proveriTipke(dt, protekloVreme)
     this.postolje.render()
     this.cev.render()
     this.projektil.update(dt)
+
+    if (this.trzaj)
+      this.trzajniEfekat(protekloVreme)
   }
 }
