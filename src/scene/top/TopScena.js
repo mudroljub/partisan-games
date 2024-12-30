@@ -1,14 +1,18 @@
+// preslikati https://mudroljub.github.io/partizani-animacija/
+// da posada puni nakon pucanja
 // dodati metu
-import Scena from '/game-engine/core/Scena.js'
-import Posada from './Posada.js'
-import Top from './Top.js'
 import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
+import Scena from '/game-engine/core/Scena.js'
+import Top from './Top.js'
+import Posada from './Posada.js'
+import Strelac from './Strelac.js'
 
 export default class TopScena extends Scena {
   init() {
     this.top = new Top(160, platno.height * .75)
-    this.posada = new Posada(70, platno.height * .75 + 8)
-    this.dodaj(this.top, this.posada)
+    const posada = new Posada(70, platno.height * .75 + 8)
+    const strelac = new Strelac(280, platno.height * .75 + 8)
+    this.dodaj(this.top, posada, strelac)
   }
 
   cisti() {
@@ -18,7 +22,7 @@ export default class TopScena extends Scena {
   sablon() {
     return `
       <div class="komande">
-        <progress value="${this.top.cev.sila}" max=1600></progress>
+        <progress value="${this.top.sila}" max=1600></progress>
       </div>
     `
   }

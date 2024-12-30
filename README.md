@@ -6,7 +6,6 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
-- dodati u top/minobacac https://mudroljub.github.io/partizani-animacija/
 - da na esc napuštati nivo
 - OPTIMIZACIJA
     - proveriti šta se učitava na naslovnoj, šta se instancira
