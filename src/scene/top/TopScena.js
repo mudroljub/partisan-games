@@ -1,4 +1,3 @@
-// top trza, mozda i posada
 // dodati metu
 import Scena from '/game-engine/core/Scena.js'
 import Posada from './Posada.js'

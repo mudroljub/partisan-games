@@ -8,13 +8,7 @@ export default class Posada extends Slika {
     this.napred = true
   }
 
-  update(dt) {
-    this.poslednje += dt
-
-    if (this.poslednje >= this.ucestalost) {
-      this.y += this.napred ? .5 : -.5
-      this.napred = !this.napred
-      this.poslednje = 0
-    }
+  update(dt, proteklo) {
+    this.x += Math.sin(proteklo) * dt
   }
 }
