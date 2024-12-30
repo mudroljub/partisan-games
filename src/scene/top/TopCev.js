@@ -42,8 +42,4 @@ export default class TopCev extends Slika {
     if (keyboard.up) this.ugao = Math.max(this.ugao - 0.5 * dt, MAX_UGAO)
     if (keyboard.down) this.ugao = Math.min(this.ugao + 0.5 * dt, MIN_UGAO)
   }
-
-  update(dt) {
-    this.proveriTipke(dt)
-  }
 }

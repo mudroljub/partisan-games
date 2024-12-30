@@ -56,10 +56,6 @@ export default class Scena {
     return this.ctx.fillStyle
   }
 
-  cisti() {
-    this.ctx.clearRect(0, 0, this.sirina, this.visina)
-  }
-
   /* UI */
 
   pocetniProzor(text) {
@@ -71,15 +67,21 @@ export default class Scena {
     this.ui.zavrsniProzor(text, this.constructor.name)
   }
 
+  /* PETLJA */
+
+  cisti() {
+    this.ctx.clearRect(0, 0, this.sirina, this.visina)
+  }
+
+  // TODO: vratiti sablon sa UI ovde?
   sablon() {
     return ''
   }
 
-  /* PETLJA */
-
   update(dt, proteklo) {
     this.cisti()
     const rekurzivnoAzuriraj = predmet => {
+      if ('proveriTipke' in predmet) predmet.proveriTipke(dt)
       if ('update' in predmet) predmet.update(dt, proteklo)
       if ('render' in predmet) predmet.render()
       if (predmet?.predmeti?.length) predmet.predmeti.forEach(rekurzivnoAzuriraj)

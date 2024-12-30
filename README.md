@@ -31,3 +31,20 @@ Male igrice o Nemcima i partizanima.
 - spojiti predmete razlicitih perspektiva u jedan predmet (bocno, odozgo, prvolice..) sa više prikaza
 - srediti 3D koliziju
 - napraviti jednu mapu sa tri prikaza
+
+## Dokumentacija
+
+`Scena` automatski poziva sledeće metode, koje nasledne scene mogu implementirati:
+
+- init()   // samo jednom
+- cisti()  // svaki frejm
+- sablon() // svaki frejm
+- update() // svaki frejm
+
+Ako scena ima niz `predmeti`, svaki frejm se pozivaju njihove metode:
+
+- predmet.proveriTipke()
+- predmet.update()
+- predmet.render()
+
+Ako predmeti scene imaju predmete unutar sebe, i njihove metode će se rekurzivno pozivati.
