@@ -11,8 +11,8 @@ export default class Slika {
     this.ugao = 0
     this.sirina = sirina
     this.visina = visina
-    this.predmeti = []
     this.parent = null
+    this.predmeti = []
 
     this.slika.onload = () => {
       if (!sirina && !visina) {
@@ -54,13 +54,6 @@ export default class Slika {
 
   zameniSliku(src) {
     this.slika.src = src
-  }
-
-  dodaj(...premeti) {
-    for (const predmet of premeti) {
-      predmet.parent = this
-      this.predmeti.push(predmet)
-    }
   }
 
   /* UGAO */

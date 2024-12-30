@@ -19,7 +19,7 @@ export default class TopScena extends Scena {
   sablon() {
     return `
       <div class="komande">
-        <progress value="${this.top.sila}" max=1600></progress>
+        <progress value="${this.top.cev.sila}" max=1600></progress>
       </div>
     `
   }
