@@ -1,27 +1,46 @@
 import { ctx } from '../io/platno.js'
 
 export default class Slika {
+  #x = 0
+  #y = 0
 
-  constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1 } = {}) {
+  constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1, parent = null } = {}) {
     this.slika = new Image()
     this.x = x
     this.y = y
     this.ugao = 0
     this.sirina = sirina
     this.visina = visina
+    this.parent = parent
 
     this.slika.onload = () => {
       if (!sirina && !visina) {
         this.sirina = this.slika.naturalWidth * skalar
         this.visina = this.slika.naturalHeight * skalar
       }
-      this.onload() // za naslednike
+      this.onload()
       this.slika.onload = null
     }
     this.slika.src = src
   }
 
-  onload() {}
+  onload() {} // implementiraju naslednici
+
+  get x() {
+    return this.parent ? this.parent.x + this.#x : this.#x
+  }
+
+  set x(val) {
+    this.#x = val
+  }
+
+  get y() {
+    return this.parent ? this.parent.y + this.#y : this.#y
+  }
+
+  set y(val) {
+    this.#y = val
+  }
 
   polozaj(x, y) {
     this.x = x
