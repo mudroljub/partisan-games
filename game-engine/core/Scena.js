@@ -45,24 +45,6 @@ export default class Scena {
     this.visina = visina
   }
 
-  /* PETLJA */
-
-  update(dt) {
-    this.cisti()
-    this.predmeti.map(predmet => 'update' in predmet && predmet.update(dt))
-    this.predmeti.map(predmet => 'render' in predmet && predmet.render())
-    this.ui.render()
-  }
-
-  start() {
-    this.gameLoop.start()
-  }
-
-  end() {
-    this.gameLoop.stop()
-    this.predmeti = []
-  }
-
   /* POZADINA */
 
   set bojaPozadine(boja) {
@@ -91,5 +73,23 @@ export default class Scena {
 
   sablon() {
     return ''
+  }
+
+  /* PETLJA */
+
+  update(dt, proteklo) {
+    this.cisti()
+    this.predmeti.map(predmet => 'update' in predmet && predmet.update(dt, proteklo))
+    this.predmeti.map(predmet => 'render' in predmet && predmet.render())
+    this.ui.render()
+  }
+
+  start() {
+    this.gameLoop.start()
+  }
+
+  end() {
+    this.gameLoop.stop()
+    this.predmeti = []
   }
 }

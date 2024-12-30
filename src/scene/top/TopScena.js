@@ -1,13 +1,14 @@
+// top trza, mozda i posada
 // dodati metu
 import Scena from '/game-engine/core/Scena.js'
-import Slika from '/game-engine/core/Slika.js'
+import Posada from './Posada.js'
 import Top from './Top.js'
 import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
 
 export default class TopScena extends Scena {
   init() {
     this.top = new Top(160, platno.height * .75)
-    this.posada = new Slika('/assets/slike/2d-bocno/partizani/artiljerija/posada-01.png', { x: 70, y: platno.height * .75 + 8 })
+    this.posada = new Posada(70, platno.height * .75 + 8)
     this.dodaj(this.top, this.posada)
   }
 
