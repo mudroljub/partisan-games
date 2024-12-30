@@ -6,12 +6,13 @@ const MIN_UGAO = -0.1
 const MAX_UGAO = -0.6
 
 export default class TopCev extends Slika {
-  constructor(x, y, skalar) {
+  constructor(x, y, skalar, callback) {
     super('/assets/slike/2d-bocno/top-cev.gif', { x, y, skalar })
     this.ugao = -0.2
     this.projektil = new Projektil()
     this.sila = this.minSila = 800
     this.predmeti.push(this.projektil)
+    this.callback = callback
   }
 
   get vrhX() {
@@ -31,6 +32,8 @@ export default class TopCev extends Slika {
     this.pripremi()
     this.projektil.pali(this.sila, this.ugao)
     this.sila = this.minSila
+
+    if (this.callback) this.callback()
   }
 
   proveriTipke(dt) {
