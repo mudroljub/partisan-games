@@ -27,12 +27,18 @@ export default class Slika {
 
   onload() {} // implementiraju naslednici
 
+  zameniSliku(src) {
+    this.slika.src = src
+  }
+
+  /* POLOZAJ */
+
   get x() {
     return this.parent ? this.parent.x + this.#x : this.#x
   }
 
   set x(val) {
-    this.#x = val
+    this.#x = this.parent ? val - this.parent.x : val
   }
 
   get y() {
@@ -40,7 +46,7 @@ export default class Slika {
   }
 
   set y(val) {
-    this.#y = val
+    this.#y = this.parent ? val - this.parent.y : val
   }
 
   polozaj(x, y) {
@@ -50,10 +56,6 @@ export default class Slika {
 
   tlo(y) {
     this.y = y - this.visina / 2
-  }
-
-  zameniSliku(src) {
-    this.slika.src = src
   }
 
   /* UGAO */
