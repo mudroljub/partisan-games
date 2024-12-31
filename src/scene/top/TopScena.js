@@ -8,17 +8,19 @@ import Posada from './Posada.js'
 import Strelac from './Strelac.js'
 import Zastavnik from './Zastavnik.js'
 
+const tlo = platno.height * .75
+
 export default class TopScena extends Scena {
   init() {
-    this.top = new Top(160, platno.height * .75)
-    const zastavnik = new Zastavnik(20, platno.height * .75)
-    const posada = new Posada(70, platno.height * .75 + 8)
-    const strelac = new Strelac(280, platno.height * .75 + 8)
+    this.top = new Top(160, tlo)
+    const zastavnik = new Zastavnik(20, tlo)
+    const posada = new Posada(70, tlo + 8)
+    const strelac = new Strelac(280, tlo + 8)
     this.dodaj(this.top, posada, strelac, zastavnik)
   }
 
   cisti() {
-    crtaNeboZemlju(platno.height * .75)
+    crtaNeboZemlju(tlo)
   }
 
   sablon() {
