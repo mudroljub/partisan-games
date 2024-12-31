@@ -39,7 +39,7 @@ export default class VoziloBocno extends Predmet {
   update(dt) {
     super.update(dt)
     this.patroliraj(dt)
-    this.skalarY = this.ugao === Math.PI ? -1 : 1
+    this.odrazX = this.ugao === Math.PI
     this.raketa.update()
     this.lastX = this.x
   }

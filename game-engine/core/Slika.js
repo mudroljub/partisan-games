@@ -3,6 +3,8 @@ import Kompozit from '/game-engine/core/Kompozit.js'
 
 export default class Slika extends Kompozit {
   #ugao = 0
+  #odrazY = 1
+  #odrazX = 1
 
   constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1 } = {}) {
     super(x, y)
@@ -19,8 +21,6 @@ export default class Slika extends Kompozit {
       this.slika.onload = null
     }
     this.slika.src = src
-    // služi isključivo za odraz, ne za veličinu
-    this.skalarX = this.skalarY = 1
   }
 
   onload() {} // implementiraju naslednici
@@ -38,6 +38,24 @@ export default class Slika extends Kompozit {
 
   tlo(y) {
     this.y = y - this.visina / 2
+  }
+
+  /* ODRAZ */
+
+  get odrazY() {
+    return this.#odrazY
+  }
+
+  set odrazY(bul) {
+    this.#odrazY = bul ? -1 : 1
+  }
+
+  get odrazX() {
+    return this.#odrazX
+  }
+
+  set odrazX(bul) {
+    this.#odrazX = bul ? -1 : 1
   }
 
   /* UGAO */
@@ -70,11 +88,13 @@ export default class Slika extends Kompozit {
     this.visina *= procenat
   }
 
+  /* LOOP */
+
   render() {
     ctx.save()
     ctx.translate(this.x, this.y)
     ctx.rotate(this.ugao)
-    ctx.scale(this.skalarX, this.skalarY)
+    ctx.scale(this.odrazY, this.odrazX)
     ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
     ctx.restore()
   }
