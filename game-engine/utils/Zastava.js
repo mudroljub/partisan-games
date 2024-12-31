@@ -2,7 +2,7 @@ import { ctx } from '/game-engine/io/platno.js'
 
 export default class Zastava {
   constructor({
-    x = 0, y = 0, sirina = 100, visina = 50, drskaX = 33, drskaY = 17
+    x = 0, y = 0, sirina = 100, visina = 50, drskaX = 0, drskaY = 0
   } = {}) {
     this.x = x
     this.y = y
