@@ -8,11 +8,12 @@ export default class Scena {
     this.ctx = ctx
     this.nivoTla = this.visina
     this.ui = ui
-    this.ui.sablon = () => this.sablon() // očekuje da scene imaju UI šablon
     this.lastTime = performance.now()
     this.pauza = false
     this.update = this.update.bind(this)
     this.gameLoop = new GameLoop(this.update, false)
+    this.elementUI = document.getElementById('ui')
+    this.upamcenSablon = ''
     this.init()
   }
 
@@ -69,13 +70,29 @@ export default class Scena {
 
   /* PETLJA */
 
+  start() {
+    this.gameLoop.start()
+  }
+
+  end() {
+    this.gameLoop.stop()
+    this.predmeti = []
+  }
+
   cisti() {
     this.ctx.clearRect(0, 0, this.sirina, this.visina)
   }
 
-  // TODO: vratiti sablon sa UI ovde?
   sablon() {
     return ''
+  }
+
+  renderSablon() {
+    if (!this.sablon) return
+    if (this.upamcenSablon !== this.sablon()) {
+      this.elementUI.innerHTML = this.sablon()
+      this.upamcenSablon = this.sablon()
+    }
   }
 
   update(dt, t) {
@@ -85,15 +102,6 @@ export default class Scena {
       if (predmet?.predmeti?.length) predmet.predmeti.forEach(rekurzivnoAzuriraj)
     }
     this.predmeti.forEach(rekurzivnoAzuriraj)
-    this.ui.render()
-  }
-
-  start() {
-    this.gameLoop.start()
-  }
-
-  end() {
-    this.gameLoop.stop()
-    this.predmeti = []
+    this.renderSablon()
   }
 }

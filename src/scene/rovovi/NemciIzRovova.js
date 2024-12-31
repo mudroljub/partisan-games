@@ -67,18 +67,6 @@ export default class NemciIzRovova extends Scena {
     this.energija = Math.max(0, this.energija - damage * dt)
   }
 
-  update(dt, protekloSekundi) {
-    this.pozadina.render()
-    this.sveSvabe.forEach(svabo => svabo.update(dt, this.povrediMe))
-
-    if (!this.ubrzano && protekloSekundi >= 30) {
-      this.sveSvabe.forEach(svabo => svabo.ubrzaj(2))
-      this.ubrzano = true
-    }
-    this.proveriKraj()
-    this.ui.render()
-  }
-
   end() {
     super.end()
     document.removeEventListener('click', this.handleClick)
@@ -95,5 +83,17 @@ export default class NemciIzRovova extends Scena {
       <progress class="komande poluprovidno progres1" value="${this.energija}" max="100"></progress>
     </div>
     `
+  }
+
+  update(dt, protekloSekundi) {
+    this.pozadina.render()
+    this.sveSvabe.forEach(svabo => svabo.update(dt, this.povrediMe))
+
+    if (!this.ubrzano && protekloSekundi >= 30) {
+      this.sveSvabe.forEach(svabo => svabo.ubrzaj(2))
+      this.ubrzano = true
+    }
+    this.proveriKraj()
+    this.renderSablon()
   }
 }
