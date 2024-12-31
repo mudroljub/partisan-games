@@ -11,8 +11,8 @@ export default class Top extends Kompozit {
     this.pocetniX = x
     this.cev = new TopCev(40, -32, skalar, () => this.trza())
     const postolje = new TopPostolje(0, 0, skalar)
-    const posada = new Posada(-90, 8)
-    this.dodaj(this.cev, postolje, posada)
+    this.posada = new Posada(-80, 8)
+    this.dodaj(this.cev, postolje, this.posada)
   }
 
   get sila() {
@@ -21,6 +21,7 @@ export default class Top extends Kompozit {
 
   trza() {
     this.x -= 5
+    this.posada.trza()
   }
 
   update(dt) {
