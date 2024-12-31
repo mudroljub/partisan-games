@@ -20,12 +20,12 @@ export default class VoziloBocno extends Predmet {
     if (this.mrtav) return
     if (this.x <= 150) {
       this.ugao = 0
-      // this.skalarY = 1
+      this.skalarY = 1
       this.brzina = 3
     }
     if (this.x >= 600) {
       this.ugao = KRUZNICA / 2
-      // this.skalarY = -1
+      this.skalarY = -1
       this.brzina = 3
     }
   }
