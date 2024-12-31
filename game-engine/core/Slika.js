@@ -2,11 +2,11 @@ import { ctx } from '../io/platno.js'
 import Kompozit from '/game-engine/core/Kompozit.js'
 
 export default class Slika extends Kompozit {
+  #ugao = 0
 
   constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1 } = {}) {
     super(x, y)
     this.slika = new Image()
-    this.ugao = 0
     this.sirina = sirina
     this.visina = visina
 
@@ -43,11 +43,11 @@ export default class Slika extends Kompozit {
   /* UGAO */
 
   get ugao() {
-    return this._ugao
+    return this.#ugao
   }
 
   set ugao(noviUgao) {
-    this._ugao = noviUgao % (Math.PI * 2)
+    this.#ugao = noviUgao % (Math.PI * 2)
   }
 
   get ugaoStepeni() {

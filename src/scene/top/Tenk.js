@@ -8,6 +8,5 @@ export default class Tenk extends VoziloBocno {
 
   update(dt) {
     super.update(dt)
-    // this.povremenoPucaPratecu(dt)
   }
 }

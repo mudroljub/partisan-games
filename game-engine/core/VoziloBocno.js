@@ -4,7 +4,6 @@ import Raketa from '../../src/scene/avionce1942/Raketa.js'
 export default class VoziloBocno extends Predmet {
   constructor(src, x, y, skalar) {
     super(src, undefined, undefined, x, y, skalar)
-    this.onload = () => this.y = y - this.visina / 2
     this.dodajSilu(3)
     this.zapaljiv = true
     this.sansaPucnja = 0.01
@@ -12,6 +11,10 @@ export default class VoziloBocno extends Predmet {
     this.neprijatelji = [] // treba raketi
     this.raketa = new Raketa(this)
     this.raketa.cilj = 'igrac'
+  }
+
+  onload() {
+    this.y -= this.visina / 2 // stavlja na tlo
   }
 
   patroliraj() {
