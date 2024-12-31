@@ -1,6 +1,6 @@
 import VoziloBocno from './VoziloBocno.js'
 
-export default class Hummel extends VoziloBocno {
+export default class Tenk extends VoziloBocno {
   constructor(nivoTla) {
     super(nivoTla, '/assets/slike/2d-bocno/hummel.png', 150, 70)
   }

@@ -126,8 +126,8 @@ export default class Avionce1942 extends Scena {
     crtaNebo(this.nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
   }
 
-  update() {
-    super.update()
+  update(dt) {
+    super.update(dt)
     this.proveriTipke()
     this.vozilo.patroliraj()
     this.proveriTlo()

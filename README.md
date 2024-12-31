@@ -6,6 +6,7 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
+- BUG: Hummel se prevrce naopacke u povratku
 - da na esc napuštati nivo
 - OPTIMIZACIJA
     - proveriti šta se učitava na naslovnoj, šta se instancira

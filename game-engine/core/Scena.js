@@ -89,6 +89,7 @@ export default class Scena {
   end() {
     this.gameLoop.stop()
     this.predmeti = []
+    this.elementUI.innerHTML = ''
   }
 
   cisti() {
