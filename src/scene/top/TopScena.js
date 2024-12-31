@@ -1,4 +1,3 @@
-// da posada na enter
 // dodati metu
 // BUG: projektil se crta na 0, 0
 import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'

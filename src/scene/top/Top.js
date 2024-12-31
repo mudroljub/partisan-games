@@ -30,6 +30,9 @@ export default class Top extends Kompozit {
   }
 
   proveriTipke() {
+    if (keyboard.space)
+      this.posada.puni = true
+
     if (keyboard.space && this.cev.spremno)
       this.sila += 10
     else if (this.sila > this.minSila)
