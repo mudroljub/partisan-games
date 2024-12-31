@@ -32,7 +32,7 @@ export default class Avionce1942 extends Scena {
 
     this.aerodrom = new Aerodrom(this.nivoTla)
     this.ruina = new Ruina(this.nivoTla)
-    this.vozilo = new Hummel(this.nivoTla)
+    this.vozilo = new Hummel(150, this.nivoTla)
     this.igrac = new AvionIgrac(this.nivoTla)
 
     this.vozilo.neprijatelji.push(this.igrac)

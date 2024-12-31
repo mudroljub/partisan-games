@@ -13,7 +13,7 @@ export default class TopScena extends Scena {
     const zastavnik = new Zastavnik(40, tlo + 1)
     this.top = new Top(190, tlo)
     const strelac = new Strelac(300, tlo + 8)
-    this.tenk = new Tenk(tlo)
+    this.tenk = new Tenk(250, tlo)
     this.dodaj(this.top, strelac, zastavnik, this.tenk)
   }
 

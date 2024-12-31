@@ -3,11 +3,10 @@ import Predmet from '/game-engine/core/Predmet.js'
 import Raketa from '../../src/scene/avionce1942/Raketa.js'
 
 export default class VoziloBocno extends Predmet {
-  constructor(nivoTla, src, sirina, visina, x = 100, y = nivoTla - visina / 2) {
-    super(src, sirina, visina)
+  constructor(src, x, y, skalar) {
+    super(src, undefined, undefined, x, y, skalar)
+    this.onload = () => this.y = y - this.visina / 2
     this.dodajSilu(3)
-    this.x = x
-    this.y = y
     this.zapaljiv = true
     this.sansaPucnja = 0.01
     this.oznake.add('neprijatelj')
@@ -39,8 +38,9 @@ export default class VoziloBocno extends Predmet {
     if (Math.random() < this.sansaPucnja) this.pucaPratecu()
   }
 
-  update() {
-    super.update()
+  update(dt) {
+    super.update(dt)
+    this.patroliraj(dt)
     this.raketa.update()
   }
 }

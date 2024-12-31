@@ -6,8 +6,8 @@ import { sudar } from '../utils/sudari.js'
 
 export default class Predmet extends Slika {
 
-  constructor(src, sirina, visina, x, y) {
-    super(src, { sirina, visina, x, y })
+  constructor(src, sirina, visina, x, y, skalar) {
+    super(src, { sirina, visina, x, y, skalar })
     this.ziv = true
     this.vidljiv = true
     this.brzina = 0

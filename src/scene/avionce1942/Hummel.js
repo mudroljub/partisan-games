@@ -1,8 +1,8 @@
 import VoziloBocno from '/game-engine/core/VoziloBocno.js'
 
 export default class Hummel extends VoziloBocno {
-  constructor(nivoTla) {
-    super(nivoTla, '/assets/slike/2d-bocno/hummel.png', 150, 70)
+  constructor(x, y) {
+    super('/assets/slike/2d-bocno/hummel.png', x, y, .75)
   }
 
   update(dt) {
