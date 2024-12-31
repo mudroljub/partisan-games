@@ -1,5 +1,5 @@
-// dodati metu
 // BUG: projektil se crta na 0, 0
+// dodati metu
 import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import Top from './Top.js'

@@ -10,7 +10,6 @@ export default class Slika extends Kompozit {
     this.sirina = sirina
     this.visina = visina
 
-
     this.slika.onload = () => {
       if (!sirina && !visina) {
         this.sirina = this.slika.naturalWidth * skalar
