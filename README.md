@@ -6,7 +6,6 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
-- BUG: Hummel se prevrce naopacke u povratku
 - Predmet: 
     - promeniti redosled argumenata ili dodati param
     - svuda dodati skalar izbaciti velicinu

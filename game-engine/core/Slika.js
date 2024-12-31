@@ -19,7 +19,7 @@ export default class Slika extends Kompozit {
       this.slika.onload = null
     }
     this.slika.src = src
-    this.skalarX = this.skalarY = 1 // služi isključivo za odraz, ne za skaliranje
+    this.skalarX = 1 // odraz ako je -1
   }
 
   onload() {} // implementiraju naslednici
@@ -74,7 +74,7 @@ export default class Slika extends Kompozit {
     ctx.save()
     ctx.translate(this.x, this.y)
     ctx.rotate(this.ugao)
-    ctx.scale(this.skalarX, this.skalarY)
+    ctx.scale(this.skalarX, 1)
     ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
     ctx.restore()
   }
