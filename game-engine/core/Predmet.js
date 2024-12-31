@@ -50,13 +50,9 @@ export default class Predmet extends Slika {
     return Math.sqrt(this.dx * this.dx + this.dy * this.dy)
   }
 
-  set brzina(novaBrzina) {
-    this.azurirajSilu(novaBrzina, this.ugao)
-  }
-
-  azurirajSilu(jacina = this.brzina, ugao = this.ugao) {
-    this.dx = jacina * Math.cos(ugao)
-    this.dy = jacina * Math.sin(ugao)
+  set brzina(jacina) {
+    this.dx = jacina * Math.cos(this.ugao)
+    this.dy = jacina * Math.sin(this.ugao)
   }
 
   dodajSilu(jacina, ugao = this.ugao) {
@@ -74,6 +70,11 @@ export default class Predmet extends Slika {
   }
 
   /* UGLOVI */
+
+  skreni(noviUgao) {
+    this.ugao = noviUgao
+    this.brzina = this.brzina // ažurira pravac kretanja
+  }
 
   ugaoKa(predmet) {
     const mojX = this.x + this.sirina / 2

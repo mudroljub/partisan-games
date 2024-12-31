@@ -1,4 +1,3 @@
-import { KRUZNICA } from '/game-engine/konstante.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import Raketa from '../../src/scene/avionce1942/Raketa.js'
 
@@ -18,14 +17,11 @@ export default class VoziloBocno extends Predmet {
   patroliraj() {
     if (this.mrtav) return
 
-    if (this.x <= 150) {
-      this.ugao = 0
-      this.brzina = 3
-    }
-    if (this.x >= 600) {
-      this.ugao = Math.PI
-      this.brzina = 3
-    }
+    if (this.x <= 150)
+      this.skreni(0)
+
+    if (this.x >= 600)
+      this.skreni(Math.PI)
   }
 
   pucaPratecu() {

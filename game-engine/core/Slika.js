@@ -19,8 +19,8 @@ export default class Slika extends Kompozit {
       this.slika.onload = null
     }
     this.slika.src = src
-    this.skalarX = 1 // odraz ako je -1
-    this.skalarY = 1 // odraz ako je -1
+    // služi isključivo za odraz, ne za veličinu
+    this.skalarX = this.skalarY = 1
   }
 
   onload() {} // implementiraju naslednici
@@ -48,7 +48,6 @@ export default class Slika extends Kompozit {
 
   set ugao(noviUgao) {
     this._ugao = noviUgao % (Math.PI * 2)
-    // this.azurirajSilu()
   }
 
   get ugaoStepeni() {
