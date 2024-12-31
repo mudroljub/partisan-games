@@ -1,6 +1,7 @@
 // preslikati https://mudroljub.github.io/partizani-animacija/
 // da posada puni nakon pucanja
 // dodati metu
+// Projektil se crta na 0, 0
 import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import Top from './Top.js'
