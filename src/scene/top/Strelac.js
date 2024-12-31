@@ -13,6 +13,8 @@ export default class Strelac extends Slika {
   }
 
   update(dt, t) {
+    this.y += Math.sin(t) * dt
+
     if (this.x < this.pocetniX) this.x += 20 * dt
 
     if (t >= this.ucestalost + this.poslednje) {
