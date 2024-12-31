@@ -129,7 +129,6 @@ export default class Avionce1942 extends Scena {
   update(dt) {
     super.update(dt)
     this.proveriTipke()
-    this.vozilo.patroliraj()
     this.proveriTlo()
     this.proveriSmrt()
   }

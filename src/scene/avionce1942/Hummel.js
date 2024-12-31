@@ -1,4 +1,4 @@
-import VoziloBocno from './VoziloBocno.js'
+import VoziloBocno from '/game-engine/core/VoziloBocno.js'
 
 export default class Hummel extends VoziloBocno {
   constructor(nivoTla) {
