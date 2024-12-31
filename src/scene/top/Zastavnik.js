@@ -10,6 +10,6 @@ export default class Zastavnik extends Slika {
 
   update(dt, proteklo) {
     this.y += Math.cos(proteklo) * dt
-    this.zastava.render(dt)
+    this.zastava.render(dt, proteklo)
   }
 }

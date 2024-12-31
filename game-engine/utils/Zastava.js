@@ -10,7 +10,6 @@ export default class Zastava {
     this.visina = visina
     this.drskaX = drskaX
     this.drskaY = drskaY
-    this.t = 0
   }
 
   crtaDrsku() {
@@ -23,10 +22,10 @@ export default class Zastava {
     )
   }
 
-  crtaZastavu() {
+  crtaZastavu(t) {
     ctx.beginPath()
     for (let y = 0; y <= this.visina; y++) {
-      const wave = Math.sin((y / this.visina) * 2 * Math.PI + this.t) * 5
+      const wave = Math.sin((y / this.visina) * 2 * Math.PI + t * 4) * 5
       const x = this.drskaX + wave + this.sirina + this.zastavaX
       if (y === 0)
         ctx.moveTo(this.drskaX + this.zastavaX, this.drskaY + y + this.zastavaY)
@@ -42,9 +41,8 @@ export default class Zastava {
     ctx.fill()
   }
 
-  render(dt) {
+  render(dt, t) {
     this.crtaDrsku()
-    this.crtaZastavu()
-    this.t += 4 * dt
+    this.crtaZastavu(t)
   }
 }
