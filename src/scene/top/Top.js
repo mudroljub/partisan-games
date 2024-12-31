@@ -30,7 +30,7 @@ export default class Top extends Kompozit {
   }
 
   proveriTipke() {
-    if (!this.cev.projektil.ispaljen && keyboard.space)
+    if (keyboard.space && this.cev.spremno)
       this.sila += 10
     else if (this.sila > this.minSila)
       this.pali()

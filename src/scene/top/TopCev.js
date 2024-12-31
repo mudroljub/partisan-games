@@ -21,6 +21,10 @@ export default class TopCev extends Slika {
     return this.y - this.sirina * 0.5 * Math.sin(-this.ugao) + 8
   }
 
+  get spremno() {
+    return !this.projektil.ispaljen
+  }
+
   pripremi() {
     this.projektil.x = this.vrhX
     this.projektil.y = this.vrhY
