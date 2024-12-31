@@ -1,6 +1,7 @@
 import Kompozit from '/game-engine/core/Kompozit.js'
 import TopPostolje from './TopPostolje.js'
 import TopCev from './TopCev.js'
+import Posada from './Posada.js'
 
 const skalar = .75
 
@@ -9,8 +10,9 @@ export default class Top extends Kompozit {
     super(x, y)
     this.pocetniX = x
     this.cev = new TopCev(40, -32, skalar, () => this.trza())
-    this.postolje = new TopPostolje(0, 0, skalar)
-    this.dodaj(this.cev, this.postolje)
+    const postolje = new TopPostolje(0, 0, skalar)
+    const posada = new Posada(-90, 8)
+    this.dodaj(this.cev, postolje, posada)
   }
 
   get sila() {

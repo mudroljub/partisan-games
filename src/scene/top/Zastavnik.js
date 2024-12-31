@@ -8,6 +8,6 @@ export default class Zastavnik extends Slika {
 
   update(dt, proteklo) {
     this.y += Math.cos(proteklo) * dt
-    drawFlag()
+    drawFlag(dt, { zastavaY: this.y - 150 })
   }
 }
