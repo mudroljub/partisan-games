@@ -5,7 +5,7 @@ export default class Posada extends Slika {
     super('/assets/slike/2d-bocno/partizani/artiljerija/posada-01.png', { x, y })
   }
 
-  update(dt, proteklo) {
-    this.x += Math.sin(proteklo) * dt
+  update(dt, t) {
+    this.x += Math.sin(t) * dt
   }
 }

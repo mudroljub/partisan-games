@@ -8,8 +8,8 @@ export default class Zastavnik extends Slika {
     // this.dodaj(zastava)
   }
 
-  update(dt, proteklo) {
-    this.y += Math.cos(proteklo) * dt
-    this.zastava.render(dt, proteklo)
+  update(dt, t) {
+    this.y += Math.cos(t) * dt
+    this.zastava.render(dt, t)
   }
 }

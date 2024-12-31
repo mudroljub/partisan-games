@@ -12,12 +12,12 @@ export default class Strelac extends Slika {
     this.x -= 5
   }
 
-  update(dt, proteklo) {
+  update(dt, t) {
     if (this.x < this.pocetniX) this.x += 20 * dt
 
-    if (proteklo >= this.ucestalost + this.poslednje) {
+    if (t >= this.ucestalost + this.poslednje) {
       this.trza()
-      this.poslednje = proteklo
+      this.poslednje = t
     }
   }
 }
