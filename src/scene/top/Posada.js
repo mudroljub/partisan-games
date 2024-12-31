@@ -14,5 +14,6 @@ export default class Posada extends Slika {
   update(dt, t) {
     this.x += Math.sin(t) * dt
     if (this.x < this.parent.x + this.pocetniX && this.puni) this.x += 20 * dt
+    this.render()
   }
 }

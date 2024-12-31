@@ -6,8 +6,6 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
-- ukloniti update i render, nekad su jedna u drugoj, pravi bagove
-
 - da na esc napuštati nivo
 - OPTIMIZACIJA
     - proveriti šta se učitava na naslovnoj, šta se instancira

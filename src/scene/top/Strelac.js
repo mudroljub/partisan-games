@@ -21,5 +21,6 @@ export default class Strelac extends Slika {
       this.trza()
       this.poslednje = t
     }
+    this.render()
   }
 }

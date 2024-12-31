@@ -76,4 +76,8 @@ export default class Slika extends Kompozit {
     ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
     ctx.restore()
   }
+
+  update() {
+    this.render()
+  }
 }

@@ -42,5 +42,6 @@ export default class TopCev extends Slika {
 
   update(dt) {
     this.proveriTipke(dt)
+    this.render()
   }
 }
