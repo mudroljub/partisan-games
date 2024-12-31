@@ -4,8 +4,6 @@ export default class UI {
     this.manager = manager
   }
 
-  clear() {}
-
   praviProzor(text, btnText, callback, showMenu = true) {
     if (this.prozor.innerHTML) return
 

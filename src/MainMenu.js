@@ -41,6 +41,5 @@ export default class MainMenu extends Scena {
   end() {
     super.end()
     document.removeEventListener('click', this.pustiScenu)
-    this.ui.clear()
   }
 }

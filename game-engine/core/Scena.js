@@ -68,6 +68,18 @@ export default class Scena {
     this.ui.zavrsniProzor(text, this.constructor.name)
   }
 
+  sablon() {
+    return ''
+  }
+
+  renderSablon() {
+    if (!this.sablon) return
+    if (this.upamcenSablon !== this.sablon()) {
+      this.elementUI.innerHTML = this.sablon()
+      this.upamcenSablon = this.sablon()
+    }
+  }
+
   /* PETLJA */
 
   start() {
@@ -81,18 +93,6 @@ export default class Scena {
 
   cisti() {
     this.ctx.clearRect(0, 0, this.sirina, this.visina)
-  }
-
-  sablon() {
-    return ''
-  }
-
-  renderSablon() {
-    if (!this.sablon) return
-    if (this.upamcenSablon !== this.sablon()) {
-      this.elementUI.innerHTML = this.sablon()
-      this.upamcenSablon = this.sablon()
-    }
   }
 
   update(dt, t) {
