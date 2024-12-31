@@ -6,6 +6,7 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
+- sablon na scenu
 - da na esc napuštati nivo
 - OPTIMIZACIJA
     - proveriti šta se učitava na naslovnoj, šta se instancira

@@ -4,6 +4,7 @@ export default class Posada extends Slika {
   constructor(x, y) {
     super('/assets/slike/2d-bocno/partizani/artiljerija/posada-01.png', { x, y })
     this.pocetniX = x
+    this.trza()
   }
 
   trza() {
