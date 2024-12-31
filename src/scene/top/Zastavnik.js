@@ -2,7 +2,7 @@ import Slika from '/game-engine/core/Slika.js'
 
 export default class Zastavnik extends Slika {
   constructor(x, y) {
-    // zastavnik-01.png
+    // /assets/slike/2d-bocno/partizani/zastava.gif
     super('/assets/slike/2d-bocno/partizani/vojnici/savo.png', { x, y })
   }
 

@@ -1,4 +1,4 @@
-import { kruzi } from '/game-engine/akcije/granice.js'
+import { kruzi } from '/game-engine/utils/granice.js'
 import { nasumicnoOkruglo } from '/game-engine/utils.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import Vreme from '/game-engine/core/Vreme.js'

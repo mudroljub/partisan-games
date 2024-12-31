@@ -2,7 +2,7 @@ import Slika from './Slika.js'
 import { platno } from '../io/platno.js'
 import mish from '../io/mish.js'
 import { randomRange } from '../utils.js'
-import { sudar } from '../akcije/sudari.js'
+import { sudar } from '../utils/sudari.js'
 
 export default class Predmet extends Slika {
 

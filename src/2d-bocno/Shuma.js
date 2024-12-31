@@ -1,6 +1,6 @@
 import Predmet from '/game-engine/core/Predmet.js'
 import platno from '/game-engine/io/platno.js'
-import { vracaVodoravno } from '/game-engine/akcije/granice.js'
+import { vracaVodoravno } from '/game-engine/utils/granice.js'
 
 export default class Shuma extends Predmet {
 
