@@ -5,10 +5,11 @@ export default class Zastavnik extends Slika {
   constructor(x, y) {
     super('/assets/slike/2d-bocno/partizani/vojnici/savo.png', { x, y })
     this.zastava = new Zastava()
+    // this.dodaj(zastava)
   }
 
   update(dt, proteklo) {
     this.y += Math.cos(proteklo) * dt
-    this.zastava.render(dt, { zastavaY: this.y - 150 })
+    this.zastava.render(dt)
   }
 }

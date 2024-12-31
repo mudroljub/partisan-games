@@ -1,18 +1,15 @@
 import { ctx } from '../io/platno.js'
+import Kompozit from '/game-engine/core/Kompozit.js'
 
-export default class Slika {
-  #x = 0
-  #y = 0
+export default class Slika extends Kompozit {
 
   constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1 } = {}) {
+    super(x, y)
     this.slika = new Image()
-    this.x = x
-    this.y = y
     this.ugao = 0
     this.sirina = sirina
     this.visina = visina
-    this.parent = null
-    this.predmeti = []
+
 
     this.slika.onload = () => {
       if (!sirina && !visina) {
@@ -32,22 +29,6 @@ export default class Slika {
   }
 
   /* POLOZAJ */
-
-  get x() {
-    return this.parent ? this.parent.x + this.#x : this.#x
-  }
-
-  set x(val) {
-    this.#x = this.parent ? val - this.parent.x : val
-  }
-
-  get y() {
-    return this.parent ? this.parent.y + this.#y : this.#y
-  }
-
-  set y(val) {
-    this.#y = this.parent ? val - this.parent.y : val
-  }
 
   polozaj(x, y) {
     this.x = x
