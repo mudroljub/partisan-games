@@ -13,19 +13,17 @@ export default class VoziloBocno extends Predmet {
     this.neprijatelji = [] // treba raketi
     this.raketa = new Raketa(this)
     this.raketa.cilj = 'igrac'
-    this.lastX = this.x
   }
 
   patroliraj() {
     if (this.mrtav) return
+
     if (this.x <= 150) {
       this.ugao = 0
-      this.skalarY = 1
       this.brzina = 3
     }
     if (this.x >= 600) {
-      this.ugao = KRUZNICA / 2
-      this.skalarY = -1
+      this.ugao = Math.PI
       this.brzina = 3
     }
   }
@@ -40,12 +38,9 @@ export default class VoziloBocno extends Predmet {
   }
 
   update(dt) {
-    this.patroliraj(dt)
     super.update(dt)
-
-    const unazad = this.x < this.lastX
-    console.log(unazad)
-
+    this.patroliraj(dt)
+    this.skalarY = this.ugao === Math.PI ? -1 : 1
     this.raketa.update()
     this.lastX = this.x
   }
