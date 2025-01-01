@@ -5,7 +5,6 @@
 ### Scena
 
 Ako dodamo predmet sceni, Scena na njemu poziva sledeće metode:
-* proveriGranice()
 * update()
 * render()
 Ako predmet nije dodat sceni, onda ove metode pozivamo ručno.

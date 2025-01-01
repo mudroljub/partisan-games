@@ -4,6 +4,14 @@ import mish from '../io/mish.js'
 import { randomRange } from '../utils.js'
 import { sudar } from '../utils/sudari.js'
 
+const izasaoDole = predmet => predmet.y > platno.height
+const izasaoGore = predmet => predmet.y < 0
+const izasaoDesno = predmet => predmet.x > platno.width
+const izasaoLevo = predmet => predmet.x < 0
+const izasaoLevoSkroz = predmet => predmet.x < -predmet.sirina / 2
+const izasaoDesnoSkroz = predmet => predmet.x > platno.width + predmet.sirina / 2
+const izasaoIgde = predmet => izasaoLevo(predmet) || izasaoDesno(predmet) || izasaoGore(predmet) || izasaoDole(predmet)
+
 export default class Predmet extends Slika {
 
   constructor(src, sirina, visina, x, y, skalar) {
@@ -12,6 +20,7 @@ export default class Predmet extends Slika {
     this.vidljiv = true
     this.brzina = 0
     this.oznake = new Set()
+    this.granice = this.nestaje // default ponašanje
   }
 
   set zapaljiv(bul) {
@@ -119,12 +128,6 @@ export default class Predmet extends Slika {
     this.ziv = false
   }
 
-  /* GRANICE */
-
-  proveriGranice() {
-    if (this.granice) this.granice(this)
-  }
-
   /* KOLIZIJA */
 
   sudara(predmet) {
@@ -143,6 +146,58 @@ export default class Predmet extends Slika {
   pratiMisha() {
     this.x = mish.x - platno.offsetLeft
     this.y = mish.y - platno.offsetTop
+  }
+
+  /* GRANICE */
+
+  proveriGranice() {
+    this.granice()
+  }
+  
+  kruzi (procenat = 1) {
+    if (Math.random() > procenat) return
+    if (izasaoLevoSkroz(this)) this.x = platno.width + this.sirina / 2
+    if (izasaoDesnoSkroz(this)) this.x = 0
+    if (izasaoDole(this)) this.y = 0
+    if (izasaoGore(this)) this.y = platno.height
+  }
+  
+  kruziSire () {
+    const sirina = platno.width
+    if (this.x < -sirina) this.x = platno.width + sirina
+  }
+  
+  vracaVodoravno (procenatVracanja) {
+    const procenat = procenatVracanja || this.procenatVracanja
+    if (izasaoLevoSkroz(this) && Math.random() < procenat) this.x = platno.width + this.sirina / 2
+  }
+  
+  odbij () {
+    if (izasaoGore(this) || izasaoDole(this)) 
+      this.skreni(2 * Math.PI - this.ugao)
+    if (izasaoLevo(this) || izasaoDesno(this)) 
+      this.skreni(Math.PI - this.ugao)
+    if (izasaoIgde(this)) 
+      this.pomeri(5)
+  }
+  
+  staje () {
+    if (izasaoIgde(this)) this.stani()
+  }
+  
+  nestaje () {
+    if (izasaoIgde(this)) this.nestani()
+  }
+  
+  ogranici () {
+    const marginaLevo = this.sirina / 4
+    const marginaDesno = platno.width - marginaLevo
+    const marginaGore = this.visina / 2
+    const marginaDole = platno.height - marginaGore
+    if (this.x <= marginaLevo) this.x = marginaLevo
+    if (this.x >= marginaDesno) this.x = marginaDesno
+    if (this.y <= marginaGore) this.y = marginaGore
+    if (this.y >= marginaDole) this.y = marginaDole
   }
 
   /* DEBUG */
