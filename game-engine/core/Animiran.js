@@ -61,9 +61,9 @@ export default class Animiran extends Predmet {
 
   /* RENDER */
 
-  crtaKadar() {
+  crtaKadar(dt) {
     const tekuca = this.animacije[this.tekucaAnimacija]
-    const duzinaFrejma = this.vreme.delta
+    const duzinaFrejma = dt * 1000
     const nijeZavrsena = this.protekloAnimacije + duzinaFrejma < this.duzinaAnimacije
     if (tekuca.ponavlja || nijeZavrsena) this.protekloAnimacije += duzinaFrejma
 
@@ -77,12 +77,12 @@ export default class Animiran extends Predmet {
     ctx.drawImage(this.slika, slikaX, slikaY, tekuca.sirinaKadra, tekuca.visinaKadra, 0 - (tekuca.sirinaKadra / 2), 0 - (tekuca.visinaKadra / 2), tekuca.sirinaKadra, tekuca.visinaKadra)
   }
 
-  render() {
+  render(dt) {
     if (!this.vidljiv) return
     ctx.save()
     ctx.translate(this.x, this.y)
     ctx.rotate(this._ugaoSlike)
-    this.crtaKadar()
+    this.crtaKadar(dt)
     ctx.restore()
   }
 

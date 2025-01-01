@@ -208,11 +208,15 @@ export default class Predmet extends Slika {
 
   /* LOOP */
 
-  update() {
-    this.x += this.dx
-    this.y += this.dy
-    this.proveriGranice()
-    if (this.vidljiv) this.render()
+  update(dt) {
+    if (this.dx || this.dy) {
+      this.x += this.dx
+      this.y += this.dy
+      this.proveriGranice()  
+    }
+
+    if (this.vidljiv) this.render(dt)
+
     if (this.mrtav && this.zapaljiv) {
       this.plamen.x = this.x
       this.plamen.y = this.y

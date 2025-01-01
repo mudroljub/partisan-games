@@ -16,10 +16,10 @@ export default class OtpisaniScena extends Scena {
     platno.addEventListener('click', () => this.strazar.proveriPogodak())
   }
 
-  update() {
+  update(dt) {
     this.pozadina.render()
     this.strazar.patroliraj()
-    this.strazar.update()
+    this.strazar.update(dt)
   }
 
   end() {
