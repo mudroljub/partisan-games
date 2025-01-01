@@ -13,13 +13,13 @@ class Animacija {
 }
 
 export default class Animiran extends Predmet {
-  constructor(src, imenaAnimacija, duzina) { // broj ili niz brojeva ako su nejednake
+  constructor(src, imena, duzine) { // broj ili niz brojeva ako su nejednake
     super(src)
     this.index = 0
-    this.duzinaAnimacije = .5 // sec
-    this.protekloAnimacije = 0
+    this.duzinaAnimacije = .5 // sekundi
+    this.proteklo = 0
     this.onload = () => {
-      this.animacije = this.praviAnimacije(imenaAnimacija, duzina)
+      this.animacije = this.praviAnimacije(imena, duzine)
     }
   }
 
@@ -34,7 +34,7 @@ export default class Animiran extends Predmet {
   }
 
   reset() {
-    this.protekloAnimacije = 0
+    this.proteklo = 0
   }
 
   postaviAnimaciju(ime) {
@@ -61,11 +61,11 @@ export default class Animiran extends Predmet {
     const animacija = this.animacije[this.index]
     const { pocetak, sirina, visina, duzina } = animacija
 
-    const nijeZavrsena = this.protekloAnimacije + dt < this.duzinaAnimacije
-    if (animacija.loop || nijeZavrsena) this.protekloAnimacije += dt
+    const nijeZavrsena = this.proteklo + dt < this.duzinaAnimacije
+    if (animacija.loop || nijeZavrsena) this.proteklo += dt
 
     const duzinaKadra = this.duzinaAnimacije / duzina
-    const trenutniKadar = Math.floor((this.protekloAnimacije % this.duzinaAnimacije) / duzinaKadra)
+    const trenutniKadar = Math.floor((this.proteklo % this.duzinaAnimacije) / duzinaKadra)
     const trenutniRed = Math.floor((pocetak + trenutniKadar) / duzina)
     const trenutnaKolona = (pocetak + trenutniKadar) - (trenutniRed * Math.floor(duzina))
     const slikaX = trenutnaKolona * sirina
