@@ -37,9 +37,7 @@ export default class Animiran extends Predmet {
 
   postaviAnimaciju(ime) {
     this.reset()
-    this.animacije.forEach((animacija, i) => {
-      if (animacija.ime === ime) this.tekucaAnimacija = i
-    })
+    this.tekucaAnimacija = this.animacije.findIndex(animacija => animacija.ime === ime)
   }
 
   nePonavljaAnimaciju(ime) {
@@ -49,7 +47,7 @@ export default class Animiran extends Predmet {
   }
 
   set duzinaAnimacije(milisekundi) {
-    this._duzinaAnimacije = milisekundi > 50 ? milisekundi : 50
+    this._duzinaAnimacije = Math.max(milisekundi, 50)
   }
 
   get duzinaAnimacije() {
