@@ -15,23 +15,20 @@ class Animacija {
 export default class Animiran extends Predmet {
   constructor(src, imenaAnimacija, duzina) { // broj ili niz brojeva ako su nejednake
     super(src)
-    this.animacije = []
     this.tekucaAnimacija = 0
     this.duzinaAnimacije = 1000
     this.protekloAnimacije = 0
-    this.praviAnimacije(imenaAnimacija, duzina)
+    this.animacije = this.praviAnimacije(imenaAnimacija, duzina)
   }
 
   praviAnimacije(imena, duzine) {
     const brojKolona = duzine.length ? Math.max(...duzine) : duzine
     const sirina = this.slika.naturalWidth / brojKolona
     const visina = this.slika.naturalHeight / imena.length
-    for (let i = 0; i < imena.length; i++) {
+    return imena.map((ime, i) => {
       const duzina = duzine[i] || duzine
-      this.animacije.push(new Animacija(
-        imena[i], duzina, i * duzina, sirina, visina
-      ))
-    }
+      return new Animacija(ime, duzina, i * duzina, sirina, visina)
+    })
   }
 
   reset() {
@@ -40,13 +37,13 @@ export default class Animiran extends Predmet {
 
   postaviAnimaciju(ime) {
     this.reset()
-    this.animacije.map((animacija, i) => {
+    this.animacije.forEach((animacija, i) => {
       if (animacija.ime === ime) this.tekucaAnimacija = i
     })
   }
 
   nePonavljaAnimaciju(ime) {
-    this.animacije.map(animacija => {
+    this.animacije.forEach(animacija => {
       if (animacija.ime === ime) animacija.loop = false
     })
   }
