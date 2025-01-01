@@ -33,14 +33,14 @@ export default class Animiran extends Predmet {
     })
   }
 
-  reset() {
-    this.proteklo = 0
-  }
-
-  postaviAnimaciju(ime, loop) {
+  pustiAnimaciju(ime, loop) {
     this.reset()
     this.index = this.animacije.findIndex(animacija => animacija.ime === ime)
     if (loop !== undefined) this.animacije[this.index].loop = loop
+  }
+
+  reset() {
+    this.proteklo = 0
   }
 
   /* RENDER */

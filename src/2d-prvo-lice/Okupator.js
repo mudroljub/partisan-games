@@ -18,9 +18,9 @@ export default class Okupator extends Animiran {
     if (this.x >= this.limitDesno) this.hodaj('nalevo', Math.PI)
   }
 
-  hodaj(imeAnimacije, ugao) {
+  hodaj(naziv, ugao) {
     if (!this.animacije) return
-    this.postaviAnimaciju(imeAnimacije)
+    this.pustiAnimaciju(naziv)
     this.skreni(ugao)
   }
 
@@ -30,6 +30,6 @@ export default class Okupator extends Animiran {
 
   umri() {
     super.umri()
-    this.postaviAnimaciju('umire', false)
+    this.pustiAnimaciju('umire', false)
   }
 }
