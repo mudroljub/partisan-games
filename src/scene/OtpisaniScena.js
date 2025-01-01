@@ -6,27 +6,27 @@ import platno from '/game-engine/io/platno.js'
 import mish from '/game-engine/io/mish.js'
 
 export default class OtpisaniScena extends Scena {
-  constructor(...args) {
-    super(...args)
+  init() {
     this.pozadina = new Pozadina('/assets/slike/pozadine/rusevine-varsava.jpg')
     this.strazar = new Okupator()
     mish.dodajNishan()
     this.zvuk = new Audio('/assets/zvuci/otpisani.mp3')
     this.zvuk.play()
-    platno.addEventListener('click', () => this.strazar.proveriPogodak())
-  }
-
-  update(dt) {
-    this.pozadina.render()
-    if (!this.strazar.animacije) return
-    this.strazar.patroliraj()
-    this.strazar.update(dt)
+    this.proveriPogodak = this.strazar.proveriPogodak.bind(this.strazar)
+    platno.addEventListener('click', this.proveriPogodak)
   }
 
   end() {
     super.end()
-    mish.ukloniNishan()
     this.zvuk.pause()
+    mish.ukloniNishan()
+    platno.removeEventListener('click', this.proveriPogodak)
+  }
+
+  update(dt) {
+    this.pozadina.render()
+    this.strazar.patroliraj()
+    this.strazar.update(dt)
   }
 
   sablon() {

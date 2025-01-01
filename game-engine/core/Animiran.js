@@ -81,4 +81,9 @@ export default class Animiran extends Predmet {
     this.crtaKadar(dt)
     ctx.restore()
   }
+
+  update(dt) {
+    if (!this.animacije) return
+    super.update(dt)
+  }
 }

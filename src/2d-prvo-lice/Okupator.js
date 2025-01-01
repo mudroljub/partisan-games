@@ -3,7 +3,6 @@ import platno from '/game-engine/io/platno.js'
 import mish from '/game-engine/io/mish.js'
 
 export default class Okupator extends Animiran {
-
   constructor() {
     super ('/assets/slike/sprajtovi/okupator-sprite.png', ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], 5)
     this.sirina = 50
@@ -21,6 +20,7 @@ export default class Okupator extends Animiran {
   }
 
   hodaj(imeAnimacije, ugao) {
+    if (!this.animacije) return
     this.postaviAnimaciju(imeAnimacije)
     this.skreni(ugao)
   }
@@ -34,5 +34,4 @@ export default class Okupator extends Animiran {
     this.postaviAnimaciju('umire')
     this.nePonavljaAnimaciju('umire')
   }
-
 }

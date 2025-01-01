@@ -79,24 +79,22 @@ export default class TenkBocnoIgrac extends Igrac {
     this.brzina = Math.random() * 10 - 5
     if (this.x >= 600) {
       this.brzina = Math.random() * 10 - 5
-      this.ugaoKretanja = 180
+      this.skreni(Math.PI)
     }
     if (this.x >= platno.width - 10)
       this.x = platno.width - 10
 
     if (this.x <= 450) {
       this.brzina = Math.random() * 10 - 5
-      this.ugaoKretanja = 0
+      this.skreni(0)
     }
   }
 
   puca() {
     const ugaoCevi = this.okrenutNadesno ? 0 : 180
-    this.granata.ugaoKretanja = this.cev.ugao - ugaoCevi
-    this.granata.ugao = this.cev.ugao - ugaoCevi
+    this.granata.skreni(this.cev.ugao - ugaoCevi)
     this.granata.polozaj(this.cev.x, this.cev.y)
     this.granata.brzina = 20
     this.granata.pokazi()
   }
-
 }
