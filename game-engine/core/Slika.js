@@ -1,46 +1,71 @@
 import { ctx } from '../io/platno.js'
+import Kompozit from '/game-engine/core/Kompozit.js'
 
-export default class Slika {
+export default class Slika extends Kompozit {
+  #ugao = 0
+  #odrazY = 1
+  #odrazX = 1
 
-  constructor(src, sirina, visina, x = 200, y = 200) {
+  constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1 } = {}) {
+    super(x, y)
     this.slika = new Image()
     this.sirina = sirina
     this.visina = visina
-    this.x = x
-    this.y = y
-    this.ugao = 0
-    this.skalarX = 1
-    this.skalarY = 1
 
     this.slika.onload = () => {
       if (!sirina && !visina) {
-        this.sirina = this.slika.naturalWidth
-        this.visina = this.slika.naturalHeight
+        this.sirina = this.slika.naturalWidth * skalar
+        this.visina = this.slika.naturalHeight * skalar
       }
-      this.onload() // implementiraju naslednici kad im trebaju širina i visina
+      this.onload()
       this.slika.onload = null
     }
     this.slika.src = src
   }
 
-  onload() {}
+  onload() {} // implementiraju naslednici
+
+  zameniSliku(src) {
+    this.slika.src = src
+  }
+
+  /* POLOZAJ */
 
   polozaj(x, y) {
     this.x = x
     this.y = y
   }
 
-  zameniSliku(src) {
-    this.slika.src = src
+  tlo(y) {
+    this.y = y - this.visina / 2
   }
 
+  /* ODRAZ */
+
+  get odrazY() {
+    return this.#odrazY
+  }
+
+  set odrazY(bul) {
+    this.#odrazY = bul ? -1 : 1
+  }
+
+  get odrazX() {
+    return this.#odrazX
+  }
+
+  set odrazX(bul) {
+    this.#odrazX = bul ? -1 : 1
+  }
+
+  /* UGAO */
+
   get ugao() {
-    return this._ugao
+    return this.#ugao
   }
 
   set ugao(noviUgao) {
-    this._ugao = noviUgao % (Math.PI * 2)
-    // this.azurirajSilu()
+    this.#ugao = noviUgao % (Math.PI * 2)
   }
 
   get ugaoStepeni() {
@@ -63,12 +88,18 @@ export default class Slika {
     this.visina *= procenat
   }
 
-  crta() {
+  /* LOOP */
+
+  render() {
     ctx.save()
     ctx.translate(this.x, this.y)
     ctx.rotate(this.ugao)
-    ctx.scale(this.skalarX, this.skalarY)
+    ctx.scale(this.odrazY, this.odrazX)
     ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
     ctx.restore()
+  }
+
+  update() {
+    this.render()
   }
 }

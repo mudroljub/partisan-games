@@ -1,6 +1,6 @@
 import Igrac from '/game-engine/core/Igrac.js'
 import Granata from './Granata.js'
-import { odbij } from '/game-engine/akcije/granice.js'
+import { odbij } from '/game-engine/utils/granice.js'
 
 export default class VoziloIgracOdozgo extends Igrac {
 

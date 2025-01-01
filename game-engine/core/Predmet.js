@@ -2,12 +2,12 @@ import Slika from './Slika.js'
 import { platno } from '../io/platno.js'
 import mish from '../io/mish.js'
 import { randomRange } from '../utils.js'
-import { sudar } from '../akcije/sudari.js'
+import { sudar } from '../utils/sudari.js'
 
 export default class Predmet extends Slika {
 
-  constructor(src, sirina, visina, x, y) {
-    super(src, sirina, visina, x, y)
+  constructor(src, sirina, visina, x, y, skalar) {
+    super(src, { sirina, visina, x, y, skalar })
     this.ziv = true
     this.vidljiv = true
     this.brzina = 0
@@ -26,10 +26,6 @@ export default class Predmet extends Slika {
   }
 
   /* POLOZAJ */
-
-  tlo(y) {
-    this.y = y - this.visina / 2
-  }
 
   postaviRandom() {
     this.polozaj(Math.random() * platno.width, Math.random() * platno.height)
@@ -54,13 +50,9 @@ export default class Predmet extends Slika {
     return Math.sqrt(this.dx * this.dx + this.dy * this.dy)
   }
 
-  set brzina(novaBrzina) {
-    this.azurirajSilu(novaBrzina, this.ugao)
-  }
-
-  azurirajSilu(jacina = this.brzina, ugao = this.ugao) {
-    this.dx = jacina * Math.cos(ugao)
-    this.dy = jacina * Math.sin(ugao)
+  set brzina(jacina) {
+    this.dx = jacina * Math.cos(this.ugao)
+    this.dy = jacina * Math.sin(this.ugao)
   }
 
   dodajSilu(jacina, ugao = this.ugao) {
@@ -78,6 +70,11 @@ export default class Predmet extends Slika {
   }
 
   /* UGLOVI */
+
+  skreni(noviUgao) {
+    this.ugao = noviUgao
+    this.brzina = this.brzina // ažurira pravac kretanja
+  }
 
   ugaoKa(predmet) {
     const mojX = this.x + this.sirina / 2
@@ -166,7 +163,7 @@ export default class Predmet extends Slika {
     this.x += this.dx
     this.y += this.dy
     this.proveriGranice()
-    if (this.vidljiv) this.crta()
+    if (this.vidljiv) this.render()
     if (this.mrtav && this.zapaljiv) {
       this.plamen.x = this.x
       this.plamen.y = this.y

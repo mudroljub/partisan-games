@@ -3,7 +3,7 @@ import Igrac from '/game-engine/core/Igrac.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import Metak from './Metak.js'
 import platno from '/game-engine/io/platno.js'
-import { ogranici } from '/game-engine/akcije/granice.js'
+import { ogranici } from '/game-engine/utils/granice.js'
 
 const BROJ_METAKA = 999
 const SIRINA_PALJBE = 13

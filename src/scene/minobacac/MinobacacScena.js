@@ -1,41 +1,33 @@
-// predmet crta posredi, kvadrat od gore levo!
-// ubaciti sliku minobacača
-// bodovi, mozda pogoci prema pokušajima, mozda dva igraca
-
+// ubaciti sliku minobacača i posadu
+// bodovi, mozda pogoci prema pokušajima
+// mozda dva igraca, odnosno jedan po jedan potezno
 import Scena from '/game-engine/core/Scena.js'
-import Predmet from '/game-engine/core/Predmet.js'
 import Kvadrat from '/game-engine/core/Kvadrat.js'
 import Minobacac from './Minobacac.js'
 
-/** * KONFIG ***/
-
-let brdo
-let minobacac
-let tlo
-
 export default class MinobacacScena extends Scena {
-  constructor(...args) {
-    super(...args)
-    this.init()
-  }
-
   init() {
-    brdo = new Predmet('/assets/slike/brdo.jpg', 85, 280, 500, 50)
-    minobacac = new Minobacac(10, 280, 200, 20)
-    tlo = new Kvadrat(0, 300, 600, 30, 'rgb(10,250,0)')
+    this.brdo = new Kvadrat(600, 0, 100, 250, 'black')
+    this.tlo = new Kvadrat(0, 300, 600, 30, 'green')
+    this.minobacac = new Minobacac(10, 280, 200, 20)
+    this.dodaj(this.brdo, this.tlo, this.minobacac)
   }
 
-  update() {
-    this.cisti()
-    brdo.crta()
-    tlo.crta()
-    minobacac.update()
+  update(dt) {
+    super.update(dt)
     this.proveriPogodak()
   }
 
   proveriPogodak() {
-    if (minobacac.projektil.sudara(brdo) || minobacac.projektil.sudara(tlo))
-      // TODO: reset()
-      this.end()
+    if (this.minobacac.projektil.sudara(this.brdo))
+      console.log('pogodak')
+  }
+
+  sablon() {
+    return `
+      <div class="komande">
+        <progress value="${this.minobacac.sila}" max=1000></progress>
+      </div>
+    `
   }
 }

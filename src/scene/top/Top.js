@@ -1,65 +1,46 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
-import { platno, ctx } from '/game-engine/io/platno.js'
-import Slika from '/game-engine/core/Slika.js'
-import Projektil from './Projektil.js'
+import Kompozit from '/game-engine/core/Kompozit.js'
+import TopPostolje from './TopPostolje.js'
+import TopCev from './TopCev.js'
+import Posada from './Posada.js'
 
-const MIN_UGAO = 0
-const MAX_UGAO = 45
-const MIN_SILA = 300
+const skalar = .75
 
-export default class Top {
+export default class Top extends Kompozit {
+  constructor(x, y) {
+    super(x, y)
+    this.pocetniX = x
+    this.sila = this.minSila = 800
 
-  constructor(x = platno.width / 8, y = platno.height / 2) {
-    this.x = x
-    this.y = y
-    this.sila = MIN_SILA
-    this.postolje = new Slika('/assets/slike/2d-bocno/top-postolje.gif')
-    this.cev = new Slika('/assets/slike/2d-bocno/top-cev.gif')
-    this.cev.onload = () => {
-      this.cev.x = this.x + (this.cev.slika.width / 2)
-    }
-    this.cev.y = this.y
-    this.cev.ugaoStepeni = 20
-    this.projektil = new Projektil(this)
+    this.cev = new TopCev(40, -32, skalar)
+    const postolje = new TopPostolje(0, 0, skalar)
+    this.posada = new Posada(-80, 8)
+    this.dodaj(this.cev, postolje, this.posada)
   }
 
-  puca() {
-    this.projektil.puca(this.sila, this.cev.ugaoStepeni)
-    this.sila = MIN_SILA
+  trza() {
+    this.x -= 5
+    this.posada.trza()
   }
 
-  /* UNOS */
+  pali() {
+    this.cev.pali(this.sila)
+    this.trza()
+    this.sila = this.minSila
+  }
 
   proveriTipke() {
-    if (!this.projektil.ispaljen && keyboard.space)
+    if (keyboard.space)
+      this.posada.puni = true
+
+    if (keyboard.space && this.cev.spremno)
       this.sila += 10
-    else if (this.sila > MIN_SILA)
-      this.puca()
-
-    if (keyboard.up)
-      this.cev.ugaoStepeni = Math.min(this.cev.ugaoStepeni + 0.5, MAX_UGAO)
-    if (keyboard.down)
-      this.cev.ugaoStepeni = Math.max(this.cev.ugaoStepeni - 0.5, MIN_UGAO)
-  }
-
-  /* RENDER */
-
-  crtaPostolje() {
-    ctx.drawImage(this.postolje.slika, this.x, this.y)
-  }
-
-  crtaCev() {
-    ctx.save()
-    ctx.translate(this.cev.x + this.cev.sirina / 4, this.cev.y + this.cev.visina / 2)
-    ctx.rotate(-this.cev.ugao)
-    ctx.drawImage(this.cev.slika, -this.cev.sirina / 4, -this.cev.visina / 2)
-    ctx.restore()
+    else if (this.sila > this.minSila)
+      this.pali()
   }
 
   update(dt) {
-    this.proveriTipke()
-    this.projektil.update(dt)
-    this.crtaCev()
-    this.crtaPostolje()
+    this.proveriTipke(dt)
+    if (this.x < this.pocetniX) this.x += 20 * dt
   }
 }

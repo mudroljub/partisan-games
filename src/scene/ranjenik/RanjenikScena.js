@@ -3,7 +3,7 @@
 // povecavati broj patrola
 // u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
 
-import { izasaoDesno } from '/game-engine/akcije/granice.js'
+import { izasaoDesno } from '/game-engine/utils/granice.js'
 import { platno, ctx } from '/game-engine/io/platno.js'
 import { skaliranRazmak } from '/game-engine/utils.js'
 import Scena from '/game-engine/core/Scena.js'

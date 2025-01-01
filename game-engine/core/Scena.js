@@ -8,12 +8,16 @@ export default class Scena {
     this.ctx = ctx
     this.nivoTla = this.visina
     this.ui = ui
-    this.ui.sablon = () => this.sablon() // očekuje da scene imaju UI šablon
     this.lastTime = performance.now()
     this.pauza = false
     this.update = this.update.bind(this)
     this.gameLoop = new GameLoop(this.update, false)
+    this.elementUI = document.getElementById('ui')
+    this.upamcenSablon = ''
+    this.init()
   }
+
+  init() {}
 
   dodaj(...premeti) {
     this.predmeti.push(...premeti)
@@ -42,24 +46,6 @@ export default class Scena {
     this.visina = visina
   }
 
-  /* PETLJA */
-
-  update(dt) {
-    this.cisti()
-    this.predmeti.map(predmet => 'update' in predmet && predmet.update(dt))
-    this.predmeti.map(predmet => 'render' in predmet && predmet.render())
-    this.ui.render()
-  }
-
-  start() {
-    this.gameLoop.start()
-  }
-
-  end() {
-    this.gameLoop.stop()
-    this.predmeti = []
-  }
-
   /* POZADINA */
 
   set bojaPozadine(boja) {
@@ -69,10 +55,6 @@ export default class Scena {
 
   get bojaPozadine() {
     return this.ctx.fillStyle
-  }
-
-  cisti() {
-    this.ctx.clearRect(0, 0, this.sirina, this.visina)
   }
 
   /* UI */
@@ -88,5 +70,39 @@ export default class Scena {
 
   sablon() {
     return ''
+  }
+
+  renderSablon() {
+    if (!this.sablon) return
+    if (this.upamcenSablon !== this.sablon()) {
+      this.elementUI.innerHTML = this.sablon()
+      this.upamcenSablon = this.sablon()
+    }
+  }
+
+  /* PETLJA */
+
+  start() {
+    this.gameLoop.start()
+  }
+
+  end() {
+    this.gameLoop.stop()
+    this.predmeti = []
+    this.elementUI.innerHTML = ''
+  }
+
+  cisti() {
+    this.ctx.clearRect(0, 0, this.sirina, this.visina)
+  }
+
+  update(dt, t) {
+    this.cisti()
+    const rekurzivnoAzuriraj = predmet => {
+      if ('update' in predmet) predmet.update(dt, t)
+      if (predmet?.predmeti?.length) predmet.predmeti.forEach(rekurzivnoAzuriraj)
+    }
+    this.predmeti.forEach(rekurzivnoAzuriraj)
+    this.renderSablon()
   }
 }

@@ -1,62 +1,53 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
-import { ctx } from '/game-engine/io/platno.js'
 import Kvadrat from '/game-engine/core/Kvadrat.js'
 import Projektil from './Projektil.js'
 
 const POMERAJ_UGLA = 0.008
-const POMERAJ_BRZINE = 0.3
-const DJULE_POLUPRECNIK = 10
+const KORAK_SILE = 3
 
 export default class Minobacac extends Kvadrat {
 
   constructor(x, y, sirina, visina, boja = 'rgb(40,40,0)') {
     super(x, y, sirina, visina, boja)
     this.ugao = 0.5
-    this.brzina = 20
-    this.projektil = new Projektil(this, DJULE_POLUPRECNIK)
+    this.sila = this.minSila = 400
+    this.projektil = new Projektil()
   }
 
-  update() {
-    this.proveriTipke()
-    this.projektil.update()
-    this.crta()
-  }
-
-  crta() {
-    ctx.save()
-    ctx.translate(this.x, this.y)
-    ctx.rotate(-this.ugao)
-    ctx.translate(-this.x, -this.y)
-    super.crta()
-    ctx.restore()
-  }
-
-  dajDx() {
-    return this.brzina * Math.cos(this.ugao)
-  }
-
-  dajDy() {
-    return -this.brzina * Math.sin(this.ugao)
-  }
-
-  dajVrhCeviX() {
+  get vrhCeviX() {
     return this.x + this.sirina * Math.cos(this.ugao)
   }
 
-  dajVrhCeviY() {
-    return this.y + (this.visina * 0.5) - this.sirina * Math.sin(this.ugao)
+  get vrhCeviY() {
+    return this.y + this.visina * 0.5 - this.sirina * Math.sin(this.ugao)
+  }
+
+  pripremi() {
+    this.projektil.x = this.vrhCeviX
+    this.projektil.y = this.vrhCeviY
   }
 
   pali() {
-    this.projektil.pali()
+    this.pripremi()
+    this.projektil.pali(this.sila, this.ugao)
+    this.sila = this.minSila
   }
 
   proveriTipke() {
-    if (keyboard.space) this.pali()
-    if (keyboard.up) this.ugao += POMERAJ_UGLA
-    if (keyboard.down) this.ugao -= POMERAJ_UGLA
-    if (keyboard.left) this.brzina -= POMERAJ_BRZINE
-    if (keyboard.right) this.brzina += POMERAJ_BRZINE
-    if (this.brzina <= 0) this.brzina = 0
+    if (!this.projektil.ispaljen && keyboard.space)
+      this.sila += KORAK_SILE
+    else if (this.sila > this.minSila)
+      this.pali()
+
+    if (keyboard.up || keyboard.left)
+      this.ugao += POMERAJ_UGLA
+    if (keyboard.down || keyboard.right)
+      this.ugao -= POMERAJ_UGLA
+  }
+
+  update(dt) {
+    this.proveriTipke()
+    this.projektil.update(dt)
+    this.render()
   }
 }

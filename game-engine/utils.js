@@ -1,11 +1,5 @@
 import { dijagonalaPlatna } from './io/platno.js'
 
-export function dajSliku(src) {
-  const slika = new Image()
-  slika.src = src
-  return slika
-}
-
 export function uRadijane(ugao) {
   return ugao * Math.PI / 180
 }

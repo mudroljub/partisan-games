@@ -21,7 +21,7 @@ export default class JasenovacScena extends Scena {
 
   update() {
     this.cisti()
-    pozadina.update()
+    pozadina.render()
     zica.update()
     tenk.patroliraj()
     tenk.update()

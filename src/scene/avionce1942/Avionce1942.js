@@ -25,11 +25,6 @@ const DIZAJ = 10
 const MAX_DIGNUTOST = 5555
 
 export default class Avionce1942 extends Scena {
-  constructor(...args) {
-    super(...args)
-    this.init()
-  }
-
   init() {
     this.nivoTla = platno.height
     this.brzinaScene = 0
@@ -37,12 +32,12 @@ export default class Avionce1942 extends Scena {
 
     this.aerodrom = new Aerodrom(this.nivoTla)
     this.ruina = new Ruina(this.nivoTla)
-    this.vozilo = new Hummel(this.nivoTla)
+    this.vozilo = new Hummel(150, this.nivoTla)
     this.igrac = new AvionIgrac(this.nivoTla)
 
     this.vozilo.neprijatelji.push(this.igrac)
     this.igrac.neprijatelji.push(this.vozilo)
-    this.igrac.predmeti.push(this.vozilo, this.ruina)
+    this.igrac.cvrstaTela.push(this.vozilo, this.ruina)
 
     this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak())
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun())
@@ -131,10 +126,9 @@ export default class Avionce1942 extends Scena {
     crtaNebo(this.nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
   }
 
-  update() {
-    super.update()
+  update(dt) {
+    super.update(dt)
     this.proveriTipke()
-    this.vozilo.patroliraj()
     this.proveriTlo()
     this.proveriSmrt()
   }

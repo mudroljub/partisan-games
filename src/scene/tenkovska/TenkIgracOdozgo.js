@@ -6,5 +6,4 @@ export class TenkIgracOdozgo extends VoziloIgracOdozgo {
     super('/assets/slike/2d-odozgo/tenk-rdjavi.gif', 168, 70)
     this.prohodnost = 0.7
   }
-
 }

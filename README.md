@@ -6,10 +6,11 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
-- BUG: nekad ne učita slike
-    - da prvo učita sve slike pre nego što scena krene
+- Predmet: 
+    - promeniti redosled argumenata ili dodati param
+    - svuda dodati skalar izbaciti velicinu
+
 - da na esc napuštati nivo
-- refaktor Pozadina da nasleđuje Slika, ne Predmet
 - OPTIMIZACIJA
     - proveriti šta se učitava na naslovnoj, šta se instancira
     - uklanjati događaje i sve čistiti na kraju nivoa
@@ -17,7 +18,7 @@ Male igrice o Nemcima i partizanima.
     - proveriti sve nivoe sa sporijim i bržim fps
 
 ### Faza 1: refaktor i sredjivanje
-- Avionce: promeniti zvuk motora
+- Avionce: dodati zvuk motora
 - spojiti ranjenike
 - preimenovati u ranjenici na sutjesci
 - spojiti tenkic dva igraca i tenkic protiv kompa, jedina razlika je mrdaNasumicno
@@ -27,10 +28,27 @@ Male igrice o Nemcima i partizanima.
 - TenkOdozgo: spojiti sa TenkIgracOdozgo
 - camac: popraviti odbijanje
 - da svi ispaljuju više projektila (radi na Avionce.js)
-- Humel: dodati sliku gori
 
 ### Faza 3: 3D
 - dodati predmetima z osu (default 0)
 - spojiti predmete razlicitih perspektiva u jedan predmet (bocno, odozgo, prvolice..) sa više prikaza
 - srediti 3D koliziju
 - napraviti jednu mapu sa tri prikaza
+
+## Dokumentacija
+
+`Scena` automatski poziva sledeće metode, koje nasledne scene mogu implementirati:
+
+- init()   // samo jednom
+- cisti()  // svaki frejm
+- sablon() // svaki frejm
+- update() // svaki frejm
+
+Ako scena ima niz `predmeti`, svaki frejm se pozivaju njihove metode:
+
+- predmet.update()
+- predmet.render()
+
+Ako predmeti scene imaju predmete unutar sebe, i njihove metode će se rekurzivno pozivati.
+
+Ako nasledna scena pregazi roditeljski `update` metod, onda ova logika ne važi.

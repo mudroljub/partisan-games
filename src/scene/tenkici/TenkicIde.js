@@ -57,7 +57,7 @@ export default class TenkicIde extends Scena {
   }
 
   update() {
-    crtaNeboZemlju(this.nivoTla)
+    crtaNeboZemlju(this.nivoTla, { linija: false })
     this.planina.update()
     this.shumarak.update()
     this.shumarak.proveriGranice(platno.width / 2)

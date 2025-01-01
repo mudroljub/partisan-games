@@ -1,7 +1,7 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Igrac from '/game-engine/core/Igrac.js'
 import Raketa from './Raketa.js'
-import { ogranici } from '/game-engine/akcije/granice.js'
+import { ogranici } from '/game-engine/utils/granice.js'
 
 const OKRET = 0.01
 const DOZVOLJEN_UGAO = 0.066
@@ -82,7 +82,7 @@ export default class AvionIgrac extends Igrac {
   }
 
   proveriSudare() {
-    this.predmeti.forEach(predmet => {
+    this.cvrstaTela.forEach(predmet => {
       if (this.sudara(predmet)) {
         this.umri()
         predmet.umri()
