@@ -6,7 +6,7 @@ class Animacija {
     this.ime = ime
     this.duzina = duzina
     this.pocetak = pocetak
-    this.sirina = sirina
+    this.sirina = sirina // slicice
     this.visina = visina
     this.loop = loop
   }
@@ -15,8 +15,8 @@ class Animacija {
 export default class Animiran extends Predmet {
   constructor(src, imenaAnimacija, duzina) { // broj ili niz brojeva ako su nejednake
     super(src)
-    this.tekucaAnimacija = 0
-    this.duzinaAnimacije = 1
+    this.index = 0
+    this.duzinaAnimacije = .5 // sec
     this.protekloAnimacije = 0
     this.onload = () => {
       this.animacije = this.praviAnimacije(imenaAnimacija, duzina)
@@ -39,7 +39,7 @@ export default class Animiran extends Predmet {
 
   postaviAnimaciju(ime) {
     this.reset()
-    this.tekucaAnimacija = this.animacije.findIndex(animacija => animacija.ime === ime)
+    this.index = this.animacije.findIndex(animacija => animacija.ime === ime)
   }
 
   nePonavljaAnimaciju(ime) {
@@ -48,7 +48,7 @@ export default class Animiran extends Predmet {
   }
 
   set duzinaAnimacije(sekundi) {
-    this._duzinaAnimacije = Math.max(sekundi, 50 / 1000)
+    this._duzinaAnimacije = Math.max(sekundi, 0.05)
   }
 
   get duzinaAnimacije() {
@@ -58,22 +58,25 @@ export default class Animiran extends Predmet {
   /* RENDER */
 
   crtaKadar(dt) {
-    const tekuca = this.animacije[this.tekucaAnimacija]
+    const animacija = this.animacije[this.index]
+    const { pocetak, sirina, visina, duzina } = animacija
+
     const nijeZavrsena = this.protekloAnimacije + dt < this.duzinaAnimacije
-    if (tekuca.loop || nijeZavrsena) this.protekloAnimacije += dt
+    if (animacija.loop || nijeZavrsena) this.protekloAnimacije += dt
 
-    const duzinaKadra = this.duzinaAnimacije / tekuca.duzina
+    const duzinaKadra = this.duzinaAnimacije / duzina
     const trenutniKadar = Math.floor((this.protekloAnimacije % this.duzinaAnimacije) / duzinaKadra)
-    const trenutniRed = Math.floor((tekuca.pocetak + trenutniKadar) / tekuca.duzina)
-    const trenutnaKolona = (tekuca.pocetak + trenutniKadar) - (trenutniRed * Math.floor(tekuca.duzina))
-    const slikaX = trenutnaKolona * tekuca.sirina
-    const slikaY = trenutniRed * tekuca.visina
+    const trenutniRed = Math.floor((pocetak + trenutniKadar) / duzina)
+    const trenutnaKolona = (pocetak + trenutniKadar) - (trenutniRed * Math.floor(duzina))
+    const slikaX = trenutnaKolona * sirina
+    const slikaY = trenutniRed * visina
 
-    ctx.drawImage(this.slika, slikaX, slikaY, tekuca.sirina, tekuca.visina, 0 - (tekuca.sirina / 2), 0 - (tekuca.visina / 2), tekuca.sirina, tekuca.visina)
+    ctx.drawImage(
+      this.slika, slikaX, slikaY, sirina, visina, 0 - sirina / 2, 0 - visina / 2, sirina, visina
+    )
   }
 
   render(dt) {
-    if (!this.vidljiv) return
     ctx.save()
     ctx.translate(this.x, this.y)
     ctx.rotate(this._ugaoSlike)

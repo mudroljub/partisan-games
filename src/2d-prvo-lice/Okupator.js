@@ -11,7 +11,6 @@ export default class Okupator extends Animiran {
     this.limitLevo = platno.width * 1 / 6
     this.limitDesno = platno.width * 5 / 6
     this.polozaj(this.limitLevo, 450)
-    this.duzinaAnimacije = .5
   }
 
   patroliraj() {
