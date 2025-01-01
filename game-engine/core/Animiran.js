@@ -1,41 +1,41 @@
-import Vreme from './Vreme.js'
 import Predmet from './Predmet.js'
 import { ctx } from '../io/platno.js'
 
-export default class Animiran extends Predmet {
+class Animacija {
+  constructor(ime, duzina, pocetak, sirina, visina, loop = true) {
+    this.ime = ime
+    this.duzina = duzina
+    this.pocetak = pocetak
+    this.sirina = sirina
+    this.visina = visina
+    this.loop = loop
+  }
+}
 
-  constructor(src, imenaAnimacija, slikaPoAnimaciji) { // broj ili niz brojeva ako su nejednake
+export default class Animiran extends Predmet {
+  constructor(src, imenaAnimacija, duzina) { // broj ili niz brojeva ako su nejednake
     super(src)
     this.animacije = []
     this.tekucaAnimacija = 0
     this.duzinaAnimacije = 1000
     this.protekloAnimacije = 0
-    this.vreme = new Vreme()
-    this.praviAnimacije(imenaAnimacija, slikaPoAnimaciji)
+    this.praviAnimacije(imenaAnimacija, duzina)
   }
 
-  /* ANIMACIJA */
-
-  praviAnimacije(imenaAnimacija, slikaPoAnimaciji) {
-    const brojKolona = slikaPoAnimaciji.length ? Math.max(...slikaPoAnimaciji) : slikaPoAnimaciji
-    const sirinaKadra = this.slika.naturalWidth / brojKolona
-    const visinaKadra = this.slika.naturalHeight / imenaAnimacija.length
-    for (let i = 0; i < imenaAnimacija.length; i++) {
-      const brojKadrova = slikaPoAnimaciji[i] || slikaPoAnimaciji
-      this.animacije.push({
-        ime: imenaAnimacija[i],
-        brojKadrova,
-        pocetniKadar: i * brojKadrova,
-        sirinaKadra,
-        visinaKadra,
-        ponavlja: true
-      })
+  praviAnimacije(imena, duzine) {
+    const brojKolona = duzine.length ? Math.max(...duzine) : duzine
+    const sirina = this.slika.naturalWidth / brojKolona
+    const visina = this.slika.naturalHeight / imena.length
+    for (let i = 0; i < imena.length; i++) {
+      const duzina = duzine[i] || duzine
+      this.animacije.push(new Animacija(
+        imena[i], duzina, i * duzina, sirina, visina
+      ))
     }
   }
 
   reset() {
     this.protekloAnimacije = 0
-    this.vreme.reset()
   }
 
   postaviAnimaciju(ime) {
@@ -47,7 +47,7 @@ export default class Animiran extends Predmet {
 
   nePonavljaAnimaciju(ime) {
     this.animacije.map(animacija => {
-      if (animacija.ime === ime) animacija.ponavlja = false
+      if (animacija.ime === ime) animacija.loop = false
     })
   }
 
@@ -65,16 +65,16 @@ export default class Animiran extends Predmet {
     const tekuca = this.animacije[this.tekucaAnimacija]
     const duzinaFrejma = dt * 1000
     const nijeZavrsena = this.protekloAnimacije + duzinaFrejma < this.duzinaAnimacije
-    if (tekuca.ponavlja || nijeZavrsena) this.protekloAnimacije += duzinaFrejma
+    if (tekuca.loop || nijeZavrsena) this.protekloAnimacije += duzinaFrejma
 
-    const duzinaKadra = this.duzinaAnimacije / tekuca.brojKadrova
+    const duzinaKadra = this.duzinaAnimacije / tekuca.duzina
     const trenutniKadar = Math.floor((this.protekloAnimacije % this.duzinaAnimacije) / duzinaKadra)
-    const trenutniRed = Math.floor((tekuca.pocetniKadar + trenutniKadar) / tekuca.brojKadrova)
-    const trenutnaKolona = (tekuca.pocetniKadar + trenutniKadar) - (trenutniRed * Math.floor(tekuca.brojKadrova))
-    const slikaX = trenutnaKolona * tekuca.sirinaKadra
-    const slikaY = trenutniRed * tekuca.visinaKadra
+    const trenutniRed = Math.floor((tekuca.pocetak + trenutniKadar) / tekuca.duzina)
+    const trenutnaKolona = (tekuca.pocetak + trenutniKadar) - (trenutniRed * Math.floor(tekuca.duzina))
+    const slikaX = trenutnaKolona * tekuca.sirina
+    const slikaY = trenutniRed * tekuca.visina
 
-    ctx.drawImage(this.slika, slikaX, slikaY, tekuca.sirinaKadra, tekuca.visinaKadra, 0 - (tekuca.sirinaKadra / 2), 0 - (tekuca.visinaKadra / 2), tekuca.sirinaKadra, tekuca.visinaKadra)
+    ctx.drawImage(this.slika, slikaX, slikaY, tekuca.sirina, tekuca.visina, 0 - (tekuca.sirina / 2), 0 - (tekuca.visina / 2), tekuca.sirina, tekuca.visina)
   }
 
   render(dt) {
@@ -85,5 +85,4 @@ export default class Animiran extends Predmet {
     this.crtaKadar(dt)
     ctx.restore()
   }
-
 }
