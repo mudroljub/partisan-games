@@ -16,7 +16,7 @@ export default class Animiran extends Predmet {
   constructor(src, imenaAnimacija, duzina) { // broj ili niz brojeva ako su nejednake
     super(src)
     this.tekucaAnimacija = 0
-    this.duzinaAnimacije = 1000
+    this.duzinaAnimacije = 1
     this.protekloAnimacije = 0
     this.onload = () => {
       this.animacije = this.praviAnimacije(imenaAnimacija, duzina)
@@ -47,8 +47,8 @@ export default class Animiran extends Predmet {
     if (animacija) animacija.loop = false
   }
 
-  set duzinaAnimacije(milisekundi) {
-    this._duzinaAnimacije = Math.max(milisekundi, 50)
+  set duzinaAnimacije(sekundi) {
+    this._duzinaAnimacije = Math.max(sekundi, 50 / 1000)
   }
 
   get duzinaAnimacije() {
@@ -59,9 +59,8 @@ export default class Animiran extends Predmet {
 
   crtaKadar(dt) {
     const tekuca = this.animacije[this.tekucaAnimacija]
-    const duzinaFrejma = dt * 1000
-    const nijeZavrsena = this.protekloAnimacije + duzinaFrejma < this.duzinaAnimacije
-    if (tekuca.loop || nijeZavrsena) this.protekloAnimacije += duzinaFrejma
+    const nijeZavrsena = this.protekloAnimacije + dt < this.duzinaAnimacije
+    if (tekuca.loop || nijeZavrsena) this.protekloAnimacije += dt
 
     const duzinaKadra = this.duzinaAnimacije / tekuca.duzina
     const trenutniKadar = Math.floor((this.protekloAnimacije % this.duzinaAnimacije) / duzinaKadra)

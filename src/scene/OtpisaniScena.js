@@ -1,4 +1,7 @@
 // BUG: mrtav reaguje na pogodak
+// da se u nekom trenutku okrene i pripuca
+// da ih izlazi više
+// dodati zavrsniEkran
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
 import Okupator from '../2d-prvo-lice/Okupator.js'
