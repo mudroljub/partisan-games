@@ -17,12 +17,12 @@ export default class Okupator extends Animiran {
 
   patroliraj() {
     if (this.x <= this.limitLevo) this.hodaj('nadesno', 0)
-    if (this.x >= this.limitDesno) this.hodaj('nalevo', 180)
+    if (this.x >= this.limitDesno) this.hodaj('nalevo', Math.PI)
   }
 
   hodaj(imeAnimacije, ugao) {
     this.postaviAnimaciju(imeAnimacije)
-    this.ugaoKretanja = ugao
+    this.skreni(ugao)
   }
 
   proveriPogodak() {
