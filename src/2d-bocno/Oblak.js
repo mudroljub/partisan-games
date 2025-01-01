@@ -1,7 +1,6 @@
 import * as _ from '/game-engine/utils.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import platno from '/game-engine/io/platno.js'
-import { vracaVodoravno } from '/game-engine/utils/granice.js'
 
 export default class Oblak extends Predmet {
 
@@ -18,6 +17,6 @@ export default class Oblak extends Predmet {
   proveriGranice() {
     if (this.y < -platno.height) this.dy = -this.dy  // dozvoljena visina dve scene
     if (this.y > platno.height - this.visina) this.dy = -this.dy
-    vracaVodoravno(this)
+    this.vracaVodoravno()
   }
 }

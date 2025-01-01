@@ -1,4 +1,3 @@
-import { kruzi } from '/game-engine/utils/granice.js'
 import { nasumicnoOkruglo } from '/game-engine/utils.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import Vreme from '/game-engine/core/Vreme.js'
@@ -27,7 +26,7 @@ export default class Patrola extends Predmet {
     this.vreme = new Vreme()
     this.zvuk = new Audio('/assets/zvuci/patrola/Stop.wav')
     this.brzina = 6
-    this.granice = kruzi
+    this.granice = this.kruzi
   }
 
   update() {

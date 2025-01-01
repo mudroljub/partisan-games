@@ -8,7 +8,6 @@ import * as _ from '/game-engine/utils.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import Igrac from '/game-engine/core/Igrac.js'
 import platno from '/game-engine/io/platno.js'
-import { ogranici } from '/game-engine/utils/granice.js'
 
 export default class TenkBocnoIgrac extends Igrac {
 
@@ -18,7 +17,7 @@ export default class TenkBocnoIgrac extends Igrac {
     this.okrenutNadesno = jelNadesno
     this.energija = 100
     this.brzina = 0
-    this.granice = ogranici
+    this.granice = this.ogranici
     if (this.okrenutNadesno) this.podesiTipke($.A, $.D, $.W, $.S, $.RAZMAK)
     if (!this.okrenutNadesno) this.podesiTipke($.LEVO, $.DESNO, $.GORE, $.DOLE, $.M)
   }

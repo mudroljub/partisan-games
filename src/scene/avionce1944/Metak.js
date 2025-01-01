@@ -1,5 +1,4 @@
 import Predmet from '/game-engine/core/Predmet.js'
-import { nestani } from '/game-engine/utils/granice.js'
 
 export default class Metak extends Predmet {
 
@@ -7,7 +6,7 @@ export default class Metak extends Predmet {
     super('/assets/slike/granata.gif')
     this.prevelicaj(0.5)
     this.vlasnik = vlasnik
-    this.granice = nestani
+    this.granice = this.nestaje
     this.ugao = this.vlasnik.ugao
     this.sakrij()
   }

@@ -1,16 +1,11 @@
+import { 
+  izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde
+} from '/game-engine/utils/granice.js'
 import Slika from './Slika.js'
 import { platno } from '../io/platno.js'
 import mish from '../io/mish.js'
 import { randomRange } from '../utils.js'
 import { sudar } from '../utils/sudari.js'
-
-const izasaoDole = predmet => predmet.y > platno.height
-const izasaoGore = predmet => predmet.y < 0
-const izasaoDesno = predmet => predmet.x > platno.width
-const izasaoLevo = predmet => predmet.x < 0
-const izasaoLevoSkroz = predmet => predmet.x < -predmet.sirina / 2
-const izasaoDesnoSkroz = predmet => predmet.x > platno.width + predmet.sirina / 2
-const izasaoIgde = predmet => izasaoLevo(predmet) || izasaoDesno(predmet) || izasaoGore(predmet) || izasaoDole(predmet)
 
 export default class Predmet extends Slika {
 
@@ -20,7 +15,6 @@ export default class Predmet extends Slika {
     this.vidljiv = true
     this.brzina = 0
     this.oznake = new Set()
-    this.granice = this.nestaje // default ponašanje
   }
 
   set zapaljiv(bul) {
@@ -151,7 +145,7 @@ export default class Predmet extends Slika {
   /* GRANICE */
 
   proveriGranice() {
-    this.granice()
+    if (this.granice) this.granice()
   }
   
   kruzi (procenat = 1) {
