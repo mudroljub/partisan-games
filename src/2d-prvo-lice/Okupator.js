@@ -30,7 +30,6 @@ export default class Okupator extends Animiran {
 
   umri() {
     super.umri()
-    this.postaviAnimaciju('umire')
-    this.nePonavljaAnimaciju('umire')
+    this.postaviAnimaciju('umire', false)
   }
 }
