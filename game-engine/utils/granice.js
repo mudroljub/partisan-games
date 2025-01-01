@@ -31,9 +31,12 @@ const vracaVodoravno = (predmet, procenatVracanja) => {
 }
 
 const odbij = predmet => {
-  if (izasaoGore(predmet) || izasaoDole(predmet)) predmet.ugao = 2 * Math.PI - predmet.ugao
-  if (izasaoLevo(predmet) || izasaoDesno(predmet)) predmet.ugao = Math.PI - predmet.ugao
-  if (izasaoIgde(predmet)) predmet.pomeri(5)
+  if (izasaoGore(predmet) || izasaoDole(predmet)) 
+    predmet.skreni(2 * Math.PI - predmet.ugao)
+  if (izasaoLevo(predmet) || izasaoDesno(predmet)) 
+    predmet.skreni(Math.PI - predmet.ugao)
+  if (izasaoIgde(predmet)) 
+    predmet.pomeri(5)
 }
 
 const stani = predmet => {
