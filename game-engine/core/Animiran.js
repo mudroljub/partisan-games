@@ -18,7 +18,9 @@ export default class Animiran extends Predmet {
     this.tekucaAnimacija = 0
     this.duzinaAnimacije = 1000
     this.protekloAnimacije = 0
-    this.animacije = this.praviAnimacije(imenaAnimacija, duzina)
+    this.onload = () => {
+      this.animacije = this.praviAnimacije(imenaAnimacija, duzina)
+    }
   }
 
   praviAnimacije(imena, duzine) {
@@ -41,9 +43,8 @@ export default class Animiran extends Predmet {
   }
 
   nePonavljaAnimaciju(ime) {
-    this.animacije.forEach(animacija => {
-      if (animacija.ime === ime) animacija.loop = false
-    })
+    const animacija = this.animacije.find(animacija => animacija.ime === ime)
+    if (animacija) animacija.loop = false
   }
 
   set duzinaAnimacije(milisekundi) {
