@@ -13,11 +13,6 @@ const brojOblaka = 3
 const brzinaPozadine = 10
 
 export default class Scena1944 extends Scena {
-  constructor(...args) {
-    super(...args)
-    this.init()
-  }
-
   init() {
     this.poeni = 0
     this.zivoti = 3
