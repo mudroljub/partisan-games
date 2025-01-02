@@ -6,6 +6,11 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
+- Tenkići
+    - srediti pojavljivanje granate
+    - napraviti niz granata, da puca zaredom
+    - srediti ugao granate
+
 - da na esc napuštati nivo
 - OPTIMIZACIJA
     - proveriti šta se učitava na naslovnoj, šta se instancira

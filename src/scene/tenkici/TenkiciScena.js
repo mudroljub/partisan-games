@@ -14,7 +14,7 @@ import TenkNemacki from './TenkNemacki.js'
 export default class TenkiciScena extends Scena {
   init() {
     this.tenk1 = new TenkPartizanski(100, 450)
-    this.tenk2 = new TenkNemacki(650, 450)
+    this.tenk2 = new TenkNemacki(platno.width - 150, 450)
     const pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
     this.dodaj(pozadina)
   }
@@ -43,6 +43,7 @@ export default class TenkiciScena extends Scena {
     super.update()
     this.tenk2.proveriTipke()
     this.tenk1.update()
+    // this.tenk2.mrdaNasumicno()
     this.tenk2.update()
     this.proveriPogodak(this.tenk1.granata, this.tenk2, 2)
     this.proveriPogodak(this.tenk2.granata, this.tenk1, -2)

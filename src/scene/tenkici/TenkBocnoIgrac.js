@@ -1,10 +1,6 @@
-// srediti pojavljivanje granate
-// napraviti niz granata, da puca zaredom
-// srediti ugao granate
 import { uRadijane } from '/game-engine/utils.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import Igrac from '/game-engine/core/Igrac.js'
-import platno from '/game-engine/io/platno.js'
 import Granata from './Granata.js'
 
 export default class TenkBocnoIgrac extends Igrac {
@@ -62,21 +58,6 @@ export default class TenkBocnoIgrac extends Igrac {
   reset() {
     this.polozaj(Math.random() * 400, 450)
     this.energija = 100
-  }
-
-  mrdaNasumicno() {
-    this.brzina = Math.random() * 10 - 5
-    if (this.x >= 600) {
-      this.brzina = Math.random() * 10 - 5
-      this.skreni(Math.PI)
-    }
-    if (this.x >= platno.width - 10)
-      this.x = platno.width - 10
-
-    if (this.x <= 450) {
-      this.brzina = Math.random() * 10 - 5
-      this.skreni(0)
-    }
   }
 
   puca() {
