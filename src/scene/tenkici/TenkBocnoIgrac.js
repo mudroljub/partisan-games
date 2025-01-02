@@ -1,4 +1,3 @@
-// odvojiti Granatu
 // srediti pojavljivanje granate
 // napraviti niz granata, da puca zaredom
 // srediti ugao granate
@@ -6,24 +5,7 @@ import { uRadijane } from '/game-engine/utils.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import Igrac from '/game-engine/core/Igrac.js'
 import platno from '/game-engine/io/platno.js'
-
-class Granata extends Predmet {
-  constructor() {
-    super('/assets/slike/granata.gif', { skalar: .33 })
-    this.sakrij()
-  }
-
-  praviGravitaciju(gravitacija = 0.3) {
-    this.dodajSilu(gravitacija, uRadijane(90))
-  }
-
-  puca(cev, pravac) {
-    this.skreni(cev.ugao - pravac)
-    this.polozaj(cev.x, cev.y)
-    this.brzina = 20
-    this.pokazi()
-  }
-}
+import Granata from './Granata.js'
 
 export default class TenkBocnoIgrac extends Igrac {
   constructor(src, jelNadesno, sirina, visina) {
