@@ -4,7 +4,7 @@
 
 import Scena from '/game-engine/core/Scena.js'
 import { Avionce } from './Avionce.js'
-import { Okean } from './Okean.js'
+import PokretnaPozadina from './PokretnaPozadina.js'
 import { Ostrvo } from './Ostrvo.js'
 import Oblak from './Oblak.js'
 import platno from '/game-engine/io/platno.js'
@@ -19,7 +19,7 @@ export default class Scena1944 extends Scena {
     this.oblaci = []
     this.ostrvo = new Ostrvo(brzinaPozadine)
     this.igrac = new Avionce()
-    const pozadina = new Okean(brzinaPozadine, platno.width)
+    const pozadina = new PokretnaPozadina(brzinaPozadine, platno.width)
     for (let i = 0; i < brojOblaka; i++) this.oblaci[i] = new Oblak(brzinaPozadine)
     this.dodaj(pozadina, this.ostrvo, this.igrac, ...this.oblaci)
   }
@@ -49,10 +49,14 @@ export default class Scena1944 extends Scena {
 
   sablon() {
     return `
-      <h1>Avionče 1944</h1>
-      Poeni: ${this.poeni}<br>
-      Životi: ${this.zivoti}<br>
-      Meci: ${this.igrac.preostaloMetaka()}
+      <main class='centar'>
+        <h3>Avionče 1944</h3>
+        <div class='tabela'>
+          Poeni: ${this.poeni}<br>
+          Životi: ${this.zivoti}<br>
+          Meci: ${this.igrac.preostaloMetaka()}
+        </div>
+      </main>
     `
   }
 }
