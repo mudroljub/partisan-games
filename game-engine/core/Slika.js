@@ -16,7 +16,10 @@ export default class Slika extends Kompozit {
       if (!sirina && !visina) {
         this.sirina = this.slika.naturalWidth * skalar
         this.visina = this.slika.naturalHeight * skalar
-      }
+      } else if (sirina && !visina)
+        this.visina = (sirina / this.slika.naturalWidth) * this.slika.naturalHeight
+      else if (!sirina && visina)
+        this.sirina = (visina / this.slika.naturalHeight) * this.slika.naturalWidth
       this.onload()
       this.slika.onload = null
     }
