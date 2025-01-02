@@ -7,7 +7,9 @@ export default class Planina extends Predmet {
     super (src)
     this.x = Math.random() * platno.width
     this.tlo(nivoTla + 3)
-    this.granice = this.kruzi
   }
 
+  proveriGranice() {
+    this.kruzi()
+  }
 }

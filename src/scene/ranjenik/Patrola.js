@@ -26,7 +26,10 @@ export default class Patrola extends Predmet {
     this.vreme = new Vreme()
     this.zvuk = new Audio('/assets/zvuci/patrola/Stop.wav')
     this.brzina = 6
-    this.granice = this.kruzi
+  }
+
+  proveriGranice() {
+    this.kruzi()
   }
 
   update() {

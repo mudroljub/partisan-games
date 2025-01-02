@@ -1,4 +1,5 @@
-// BUG: pozadina preskače
+// nema ostrva?
+// promeniti zvuk motora
 // ubaciti jednog neprijatelja i jednu stvar za hvatanje (paketić)
 // senku ispod aviona, kao u avion.png
 

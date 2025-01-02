@@ -15,9 +15,12 @@ export default class TenkBocnoIgrac extends Igrac {
     this.okrenutNadesno = jelNadesno
     this.energija = 100
     this.brzina = 0
-    this.granice = this.ogranici
     // if (this.okrenutNadesno) this.podesiTipke($.A, $.D, $.W, $.S, $.RAZMAK)
     // if (!this.okrenutNadesno) this.podesiTipke($.LEVO, $.DESNO, $.GORE, $.DOLE, $.M)
+  }
+
+  proveriGranice() {
+    this.ogranici()
   }
 
   update() {

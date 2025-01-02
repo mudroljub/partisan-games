@@ -9,15 +9,18 @@ export default class VoziloIgracOdozgo extends Igrac {
     this.prohodnost = 0.85
     this.granata = new Granata(this)
     this.komandeNapredne = true
-    this.granice = this.odbija
+  }
+
+  puca() {
+    this.granata.puca()
+  }
+
+  proveriGranice() {
+    this.odbija()
   }
 
   update() {
     super.update()
     this.granata.update()
-  }
-
-  puca() {
-    this.granata.puca()
   }
 }

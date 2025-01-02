@@ -10,11 +10,14 @@ export default class AvionIgrac extends Igrac {
   constructor(nivoTla, src = '/assets/slike/2d-bocno/partizani/potez-25.png', sirina = 200, visina = 87) {
     super(src, { sirina, visina })
     this.brzina = 0
-    this.granice = this.ogranici
     this.nivoTla = nivoTla
     this.oznake.add('igrac')
     this.raketa = new Raketa(this)
     this.zapaljiv = true
+  }
+
+  proveriGranice() {
+    this.ogranici()
   }
 
   update() {

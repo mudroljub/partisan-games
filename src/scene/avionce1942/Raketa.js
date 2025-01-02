@@ -16,7 +16,7 @@ export default class Raketa extends Predmet {
     if (this.ispaljena) this.proveriSudare()
   }
 
-  granice() {
+  proveriGranice() {
     if (izasaoIgde(this)) this.reset()
   }
 

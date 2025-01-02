@@ -19,7 +19,10 @@ export class Avionce extends Igrac {
     this.brzina = 0
     this.ugao = KRUZNICA * 3 / 4
     this.praviMetke()
-    this.granice = this.ogranici
+  }
+
+  proveriGranice() {
+    this.ogranici()
   }
 
   onload() {

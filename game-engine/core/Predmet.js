@@ -145,9 +145,7 @@ export default class Predmet extends Slika {
 
   /* GRANICE */
 
-  proveriGranice() {
-    if (this.granice) this.granice()
-  }
+  proveriGranice() {}
 
   kruzi(procenat = 1) {
     if (Math.random() > procenat) return

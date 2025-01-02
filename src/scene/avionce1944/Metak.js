@@ -6,7 +6,6 @@ export default class Metak extends Predmet {
     super('/assets/slike/granata.gif')
     this.prevelicaj(0.5)
     this.vlasnik = vlasnik
-    this.granice = this.nestaje
     this.ugao = this.vlasnik.ugao
     this.sakrij()
   }
@@ -18,4 +17,7 @@ export default class Metak extends Predmet {
     this.brzina = 20
   }
 
+  proveriGranice() {
+    this.nestaje()
+  }
 }
