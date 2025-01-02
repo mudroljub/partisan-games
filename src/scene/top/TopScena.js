@@ -19,7 +19,7 @@ export default class TopScena extends Scena {
   }
 
   cisti() {
-    crtaNeboZemlju(tlo)
+    crtaNeboZemlju(tlo, { linija: true })
   }
 
   sablon() {

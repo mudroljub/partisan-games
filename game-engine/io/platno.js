@@ -31,7 +31,7 @@ function crtaLiniju(nivoTla) {
 }
 
 export function crtaNeboZemlju(nivoTla,
-  { bojaNeba = '#3299CC', bojaZemlje = '#32cd32', bojaNebaPreliv = 'lightblue', linija = true } = {}
+  { bojaNeba = '#3299CC', bojaZemlje = '#32cd32', bojaNebaPreliv = 'lightblue', linija = false } = {}
 ) {
   crtaNebo(nivoTla, bojaNeba, bojaNebaPreliv)
   if (linija) crtaLiniju(nivoTla)

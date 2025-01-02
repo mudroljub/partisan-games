@@ -1,5 +1,5 @@
-// zbunje
-// predmeti ne kruze
+// raketa ne leti lepo
+// ne radi šablon??
 // tenkovi, bunkeri, vojnici...
 
 import Scena from '/game-engine/core/Scena.js'
@@ -15,13 +15,8 @@ const BROJ_ZBUNOVA = 10
 const PARALAX_1 = -5
 
 export default class TenkicIde extends Scena {
-  constructor(...args) {
-    super(...args)
-    this.init()
-  }
-
   init() {
-    this.nivoTla = platno.height - 100
+    this.nivoTla = platno.height * .75
     this.tenk = new TenkPartizanski(100, this.nivoTla)
     this.planina = new Planina(this.nivoTla)
     this.shumarak = new Shuma(this.nivoTla)
@@ -57,7 +52,7 @@ export default class TenkicIde extends Scena {
   }
 
   update() {
-    crtaNeboZemlju(this.nivoTla, { linija: false })
+    crtaNeboZemlju(this.nivoTla)
     this.planina.update()
     this.shumarak.update()
     this.shumarak.proveriGranice(platno.width / 2)
