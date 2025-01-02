@@ -5,7 +5,7 @@ const OKRET = 0.035
 export default class Ranjenik extends Igrac {
 
   constructor() {
-    super ('/assets/slike/2d-odozgo/ranjeni-partizan.png', 70, 30)
+    super ('/assets/slike/2d-odozgo/ranjeni-partizan.png')
     this.korak = 1
     this.pogodjen = 0
   }

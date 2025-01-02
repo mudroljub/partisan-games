@@ -2,9 +2,7 @@
 // srediti pojavljivanje granate
 // napraviti niz granata, da puca zaredom
 // popraviti granatu, da menja ugaoCevi sukladno gravitaciji
-
-import * as $ from '/game-engine/konstante.js'
-import * as _ from '/game-engine/utils.js'
+import { uRadijane } from '/game-engine/utils.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import Igrac from '/game-engine/core/Igrac.js'
 import platno from '/game-engine/io/platno.js'
@@ -12,7 +10,7 @@ import platno from '/game-engine/io/platno.js'
 export default class TenkBocnoIgrac extends Igrac {
 
   constructor(src, jelNadesno, sirina, visina) {
-    super(src, sirina, visina)
+    super(src, { sirina, visina })
     this.x = 100
     this.okrenutNadesno = jelNadesno
     this.energija = 100
@@ -39,22 +37,22 @@ export default class TenkBocnoIgrac extends Igrac {
   }
 
   podesiUgaoCevi() {
-    const ugaoCevi = this.okrenutNadesno ? -_.uRadijane(10) : _.uRadijane(10)
+    const ugaoCevi = this.okrenutNadesno ? -uRadijane(10) : uRadijane(10)
     this.cev.ugao = ugaoCevi
-    this.pomerajCevi = this.okrenutNadesno ? -_.uRadijane(1) : _.uRadijane(1)
-    const maxDonjiPomak = this.okrenutNadesno ? _.uRadijane(15) : _.uRadijane(10)
-    const maxGornjiPomak = this.okrenutNadesno ? _.uRadijane(10) : _.uRadijane(15)
+    this.pomerajCevi = this.okrenutNadesno ? -uRadijane(1) : uRadijane(1)
+    const maxDonjiPomak = this.okrenutNadesno ? uRadijane(15) : uRadijane(10)
+    const maxGornjiPomak = this.okrenutNadesno ? uRadijane(10) : uRadijane(15)
     this.donjiLimitCevi = ugaoCevi - maxDonjiPomak
     this.gornjiLimitCevi = ugaoCevi + maxGornjiPomak
   }
 
   postaviGranatu() {
-    this.granata = new Predmet('/assets/slike/granata.gif', 12, 3)
+    this.granata = new Predmet('/assets/slike/granata.gif', { skalar: .33 })
     this.granata.sakrij()
   }
 
   praviGravitaciju(gravitacija = 0.3) {
-    this.granata.dodajSilu(gravitacija, _.uRadijane(90))
+    this.granata.dodajSilu(gravitacija, uRadijane(90))
   }
 
   ograniciCev() {

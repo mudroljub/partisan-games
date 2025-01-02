@@ -3,8 +3,8 @@ import Granata from './Granata.js'
 
 export default class VoziloIgracOdozgo extends Igrac {
 
-  constructor(src, sirina, visina) {
-    super(src, sirina, visina)
+  constructor(src, param = {}) {
+    super(src, param)
     this.potisak = 2
     this.prohodnost = 0.85
     this.granata = new Granata(this)
