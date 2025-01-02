@@ -38,10 +38,6 @@ export default class TenkBocnoIgrac extends Igrac {
     this.granata = new Granata()
   }
 
-  praviGravitaciju() {
-    this.granata.praviGravitaciju()
-  }
-
   ograniciCev() {
     if (this.cev.ugao < this.donjiLimitCevi) this.cev.ugao = this.donjiLimitCevi
     if (this.cev.ugao > this.gornjiLimitCevi) this.cev.ugao = this.gornjiLimitCevi
@@ -69,7 +65,6 @@ export default class TenkBocnoIgrac extends Igrac {
     super.update()
     this.cev.polozaj(this.x + 1, this.y - 9)
     this.cev.update()
-    this.praviGravitaciju()
     this.granata.update()
   }
 }

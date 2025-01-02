@@ -16,4 +16,9 @@ export default class Granata extends Predmet {
     this.brzina = 20
     this.pokazi()
   }
+
+  update() {
+    super.update()
+    this.praviGravitaciju()
+  }
 }
