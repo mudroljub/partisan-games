@@ -4,7 +4,7 @@ import platno from '/game-engine/io/platno.js'
 
 export default class Oblak extends Predmet {
 
-  constructor(nivoTla, dx) {
+  constructor(nivoTla, dx = 0) {
     super('/assets/slike/oblak.gif')
     this.nivoTla = nivoTla
     this.dx = dx
