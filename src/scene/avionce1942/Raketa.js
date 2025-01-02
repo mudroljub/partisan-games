@@ -3,7 +3,7 @@ import { izasaoIgde } from '/game-engine/utils/granice.js'
 
 export default class Raketa extends Predmet {
   constructor(vlasnik) {
-    super('/assets/slike/raketa.png')
+    super('/assets/slike/raketa.png', { skalar: .55 })
     this.vlasnik = vlasnik
     this.pocetniUgao = this.vlasnik.ugao + Math.PI / 16
     this.oznake.add('raketa')
