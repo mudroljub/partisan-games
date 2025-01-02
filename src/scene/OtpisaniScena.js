@@ -1,4 +1,5 @@
 // BUG: mrtav reaguje na pogodak
+// BUG: okupator ignorise sirinu i visinu, svuda reaguje na pogodak
 // da se u nekom trenutku okrene i pripuca
 // da ih izlazi više
 // dodati zavrsniEkran
@@ -11,25 +12,25 @@ import mish from '/game-engine/io/mish.js'
 export default class OtpisaniScena extends Scena {
   init() {
     this.pozadina = new Pozadina('/assets/slike/pozadine/rusevine-varsava.jpg')
-    this.strazar = new Okupator()
+    this.svabo = new Okupator()
+    this.pesma = new Audio('/assets/zvuci/otpisani.mp3')
+    this.pesma.play()
     mish.dodajNishan()
-    this.zvuk = new Audio('/assets/zvuci/otpisani.mp3')
-    this.zvuk.play()
-    this.proveriPogodak = this.strazar.proveriPogodak.bind(this.strazar)
+    this.proveriPogodak = this.svabo.proveriPogodak.bind(this.svabo)
     platno.addEventListener('click', this.proveriPogodak)
   }
 
   end() {
     super.end()
-    this.zvuk.pause()
+    this.pesma.pause()
     mish.ukloniNishan()
     platno.removeEventListener('click', this.proveriPogodak)
   }
 
   update(dt) {
     this.pozadina.render()
-    this.strazar.patroliraj()
-    this.strazar.update(dt)
+    this.svabo.patroliraj()
+    this.svabo.update(dt)
   }
 
   sablon() {
