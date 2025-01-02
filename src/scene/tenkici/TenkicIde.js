@@ -1,9 +1,8 @@
 // BUG: raketa ne leti lepo
-// BUG: ne radi šablon??
 // tenkovi, bunkeri, vojnici...
 
 import Scena from '/game-engine/core/Scena.js'
-import TenkPartizanski from './TenkPartizanski.js'
+import Tenk from './TenkPartizanski.js'
 import Zbun from '/src/2d-bocno/Zbun.js'
 import Shuma from '/src/2d-bocno/Shuma.js'
 import Planina from '/src/2d-bocno/Planina.js'
@@ -17,7 +16,7 @@ const PARALAX_1 = -5
 export default class TenkicIde extends Scena {
   init() {
     this.nivoTla = platno.height * .75
-    this.tenk = new TenkPartizanski(100, this.nivoTla)
+    this.tenk = new Tenk(100, this.nivoTla)
     this.planina = new Planina(this.nivoTla, PARALAX_1)
     this.shumarak = new Shuma(this.nivoTla, PARALAX_1)
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun(this.nivoTla, PARALAX_1))

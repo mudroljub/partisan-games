@@ -1,14 +1,31 @@
 // odvojiti Granatu
 // srediti pojavljivanje granate
 // napraviti niz granata, da puca zaredom
-// popraviti granatu, da menja ugaoCevi sukladno gravitaciji
+// srediti ugao granate
 import { uRadijane } from '/game-engine/utils.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import Igrac from '/game-engine/core/Igrac.js'
 import platno from '/game-engine/io/platno.js'
 
-export default class TenkBocnoIgrac extends Igrac {
+class Granata extends Predmet {
+  constructor() {
+    super('/assets/slike/granata.gif', { skalar: .33 })
+    this.sakrij()
+  }
 
+  praviGravitaciju(gravitacija = 0.3) {
+    this.dodajSilu(gravitacija, uRadijane(90))
+  }
+
+  puca(cev, pravac) {
+    this.skreni(cev.ugao - pravac)
+    this.polozaj(cev.x, cev.y)
+    this.brzina = 20
+    this.pokazi()
+  }
+}
+
+export default class TenkBocnoIgrac extends Igrac {
   constructor(src, jelNadesno, sirina, visina) {
     super(src, { sirina, visina })
     this.x = 100
@@ -50,12 +67,11 @@ export default class TenkBocnoIgrac extends Igrac {
   }
 
   postaviGranatu() {
-    this.granata = new Predmet('/assets/slike/granata.gif', { skalar: .33 })
-    this.granata.sakrij()
+    this.granata = new Granata()
   }
 
-  praviGravitaciju(gravitacija = 0.3) {
-    this.granata.dodajSilu(gravitacija, uRadijane(90))
+  praviGravitaciju() {
+    this.granata.praviGravitaciju()
   }
 
   ograniciCev() {
@@ -92,10 +108,7 @@ export default class TenkBocnoIgrac extends Igrac {
   }
 
   puca() {
-    const ugaoCevi = this.okrenutNadesno ? 0 : 180
-    this.granata.skreni(this.cev.ugao - ugaoCevi)
-    this.granata.polozaj(this.cev.x, this.cev.y)
-    this.granata.brzina = 20
-    this.granata.pokazi()
+    const pravac = this.okrenutNadesno ? 0 : 180
+    this.granata.puca(this.cev, pravac)
   }
 }
