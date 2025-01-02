@@ -1,5 +1,4 @@
 // BUG: mrtav reaguje na pogodak
-// BUG: okupator ignorise sirinu i visinu, svuda reaguje na pogodak
 // da se u nekom trenutku okrene i pripuca
 // da ih izlazi više
 // dodati zavrsniEkran

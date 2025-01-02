@@ -4,13 +4,13 @@ import mish from '/game-engine/io/mish.js'
 
 export default class Okupator extends Animiran {
   constructor() {
-    super ('/assets/slike/sprajtovi/okupator-sprite.png', ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], 5)
-    this.sirina = 50
-    this.visina = 180
+    super ('/assets/slike/sprajtovi/okupator-sprite.png', {
+      imena: ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], duzine: 5, sirina: 50, visina: 180    
+    })
     this.brzina = 4
-    this.limitLevo = platno.width * 1 / 6
-    this.limitDesno = platno.width * 5 / 6
-    this.polozaj(this.limitLevo, 450)
+    this.limitLevo = platno.width * .15
+    this.limitDesno = platno.width * .85
+    this.polozaj(this.limitLevo, platno.height * .75)
   }
 
   patroliraj() {
