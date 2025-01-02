@@ -3,8 +3,9 @@ import Predmet from '/game-engine/core/Predmet.js'
 import platno from '/game-engine/io/platno.js'
 
 export default class Zbun extends Predmet {
-  constructor(nivoTla = platno.height, src = '/assets/slike/2d-bocno/priroda/zbun.png') {
-    super (src)
+  constructor(nivoTla, dx = 0) {
+    super ('/assets/slike/2d-bocno/priroda/zbun.png')
+    this.dx = dx
     this.onload = () => this.randomDoTla(nivoTla)
   }
 

@@ -1,5 +1,6 @@
-// raketa ne leti lepo
-// ne radi šablon??
+// BUG: raketa ne leti lepo
+// BUG: ne radi šablon??
+// BUG: jedan oblak zaglavljen
 // tenkovi, bunkeri, vojnici...
 
 import Scena from '/game-engine/core/Scena.js'
@@ -24,31 +25,22 @@ export default class TenkicIde extends Scena {
     this.shumarak.dx = PARALAX_1
     this.planina.dx = PARALAX_1
 
-    this.zbunovi = []
-    this.oblaci = []
-    for (let i = 0; i < BROJ_ZBUNOVA; i++) {
-      this.zbunovi[i] = new Zbun(this.nivoTla)
-      this.zbunovi[i].dx = PARALAX_1
-    }
-
-    for (let i = 0; i < BROJ_OBLAKA; i++) {
-      this.oblaci[i] = new Oblak(150, 100)
-      this.oblaci[i].dx = PARALAX_1
-    }
+    this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun(this.nivoTla, PARALAX_1))
+    this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak(this.nivoTla, PARALAX_1))
   }
 
   azurirajZbunje() {
-    for (let i = 0; i < this.zbunovi.length; i++) {
-      this.zbunovi[i].update()
-      this.zbunovi[i].proveriGranice(10)
-    }
+    this.zbunovi.forEach(zbun => {
+      zbun.update()
+      zbun.proveriGranice()
+    })
   }
 
   azurirajOblake() {
-    for (let i = 0; i < this.oblaci.length; i++) {
-      this.oblaci[i].update()
-      this.oblaci[i].proveriGranice()
-    }
+    this.oblaci.forEach(oblak => {
+      oblak.update()
+      oblak.proveriGranice()
+    })
   }
 
   update() {
