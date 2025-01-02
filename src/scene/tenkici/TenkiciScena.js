@@ -1,3 +1,4 @@
+// da neprijatelj bude AI
 // potvrdi igraj ponovo kad pogine
 // ubaciti zvuk i eksploziju
 // ubaciti uništen tenk

@@ -8,26 +8,16 @@ import platno from '/game-engine/io/platno.js'
 import Granata from './Granata.js'
 
 export default class TenkBocnoIgrac extends Igrac {
-  constructor(src, jelNadesno, sirina, visina) {
+  constructor(src, okrenutNadesno, sirina, visina) {
     super(src, { sirina, visina })
     this.x = 100
-    this.okrenutNadesno = jelNadesno
+    this.okrenutNadesno = okrenutNadesno
     this.energija = 100
     this.brzina = 0
-    // if (this.okrenutNadesno) this.podesiTipke($.A, $.D, $.W, $.S, $.RAZMAK)
-    // if (!this.okrenutNadesno) this.podesiTipke($.LEVO, $.DESNO, $.GORE, $.DOLE, $.M)
   }
 
   proveriGranice() {
     this.ogranici()
-  }
-
-  update() {
-    this.cev.polozaj(this.x + 1, this.y - 9)
-    this.cev.update()
-    super.update()
-    this.praviGravitaciju()
-    this.granata.update()
   }
 
   postaviCev(cevSrc, sirina, visina) {
@@ -92,5 +82,13 @@ export default class TenkBocnoIgrac extends Igrac {
   puca() {
     const pravac = this.okrenutNadesno ? 0 : 180
     this.granata.puca(this.cev, pravac)
+  }
+
+  update() {
+    super.update()
+    this.cev.polozaj(this.x + 1, this.y - 9)
+    this.cev.update()
+    this.praviGravitaciju()
+    this.granata.update()
   }
 }

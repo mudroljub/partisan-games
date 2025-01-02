@@ -7,5 +7,4 @@ export default class TenkPartizanski extends TenkBocnoIgrac {
     this.postaviCev('/assets/slike/2d-bocno/partizanski-tenk-cev.png', 100, 7)
     this.polozaj(x, nivoTla)
   }
-
 }

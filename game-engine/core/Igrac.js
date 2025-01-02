@@ -15,12 +15,6 @@ export default class Igrac extends Predmet {
     this.cvrstaTela = []
   }
 
-  update() {
-    super.update()
-    this.proveriTipke()
-    this.praviTrenje()
-  }
-
   proveriTipke() {
     if (!this.ziv || !(this.oznake.has('igrac'))) return
     if (keyboard.left) this.nalevo()
@@ -62,5 +56,11 @@ export default class Igrac extends Predmet {
   praviTrenje() {
     this.dx *= this.prohodnost
     this.dy *= this.prohodnost
+  }
+
+  update() {
+    super.update()
+    this.proveriTipke()
+    this.praviTrenje()
   }
 }
