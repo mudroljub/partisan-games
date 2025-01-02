@@ -13,6 +13,7 @@ export default class PokretnaPozadina extends Predmet {
   }
 
   proveriGranice() {
-    if (this.y > this.visina / 2) this.polozaj(this.sirina / 2, -this.visina / 12)
+    if (this.y > this.visina / 2)
+      this.y -= this.visina / 2
   }
 }
