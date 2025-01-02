@@ -39,6 +39,7 @@ export default class TenkicIde extends Scena {
   }
 
   update() {
+    super.update()
     crtaNeboZemlju(this.nivoTla)
     this.planina.update()
     this.shumarak.update()

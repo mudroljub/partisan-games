@@ -68,12 +68,10 @@ export default class Scena {
     this.ui.zavrsniProzor(text, this.constructor.name)
   }
 
-  sablon() {
-    return ''
-  }
+  sablon() {}
 
   renderSablon() {
-    if (!this.sablon) return
+    if (!this.sablon()) return
     if (this.upamcenSablon !== this.sablon()) {
       this.elementUI.innerHTML = this.sablon()
       this.upamcenSablon = this.sablon()
@@ -99,7 +97,7 @@ export default class Scena {
   update(dt, t) {
     this.cisti()
     const rekurzivnoAzuriraj = predmet => {
-      if ('update' in predmet) predmet.update(dt, t)
+      if (predmet.update) predmet.update(dt, t)
       if (predmet?.predmeti?.length) predmet.predmeti.forEach(rekurzivnoAzuriraj)
     }
     this.predmeti.forEach(rekurzivnoAzuriraj)
