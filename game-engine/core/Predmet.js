@@ -155,8 +155,7 @@ export default class Predmet extends Slika {
     if (izasaoGore(this)) this.y = platno.height
   }
 
-  vracaVodoravno(procenatVracanja) {
-    const procenat = procenatVracanja || this.procenatVracanja
+  vracaVodoravno(procenat = 1) {
     if (izasaoLevoSkroz(this) && Math.random() < procenat) this.x = platno.width + this.sirina / 2
   }
 

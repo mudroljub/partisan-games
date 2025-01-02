@@ -7,7 +7,6 @@ export default class Oblak extends Predmet {
   constructor(sirina, visina, src = '/assets/slike/oblak.gif') {
     super(src, { sirina, visina })
     this.dy = Math.random() * 2 - 1
-    this.procenatVracanja = 1
   }
 
   onload() {
@@ -17,6 +16,6 @@ export default class Oblak extends Predmet {
   proveriGranice() {
     if (this.y < -platno.height) this.dy = -this.dy  // dozvoljena visina dve scene
     if (this.y > platno.height - this.visina) this.dy = -this.dy
-    this.vracaVodoravno()
+    this.vracaVodoravno(1)
   }
 }
