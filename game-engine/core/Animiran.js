@@ -14,7 +14,7 @@ class Animacija {
 
 export default class Animiran extends Predmet {
   constructor(src, { imena, duzine, sirina, visina }) { // broj ili niz brojeva ako su nejednake
-    super(src, sirina, visina)
+    super(src, { sirina, visina })
     this.index = 0
     this.duzinaAnimacije = .5 // sekundi
     this.proteklo = 0

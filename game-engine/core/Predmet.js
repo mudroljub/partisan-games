@@ -1,5 +1,5 @@
 import {
-  izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, 
+  izasaoDole, izasaoGore, izasaoDesno, izasaoLevo,
   izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde
 } from '/game-engine/utils/granice.js'
 import Slika from './Slika.js'
@@ -10,7 +10,7 @@ import { sudar } from '../utils/sudari.js'
 
 export default class Predmet extends Slika {
 
-  constructor(src, sirina, visina, x, y, skalar) {
+  constructor(src, { sirina, visina, x, y, skalar } = {}) {
     super(src, { sirina, visina, x, y, skalar })
     this.ziv = true
     this.vidljiv = true

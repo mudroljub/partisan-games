@@ -5,9 +5,7 @@ const SILA = 1
 
 export default class TenkOdozgo extends Predmet {
   constructor(x = 100, y = 200) {
-    super('/assets/slike/2d-odozgo/tenk-rdjavi.gif', 168, 70)
-    this.x = x
-    this.y = y
+    super('/assets/slike/2d-odozgo/tenk-rdjavi.gif', { x, y })
     this.zvuk = new Audio('/assets/zvuci/zvuk-tenka.mp3')
     this.dodajSilu(SILA, 0)
   }

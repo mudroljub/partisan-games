@@ -5,7 +5,7 @@ import platno from '/game-engine/io/platno.js'
 export default class Oblak extends Predmet {
 
   constructor(sirina, visina, src = '/assets/slike/oblak.gif') {
-    super(src, sirina, visina)
+    super(src, { sirina, visina })
     this.dy = Math.random() * 2 - 1
     this.procenatVracanja = 1
   }

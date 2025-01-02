@@ -6,6 +6,7 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
+- skalirati Granatu i Raketu
 - Predmet: 
     - promeniti redosled argumenata ili dodati param
     - svuda dodati skalar izbaciti velicinu

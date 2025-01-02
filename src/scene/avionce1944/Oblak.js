@@ -3,7 +3,7 @@ import platno from '/game-engine/io/platno.js'
 
 export default class Oblak extends Predmet {
   constructor(brzina) {
-    super('/assets/slike/oblak.gif', 150, 100)
+    super('/assets/slike/oblak.gif')
     this.brzina = brzina
     this.reset()
   }

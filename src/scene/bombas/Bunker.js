@@ -2,8 +2,8 @@ import Predmet from '/game-engine/core/Predmet.js'
 
 export default class Bunker extends Predmet {
 
-  constructor(sirina = 112, visina = 103) {
-    super('/assets/slike/2d-bocno/kuca-bunker.png', sirina, visina)
+  constructor() {
+    super('/assets/slike/2d-bocno/kuca-bunker.png', { skalar: .5 })
   }
 
   nemojPreko(predmet) {

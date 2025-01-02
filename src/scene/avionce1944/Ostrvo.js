@@ -4,7 +4,7 @@ import platno from '/game-engine/io/platno.js'
 export class Ostrvo extends Predmet {
 
   constructor(brzina) {
-    super('/assets/slike/oblak.gif', 100, 100)
+    super('/assets/slike/oblak.gif')
     this.reset(brzina)
   }
 

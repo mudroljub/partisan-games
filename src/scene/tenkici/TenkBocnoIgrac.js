@@ -31,7 +31,7 @@ export default class TenkBocnoIgrac extends Igrac {
   }
 
   postaviCev(cevSrc, sirina, visina) {
-    this.cev = new Predmet(cevSrc, sirina, visina)
+    this.cev = new Predmet(cevSrc, { sirina, visina })
     this.cev.brzina = 0
     this.podesiUgaoCevi()
     this.postaviGranatu()

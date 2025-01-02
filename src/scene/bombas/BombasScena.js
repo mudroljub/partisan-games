@@ -18,7 +18,7 @@ export default class BombasScena extends Scena {
   init() {
     this.vreme = new Vreme()
     const pozadina = new Pozadina('/assets/slike/teksture/beton.gif')
-    this.bombas = new Bombas('/assets/slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif', 50, 55)
+    this.bombas = new Bombas('/assets/slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif')
     this.bunker = new Bunker()
     this.bunker.onload = () => this.bunker.nemojPreko(this.bombas)
     this.dodaj(pozadina, this.bunker, this.bombas)
@@ -40,7 +40,7 @@ export default class BombasScena extends Scena {
   }
 
   proveriPobedu() {
-    if (this.bombas.razmakDo(this.bunker) < 75) {
+    if (this.bombas.razmakDo(this.bunker) < this.bunker.sirina / 2) {
       this.bunker.gori()
       this.zavrsiIgru('Neprijateljski bunker je uništen.')
     }

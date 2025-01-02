@@ -7,7 +7,7 @@ const OKRET = 0.087
 export default class Igrac extends Predmet {
 
   constructor(src, sirina, visina) {
-    super(src, sirina, visina)
+    super(src, { sirina, visina })
     this.oznake.add('igrac')
     this.potisak = 0.5
     this.prohodnost = 0.9
