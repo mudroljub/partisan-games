@@ -54,13 +54,11 @@ export class Avionce extends Igrac {
   praviMetke() {
     for (let i = 0; i < BROJ_METAKA; i++)
       this.meci[i] = new Metak(this)
-
   }
 
   azurirajMetke() {
     for (let i = 0; i < BROJ_METAKA; i++)
       this.meci[i].update()
-
   }
 
   preostaloMetaka() {

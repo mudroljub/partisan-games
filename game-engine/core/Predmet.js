@@ -1,4 +1,4 @@
-import { 
+import {
   izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde
 } from '/game-engine/utils/granice.js'
 import Slika from './Slika.js'
@@ -147,43 +147,43 @@ export default class Predmet extends Slika {
   proveriGranice() {
     if (this.granice) this.granice()
   }
-  
-  kruzi (procenat = 1) {
+
+  kruzi(procenat = 1) {
     if (Math.random() > procenat) return
     if (izasaoLevoSkroz(this)) this.x = platno.width + this.sirina / 2
     if (izasaoDesnoSkroz(this)) this.x = 0
     if (izasaoDole(this)) this.y = 0
     if (izasaoGore(this)) this.y = platno.height
   }
-  
-  kruziSire () {
+
+  kruziSire() {
     const sirina = platno.width
     if (this.x < -sirina) this.x = platno.width + sirina
   }
-  
-  vracaVodoravno (procenatVracanja) {
+
+  vracaVodoravno(procenatVracanja) {
     const procenat = procenatVracanja || this.procenatVracanja
     if (izasaoLevoSkroz(this) && Math.random() < procenat) this.x = platno.width + this.sirina / 2
   }
-  
-  odbij () {
-    if (izasaoGore(this) || izasaoDole(this)) 
+
+  odbij() {
+    if (izasaoGore(this) || izasaoDole(this))
       this.skreni(2 * Math.PI - this.ugao)
-    if (izasaoLevo(this) || izasaoDesno(this)) 
+    if (izasaoLevo(this) || izasaoDesno(this))
       this.skreni(Math.PI - this.ugao)
-    if (izasaoIgde(this)) 
+    if (izasaoIgde(this))
       this.pomeri(5)
   }
-  
-  staje () {
+
+  staje() {
     if (izasaoIgde(this)) this.stani()
   }
-  
-  nestaje () {
+
+  nestaje() {
     if (izasaoIgde(this)) this.nestani()
   }
-  
-  ogranici () {
+
+  ogranici() {
     const marginaLevo = this.sirina / 4
     const marginaDesno = platno.width - marginaLevo
     const marginaGore = this.visina / 2
@@ -212,7 +212,7 @@ export default class Predmet extends Slika {
     if (this.dx || this.dy) {
       this.x += this.dx
       this.y += this.dy
-      this.proveriGranice()  
+      this.proveriGranice()
     }
 
     if (this.vidljiv) this.render(dt)
