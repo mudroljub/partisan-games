@@ -2,9 +2,8 @@ import Predmet from '/game-engine/core/Predmet.js'
 import platno from '/game-engine/io/platno.js'
 
 export class Ostrvo extends Predmet {
-
   constructor(brzina = 10) {
-    super('/assets/slike/2d-odozgo/ostrvo.gif')
+    super('/assets/slike/2d-odozgo/ostrvo.gif', { skalar: 2 })
     this.brzina = brzina
     this.reset()
   }

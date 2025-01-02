@@ -1,6 +1,5 @@
-// nema ostrva?
-// promeniti zvuk motora
-// ubaciti jednog neprijatelja i jednu stvar za hvatanje (paketić)
+// dodati stvar za hvatanje (paketić)
+// ubaciti jednog neprijatelja
 // senku ispod aviona, kao u avion.png
 
 import Scena from '/game-engine/core/Scena.js'

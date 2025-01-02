@@ -5,7 +5,6 @@ import Predmet from './Predmet.js'
 const OKRET = 0.087
 
 export default class Igrac extends Predmet {
-
   constructor(src, { sirina, visina, skalar } = {}) {
     super(src, { sirina, visina, skalar })
     this.oznake.add('igrac')
