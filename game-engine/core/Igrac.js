@@ -22,15 +22,6 @@ export default class Igrac extends Predmet {
     this.praviTrenje()
   }
 
-  // TODO: trenutno ne radi. popraviti ili brisati
-  podesiTipke(tipkaLevo, tipkaDesno, tipkaGore, tipkaDole, tipkaPucanje) {
-    this.tipkaLevo = tipkaLevo
-    this.tipkaDesno = tipkaDesno
-    this.tipkaGore = tipkaGore
-    this.tipkaDole = tipkaDole
-    this.tipkaPucanje = tipkaPucanje
-  }
-
   proveriTipke() {
     if (!this.ziv || !(this.oznake.has('igrac'))) return
     if (keyboard.left) this.nalevo()

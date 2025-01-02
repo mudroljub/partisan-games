@@ -1,5 +1,4 @@
 import Predmet from '/game-engine/core/Predmet.js'
-import { vracaVodoravno } from '/game-engine/utils/granice.js'
 
 export default class Ruina extends Predmet {
   constructor(nivoTla, src = '/assets/slike/2d-bocno/zgrade/ruina.png') {
@@ -12,6 +11,6 @@ export default class Ruina extends Predmet {
   }
 
   proveriGranice() {
-    vracaVodoravno(this)
+    this.vracaVodoravno()
   }
 }

@@ -3,26 +3,25 @@ import platno from '/game-engine/io/platno.js'
 import mish from '/game-engine/io/mish.js'
 
 export default class Okupator extends Animiran {
-
   constructor() {
-    super ('/assets/slike/sprajtovi/okupator-sprite.png', ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], 5)
-    this.sirina = 50
-    this.visina = 180
+    super ('/assets/slike/sprajtovi/okupator-sprite.png', {
+      imena: ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], duzine: 5, sirina: 50, visina: 180
+    })
     this.brzina = 4
-    this.limitLevo = platno.width * 1 / 6
-    this.limitDesno = platno.width * 5 / 6
-    this.polozaj(this.limitLevo, 450)
-    this.duzinaAnimacije = 500
+    this.limitLevo = platno.width * .15
+    this.limitDesno = platno.width * .85
+    this.polozaj(this.limitLevo, platno.height * .75)
   }
 
   patroliraj() {
     if (this.x <= this.limitLevo) this.hodaj('nadesno', 0)
-    if (this.x >= this.limitDesno) this.hodaj('nalevo', 180)
+    if (this.x >= this.limitDesno) this.hodaj('nalevo', Math.PI)
   }
 
-  hodaj(imeAnimacije, ugao) {
-    this.postaviAnimaciju(imeAnimacije)
-    this.ugaoKretanja = ugao
+  hodaj(naziv, ugao) {
+    if (!this.animacije) return
+    this.pustiAnimaciju(naziv)
+    this.skreni(ugao)
   }
 
   proveriPogodak() {
@@ -31,8 +30,6 @@ export default class Okupator extends Animiran {
 
   umri() {
     super.umri()
-    this.postaviAnimaciju('umire')
-    this.nePonavljaAnimaciju('umire')
+    this.pustiAnimaciju('umire', false)
   }
-
 }

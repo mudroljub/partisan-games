@@ -1,6 +1,5 @@
 import Predmet from '/game-engine/core/Predmet.js'
 import platno from '/game-engine/io/platno.js'
-import { kruzi } from '/game-engine/utils/granice.js'
 
 export default class Planina extends Predmet {
 
@@ -8,7 +7,7 @@ export default class Planina extends Predmet {
     super (src)
     this.x = Math.random() * platno.width
     this.tlo(nivoTla + 3)
-    this.granice = kruzi
+    this.granice = this.kruzi
   }
 
 }

@@ -1,6 +1,6 @@
+// BUG: pozadina preskače
 // ubaciti jednog neprijatelja i jednu stvar za hvatanje (paketić)
 // senku ispod aviona, kao u avion.png
-// BUG: pozadina preskače
 
 import Scena from '/game-engine/core/Scena.js'
 import { Avionce } from './Avionce.js'
@@ -13,11 +13,6 @@ const brojOblaka = 3
 const brzinaPozadine = 10
 
 export default class Scena1944 extends Scena {
-  constructor(...args) {
-    super(...args)
-    this.init()
-  }
-
   init() {
     this.poeni = 0
     this.zivoti = 3
@@ -29,22 +24,27 @@ export default class Scena1944 extends Scena {
     this.dodaj(pozadina, this.ostrvo, this.igrac, ...this.oblaci)
   }
 
-  update() {
-    super.update()
-    this.proveriSudare()
-  }
-
   proveriSudare() {
     if (this.igrac.sudara(this.ostrvo)) {
       this.ostrvo.reset()
       this.zivoti--
     }
-    this.oblaci.map(oblak => {
+    this.oblaci.forEach(oblak => {
       if (this.igrac.sudara(oblak)) {
         oblak.reset()
         this.poeni++
       }
     })
+  }
+
+  end() {
+    super.end()
+    this.igrac.zvukMotora.pause()
+  }
+
+  update() {
+    super.update()
+    this.proveriSudare()
   }
 
   sablon() {
@@ -54,10 +54,5 @@ export default class Scena1944 extends Scena {
       Životi: ${this.zivoti}<br>
       Meci: ${this.igrac.preostaloMetaka()}
     `
-  }
-
-  end() {
-    super.end()
-    this.igrac.zvukMotora.pause()
   }
 }

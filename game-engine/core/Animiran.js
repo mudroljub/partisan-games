@@ -1,89 +1,79 @@
-import Vreme from './Vreme.js'
 import Predmet from './Predmet.js'
 import { ctx } from '../io/platno.js'
 
-export default class Animiran extends Predmet {
-
-  constructor(src, imenaAnimacija, slikaPoAnimaciji) { // broj ili niz brojeva ako su nejednake
-    super(src)
-    this.animacije = []
-    this.tekucaAnimacija = 0
-    this.duzinaAnimacije = 1000
-    this.protekloAnimacije = 0
-    this.vreme = new Vreme()
-    this.praviAnimacije(imenaAnimacija, slikaPoAnimaciji)
+class Animacija {
+  constructor(ime, duzina, pocetak, sirina, visina, loop = true) {
+    this.ime = ime
+    this.duzina = duzina
+    this.pocetak = pocetak
+    this.sirina = sirina // slicice
+    this.visina = visina
+    this.loop = loop
   }
+}
 
-  /* ANIMACIJA */
-
-  praviAnimacije(imenaAnimacija, slikaPoAnimaciji) {
-    const brojKolona = slikaPoAnimaciji.length ? Math.max(...slikaPoAnimaciji) : slikaPoAnimaciji
-    const sirinaKadra = this.slika.naturalWidth / brojKolona
-    const visinaKadra = this.slika.naturalHeight / imenaAnimacija.length
-    for (let i = 0; i < imenaAnimacija.length; i++) {
-      const brojKadrova = slikaPoAnimaciji[i] || slikaPoAnimaciji
-      this.animacije.push({
-        ime: imenaAnimacija[i],
-        brojKadrova,
-        pocetniKadar: i * brojKadrova,
-        sirinaKadra,
-        visinaKadra,
-        ponavlja: true
-      })
+export default class Animiran extends Predmet {
+  constructor(src, { imena, duzine, sirina, visina }) { // broj ili niz brojeva ako su nejednake
+    super(src, sirina, visina)
+    this.index = 0
+    this.duzinaAnimacije = .5 // sekundi
+    this.proteklo = 0
+    this.onload = () => {
+      this.animacije = this.praviAnimacije(imena, duzine)
     }
   }
 
-  reset() {
-    this.protekloAnimacije = 0
-    this.vreme.reset()
+  praviAnimacije(imena, duzine) {
+    const brojKolona = duzine.length ? Math.max(...duzine) : duzine
+    const sirina = this.slika.naturalWidth / brojKolona
+    const visina = this.slika.naturalHeight / imena.length
+    return imena.map((ime, i) => {
+      const duzina = duzine[i] || duzine
+      return new Animacija(ime, duzina, i * duzina, sirina, visina)
+    })
   }
 
-  postaviAnimaciju(ime) {
+  pustiAnimaciju(ime, loop) {
     this.reset()
-    this.animacije.map((animacija, i) => {
-      if (animacija.ime === ime) this.tekucaAnimacija = i
-    })
+    this.index = this.animacije.findIndex(animacija => animacija.ime === ime)
+    if (loop !== undefined) this.animacije[this.index].loop = loop
   }
 
-  nePonavljaAnimaciju(ime) {
-    this.animacije.map(animacija => {
-      if (animacija.ime === ime) animacija.ponavlja = false
-    })
-  }
-
-  set duzinaAnimacije(milisekundi) {
-    this._duzinaAnimacije = milisekundi > 50 ? milisekundi : 50
-  }
-
-  get duzinaAnimacije() {
-    return this._duzinaAnimacije
+  reset() {
+    this.proteklo = 0
   }
 
   /* RENDER */
 
-  crtaKadar() {
-    const tekuca = this.animacije[this.tekucaAnimacija]
-    const duzinaFrejma = this.vreme.delta
-    const nijeZavrsena = this.protekloAnimacije + duzinaFrejma < this.duzinaAnimacije
-    if (tekuca.ponavlja || nijeZavrsena) this.protekloAnimacije += duzinaFrejma
+  crtaKadar(dt) {
+    const animacija = this.animacije[this.index]
+    const { pocetak, sirina, visina, duzina } = animacija
 
-    const duzinaKadra = this.duzinaAnimacije / tekuca.brojKadrova
-    const trenutniKadar = Math.floor((this.protekloAnimacije % this.duzinaAnimacije) / duzinaKadra)
-    const trenutniRed = Math.floor((tekuca.pocetniKadar + trenutniKadar) / tekuca.brojKadrova)
-    const trenutnaKolona = (tekuca.pocetniKadar + trenutniKadar) - (trenutniRed * Math.floor(tekuca.brojKadrova))
-    const slikaX = trenutnaKolona * tekuca.sirinaKadra
-    const slikaY = trenutniRed * tekuca.visinaKadra
+    const nijeZavrsena = this.proteklo + dt < this.duzinaAnimacije
+    if (animacija.loop || nijeZavrsena) this.proteklo += dt
 
-    ctx.drawImage(this.slika, slikaX, slikaY, tekuca.sirinaKadra, tekuca.visinaKadra, 0 - (tekuca.sirinaKadra / 2), 0 - (tekuca.visinaKadra / 2), tekuca.sirinaKadra, tekuca.visinaKadra)
+    const duzinaKadra = this.duzinaAnimacije / duzina
+    const trenutniKadar = Math.floor((this.proteklo % this.duzinaAnimacije) / duzinaKadra)
+    const trenutniRed = Math.floor((pocetak + trenutniKadar) / duzina)
+    const trenutnaKolona = (pocetak + trenutniKadar) - (trenutniRed * Math.floor(duzina))
+    const slikaX = trenutnaKolona * sirina
+    const slikaY = trenutniRed * visina
+
+    ctx.drawImage(
+      this.slika, slikaX, slikaY, sirina, visina, 0 - sirina / 2, 0 - visina / 2, sirina, visina
+    )
   }
 
-  render() {
-    if (!this.vidljiv) return
+  render(dt) {
     ctx.save()
     ctx.translate(this.x, this.y)
     ctx.rotate(this._ugaoSlike)
-    this.crtaKadar()
+    this.crtaKadar(dt)
     ctx.restore()
   }
 
+  update(dt) {
+    if (!this.animacije) return
+    super.update(dt)
+  }
 }

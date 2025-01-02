@@ -3,14 +3,12 @@ import Igrac from '/game-engine/core/Igrac.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import Metak from './Metak.js'
 import platno from '/game-engine/io/platno.js'
-import { ogranici } from '/game-engine/utils/granice.js'
 
 const BROJ_METAKA = 999
 const SIRINA_PALJBE = 13
 const PAUZA_PALJBE = 0.1
 
 export class Avionce extends Igrac {
-
   constructor() {
     super('/assets/slike/2d-odozgo/avionce.gif')
     this.prevelicaj(0.75)
@@ -20,9 +18,12 @@ export class Avionce extends Igrac {
     this.trenutniMetak = 0
     this.brzina = 0
     this.ugao = KRUZNICA * 3 / 4
-    this.polozaj(platno.width / 2, platno.height - this.visina)
     this.praviMetke()
-    this.granice = ogranici
+    this.granice = this.ogranici
+  }
+
+  onload() {
+    this.polozaj(platno.width / 2, platno.height - this.visina)
   }
 
   update() {
@@ -52,13 +53,11 @@ export class Avionce extends Igrac {
   praviMetke() {
     for (let i = 0; i < BROJ_METAKA; i++)
       this.meci[i] = new Metak(this)
-
   }
 
   azurirajMetke() {
     for (let i = 0; i < BROJ_METAKA; i++)
       this.meci[i].update()
-
   }
 
   preostaloMetaka() {

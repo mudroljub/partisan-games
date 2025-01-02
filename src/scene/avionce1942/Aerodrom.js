@@ -1,5 +1,4 @@
 import Predmet from '/game-engine/core/Predmet.js'
-import { vracaVodoravno } from '/game-engine/utils/granice.js'
 
 export default class Aerodrom extends Predmet {
   constructor(nivoTla, src = '/assets/slike/2d-bocno/zgrade/aerodrom.png') {
@@ -9,6 +8,6 @@ export default class Aerodrom extends Predmet {
   }
 
   proveriGranice() {
-    vracaVodoravno(this)
+    this.vracaVodoravno()
   }
 }

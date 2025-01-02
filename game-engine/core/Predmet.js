@@ -1,3 +1,6 @@
+import {
+  izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde
+} from '/game-engine/utils/granice.js'
 import Slika from './Slika.js'
 import { platno } from '../io/platno.js'
 import mish from '../io/mish.js'
@@ -119,12 +122,6 @@ export default class Predmet extends Slika {
     this.ziv = false
   }
 
-  /* GRANICE */
-
-  proveriGranice() {
-    if (this.granice) this.granice(this)
-  }
-
   /* KOLIZIJA */
 
   sudara(predmet) {
@@ -145,6 +142,58 @@ export default class Predmet extends Slika {
     this.y = mish.y - platno.offsetTop
   }
 
+  /* GRANICE */
+
+  proveriGranice() {
+    if (this.granice) this.granice()
+  }
+
+  kruzi(procenat = 1) {
+    if (Math.random() > procenat) return
+    if (izasaoLevoSkroz(this)) this.x = platno.width + this.sirina / 2
+    if (izasaoDesnoSkroz(this)) this.x = 0
+    if (izasaoDole(this)) this.y = 0
+    if (izasaoGore(this)) this.y = platno.height
+  }
+
+  kruziSire() {
+    const sirina = platno.width
+    if (this.x < -sirina) this.x = platno.width + sirina
+  }
+
+  vracaVodoravno(procenatVracanja) {
+    const procenat = procenatVracanja || this.procenatVracanja
+    if (izasaoLevoSkroz(this) && Math.random() < procenat) this.x = platno.width + this.sirina / 2
+  }
+
+  odbij() {
+    if (izasaoGore(this) || izasaoDole(this))
+      this.skreni(2 * Math.PI - this.ugao)
+    if (izasaoLevo(this) || izasaoDesno(this))
+      this.skreni(Math.PI - this.ugao)
+    if (izasaoIgde(this))
+      this.pomeri(5)
+  }
+
+  staje() {
+    if (izasaoIgde(this)) this.stani()
+  }
+
+  nestaje() {
+    if (izasaoIgde(this)) this.nestani()
+  }
+
+  ogranici() {
+    const marginaLevo = this.sirina / 4
+    const marginaDesno = platno.width - marginaLevo
+    const marginaGore = this.visina / 2
+    const marginaDole = platno.height - marginaGore
+    if (this.x <= marginaLevo) this.x = marginaLevo
+    if (this.x >= marginaDesno) this.x = marginaDesno
+    if (this.y <= marginaGore) this.y = marginaGore
+    if (this.y >= marginaDole) this.y = marginaDole
+  }
+
   /* DEBUG */
 
   log() {
@@ -159,11 +208,15 @@ export default class Predmet extends Slika {
 
   /* LOOP */
 
-  update() {
-    this.x += this.dx
-    this.y += this.dy
-    this.proveriGranice()
-    if (this.vidljiv) this.render()
+  update(dt) {
+    if (this.dx || this.dy) {
+      this.x += this.dx
+      this.y += this.dy
+      this.proveriGranice()
+    }
+
+    if (this.vidljiv) this.render(dt)
+
     if (this.mrtav && this.zapaljiv) {
       this.plamen.x = this.x
       this.plamen.y = this.y

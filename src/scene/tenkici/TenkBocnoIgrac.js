@@ -8,7 +8,6 @@ import * as _ from '/game-engine/utils.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import Igrac from '/game-engine/core/Igrac.js'
 import platno from '/game-engine/io/platno.js'
-import { ogranici } from '/game-engine/utils/granice.js'
 
 export default class TenkBocnoIgrac extends Igrac {
 
@@ -18,9 +17,9 @@ export default class TenkBocnoIgrac extends Igrac {
     this.okrenutNadesno = jelNadesno
     this.energija = 100
     this.brzina = 0
-    this.granice = ogranici
-    if (this.okrenutNadesno) this.podesiTipke($.A, $.D, $.W, $.S, $.RAZMAK)
-    if (!this.okrenutNadesno) this.podesiTipke($.LEVO, $.DESNO, $.GORE, $.DOLE, $.M)
+    this.granice = this.ogranici
+    // if (this.okrenutNadesno) this.podesiTipke($.A, $.D, $.W, $.S, $.RAZMAK)
+    // if (!this.okrenutNadesno) this.podesiTipke($.LEVO, $.DESNO, $.GORE, $.DOLE, $.M)
   }
 
   update() {
@@ -80,24 +79,22 @@ export default class TenkBocnoIgrac extends Igrac {
     this.brzina = Math.random() * 10 - 5
     if (this.x >= 600) {
       this.brzina = Math.random() * 10 - 5
-      this.ugaoKretanja = 180
+      this.skreni(Math.PI)
     }
     if (this.x >= platno.width - 10)
       this.x = platno.width - 10
 
     if (this.x <= 450) {
       this.brzina = Math.random() * 10 - 5
-      this.ugaoKretanja = 0
+      this.skreni(0)
     }
   }
 
   puca() {
     const ugaoCevi = this.okrenutNadesno ? 0 : 180
-    this.granata.ugaoKretanja = this.cev.ugao - ugaoCevi
-    this.granata.ugao = this.cev.ugao - ugaoCevi
+    this.granata.skreni(this.cev.ugao - ugaoCevi)
     this.granata.polozaj(this.cev.x, this.cev.y)
     this.granata.brzina = 20
     this.granata.pokazi()
   }
-
 }
