@@ -9,7 +9,6 @@ const SIRINA_PALJBE = 13
 const PAUZA_PALJBE = 0.1
 
 export class Avionce extends Igrac {
-
   constructor() {
     super('/assets/slike/2d-odozgo/avionce.gif')
     this.prevelicaj(0.75)
