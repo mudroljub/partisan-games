@@ -14,7 +14,7 @@ export default class VoziloBocno extends Predmet {
   }
 
   onload() {
-    this.y -= this.visina / 2 // stavlja na tlo
+    this.y -= this.visina / 2
   }
 
   patroliraj() {

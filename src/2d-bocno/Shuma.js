@@ -5,11 +5,13 @@ export default class Shuma extends Predmet {
 
   constructor(nivoTla, dx = 0) {
     super('/assets/slike/2d-bocno/priroda/shumarak.png')
-    this.onload = () => {
-      this.x = Math.random() * platno.width
-      this.tlo(nivoTla + 5)
-      this.dx = dx
-    }
+    this.nivoTla = nivoTla
+    this.x = Math.random() * platno.width
+    this.dx = dx
+  }
+
+  onload() {
+    this.tlo(this.nivoTla + 5)
   }
 
   proveriGranice() {

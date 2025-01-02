@@ -1,6 +1,5 @@
 // BUG: raketa ne leti lepo
 // BUG: ne radi šablon??
-// BUG: jedan oblak zaglavljen
 // tenkovi, bunkeri, vojnici...
 
 import Scena from '/game-engine/core/Scena.js'
@@ -46,8 +45,8 @@ export default class TenkicIde extends Scena {
     this.shumarak.proveriGranice(platno.width / 2)
     this.planina.proveriGranice(platno.width + 200)
     this.azurirajOblake()
-    this.tenk.update()
     this.azurirajZbunje()
+    this.tenk.update()
   }
 
   sablon() {
