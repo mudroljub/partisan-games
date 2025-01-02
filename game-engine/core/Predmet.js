@@ -1,5 +1,6 @@
 import {
-  izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde
+  izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, 
+  izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde
 } from '/game-engine/utils/granice.js'
 import Slika from './Slika.js'
 import { platno } from '../io/platno.js'
@@ -156,27 +157,18 @@ export default class Predmet extends Slika {
     if (izasaoGore(this)) this.y = platno.height
   }
 
-  kruziSire() {
-    const sirina = platno.width
-    if (this.x < -sirina) this.x = platno.width + sirina
-  }
-
   vracaVodoravno(procenatVracanja) {
     const procenat = procenatVracanja || this.procenatVracanja
     if (izasaoLevoSkroz(this) && Math.random() < procenat) this.x = platno.width + this.sirina / 2
   }
 
-  odbij() {
+  odbija() {
     if (izasaoGore(this) || izasaoDole(this))
       this.skreni(2 * Math.PI - this.ugao)
     if (izasaoLevo(this) || izasaoDesno(this))
       this.skreni(Math.PI - this.ugao)
     if (izasaoIgde(this))
       this.pomeri(5)
-  }
-
-  staje() {
-    if (izasaoIgde(this)) this.stani()
   }
 
   nestaje() {
