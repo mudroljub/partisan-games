@@ -22,7 +22,7 @@ export default class Scena1944 extends Scena {
     this.igrac = new Avionce()
     const pozadina = new PokretnaPozadina(brzinaPozadine, platno.width)
     for (let i = 0; i < brojOblaka; i++) this.oblaci[i] = new Oblak(brzinaPozadine)
-    this.dodaj(pozadina, this.ostrvo, this.igrac, ...this.oblaci)
+    this.dodaj(pozadina, this.igrac, ...this.oblaci, this.ostrvo)
   }
 
   proveriSudare() {

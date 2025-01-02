@@ -3,16 +3,17 @@ import platno from '/game-engine/io/platno.js'
 
 export class Ostrvo extends Predmet {
 
-  constructor(brzina) {
-    super('/assets/slike/oblak.gif')
-    this.reset(brzina)
+  constructor(brzina = 10) {
+    super('/assets/slike/2d-odozgo/ostrvo.gif')
+    this.brzina = brzina
+    this.reset()
   }
 
-  reset(brzina) {
-    this.dy = brzina || 10
+  reset() {
+    this.dy = this.brzina
     this.dx = 0
-    const newX = Math.random() * platno.width
-    this.polozaj(newX, 50)
+    const x = Math.random() * platno.width
+    this.polozaj(x, -50)
   }
 
   proveriGranice() {
