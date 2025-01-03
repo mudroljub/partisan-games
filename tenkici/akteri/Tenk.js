@@ -8,7 +8,6 @@ import Granata from './Granata.js'
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 const vremePunjenja = 1000
-let pripremi = false
 
 export default class Tenk extends Predmet {
   constructor(src = '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', skalar) {
@@ -16,8 +15,9 @@ export default class Tenk extends Predmet {
     this.potisak = 30
     this.cev = new Cev(this, '/assets/slike/2d-bocno/partizanski-tenk-cev.png', skalar)
     this.vreme = new Vreme()
-    this.ime = 'Levi tenk'
     this.x = Math.random() * platno.width * 0.3
+    this.ime = 'Levi tenk'
+    this.spremno = false
     this.granate = this.praviGranate()
     this.energija = 100
   }
@@ -48,22 +48,20 @@ export default class Tenk extends Predmet {
 
   proveriTipke() {
     if (this.mrtav) return
-    this.ograniciPolozaj()
 
     if (keyboard.pressed.KeyA && this.x > 0) this.dodajSilu(this.potisak * 0.6, Math.PI)
     if (keyboard.pressed.KeyD && this.x < platno.width / 2) this.dodajSilu(this.potisak, 0)
     if (keyboard.pressed.KeyW) this.cev.nagore()
     if (keyboard.pressed.KeyS) this.cev.nadole()
 
-    // prebaciti nekako na tipke?
-    if (keyboard.space) pripremi = true
-    if (pripremi && !keyboard.space) {
+    if (keyboard.space) this.spremno = true
+    if (this.spremno && !keyboard.space) {
       this.pucaj()
-      pripremi = false
+      this.spremno = false
     }
   }
 
-  ograniciPolozaj() {
+  proveriGranice() {
     if (this.x < 0) this.x = 0
     if (this.x > platno.width / 2) this.x = platno.width / 2
   }

@@ -7,9 +7,8 @@ const preventSome = e => {
 class Keyboard {
   #capsLock = false
 
-  constructor({ listen = true, attackKey = 'Enter' } = {}) {
+  constructor({ listen = true } = {}) {
     this.pressed = {}
-    this.attackKey = attackKey
 
     if (!listen) return
 
@@ -85,8 +84,8 @@ class Keyboard {
     return this.pressed.Space
   }
 
-  get attack() {
-    return this.pressed[this.attackKey]
+  get enter() {
+    return this.pressed.Enter
   }
 
   get attack2() {
