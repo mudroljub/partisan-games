@@ -8,7 +8,7 @@ export default class Cev2 extends Cev {
   }
 
   pratiTenk() {
-    this.x = this.vlasnik.x - this.vlasnik.sirina * 0.16
+    this.x = this.vlasnik.x - this.vlasnik.sirina * 0.14
     this.y = this.vlasnik.y - this.vlasnik.visina * 0.2
   }
 
