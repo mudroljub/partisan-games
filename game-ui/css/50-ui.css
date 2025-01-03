@@ -1,13 +1,13 @@
-/* KOMANDE */
-
-.komande {
+.komande, .interfejs {
   position: absolute;
   padding: .25em;
   border-radius: 5px;
 }
 
-.komande1,
-.komande2 {
+
+/* KOMANDE */
+
+.komande1, .komande2 {
   top: 10px;
 }
 
@@ -19,22 +19,25 @@
   right: 10px;
 }
 
-/* POENI */
 
-.energija1,
-.progres1 {
-  left: -0.25em;
+/* ENERGIJA */
+
+.progress-wrapper {
+  position: relative;
 }
 
-.energija1,
-.energija2 {
+.progress {
+  background-color: inherit;
+  display: block;
+  height: 24px;
   width: 100%;
-  text-align: center;
 }
 
-.progres1,
-.progres2 {
-  width: 100%;
+.energija {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .tabela {

@@ -16,7 +16,7 @@ export default class Tenk extends Predmet {
     this.cev = new Cev(this, '/assets/slike/2d-bocno/partizanski-tenk-cev.png', skalar)
     this.vreme = new Vreme()
     this.x = Math.random() * platno.width * 0.3
-    this.ime = 'Levi tenk'
+    this.ime = 'Naš tenk'
     this.spremno = false
     this.granate = this.praviGranate()
     this.energija = 100

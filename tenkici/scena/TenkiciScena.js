@@ -92,8 +92,8 @@ export default class TenkiciScena extends Scena {
       </div>
 
       <div class="${!this.gotovo ? 'hide' : ''} prozorce pointer bg-black">
-        <p class="avocado">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>
-        <p class="valencia">${this.tenk.ziv ? this.tenk.ime : this.tenk2.ime} je pobedio ovu borbu.</p>
+        <p class="valencia">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>
+        <p class="avocado">${this.tenk.ziv ? this.tenk.ime : this.tenk2.ime} je pobedio ovu borbu.</p>
         <h2><button id="igraj-opet" class="white">Igraj opet</button></h2>
       </div>
     `

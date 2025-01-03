@@ -1,19 +1,39 @@
-.pozadina-crno {
+.black {
+  color: black;
+}
+
+.bg-black {
   background-color: black;
 }
 
-.crveno {
-  color: red;
-}
-
-.tamno-crveno {
-  color: #D94A38;
-}
-
-.belo {
+.white {
   color: white;
 }
 
-.pozadina-belo {
+.bg-white {
   background-color: white;
+}
+
+.red {
+  color: red;
+}
+
+.valencia {
+  color: #D94A38;
+}
+
+.avocado {
+  color: #848C58;
+}
+
+.bg-avocado {
+  background-color: #848C58;
+}
+
+.verdigris {
+  color: #4D5234;
+}
+
+.bg-verdigris {
+  background-color: #4D5234;
 }
