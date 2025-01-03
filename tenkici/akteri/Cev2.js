@@ -3,7 +3,6 @@ import Cev from './Cev.js'
 export default class Cev2 extends Cev {
 
   constructor(vlasnik, src, skalar) {
-    console.log(skalar)
     super(vlasnik, src, { skalar })
     this.ugao = Math.PI * 1.1
   }
