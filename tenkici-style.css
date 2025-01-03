@@ -5,20 +5,20 @@ body {
   margin: 0;
 }
 
-.progress {
+progress {
   background: #4D5234;
   color: #4D5234;
   margin-bottom: 5px;
 }
-.progress::-webkit-progress-bar {
+progress::-webkit-progress-bar {
   background: #4D5234;
   color: #4D5234;
 }
-.progress::-webkit-progress-value {
+progress::-webkit-progress-value {
   background: #4D5234;
   color: #4D5234;
 }
-.progress::-moz-progress-bar {
+progress::-moz-progress-bar {
   background: #4D5234;
   color: #4D5234;
 }
