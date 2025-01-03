@@ -4,7 +4,7 @@ import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
 import Tenk from './Tenk.js'
 import Tenk2 from './Tenk2.js'
-import Plamen from './Plamen.js'
+import Plamen from '/game-engine/core/Plamen.js'
 
 const nivoTla = platno.height * 0.8
 const skalar = window.innerWidth > 1280 ? 0.5 : 0.4
@@ -71,8 +71,19 @@ export default class TenkiciScena extends Scena {
     this.render()
   }
 
+  praviProzor() {
+    if (!this.gotovo) return ''
+    return /* html*/`
+      <div class="prozorce bg-black">
+        <p class="valencia">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>
+        <p class="avocado">${this.tenk.ziv ? this.tenk.ime : this.tenk2.ime} je pobedio ovu borbu.</p>
+        <h3><button id="igraj-opet" class="white">Igraj opet</button></h3>
+      </div>
+    `
+  }
+
   sablon() {
-    return `
+    return /* html*/`
       <div class='interfejs bg-poluprovidno komande1'>
         <b>${this.tenk.ime}</b>
         <div class="progress-wrapper">
@@ -99,14 +110,11 @@ export default class TenkiciScena extends Scena {
           ↓ dole<br>
           enter - puca
         </div>
-        <button id="dva-igraca" class="${dvaIgraca ? 'bg-avocado' : ''} full">${dvaIgraca ? 'Uključi<br> neprijatelja' : 'Dodaj igrača'}</button>
+        <button id="dva-igraca" class="${dvaIgraca ? 'bg-avocado' : ''} full">
+          ${dvaIgraca ? 'Uključi<br> neprijatelja' : 'Dodaj igrača'}
+        </button>
       </div>
-
-      <div class="${!this.gotovo ? 'hide' : ''} prozorce bg-black">
-        <p class="valencia">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>
-        <p class="avocado">${this.tenk.ziv ? this.tenk.ime : this.tenk2.ime} je pobedio ovu borbu.</p>
-        <h2><button id="igraj-opet" class="white">Igraj opet</button></h2>
-      </div>
+      ${this.praviProzor()}
     `
   }
 }

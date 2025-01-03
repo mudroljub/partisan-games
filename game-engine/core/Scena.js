@@ -68,10 +68,11 @@ export default class Scena {
     this.ui.zavrsniProzor(text, this.constructor.name)
   }
 
-  sablon() {}
+  sablon() {
+    return ''
+  }
 
   renderSablon() {
-    if (!this.sablon()) return
     if (this.upamcenSablon !== this.sablon()) {
       this.elementUI.innerHTML = this.sablon()
       this.upamcenSablon = this.sablon()
