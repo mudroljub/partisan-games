@@ -64,6 +64,12 @@ export default class Predmet extends Slika {
     this.dy += jacina * Math.sin(ugao)
   }
 
+  trenje(koeficijent = 0.1) {
+    const modifikator = 1 - koeficijent
+    this.dx *= modifikator
+    this.dy *= modifikator
+  }
+
   pomeri(razmak) {
     this.x += razmak * Math.cos(this.ugao)
     this.y += razmak * Math.sin(this.ugao)

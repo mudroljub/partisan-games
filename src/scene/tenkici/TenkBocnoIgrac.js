@@ -10,6 +10,7 @@ export default class TenkBocnoIgrac extends Igrac {
     this.okrenutNadesno = okrenutNadesno
     this.energija = 100
     this.brzina = 0
+    this.potisak = 30
   }
 
   proveriGranice() {

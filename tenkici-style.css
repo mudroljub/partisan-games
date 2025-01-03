@@ -1,0 +1,42 @@
+body {
+  background-color: black;
+  font-size: 100%;
+  font-weight: bold;
+  margin: 0;
+}
+
+.progress {
+  background: #4D5234;
+  color: #4D5234;
+  margin-bottom: 5px;
+}
+.progress::-webkit-progress-bar {
+  background: #4D5234;
+  color: #4D5234;
+}
+.progress::-webkit-progress-value {
+  background: #4D5234;
+  color: #4D5234;
+}
+.progress::-moz-progress-bar {
+  background: #4D5234;
+  color: #4D5234;
+}
+
+.komande1,
+.komande2 {
+  width: 140px;
+}
+
+.prozorce {
+  background-color: rgba(0,0,0, 0.8);
+}
+
+#dva-igraca {
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+button.bg-avocado:hover {
+  background-color: #4D5234;
+}
