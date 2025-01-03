@@ -21,6 +21,8 @@ Male igrice o Nemcima i partizanima.
 - TEST:
     - proveriti sve nivoe sa sporijim i bržim fps
 
+- da uvek bude isti document handleClick, samo radi drugačije zavisno od nivoa
+
 ### Faza 1: refaktor i sredjivanje
 - Avionce: dodati zvuk motora
 - spojiti ranjenike

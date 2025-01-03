@@ -19,14 +19,19 @@ const items = {
 export default class MainMenu extends Scena {
   start() {
     super.start()
-    document.addEventListener('click', this.pustiScenu)
+    document.addEventListener('click', this.handleClick)
     // this.ui.manager.start('TenkiciScena')
   }
 
-  pustiScenu = e => {
+  handleClick = e => {
     if (!e.target.classList.contains('js-start')) return
 
     this.ui.manager.start(e.target.value)
+  }
+
+  end() {
+    super.end()
+    document.removeEventListener('click', this.handleClick)
   }
 
   sablon() {
@@ -38,10 +43,5 @@ export default class MainMenu extends Scena {
       <h1>Partisan Games ★</h1>
       ${izbornik}
     `
-  }
-
-  end() {
-    super.end()
-    document.removeEventListener('click', this.pustiScenu)
   }
 }

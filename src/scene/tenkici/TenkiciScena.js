@@ -21,7 +21,6 @@ const proveriPlamen = (tenk, plamen) => {
 export default class TenkiciScena extends Scena {
   constructor(...args) {
     super(...args)
-    this.handleClick = this.handleClick.bind(this)
     document.addEventListener('click', this.handleClick)
   }
 
@@ -36,7 +35,7 @@ export default class TenkiciScena extends Scena {
     this.gotovo = false
   }
 
-  handleClick(e) {
+  handleClick = e => {
     if (e.target.id == 'dva-igraca') dvaIgraca = !dvaIgraca
     if (e.target.id == 'igraj-opet') this.init()
   }
