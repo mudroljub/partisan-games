@@ -68,10 +68,11 @@ export default class Tenk extends Predmet {
 
   pucaj() {
     if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
-    let i = this.granate.length - 1
-    while (this.granate[i].ispaljena && i > 0) i--  // trazi neispaljenu
-    if (this.granate[i].ispaljena) return
-    this.granate[i].pucaj()
+
+    const granata = this.granate.findLast(g => !g.ispaljena)
+    if (!granata) return
+
+    granata.pucaj()
     this.trzaj()
     this.vreme.reset()
   }
