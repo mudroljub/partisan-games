@@ -38,7 +38,7 @@ export default class Tenk extends Predmet {
   proveriPogodak(predmet) {
     this.granate
       .filter(granata => granata.ispaljena)
-      .map(granata => granata.proveriPogodak(predmet))
+      .forEach(granata => granata.proveriPogodak(predmet))
   }
 
   trenje() {
@@ -46,19 +46,27 @@ export default class Tenk extends Predmet {
     super.trenje(koeficijent)
   }
 
-  proveriTipke() {
-    if (this.mrtav) return
-
-    if (keyboard.pressed.KeyA && this.x > 0) this.dodajSilu(this.potisak * 0.6, Math.PI)
-    if (keyboard.pressed.KeyD && this.x < platno.width / 2) this.dodajSilu(this.potisak, 0)
-    if (keyboard.pressed.KeyW) this.cev.nagore()
-    if (keyboard.pressed.KeyS) this.cev.nadole()
-
-    if (keyboard.space) this.spremno = true
-    if (this.spremno && !keyboard.space) {
+  proveriPucanje(key = 'space') {
+    if (keyboard[key]) this.spremno = true
+    if (this.spremno && !keyboard[key]) {
       this.pucaj()
       this.spremno = false
     }
+  }
+
+  proveriTipke() {
+    if (this.mrtav) return
+
+    if (keyboard.pressed.KeyA && this.x > 0)
+      this.dodajSilu(this.potisak * 0.6, Math.PI)
+    if (keyboard.pressed.KeyD && this.x < platno.width / 2)
+      this.dodajSilu(this.potisak, 0)
+    if (keyboard.pressed.KeyW)
+      this.cev.nagore()
+    if (keyboard.pressed.KeyS)
+      this.cev.nadole()
+
+    this.proveriPucanje()
   }
 
   proveriGranice() {
@@ -85,7 +93,7 @@ export default class Tenk extends Predmet {
     this.trenje()
     super.update(dt)
     this.cev.update(dt)
-    this.granate.map((granata, i) => {
+    this.granate.forEach((granata, i) => {
       granata.update(dt)
       if (granata.nestala) this.granate.splice(i, 1)
     })
@@ -93,7 +101,7 @@ export default class Tenk extends Predmet {
   }
 
   render() {
-    this.granate.map(g => g.render())
+    this.granate.forEach(g => g.render())
     this.cev.render()
     super.render()
   }
