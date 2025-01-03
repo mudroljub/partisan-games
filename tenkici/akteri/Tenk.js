@@ -8,11 +8,9 @@ import Granata from './Granata.js'
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 const vremePunjenja = 1000
-const brojGranata = 100
 let pripremi = false
 
 export default class Tenk extends Predmet {
-
   constructor(src = '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', skalar) {
     super(src, { skalar })
     this.potisak = 30
@@ -20,9 +18,12 @@ export default class Tenk extends Predmet {
     this.vreme = new Vreme()
     this.ime = 'Levi tenk'
     this.x = Math.random() * platno.width * 0.3
-    this.granate = []
-    this.praviGranate()
+    this.granate = this.praviGranate()
     this.energija = 100
+  }
+
+  praviGranate(length = 10) {
+    return Array.from({ length }, () => new Granata(this.cev))
   }
 
   skiniEnergiju(steta) {
@@ -38,12 +39,6 @@ export default class Tenk extends Predmet {
     this.granate
       .filter(granata => granata.ispaljena)
       .map(granata => granata.proveriPogodak(predmet))
-  }
-
-  praviGranate() {
-    this.granate = []
-    for (let i = brojGranata - 1; i >= 0; i--)
-      this.granate[i] = new Granata(this.cev)
   }
 
   trenje() {
