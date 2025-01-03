@@ -205,8 +205,8 @@ export default class Predmet extends Slika {
 
   update(dt) {
     if (this.dx || this.dy) {
-      this.x += this.dx
-      this.y += this.dy
+      this.x += this.dx * dt
+      this.y += this.dy * dt
       this.proveriGranice()
     }
 

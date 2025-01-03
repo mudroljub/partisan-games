@@ -76,19 +76,19 @@ export default class Tenk extends Predmet {
     super.trenje(koeficijent)
   }
 
-  proveriTipke(dt) {
+  proveriTipke() {
     if (this.mrtav) return
     this.ograniciPolozaj()
 
-    if (keyboard.pressed.KeyA && this.x > 0) this.dodajSilu(this.potisak * 0.6 * dt, this.nazad)
-    if (keyboard.pressed.KeyD && this.x < platno.width / 2) this.dodajSilu(this.potisak * dt, this.napred)
+    if (keyboard.pressed.KeyA && this.x > 0) this.dodajSilu(this.potisak * 0.6, this.nazad)
+    if (keyboard.pressed.KeyD && this.x < platno.width / 2) this.dodajSilu(this.potisak, this.napred)
     if (keyboard.pressed.KeyW) this.cev.nagore()
     if (keyboard.pressed.KeyS) this.cev.nadole()
 
     // prebaciti nekako na tipke?
     if (keyboard.space) pripremi = true
     if (pripremi && !keyboard.space) {
-      this.pucaj(dt)
+      this.pucaj()
       pripremi = false
     }
   }
@@ -98,17 +98,17 @@ export default class Tenk extends Predmet {
     if (this.x > platno.width / 2) this.x = platno.width / 2
   }
 
-  pucaj(dt) {
+  pucaj() {
     if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
     let i = this.granate.length - 1
     while (this.granate[i].ispaljena && i > 0) i--  // trazi neispaljenu
     if (this.granate[i].ispaljena) return
     this.granate[i].pucaj()
-    this.trzaj(dt)
+    this.trzaj()
     this.vreme.reset()
   }
 
-  trzaj(dt) {
-    this.dodajSilu(this.potisak * dt, this.nazad)
+  trzaj() {
+    this.dodajSilu(this.potisak, this.nazad)
   }
 }
