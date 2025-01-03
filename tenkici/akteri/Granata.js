@@ -22,11 +22,6 @@ export default class Granata extends Predmet {
     this.ispaljena = false
   }
 
-  // TODO: prebaciti na Predmet
-  azurirajUgao() {
-    this.ugao = Math.atan2(this.dy, this.dx)
-  }
-
   postavi() {
     this.x = Math.cos(this.vlasnik.ugao) * this.vlasnik.dijagonala + this.vlasnik.x
     this.y = Math.sin(this.vlasnik.ugao) * this.vlasnik.dijagonala + this.vlasnik.y
@@ -56,6 +51,10 @@ export default class Granata extends Predmet {
     this.plamen.x = this.x
     this.plamen.y = this.y
     this.plamen.pokazi()
+  }
+
+  azurirajUgao() {
+    this.ugao = Math.atan2(this.dy, this.dx)
   }
 
   render() {
