@@ -30,7 +30,8 @@ export default class TenkiciScena extends Scena {
     this.gotovo = false
 
     document.addEventListener('click', e => {
-      if (e.target.id == 'dva-igraca') dvaIgraca = !dvaIgraca
+      if (e.target.id == 'dva-igraca')
+        dvaIgraca = !dvaIgraca
       if (e.target.id == 'igraj-opet') this.init()
     })
   }

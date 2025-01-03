@@ -63,9 +63,9 @@ export default class Tenk2 extends Tenk {
     if (this.mrtav) return
 
     if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2)
-      this.dodajSilu(this.potisak, 0)
+      this.dodajSilu(this.potisak, Math.PI)
     if (keyboard.pressed.ArrowRight && this.x < platno.width)
-      this.dodajSilu(this.potisak * 0.6, Math.PI)
+      this.dodajSilu(this.potisak * 0.6, 0)
     if (keyboard.pressed.ArrowUp)
       this.cev.nagore()
     if (keyboard.pressed.ArrowDown)

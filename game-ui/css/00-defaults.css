@@ -1,14 +1,18 @@
-/*
-*, *:before, *:after {
+* {
   box-sizing: border-box;
+  user-select: none;
 }
-*/
 
 body {
   background-color: #DDD;
-  font-size: 110%;
+  font-size: 100%;
+  font-weight: bold;
   font-family: 'Special Elite', Courier;
   margin: 0;
+}
+
+canvas {
+  display: block;
 }
 
 h1 {
