@@ -1,6 +1,7 @@
 import Predmet from '/game-engine/core/Predmet.js'
 import { gravitacija } from '../konstante.js'
 import { platno } from '/game-engine/io/platno.js'
+import { izasaoIgde } from '/game-engine/utils/granice.js'
 
 const potisak = 500
 const silaUdara = 15
@@ -16,11 +17,9 @@ export default class Granata extends Predmet {
   }
 
   reset() {
-    this.brzina = 0
-    this.nestala = false
-    this.ispaljena = false
-    this.sakrij()
+    this.nestani()
     this.plamen.sakrij()
+    this.ispaljena = false
   }
 
   // TODO: prebaciti na Predmet
@@ -41,14 +40,14 @@ export default class Granata extends Predmet {
     this.ispaljena = true
   }
 
-  proveriTlo() {
-    if (this.y > this.nivoTla) this.nestani()
+  proveriGranice() {
+    if (izasaoIgde(this) || this.y > this.nivoTla) this.reset()
   }
 
   proveriPogodak(predmet) {
     if (!this.sudara(predmet)) return
     this.eksplodiraj()
-    setTimeout(() => this.nestani(), trajanjeEksplozije)
+    setTimeout(() => this.reset(), trajanjeEksplozije)
     predmet.dodajSilu(silaUdara, predmet.nazad)
     predmet.skiniEnergiju(Math.ceil(Math.random() * 2))
   }
@@ -57,11 +56,6 @@ export default class Granata extends Predmet {
     this.plamen.x = this.x
     this.plamen.y = this.y
     this.plamen.pokazi()
-  }
-
-  nestani() {
-    super.nestani()
-    this.nestala = true
   }
 
   render() {
@@ -73,8 +67,6 @@ export default class Granata extends Predmet {
     if (!this.ispaljena) return
     this.dodajSilu(gravitacija * dt, Math.PI / 2)
     this.azurirajUgao()
-    this.proveriTlo()
     super.update(dt)
-    if (this.nestala) this.reset()
   }
 }
