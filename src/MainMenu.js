@@ -20,7 +20,7 @@ export default class MainMenu extends Scena {
   start() {
     super.start()
     document.addEventListener('click', this.pustiScenu)
-    this.ui.manager.start('TenkiciScena')
+    this.ui.manager.start('TenkicIde')
   }
 
   pustiScenu = e => {

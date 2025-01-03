@@ -1,13 +1,13 @@
 // BUG: raketa ne leti lepo
 // tenkovi, bunkeri, vojnici...
 
+import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
-import Tenk from './TenkPartizanski.js'
 import Zbun from '/src/2d-bocno/Zbun.js'
 import Shuma from '/src/2d-bocno/Shuma.js'
 import Planina from '/src/2d-bocno/Planina.js'
 import Oblak from '/src/2d-bocno/Oblak.js'
-import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
+import Tenk from './TenkPartizanski.js'
 
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10
