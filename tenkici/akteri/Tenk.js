@@ -15,35 +15,14 @@ export default class Tenk extends Predmet {
 
   constructor(src = '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', skalar) {
     super(src, { skalar })
-    this.napred = 0
-    this.nazad = Math.PI
     this.potisak = 30
     this.cev = new Cev(this, '/assets/slike/2d-bocno/partizanski-tenk-cev.png', skalar)
     this.vreme = new Vreme()
-    this.ugaoSlike = this.napred
     this.ime = 'Levi tenk'
     this.x = Math.random() * platno.width * 0.3
     this.granate = []
     this.praviGranate()
     this.energija = 100
-    this.ziv = true
-  }
-
-  update(dt) {
-    this.trenje()
-    super.update(dt)
-    this.cev.update(dt)
-    this.granate.map((granata, i) => {
-      granata.update(dt)
-      if (granata.nestala) this.granate.splice(i, 1)
-    })
-    this.proveriSmrt()
-  }
-
-  render() {
-    this.granate.map(g => g.render())
-    this.cev.render()
-    super.render()
   }
 
   skiniEnergiju(steta) {
@@ -62,9 +41,9 @@ export default class Tenk extends Predmet {
   }
 
   praviGranate() {
+    this.granate = []
     for (let i = brojGranata - 1; i >= 0; i--)
       this.granate[i] = new Granata(this.cev)
-
   }
 
   trenje() {
@@ -76,8 +55,8 @@ export default class Tenk extends Predmet {
     if (this.mrtav) return
     this.ograniciPolozaj()
 
-    if (keyboard.pressed.KeyA && this.x > 0) this.dodajSilu(this.potisak * 0.6, this.nazad)
-    if (keyboard.pressed.KeyD && this.x < platno.width / 2) this.dodajSilu(this.potisak, this.napred)
+    if (keyboard.pressed.KeyA && this.x > 0) this.dodajSilu(this.potisak * 0.6, Math.PI)
+    if (keyboard.pressed.KeyD && this.x < platno.width / 2) this.dodajSilu(this.potisak, 0)
     if (keyboard.pressed.KeyW) this.cev.nagore()
     if (keyboard.pressed.KeyS) this.cev.nadole()
 
@@ -105,6 +84,23 @@ export default class Tenk extends Predmet {
   }
 
   trzaj() {
-    this.dodajSilu(this.potisak, this.nazad)
+    this.dodajSilu(this.potisak, Math.PI)
+  }
+
+  update(dt) {
+    this.trenje()
+    super.update(dt)
+    this.cev.update(dt)
+    this.granate.map((granata, i) => {
+      granata.update(dt)
+      if (granata.nestala) this.granate.splice(i, 1)
+    })
+    this.proveriSmrt()
+  }
+
+  render() {
+    this.granate.map(g => g.render())
+    this.cev.render()
+    super.render()
   }
 }

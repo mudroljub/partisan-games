@@ -28,7 +28,7 @@ export default class TenkiciScena extends Scena {
     this.tenk = new Tenk(undefined, skalar)
     this.tenk2 = new Tenk2(skalar)
     this.plamen = new Plamen()
-    this.plamen2 = new Plamen()    
+    this.plamen2 = new Plamen()
     this.tenk.y = nivoTla
     this.tenk2.y = nivoTla
     this.gotovo = false
