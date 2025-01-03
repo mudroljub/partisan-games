@@ -1,14 +1,10 @@
-/**
- * UI
- * zavrsniProzor
- */
 import { platno } from '/game-engine/io/platno.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
-import Tenk from '../akteri/Tenk.js'
-import Tenk2 from '../akteri/Tenk2.js'
-import Plamen from '../efekti/Plamen.js'
+import Tenk from './Tenk.js'
+import Tenk2 from './Tenk2.js'
+import Plamen from './Plamen.js'
 
 const nivoTla = platno.height * 0.8
 const skalar = window.innerWidth > 1280 ? 0.5 : 0.4

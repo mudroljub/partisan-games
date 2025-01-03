@@ -1,5 +1,5 @@
 import Predmet from '/game-engine/core/Predmet.js'
-import { gravitacija } from '../konstante.js'
+import { gravitacija } from './konstante.js'
 import { platno } from '/game-engine/io/platno.js'
 import { izasaoIgde } from '/game-engine/utils/granice.js'
 
