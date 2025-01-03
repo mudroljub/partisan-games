@@ -18,14 +18,6 @@ export default class Granata extends Predmet {
     this.sakrij()
   }
 
-  update(dt) {
-    if (!this.ispaljena) return
-    this.dodajSilu(gravitacija * dt, Math.PI / 2)
-    this.azurirajUgao()
-    this.proveriTlo()
-    super.update(dt)
-  }
-
   // TODO: prebaciti na Predmet
   azurirajUgao() {
     this.ugao = Math.atan2(this.dy, this.dx)
@@ -70,5 +62,13 @@ export default class Granata extends Predmet {
   render() {
     super.render()
     this.plamen.render()
+  }
+
+  update(dt) {
+    if (!this.ispaljena) return
+    this.dodajSilu(gravitacija * dt, Math.PI / 2)
+    this.azurirajUgao()
+    this.proveriTlo()
+    super.update(dt)
   }
 }

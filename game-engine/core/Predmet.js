@@ -13,7 +13,6 @@ export default class Predmet extends Slika {
   constructor(src, { sirina, visina, x, y, skalar } = {}) {
     super(src, { sirina, visina, x, y, skalar })
     this.ziv = true
-    this.vidljiv = true
     this.brzina = 0
     this.oznake = new Set()
   }
@@ -94,21 +93,6 @@ export default class Predmet extends Slika {
     return Math.atan2(tudjY - mojY, tudjX - mojX)
   }
 
-  /* VIDLJIVOST */
-
-  pokazi() {
-    this.vidljiv = true
-  }
-
-  sakrij() {
-    this.vidljiv = false
-  }
-
-  nestani() {
-    this.sakrij()
-    this.stani()
-  }
-
   /* STANJE */
 
   get mrtav() {
@@ -127,6 +111,11 @@ export default class Predmet extends Slika {
     this.stani()
     if (this.slikaMrtav) this.zameniSliku(this.slikaMrtav)
     this.ziv = false
+  }
+
+  nestani() {
+    this.sakrij()
+    this.stani()
   }
 
   /* KOLIZIJA */
@@ -210,7 +199,7 @@ export default class Predmet extends Slika {
       this.proveriGranice()
     }
 
-    if (this.vidljiv) this.render(dt)
+    this.render(dt)
 
     if (this.mrtav && this.zapaljiv) {
       this.plamen.x = this.x

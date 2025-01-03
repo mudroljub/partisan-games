@@ -25,6 +25,7 @@ export default class Slika extends Kompozit {
       this.slika.onload = null
     }
     this.slika.src = src
+    this.vidljiv = true
     this.debug = false
     this.centrira = true
   }
@@ -80,6 +81,16 @@ export default class Slika extends Kompozit {
     return pitagora(0, this.sirina, 0, this.visina)
   }
 
+  /* VIDLJIVOST */
+
+  pokazi() {
+    this.vidljiv = true
+  }
+
+  sakrij() {
+    this.vidljiv = false
+  }
+
   /* ODRAZ */
 
   get odrazY() {
@@ -116,6 +127,8 @@ export default class Slika extends Kompozit {
   }
 
   render() {
+    if (!this.vidljiv) return
+
     ctx.save()
     ctx.translate(this.x, this.y)
     ctx.rotate(this.ugao)

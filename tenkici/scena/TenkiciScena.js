@@ -1,3 +1,7 @@
+/**
+ * UI
+ * zavrsniProzor
+ */
 import { platno } from '/game-engine/io/platno.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Scena from '/game-engine/core/Scena.js'
@@ -10,7 +14,6 @@ import Plamen from '../efekti/Plamen.js'
 const nivoTla = platno.height * 0.8
 const skalarTenka = window.innerWidth > 1280 ? 0.5 : 0.4
 const zapaljivostTenka = 20
-let brojac = 0
 let gotovo = false
 
 /** INIT **/
@@ -41,7 +44,6 @@ export default class TenkiciScena extends Scena {
   }
 
   render() {
-    if (brojac % 2 === 0) return
     pozadina.render()
     tenk.render()
     tenk2.render()
@@ -64,7 +66,6 @@ export default class TenkiciScena extends Scena {
     proveriPlamen(tenk2, plamen2)
     if (tenk.mrtav || tenk2.mrtav) gotovo = true
     if (gotovo && keyboard.pressed.Enter) this.init()
-    brojac++
     this.render()
   }
 
