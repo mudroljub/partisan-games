@@ -9,6 +9,7 @@ import Plamen from './Plamen.js'
 const nivoTla = platno.height * 0.8
 const skalar = window.innerWidth > 1280 ? 0.5 : 0.4
 const zapaljivostTenka = 20
+let dvaIgraca = false
 
 const proveriPlamen = (tenk, plamen) => {
   if (tenk.energija > zapaljivostTenka) return
@@ -33,12 +34,16 @@ export default class TenkiciScena extends Scena {
     this.tenk.y = nivoTla
     this.tenk2.y = nivoTla
     this.gotovo = false
-    this.dvaIgraca = false
   }
 
   handleClick(e) {
-    if (e.target.id == 'dva-igraca') this.dvaIgraca = !this.dvaIgraca
+    if (e.target.id == 'dva-igraca') dvaIgraca = !dvaIgraca
     if (e.target.id == 'igraj-opet') this.init()
+  }
+
+  end() {
+    super.end()
+    document.removeEventListener('click', this.handleClick)
   }
 
   render() {
@@ -53,7 +58,7 @@ export default class TenkiciScena extends Scena {
   update(dt) {
     this.tenk.proveriTipke()
     this.tenk2.proveriTipke()
-    if (!this.dvaIgraca) this.tenk2.automatuj(this.tenk)
+    if (!dvaIgraca) this.tenk2.automatuj(this.tenk)
     if (!this.gotovo) {
       this.tenk.proveriPogodak(this.tenk2)
       this.tenk2.proveriPogodak(this.tenk)
@@ -88,14 +93,14 @@ export default class TenkiciScena extends Scena {
           <progress class="progress" value='${this.tenk2.energija}' max='100'></progress>
           <div class="energija">${this.tenk2.energija}</div>
         </div>
-        <div class="${this.dvaIgraca ? '' : 'hide'}">
+        <div class="${dvaIgraca ? '' : 'hide'}">
           ← levo<br>
           → desno<br>
           ↑ gore<br>
           ↓ dole<br>
           enter - puca
         </div>
-        <button id="dva-igraca" class="${this.dvaIgraca ? 'bg-avocado' : ''} full">${this.dvaIgraca ? 'Uključi<br> neprijatelja' : 'Dodaj igrača'}</button>
+        <button id="dva-igraca" class="${dvaIgraca ? 'bg-avocado' : ''} full">${dvaIgraca ? 'Uključi<br> neprijatelja' : 'Dodaj igrača'}</button>
       </div>
 
       <div class="${!this.gotovo ? 'hide' : ''} prozorce bg-black">
