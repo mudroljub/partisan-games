@@ -32,6 +32,11 @@ export default class TenkiciScena extends Scena {
     this.tenk.y = nivoTla
     this.tenk2.y = nivoTla
     this.gotovo = false
+
+    document.addEventListener('click', e => {
+      if (e.target.id == 'dva-igraca') dvaIgraca = !dvaIgraca
+      if (e.target.id == 'igraj-opet') this.init()
+    })
   }
 
   render() {
@@ -91,7 +96,7 @@ export default class TenkiciScena extends Scena {
         <button id="dva-igraca" class="${dvaIgraca ? 'bg-avocado' : ''} full">${dvaIgraca ? 'Uključi<br> neprijatelja' : 'Dodaj igrača'}</button>
       </div>
 
-      <div class="${!this.gotovo ? 'hide' : ''} prozorce pointer bg-black">
+      <div class="${!this.gotovo ? 'hide' : ''} prozorce bg-black">
         <p class="valencia">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>
         <p class="avocado">${this.tenk.ziv ? this.tenk.ime : this.tenk2.ime} je pobedio ovu borbu.</p>
         <h2><button id="igraj-opet" class="white">Igraj opet</button></h2>
@@ -99,11 +104,3 @@ export default class TenkiciScena extends Scena {
     `
   }
 }
-
-/** EVENTS **/
-
-document.addEventListener('click', e => {
-  if (e.target.id == 'dva-igraca') dvaIgraca = !dvaIgraca
-  if (e.target.id == 'igraj-opet')
-    console.log('treba pokrenut ponovo')
-})
