@@ -17,8 +17,9 @@ export default class Tenk2 extends Tenk {
     this.cev = new Cev2(this, '/assets/slike/2d-bocno/nemacki-tenk-cev.png', skalar)
     this.x = platno.width - Math.random() * platno.width * 0.3 - 100
     this.ime = 'Desni tenk'
-    this.smer = this.ugao
+    this.smer = this.ugao = Math.PI
     this.granate = this.praviGranate()
+    this.odrazX = this.odrazY = true
   }
 
   automatuj(predmet) {
@@ -40,11 +41,11 @@ export default class Tenk2 extends Tenk {
       vremeGasa.reset()
     }
     if (vremeSmera.proteklo > 300) {
-      this.smer = random > 0.55 ? 0 : Math.PI
+      this.smer = random > 0.55 ? Math.PI : 0
       vremeSmera.reset()
     }
-    if (this.x > platno.width * 0.9) this.smer = Math.PI
-    if (this.x < platno.width / 2) this.smer = 0
+    if (this.x > platno.width * 0.9) this.smer = 0
+    if (this.x < platno.width / 2) this.smer = Math.PI
   }
 
   proveriGranice() {
@@ -62,18 +63,14 @@ export default class Tenk2 extends Tenk {
     if (this.mrtav) return
 
     if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2)
-      this.dodajSilu(this.potisak, Math.PI)
+      this.dodajSilu(this.potisak, 0)
     if (keyboard.pressed.ArrowRight && this.x < platno.width)
-      this.dodajSilu(this.potisak * 0.6, 0)
+      this.dodajSilu(this.potisak * 0.6, Math.PI)
     if (keyboard.pressed.ArrowUp)
       this.cev.nagore()
     if (keyboard.pressed.ArrowDown)
       this.cev.nadole()
 
     this.proveriPucanje('enter')
-  }
-
-  trzaj() {
-    this.dodajSilu(this.potisak, 0)
   }
 }

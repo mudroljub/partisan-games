@@ -86,7 +86,7 @@ export default class Tenk extends Predmet {
   }
 
   trzaj() {
-    this.dodajSilu(this.potisak, Math.PI)
+    this.dodajSilu(this.potisak, this.ugao + Math.PI)
   }
 
   update(dt) {
