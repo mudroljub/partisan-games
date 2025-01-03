@@ -8,6 +8,12 @@ export function uStepene(uRadijane) {
   return uRadijane * 180 / Math.PI
 }
 
+export function pitagora(x1, x2, y1, y2) {
+  const duzinaX = x1 - x2
+  const duzinaY = y1 - y2
+  return Math.sqrt((duzinaX * duzinaX) + (duzinaY * duzinaY))
+}
+
 export function randomRange(min, max) {
   return Math.random() * (max - min) + min
 }

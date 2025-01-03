@@ -8,9 +8,8 @@ const trajanjeEksplozije = 150
 
 export default class Granata extends Predmet {
   constructor(vlasnik, src = '/assets/slike/granata.gif') {
-    super(src)
+    super(src, { skalar: .5 })
     this.vlasnik = vlasnik
-    this.z = vlasnik.z
     this.nivoTla = platno.height - Math.random() * platno.height * 0.2
     this.ispaljena = false
     this.nestala = false

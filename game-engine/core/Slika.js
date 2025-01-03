@@ -1,5 +1,6 @@
-import { ctx } from '../io/platno.js'
 import Kompozit from '/game-engine/core/Kompozit.js'
+import { ctx } from '../io/platno.js'
+import {pitagora} from '../utils.js'
 
 export default class Slika extends Kompozit {
   #ugao = 0
@@ -73,6 +74,10 @@ export default class Slika extends Kompozit {
   prevelicaj(procenat) {
     this.sirina *= procenat
     this.visina *= procenat
+  }
+
+  get dijagonala() {
+    return pitagora(0, this.sirina, 0, this.visina)
   }
 
   /* ODRAZ */

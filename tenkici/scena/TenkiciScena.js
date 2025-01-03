@@ -112,5 +112,6 @@ export default class TenkiciScena extends Scena {
 
 document.addEventListener('click', e => {
   if (e.target.id == 'dva-igraca') stanje.dvaIgraca = !stanje.dvaIgraca
-  if (e.target.id == 'igraj-opet') TenkiciScena.init()
+  if (e.target.id == 'igraj-opet')
+    console.log('treba pokrenut ponovo')
 })
