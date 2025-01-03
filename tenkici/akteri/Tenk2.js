@@ -17,15 +17,13 @@ export default class Tenk2 extends Tenk {
 
   constructor(skalar) {
     super('/assets/slike/2d-bocno/nemacki-tenk-bez-cevi.png', skalar)
-    this.napred = Math.PI
-    this.nazad = 0
     this.cev = new Cev2(this, '/assets/slike/2d-bocno/nemacki-tenk-cev.png', skalar)
     this.ime = 'Desni tenk'
     this.init()
   }
 
   init() {
-    this.ugao = Math.PI
+    this.smer = this.ugao
     this.x = platno.width - Math.random() * platno.width * 0.3 - 100
     this.granate = []
     this.praviGranate()
@@ -49,15 +47,15 @@ export default class Tenk2 extends Tenk {
   mrdajNasumicno() {
     const random = Math.random()
     if (vremeGasa.proteklo > 70) {
-      this.dodajSilu((random * this.potisak))
+      this.dodajSilu((random * this.potisak), this.smer)
       vremeGasa.reset()
     }
     if (vremeSmera.proteklo > 300) {
-      this.ugao = random > 0.55 ? this.nazad : this.napred
+      this.smer = random > 0.55 ? 0 : Math.PI
       vremeSmera.reset()
     }
-    if (this.x > platno.width * 0.9) this.ugao = this.napred
-    if (this.x < platno.width / 2) this.ugao = this.nazad
+    if (this.x > platno.width * 0.9) this.smer = Math.PI
+    if (this.x < platno.width / 2) this.smer = 0
   }
 
   ograniciPolozaj() {
@@ -73,8 +71,8 @@ export default class Tenk2 extends Tenk {
 
   proveriTipke() {
     if (this.mrtav || !stanje.dvaIgraca) return
-    if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2) this.dodajSilu(this.potisak, this.napred)
-    if (keyboard.pressed.ArrowRight && this.x < platno.width) this.dodajSilu(this.potisak * 0.6, this.nazad)
+    if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2) this.dodajSilu(this.potisak, Math.PI)
+    if (keyboard.pressed.ArrowRight && this.x < platno.width) this.dodajSilu(this.potisak * 0.6, 0)
     if (keyboard.pressed.ArrowUp) this.cev.nagore()
     if (keyboard.pressed.ArrowDown) this.cev.nadole()
 
@@ -87,6 +85,6 @@ export default class Tenk2 extends Tenk {
   }
 
   trzaj() {
-    this.dodajSilu(this.potisak, this.nazad)
+    this.dodajSilu(this.potisak, 0)
   }
 }
