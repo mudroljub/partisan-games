@@ -51,8 +51,8 @@ export default class TenkiciScena extends Scena {
   }
 
   update(dt) {
-    tenk.proveriTipke()
-    tenk2.proveriTipke()
+    tenk.proveriTipke(dt)
+    tenk2.proveriTipke(dt)
     if (!stanjeIgre.dvaIgraca) tenk2.automatuj(tenk)
     if (!gotovo) {
       tenk.proveriPogodak(tenk2)
