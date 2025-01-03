@@ -24,6 +24,8 @@ export default class Slika extends Kompozit {
       this.slika.onload = null
     }
     this.slika.src = src
+    this.debug = false
+    this.centrira = true
   }
 
   onload() {} // implementiraju naslednici
@@ -93,12 +95,30 @@ export default class Slika extends Kompozit {
 
   /* LOOP */
 
+  crtaOblik() {
+    ctx.fillStyle = 'black'
+    if (this.centrira)
+      ctx.fillRect(-this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
+    else
+      ctx.fillRect(0, 0, this.sirina, this.visina)
+  }
+
+  crtaSliku() {
+    if (this.centrira)
+      ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
+    else
+      ctx.drawImage(this.slika, 0, 0, this.sirina, this.visina)
+  }
+
   render() {
     ctx.save()
     ctx.translate(this.x, this.y)
     ctx.rotate(this.ugao)
     ctx.scale(this.odrazY, this.odrazX)
-    ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
+    if (this.debug)
+      this.crtaOblik()
+    else
+      this.crtaSliku()
     ctx.restore()
   }
 

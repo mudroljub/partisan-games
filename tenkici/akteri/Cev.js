@@ -1,11 +1,11 @@
 import Predmet from '/game-engine/core/Predmet.js'
-import { ctx } from '/game-engine/io/platno.js'
 
 export default class Cev extends Predmet {
   constructor(vlasnik, src, skalar) {
     super(src, { skalar })
     this.vlasnik = vlasnik
     this.ugao = Math.PI + Math.PI * 0.9
+    this.centrira = false
   }
 
   update() {
@@ -25,15 +25,5 @@ export default class Cev extends Predmet {
   nadole() {
     if (this.ugao < Math.PI) return
     this.ugao += 0.01
-  }
-
-  render() {
-    if (!this.vidljiv) return
-    ctx.save()
-    ctx.translate(this.x, this.y)
-    ctx.rotate(this.ugao)
-    ctx.scale(this.vlasnik.z, this.vlasnik.z)
-    ctx.drawImage(this.slika, 0, 0, this.sirina, this.visina)
-    ctx.restore()
   }
 }
