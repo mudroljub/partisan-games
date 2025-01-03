@@ -43,7 +43,7 @@ export default class Granata extends Predmet {
     if (!this.sudara(predmet)) return
     this.eksplodiraj()
     setTimeout(() => this.reset(), trajanjeEksplozije)
-    predmet.dodajSilu(silaUdara, predmet.nazad)
+    predmet.dodajSilu(silaUdara, predmet.ugao + Math.PI)
     predmet.skiniEnergiju(Math.ceil(Math.random() * 2))
   }
 
