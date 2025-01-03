@@ -77,7 +77,7 @@ export default class Tenk extends Predmet {
   pucaj() {
     if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
 
-    const granata = this.granate.findLast(g => !g.ispaljena)
+    const granata = this.granate.find(g => !g.ispaljena)
     if (!granata) return
 
     granata.pucaj()
@@ -93,10 +93,7 @@ export default class Tenk extends Predmet {
     this.trenje()
     super.update(dt)
     this.cev.update(dt)
-    this.granate.forEach((granata, i) => {
-      granata.update(dt)
-      if (granata.nestala) this.granate.splice(i, 1)
-    })
+    this.granate.forEach(granata => granata.update(dt))
     this.proveriSmrt()
   }
 

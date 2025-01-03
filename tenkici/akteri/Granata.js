@@ -11,11 +11,16 @@ export default class Granata extends Predmet {
     super(src, { skalar: .5 })
     this.vlasnik = vlasnik
     this.nivoTla = platno.height - Math.random() * platno.height * 0.2
-    this.ispaljena = false
-    this.nestala = false
     this.plamen = new Predmet('/assets/slike/plamen.gif', { skalar: 0.4 })
-    this.plamen.sakrij()
+    this.reset()
+  }
+
+  reset() {
+    this.brzina = 0
+    this.nestala = false
+    this.ispaljena = false
     this.sakrij()
+    this.plamen.sakrij()
   }
 
   // TODO: prebaciti na Predmet
@@ -70,5 +75,6 @@ export default class Granata extends Predmet {
     this.azurirajUgao()
     this.proveriTlo()
     super.update(dt)
+    if (this.nestala) this.reset()
   }
 }
