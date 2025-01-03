@@ -43,24 +43,6 @@ export default class Slika extends Kompozit {
     this.y = y - this.visina / 2
   }
 
-  /* ODRAZ */
-
-  get odrazY() {
-    return this.#odrazY
-  }
-
-  set odrazY(bul) {
-    this.#odrazY = bul ? -1 : 1
-  }
-
-  get odrazX() {
-    return this.#odrazX
-  }
-
-  set odrazX(bul) {
-    this.#odrazX = bul ? -1 : 1
-  }
-
   /* UGAO */
 
   get ugao() {
@@ -68,7 +50,7 @@ export default class Slika extends Kompozit {
   }
 
   set ugao(noviUgao) {
-    this.#ugao = noviUgao % (Math.PI * 2)
+    this.#ugao = (noviUgao + Math.PI * 2) % (Math.PI * 2)
   }
 
   get ugaoStepeni() {
@@ -89,6 +71,24 @@ export default class Slika extends Kompozit {
   prevelicaj(procenat) {
     this.sirina *= procenat
     this.visina *= procenat
+  }
+
+  /* ODRAZ */
+
+  get odrazY() {
+    return this.#odrazY
+  }
+
+  set odrazY(bul) {
+    this.#odrazY = bul ? -1 : 1
+  }
+
+  get odrazX() {
+    return this.#odrazX
+  }
+
+  set odrazX(bul) {
+    this.#odrazX = bul ? -1 : 1
   }
 
   /* LOOP */
