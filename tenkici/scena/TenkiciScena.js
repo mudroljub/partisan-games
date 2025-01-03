@@ -6,26 +6,14 @@ import { platno } from '/game-engine/io/platno.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
-import stanje from '../stanje.js'
 import Tenk from '../akteri/Tenk.js'
 import Tenk2 from '../akteri/Tenk2.js'
 import Plamen from '../efekti/Plamen.js'
 
 const nivoTla = platno.height * 0.8
-const skalarTenka = window.innerWidth > 1280 ? 0.5 : 0.4
+const skalar = window.innerWidth > 1280 ? 0.5 : 0.4
 const zapaljivostTenka = 20
-let gotovo = false
-
-/** INIT **/
-
-const pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
-const tenk = new Tenk(undefined, skalarTenka)
-const tenk2 = new Tenk2(skalarTenka)
-const stanjeIgre = stanje  // mora u istom opsegu zbog sablona?
-const plamen = new Plamen()
-const plamen2 = new Plamen()
-
-/** POMOCNO **/
+let dvaIgraca = false
 
 const proveriPlamen = (tenk, plamen) => {
   if (tenk.energija > zapaljivostTenka) return
@@ -36,46 +24,49 @@ const proveriPlamen = (tenk, plamen) => {
 
 export default class TenkiciScena extends Scena {
   init() {
-    tenk.init()
-    tenk2.init()
-    tenk.y = nivoTla
-    tenk2.y = nivoTla
-    gotovo = false
+    this.pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
+    this.tenk = new Tenk(undefined, skalar)
+    this.tenk2 = new Tenk2(skalar)
+    this.plamen = new Plamen()
+    this.plamen2 = new Plamen()    
+    this.tenk.y = nivoTla
+    this.tenk2.y = nivoTla
+    this.gotovo = false
   }
 
   render() {
-    pozadina.render()
-    tenk.render()
-    tenk2.render()
-    if (tenk.energija < zapaljivostTenka) plamen.render()
-    if (tenk2.energija < zapaljivostTenka) plamen2.render()
+    this.pozadina.render()
+    this.tenk.render()
+    this.tenk2.render()
+    if (this.tenk.energija < zapaljivostTenka) this.plamen.render()
+    if (this.tenk2.energija < zapaljivostTenka) this.plamen2.render()
     this.renderSablon()
   }
 
   update(dt) {
-    tenk.proveriTipke()
-    tenk2.proveriTipke()
-    if (!stanjeIgre.dvaIgraca) tenk2.automatuj(tenk)
-    if (!gotovo) {
-      tenk.proveriPogodak(tenk2)
-      tenk2.proveriPogodak(tenk)
+    this.tenk.proveriTipke()
+    this.tenk2.proveriTipke()
+    if (!dvaIgraca) this.tenk2.automatuj(this.tenk)
+    if (!this.gotovo) {
+      this.tenk.proveriPogodak(this.tenk2)
+      this.tenk2.proveriPogodak(this.tenk)
     }
-    tenk.update(dt)
-    tenk2.update(dt)
-    proveriPlamen(tenk, plamen)
-    proveriPlamen(tenk2, plamen2)
-    if (tenk.mrtav || tenk2.mrtav) gotovo = true
-    if (gotovo && keyboard.pressed.Enter) this.init()
+    this.tenk.update(dt)
+    this.tenk2.update(dt)
+    proveriPlamen(this.tenk, this.plamen)
+    proveriPlamen(this.tenk2, this.plamen2)
+    if (this.tenk.mrtav || this.tenk2.mrtav) this.gotovo = true
+    if (this.gotovo && keyboard.pressed.Enter) this.init()
     this.render()
   }
 
   sablon() {
     return `
       <div class='interfejs bg-poluprovidno komande1'>
-        <b>${tenk.ime}</b>
+        <b>${this.tenk.ime}</b>
         <div class="progress-wrapper">
-          <progress class="progress" value='${tenk.energija}' max='100'></progress>
-          <div class="energija">${tenk.energija}</div>
+          <progress class="progress" value='${this.tenk.energija}' max='100'></progress>
+          <div class="energija">${this.tenk.energija}</div>
         </div>
           A - levo<br>
           D - desno<br>
@@ -85,24 +76,24 @@ export default class TenkiciScena extends Scena {
       </div>
 
       <div class='interfejs bg-poluprovidno komande2'>
-        <span class='bold'>${tenk2.ime}</span>
+        <span class='bold'>${this.tenk2.ime}</span>
         <div class="progress-wrapper">
-          <progress class="progress" value='${tenk2.energija}' max='100'></progress>
-          <div class="energija">${tenk2.energija}</div>
+          <progress class="progress" value='${this.tenk2.energija}' max='100'></progress>
+          <div class="energija">${this.tenk2.energija}</div>
         </div>
-        <div class="${stanjeIgre.dvaIgraca ? '' : 'hide'}">
+        <div class="${dvaIgraca ? '' : 'hide'}">
           ← levo<br>
           → desno<br>
           ↑ gore<br>
           ↓ dole<br>
           enter - puca
         </div>
-        <button id="dva-igraca" class="${stanjeIgre.dvaIgraca ? 'bg-avocado' : ''} full">${stanjeIgre.dvaIgraca ? 'Uključi<br> neprijatelja' : 'Dodaj igrača'}</button>
+        <button id="dva-igraca" class="${dvaIgraca ? 'bg-avocado' : ''} full">${dvaIgraca ? 'Uključi<br> neprijatelja' : 'Dodaj igrača'}</button>
       </div>
 
-      <div class="${!gotovo ? 'hide' : ''} prozorce pointer bg-black">
-        <p class="avocado">${tenk.mrtav ? tenk.ime : tenk2.ime} je uništen.</p>
-        <p class="valencia">${tenk.ziv ? tenk.ime : tenk2.ime} je pobedio ovu borbu.</p>
+      <div class="${!this.gotovo ? 'hide' : ''} prozorce pointer bg-black">
+        <p class="avocado">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>
+        <p class="valencia">${this.tenk.ziv ? this.tenk.ime : this.tenk2.ime} je pobedio ovu borbu.</p>
         <h2><button id="igraj-opet" class="white">Igraj opet</button></h2>
       </div>
     `
@@ -112,7 +103,7 @@ export default class TenkiciScena extends Scena {
 /** EVENTS **/
 
 document.addEventListener('click', e => {
-  if (e.target.id == 'dva-igraca') stanje.dvaIgraca = !stanje.dvaIgraca
+  if (e.target.id == 'dva-igraca') dvaIgraca = !dvaIgraca
   if (e.target.id == 'igraj-opet')
     console.log('treba pokrenut ponovo')
 })

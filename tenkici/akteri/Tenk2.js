@@ -19,10 +19,6 @@ export default class Tenk2 extends Tenk {
     super('/assets/slike/2d-bocno/nemacki-tenk-bez-cevi.png', skalar)
     this.cev = new Cev2(this, '/assets/slike/2d-bocno/nemacki-tenk-cev.png', skalar)
     this.ime = 'Desni tenk'
-    this.init()
-  }
-
-  init() {
     this.smer = this.ugao
     this.x = platno.width - Math.random() * platno.width * 0.3 - 100
     this.granate = []

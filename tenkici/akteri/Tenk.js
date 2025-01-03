@@ -22,10 +22,6 @@ export default class Tenk extends Predmet {
     this.vreme = new Vreme()
     this.ugaoSlike = this.napred
     this.ime = 'Levi tenk'
-    this.init()
-  }
-
-  init() {
     this.x = Math.random() * platno.width * 0.3
     this.granate = []
     this.praviGranate()
