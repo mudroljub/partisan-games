@@ -3,7 +3,7 @@ import Predmet from '/game-engine/core/Predmet.js'
 export default class Prepreka extends Predmet {
 
   constructor(nizPredmeta) {
-    super('/assets/slike/2d-bocno/stvari/nagazna.png', {skalar: .75})
+    super('/assets/slike/2d-bocno/stvari/nagazna.png', { skalar: .75 })
     this.nemojPreko (nizPredmeta)
   }
 

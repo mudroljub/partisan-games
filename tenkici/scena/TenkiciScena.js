@@ -6,7 +6,6 @@ import stanje from '../stanje.js'
 import Tenk from '../akteri/Tenk.js'
 import Tenk2 from '../akteri/Tenk2.js'
 import Plamen from '../efekti/Plamen.js'
-// import './style.scss'
 
 const nivoTla = platno.height * 0.8
 const skalarTenka = window.innerWidth > 1280 ? 0.5 : 0.4

@@ -14,7 +14,7 @@ let pripremi = false
 export default class Tenk extends Predmet {
 
   constructor(src = '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', skalar) {
-    super(src, {skalar})
+    super(src, { skalar })
     this.napred = 0
     this.nazad = Math.PI
     this.potisak = 30
@@ -66,9 +66,9 @@ export default class Tenk extends Predmet {
   }
 
   praviGranate() {
-    for (let i = brojGranata - 1; i >= 0; i--) {
+    for (let i = brojGranata - 1; i >= 0; i--)
       this.granate[i] = new Granata(this.cev)
-    }
+
   }
 
   // skaliranjeObecaj(odsto) {

@@ -4,7 +4,7 @@ import Vreme from '/game-engine/core/Vreme.js'
 import Tenk from './Tenk.js'
 import Cev2 from './Cev2.js'
 import stanje from '../stanje.js'
-import {gravitacija} from '../konstante.js'
+import { gravitacija } from '../konstante.js'
 
 const vremePunjenja = 1500
 let pripremi = false

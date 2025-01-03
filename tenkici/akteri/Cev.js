@@ -1,9 +1,9 @@
 import Predmet from '/game-engine/core/Predmet.js'
-import {ctx} from '/game-engine/io/platno.js'
+import { ctx } from '/game-engine/io/platno.js'
 
 export default class Cev extends Predmet {
   constructor(vlasnik, src, skalar) {
-    super(src, {skalar})
+    super(src, { skalar })
     this.vlasnik = vlasnik
     this.ugao = Math.PI + Math.PI * 0.9
   }

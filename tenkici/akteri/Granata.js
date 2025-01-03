@@ -1,6 +1,6 @@
 import Predmet from '/game-engine/core/Predmet.js'
-import {gravitacija} from '../konstante.js'
-import {platno} from '/game-engine/io/platno.js'
+import { gravitacija } from '../konstante.js'
+import { platno } from '/game-engine/io/platno.js'
 
 const potisak = 500
 const silaUdara = 15

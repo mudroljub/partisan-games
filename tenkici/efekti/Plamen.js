@@ -1,4 +1,4 @@
-import {ctx} from '/game-engine/io/platno.js'
+import { ctx } from '/game-engine/io/platno.js'
 
 const maxLife = 60
 const speed = 3
