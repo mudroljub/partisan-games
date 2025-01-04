@@ -46,14 +46,3 @@ progress::-moz-progress-bar {
   top: 50%;
   transform: translate(-50%,-50%);
 }
-
-.tabela {
-  position: absolute;
-  font-family: monospace;
-  font-weight: bold;
-  text-shadow: 1px 1px 5px #000;
-  left: 10px;
-  top: 10px;
-  z-index: 999;
-  color: white;
-}

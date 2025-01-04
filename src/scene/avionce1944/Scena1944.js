@@ -10,7 +10,7 @@ import Oblak from './Oblak.js'
 import platno from '/game-engine/io/platno.js'
 
 const brojOblaka = 3
-const brzinaPozadine = 10
+const brzinaPozadine = 300
 
 export default class Scena1944 extends Scena {
   init() {
@@ -42,21 +42,18 @@ export default class Scena1944 extends Scena {
     this.igrac.zvukMotora.pause()
   }
 
-  update() {
-    super.update()
+  update(dt) {
+    super.update(dt)
     this.proveriSudare()
   }
 
   sablon() {
-    return `
-      <main class='centar'>
-        <h3>Avionče 1944</h3>
-        <div class='tabela'>
-          Poeni: ${this.poeni}<br>
-          Životi: ${this.zivoti}<br>
-          Meci: ${this.igrac.preostaloMetaka()}
-        </div>
-      </main>
+    return /* html */`
+      <div class='komande bg-poluprovidno komande1'>
+        Poeni: ${this.poeni}<br>
+        Životi: ${this.zivoti}<br>
+        Meci: ${this.igrac.preostaloMetaka()}
+      </div>
     `
   }
 }

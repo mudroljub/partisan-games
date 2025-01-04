@@ -67,16 +67,6 @@ export default class Slika extends Kompozit {
 
   /* VELICINA */
 
-  velicina(sirina, visina) {
-    this.sirina = sirina
-    this.visina = visina
-  }
-
-  prevelicaj(procenat) {
-    this.sirina *= procenat
-    this.visina *= procenat
-  }
-
   get dijagonala() {
     return pitagora(0, this.sirina, 0, this.visina)
   }

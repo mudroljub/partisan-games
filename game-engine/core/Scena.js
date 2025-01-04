@@ -41,11 +41,6 @@ export default class Scena {
     return this.platno.height
   }
 
-  velicina(sirina, visina) {
-    this.sirina = sirina
-    this.visina = visina
-  }
-
   /* POZADINA */
 
   set bojaPozadine(boja) {

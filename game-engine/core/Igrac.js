@@ -5,8 +5,8 @@ import Predmet from './Predmet.js'
 const OKRET = 0.047
 
 export default class Igrac extends Predmet {
-  constructor(src, { sirina, visina, skalar } = {}) {
-    super(src, { sirina, visina, skalar })
+  constructor(src, params = {}) {
+    super(src, params)
     this.oznake.add('igrac')
     this.potisak = 31
     this.prohodnost = 0.9
