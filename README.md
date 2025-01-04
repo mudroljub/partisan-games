@@ -8,7 +8,7 @@ Male igrice o Nemcima i partizanima.
 
 - popraviti sve scene
 - srediti potisak sa dt
- - 20 * 0.5 = 0.016 * x ?
+ - novaBrzina = brzina / 0.016
 - Hummel da ne ažurira raketu ako je ne koristi
 - ukinuti Sliku
     - prvo promeniti svuda extends Slika u extends Predmet

@@ -54,7 +54,7 @@ export default class Slika extends Kompozit {
   }
 
   set ugao(noviUgao) {
-    this.#ugao = (noviUgao + Math.PI * 2) % (Math.PI * 2)
+    this.#ugao = (noviUgao) % (Math.PI * 2)
   }
 
   get ugaoStepeni() {

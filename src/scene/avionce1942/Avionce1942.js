@@ -14,13 +14,16 @@ import Shuma from '/src/2d-bocno/Shuma.js'
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10
 const BROJ_SHUME = 10
-const PARALAX_1 = -5
-const PARALAX_2 = -3
-const PARALAX_3 = -1
-const PARALAX_4 = -0.5
-const POTISAK = 0.3
-const MIN_BRZINA = 7
-const MAX_BRZINA = 20
+
+const PARALAX_1 = -312
+const PARALAX_2 = -187
+const PARALAX_3 = -62
+const PARALAX_4 = -32
+
+const POTISAK = 18
+const MIN_BRZINA = 437
+const MAX_BRZINA = 950
+
 const DIZAJ = 10
 const MAX_DIGNUTOST = 5555
 
