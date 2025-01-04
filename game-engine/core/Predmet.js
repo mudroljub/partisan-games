@@ -42,14 +42,14 @@ export default class Predmet extends Slika {
     return Math.sqrt(this.dx * this.dx + this.dy * this.dy)
   }
 
-  set brzina(jacina) {
-    this.dx = jacina * Math.cos(this.ugao)
-    this.dy = jacina * Math.sin(this.ugao)
+  set brzina(velicina) {
+    this.dx = velicina * Math.cos(this.ugao)
+    this.dy = velicina * Math.sin(this.ugao)
   }
 
-  dodajSilu(jacina, ugao = this.ugao) {
-    this.dx += jacina * Math.cos(ugao)
-    this.dy += jacina * Math.sin(ugao)
+  dodajSilu(velicina, ugao = this.ugao) {
+    this.dx += velicina * Math.cos(ugao)
+    this.dy += velicina * Math.sin(ugao)
   }
 
   trenje(koeficijent = 0.1) {

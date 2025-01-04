@@ -27,7 +27,7 @@ export default class Raketa extends Predmet {
 
   pali() {
     this.pokazi()
-    this.brzina = 20
+    this.dodajSilu(625)
     this.ispaljena = true
   }
 

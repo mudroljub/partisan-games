@@ -74,7 +74,7 @@ export default class Avionce1942 extends Scena {
     this.brzinaScene = 0
   }
 
-  ubrzavaPredmete(ugao, pomak) {
+  ubrzavaOstale(ugao, pomak) {
     this.ostaliPredmeti.forEach(predmet => predmet.dodajSilu(pomak, ugao))
     this.brzinaScene += pomak
   }
@@ -108,10 +108,10 @@ export default class Avionce1942 extends Scena {
     if (!this.igrac.ziv) return
 
     if (keyboard.right && this.brzinaScene < MAX_BRZINA)
-      this.ubrzavaPredmete(KRUZNICA / 2, POTISAK)
+      this.ubrzavaOstale(KRUZNICA / 2, POTISAK)
 
     if (keyboard.left && this.brzinaScene >= MIN_BRZINA)
-      this.ubrzavaPredmete(KRUZNICA / 2, -POTISAK)
+      this.ubrzavaOstale(KRUZNICA / 2, -POTISAK)
 
     if (keyboard.up && this.dignutostScene - DIZAJ < MAX_DIGNUTOST) {
       if (this.igrac.y < this.visina * 0.5) this.dizePredmete(DIZAJ)
