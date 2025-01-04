@@ -13,8 +13,8 @@ export default class TenkOdozgoScena extends Scena {
     this.tenk = new TenkIgracOdozgo()
   }
 
-  update() {
-    this.pozadina.render()
-    this.tenk.update()
+  update(dt) {
+    this.pozadina.render(dt)
+    this.tenk.update(dt)
   }
 }

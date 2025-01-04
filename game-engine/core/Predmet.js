@@ -215,7 +215,7 @@ export default class Predmet extends Slika {
   }
 
   update(dt) {
-    if (!dt) console.error(this.constructor.name, 'ne prosleđuje delta time.')
+    if (dt === undefined) console.error(this.constructor.name, 'ne prosleđuje delta time.', dt)
     this.azurirajKretanje(dt)
     this.azuriraPlamen()
 
