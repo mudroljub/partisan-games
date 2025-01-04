@@ -6,14 +6,10 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
+- popraviti sve scene
 - ukinuti Sliku
     - prvo promeniti svuda extends Slika u extends Predmet
-
-- Tenkići
-    - srediti pojavljivanje granate
-    - napraviti niz granata, da puca zaredom
-    - srediti ugao granate
-
+- izbaciti plamen iz Tenkici, reuse predmet zapaljen
 - da na esc napuštati nivo
 - OPTIMIZACIJA
     - proveriti šta se učitava na naslovnoj, šta se instancira

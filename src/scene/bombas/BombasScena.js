@@ -32,13 +32,6 @@ export default class BombasScena extends Scena {
 
   }
 
-  update() {
-    super.update()
-    this.proveriVreme()
-    this.proveriPobedu()
-    this.proveriPrepreke()
-  }
-
   proveriPobedu() {
     if (this.bombas.razmakDo(this.bunker) < this.bunker.sirina / 2) {
       this.bunker.gori()
@@ -66,8 +59,15 @@ export default class BombasScena extends Scena {
     setTimeout(() => this.end(), 1000)
   }
 
+  update(dt) {
+    super.update(dt)
+    this.proveriVreme()
+    this.proveriPobedu()
+    this.proveriPrepreke()
+  }
+
   sablon() {
-    return `
+    return /* html */`
       <main class='centar'>
         <h3>Dovedi Žikicu Jovanovića Španca do nemačkog bunkera! </h3>
         <div class='tabela'>

@@ -8,7 +8,7 @@ export default class Igrac extends Predmet {
   constructor(src, { sirina, visina, skalar } = {}) {
     super(src, { sirina, visina, skalar })
     this.oznake.add('igrac')
-    this.potisak = 0.5
+    this.potisak = 31
     this.prohodnost = 0.9
     this.komandeNapredne = false // da se okreće oko svoje ose
     this.neprijatelji = []
@@ -58,8 +58,8 @@ export default class Igrac extends Predmet {
     this.dy *= this.prohodnost
   }
 
-  update() {
-    super.update()
+  update(dt) {
+    super.update(dt)
     this.proveriTipke()
     this.praviTrenje()
   }
