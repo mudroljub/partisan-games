@@ -6,14 +6,14 @@ export default class Granata extends Predmet {
     this.sakrij()
   }
 
-  praviGravitaciju(gravitacija = 0.3) {
+  praviGravitaciju(gravitacija = 4.5) {
     this.dodajSilu(gravitacija, Math.PI * .5)
   }
 
   puca(cev, pravac) {
     this.skreni(cev.ugao - pravac)
     this.polozaj(cev.x, cev.y)
-    this.brzina = 20
+    this.brzina = 900
     this.pokazi()
   }
 

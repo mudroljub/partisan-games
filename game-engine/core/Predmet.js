@@ -203,7 +203,7 @@ export default class Predmet extends Slika {
 
     this.x += this.dx * dt
     this.y += this.dy * dt
-    this.proveriGranice() // možda izvan uslova za predmete koji se kreću bez sile??
+    this.proveriGranice() // možda i za predmete koji se kreću bez sile??
   }
 
   azuriraPlamen() {

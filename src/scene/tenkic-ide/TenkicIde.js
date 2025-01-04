@@ -1,6 +1,5 @@
 // BUG: raketa ne leti lepo
 // tenkovi, bunkeri, vojnici...
-
 import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import Zbun from '/src/2d-bocno/Zbun.js'
@@ -23,20 +22,6 @@ export default class TenkicIde extends Scena {
     this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak(this.nivoTla, PARALAX_1))
   }
 
-  azurirajZbunje(dt) {
-    this.zbunovi.forEach(zbun => {
-      zbun.update(dt)
-      zbun.proveriGranice()
-    })
-  }
-
-  azurirajOblake(dt) {
-    this.oblaci.forEach(oblak => {
-      oblak.update(dt)
-      oblak.proveriGranice()
-    })
-  }
-
   cisti() {
     crtaNeboZemlju(this.nivoTla)
   }
@@ -45,10 +30,8 @@ export default class TenkicIde extends Scena {
     super.update(dt)
     this.planina.update(dt)
     this.shumarak.update(dt)
-    this.shumarak.proveriGranice(platno.width / 2)
-    this.planina.proveriGranice(platno.width + 200)
-    this.azurirajOblake(dt)
-    this.azurirajZbunje(dt)
+    this.oblaci.forEach(oblak => oblak.update(dt))
+    this.zbunovi.forEach(zbun => zbun.update(dt))
     this.tenk.update(dt)
   }
 
