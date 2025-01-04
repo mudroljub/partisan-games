@@ -1,9 +1,0 @@
-import VoziloIgracOdozgo from '/src/2d-odozgo/VoziloIgracOdozgo.js'
-
-export class TenkIgracOdozgo extends VoziloIgracOdozgo {
-
-  constructor() {
-    super('/assets/slike/2d-odozgo/tenk-rdjavi.gif', { skalar: .5 })
-    this.prohodnost = 0.7
-  }
-}

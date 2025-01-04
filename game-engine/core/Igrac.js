@@ -2,7 +2,7 @@ import { KRUZNICA } from '/game-engine/konstante.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Predmet from './Predmet.js'
 
-const OKRET = 0.087
+const OKRET = 0.047
 
 export default class Igrac extends Predmet {
   constructor(src, { sirina, visina, skalar } = {}) {
