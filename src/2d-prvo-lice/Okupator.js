@@ -1,8 +1,8 @@
-import Animiran from '/game-engine/core/Animiran.js'
+import Sprite from '/game-engine/core/Sprite.js'
 import platno from '/game-engine/io/platno.js'
 import mish from '/game-engine/io/mish.js'
 
-export default class Okupator extends Animiran {
+export default class Okupator extends Sprite {
   constructor() {
     super ('/assets/slike/sprajtovi/okupator-sprite.png', {
       imena: ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], duzine: 5, sirina: 50, visina: 180
