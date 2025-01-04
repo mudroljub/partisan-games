@@ -17,17 +17,6 @@ export default class Predmet extends Slika {
     this.oznake = new Set()
   }
 
-  set zapaljiv(bul) {
-    if (bul) import('./Plamen.js')
-      .then(module => {
-        this.plamen = new module.default()
-      })
-  }
-
-  get zapaljiv() {
-    return Boolean(this.plamen)
-  }
-
   /* POLOZAJ */
 
   postaviRandom() {
@@ -178,6 +167,23 @@ export default class Predmet extends Slika {
     if (this.y >= marginaDole) this.y = marginaDole
   }
 
+  /* PLAMEN */
+
+  set zapaljiv(bul) {
+    if (bul) import('./Plamen.js')
+      .then(module => {
+        this.plamen = new module.default()
+      })
+  }
+
+  get zapaljiv() {
+    return Boolean(this.plamen)
+  }
+
+  get zapaljen() {
+    return this.zapaljiv && this.mrtav
+  }
+
   /* DEBUG */
 
   log() {
@@ -192,20 +198,27 @@ export default class Predmet extends Slika {
 
   /* LOOP */
 
+  azurirajKretanje(dt) {
+    if (!this.dx && !this.dy) return
+
+    this.x += this.dx * dt
+    this.y += this.dy * dt
+    this.proveriGranice() // možda izvan uslova za predmete koji se kreću bez sile??
+  }
+
+  azuriraPlamen() {
+    if (!this.zapaljen) return
+
+    this.plamen.x = this.x
+    this.plamen.y = this.y
+    this.plamen.update()
+  }
+
   update(dt) {
-    if (this.dx || this.dy) {
-      this.x += this.dx * dt
-      this.y += this.dy * dt
-      this.proveriGranice()
-    }
+    this.azurirajKretanje(dt)
+    this.azuriraPlamen()
 
     this.render(dt)
-
-    if (this.mrtav && this.zapaljiv) {
-      this.plamen.x = this.x
-      this.plamen.y = this.y
-      this.plamen.update()
-      this.plamen.render()
-    }
+    if (this.zapaljen) this.plamen.render()
   }
 }
