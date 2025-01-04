@@ -7,7 +7,7 @@ export default class Okupator extends Animiran {
     super ('/assets/slike/sprajtovi/okupator-sprite.png', {
       imena: ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], duzine: 5, sirina: 50, visina: 180
     })
-    this.brzina = 4
+    this.brzina = 200
     this.limitLevo = platno.width * .15
     this.limitDesno = platno.width * .85
     this.polozaj(this.limitLevo, platno.height * .75)
