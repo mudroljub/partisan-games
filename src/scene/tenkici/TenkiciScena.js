@@ -87,7 +87,7 @@ export default class TenkiciScena extends Scena {
       <div class='komande bg-poluprovidno komande1'>
         <b>${this.tenk.ime}</b>
         <div class="progress-wrapper">
-          <progress class="progress" value='${this.tenk.energija}' max='100'></progress>
+          <progress value='${this.tenk.energija}' max='100'></progress>
           <div class="energija">${this.tenk.energija}</div>
         </div>
           A - levo<br>
@@ -100,7 +100,7 @@ export default class TenkiciScena extends Scena {
       <div class='komande bg-poluprovidno komande2'>
         <span class='bold'>${this.tenk2.ime}</span>
         <div class="progress-wrapper">
-          <progress class="progress" value='${this.tenk2.energija}' max='100'></progress>
+          <progress value='${this.tenk2.energija}' max='100'></progress>
           <div class="energija">${this.tenk2.energija}</div>
         </div>
         <div class="${dvaIgraca ? '' : 'hide'}">

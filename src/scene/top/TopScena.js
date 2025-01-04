@@ -1,5 +1,4 @@
 // dodati neprijatelja
-// kretanje tenka sa dt
 import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import Top from './Top.js'
@@ -15,7 +14,7 @@ export default class TopScena extends Scena {
     this.top = new Top(190, tlo)
     const strelac = new Strelac(300, tlo + 8)
     this.tenk = new Tenk(250, tlo)
-    this.dodaj(this.top, strelac, zastavnik, this.tenk)
+    this.dodaj(this.tenk, this.top, strelac, zastavnik)
   }
 
   cisti() {
@@ -23,7 +22,7 @@ export default class TopScena extends Scena {
   }
 
   sablon() {
-    return `
+    return /* html */`
       <div class="komande">
         <progress value="${this.top.sila}" max=1600></progress>
       </div>

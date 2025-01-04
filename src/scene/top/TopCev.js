@@ -2,8 +2,8 @@ import { keyboard } from '/game-engine/io/Keyboard.js'
 import Slika from '/game-engine/core/Slika.js'
 import Projektil from './Projektil.js'
 
-const MIN_UGAO = -0.1
-const MAX_UGAO = -0.6
+const MIN_UGAO = 5.68
+const MAX_UGAO = 6.18
 
 export default class TopCev extends Slika {
   constructor(x, y, skalar) {
@@ -36,8 +36,10 @@ export default class TopCev extends Slika {
   }
 
   proveriTipke(dt) {
-    if (keyboard.up) this.ugao = Math.max(this.ugao - 0.5 * dt, MAX_UGAO)
-    if (keyboard.down) this.ugao = Math.min(this.ugao + 0.5 * dt, MIN_UGAO)
+    if (keyboard.up) 
+      this.ugao = Math.max(this.ugao - 0.5 * dt, MIN_UGAO)
+    if (keyboard.down) 
+      this.ugao = Math.min(this.ugao + 0.5 * dt, MAX_UGAO)
   }
 
   update(dt) {

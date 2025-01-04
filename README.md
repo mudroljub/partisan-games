@@ -12,7 +12,7 @@ Male igrice o Nemcima i partizanima.
 - Hummel da ne ažurira raketu ako je ne koristi
 - ukinuti Sliku
     - prvo promeniti svuda extends Slika u extends Predmet
-- spojiti trenje i praviTrenje
+- spojiti trenje i praviTrenje, prohodnost
 - izbaciti plamen iz Tenkici, reuse predmet zapaljen
 - da na esc napuštati nivo
 - OPTIMIZACIJA

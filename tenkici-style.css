@@ -1,21 +1,3 @@
-progress {
-  background: #4D5234;
-  color: #4D5234;
-  margin-bottom: 5px;
-}
-progress::-webkit-progress-bar {
-  background: #4D5234;
-  color: #4D5234;
-}
-progress::-webkit-progress-value {
-  background: #4D5234;
-  color: #4D5234;
-}
-progress::-moz-progress-bar {
-  background: #4D5234;
-  color: #4D5234;
-}
-
 #dva-igraca {
   padding: 5px 10px;
   font-size: 16px;

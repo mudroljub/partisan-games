@@ -20,18 +20,27 @@
 
 /* ENERGIJA */
 
+progress::-webkit-progress-value {
+  background: #4D5234;
+  color: #4D5234;
+}
+progress::-moz-progress-bar {
+  background: #4D5234;
+  color: #4D5234;
+}
+
 .progress-wrapper {
   position: relative;
 }
 
-.progress {
+.progress-wrapper progress {
   background-color: inherit;
   display: block;
   height: 24px;
   width: 100%;
 }
 
-.energija {
+.progress-wrapper .energija {
   left: 50%;
   position: absolute;
   top: 50%;

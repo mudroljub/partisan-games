@@ -93,7 +93,7 @@ export default class NemciIzRovova extends Scena {
       Rekord: ${this.rekord} <br>
       Energija <br>
       <div class="progress-wrapper">
-        <progress class="progress" value='${energija}' max='100'></progress>
+        <progress value='${energija}' max='100'></progress>
         <div class="energija">${energija}</div>
       </div>
     </div>
