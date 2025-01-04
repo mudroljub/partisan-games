@@ -134,10 +134,10 @@ export default class Avionce1942 extends Scena {
   }
 
   sablon() {
-    return `
-      <main class='centar'>
-        <h3>Uništi nemački tenk i bezbedno sleti! </h3>
-        <div class='tabela'>
+    return /* html */`
+      <main class='absolute full'>
+        <h3 class='centar'>Uništi nemački tenk i bezbedno sleti! </h3>
+        <div class='komande bg-poluprovidno komande1'>
           Pucanje: Space <br>
           Prateća: Enter <br>
         </div>
