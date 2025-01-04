@@ -3,7 +3,7 @@ import Igrac from '/game-engine/core/Igrac.js'
 import Raketa from './Raketa.js'
 
 const OKRET = 0.01
-const DOZVOLJEN_UGAO = 0.066
+const MOGUCNOST_OKRETA = 0.066
 const GRAVITACIJA = 0.3
 
 export default class AvionIgrac extends Igrac {
@@ -33,13 +33,17 @@ export default class AvionIgrac extends Igrac {
   }
 
   nagore() {
+    if (this.jeNaVrhu()) return
     super.nagore()
-    if (!this.jeNaVrhu() && this.ugao >= -DOZVOLJEN_UGAO) this.ugao -= OKRET
+    if (this.ugao === 0 || this.ugao >= 2 * Math.PI - MOGUCNOST_OKRETA)
+      this.ugao -= OKRET
   }
 
   nadole() {
+    if (this.jePrizemljen()) return
     super.nadole()
-    if (!this.jePrizemljen() && this.ugao <= DOZVOLJEN_UGAO) this.ugao += OKRET
+    if (this.ugao <= MOGUCNOST_OKRETA)
+      this.ugao += OKRET
   }
 
   puca() {
@@ -50,9 +54,8 @@ export default class AvionIgrac extends Igrac {
   /** * OSTALO ***/
 
   ispraviAvion() {
-    if (keyboard.keyPressed) return
-    if (this.ugao > 0) this.ugao -= OKRET
-    if (this.ugao < 0) this.ugao += OKRET
+    if (keyboard.keyPressed || this.ugao === 0) return
+    this.ugao += this.ugao < Math.PI ? -OKRET : OKRET
   }
 
   jeNaVrhu() {
@@ -65,7 +68,7 @@ export default class AvionIgrac extends Igrac {
 
   proveriTlo() {
     if (!this.jePrizemljen()) return
-    if (this.ugao > DOZVOLJEN_UGAO / 2) return this.umri()
+    if (this.ugao > MOGUCNOST_OKRETA / 2) return this.umri()
   }
 
   proveriGravitaciju() {
@@ -82,13 +85,13 @@ export default class AvionIgrac extends Igrac {
     })
   }
 
-  update(...args) {
-    super.update(...args)
+  update(dt) {
+    super.update(dt)
     this.proveriTlo()
     this.proveriSudare()
     this.proveriGranice()
     this.proveriGravitaciju()
     this.ispraviAvion()
-    this.raketa.update(...args)
+    this.raketa.update(dt)
   }
 }

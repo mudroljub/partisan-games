@@ -1,3 +1,4 @@
+// nekad ide prebrzo, prebrzo se zaleće
 // probati da tenkovi dolaze i pucaju
 import { KRUZNICA } from '/game-engine/konstante.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
