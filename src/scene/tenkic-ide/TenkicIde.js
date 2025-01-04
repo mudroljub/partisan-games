@@ -11,7 +11,7 @@ import Tenk from './TenkPartizanski.js'
 
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10
-const PARALAX_1 = -5
+const PARALAX_1 = -160
 
 export default class TenkicIde extends Scena {
   init() {
@@ -23,44 +23,49 @@ export default class TenkicIde extends Scena {
     this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak(this.nivoTla, PARALAX_1))
   }
 
-  azurirajZbunje() {
+  azurirajZbunje(dt) {
     this.zbunovi.forEach(zbun => {
-      zbun.update()
+      zbun.update(dt)
       zbun.proveriGranice()
     })
   }
 
-  azurirajOblake() {
+  azurirajOblake(dt) {
     this.oblaci.forEach(oblak => {
-      oblak.update()
+      oblak.update(dt)
       oblak.proveriGranice()
     })
   }
 
-  update() {
-    super.update()
+  cisti() {
     crtaNeboZemlju(this.nivoTla)
-    this.planina.update()
-    this.shumarak.update()
+  }
+
+  update(dt) {
+    super.update(dt)
+    this.planina.update(dt)
+    this.shumarak.update(dt)
     this.shumarak.proveriGranice(platno.width / 2)
     this.planina.proveriGranice(platno.width + 200)
-    this.azurirajOblake()
-    this.azurirajZbunje()
-    this.tenk.update()
+    this.azurirajOblake(dt)
+    this.azurirajZbunje(dt)
+    this.tenk.update(dt)
   }
 
   sablon() {
-    return `
-      <div class="komande bg-poluprovidno komande1">
-       <b>Komande</b>
-       <br> A - levo
-       <br> D - desno
-       <br> W - gore
-       <br> S - dole
-       <br> space - puca
-       <div class="komande bg-poluprovidno energija1">${this.tenk.energija}</div>
-       <progress class="komande poluprovidno progres1" value="${this.tenk.energija}" max="100"></progress>
-     </div>
+    return /* html */`
+      <main class="komande bg-poluprovidno komande1">
+        <b>Komande</b>
+        <br> A - levo
+        <br> D - desno
+        <br> W - gore
+        <br> S - dole
+        <br> space - puca
+        <div class="progress-wrapper">
+          <progress value='${this.tenk.energija}' max='100'></progress>
+          <div class="energija">${this.tenk.energija}</div>
+        </div>
+      </main>
     `
   }
 }

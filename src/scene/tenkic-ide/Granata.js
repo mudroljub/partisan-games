@@ -17,8 +17,8 @@ export default class Granata extends Predmet {
     this.pokazi()
   }
 
-  update() {
-    super.update()
+  update(dt) {
+    super.update(dt)
     this.praviGravitaciju()
   }
 }

@@ -62,10 +62,10 @@ export default class TenkBocnoIgrac extends Igrac {
     this.granata.puca(this.cev, pravac)
   }
 
-  update() {
-    super.update()
+  update(dt) {
+    super.update(dt)
     this.cev.polozaj(this.x + 1, this.y - 9)
-    this.cev.update()
-    this.granata.update()
+    this.cev.update(dt)
+    this.granata.update(dt)
   }
 }
