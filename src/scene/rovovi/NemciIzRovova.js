@@ -73,18 +73,6 @@ export default class NemciIzRovova extends Scena {
     mish.ukloniNishan()
   }
 
-  sablon() {
-    return `
-    <div class="komande bg-poluprovidno komande1">
-      Pogoci: ${this.pogoci} <br>
-      Rekord: ${this.rekord} <br>
-      Energija <br>
-      <div class="komande bg-poluprovidno energija1">${Math.round(this.energija)}</div>
-      <progress class="komande poluprovidno progres1" value="${this.energija}" max="100"></progress>
-    </div>
-    `
-  }
-
   update(dt, protekloSekundi) {
     this.pozadina.render()
     this.sveSvabe.forEach(svabo => svabo.update(dt, this.povrediMe))
@@ -95,5 +83,20 @@ export default class NemciIzRovova extends Scena {
     }
     this.proveriKraj()
     this.renderSablon()
+  }
+
+  sablon() {
+    const energija = Math.round(this.energija)
+    return /* html */`
+    <div class="komande komande1 bg-poluprovidno">
+      Pogoci: ${this.pogoci} <br>
+      Rekord: ${this.rekord} <br>
+      Energija <br>
+      <div class="progress-wrapper">
+        <progress class="progress" value='${energija}' max='100'></progress>
+        <div class="energija">${energija}</div>
+      </div>
+    </div>
+    `
   }
 }
