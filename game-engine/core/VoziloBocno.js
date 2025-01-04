@@ -4,7 +4,7 @@ import Raketa from '../../src/scene/avionce1942/Raketa.js'
 export default class VoziloBocno extends Predmet {
   constructor(src, x, y, skalar) {
     super(src, { x, y, skalar })
-    this.dodajSilu(3)
+    this.dodajSilu(94)
     this.zapaljiv = true
     this.sansaPucnja = 0.01
     this.oznake.add('neprijatelj')
