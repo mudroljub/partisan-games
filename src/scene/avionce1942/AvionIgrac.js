@@ -20,16 +20,6 @@ export default class AvionIgrac extends Igrac {
     this.ogranici()
   }
 
-  update() {
-    super.update()
-    this.proveriTlo()
-    this.proveriSudare()
-    this.proveriGranice()
-    this.proveriGravitaciju()
-    this.ispraviAvion()
-    this.raketa.update()
-  }
-
   /** * KOMANDE ***/
 
   proveriTipke() {
@@ -90,5 +80,15 @@ export default class AvionIgrac extends Igrac {
         predmet.umri()
       }
     })
+  }
+
+  update(...args) {
+    super.update(...args)
+    this.proveriTlo()
+    this.proveriSudare()
+    this.proveriGranice()
+    this.proveriGravitaciju()
+    this.ispraviAvion()
+    this.raketa.update(...args)
   }
 }

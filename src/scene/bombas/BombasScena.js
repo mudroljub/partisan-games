@@ -45,12 +45,11 @@ export default class BombasScena extends Scena {
 
   }
 
-  proveriPrepreke() {
+  proveriPrepreke(dt) {
     for (let i = 0; i < BROJ_PREPREKA; i++) {
       if (this.bombas.sudara(this.prepreke[i]))
         this.zavrsiIgru('Poginuo si. Igra je završena.')
-
-      this.prepreke[i].update()
+      this.prepreke[i].update(dt)
     }
   }
 
@@ -63,7 +62,7 @@ export default class BombasScena extends Scena {
     super.update(dt)
     this.proveriVreme()
     this.proveriPobedu()
-    this.proveriPrepreke()
+    this.proveriPrepreke(dt)
   }
 
   sablon() {

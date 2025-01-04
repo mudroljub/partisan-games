@@ -7,6 +7,9 @@ Male igrice o Nemcima i partizanima.
 ## TODO:
 
 - popraviti sve scene
+- srediti potisak sa dt
+ - 2.4 * 0.5 = 0.016 * x ?
+- Hummel da ne ažurira raketu ako je ne koristi
 - ukinuti Sliku
     - prvo promeniti svuda extends Slika u extends Predmet
 - izbaciti plamen iz Tenkici, reuse predmet zapaljen

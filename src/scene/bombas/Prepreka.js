@@ -11,7 +11,5 @@ export default class Prepreka extends Predmet {
     this.postaviRandom()
     for (let i = 0; i < nizPredmeta.length; i++)
       if (this.sudara(nizPredmeta[i])) this.nemojPreko(nizPredmeta)
-
   }
-
 }

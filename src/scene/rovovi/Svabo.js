@@ -57,13 +57,13 @@ export default class Svabo extends Predmet {
     this.ucestalost *= n
   }
 
-  update(dt, povredi) {
-    super.update()
+  update(dt, callback) {
+    super.update(dt)
     this.povremenoUstaje(dt)
     if (this.jeSpreman()) {
       this.puca()
       rafal.play()
-      povredi(10, dt)
+      callback(10, dt)
     }
   }
 }

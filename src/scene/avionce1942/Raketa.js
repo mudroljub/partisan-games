@@ -11,11 +11,6 @@ export default class Raketa extends Predmet {
     this.reset()
   }
 
-  update() {
-    super.update()
-    if (this.ispaljena) this.proveriSudare()
-  }
-
   proveriGranice() {
     if (izasaoIgde(this)) this.reset()
   }
@@ -75,5 +70,10 @@ export default class Raketa extends Predmet {
       predmet.umri()
       this.nestani()
     })
+  }
+
+  update(dt) {
+    super.update(dt)
+    if (this.ispaljena) this.proveriSudare()
   }
 }

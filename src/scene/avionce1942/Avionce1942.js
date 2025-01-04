@@ -47,6 +47,10 @@ export default class Avionce1942 extends Scena {
     this.pocniParalax()
   }
 
+  get ostaliPredmeti() {
+    return this.predmeti.filter(predmet => !predmet.oznake.has('igrac') && !predmet.oznake.has('raketa'))
+  }
+
   pocniParalax() {
     this.zbunovi.forEach(zbun => {
       zbun.dx = PARALAX_1
@@ -59,10 +63,6 @@ export default class Avionce1942 extends Scena {
     this.oblaci.forEach(oblak => {
       oblak.dx = PARALAX_4
     })
-  }
-
-  get ostaliPredmeti() {
-    return this.predmeti.filter(predmet => !predmet.oznake.has('igrac') && !predmet.oznake.has('raketa'))
   }
 
   zaustaviParalax() {
