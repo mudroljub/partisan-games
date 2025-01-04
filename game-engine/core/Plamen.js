@@ -42,7 +42,7 @@ export default class Plamen {
 
   update() {
     this.praviNoveCestice()
-    this.iskre.map((p, i) => {
+    this.iskre.forEach((p, i) => {
       p.update()
       if (p.life >= maxLife) this.iskre.splice(i, 1)
     })
@@ -58,7 +58,7 @@ export default class Plamen {
 
   render() {
     ctx.globalCompositeOperation = 'lighter'
-    this.iskre.map(p => p.render())
+    this.iskre.forEach(p => p.render())
     ctx.globalCompositeOperation = 'source-over'
   }
 }
