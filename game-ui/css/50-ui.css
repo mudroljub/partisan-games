@@ -1,11 +1,10 @@
-.komande, .interfejs {
+/* KOMANDE */
+
+.komande {
   position: absolute;
   padding: .25em;
   border-radius: 5px;
 }
-
-
-/* KOMANDE */
 
 .komande1, .komande2 {
   top: 10px;
@@ -18,7 +17,6 @@
 .komande2 {
   right: 10px;
 }
-
 
 /* ENERGIJA */
 

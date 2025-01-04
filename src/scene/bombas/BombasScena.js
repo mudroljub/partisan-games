@@ -70,7 +70,7 @@ export default class BombasScena extends Scena {
     return /* html */`
       <main class='absolute full'>
         <h3 class="centar">Dovedi Žikicu Jovanovića Španca do nemačkog bunkera!</h3>
-        <div class='tabela'>
+        <div class='komande bg-poluprovidno komande1'>
           Nivo: ${nivo} <br>
           Vreme: ${Math.floor(this.vreme.protekloSekundi)} <br>
           Prepreke: ${BROJ_PREPREKA}

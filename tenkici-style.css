@@ -16,20 +16,7 @@ progress::-moz-progress-bar {
   color: #4D5234;
 }
 
-.komande1,
-.komande2 {
-  width: 160px;
-}
-
-.prozorce {
-  background-color: rgba(0,0,0, 0.8);
-}
-
 #dva-igraca {
   padding: 5px 10px;
   font-size: 16px;
-}
-
-button.bg-avocado:hover {
-  background-color: #4D5234;
 }

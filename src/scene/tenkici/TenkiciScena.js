@@ -84,7 +84,7 @@ export default class TenkiciScena extends Scena {
 
   sablon() {
     return /* html*/`
-      <div class='interfejs bg-poluprovidno komande1'>
+      <div class='komande bg-poluprovidno komande1'>
         <b>${this.tenk.ime}</b>
         <div class="progress-wrapper">
           <progress class="progress" value='${this.tenk.energija}' max='100'></progress>
@@ -97,7 +97,7 @@ export default class TenkiciScena extends Scena {
           space - puca
       </div>
 
-      <div class='interfejs bg-poluprovidno komande2'>
+      <div class='komande bg-poluprovidno komande2'>
         <span class='bold'>${this.tenk2.ime}</span>
         <div class="progress-wrapper">
           <progress class="progress" value='${this.tenk2.energija}' max='100'></progress>

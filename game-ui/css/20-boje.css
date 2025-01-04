@@ -37,3 +37,7 @@
 .bg-verdigris {
   background-color: #4D5234;
 }
+
+button.bg-avocado:hover {
+  background-color: #4D5234;
+}
