@@ -68,8 +68,8 @@ export default class BombasScena extends Scena {
 
   sablon() {
     return /* html */`
-      <main class='centar'>
-        <h3>Dovedi Žikicu Jovanovića Španca do nemačkog bunkera! </h3>
+      <main class='absolute full'>
+        <h3 class="centar">Dovedi Žikicu Jovanovića Španca do nemačkog bunkera!</h3>
         <div class='tabela'>
           Nivo: ${nivo} <br>
           Vreme: ${Math.floor(this.vreme.protekloSekundi)} <br>
