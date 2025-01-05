@@ -159,10 +159,14 @@ export default class Predmet extends Slika {
   ogranici() {
     const marginaLevo = this.sirina / 4
     const marginaDesno = platno.width - marginaLevo
-    const marginaGore = this.visina / 2
-    const marginaDole = platno.height - marginaGore
     if (this.x <= marginaLevo) this.x = marginaLevo
     if (this.x >= marginaDesno) this.x = marginaDesno
+    this.ograniciVodoravno()
+  }
+
+  ograniciVodoravno() {
+    const marginaGore = this.visina / 2
+    const marginaDole = platno.height - marginaGore
     if (this.y <= marginaGore) this.y = marginaGore
     if (this.y >= marginaDole) this.y = marginaDole
   }

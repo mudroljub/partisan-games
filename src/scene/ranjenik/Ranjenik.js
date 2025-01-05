@@ -4,9 +4,8 @@ const OKRET = 0.035
 
 export default class Ranjenik extends Igrac {
   constructor(x, y) {
-    super ('/assets/slike/2d-odozgo/ranjeni-partizan.png', { x, y })
-    this.korak = 1
-    this.pogodjen = 0
+    super('/assets/slike/2d-odozgo/ranjeni-partizan.png', { x, y })
+    this.korak = 4
   }
 
   nalevo() {
@@ -18,14 +17,14 @@ export default class Ranjenik extends Igrac {
   }
 
   nagore() {
-    this.pomeri(this.korak)
+    this.dodajSilu(this.korak)
   }
 
   nadole() {
-    this.pomeri(-this.korak / 5)
+    this.dodajSilu(-this.korak / 5)
   }
 
   proveriGranice() {
-    this.ogranici()
+    this.ograniciVodoravno()
   }
 }
