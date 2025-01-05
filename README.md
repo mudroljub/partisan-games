@@ -6,9 +6,8 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
-- ukinuti Sliku
-    - prvo promeniti svuda extends Slika u extends Predmet
 - implementirati Kompozit kao dekorator ili kompoziciju
+- BUG: ne crta prvi šablon
 - srediti logiku za game loop, update i render, proveriTipke i slično.
 - spojiti trenje i praviTrenje, prohodnost
 - izbaciti plamen iz Tenkici, reuse predmet zapaljen

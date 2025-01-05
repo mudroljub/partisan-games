@@ -1,14 +1,66 @@
-import {
-  izasaoDole, izasaoGore, izasaoDesno, izasaoLevo,
-  izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde
-} from '/game-engine/utils/granice.js'
-import Slika from './Slika.js'
-import { platno } from '../io/platno.js'
-import mish from '../io/mish.js'
-import { randomRange } from '../utils.js'
+import Kompozit from '/game-engine/core/Kompozit.js'
+import { platno, ctx } from '../io/platno.js'
+import { pitagora, randomRange } from '../utils.js'
 import { sudar } from '../utils/sudari.js'
+import {
+  izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde
+} from '/game-engine/utils/granice.js'
 
-export default class Predmet extends Slika {
+export default class Predmet extends Kompozit {
+  #ugao = 0
+  #odrazY = 1
+  #odrazX = 1
+
+  constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1 } = {}) {
+    super(x, y)
+    this.slika = new Image()
+    this.slika.onload = () => {
+      this.srediVelicinu(sirina, visina, skalar)
+      this.onload()
+      this.slika.onload = null
+    }
+    this.slika.src = src
+    this.centrirano = true
+    this.vidljiv = true
+    this.ziv = true
+    this.brzina = 0
+    this.oznake = new Set()
+    this.debug = false
+  }
+
+  onload() {} // callback
+
+  zameniSliku(src) {
+    this.slika.src = src
+  }
+
+  /* VELICINA */
+
+  srediVelicinu = (sirina, visina, skalar) => {
+    if (!sirina && !visina) {
+      this.sirina = this.slika.naturalWidth * skalar
+      this.visina = this.slika.naturalHeight * skalar
+    } else if (sirina && !visina)
+      this.visina = (sirina / this.slika.naturalWidth) * this.slika.naturalHeight
+    else if (!sirina && visina)
+      this.sirina = (visina / this.slika.naturalHeight) * this.slika.naturalWidth
+  }
+
+  get dijagonala() {
+    return pitagora(0, this.sirina, 0, this.visina)
+  }
+
+  /* POLOZAJ */
+
+  polozaj(x, y) {
+    this.x = x
+    this.y = y
+  }
+
+  tlo(y) {
+    this.y = y - this.visina / 2
+  }
+
   randomX(marginaX) {
     this.x = randomRange(marginaX, platno.width - marginaX)
   }
@@ -20,6 +72,37 @@ export default class Predmet extends Slika {
   postaviRandom(marginaX = 10, marginaY = 10) {
     this.randomX(marginaX)
     this.randomY(marginaY)
+  }
+
+  /* UGAO */
+
+  get ugao() {
+    return this.#ugao
+  }
+
+  set ugao(noviUgao) {
+    this.#ugao = (noviUgao + Math.PI * 2) % (Math.PI * 2)
+  }
+
+  get ugaoStepeni() {
+    return this.ugao * 180 / Math.PI
+  }
+
+  set ugaoStepeni(ugaoRadijani) {
+    this.ugao = ugaoRadijani * Math.PI / 180
+  }
+
+  skreni(noviUgao) {
+    this.ugao = noviUgao
+    this.brzina = this.brzina // ažurira pravac kretanja
+  }
+
+  ugaoKa(predmet) {
+    const mojX = this.x + this.sirina / 2
+    const mojY = this.y + this.visina / 2
+    const tudjX = predmet.x + predmet.sirina / 2
+    const tudjY = predmet.y + predmet.visina / 2
+    return Math.atan2(tudjY - mojY, tudjX - mojX)
   }
 
   /* KRETANJE */
@@ -53,21 +136,6 @@ export default class Predmet extends Slika {
     this.brzina = 0
   }
 
-  /* UGLOVI */
-
-  skreni(noviUgao) {
-    this.ugao = noviUgao
-    this.brzina = this.brzina // ažurira pravac kretanja
-  }
-
-  ugaoKa(predmet) {
-    const mojX = this.x + this.sirina / 2
-    const mojY = this.y + this.visina / 2
-    const tudjX = predmet.x + predmet.sirina / 2
-    const tudjY = predmet.y + predmet.visina / 2
-    return Math.atan2(tudjY - mojY, tudjX - mojX)
-  }
-
   /* STANJE */
 
   get mrtav() {
@@ -82,15 +150,23 @@ export default class Predmet extends Slika {
     return this._slikaMrtav
   }
 
-  umri() {
-    this.stani()
-    if (this.slikaMrtav) this.zameniSliku(this.slikaMrtav)
-    this.ziv = false
+  pokazi() {
+    this.vidljiv = true
+  }
+
+  sakrij() {
+    this.vidljiv = false
   }
 
   nestani() {
     this.sakrij()
     this.stani()
+  }
+
+  umri() {
+    this.stani()
+    if (this.slikaMrtav) this.zameniSliku(this.slikaMrtav)
+    this.ziv = false
   }
 
   /* KOLIZIJA */
@@ -104,13 +180,6 @@ export default class Predmet extends Slika {
     const razlikaX = this.x - predmet.x
     const razlikaY = this.y - predmet.y
     return Math.sqrt((razlikaX * razlikaX) + (razlikaY * razlikaY))
-  }
-
-  /* MISH */
-
-  pratiMisha() {
-    this.x = mish.x - platno.offsetLeft
-    this.y = mish.y - platno.offsetTop
   }
 
   /* GRANICE */
@@ -157,6 +226,24 @@ export default class Predmet extends Slika {
     if (this.y >= marginaDole) this.y = marginaDole
   }
 
+  /* ODRAZ */
+
+  get odrazY() {
+    return this.#odrazY
+  }
+
+  set odrazY(bul) {
+    this.#odrazY = bul ? -1 : 1
+  }
+
+  get odrazX() {
+    return this.#odrazX
+  }
+
+  set odrazX(bul) {
+    this.#odrazX = bul ? -1 : 1
+  }
+
   /* PLAMEN */
 
   set zapaljiv(bul) {
@@ -186,7 +273,36 @@ export default class Predmet extends Slika {
     console.log(`x: ${x}, y: ${y}, dx: ${dx}, dy: ${dy}, brzina: ${brzina}, ugao: ${ugao}, ziv: ${this.ziv}`)
   }
 
+  crtaOblik() {
+    ctx.fillStyle = 'black'
+    if (this.centrirano)
+      ctx.fillRect(-this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
+    else
+      ctx.fillRect(0, 0, this.sirina, this.visina)
+  }
+
   /* LOOP */
+
+  crtaSliku() {
+    if (this.centrirano)
+      ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
+    else
+      ctx.drawImage(this.slika, 0, 0, this.sirina, this.visina)
+  }
+
+  render() {
+    if (!this.vidljiv) return
+
+    ctx.save()
+    ctx.translate(this.x, this.y)
+    ctx.rotate(this.ugao)
+    ctx.scale(this.odrazY, this.odrazX)
+    if (this.debug)
+      this.crtaOblik()
+    else
+      this.crtaSliku()
+    ctx.restore()
+  }
 
   azurirajKretanje(dt) {
     if (!this.dx && !this.dy) return
@@ -206,6 +322,7 @@ export default class Predmet extends Slika {
 
   update(dt) {
     if (dt === undefined) console.error(this.constructor.name, 'ne prosleđuje delta time.', dt)
+
     this.azurirajKretanje(dt)
     this.azuriraPlamen()
 
