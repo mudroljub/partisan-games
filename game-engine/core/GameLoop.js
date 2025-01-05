@@ -1,6 +1,6 @@
 export default class GameLoop {
-  constructor(loop, autostart = true, usePointerLock = false) {
-    this.update = loop
+  constructor(sceneLoop, autostart = true, usePointerLock = false) {
+    this.sceneLoop = sceneLoop
     this.lastTimestamp = 0
     this.time = 0
     this.isPaused = false
@@ -27,7 +27,7 @@ export default class GameLoop {
 
     this.isPaused = false
     this.lastTimestamp = performance.now()
-    this.loopId = requestAnimationFrame(this.loop)
+    this.loopId = requestAnimationFrame(this.mainLoop)
   }
 
   stop() {
@@ -35,7 +35,7 @@ export default class GameLoop {
 
     cancelAnimationFrame(this.loopId)
     this.isPaused = false
-    this.update = null
+    this.sceneLoop = null
     this.lastTimestamp = 0
     this.time = 0
 
@@ -55,7 +55,7 @@ export default class GameLoop {
 
     this.isPaused = false
     this.lastTimestamp = performance.now()
-    this.loopId = requestAnimationFrame(this.loop)
+    this.loopId = requestAnimationFrame(this.mainLoop)
   }
 
   /* EVENTS */
@@ -68,7 +68,7 @@ export default class GameLoop {
 
   handlePointerLockChange = () => {
     if (!this.isRunning)
-      this.start(this.update)
+      this.start(this.sceneLoop)
     else if (!document.pointerLockElement)
       this.pause()
     else
@@ -84,11 +84,11 @@ export default class GameLoop {
 
   /* LOOP */
 
-  loop = timestamp => {
+  mainLoop = timestamp => {
     if (!this.isRunning) return
     if (this.isPaused) {
       this.lastTimestamp = timestamp
-      requestAnimationFrame(this.loop)
+      requestAnimationFrame(this.mainLoop)
       return
     }
 
@@ -96,9 +96,9 @@ export default class GameLoop {
     this.lastTimestamp = timestamp
     this.time += deltaTime
 
-    if (this.update)
-      this.update(deltaTime * 0.001, this.time * 0.001) // to seconds
+    if (this.sceneLoop)
+      this.sceneLoop(deltaTime * 0.001, this.time * 0.001) // to seconds
 
-    requestAnimationFrame(this.loop)
+    requestAnimationFrame(this.mainLoop)
   }
 }
