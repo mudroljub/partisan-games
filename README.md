@@ -6,6 +6,7 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
+- ako ima pozadinu da ne cisti scenu??
 - popraviti sve scene
 - srediti potisak sa dt
  - novaBrzina = brzina / 0.016
