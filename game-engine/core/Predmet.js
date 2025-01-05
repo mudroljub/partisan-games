@@ -9,10 +9,6 @@ import { randomRange } from '../utils.js'
 import { sudar } from '../utils/sudari.js'
 
 export default class Predmet extends Slika {
-  postaviRandom() {
-    this.polozaj(Math.random() * platno.width, Math.random() * platno.height)
-  }
-
   randomX(marginaX) {
     this.x = randomRange(marginaX, platno.width - marginaX)
   }
@@ -21,7 +17,7 @@ export default class Predmet extends Slika {
     this.y = randomRange(marginaY, platno.height - marginaY)
   }
 
-  postaviRandomUredno(marginaX = 10, marginaY = 10) {
+  postaviRandom(marginaX = 10, marginaY = 10) {
     this.randomX(marginaX)
     this.randomY(marginaY)
   }
