@@ -6,6 +6,7 @@ export default class Ranjenik extends Igrac {
     this.komandeNapredne = true
     this.potisak = 4
     this.okret = 0.035
+    this.pogodjen = 0
   }
 
   proveriGranice() {

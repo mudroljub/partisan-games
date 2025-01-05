@@ -13,7 +13,8 @@ const items = {
   TenkicIde: 'Tenkić ide',
   TenkiciScena: 'Tenkići',
   RanjenikScena: 'Ranjenik',
-  JasenovacScena: 'Bekstvo iz Jasenovca'
+  RanjenikPaljba: 'Ranjenik paljba',
+  JasenovacScena: 'Bekstvo iz Jasenovca',
 }
 
 export default class MainMenu extends Scena {

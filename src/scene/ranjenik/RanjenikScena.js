@@ -46,12 +46,11 @@ export default class RanjenikScena extends Scena {
   }
 
   proveriSudare() {
-    if (this.patrola.sudara(this.ranjenik)) {
-      this.patrola.stani()
-      this.patrola.vikniZaredom(2)
-      console.log('Uhvaćen si...')
-      this.end()
-    }
+    if (!this.patrola.sudara(this.ranjenik)) return
+    this.patrola.stani()
+    this.patrola.vikniZaredom(2)
+    console.log('Uhvaćen si...')
+    this.end()
   }
 
   proveriPobedu() {
