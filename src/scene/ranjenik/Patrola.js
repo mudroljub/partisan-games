@@ -1,28 +1,27 @@
-import { nasumicnoOkruglo } from '/game-engine/utils.js'
+import { skaliranRazmak, nasumicnoOkruglo } from '/game-engine/utils.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import Vreme from '/game-engine/core/Vreme.js'
 
-const zvuciTraganje = [
-  'eatdirtpig.wav', 'killthepig.wav', 'QuicklyQuickly.wav', 'schnell.wav', 'UpThere.wav', 'whereishe.wav'
-]
+const zvuciTraganje = ['eatdirtpig.wav', 'killthepig.wav', 'QuicklyQuickly.wav', 'schnell.wav', 'UpThere.wav', 'whereishe.wav']
 const zvuciNadjen = ['Stop.wav', 'StopStayWhereYouAre.wav', 'thereheis.wav']
 
 let brojac = 0
 
 export default class Patrola extends Predmet {
-  constructor(src = '/assets/slike/2d-odozgo/nemci-patrola.gif') {
+  constructor(src = '/assets/slike/2d-odozgo/nemci-patrola.gif', target) {
     super(src)
     this.brzina = 166
     this.vremePricanja = new Vreme()
     this.vremeSkretanja = new Vreme()
     this.zvuk = new Audio('/assets/zvuci/patrola/Stop.wav')
+    this.target = target // opciono, za jačinu zvuka
   }
 
   proveriGranice() {
     this.kruzi()
   }
 
-  skreci(t) {
+  skreci() {
     if (this.brzina === 0) return
     if (this.vremeSkretanja.proteklo < 300) return
 
@@ -34,6 +33,7 @@ export default class Patrola extends Predmet {
   pustiNasumicno(zvuci) {
     const zvuk = zvuci[nasumicnoOkruglo(0, zvuci.length - 1)]
     this.zvuk.src = `/assets/zvuci/patrola/${zvuk}`
+    this.zvuk.volume = this.target ? skaliranRazmak(this, this.target) : .5
     this.zvuk.play()
   }
 

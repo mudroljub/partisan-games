@@ -1,11 +1,10 @@
-// prikazati poruke umesto log (napraviti neko pomagalo)
+// prikazati prozore umesto log
+// BUG: Ranjenik ogranici ne radi
 // iskoristiti za Bekstvo iz Jasenovca i ranjenik paljba
 // povecavati broj patrola
 // u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
-
 import { izasaoDesno } from '/game-engine/utils/granice.js'
 import { platno, ctx } from '/game-engine/io/platno.js'
-import { skaliranRazmak } from '/game-engine/utils.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
 import Ranjenik from './Ranjenik.js'
@@ -28,18 +27,13 @@ const crtajStrelicu = () => {
 }
 
 export default class RanjenikScena extends Scena {
-  constructor(...args) {
-    super(...args)
-    this.init()
-  }
-
   init() {
     this.scena = 0
     this.strelicaVidljiva = false
     this.vreme = new Vreme()
     this.pozadina = new Pozadina('/assets/slike/2d-odozgo/shumarak-pozadina.png')
     this.ranjenik = new Ranjenik()
-    this.patrola = new Patrola('/assets/slike/2d-odozgo/nemci-patrola.gif')
+    this.patrola = new Patrola('/assets/slike/2d-odozgo/nemci-patrola.gif', this.ranjenik)
     this.patrola.polozaj(this.sirina * 3 / 4, this.visina * 3 / 4)
     this.ranjenik.polozaj(this.sirina / 4, this.visina / 2)
     this.dodaj(this.pozadina, this.ranjenik, this.patrola)
@@ -48,6 +42,7 @@ export default class RanjenikScena extends Scena {
   smenjujStrelicu() {
     if (!this.strelicaVidljiva && this.vreme.proteklo < pauzaCrtanja) return
     if (this.strelicaVidljiva && this.vreme.proteklo < trajanjeStrelice) return
+
     this.strelicaVidljiva = !this.strelicaVidljiva
     this.vreme.reset()
   }
@@ -86,11 +81,10 @@ export default class RanjenikScena extends Scena {
 
   update(dt, t) {
     super.update(dt, t)
-    // this.patrola.zvuk.volume = skaliranRazmak(this.patrola, this.ranjenik)
     this.proveriSudare()
-    this.proveriPobedu()
-    this.smenjujStrelicu()
     if (this.strelicaVidljiva) crtajStrelicu()
+    this.smenjujStrelicu()
+    this.proveriPobedu()
   }
 
   sablon() {
