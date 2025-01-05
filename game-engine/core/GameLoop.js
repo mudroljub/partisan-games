@@ -1,10 +1,10 @@
 export default class GameLoop {
-  constructor(update, autostart = true, usePointerLock = false) {
-    this.update = update
+  constructor(loop, autostart = true, usePointerLock = false) {
+    this.update = loop
     this.lastTimestamp = 0
     this.time = 0
     this.isPaused = false
-    this.animationId = null
+    this.loopId = null
 
     document.addEventListener('keypress', this.handleKeyPress)
 
@@ -17,7 +17,7 @@ export default class GameLoop {
   }
 
   get isRunning() {
-    return Boolean(this.animationId)
+    return Boolean(this.loopId)
   }
 
   /* METHODS */
@@ -27,13 +27,13 @@ export default class GameLoop {
 
     this.isPaused = false
     this.lastTimestamp = performance.now()
-    this.animationId = requestAnimationFrame(this.loop)
+    this.loopId = requestAnimationFrame(this.loop)
   }
 
   stop() {
     if (!this.isRunning) return
 
-    cancelAnimationFrame(this.animationId)
+    cancelAnimationFrame(this.loopId)
     this.isPaused = false
     this.update = null
     this.lastTimestamp = 0
@@ -55,7 +55,7 @@ export default class GameLoop {
 
     this.isPaused = false
     this.lastTimestamp = performance.now()
-    this.animationId = requestAnimationFrame(this.loop)
+    this.loopId = requestAnimationFrame(this.loop)
   }
 
   /* EVENTS */
