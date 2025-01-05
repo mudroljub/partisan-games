@@ -1,5 +1,4 @@
 // prikazati prozore umesto log
-// BUG: ogranici ne radi za pomeri, samo za dodajSilu
 // iskoristiti za Bekstvo iz Jasenovca i ranjenik paljba
 // povecavati broj patrola
 // u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
