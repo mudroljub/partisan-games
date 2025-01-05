@@ -12,8 +12,8 @@ export default class NemciIzRovova extends Scena {
     this.rekord = 0
     this.energija = 100
     this.ubrzano = false
-    this.bliziRovovi = this.praviSvabe(10, BLIZI_Y, { sirina: 100, visina: 150, ucestalost: 0.03 })
-    this.daljiRovovi = this.praviSvabe(12, DALJI_Y, { sirina: 50, visina: 75, ucestalost: 0.02 })
+    this.bliziRovovi = this.praviSvabe(10, BLIZI_Y, { skalar: 1, ucestalost: 0.03 })
+    this.daljiRovovi = this.praviSvabe(12, DALJI_Y, { skalar: .5, ucestalost: 0.02 })
     this.sveSvabe = [...this.bliziRovovi, ...this.daljiRovovi]
     this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
 
@@ -28,7 +28,7 @@ export default class NemciIzRovova extends Scena {
     const polaRazmaka = razmak / 2
     return Array.from({ length: n }, (_, i) => {
       const x = i * razmak + polaRazmaka
-      const svabo = new Svabo(params.sirina, params.visina, params.ucestalost)
+      const svabo = new Svabo(params.skalar, params.ucestalost)
       svabo.polozaj(x, y)
       return svabo
     })

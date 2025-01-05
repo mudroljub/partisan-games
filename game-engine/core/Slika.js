@@ -10,17 +10,8 @@ export default class Slika extends Kompozit {
   constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1 } = {}) {
     super(x, y)
     this.slika = new Image()
-    this.sirina = sirina
-    this.visina = visina
-
     this.slika.onload = () => {
-      if (!sirina && !visina) {
-        this.sirina = this.slika.naturalWidth * skalar
-        this.visina = this.slika.naturalHeight * skalar
-      } else if (sirina && !visina)
-        this.visina = (sirina / this.slika.naturalWidth) * this.slika.naturalHeight
-      else if (!sirina && visina)
-        this.sirina = (visina / this.slika.naturalHeight) * this.slika.naturalWidth
+      this.srediVelicinu(sirina, visina, skalar)
       this.onload()
       this.slika.onload = null
     }
@@ -30,7 +21,17 @@ export default class Slika extends Kompozit {
     this.centrira = true
   }
 
-  onload() {} // implementiraju naslednici
+  srediVelicinu = (sirina, visina, skalar) => {
+    if (!sirina && !visina) {
+      this.sirina = this.slika.naturalWidth * skalar
+      this.visina = this.slika.naturalHeight * skalar
+    } else if (sirina && !visina)
+      this.visina = (sirina / this.slika.naturalWidth) * this.slika.naturalHeight
+    else if (!sirina && visina)
+      this.sirina = (visina / this.slika.naturalHeight) * this.slika.naturalWidth
+  }
+
+  onload() {} // callback
 
   zameniSliku(src) {
     this.slika.src = src
