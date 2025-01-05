@@ -1,10 +1,16 @@
-import Slika from '../core/Slika.js'
-import platno from '../io/platno.js'
+import platno, { ctx } from '../io/platno.js'
 
-export default class Pozadina extends Slika {
-  constructor(slika) {
-    super(slika, { sirina: platno.width, visina: platno.height })
-    this.x = platno.width / 2
-    this.y = platno.height / 2
+export default class Pozadina {
+  constructor(src) {
+    this.slika = new Image()
+    this.slika.src = src
+  }
+
+  render() {
+    ctx.drawImage(this.slika, 0, 0, platno.width, platno.height)
+  }
+
+  update() {
+    this.render()
   }
 }
