@@ -11,10 +11,6 @@ export default class TenkOdozgoScena extends Scena {
   init() {
     this.pozadina = new Pozadina('/assets/slike/2d-odozgo/shumarak-pozadina.png')
     this.tenk = new VoziloIgracOdozgo('/assets/slike/2d-odozgo/tenk-rdjavi.gif', { skalar: .5 })
-  }
-
-  update(dt) {
-    this.pozadina.render(dt)
-    this.tenk.update(dt)
+    this.dodaj(this.tenk)
   }
 }

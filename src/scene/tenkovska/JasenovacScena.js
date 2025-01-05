@@ -11,10 +11,6 @@ export default class JasenovacScena extends Scena {
     this.dodaj(zica, this.tenk)
   }
 
-  cisti() {
-    this.pozadina.render()
-  }
-
   update(dt) {
     super.update(dt)
     this.tenk.patroliraj()

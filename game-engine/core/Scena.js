@@ -87,7 +87,10 @@ export default class Scena {
   }
 
   cisti() {
-    this.ctx.clearRect(0, 0, this.sirina, this.visina)
+    if (this.pozadina)
+      this.pozadina.render()
+    else
+      this.ctx.clearRect(0, 0, this.sirina, this.visina)
   }
 
   update(dt, t) {
