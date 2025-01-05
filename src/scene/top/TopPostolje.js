@@ -1,6 +1,6 @@
-import Slika from '/game-engine/core/Slika.js'
+import Predmet from '/game-engine/core/Predmet.js'
 
-export default class TopPostolje extends Slika {
+export default class TopPostolje extends Predmet {
   constructor(x, y, skalar) {
     super('/assets/slike/2d-bocno/top-postolje.gif', { x, y, skalar })
   }

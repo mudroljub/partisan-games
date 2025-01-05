@@ -1,11 +1,11 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
-import Slika from '/game-engine/core/Slika.js'
+import Predmet from '/game-engine/core/Predmet.js'
 import Projektil from './Projektil.js'
 
 const MIN_UGAO = 5.68
 const MAX_UGAO = 6.18
 
-export default class TopCev extends Slika {
+export default class TopCev extends Predmet {
   constructor(x, y, skalar) {
     super('/assets/slike/2d-bocno/top-cev.gif', { x, y, skalar })
     this.ugao = -0.2

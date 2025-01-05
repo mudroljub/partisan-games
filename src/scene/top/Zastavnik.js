@@ -1,7 +1,7 @@
-import Slika from '/game-engine/core/Slika.js'
+import Predmet from '/game-engine/core/Predmet.js'
 import Zastava from '/game-engine/utils/Zastava.js'
 
-export default class Zastavnik extends Slika {
+export default class Zastavnik extends Predmet {
   constructor(x, y) {
     super('/assets/slike/2d-bocno/partizani/vojnici/savo.png', { x, y })
     this.zastava = new Zastava({ x: this.x - 14, y: this.y - 130 })

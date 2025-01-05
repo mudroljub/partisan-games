@@ -1,6 +1,6 @@
-import Slika from '/game-engine/core/Slika.js'
+import Predmet from '/game-engine/core/Predmet.js'
 
-export default class Posada extends Slika {
+export default class Posada extends Predmet {
   constructor(x, y) {
     super('/assets/slike/2d-bocno/partizani/artiljerija/posada-01.png', { x, y })
     this.pocetniX = x
