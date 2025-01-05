@@ -45,15 +45,6 @@ export default class RanjenikScena extends Scena {
     this.dodaj(this.pozadina, this.ranjenik, this.patrola)
   }
 
-  update() {
-    super.update()
-    this.patrola.zvuk.volume = skaliranRazmak(this.patrola, this.ranjenik)
-    this.proveriSudare()
-    this.proveriPobedu()
-    this.smenjujStrelicu()
-    if (this.strelicaVidljiva) crtajStrelicu()
-  }
-
   smenjujStrelicu() {
     if (!this.strelicaVidljiva && this.vreme.proteklo < pauzaCrtanja) return
     if (this.strelicaVidljiva && this.vreme.proteklo < trajanjeStrelice) return
@@ -63,7 +54,7 @@ export default class RanjenikScena extends Scena {
 
   proveriSudare() {
     if (this.patrola.sudara(this.ranjenik)) {
-      this.patrola.stop()
+      this.patrola.stani()
       this.patrola.vikniZaredom(2)
       console.log('Uhvaćen si...')
       this.end()
@@ -88,8 +79,22 @@ export default class RanjenikScena extends Scena {
     this.scena++
   }
 
+  end() {
+    super.end()
+    this.patrola.zvuk.pause()
+  }
+
+  update(dt, t) {
+    super.update(dt, t)
+    // this.patrola.zvuk.volume = skaliranRazmak(this.patrola, this.ranjenik)
+    this.proveriSudare()
+    this.proveriPobedu()
+    this.smenjujStrelicu()
+    if (this.strelicaVidljiva) crtajStrelicu()
+  }
+
   sablon() {
-    return `
+    return /* html */`
       <div class='komande bg-poluprovidno komande1'>
        <b>Komande</b>
        <br> A - levo
@@ -98,10 +103,5 @@ export default class RanjenikScena extends Scena {
        <br> S - nazad
      </div>
     `
-  }
-
-  end() {
-    super.end()
-    this.patrola.zvuk.pause()
   }
 }
