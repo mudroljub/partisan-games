@@ -5,7 +5,7 @@ export default class Cev extends Predmet {
     super(src, { skalar })
     this.vlasnik = vlasnik
     this.ugao = Math.PI + Math.PI * 0.9
-    this.centrira = false
+    this.centrirano = false
   }
 
   update() {

@@ -16,9 +16,12 @@ export default class Slika extends Kompozit {
       this.slika.onload = null
     }
     this.slika.src = src
+    this.centrirano = true
     this.vidljiv = true
+    this.ziv = true
+    this.brzina = 0
+    this.oznake = new Set()
     this.debug = false
-    this.centrira = true
   }
 
   srediVelicinu = (sirina, visina, skalar) => {
@@ -104,14 +107,14 @@ export default class Slika extends Kompozit {
 
   crtaOblik() {
     ctx.fillStyle = 'black'
-    if (this.centrira)
+    if (this.centrirano)
       ctx.fillRect(-this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
     else
       ctx.fillRect(0, 0, this.sirina, this.visina)
   }
 
   crtaSliku() {
-    if (this.centrira)
+    if (this.centrirano)
       ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
     else
       ctx.drawImage(this.slika, 0, 0, this.sirina, this.visina)

@@ -9,16 +9,6 @@ import { randomRange } from '../utils.js'
 import { sudar } from '../utils/sudari.js'
 
 export default class Predmet extends Slika {
-
-  constructor(src, { sirina, visina, x, y, skalar } = {}) {
-    super(src, { sirina, visina, x, y, skalar })
-    this.ziv = true
-    this.brzina = 0
-    this.oznake = new Set()
-  }
-
-  /* POLOZAJ */
-
   postaviRandom() {
     this.polozaj(Math.random() * platno.width, Math.random() * platno.height)
   }
