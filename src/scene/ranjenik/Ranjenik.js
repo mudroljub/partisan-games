@@ -3,8 +3,8 @@ import Igrac from '/game-engine/core/Igrac.js'
 const OKRET = 0.035
 
 export default class Ranjenik extends Igrac {
-  constructor() {
-    super ('/assets/slike/2d-odozgo/ranjeni-partizan.png')
+  constructor(x, y) {
+    super ('/assets/slike/2d-odozgo/ranjeni-partizan.png', { x, y })
     this.korak = 1
     this.pogodjen = 0
   }

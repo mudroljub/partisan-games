@@ -32,10 +32,9 @@ export default class RanjenikScena extends Scena {
     this.strelicaVidljiva = false
     this.vreme = new Vreme()
     this.pozadina = new Pozadina('/assets/slike/2d-odozgo/shumarak-pozadina.png')
-    this.ranjenik = new Ranjenik()
+    this.ranjenik = new Ranjenik(this.sirina / 4, this.visina / 2)
     this.patrola = new Patrola('/assets/slike/2d-odozgo/nemci-patrola.gif', this.ranjenik)
     this.patrola.polozaj(this.sirina * 3 / 4, this.visina * 3 / 4)
-    this.ranjenik.polozaj(this.sirina / 4, this.visina / 2)
     this.dodaj(this.pozadina, this.ranjenik, this.patrola)
   }
 
@@ -65,10 +64,10 @@ export default class RanjenikScena extends Scena {
 
   promeniScenu() {
     const parna = this.scena % 2 === 0
-    const slikaPozadine = parna ? '/assets/slike/teksture/beton.gif' : '/assets/slike/2d-odozgo/shumarak-pozadina.png'
-    const slikaPatrole = parna ? '/assets/slike/2d-odozgo/talijani-patrola.gif' : '/assets/slike/2d-odozgo/nemci-patrola.gif'
-    this.pozadina.zameniSliku(slikaPozadine)
-    this.patrola.zameniSliku(slikaPatrole)
+    const pozadina = parna ? 'teksture/beton.gif' : '2d-odozgo/shumarak-pozadina.png'
+    const patrola = parna ? '2d-odozgo/talijani-patrola.gif' : '2d-odozgo/nemci-patrola.gif'
+    this.pozadina.zameniSliku(`/assets/slike/${pozadina}`)
+    this.patrola.zameniSliku(`/assets/slike/${patrola}`)
     this.patrola.postaviRandom()
     this.ranjenik.x = 10
     this.scena++
