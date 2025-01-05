@@ -8,8 +8,6 @@ import {
 
 export default class Predmet extends Kompozit {
   #ugao = 0
-  #odrazY = 1
-  #odrazX = 1
 
   constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1 } = {}) {
     super(x, y)
@@ -24,6 +22,8 @@ export default class Predmet extends Kompozit {
     this.vidljiv = true
     this.ziv = true
     this.brzina = 0
+    this.odrazY = 1
+    this.odrazX = 1
     this.oznake = new Set()
     this.debug = false
   }
@@ -224,24 +224,6 @@ export default class Predmet extends Kompozit {
     const marginaDole = platno.height - marginaGore
     if (this.y <= marginaGore) this.y = marginaGore
     if (this.y >= marginaDole) this.y = marginaDole
-  }
-
-  /* ODRAZ */
-
-  get odrazY() {
-    return this.#odrazY
-  }
-
-  set odrazY(bul) {
-    this.#odrazY = bul ? -1 : 1
-  }
-
-  get odrazX() {
-    return this.#odrazX
-  }
-
-  set odrazX(bul) {
-    this.#odrazX = bul ? -1 : 1
   }
 
   /* PLAMEN */
