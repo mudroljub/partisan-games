@@ -6,11 +6,7 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
-- ako ima pozadinu da ne cisti scenu??
-- popraviti sve scene
-- srediti potisak sa dt
- - novaBrzina = brzina / 0.016
-- Hummel da ne ažurira raketu ako je ne koristi
+- svuda promeniti Math.random da bude fps nezavisan
 - ukinuti Sliku
     - prvo promeniti svuda extends Slika u extends Predmet
 - spojiti trenje i praviTrenje, prohodnost

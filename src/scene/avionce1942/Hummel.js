@@ -7,6 +7,6 @@ export default class Hummel extends VoziloBocno {
 
   update(dt) {
     super.update(dt)
-    // this.povremenoPucaPratecu(dt)
+    // this.povremenoPucaPratecu()
   }
 }

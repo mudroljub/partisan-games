@@ -73,7 +73,8 @@ export default class Raketa extends Predmet {
   }
 
   update(dt) {
+    if (!this.ispaljena) return
     super.update(dt)
-    if (this.ispaljena) this.proveriSudare()
+    this.proveriSudare()
   }
 }
