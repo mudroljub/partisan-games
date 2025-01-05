@@ -13,17 +13,17 @@ export default class Predmet extends Slika {
     this.polozaj(Math.random() * platno.width, Math.random() * platno.height)
   }
 
-  randomX(pocetnoX = this.sirina / 2, zavrsnoX = platno.width - this.sirina / 2) {
-    this.x = randomRange(pocetnoX, zavrsnoX)
+  randomX(marginaX) {
+    this.x = randomRange(marginaX, platno.width - marginaX)
   }
 
-  randomY(pocetnoY = this.visina / 2, zavrsnoY = platno.height - this.visina / 2) {
-    this.y = randomRange(pocetnoY, zavrsnoY)
+  randomY(marginaY) {
+    this.y = randomRange(marginaY, platno.height - marginaY)
   }
 
-  postaviRandomUredno() { // ne viri sa platna
-    this.randomX()
-    this.randomY()
+  postaviRandomUredno(marginaX = 10, marginaY = 10) {
+    this.randomX(marginaX)
+    this.randomY(marginaY)
   }
 
   /* KRETANJE */

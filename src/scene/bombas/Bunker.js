@@ -7,7 +7,7 @@ export default class Bunker extends Predmet {
   }
 
   nemojPreko(predmet) {
-    this.postaviRandomUredno()
+    this.postaviRandomUredno(this.sirina / 2, this.visina / 2)
     if (this.razmakDo(predmet) < 150)
       this.nemojPreko(predmet)
   }

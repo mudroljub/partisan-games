@@ -29,7 +29,6 @@ export default class BombasScena extends Scena {
     this.prepreke = []
     for (let i = 0; i < BROJ_PREPREKA; i++)
       this.prepreke[i] = new Prepreka([this.bunker, this.bombas])
-
   }
 
   proveriPobedu() {
