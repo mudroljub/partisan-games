@@ -1,6 +1,7 @@
 import mish from '/game-engine/io/mish.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
+import { progresBar } from '/game-ui/components.js'
 import Svabo from './Svabo.js'
 
 const DALJI_Y = 150
@@ -87,11 +88,8 @@ export default class NemciIzRovova extends Scena {
     <div class="komande komande1 bg-poluprovidno">
       Pogoci: ${this.pogoci} <br>
       Rekord: ${this.rekord} <br>
-      Energija <br>
-      <div class="progress-wrapper">
-        <progress value='${energija}' max='100'></progress>
-        <div class="energija">${energija}</div>
-      </div>
+      Energija 
+      ${progresBar(energija)}
     </div>
     `
   }
