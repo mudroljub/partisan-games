@@ -22,13 +22,13 @@ const PARALAX_3 = -62
 const PARALAX_4 = -32
 
 const POTISAK = 18
-const MIN_BRZINA = 437
-const MAX_BRZINA = 950
+const MIN_BRZINA = 250
+const MAX_BRZINA = 500
 
 const DIZAJ = 10
 const MAX_DIGNUTOST = 5555
 
-export default class Avionce1942 extends Scena {
+export default class Scena1942 extends Scena {
   init() {
     this.nivoTla = platno.height
     this.brzinaScene = 0
