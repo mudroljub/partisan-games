@@ -13,7 +13,7 @@ export default class RanjenikPaljba extends Scena {
     this.pozadina = new Pozadina('/assets/slike/teksture/beton.gif')
     this.ranjenik = new Ranjenik()
     this.vreme = new Vreme()
-    this.dodaj(this.pozadina, this.ranjenik)
+    this.dodaj(this.ranjenik)
     this.trenutnoPlotuna = 0
     this.pocetakPaljbe = 500
   }
@@ -22,7 +22,7 @@ export default class RanjenikPaljba extends Scena {
     if (this.vreme.proteklo < this.pocetakPaljbe || this.trenutnoPlotuna >= BROJ_PLOTUNA) return
 
     const krater = new Paljba()
-    this.dodaj(krater)
+    this.predmeti.unshift(krater)
     this.pocetakPaljbe += RITAM_PALJBE
     this.trenutnoPlotuna++
 
@@ -37,8 +37,8 @@ export default class RanjenikPaljba extends Scena {
       // game over
   }
 
-  loop(dt) {
-    super.loop(dt)
+  update(dt) {
+    super.update(dt)
     this.pali()
     this.proveriKraj()
   }
@@ -46,7 +46,7 @@ export default class RanjenikPaljba extends Scena {
   sablon() {
     return /* html */`
     <div class='komande bg-poluprovidno komande1'>
-      Preostalo: ${Math.floor(ZADATO_VREME - this.vreme.protekloSekundi)}
+      Preostalo vreme: ${Math.floor(ZADATO_VREME - this.vreme.protekloSekundi)}
     </div>
     `
   }

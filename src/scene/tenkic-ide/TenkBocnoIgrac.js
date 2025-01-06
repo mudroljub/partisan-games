@@ -68,4 +68,10 @@ export default class TenkBocnoIgrac extends Igrac {
     this.cev.update(dt)
     this.granata.update(dt)
   }
+
+  render() {
+    super.render()
+    this.cev.render()
+    this.granata.render()
+  }
 }

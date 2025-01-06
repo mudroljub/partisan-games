@@ -8,7 +8,7 @@ export default class Oblak extends Predmet {
     super('/assets/slike/oblak.gif')
     this.nivoTla = nivoTla
     this.dx = dx
-    this.dy = Math.random() * 2 - 1
+    this.dy = Math.random() * 20 - 10
   }
 
   onload() {

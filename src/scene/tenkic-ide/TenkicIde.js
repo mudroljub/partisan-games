@@ -20,19 +20,11 @@ export default class TenkicIde extends Scena {
     this.shumarak = new Shuma(this.nivoTla, PARALAX_1)
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun(this.nivoTla, PARALAX_1))
     this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak(this.nivoTla, PARALAX_1))
+    this.dodaj(this.planina, this.shumarak, ...this.zbunovi, this.tenk, ...this.oblaci)
   }
 
   cisti() {
     crtaNeboZemlju(this.nivoTla)
-  }
-
-  loop(dt) {
-    super.loop(dt)
-    this.planina.update(dt)
-    this.shumarak.update(dt)
-    this.oblaci.forEach(oblak => oblak.update(dt))
-    this.zbunovi.forEach(zbun => zbun.update(dt))
-    this.tenk.update(dt)
   }
 
   sablon() {
