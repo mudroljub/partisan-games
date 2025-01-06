@@ -5,7 +5,6 @@ const items = {
   NemciIzRovova: 'Nemci iz rovova',
   Scena1942: 'Avionče 1942',
   TopScena: 'Top',
-  MinobacacScena: 'Minobacač',
   CamacScena: 'Čamac',
   OtpisaniScena: 'Ubij okupatora!',
   Scena1944: 'Avionče 1944',

@@ -4,9 +4,6 @@ import Scena1942 from './scene/avionce1942/Scena1942.js'
 import CamacScena from './scene/CamacScena.js'
 import OtpisaniScena from './scene/OtpisaniScena.js'
 import Scena1944 from './scene/avionce1944/Scena1944.js'
-
-// za spajanje
-import MinobacacScena from './scene/minobacac/MinobacacScena.js'
 import TopScena from './scene/top/TopScena.js'
 
 import TenkicIde from './scene/tenkic-ide/TenkicIde.js'
@@ -28,7 +25,6 @@ const scene = {
   JasenovacScena,
   TenkOdozgoScena,
   TopScena,
-  MinobacacScena,
   CamacScena,
   OtpisaniScena,
   Scena1944,
