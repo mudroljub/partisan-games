@@ -34,8 +34,7 @@ export default class TenkiciScena extends Scena {
     if (this.tenk.mrtav || this.tenk2.mrtav) this.gotovo = true
   }
 
-  prozor() {
-    if (!this.gotovo) return ''
+  zavrsniProzor() {
     return /* html*/`
       <div class="prozorce bg-black">
         <p class="valencia">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>

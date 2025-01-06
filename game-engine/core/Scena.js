@@ -14,6 +14,7 @@ export default class Scena {
     this.upamcenProzor = ''
     this.zavrsniTekst = ''
     this.hocuVan = false
+    this.gotovo = false
     this.init()
   }
 
@@ -61,33 +62,40 @@ export default class Scena {
     this.handleClick(e)
   }
 
-  prozor() {
-    if (this.hocuVan) return /* html */`
+  napustiIgru() {
+    return /* html */`
       <div class="prozorce centar">
         <p>Napusti igru?</p>
         <button id="menu">Da</button><button id="cancel">Ne</button>
       </div>
     `
+  }
 
-    if (this.zavrsniTekst) return /* html */`
+  zavrsniProzor() {
+    return /* html */`
       <div class="prozorce centar">
         <p>${this.zavrsniTekst}</p>
         <button id="igraj-opet">Igraj opet</button><button id="menu">Glavni meni</button>
       </div>
     `
+  }
 
+  prozor() {
+    if (this.hocuVan) return this.napustiIgru()
+    if (this.gotovo) return this.zavrsniProzor()
     return ''
   }
 
   zavrsi(text = 'Igra je završena.') {
     this.zavrsniTekst = text
+    this.gotovo = true
   }
 
   sablon() {
     return ''
   }
 
-  #renderSablon() {
+  #renderUI() {
     if (this.upamcenUI !== this.sablon()) {
       this.elementUI.innerHTML = this.sablon()
       this.upamcenUI = this.sablon()
@@ -123,7 +131,7 @@ export default class Scena {
   }
 
   proveriTipke(dt) {
-    if (this.zavrsniTekst) return // gasi tipke
+    if (this.gotovo) return
 
     if (keyboard.pressed.Escape) this.potvrdiIzlaz()
 
@@ -160,6 +168,6 @@ export default class Scena {
     this.update(dt, t)
     this.cisti()
     this.render(dt, t)
-    this.#renderSablon()
+    this.#renderUI()
   }
 }
