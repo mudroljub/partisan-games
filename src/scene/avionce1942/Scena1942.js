@@ -108,7 +108,12 @@ export default class Avionce1942 extends Scena {
     }
   }
 
+  cisti() {
+    crtaNebo(this.nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
+  }
+
   proveriTipke() {
+    super.proveriTipke()
     if (!this.igrac.ziv) return
 
     if (keyboard.right && this.brzinaScene < MAX_BRZINA)
@@ -124,10 +129,6 @@ export default class Avionce1942 extends Scena {
 
     if (keyboard.down && this.dignutostScene - DIZAJ >= 0)
       if (this.igrac.y > this.visina * 0.125) this.dizePredmete(-DIZAJ)
-  }
-
-  cisti() {
-    crtaNebo(this.nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
   }
 
   update(dt) {

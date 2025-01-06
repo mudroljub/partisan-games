@@ -1,6 +1,6 @@
 import BombasScena from './scene/bombas/BombasScena.js'
 import NemciIzRovova from './scene/rovovi/NemciIzRovova.js'
-import Avionce1942 from './scene/avionce1942/Avionce1942.js'
+import Scena1942 from './scene/avionce1942/Scena1942.js'
 import CamacScena from './scene/CamacScena.js'
 import OtpisaniScena from './scene/OtpisaniScena.js'
 import Scena1944 from './scene/avionce1944/Scena1944.js'
@@ -24,7 +24,7 @@ import MainMenu from './MainMenu.js'
 const scene = {
   BombasScena,
   NemciIzRovova,
-  Avionce1942,
+  Scena1942,
   JasenovacScena,
   TenkOdozgoScena,
   TopScena,

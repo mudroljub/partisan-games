@@ -86,7 +86,7 @@ export default class Scena {
     this.elementUI.innerHTML = ''
   }
 
-  obradiUnose() {
+  proveriTipke() {
     this.predmeti.forEach(predmet => {
       if (predmet.proveriTipke) predmet.proveriTipke()
     })
@@ -116,7 +116,7 @@ export default class Scena {
   }
 
   loop(dt, t) {
-    this.obradiUnose()
+    this.proveriTipke()
     this.update(dt, t)
     this.cisti()
     this.render(dt, t)
