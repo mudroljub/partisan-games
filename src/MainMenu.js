@@ -4,7 +4,6 @@ const items = {
   BombasScena: 'Bombaš',
   NemciIzRovova: 'Nemci iz rovova',
   Scena1942: 'Avionče 1942',
-  TenkOdozgoScena: 'Tenk odozgo',
   TopScena: 'Top',
   MinobacacScena: 'Minobacač',
   CamacScena: 'Čamac',
@@ -15,6 +14,7 @@ const items = {
   RanjenikScena: 'Ranjenik',
   RanjenikPaljba: 'Ranjenik paljba',
   JasenovacScena: 'Bekstvo iz Jasenovca',
+  TenkOdozgoScena: 'Tenk odozgo',
 }
 
 export default class MainMenu extends Scena {

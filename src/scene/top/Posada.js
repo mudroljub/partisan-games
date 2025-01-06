@@ -1,4 +1,5 @@
 import Predmet from '/game-engine/core/Predmet.js'
+import { keyboard } from '/game-engine/io/Keyboard.js'
 
 export default class Posada extends Predmet {
   constructor(x, y) {
@@ -12,8 +13,14 @@ export default class Posada extends Predmet {
     this.puni = false
   }
 
+  proveriTipke() {
+    if (keyboard.space)
+      this.puni = true
+  }
+
   update(dt, t) {
     this.x += Math.sin(t) * dt
-    if (this.x < this.parent.x + this.pocetniX && this.puni) this.x += 20 * dt
+    if (this.puni && this.x < this.pocetniX)
+      this.x += 20 * dt
   }
 }
