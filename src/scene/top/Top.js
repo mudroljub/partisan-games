@@ -12,7 +12,7 @@ export default class Top extends Predmet {
     this.postolje = new Predmet('/assets/slike/2d-bocno/top-postolje.gif', { x: x - 40, y: y + 32, skalar })
     this.pocetniX = x
     this.ugao = -0.2
-    this.sila = this.minSila = 800
+    this.sila = this.minSila = 600
     this.projektil = new Projektil()
     this.predmeti.push(this.projektil)
   }

@@ -1,4 +1,5 @@
 // dodati neprijatelja
+// dodati više projektila
 import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import Top from './Top.js'
