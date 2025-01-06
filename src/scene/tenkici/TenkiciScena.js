@@ -1,6 +1,7 @@
 import { platno } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
+import { progresBar } from '/game-ui/components.js'
 import Tenk from './Tenk.js'
 import Tenk2 from './Tenk2.js'
 
@@ -48,10 +49,7 @@ export default class TenkiciScena extends Scena {
     return /* html*/`
       <div class='komande bg-poluprovidno komande1'>
         <b>${this.tenk.ime}</b>
-        <div class="progress-wrapper">
-          <progress value='${this.tenk.energija}' max='100'></progress>
-          <div class="energija">${this.tenk.energija}</div>
-        </div>
+        ${progresBar(this.tenk.energija)}
           A - levo<br>
           D - desno<br>
           W - gore<br>
@@ -61,10 +59,7 @@ export default class TenkiciScena extends Scena {
 
       <div class='komande bg-poluprovidno komande2'>
         <span class='bold'>${this.tenk2.ime}</span>
-        <div class="progress-wrapper">
-          <progress value='${this.tenk2.energija}' max='100'></progress>
-          <div class="energija">${this.tenk2.energija}</div>
-        </div>
+        ${progresBar(this.tenk2.energija)}
         <div class="${dvaIgraca ? '' : 'hide'}">
           ← levo<br>
           → desno<br>
