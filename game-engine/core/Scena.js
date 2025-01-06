@@ -13,6 +13,7 @@ export default class Scena {
     this.prozorElement = document.getElementById('prozor')
     this.upamcenProzor = ''
     this.zavrsniTekst = ''
+    this.hocuVan = false
     this.init()
   }
 
@@ -54,17 +55,28 @@ export default class Scena {
     if (e.target.id == 'menu')
       this.manager.start('MainMenu')
 
+    if (e.target.id == 'cancel')
+      this.nastaviIgru()
+
     this.handleClick(e)
   }
 
   prozor() {
-    if (!this.zavrsniTekst) return ''
-    return /* html */`
+    if (this.hocuVan) return /* html */`
+      <div class="prozorce centar">
+        <p>Napusti igru?</p>
+        <button id="menu">Da</button><button id="cancel">Ne</button>
+      </div>
+    `
+
+    if (this.zavrsniTekst) return /* html */`
       <div class="prozorce centar">
         <p>${this.zavrsniTekst}</p>
         <button id="igraj-opet">Igraj opet</button><button id="menu">Glavni meni</button>
       </div>
     `
+
+    return ''
   }
 
   zavrsi(text = 'Igra je završena.') {
@@ -86,6 +98,16 @@ export default class Scena {
     }
   }
 
+  potvrdiIzlaz() {
+    this.gameLoop.pause()
+    this.hocuVan = true
+  }
+
+  nastaviIgru() {
+    this.gameLoop.unpause()
+    this.hocuVan = false
+  }
+
   /* GLAVNA PETLJA */
 
   start() {
@@ -101,11 +123,9 @@ export default class Scena {
   }
 
   proveriTipke(dt) {
-    if (this.zavrsniTekst) return // onemogućuje tipke
+    if (this.zavrsniTekst) return // gasi tipke
 
-    if (keyboard.pressed.Escape) {
-      console.log('esc')
-    }
+    if (keyboard.pressed.Escape) this.potvrdiIzlaz()
 
     this.predmeti.forEach(predmet => {
       if (predmet.proveriTipke) predmet.proveriTipke(dt)
