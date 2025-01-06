@@ -17,18 +17,12 @@ const nivo = 1
 export default class BombasScena extends Scena {
   init() {
     this.vreme = new Vreme()
-    const pozadina = new Pozadina('/assets/slike/teksture/beton.gif')
+    this.pozadina = new Pozadina('/assets/slike/teksture/beton.gif')
     this.bombas = new Bombas()
     this.bunker = new Bunker()
     this.bunker.onload = () => this.bunker.nemojPreko(this.bombas)
-    this.dodaj(pozadina, this.bunker, this.bombas)
-    this.praviPrepreke()
-  }
-
-  praviPrepreke() {
-    this.prepreke = []
-    for (let i = 0; i < BROJ_PREPREKA; i++)
-      this.prepreke[i] = new Prepreka([this.bunker, this.bombas])
+    this.prepreke = Array.from({ length: BROJ_PREPREKA }, () => new Prepreka([this.bunker, this.bombas]))
+    this.dodaj(...this.prepreke, this.bunker, this.bombas)
   }
 
   proveriPobedu() {
@@ -44,12 +38,10 @@ export default class BombasScena extends Scena {
 
   }
 
-  proveriPrepreke(dt) {
-    for (let i = 0; i < BROJ_PREPREKA; i++) {
+  proveriPrepreke() {
+    for (let i = 0; i < BROJ_PREPREKA; i++)
       if (this.bombas.sudara(this.prepreke[i]))
         this.zavrsiIgru('Poginuo si. Igra je završena.')
-      this.prepreke[i].update(dt)
-    }
   }
 
   zavrsiIgru(text) {
@@ -57,8 +49,8 @@ export default class BombasScena extends Scena {
     setTimeout(() => this.end(), 1000)
   }
 
-  loop(dt) {
-    super.loop(dt)
+  update(dt) {
+    super.update(dt)
     this.proveriVreme()
     this.proveriPobedu()
     this.proveriPrepreke(dt)

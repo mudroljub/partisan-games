@@ -19,7 +19,6 @@ export default class Okupator extends Sprite {
   }
 
   hodaj(naziv, ugao) {
-    if (!this.animacije) return
     this.pustiAnimaciju(naziv)
     this.skreni(ugao)
   }

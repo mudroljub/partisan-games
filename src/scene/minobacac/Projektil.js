@@ -36,6 +36,5 @@ export default class Projektil {
   update(dt) {
     if (!this.ispaljeno) return
     this.leti(dt)
-    this.render()
   }
 }

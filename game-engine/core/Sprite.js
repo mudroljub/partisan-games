@@ -15,7 +15,8 @@ class Animacija {
 export default class Sprite extends Predmet {
   constructor(src, { imena, duzine, sirina, visina }) { // broj ili niz brojeva ako su nejednake
     super(src, { sirina, visina })
-    this.index = 0
+    this.animacija = null
+    this.imeAnimacije = ''
     this.vremeAnimacije = .5 // sekundi
     this.proteklo = 0
     this.onload = () => {
@@ -33,24 +34,32 @@ export default class Sprite extends Predmet {
     })
   }
 
-  pustiAnimaciju(ime, loop) {
-    this.reset()
-    this.index = this.animacije.findIndex(animacija => animacija.ime === ime)
-    if (loop !== undefined) this.animacije[this.index].loop = loop
-  }
-
   reset() {
     this.proteklo = 0
+  }
+
+  pustiAnimaciju(ime, loop) {
+    this.imeAnimacije = ime // ako još nije učitana čuva za kasnije
+    if (!this.animacije) return
+    this.reset()
+    this.animacija = this.nadjiAnimaciju(ime)
+    if (loop !== undefined) this.animacija.loop = loop
+  }
+
+  nadjiAnimaciju(ime) {
+    return this.animacije.find(animacija => animacija.ime === ime)
   }
 
   /* RENDER */
 
   crtaKadar(dt) {
-    const animacija = this.animacije[this.index]
-    const { pocetak, sirina, visina, duzina } = animacija
+    if (!this.animacija) this.animacija = this.nadjiAnimaciju(this.imeAnimacije)
+    if (!this.animacija) return
+
+    const { pocetak, sirina, visina, duzina } = this.animacija
 
     const nijeZavrsena = this.proteklo + dt < this.vremeAnimacije
-    if (animacija.loop || nijeZavrsena) this.proteklo += dt
+    if (this.animacija.loop || nijeZavrsena) this.proteklo += dt
 
     const duzinaKadra = this.vremeAnimacije / duzina
     const trenutniKadar = Math.floor((this.proteklo % this.vremeAnimacije) / duzinaKadra)
@@ -65,15 +74,11 @@ export default class Sprite extends Predmet {
   }
 
   render(dt) {
+    if (!this.animacije) return
     ctx.save()
     ctx.translate(this.x, this.y)
     ctx.rotate(this._ugaoSlike)
     this.crtaKadar(dt)
     ctx.restore()
-  }
-
-  update(dt) {
-    if (!this.animacije) return
-    super.update(dt)
   }
 }

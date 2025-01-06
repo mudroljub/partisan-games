@@ -48,6 +48,5 @@ export default class Minobacac extends Kvadrat {
   update(dt) {
     this.proveriTipke()
     this.projektil.update(dt)
-    this.render()
   }
 }

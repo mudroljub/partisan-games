@@ -17,6 +17,7 @@ export default class OtpisaniScena extends Scena {
     mish.dodajNishan()
     this.proveriPogodak = this.svabo.proveriPogodak.bind(this.svabo)
     platno.addEventListener('click', this.proveriPogodak)
+    this.dodaj(this.svabo)
   }
 
   end() {
@@ -26,15 +27,14 @@ export default class OtpisaniScena extends Scena {
     platno.removeEventListener('click', this.proveriPogodak)
   }
 
-  loop(dt) {
-    this.pozadina.render()
+  update(dt) {
+    super.update(dt)
     this.svabo.patroliraj()
-    this.svabo.update(dt)
   }
 
   sablon() {
-    return `
-      <main class='centar'>
+    return /* html */`
+      <main class='absolute full centar'>
         <h1>Ubij okupatora!</h1>
         <p>Oslobođenje se bliži</p>
       </main>

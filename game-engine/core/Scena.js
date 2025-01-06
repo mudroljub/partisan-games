@@ -93,13 +93,24 @@ export default class Scena {
       this.ctx.clearRect(0, 0, this.sirina, this.visina)
   }
 
-  loop(dt, t) {
-    this.cisti()
+  update(dt, t) {
     const rekurzivnoAzuriraj = predmet => {
       if (predmet.update) predmet.update(dt, t)
       if (predmet?.predmeti?.length) predmet.predmeti.forEach(rekurzivnoAzuriraj)
     }
     this.predmeti.forEach(rekurzivnoAzuriraj)
+  }
+
+  render(dt, t) {
+    this.predmeti.forEach(predmet => {
+      if (predmet.render) predmet.render(dt, t)
+    })
+  }
+
+  loop(dt, t) {
+    this.update(dt, t)
+    this.cisti()
+    this.render(dt, t)
     this.renderSablon()
   }
 }

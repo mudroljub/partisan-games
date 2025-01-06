@@ -7,9 +7,12 @@ export default class Zastavnik extends Predmet {
     this.zastava = new Zastava({ x: this.x - 14, y: this.y - 130 })
   }
 
+  render(dt, t) {
+    super.render()
+    this.zastava.render(dt, t)
+  }
+
   update(dt, t) {
     this.y += Math.cos(t * 4) * dt
-    this.zastava.render(dt, t)
-    this.render()
   }
 }

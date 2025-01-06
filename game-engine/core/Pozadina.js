@@ -9,8 +9,4 @@ export default class Pozadina {
   render() {
     ctx.drawImage(this.slika, 0, 0, platno.width, platno.height)
   }
-
-  update() {
-    this.render()
-  }
 }

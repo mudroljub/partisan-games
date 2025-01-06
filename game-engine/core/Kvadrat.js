@@ -20,8 +20,4 @@ export default class Kvadrat {
     ctx.fillRect(this.x, this.y, this.sirina, this.visina)
     ctx.restore()
   }
-
-  update() {
-    this.render()
-  }
 }

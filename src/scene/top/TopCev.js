@@ -44,6 +44,5 @@ export default class TopCev extends Predmet {
 
   update(dt) {
     this.proveriTipke(dt)
-    this.render()
   }
 }

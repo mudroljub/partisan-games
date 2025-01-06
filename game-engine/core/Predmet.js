@@ -37,7 +37,10 @@ export default class Predmet extends Kompozit {
   /* VELICINA */
 
   srediVelicinu = (sirina, visina, skalar) => {
-    if (!sirina && !visina) {
+    if (sirina && visina) {
+      this.sirina = sirina
+      this.visina = visina
+    } else if (!sirina && !visina) {
       this.sirina = this.slika.naturalWidth * skalar
       this.visina = this.slika.naturalHeight * skalar
     } else if (sirina && !visina)
@@ -265,27 +268,6 @@ export default class Predmet extends Kompozit {
 
   /* LOOP */
 
-  crtaSliku() {
-    if (this.centrirano)
-      ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
-    else
-      ctx.drawImage(this.slika, 0, 0, this.sirina, this.visina)
-  }
-
-  render() {
-    if (!this.vidljiv) return
-
-    ctx.save()
-    ctx.translate(this.x, this.y)
-    ctx.rotate(this.ugao)
-    ctx.scale(this.odrazY, this.odrazX)
-    if (this.debug)
-      this.crtaOblik()
-    else
-      this.crtaSliku()
-    ctx.restore()
-  }
-
   azurirajKretanje(dt) {
     if (!this.dx && !this.dy) return
 
@@ -307,8 +289,28 @@ export default class Predmet extends Kompozit {
 
     this.azurirajKretanje(dt)
     this.azuriraPlamen()
+  }
 
-    this.render(dt)
+  crtaSliku() {
+    if (this.centrirano)
+      ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
+    else
+      ctx.drawImage(this.slika, 0, 0, this.sirina, this.visina)
+  }
+
+  render() {
+    if (!this.vidljiv) return
+
+    ctx.save()
+    ctx.translate(this.x, this.y)
+    ctx.rotate(this.ugao)
+    ctx.scale(this.odrazY, this.odrazX)
+    if (this.debug)
+      this.crtaOblik()
+    else
+      this.crtaSliku()
+    ctx.restore()
+
     if (this.zapaljen) this.plamen.render()
   }
 }

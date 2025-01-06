@@ -21,6 +21,5 @@ export default class Strelac extends Predmet {
       this.trza()
       this.poslednje = t
     }
-    this.render()
   }
 }

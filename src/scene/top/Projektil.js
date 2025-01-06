@@ -39,7 +39,6 @@ export default class Projektil {
   update(dt) {
     if (!this.ispaljen) return
     this.leti(dt)
-    this.render()
     if (this.jeVanEkrana) this.reset()
   }
 }
