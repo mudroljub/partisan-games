@@ -86,13 +86,6 @@ export default class Scena {
     this.elementUI.innerHTML = ''
   }
 
-  cisti() {
-    if (this.pozadina)
-      this.pozadina.render()
-    else
-      this.ctx.clearRect(0, 0, this.sirina, this.visina)
-  }
-
   obradiUnose() {
     this.predmeti.forEach(predmet => {
       if (predmet.proveriTipke) predmet.proveriTipke()
@@ -107,10 +100,16 @@ export default class Scena {
     this.predmeti.forEach(rekurzivnoAzuriraj)
   }
 
+  proveriSudare() {}
+
+  cisti() {
+    if (this.pozadina)
+      this.pozadina.render()
+    else
+      this.ctx.clearRect(0, 0, this.sirina, this.visina)
+  }
+
   render(dt, t) {
-    // this.predmeti.forEach(predmet => {
-    //   if (predmet.render) predmet.render(dt, t)
-    // })
     const rekurzivnoRender = predmet => {
       if (predmet.render) predmet.render(dt, t)
       if (predmet?.predmeti?.length) predmet.predmeti.forEach(rekurzivnoRender)
@@ -121,6 +120,7 @@ export default class Scena {
   loop(dt, t) {
     this.obradiUnose()
     this.update(dt, t)
+    this.proveriSudare()
     this.cisti()
     this.render(dt, t)
     this.renderSablon()
