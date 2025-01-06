@@ -5,8 +5,6 @@ export default class Scena {
   constructor(manager) {
     this.manager = manager
     this.predmeti = []
-    this.platno = platno
-    this.ctx = ctx
     this.nivoTla = this.visina
     this.lastTime = performance.now()
     this.pauza = false
@@ -28,31 +26,23 @@ export default class Scena {
 
   /* VELIČINA */
 
-  set sirina(sirina) {
-    this.platno.width = sirina
-  }
-
   get sirina() {
-    return this.platno.width
-  }
-
-  set visina(visina) {
-    this.platno.height = visina
+    return platno.width
   }
 
   get visina() {
-    return this.platno.height
+    return platno.height
   }
 
   /* POZADINA */
 
   set bojaPozadine(boja) {
-    this.ctx.fillStyle = boja
-    this.platno.style.backgroundColor = boja
+    // ctx.fillStyle = boja
+    platno.style.backgroundColor = boja
   }
 
   get bojaPozadine() {
-    return this.ctx.fillStyle
+    return ctx.fillStyle
   }
 
   /* UI */
@@ -72,11 +62,11 @@ export default class Scena {
   prozor() {
     if (!this.zavrsniTekst) return ''
     return /* html */`
-        <div class="prozorce centar">
-          <p>${this.zavrsniTekst}</p>
-          <button id="play-again">Igraj opet</button><button id="menu">Glavni meni</button>
-        </div>
-      `
+      <div class="prozorce centar">
+        <p>${this.zavrsniTekst}</p>
+        <button id="play-again">Igraj opet</button><button id="menu">Glavni meni</button>
+      </div>
+    `
   }
 
   zavrsi(text = 'Igra je završena.') {
@@ -98,7 +88,7 @@ export default class Scena {
     }
   }
 
-  /* PETLJA */
+  /* GLAVNA PETLJA */
 
   start() {
     this.gameLoop.start()
@@ -131,7 +121,7 @@ export default class Scena {
     if (this.pozadina)
       this.pozadina.render()
     else
-      this.ctx.clearRect(0, 0, this.sirina, this.visina)
+      ctx.clearRect(0, 0, this.sirina, this.visina)
   }
 
   render(dt, t) {
