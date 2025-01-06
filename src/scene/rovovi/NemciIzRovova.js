@@ -52,12 +52,12 @@ export default class NemciIzRovova extends Scena {
   proveriKraj() {
     if (this.energija > 0) return
 
-    let poruka = 'Hrabro si pao. '
+    this.zavrsniTekst = 'Hrabro si pao. '
     if (this.pogoci > this.rekord) {
-      poruka += `Ubio si ${this.pogoci} okupatora. To je novi rekord!`
+      this.zavrsniTekst += `Ubio si ${this.pogoci} okupatora. To je novi rekord!`
       localStorage.setItem('svabeRekord', this.pogoci)
     }
-    this.zavrsniProzor(poruka)
+    this.gotovo = true
   }
 
   ucitajRekord() {

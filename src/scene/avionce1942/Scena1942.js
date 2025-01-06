@@ -97,13 +97,13 @@ export default class Scena1942 extends Scena {
       this.dizePredmete(-DIZAJ)
 
     if (this.igrac.mrtav)
-      this.zavrsniProzor('Slavno si pao.')
+      this.zavrsi('Slavno si pao.')
   }
 
   proveriTlo() {
     if (this.igrac.jePrizemljen() && this.dignutostScene === 0) {
       this.zaustaviParalax()
-      if (this.igrac.ziv && this.vozilo.mrtav) this.zavrsniProzor('Misija je uspešno završena!')
+      if (this.igrac.ziv && this.vozilo.mrtav) this.zavrsi('Misija je uspešno završena!')
     }
   }
 

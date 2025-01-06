@@ -58,12 +58,16 @@ export default class Scena {
 
   /* UI */
 
-  handleClick = e => {
+  handleClick = e => {}
+
+  onClick = e => {
     if (e.target.id == 'play-again')
       this.manager.start(this.constructor.name)
 
     if (e.target.id == 'menu')
       this.manager.start('MainMenu')
+
+    this.handleClick(e)
   }
 
   prozor() {
@@ -76,13 +80,14 @@ export default class Scena {
       `
   }
 
+  zavrsi(poruka = 'Igra je završena.') {
+    this.gotovo = true // mozda ukinuti
+    this.zavrsniTekst = poruka
+  }
+
   pocetniProzor(text) {
     // this.ui.pocetniProzor(text, () => this.pauza = false)
     // this.pauza = true
-  }
-
-  zavrsniProzor(text) {
-    // this.ui.zavrsniProzor(text, this.constructor.name)
   }
 
   sablon() {
@@ -104,14 +109,14 @@ export default class Scena {
 
   start() {
     this.gameLoop.start()
-    document.addEventListener('click', this.handleClick)
+    document.addEventListener('click', this.onClick)
   }
 
   end() {
     this.gameLoop.stop()
     this.predmeti = []
     this.elementUI.innerHTML = this.prozorElement.innerHTML = ''
-    document.removeEventListener('click', this.handleClick)
+    document.removeEventListener('click', this.onClick)
   }
 
   proveriTipke(dt) {
