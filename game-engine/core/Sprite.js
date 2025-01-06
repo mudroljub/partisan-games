@@ -2,9 +2,9 @@ import Predmet from './Predmet.js'
 import { ctx } from '../io/platno.js'
 
 class Animacija {
-  constructor(ime, duzina, pocetak, sirinaSlicice, visinaSlicice, loop = true) {
+  constructor(ime, brojKadrova, pocetak, sirinaSlicice, visinaSlicice, loop = true) {
     this.ime = ime
-    this.duzina = duzina
+    this.brojKadrova = brojKadrova
     this.pocetak = pocetak
     this.sirina = sirinaSlicice
     this.visina = visinaSlicice
@@ -29,8 +29,8 @@ export default class Sprite extends Predmet {
     const sirina = this.slika.naturalWidth / brojKolona
     const visina = this.slika.naturalHeight / imena.length
     return imena.map((ime, i) => {
-      const duzina = duzine[i] || duzine
-      return new Animacija(ime, duzina, i * duzina, sirina, visina)
+      const brojKadrova = duzine[i] || duzine
+      return new Animacija(ime, brojKadrova, i * brojKadrova, sirina, visina)
     })
   }
 
@@ -56,15 +56,15 @@ export default class Sprite extends Predmet {
     if (!this.animacija) this.animacija = this.nadjiAnimaciju(this.imeAnimacije)
     if (!this.animacija) return
 
-    const { pocetak, sirina, visina, duzina } = this.animacija
+    const { pocetak, sirina, visina, brojKadrova } = this.animacija
 
     const nijeZavrsena = this.proteklo + dt < this.vremeAnimacije
     if (this.animacija.loop || nijeZavrsena) this.proteklo += dt
 
-    const duzinaKadra = this.vremeAnimacije / duzina
+    const duzinaKadra = this.vremeAnimacije / brojKadrova
     const trenutniKadar = Math.floor((this.proteklo % this.vremeAnimacije) / duzinaKadra)
-    const trenutniRed = Math.floor((pocetak + trenutniKadar) / duzina)
-    const trenutnaKolona = (pocetak + trenutniKadar) - (trenutniRed * Math.floor(duzina))
+    const trenutniRed = Math.floor((pocetak + trenutniKadar) / brojKadrova)
+    const trenutnaKolona = (pocetak + trenutniKadar) - (trenutniRed * Math.floor(brojKadrova))
     const slikaX = trenutnaKolona * sirina
     const slikaY = trenutniRed * visina
 
