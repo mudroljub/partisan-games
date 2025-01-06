@@ -12,11 +12,12 @@ export default class NemciIzRovova extends Scena {
     this.rekord = 0
     this.energija = 100
     this.ubrzano = false
-    this.bliziRovovi = this.praviSvabe(10, BLIZI_Y, { skalar: 1, ucestalost: 0.03 })
-    this.daljiRovovi = this.praviSvabe(12, DALJI_Y, { skalar: .5, ucestalost: 0.02 })
+    this.nanesiStetu = this.nanesiStetu.bind(this)
+    this.bliziRovovi = this.praviSvabe(10, BLIZI_Y, { skalar: 1, ucestalost: 0.03, callback: this.nanesiStetu })
+    this.daljiRovovi = this.praviSvabe(12, DALJI_Y, { skalar: .5, ucestalost: 0.02, callback: this.nanesiStetu })
     this.sveSvabe = [...this.bliziRovovi, ...this.daljiRovovi]
+    this.dodaj(...this.sveSvabe)
     this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
-
     this.ucitajRekord()
     mish.dodajNishan()
     this.handleClick = this.handleClick.bind(this)
@@ -28,7 +29,7 @@ export default class NemciIzRovova extends Scena {
     const polaRazmaka = razmak / 2
     return Array.from({ length: n }, (_, i) => {
       const x = i * razmak + polaRazmaka
-      const svabo = new Svabo(params.skalar, params.ucestalost)
+      const svabo = new Svabo(params)
       svabo.polozaj(x, y)
       return svabo
     })
@@ -63,7 +64,7 @@ export default class NemciIzRovova extends Scena {
     this.proveriPogotke(ciljaniRovovi)
   }
 
-  povrediMe = (damage, dt) => {
+  nanesiStetu(damage, dt) {
     this.energija = Math.max(0, this.energija - damage * dt)
   }
 
@@ -73,16 +74,13 @@ export default class NemciIzRovova extends Scena {
     mish.ukloniNishan()
   }
 
-  loop(dt, protekloSekundi) {
-    this.pozadina.render()
-    this.sveSvabe.forEach(svabo => svabo.update(dt, this.povrediMe))
-
-    if (!this.ubrzano && protekloSekundi >= 30) {
+  update(dt, t) {
+    super.update(dt, t)
+    if (!this.ubrzano && t >= 30) {
       this.sveSvabe.forEach(svabo => svabo.ubrzaj(2))
       this.ubrzano = true
     }
     this.proveriKraj()
-    this.renderSablon()
   }
 
   sablon() {

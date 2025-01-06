@@ -6,9 +6,10 @@ const rafal = new Audio('/assets/zvuci/rafal.mp3')
 
 export default class Svabo extends Predmet {
 
-  constructor(skalar, ucestalost = 0.03) {
+  constructor({ skalar, ucestalost = 0.03, callback }) {
     super ('/assets/slike/2d-prvo-lice/rov-prazan.gif', { skalar })
     this.ucestalost = ucestalost
+    this.callback = callback
     this.init()
   }
 
@@ -57,13 +58,13 @@ export default class Svabo extends Predmet {
     this.ucestalost *= n
   }
 
-  update(dt, callback) {
+  update(dt) {
     super.update(dt)
     this.povremenoUstaje(dt)
     if (this.jeSpreman()) {
       this.puca()
       rafal.play()
-      callback(10, dt)
+      this.callback(10, dt)
     }
   }
 }
