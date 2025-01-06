@@ -99,7 +99,7 @@ export default class Tenk extends Predmet {
   }
 
   render() {
-    this.cev.render()
+    this.cev.render() // ovako cev ne ide preko plamena
     super.render()
   }
 }
