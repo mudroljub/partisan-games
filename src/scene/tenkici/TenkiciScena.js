@@ -16,11 +16,11 @@ export default class TenkiciScena extends Scena {
     this.tenk2 = new Tenk2(skalar)
     this.tenk.y = nivoTla
     this.tenk2.y = nivoTla
-    this.gotovo = false
     this.predmeti = [this.tenk, this.tenk2]
   }
 
   handleClick = e => {
+    super.handleClick(e)
     if (e.target.id == 'dva-igraca') dvaIgraca = !dvaIgraca
   }
 

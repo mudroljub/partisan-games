@@ -7,6 +7,7 @@ export default class Scena {
     this.manager = manager
     this.predmeti = []
     this.gameLoop = new GameLoop(this.loop)
+    this.handleClick = this.handleClick.bind(this)
     // UI
     this.elementUI = document.getElementById('ui')
     this.upamcenUI = ''
@@ -47,9 +48,7 @@ export default class Scena {
 
   /* UI */
 
-  handleClick = e => {}
-
-  onClick = e => {
+  handleClick(e) {
     if (e.target.id == 'igraj-opet')
       this.manager.start(this.constructor.name)
 
@@ -58,8 +57,6 @@ export default class Scena {
 
     if (e.target.id == 'cancel')
       this.nastaviIgru()
-
-    this.handleClick(e)
   }
 
   napustiIgru() {
@@ -120,14 +117,14 @@ export default class Scena {
 
   start() {
     this.gameLoop.start()
-    document.addEventListener('click', this.onClick)
+    document.addEventListener('click', this.handleClick)
   }
 
   end() {
     this.gameLoop.stop()
     this.predmeti = []
     this.elementUI.innerHTML = this.prozorElement.innerHTML = ''
-    document.removeEventListener('click', this.onClick)
+    document.removeEventListener('click', this.handleClick)
   }
 
   proveriTipke(dt) {

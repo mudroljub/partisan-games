@@ -18,7 +18,10 @@ export default class OtpisaniScena extends Scena {
     this.dodaj(this.svabo)
   }
 
-  handleClick = this.svabo.proveriPogodak.bind(this.svabo)
+  handleClick = e => {
+    super.handleClick(e)
+    this.svabo.proveriPogodak()
+  }
 
   end() {
     super.end()

@@ -23,6 +23,10 @@ export default class MainMenu extends Scena {
     this.manager.start(e.target.value)
   }
 
+  napustiIgru() {
+    return ''
+  }
+
   sablon() {
     const izbornik = Object.entries(items).map(([kljuc, naziv]) =>
       `<button value='${kljuc}' class='js-start full'>${naziv}</button>`
