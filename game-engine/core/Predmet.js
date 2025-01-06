@@ -26,6 +26,7 @@ export default class Predmet {
     this.odrazX = 1
     this.oznake = new Set()
     this.debug = false
+    this.predmeti = []
   }
 
   onload() {} // callback

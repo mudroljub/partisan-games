@@ -1,52 +1,76 @@
 [![](screen.png)](https://mudroljub.github.io/igrica-partizani/)
 
-# Igrica partizani
+# Partisan Games ★
 
 Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
-- da na esc napuštati nivo
-- OPTIMIZACIJA
-    - proveriti šta se učitava na naslovnoj, šta se instancira
-    - uklanjati događaje i sve čistiti na kraju nivoa
-- TEST:
-    - proveriti sve nivoe sa sporijim i bržim fps
-
+- ukinuti UI
+- prosleđivati manager sceni
 - da uvek bude isti document handleClick, samo radi drugačije zavisno od nivoa
+- da na esc napuštati nivo
 
-### Faza 1: refaktor i sredjivanje
-- Avionce: dodati zvuk motora
+### Sređivanje nivoa
+- ići po nivoima i prebaciti TODO ovde
 - spojiti ranjenike
 - preimenovati u ranjenici na sutjesci
-- spojiti tenkic dva igraca i tenkic protiv kompa, jedina razlika je mrdaNasumicno
-- spojiti 2d-odozgo/Oblak i 2d-bocno/Oblak?
-- spojiti savo-dan i savo-noc
-- TenkBocnoIgrac: odvojiti klasu Granata
-- TenkOdozgo: spojiti sa TenkIgracOdozgo
-- camac: popraviti odbijanje
-- da svi ispaljuju više projektila (radi na Avionce.js)
+- da svi ispaljuju više projektila (radi na Avionce)
 
-### Faza 3: 3D
+### 3D
 - dodati predmetima z osu (default 0)
-- spojiti predmete razlicitih perspektiva u jedan predmet (bocno, odozgo, prvolice..) sa više prikaza
 - srediti 3D koliziju
-- napraviti jednu mapu sa tri prikaza
+- integrisati https://github.com/mudroljub/partisans
+- dodati neke 3D igre, poput Savo i napad na aerodrom
+
+### Test
+- proveriti sve nivoe sa sporijim i bržim fps
 
 ## Dokumentacija
 
-`Scena` automatski poziva sledeće metode, koje nasledne scene mogu implementirati:
+### Scena
 
-- init()   // samo jednom
-- cisti()  // svaki frejm
-- sablon() // svaki frejm
-- update() // svaki frejm
+`Scena` automatski poziva razne metode, koje nasledne scene mogu implementirati.
 
-Ako scena ima niz `predmeti`, svaki frejm se pozivaju njihove metode:
+Metode koje poziva jednom:
 
-- predmet.update()
-- predmet.render()
+```js
+init()
+```
 
-Ako predmeti scene imaju predmete unutar sebe, i njihove metode će se rekurzivno pozivati.
+#### Glavna petlja
 
-Ako nasledna scena pregazi roditeljski `update` metod, onda ova logika ne važi.
+Metode koje Scena poziva unutar glavne petlje:
+
+```js
+loop(dt, t) {
+    this.proveriTipke(dt)
+    this.update(dt, t)
+    this.cisti()
+    this.render(dt, t)
+    this.sablon()
+}
+```
+
+Ako dodamo predmet sceni, Scena na njemu svaki frejm poziva sledeće metode:
+
+```js
+predmet.proveriTipke()
+predmet.update()
+    predmet.proveriGranice()
+predmet.render()
+```
+
+Ako predmeti imaju druge predmete unutar sebe, i njihove metode će se rekurzivno pozivati.
+
+Ako predmet nije dodat sceni, onda ove metode pozivamo ručno. 
+
+Petlju scene zaustavljamo na `stop()`, što zaleđuje animaciju. Čitavu scenu okončavamo na `end()`, što čisti šablone iz DOM-a, prazni predmete, zaustavlja zvuke i slično. U naslednim scenama je potrebno ukloniti sve dodate događaje.
+
+### Platno
+
+Platno vodi računa o veličini ekrana. Podrazumevano je to veličina scene.
+
+### Mish
+
+Mish vodi računa o svemu što se tiče kursora, njegovoj poziciji, izgledu, itd.

@@ -1,9 +1,8 @@
-import { randomRange } from '/game-engine/utils.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import platno from '/game-engine/io/platno.js'
+import { randomRange } from '/game-engine/utils.js'
 
 export default class Oblak extends Predmet {
-
   constructor(nivoTla = platno.height, dx = 0) {
     super('/assets/slike/oblak.gif')
     this.nivoTla = nivoTla

@@ -19,8 +19,8 @@ export default class Scena {
 
   init() {}
 
-  dodaj(...premeti) {
-    this.predmeti.push(...premeti)
+  dodaj(...predmeti) {
+    this.predmeti.push(...predmeti)
   }
 
   /* VELIČINA */
