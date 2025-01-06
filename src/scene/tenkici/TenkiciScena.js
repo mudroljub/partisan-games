@@ -1,22 +1,12 @@
-// reuse plamen
 import { platno } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
 import Tenk from './Tenk.js'
 import Tenk2 from './Tenk2.js'
-import Plamen from '/game-engine/core/Plamen.js'
 
 const nivoTla = platno.height * 0.8
 const skalar = window.innerWidth > 1280 ? 0.5 : 0.4
-const zapaljivostTenka = 20
 let dvaIgraca = false
-
-const proveriPlamen = (tenk, plamen) => {
-  if (tenk.energija > zapaljivostTenka) return
-  plamen.x = tenk.x
-  plamen.y = tenk.y
-  plamen.update()
-}
 
 export default class TenkiciScena extends Scena {
   constructor(...args) {
@@ -28,8 +18,6 @@ export default class TenkiciScena extends Scena {
     this.pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
     this.tenk = new Tenk(undefined, skalar)
     this.tenk2 = new Tenk2(skalar)
-    this.plamen = new Plamen()
-    this.plamen2 = new Plamen()
     this.tenk.y = nivoTla
     this.tenk2.y = nivoTla
     this.gotovo = false
@@ -46,12 +34,6 @@ export default class TenkiciScena extends Scena {
     document.removeEventListener('click', this.handleClick)
   }
 
-  render() {
-    super.render()
-    if (this.tenk.energija < zapaljivostTenka) this.plamen.render()
-    if (this.tenk2.energija < zapaljivostTenka) this.plamen2.render()
-  }
-
   update(dt) {
     super.update(dt)
     if (!dvaIgraca) this.tenk2.automatuj(this.tenk)
@@ -59,8 +41,6 @@ export default class TenkiciScena extends Scena {
       this.tenk.proveriPogodak(this.tenk2)
       this.tenk2.proveriPogodak(this.tenk)
     }
-    proveriPlamen(this.tenk, this.plamen)
-    proveriPlamen(this.tenk2, this.plamen2)
     if (this.tenk.mrtav || this.tenk2.mrtav) this.gotovo = true
   }
 

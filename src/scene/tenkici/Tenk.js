@@ -20,7 +20,13 @@ export default class Tenk extends Predmet {
     this.spremno = false
     this.granate = this.praviGranate()
     this.energija = 100
+    this.zapaljiv = true
+    this.zapaljivost = 20
     this.predmeti = [this.cev, ...this.granate]
+  }
+
+  get zapaljen() {
+    return this.energija <= this.zapaljivost
   }
 
   praviGranate(length = 10) {
