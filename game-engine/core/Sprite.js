@@ -13,14 +13,14 @@ class Animacija {
 }
 
 export default class Sprite extends Predmet {
-  constructor(src, { imena, duzine, sirina, visina }) { // broj ili niz brojeva ako su nejednake
-    super(src, { sirina, visina })
+  constructor(src, params) { // broj ili niz brojeva ako su nejednake
+    super(src, params)
     this.animacija = null
     this.imeAnimacije = ''
     this.vremeAnimacije = .5 // sekundi
     this.proteklo = 0
     this.onload = () => {
-      this.animacije = this.praviAnimacije(imena, duzine)
+      this.animacije = this.praviAnimacije(params.imena, params.brojKadrova)
     }
   }
 

@@ -5,7 +5,7 @@ import mish from '/game-engine/io/mish.js'
 export default class Okupator extends Sprite {
   constructor() {
     super ('/assets/slike/sprajtovi/okupator-sprite.png', {
-      imena: ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], duzine: 5, sirina: 50, visina: 180
+      imena: ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], brojKadrova: 5, sirina: 50, visina: 180
     })
     this.brzina = 200
     this.limitLevo = platno.width * .15
