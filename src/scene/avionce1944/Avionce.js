@@ -12,19 +12,19 @@ export class Avionce extends Igrac {
   constructor() {
     super('/assets/slike/2d-odozgo/avionce.gif', { skalar: .75 })
     this.vreme = new Vreme()
-    this.meci = []
     this.trenutniMetak = 0
     this.brzina = 0
     this.ugao = KRUZNICA * 3 / 4
-    this.praviMetke()
-  }
-
-  proveriGranice() {
-    this.ogranici()
+    this.meci = Array.from({ length: BROJ_METAKA }, () => new Metak(this))
+    this.predmeti = this.meci
   }
 
   onload() {
     this.polozaj(platno.width / 2, platno.height - this.visina)
+  }
+
+  proveriGranice() {
+    this.ogranici()
   }
 
   puca() {
@@ -40,23 +40,7 @@ export class Avionce extends Igrac {
     this.vreme.reset()
   }
 
-  praviMetke() {
-    for (let i = 0; i < BROJ_METAKA; i++)
-      this.meci[i] = new Metak(this)
-  }
-
-  azurirajMetke(dt) {
-    for (let i = 0; i < BROJ_METAKA; i++)
-      this.meci[i].update(dt)
-  }
-
   preostaloMetaka() {
     return BROJ_METAKA - this.trenutniMetak
-  }
-
-  update(dt) {
-    super.update(dt)
-    this.proveriTipke()
-    this.azurirajMetke(dt)
   }
 }

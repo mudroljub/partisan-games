@@ -13,7 +13,7 @@ export default class Predmet extends Kompozit {
     super(x, y)
     this.slika = new Image()
     this.slika.onload = () => {
-      this.srediVelicinu(sirina, visina, skalar)
+      this.dodeliVelicinu(sirina, visina, skalar)
       this.onload()
       this.slika.onload = null
     }
@@ -36,11 +36,11 @@ export default class Predmet extends Kompozit {
 
   /* VELICINA */
 
-  srediVelicinu = (sirina, visina, skalar) => {
-    if (sirina && visina) {
-      this.sirina = sirina
-      this.visina = visina
-    } else if (!sirina && !visina) {
+  dodeliVelicinu = (sirina, visina, skalar) => {
+    this.sirina = sirina
+    this.visina = visina
+
+    if (!sirina && !visina) {
       this.sirina = this.slika.naturalWidth * skalar
       this.visina = this.slika.naturalHeight * skalar
     } else if (sirina && !visina)
@@ -255,7 +255,7 @@ export default class Predmet extends Kompozit {
     const dy = this.dy.toFixed(2)
     const brzina = this.brzina.toFixed(2)
     const ugao = this.ugao.toFixed(2)
-    console.log(`x: ${x}, y: ${y}, dx: ${dx}, dy: ${dy}, brzina: ${brzina}, ugao: ${ugao}, ziv: ${this.ziv}`)
+    console.log(`${this.constructor.name} x: ${x}, y: ${y}, sirina: ${this.sirina}, visina: ${this.visina}, dx: ${dx}, dy: ${dy}, brzina: ${brzina}, ugao: ${ugao}, ziv: ${this.ziv}`)
   }
 
   crtaOblik() {

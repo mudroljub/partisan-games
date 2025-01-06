@@ -93,6 +93,12 @@ export default class Scena {
       this.ctx.clearRect(0, 0, this.sirina, this.visina)
   }
 
+  obradiUnose() {
+    this.predmeti.forEach(predmet => {
+      if (predmet.proveriTipke) predmet.proveriTipke()
+    })
+  }
+
   update(dt, t) {
     const rekurzivnoAzuriraj = predmet => {
       if (predmet.update) predmet.update(dt, t)
@@ -102,12 +108,18 @@ export default class Scena {
   }
 
   render(dt, t) {
-    this.predmeti.forEach(predmet => {
+    // this.predmeti.forEach(predmet => {
+    //   if (predmet.render) predmet.render(dt, t)
+    // })
+    const rekurzivnoRender = predmet => {
       if (predmet.render) predmet.render(dt, t)
-    })
+      if (predmet?.predmeti?.length) predmet.predmeti.forEach(rekurzivnoRender)
+    }
+    this.predmeti.forEach(rekurzivnoRender)
   }
 
   loop(dt, t) {
+    this.obradiUnose()
     this.update(dt, t)
     this.cisti()
     this.render(dt, t)

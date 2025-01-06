@@ -2,12 +2,12 @@ import Predmet from './Predmet.js'
 import { ctx } from '../io/platno.js'
 
 class Animacija {
-  constructor(ime, duzina, pocetak, sirina, visina, loop = true) {
+  constructor(ime, duzina, pocetak, sirinaSlicice, visinaSlicice, loop = true) {
     this.ime = ime
     this.duzina = duzina
     this.pocetak = pocetak
-    this.sirina = sirina // slicice
-    this.visina = visina
+    this.sirina = sirinaSlicice
+    this.visina = visinaSlicice
     this.loop = loop
   }
 }
