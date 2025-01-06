@@ -1,4 +1,3 @@
-import Kompozit from '/game-engine/core/Kompozit.js'
 import { platno, ctx } from '../io/platno.js'
 import { pitagora, randomRange } from '../utils.js'
 import { sudar } from '../utils/sudari.js'
@@ -6,11 +5,12 @@ import {
   izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde
 } from '/game-engine/utils/granice.js'
 
-export default class Predmet extends Kompozit {
+export default class Predmet {
   #ugao = 0
 
   constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1 } = {}) {
-    super(x, y)
+    this.x = x
+    this.y = y
     this.slika = new Image()
     this.slika.onload = () => {
       this.dodeliVelicinu(sirina, visina, skalar)

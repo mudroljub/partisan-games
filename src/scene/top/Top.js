@@ -14,7 +14,7 @@ export default class Top extends Predmet {
     this.ugao = -0.2
     this.sila = this.minSila = 600
     this.projektil = new Projektil()
-    this.predmeti.push(this.projektil)
+    this.predmeti = [this.projektil]
   }
 
   get vrhX() {
