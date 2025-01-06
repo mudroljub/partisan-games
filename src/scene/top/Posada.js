@@ -5,22 +5,17 @@ export default class Posada extends Predmet {
   constructor(x, y) {
     super('/assets/slike/2d-bocno/partizani/artiljerija/posada-01.png', { x, y })
     this.pocetniX = x
-    this.trza()
+    this.maxX = x + 10
   }
 
-  trza() {
-    this.x -= 10
-    this.puni = false
-  }
-
-  proveriTipke() {
+  proveriTipke(dt) {
     if (keyboard.space)
-      this.puni = true
+      this.x = Math.min(this.x + 20 * dt, this.maxX)
+    else
+      this.x = this.pocetniX
   }
 
   update(dt, t) {
     this.x += Math.sin(t) * dt
-    if (this.puni && this.x < this.pocetniX)
-      this.x += 20 * dt
   }
 }
