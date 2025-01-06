@@ -12,7 +12,7 @@ const tlo = platno.height * .75
 export default class TopScena extends Scena {
   init() {
     const zastavnik = new Zastavnik(40, tlo + 1)
-    this.top = new Top(190, tlo)
+    this.top = new Top(230, tlo - 32)
     const posada = new Posada(110, tlo + 8)
     const strelac = new Strelac(300, tlo + 8)
     this.tenk = new Tenk(250, tlo)

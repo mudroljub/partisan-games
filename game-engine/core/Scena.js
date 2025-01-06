@@ -86,9 +86,9 @@ export default class Scena {
     this.elementUI.innerHTML = ''
   }
 
-  proveriTipke() {
+  proveriTipke(dt) {
     this.predmeti.forEach(predmet => {
-      if (predmet.proveriTipke) predmet.proveriTipke()
+      if (predmet.proveriTipke) predmet.proveriTipke(dt)
     })
   }
 
@@ -116,7 +116,7 @@ export default class Scena {
   }
 
   loop(dt, t) {
-    this.proveriTipke()
+    this.proveriTipke(dt)
     this.update(dt, t)
     this.cisti()
     this.render(dt, t)
