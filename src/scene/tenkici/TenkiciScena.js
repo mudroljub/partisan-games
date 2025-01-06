@@ -1,5 +1,4 @@
 import { platno } from '/game-engine/io/platno.js'
-import { keyboard } from '/game-engine/io/Keyboard.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
 import Tenk from './Tenk.js'
@@ -33,6 +32,7 @@ export default class TenkiciScena extends Scena {
     this.tenk.y = nivoTla
     this.tenk2.y = nivoTla
     this.gotovo = false
+    this.predmeti = [this.tenk, this.tenk2]
   }
 
   handleClick = e => {
@@ -46,29 +46,21 @@ export default class TenkiciScena extends Scena {
   }
 
   render() {
-    this.pozadina.render()
-    this.tenk.render()
-    this.tenk2.render()
+    super.render()
     if (this.tenk.energija < zapaljivostTenka) this.plamen.render()
     if (this.tenk2.energija < zapaljivostTenka) this.plamen2.render()
-    this.renderSablon()
   }
 
-  loop(dt) {
-    this.tenk.proveriTipke()
-    this.tenk2.proveriTipke()
+  update(dt) {
+    super.update(dt)
     if (!dvaIgraca) this.tenk2.automatuj(this.tenk)
     if (!this.gotovo) {
       this.tenk.proveriPogodak(this.tenk2)
       this.tenk2.proveriPogodak(this.tenk)
     }
-    this.tenk.update(dt)
-    this.tenk2.update(dt)
     proveriPlamen(this.tenk, this.plamen)
     proveriPlamen(this.tenk2, this.plamen2)
     if (this.tenk.mrtav || this.tenk2.mrtav) this.gotovo = true
-    if (this.gotovo && keyboard.pressed.Enter) this.init()
-    this.render()
   }
 
   praviProzor() {
