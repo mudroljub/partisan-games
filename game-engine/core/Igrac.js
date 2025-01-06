@@ -7,12 +7,12 @@ export default class Igrac extends Predmet {
     super(src, params)
     this.oznake.add('igrac')
     this.potisak = 31
-    this.prohodnost = 0.9
     this.omoguciTipke = true
     this.komandeNapredne = false // da se okreće oko svoje ose
     this.neprijatelji = []
     this.cvrstaTela = []
     this.okret = 0.047
+    this.faktorTrenja = .1
   }
 
   iskljuciTipke() {
@@ -57,13 +57,8 @@ export default class Igrac extends Predmet {
     console.log('puca')
   }
 
-  praviTrenje() {
-    this.dx *= this.prohodnost
-    this.dy *= this.prohodnost
-  }
-
   update(dt) {
     super.update(dt)
-    this.praviTrenje()
+    this.trenje(this.faktorTrenja)
   }
 }

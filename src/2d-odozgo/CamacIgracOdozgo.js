@@ -7,7 +7,7 @@ export default class CamacIgracOdozgo extends VoziloIgracOdozgo {
   constructor(src = '/assets/slike/2d-odozgo/camac.png') {
     super(src, { skalar: .5 })
     this.potisak = 50
-    this.prohodnost = 0.85
+    this.faktorTrenja = 0.15
   }
 
   dodajStruju() {

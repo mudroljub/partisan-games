@@ -124,8 +124,8 @@ export default class Predmet {
     this.dy += velicina * Math.sin(ugao)
   }
 
-  trenje(koeficijent = 0.1) {
-    const modifikator = 1 - koeficijent
+  trenje(faktorTrenja = 0.1) {
+    const modifikator = 1 - faktorTrenja
     this.dx *= modifikator
     this.dy *= modifikator
   }

@@ -6,7 +6,6 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
-- spojiti trenje i praviTrenje, prohodnost
 - da na esc napuštati nivo
 - OPTIMIZACIJA
     - proveriti šta se učitava na naslovnoj, šta se instancira

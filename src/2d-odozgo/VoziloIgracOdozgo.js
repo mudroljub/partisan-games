@@ -6,7 +6,7 @@ export default class VoziloIgracOdozgo extends Igrac {
   constructor(src, param = {}) {
     super(src, param)
     this.potisak = 125
-    this.prohodnost = 0.7
+    this.faktorTrenja = 0.3
     this.granata = new Granata(this)
     this.komandeNapredne = true
   }

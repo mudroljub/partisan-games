@@ -5,7 +5,7 @@ export default class Bombas extends Igrac {
   constructor() {
     super('/assets/slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif')
     this.potisak = 75
-    this.prohodnost = 0.7
+    this.faktorTrenja = 0.3
     this.polozaj(100, 100)
   }
 
