@@ -20,7 +20,7 @@ export default class Tenk2 extends Tenk {
     this.smer = this.ugao = Math.PI
     this.granate = this.praviGranate()
     this.odrazX = this.odrazY = -1
-    this.predmeti = [this.cev, ...this.granate]
+    this.predmeti = [...this.granate]
   }
 
   automatuj(predmet) {

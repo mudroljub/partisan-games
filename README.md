@@ -6,7 +6,6 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
-- plamen uvek mora preko slike
 - spojiti trenje i praviTrenje, prohodnost
 - izbaciti plamen iz Tenkici, reuse predmet zapaljen
 - da na esc napuštati nivo

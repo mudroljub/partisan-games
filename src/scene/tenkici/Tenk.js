@@ -22,7 +22,7 @@ export default class Tenk extends Predmet {
     this.energija = 100
     this.zapaljiv = true
     this.zapaljivost = 20
-    this.predmeti = [this.cev, ...this.granate]
+    this.predmeti = [...this.granate]
   }
 
   get zapaljen() {
@@ -93,7 +93,13 @@ export default class Tenk extends Predmet {
 
   update(dt) {
     super.update(dt)
+    this.cev.update(dt)
     this.trenje(this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje)
     this.proveriSmrt()
+  }
+
+  render() {
+    this.cev.render()
+    super.render()
   }
 }
