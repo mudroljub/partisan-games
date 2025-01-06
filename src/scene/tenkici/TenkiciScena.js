@@ -1,3 +1,4 @@
+// reuse plamen
 import { platno } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'

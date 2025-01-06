@@ -12,7 +12,7 @@ const vremePunjenja = 1000
 export default class Tenk extends Predmet {
   constructor(src = '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', skalar) {
     super(src, { skalar })
-    this.potisak = 30
+    this.potisak = 25
     this.cev = new Cev(this, '/assets/slike/2d-bocno/partizanski-tenk-cev.png', skalar)
     this.vreme = new Vreme()
     this.x = Math.random() * platno.width * 0.3
@@ -39,11 +39,6 @@ export default class Tenk extends Predmet {
     this.granate
       .filter(granata => granata.ispaljena)
       .forEach(granata => granata.proveriPogodak(predmet))
-  }
-
-  trenje() {
-    const koeficijent = (this.brzina > 0.1) ? kinetickoTrenje : statickoTrenje
-    super.trenje(koeficijent)
   }
 
   proveriPucanje(key = 'space') {
@@ -90,8 +85,8 @@ export default class Tenk extends Predmet {
   }
 
   update(dt) {
-    this.trenje()
     super.update(dt)
+    this.trenje(this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje)
     this.cev.update(dt)
     this.granate.forEach(granata => granata.update(dt))
     this.proveriSmrt()
