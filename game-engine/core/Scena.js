@@ -100,8 +100,6 @@ export default class Scena {
     this.predmeti.forEach(rekurzivnoAzuriraj)
   }
 
-  proveriSudare() {}
-
   cisti() {
     if (this.pozadina)
       this.pozadina.render()
@@ -120,7 +118,6 @@ export default class Scena {
   loop(dt, t) {
     this.obradiUnose()
     this.update(dt, t)
-    this.proveriSudare()
     this.cisti()
     this.render(dt, t)
     this.renderSablon()

@@ -59,7 +59,6 @@ export default class Igrac extends Predmet {
 
   update(dt) {
     super.update(dt)
-    this.proveriTipke()
     this.praviTrenje()
   }
 }

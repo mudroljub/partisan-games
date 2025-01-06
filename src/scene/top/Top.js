@@ -40,7 +40,6 @@ export default class Top extends Kompozit {
   }
 
   update(dt) {
-    this.proveriTipke(dt)
     if (this.x < this.pocetniX) this.x += 20 * dt
   }
 }

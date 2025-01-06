@@ -12,6 +12,7 @@ export default class Minobacac extends Kvadrat {
     this.ugao = 0.5
     this.sila = this.minSila = 400
     this.projektil = new Projektil()
+    this.predmeti = [this.projektil]
   }
 
   get vrhCeviX() {
@@ -43,10 +44,5 @@ export default class Minobacac extends Kvadrat {
       this.ugao += POMERAJ_UGLA
     if (keyboard.down || keyboard.right)
       this.ugao -= POMERAJ_UGLA
-  }
-
-  update(dt) {
-    this.proveriTipke()
-    this.projektil.update(dt)
   }
 }

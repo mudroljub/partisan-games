@@ -41,8 +41,4 @@ export default class TopCev extends Predmet {
     if (keyboard.down) 
       this.ugao = Math.min(this.ugao + 0.5 * dt, MAX_UGAO)
   }
-
-  update(dt) {
-    this.proveriTipke(dt)
-  }
 }

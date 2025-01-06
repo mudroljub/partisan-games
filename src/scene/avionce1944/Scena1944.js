@@ -42,6 +42,11 @@ export default class Scena1944 extends Scena {
     this.igrac.zvukMotora.pause()
   }
 
+  update(dt) {
+    super.update(dt)
+    this.proveriSudare()
+  }
+
   sablon() {
     return /* html */`
       <div class='komande bg-poluprovidno komande1'>

@@ -53,6 +53,7 @@ export default class RanjenikScena extends Scena {
 
   update(dt, t) {
     super.update(dt, t)
+    this.proveriSudare()
     this.proveriPobedu()
   }
 

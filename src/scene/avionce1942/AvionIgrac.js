@@ -14,6 +14,7 @@ export default class AvionIgrac extends Igrac {
     this.oznake.add('igrac')
     this.raketa = new Raketa(this)
     this.zapaljiv = true
+    this.predmeti.push(this.raketa)
   }
 
   proveriGranice() {
@@ -89,7 +90,6 @@ export default class AvionIgrac extends Igrac {
     super.update(dt)
     this.proveriTlo()
     this.proveriSudare()
-    this.proveriGranice()
     this.proveriGravitaciju()
     this.ispraviAvion()
     this.raketa.update(dt)

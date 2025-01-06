@@ -130,9 +130,8 @@ export default class Avionce1942 extends Scena {
     crtaNebo(this.nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
   }
 
-  loop(dt) {
-    super.loop(dt)
-    this.proveriTipke()
+  update(dt) {
+    super.update(dt)
     this.proveriTlo()
     this.proveriSmrt()
   }
