@@ -1,3 +1,4 @@
+import { keyboard } from '../io/Keyboard.js'
 import { platno, ctx } from '../io/platno.js'
 import GameLoop from './GameLoop.js'
 
@@ -5,11 +6,8 @@ export default class Scena {
   constructor(manager) {
     this.manager = manager
     this.predmeti = []
-    this.nivoTla = this.visina
-    this.lastTime = performance.now()
-    this.pauza = false
-    this.loop = this.loop.bind(this)
-    this.gameLoop = new GameLoop(this.loop, false)
+    this.gameLoop = new GameLoop(this.loop)
+    // UI
     this.elementUI = document.getElementById('ui')
     this.upamcenUI = ''
     this.prozorElement = document.getElementById('prozor')
@@ -103,7 +101,12 @@ export default class Scena {
   }
 
   proveriTipke(dt) {
-    if (this.zavrsniTekst) return
+    if (this.zavrsniTekst) return // onemogućuje tipke
+
+    if (keyboard.pressed.Escape) {
+      console.log('esc')
+    }
+
     this.predmeti.forEach(predmet => {
       if (predmet.proveriTipke) predmet.proveriTipke(dt)
     })
@@ -132,7 +135,7 @@ export default class Scena {
     this.predmeti.forEach(rekurzivnoRender)
   }
 
-  loop(dt, t) {
+  loop = (dt, t) => {
     this.proveriTipke(dt)
     this.update(dt, t)
     this.cisti()
