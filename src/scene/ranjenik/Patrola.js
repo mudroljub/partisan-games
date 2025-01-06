@@ -5,16 +5,15 @@ import Vreme from '/game-engine/core/Vreme.js'
 const zvuciTraganje = ['eatdirtpig.wav', 'killthepig.wav', 'QuicklyQuickly.wav', 'schnell.wav', 'UpThere.wav', 'whereishe.wav']
 const zvuciNadjen = ['Stop.wav', 'StopStayWhereYouAre.wav', 'thereheis.wav']
 
-let brojac = 0
-
 export default class Patrola extends Predmet {
   constructor(src = '/assets/slike/2d-odozgo/nemci-patrola.gif', target) {
     super(src)
-    this.brzina = 166
+    this.brzina = 90
     this.vremePricanja = new Vreme()
     this.vremeSkretanja = new Vreme()
     this.zvuk = new Audio('/assets/zvuci/patrola/Stop.wav')
     this.target = target // opciono, za jačinu zvuka
+    this.brojac
   }
 
   proveriGranice() {
@@ -45,9 +44,9 @@ export default class Patrola extends Predmet {
 
   vikniZaredom(brojPuta) {
     this.pustiNasumicno(zvuciNadjen)
-    brojac++
+    this.brojac++
     this.zvuk.onended = () => {
-      if (brojac >= brojPuta) return
+      if (this.brojac >= brojPuta) return
       this.vikniZaredom(brojPuta)
     }
   }
