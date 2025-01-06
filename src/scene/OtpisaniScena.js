@@ -26,7 +26,7 @@ export default class OtpisaniScena extends Scena {
     platno.removeEventListener('click', this.proveriPogodak)
   }
 
-  update(dt) {
+  loop(dt) {
     this.pozadina.render()
     this.svabo.patroliraj()
     this.svabo.update(dt)

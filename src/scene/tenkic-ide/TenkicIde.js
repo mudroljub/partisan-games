@@ -26,8 +26,8 @@ export default class TenkicIde extends Scena {
     crtaNeboZemlju(this.nivoTla)
   }
 
-  update(dt) {
-    super.update(dt)
+  loop(dt) {
+    super.loop(dt)
     this.planina.update(dt)
     this.shumarak.update(dt)
     this.oblaci.forEach(oblak => oblak.update(dt))

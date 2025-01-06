@@ -37,8 +37,8 @@ export default class RanjenikPaljba extends Scena {
       // game over
   }
 
-  update(dt) {
-    super.update(dt)
+  loop(dt) {
+    super.loop(dt)
     this.pali()
     this.proveriKraj()
   }

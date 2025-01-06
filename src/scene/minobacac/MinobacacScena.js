@@ -13,8 +13,8 @@ export default class MinobacacScena extends Scena {
     this.dodaj(this.brdo, this.tlo, this.minobacac)
   }
 
-  update(dt) {
-    super.update(dt)
+  loop(dt) {
+    super.loop(dt)
     this.proveriPogodak()
   }
 

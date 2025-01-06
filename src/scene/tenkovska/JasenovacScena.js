@@ -11,8 +11,8 @@ export default class JasenovacScena extends Scena {
     this.dodaj(zica, this.tenk)
   }
 
-  update(dt) {
-    super.update(dt)
+  loop(dt) {
+    super.loop(dt)
     this.tenk.patroliraj()
   }
 

@@ -76,8 +76,8 @@ export default class RanjenikScena extends Scena {
     this.patrola.zvuk.pause()
   }
 
-  update(dt, t) {
-    super.update(dt, t)
+  loop(dt, t) {
+    super.loop(dt, t)
     this.proveriSudare()
     if (this.strelicaVidljiva) crtajStrelicu()
     this.smenjujStrelicu()

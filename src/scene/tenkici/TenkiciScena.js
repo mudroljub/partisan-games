@@ -54,7 +54,7 @@ export default class TenkiciScena extends Scena {
     this.renderSablon()
   }
 
-  update(dt) {
+  loop(dt) {
     this.tenk.proveriTipke()
     this.tenk2.proveriTipke()
     if (!dvaIgraca) this.tenk2.automatuj(this.tenk)

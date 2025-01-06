@@ -48,7 +48,7 @@ export default class VoziloBocno extends Predmet {
   }
 
   azurirajSliku() {
-    this.odrazX = this.ugao === Math.PI
+    this.odrazX = this.ugao === Math.PI ? -1 : 1
   }
 
   update(dt) {

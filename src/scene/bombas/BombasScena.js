@@ -57,8 +57,8 @@ export default class BombasScena extends Scena {
     setTimeout(() => this.end(), 1000)
   }
 
-  update(dt) {
-    super.update(dt)
+  loop(dt) {
+    super.loop(dt)
     this.proveriVreme()
     this.proveriPobedu()
     this.proveriPrepreke(dt)

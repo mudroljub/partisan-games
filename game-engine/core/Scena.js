@@ -10,8 +10,8 @@ export default class Scena {
     this.ui = ui
     this.lastTime = performance.now()
     this.pauza = false
-    this.update = this.update.bind(this)
-    this.gameLoop = new GameLoop(this.update, false)
+    this.loop = this.loop.bind(this)
+    this.gameLoop = new GameLoop(this.loop, false)
     this.elementUI = document.getElementById('ui')
     this.upamcenSablon = ''
     this.init()
@@ -93,7 +93,7 @@ export default class Scena {
       this.ctx.clearRect(0, 0, this.sirina, this.visina)
   }
 
-  update(dt, t) {
+  loop(dt, t) {
     this.cisti()
     const rekurzivnoAzuriraj = predmet => {
       if (predmet.update) predmet.update(dt, t)

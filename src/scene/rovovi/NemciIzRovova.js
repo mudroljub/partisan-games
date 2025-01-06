@@ -73,7 +73,7 @@ export default class NemciIzRovova extends Scena {
     mish.ukloniNishan()
   }
 
-  update(dt, protekloSekundi) {
+  loop(dt, protekloSekundi) {
     this.pozadina.render()
     this.sveSvabe.forEach(svabo => svabo.update(dt, this.povrediMe))
 
