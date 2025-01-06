@@ -1,12 +1,13 @@
 button {
   background-color: #D94A38;
-  border-radius: .3em;
+  border-radius: 6px;
   border: 1px solid gray;
   cursor: pointer;
   font-family: Courier;
   font-size: 110%;
   font-weight: bold;
-  padding: 1em 1.6em;
+  min-width: 96px;
+  padding: 16px 24px;
   transition: background-color .4s;
 }
 
