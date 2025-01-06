@@ -27,7 +27,7 @@ export default class BombasScena extends Scena {
 
   proveriPobedu() {
     if (this.bombas.razmakDo(this.bunker) < this.bunker.sirina / 2) {
-      this.bunker.gori()
+      this.bunker.umri()
       this.zavrsiIgru('Neprijateljski bunker je uništen.')
     }
   }
@@ -46,7 +46,7 @@ export default class BombasScena extends Scena {
 
   zavrsiIgru(text) {
     this.zavrsniProzor(text)
-    setTimeout(() => this.end(), 1000)
+    this.bombas.iskljuciTipke()
   }
 
   update(dt) {
