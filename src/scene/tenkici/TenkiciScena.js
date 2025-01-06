@@ -9,11 +9,6 @@ const skalar = window.innerWidth > 1280 ? 0.5 : 0.4
 let dvaIgraca = false
 
 export default class TenkiciScena extends Scena {
-  constructor(...args) {
-    super(...args)
-    document.addEventListener('click', this.handleClick)
-  }
-
   init() {
     this.pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
     this.tenk = new Tenk(undefined, skalar)
@@ -27,11 +22,6 @@ export default class TenkiciScena extends Scena {
   handleClick = e => {
     if (e.target.id == 'dva-igraca') dvaIgraca = !dvaIgraca
     if (e.target.id == 'igraj-opet') this.init()
-  }
-
-  end() {
-    super.end()
-    document.removeEventListener('click', this.handleClick)
   }
 
   update(dt) {

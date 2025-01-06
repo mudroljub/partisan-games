@@ -17,21 +17,10 @@ const items = {
 }
 
 export default class MainMenu extends Scena {
-  start() {
-    super.start()
-    document.addEventListener('click', this.handleClick)
-    // this.ui.manager.start('TenkiciScena')
-  }
-
   handleClick = e => {
     if (!e.target.classList.contains('js-start')) return
 
     this.ui.manager.start(e.target.value)
-  }
-
-  end() {
-    super.end()
-    document.removeEventListener('click', this.handleClick)
   }
 
   sablon() {

@@ -12,7 +12,6 @@ import Prepreka from './Prepreka.js'
 
 const ZADATO_VREME = 10
 const BROJ_PREPREKA = 10
-const nivo = 1
 
 export default class BombasScena extends Scena {
   init() {
@@ -23,6 +22,8 @@ export default class BombasScena extends Scena {
     this.bunker.onload = () => this.bunker.nemojPreko(this.bombas)
     this.prepreke = Array.from({ length: BROJ_PREPREKA }, () => new Prepreka([this.bunker, this.bombas]))
     this.dodaj(...this.prepreke, this.bunker, this.bombas)
+    this.gotovo = false
+    this.zavrsniTekst = ''
   }
 
   proveriPobedu() {
@@ -35,7 +36,6 @@ export default class BombasScena extends Scena {
   proveriVreme() {
     if (this.vreme.protekloSekundi > ZADATO_VREME)
       this.zavrsiIgru('Tvoje vreme je isteklo. Izgubio si!')
-
   }
 
   proveriPrepreke() {
@@ -45,7 +45,9 @@ export default class BombasScena extends Scena {
   }
 
   zavrsiIgru(text) {
-    this.zavrsniProzor(text)
+    this.gotovo = true
+    this.zavrsniTekst = text
+    // this.zavrsniProzor(text)
     this.bombas.iskljuciTipke()
   }
 
@@ -56,12 +58,28 @@ export default class BombasScena extends Scena {
     this.proveriPrepreke(dt)
   }
 
+  /* UI */
+
+  handleClick = e => {
+    // if (e.target.id == 'opet') 
+    // if (e.target.id == 'menu') 
+  }
+
+  prozor() {
+    if (!this.gotovo) return ''
+    return /* html */`
+      <div class="prozorce centar">
+        <p>${this.zavrsniTekst}</p>
+        <button id="opet">Igraj opet</button><button id="menu">Glavni meni</button>
+      </div>
+    `
+  }
+
   sablon() {
     return /* html */`
       <main class='absolute full'>
         <h3 class="centar">Dovedi Žikicu Jovanovića Španca do nemačkog bunkera!</h3>
         <div class='komande bg-poluprovidno komande1'>
-          Nivo: ${nivo} <br>
           Vreme: ${Math.floor(this.vreme.protekloSekundi)} <br>
           Prepreke: ${BROJ_PREPREKA}
         </div>

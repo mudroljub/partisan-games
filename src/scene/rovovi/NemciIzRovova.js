@@ -19,8 +19,6 @@ export default class NemciIzRovova extends Scena {
     this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
     this.ucitajRekord()
     mish.dodajNishan()
-    this.handleClick = this.handleClick.bind(this)
-    document.addEventListener('click', this.handleClick)
   }
 
   praviSvabe(n, y, params) {
@@ -34,7 +32,7 @@ export default class NemciIzRovova extends Scena {
     })
   }
 
-  handleClick() {
+  handleClick = () => {
     const ciljaniRovovi = (mish.y <= DALJI_Y) ? this.daljiRovovi : this.bliziRovovi
     this.proveriPogotke(ciljaniRovovi)
   }
@@ -69,7 +67,6 @@ export default class NemciIzRovova extends Scena {
 
   end() {
     super.end()
-    document.removeEventListener('click', this.handleClick)
     mish.ukloniNishan()
   }
 

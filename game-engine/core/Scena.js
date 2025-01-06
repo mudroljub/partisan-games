@@ -13,7 +13,9 @@ export default class Scena {
     this.loop = this.loop.bind(this)
     this.gameLoop = new GameLoop(this.loop, false)
     this.elementUI = document.getElementById('ui')
-    this.upamcenSablon = ''
+    this.upamcenUI = ''
+    this.prozorElement = document.getElementById('prozor')
+    this.upamcenProzor = ''
     this.init()
   }
 
@@ -67,23 +69,35 @@ export default class Scena {
     return ''
   }
 
+  prozor() {
+    return ''
+  }
+
   #renderSablon() {
-    if (this.upamcenSablon !== this.sablon()) {
+    if (this.upamcenUI !== this.sablon()) {
       this.elementUI.innerHTML = this.sablon()
-      this.upamcenSablon = this.sablon()
+      this.upamcenUI = this.sablon()
+    }
+    if (this.upamcenProzor !== this.prozor()) {
+      this.prozorElement.innerHTML = this.prozor()
+      this.upamcenProzor = this.prozor()
     }
   }
+
+  handleClick = e => {}
 
   /* PETLJA */
 
   start() {
     this.gameLoop.start()
+    document.addEventListener('click', this.handleClick)
   }
 
   end() {
     this.gameLoop.stop()
     this.predmeti = []
     this.elementUI.innerHTML = ''
+    document.removeEventListener('click', this.handleClick)
   }
 
   proveriTipke(dt) {

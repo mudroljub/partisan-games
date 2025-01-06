@@ -38,6 +38,12 @@ Metode koje poziva jednom:
 init()
 ```
 
+Metode koje poziva na klik:
+
+```js
+handleClick = () => {}
+```
+
 #### Glavna petlja
 
 Metode koje Scena poziva unutar glavne petlje:
@@ -65,7 +71,7 @@ Ako predmeti imaju druge predmete unutar sebe, i njihove metode će se rekurzivn
 
 Ako predmet nije dodat sceni, onda ove metode pozivamo ručno. 
 
-Petlju scene zaustavljamo na `stop()`, što zaleđuje animaciju. Čitavu scenu okončavamo na `end()`, što čisti šablone iz DOM-a, prazni predmete, zaustavlja zvuke i slično. U naslednim scenama je potrebno ukloniti sve dodate događaje.
+Scenu okončavamo na `end()`, što zaustavlja animaciju, čisti šablone iz DOM-a, prazni predmete, zaustavlja zvuke i slično. U naslednim scenama je potrebno ukloniti sve dodate događaje.
 
 ### Platno
 
