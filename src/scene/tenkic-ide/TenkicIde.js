@@ -2,6 +2,7 @@
 // tenkovi, bunkeri, vojnici...
 import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
+import { progresBar, komande } from '/game-ui/components.js'
 import Zbun from '/src/2d-bocno/Zbun.js'
 import Shuma from '/src/2d-bocno/Shuma.js'
 import Planina from '/src/2d-bocno/Planina.js'
@@ -30,16 +31,8 @@ export default class TenkicIde extends Scena {
   sablon() {
     return /* html */`
       <main class="komande bg-poluprovidno komande1">
-        <b>Komande</b>
-        <br> A - levo
-        <br> D - desno
-        <br> W - gore
-        <br> S - dole
-        <br> space - puca
-        <div class="progress-wrapper">
-          <progress value='${this.tenk.energija}' max='100'></progress>
-          <div class="energija">${this.tenk.energija}</div>
-        </div>
+        ${komande()}
+        ${progresBar(this.tenk.energija)}
       </main>
     `
   }
