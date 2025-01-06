@@ -2,12 +2,12 @@ import { platno, ctx } from '../io/platno.js'
 import GameLoop from './GameLoop.js'
 
 export default class Scena {
-  constructor(ui) {
+  constructor(manager) {
     this.predmeti = []
     this.platno = platno
     this.ctx = ctx
     this.nivoTla = this.visina
-    this.ui = ui
+    this.manager = manager
     this.lastTime = performance.now()
     this.pauza = false
     this.loop = this.loop.bind(this)
@@ -16,6 +16,8 @@ export default class Scena {
     this.upamcenUI = ''
     this.prozorElement = document.getElementById('prozor')
     this.upamcenProzor = ''
+    this.gotovo = false
+    this.zavrsniTekst = 'Igra je završena.'
     this.init()
   }
 
@@ -56,20 +58,34 @@ export default class Scena {
 
   /* UI */
 
-  pocetniProzor(text) {
-    this.ui.pocetniProzor(text, () => this.pauza = false)
-    this.pauza = true
-  }
+  handleClick = e => {
+    if (e.target.id == 'play-again')
+      this.manager.start(this.constructor.name)
 
-  zavrsniProzor(text) {
-    this.ui.zavrsniProzor(text, this.constructor.name)
-  }
-
-  sablon() {
-    return ''
+    if (e.target.id == 'menu')
+      this.manager.start('MainMenu')
   }
 
   prozor() {
+    if (!this.gotovo) return ''
+    return /* html */`
+        <div class="prozorce centar">
+          <p>${this.zavrsniTekst}</p>
+          <button id="play-again">Igraj opet</button><button id="menu">Glavni meni</button>
+        </div>
+      `
+  }
+
+  pocetniProzor(text) {
+    // this.ui.pocetniProzor(text, () => this.pauza = false)
+    // this.pauza = true
+  }
+
+  zavrsniProzor(text) {
+    // this.ui.zavrsniProzor(text, this.constructor.name)
+  }
+
+  sablon() {
     return ''
   }
 
@@ -84,8 +100,6 @@ export default class Scena {
     }
   }
 
-  handleClick = e => {}
-
   /* PETLJA */
 
   start() {
@@ -96,11 +110,12 @@ export default class Scena {
   end() {
     this.gameLoop.stop()
     this.predmeti = []
-    this.elementUI.innerHTML = ''
+    this.elementUI.innerHTML = this.prozorElement.innerHTML = ''
     document.removeEventListener('click', this.handleClick)
   }
 
   proveriTipke(dt) {
+    if (this.gotovo) return
     this.predmeti.forEach(predmet => {
       if (predmet.proveriTipke) predmet.proveriTipke(dt)
     })

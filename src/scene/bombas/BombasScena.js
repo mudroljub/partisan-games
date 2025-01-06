@@ -22,8 +22,6 @@ export default class BombasScena extends Scena {
     this.bunker.onload = () => this.bunker.nemojPreko(this.bombas)
     this.prepreke = Array.from({ length: BROJ_PREPREKA }, () => new Prepreka([this.bunker, this.bombas]))
     this.dodaj(...this.prepreke, this.bunker, this.bombas)
-    this.gotovo = false
-    this.zavrsniTekst = ''
   }
 
   proveriPobedu() {
@@ -47,8 +45,6 @@ export default class BombasScena extends Scena {
   zavrsiIgru(text) {
     this.gotovo = true
     this.zavrsniTekst = text
-    // this.zavrsniProzor(text)
-    this.bombas.iskljuciTipke()
   }
 
   update(dt) {
@@ -59,21 +55,6 @@ export default class BombasScena extends Scena {
   }
 
   /* UI */
-
-  handleClick = e => {
-    // if (e.target.id == 'opet') 
-    // if (e.target.id == 'menu') 
-  }
-
-  prozor() {
-    if (!this.gotovo) return ''
-    return /* html */`
-      <div class="prozorce centar">
-        <p>${this.zavrsniTekst}</p>
-        <button id="opet">Igraj opet</button><button id="menu">Glavni meni</button>
-      </div>
-    `
-  }
 
   sablon() {
     return /* html */`

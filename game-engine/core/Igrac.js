@@ -7,7 +7,6 @@ export default class Igrac extends Predmet {
     super(src, params)
     this.oznake.add('igrac')
     this.potisak = 31
-    this.omoguciTipke = true
     this.komandeNapredne = false // da se okreće oko svoje ose
     this.neprijatelji = []
     this.cvrstaTela = []
@@ -15,12 +14,8 @@ export default class Igrac extends Predmet {
     this.faktorTrenja = .1
   }
 
-  iskljuciTipke() {
-    this.omoguciTipke = false
-  }
-
   proveriTipke() {
-    if (!this.ziv || !this.omoguciTipke) return
+    if (!this.ziv) return
     if (keyboard.left) this.nalevo()
     if (keyboard.right) this.nadesno()
     if (keyboard.up) this.nagore()

@@ -20,7 +20,7 @@ export default class MainMenu extends Scena {
   handleClick = e => {
     if (!e.target.classList.contains('js-start')) return
 
-    this.ui.manager.start(e.target.value)
+    this.manager.start(e.target.value)
   }
 
   sablon() {

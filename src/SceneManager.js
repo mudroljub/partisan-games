@@ -1,4 +1,3 @@
-import UI from '/game-engine/core/UI.js'
 import scene from './scene.js'
 
 export default class SceneManager {
@@ -12,7 +11,7 @@ export default class SceneManager {
     if (this.currentScene)
       this.currentScene.end()
 
-    const novaScena = new scene[key](new UI(this))
+    const novaScena = new scene[key](this)
     this.currentScene = novaScena
     this.currentScene.start()
   }
