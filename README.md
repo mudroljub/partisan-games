@@ -6,9 +6,6 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
-- da na esc napuštati nivo
-    - otvarati prozor confirm
-
 ### Sređivanje nivoa
 - ići po nivoima i prebaciti TODO ovde
 - spojiti ranjenike
