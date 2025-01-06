@@ -20,6 +20,7 @@ export default class Tenk extends Predmet {
     this.spremno = false
     this.granate = this.praviGranate()
     this.energija = 100
+    this.predmeti = [this.cev, ...this.granate]
   }
 
   praviGranate(length = 10) {
@@ -87,14 +88,6 @@ export default class Tenk extends Predmet {
   update(dt) {
     super.update(dt)
     this.trenje(this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje)
-    this.cev.update(dt)
-    this.granate.forEach(granata => granata.update(dt))
     this.proveriSmrt()
-  }
-
-  render() {
-    this.granate.forEach(g => g.render())
-    this.cev.render()
-    super.render()
   }
 }
