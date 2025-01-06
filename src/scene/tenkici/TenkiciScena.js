@@ -21,7 +21,6 @@ export default class TenkiciScena extends Scena {
 
   handleClick = e => {
     if (e.target.id == 'dva-igraca') dvaIgraca = !dvaIgraca
-    if (e.target.id == 'igraj-opet') this.init()
   }
 
   update(dt) {
@@ -34,13 +33,13 @@ export default class TenkiciScena extends Scena {
     if (this.tenk.mrtav || this.tenk2.mrtav) this.gotovo = true
   }
 
-  praviProzor() {
+  prozor() {
     if (!this.gotovo) return ''
     return /* html*/`
       <div class="prozorce bg-black">
         <p class="valencia">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>
         <p class="avocado">${this.tenk.ziv ? this.tenk.ime : this.tenk2.ime} je pobedio ovu borbu.</p>
-        <h3><button id="igraj-opet" class="white">Igraj opet</button></h3>
+        <button id="igraj-opet" class="white">Igraj opet</button><button id="menu">Glavni meni</button>
       </div>
     `
   }
@@ -77,7 +76,6 @@ export default class TenkiciScena extends Scena {
           ${dvaIgraca ? 'Uključi<br> neprijatelja' : 'Dodaj igrača'}
         </button>
       </div>
-      ${this.praviProzor()}
     `
   }
 }

@@ -6,10 +6,8 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
-- ukinuti UI
-- prosleđivati manager sceni
-- da uvek bude isti document handleClick, samo radi drugačije zavisno od nivoa
 - da na esc napuštati nivo
+    - otvarati prozor confirm
 
 ### Sređivanje nivoa
 - ići po nivoima i prebaciti TODO ovde

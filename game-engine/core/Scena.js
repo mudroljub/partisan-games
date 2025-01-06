@@ -50,7 +50,7 @@ export default class Scena {
   handleClick = e => {}
 
   onClick = e => {
-    if (e.target.id == 'play-again')
+    if (e.target.id == 'igraj-opet')
       this.manager.start(this.constructor.name)
 
     if (e.target.id == 'menu')
@@ -64,7 +64,7 @@ export default class Scena {
     return /* html */`
       <div class="prozorce centar">
         <p>${this.zavrsniTekst}</p>
-        <button id="play-again">Igraj opet</button><button id="menu">Glavni meni</button>
+        <button id="igraj-opet">Igraj opet</button><button id="menu">Glavni meni</button>
       </div>
     `
   }
