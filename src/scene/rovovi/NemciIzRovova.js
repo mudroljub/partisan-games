@@ -12,9 +12,8 @@ export default class NemciIzRovova extends Scena {
     this.rekord = 0
     this.energija = 100
     this.ubrzano = false
-    this.nanesiStetu = this.nanesiStetu.bind(this)
-    this.bliziRovovi = this.praviSvabe(10, BLIZI_Y, { skalar: 1, ucestalost: 0.03, callback: this.nanesiStetu })
-    this.daljiRovovi = this.praviSvabe(12, DALJI_Y, { skalar: .5, ucestalost: 0.02, callback: this.nanesiStetu })
+    this.bliziRovovi = this.praviSvabe(10, BLIZI_Y, { skalar: 1, ucestalost: 0.03, callback: this.nanesiStetu.bind(this) })
+    this.daljiRovovi = this.praviSvabe(12, DALJI_Y, { skalar: .5, ucestalost: 0.02, callback: this.nanesiStetu.bind(this) })
     this.sveSvabe = [...this.bliziRovovi, ...this.daljiRovovi]
     this.dodaj(...this.sveSvabe)
     this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
@@ -35,6 +34,15 @@ export default class NemciIzRovova extends Scena {
     })
   }
 
+  handleClick() {
+    const ciljaniRovovi = (mish.y <= DALJI_Y) ? this.daljiRovovi : this.bliziRovovi
+    this.proveriPogotke(ciljaniRovovi)
+  }
+
+  nanesiStetu(damage, dt) {
+    this.energija = Math.max(0, this.energija - damage * dt)
+  }
+
   proveriPogotke(rovovi) {
     for (let i = 0; i < rovovi.length; i++)
       if (rovovi[i].jePogodjen()) {
@@ -45,7 +53,7 @@ export default class NemciIzRovova extends Scena {
 
   proveriKraj() {
     if (this.energija > 0) return
-    this.end()
+
     let poruka = 'Hrabro si pao. '
     if (this.pogoci > this.rekord) {
       poruka += `Ubio si ${this.pogoci} okupatora. To je novi rekord!`
@@ -59,15 +67,6 @@ export default class NemciIzRovova extends Scena {
     if (!this.rekord) this.rekord = 0
   }
 
-  handleClick() {
-    const ciljaniRovovi = (mish.y <= DALJI_Y) ? this.daljiRovovi : this.bliziRovovi
-    this.proveriPogotke(ciljaniRovovi)
-  }
-
-  nanesiStetu(damage, dt) {
-    this.energija = Math.max(0, this.energija - damage * dt)
-  }
-
   end() {
     super.end()
     document.removeEventListener('click', this.handleClick)
@@ -75,6 +74,8 @@ export default class NemciIzRovova extends Scena {
   }
 
   update(dt, t) {
+    if (this.energija <= 0) return
+
     super.update(dt, t)
     if (!this.ubrzano && t >= 30) {
       this.sveSvabe.forEach(svabo => svabo.ubrzaj(2))
