@@ -3,11 +3,11 @@ import GameLoop from './GameLoop.js'
 
 export default class Scena {
   constructor(manager) {
+    this.manager = manager
     this.predmeti = []
     this.platno = platno
     this.ctx = ctx
     this.nivoTla = this.visina
-    this.manager = manager
     this.lastTime = performance.now()
     this.pauza = false
     this.loop = this.loop.bind(this)
@@ -16,8 +16,7 @@ export default class Scena {
     this.upamcenUI = ''
     this.prozorElement = document.getElementById('prozor')
     this.upamcenProzor = ''
-    this.gotovo = false
-    this.zavrsniTekst = 'Igra je završena.'
+    this.zavrsniTekst = ''
     this.init()
   }
 
@@ -71,7 +70,7 @@ export default class Scena {
   }
 
   prozor() {
-    if (!this.gotovo) return ''
+    if (!this.zavrsniTekst) return ''
     return /* html */`
         <div class="prozorce centar">
           <p>${this.zavrsniTekst}</p>
@@ -80,14 +79,8 @@ export default class Scena {
       `
   }
 
-  zavrsi(poruka = 'Igra je završena.') {
-    this.gotovo = true // mozda ukinuti
-    this.zavrsniTekst = poruka
-  }
-
-  pocetniProzor(text) {
-    // this.ui.pocetniProzor(text, () => this.pauza = false)
-    // this.pauza = true
+  zavrsi(text = 'Igra je završena.') {
+    this.zavrsniTekst = text
   }
 
   sablon() {
@@ -120,7 +113,7 @@ export default class Scena {
   }
 
   proveriTipke(dt) {
-    if (this.gotovo) return
+    if (this.zavrsniTekst) return
     this.predmeti.forEach(predmet => {
       if (predmet.proveriTipke) predmet.proveriTipke(dt)
     })

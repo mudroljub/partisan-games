@@ -27,24 +27,19 @@ export default class BombasScena extends Scena {
   proveriPobedu() {
     if (this.bombas.razmakDo(this.bunker) < this.bunker.sirina / 2) {
       this.bunker.umri()
-      this.zavrsiIgru('Neprijateljski bunker je uništen.')
+      this.zavrsi('Neprijateljski bunker je uništen.')
     }
   }
 
   proveriVreme() {
     if (this.vreme.protekloSekundi > ZADATO_VREME)
-      this.zavrsiIgru('Tvoje vreme je isteklo. Izgubio si!')
+      this.zavrsi('Tvoje vreme je isteklo. Izgubio si!')
   }
 
   proveriPrepreke() {
     for (let i = 0; i < BROJ_PREPREKA; i++)
       if (this.bombas.sudara(this.prepreke[i]))
-        this.zavrsiIgru('Poginuo si. Igra je završena.')
-  }
-
-  zavrsiIgru(text) {
-    this.gotovo = true
-    this.zavrsniTekst = text
+        this.zavrsi('Poginuo si. Igra je završena.')
   }
 
   update(dt) {
