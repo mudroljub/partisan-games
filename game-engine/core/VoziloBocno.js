@@ -3,7 +3,7 @@ import Vreme from '/game-engine/core/Vreme.js'
 import Raketa from '../../src/scene/avionce1942/Raketa.js'
 
 export default class VoziloBocno extends Predmet {
-  constructor(src, x, y, skalar) {
+  constructor(src, { x, y, skalar }) {
     super(src, { x, y, skalar })
     this.brzina = 120
     this.zapaljiv = true

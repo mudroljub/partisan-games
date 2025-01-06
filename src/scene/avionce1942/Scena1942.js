@@ -4,7 +4,7 @@ import { keyboard } from '/game-engine/io/Keyboard.js'
 import platno, { crtaNebo } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import AvionIgrac from './AvionIgrac.js'
-import Hummel from './Hummel.js'
+import VoziloBocno from '/game-engine/core/VoziloBocno.js'
 import Aerodrom from './Aerodrom.js'
 import Ruina from './Ruina.js'
 import Oblak from '/src/2d-bocno/Oblak.js'
@@ -35,7 +35,7 @@ export default class Scena1942 extends Scena {
 
     this.aerodrom = new Aerodrom(this.nivoTla)
     this.ruina = new Ruina(this.nivoTla)
-    this.vozilo = new Hummel(150, this.nivoTla)
+    this.vozilo = new VoziloBocno('/assets/slike/2d-bocno/hummel.png', { x: 150, y: this.nivoTla, skalar: .75 })
     this.igrac = new AvionIgrac(this.nivoTla)
 
     this.vozilo.neprijatelji.push(this.igrac)
@@ -132,6 +132,7 @@ export default class Scena1942 extends Scena {
 
   update(dt) {
     super.update(dt)
+    // this.vozilo.povremenoPucaPratecu()
     this.proveriTlo()
     this.proveriSmrt()
   }

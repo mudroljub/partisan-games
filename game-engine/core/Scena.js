@@ -67,7 +67,7 @@ export default class Scena {
     return ''
   }
 
-  renderSablon() {
+  #renderSablon() {
     if (this.upamcenSablon !== this.sablon()) {
       this.elementUI.innerHTML = this.sablon()
       this.upamcenSablon = this.sablon()
@@ -120,6 +120,6 @@ export default class Scena {
     this.update(dt, t)
     this.cisti()
     this.render(dt, t)
-    this.renderSablon()
+    this.#renderSablon()
   }
 }
