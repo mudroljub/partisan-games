@@ -145,14 +145,6 @@ export default class Predmet extends Kompozit {
     return !this.ziv
   }
 
-  set slikaMrtav(src) {
-    this._slikaMrtav = src
-  }
-
-  get slikaMrtav() {
-    return this._slikaMrtav
-  }
-
   pokazi() {
     this.vidljiv = true
   }

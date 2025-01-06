@@ -1,6 +1,5 @@
 // nekad ide prebrzo, prebrzo se zaleće
 // probati da tenkovi dolaze i pucaju
-import { KRUZNICA } from '/game-engine/konstante.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import platno, { crtaNebo } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
@@ -21,9 +20,9 @@ const PARALAX_2 = -187
 const PARALAX_3 = -62
 const PARALAX_4 = -32
 
-const POTISAK = 18
-const MIN_BRZINA = 250
-const MAX_BRZINA = 500
+const POTISAK = 5
+const MIN_BRZINA = 200
+const MAX_BRZINA = 600
 
 const DIZAJ = 10
 const MAX_DIGNUTOST = 5555
@@ -117,10 +116,10 @@ export default class Scena1942 extends Scena {
     if (!this.igrac.ziv) return
 
     if (keyboard.right && this.brzinaScene < MAX_BRZINA)
-      this.ubrzavaOstale(KRUZNICA / 2, POTISAK)
+      this.ubrzavaOstale(Math.PI, POTISAK)
 
     if (keyboard.left && this.brzinaScene >= MIN_BRZINA)
-      this.ubrzavaOstale(KRUZNICA / 2, -POTISAK)
+      this.ubrzavaOstale(Math.PI, -POTISAK)
 
     if (keyboard.up && this.dignutostScene - DIZAJ < MAX_DIGNUTOST) {
       if (this.igrac.y < this.visina * 0.5) this.dizePredmete(DIZAJ)
