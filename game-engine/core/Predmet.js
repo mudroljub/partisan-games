@@ -244,11 +244,13 @@ export default class Predmet {
   log() {
     const x = this.x.toFixed()
     const y = this.y.toFixed()
+    const sirina = this.sirina.toFixed()
+    const visina = this.visina.toFixed()
     const dx = this.dx.toFixed(2)
     const dy = this.dy.toFixed(2)
     const brzina = this.brzina.toFixed(2)
     const ugao = this.ugao.toFixed(2)
-    console.log(`${this.constructor.name} x: ${x}, y: ${y}, sirina: ${this.sirina}, visina: ${this.visina}, dx: ${dx}, dy: ${dy}, brzina: ${brzina}, ugao: ${ugao}, ziv: ${this.ziv}`)
+    console.log(`${this.constructor.name} x: ${x}, y: ${y}, sirina: ${sirina}, visina: ${visina}, dx: ${dx}, dy: ${dy}, brzina: ${brzina}, ugao: ${ugao}, vidljiv: ${this.vidljiv}, ziv: ${this.ziv}`)
   }
 
   crtaOblik() {
