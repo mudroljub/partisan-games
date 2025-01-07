@@ -6,6 +6,8 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
+- naći tutorijal za Sprite
+
 BombasScena
 - mitraljez puca iz bunkera, prepreke su zakloni
 - napraviti smrt (mina eksplodira, vojnik padne)

@@ -92,10 +92,10 @@ export default class Scena {
     return ''
   }
 
-  #renderUI() {
-    if (this.upamcenUI !== this.sablon()) {
-      this.elementUI.innerHTML = this.sablon()
-      this.upamcenUI = this.sablon()
+  #renderUI(t) {
+    if (this.upamcenUI !== this.sablon(t)) {
+      this.elementUI.innerHTML = this.sablon(t)
+      this.upamcenUI = this.sablon(t)
     }
     if (this.upamcenProzor !== this.prozor()) {
       this.prozorElement.innerHTML = this.prozor()
@@ -165,6 +165,6 @@ export default class Scena {
     this.update(dt, t)
     this.cisti()
     this.render(dt, t)
-    this.#renderUI()
+    this.#renderUI(t)
   }
 }
