@@ -6,11 +6,18 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
+- da svi ispaljuju više projektila kao na Avionce
+
+### BombasScena
+
+// FIX: da se ne preklapa bombaš sa minama, dodeliti jedinstvene pozicije
+// mitraljez puca iz bunkera, prepreke su zakloni
+// napraviti smrt (mina eksplodira, vojnik padne)
+// sukcesivno se povećava broj prepreka i težina igre
+
 ### Sređivanje nivoa
-- ići po nivoima i prebaciti TODO ovde
 - spojiti ranjenike
 - preimenovati u ranjenici na sutjesci
-- da svi ispaljuju više projektila (radi na Avionce)
 
 ### 3D
 - dodati predmetima z osu (default 0)

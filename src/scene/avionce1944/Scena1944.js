@@ -37,11 +37,6 @@ export default class Scena1944 extends Scena {
     })
   }
 
-  end() {
-    super.end()
-    this.igrac.zvukMotora.pause()
-  }
-
   update(dt) {
     super.update(dt)
     this.proveriSudare()

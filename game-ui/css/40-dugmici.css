@@ -17,6 +17,10 @@ button:hover {
 
 /* KONTEKST */
 
+.prozorce button {
+  text-transform: uppercase;
+}
+
 .tri-dugmeta button {
   max-width: 30%;
   margin: 0.62em;

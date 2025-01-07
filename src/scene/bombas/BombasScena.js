@@ -1,8 +1,3 @@
-// FIX: da se ne preklapa bombaš sa minama, dodeliti jedinstvene pozicije
-// mitraljez puca iz bunkera, prepreke su zakloni
-// napraviti smrt (mina eksplodira, vojnik padne)
-// sukcesivno se povećava broj prepreka i težina igre
-
 import Scena from '/game-engine/core/Scena.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
