@@ -19,7 +19,7 @@ export default class Raketa extends Predmet {
 
   reset() {
     this.ispaljena = false
-    this.sakrij()
+    this.nestani()
   }
 
   pripremi(polozaj, ugao) {
@@ -66,7 +66,7 @@ export default class Raketa extends Predmet {
     this.ciljevi.forEach(cilj => {
       if (!this.sudara(cilj)) return
       cilj.umri()
-      this.nestani()
+      this.reset()
     })
   }
 
