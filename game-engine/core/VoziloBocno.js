@@ -26,6 +26,10 @@ export default class VoziloBocno extends Predmet {
       this.skreni(Math.PI)
   }
 
+  puca() {
+    this.raketa.pucaPratecu()
+  }
+
   azurirajSliku() {
     this.odrazX = this.ugao === Math.PI ? -1 : 1
   }

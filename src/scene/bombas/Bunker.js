@@ -11,6 +11,10 @@ export default class Bunker extends Predmet {
     this.predmeti.push(this.raketa)
   }
 
+  puca() {
+    this.raketa.pucaPratecu()
+  }
+
   update(dt, t) {
     this.pucaPovremeno(t)
   }

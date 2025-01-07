@@ -1,9 +1,7 @@
-// TODO: prebaciti i raketu, tj. niz raketa
-
 export const Pucanje = {
   pucaPovremeno(t) {
     if (t - this.zadnjiPucanj > this.intervalPucanja) {
-      this.raketa.pucaPratecu()
+      this.puca()
       this.zadnjiPucanj = t
     }
   },
