@@ -6,6 +6,9 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
+- da raketa ne leti ako je vlasnik mrtav
+- raketi ne radi proveriGranice, nastavlja neograničeno da leti
+
 BombasScena
 - mitraljez puca iz bunkera
     - dodati prepreka kao zaklone

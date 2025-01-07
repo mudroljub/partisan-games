@@ -35,6 +35,7 @@ export default class AvionIgrac extends Igrac {
 
   nagore() {
     if (this.jeNaVrhu()) return
+
     super.nagore()
     if (this.ugao === 0 || this.ugao >= 2 * Math.PI - MOGUCNOST_OKRETA)
       this.ugao -= OKRET
@@ -42,14 +43,17 @@ export default class AvionIgrac extends Igrac {
 
   nadole() {
     if (this.jePrizemljen()) return
+
     super.nadole()
     if (this.ugao <= MOGUCNOST_OKRETA)
       this.ugao += OKRET
   }
 
   puca() {
-    if (!this.raketa.ispaljena)
-      this.raketa.puca()
+    if (this.raketa.ispaljena) return
+
+    const polozaj = { x: this.x + 5, y: this.y + 15 }
+    this.raketa.puca(polozaj, this.ugao + Math.PI / 16)
   }
 
   /** * OSTALO ***/

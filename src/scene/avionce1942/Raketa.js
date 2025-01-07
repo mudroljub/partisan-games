@@ -5,12 +5,11 @@ export default class Raketa extends Predmet {
   constructor(vlasnik) {
     super('/assets/slike/raketa.png', { skalar: .55 })
     this.vlasnik = vlasnik
-    this.pocetniUgao = this.vlasnik.ugao + Math.PI / 16
     this.oznake.add('raketa')
     this.ciljevi = []
     this.reset()
-    this.zadnjePucanje = 0
-    this.intervalPucanja = 0
+    this.zadnjiPucanj = 0
+    this.intervalPucanja = 0 // u sekundama
   }
 
   dodajCiljeve(...args) {
@@ -26,9 +25,9 @@ export default class Raketa extends Predmet {
     this.sakrij()
   }
 
-  pripremi() {
-    this.polozaj(this.vlasnik.x + 5, this.vlasnik.y + 15)
-    this.ugao = this.pocetniUgao
+  pripremi(polozaj = this.vlasnik, ugao = this.vlasnik.ugao) {
+    this.polozaj(polozaj.x, polozaj.y)
+    this.ugao = ugao
   }
 
   pali() {
@@ -37,8 +36,8 @@ export default class Raketa extends Predmet {
     this.ispaljena = true
   }
 
-  puca() {
-    this.pripremi()
+  puca(polozaj, ugao) {
+    this.pripremi(polozaj, ugao)
     this.pali()
   }
 
@@ -79,9 +78,9 @@ export default class Raketa extends Predmet {
   }
 
   pucaPovremeno(t) {
-    if (t - this.zadnjePucanje > this.intervalPucanja) {
+    if (t - this.zadnjiPucanj > this.intervalPucanja) {
       this.pucaPratecu()
-      this.zadnjePucanje = t
+      this.zadnjiPucanj = t
     }
   }
 

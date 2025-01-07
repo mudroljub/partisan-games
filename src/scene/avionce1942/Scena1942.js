@@ -37,7 +37,7 @@ export default class Scena1942 extends Scena {
     this.igrac = new AvionIgrac(this.nivoTla)
 
     this.vozilo.raketa.dodajCiljeve(this.igrac)
-    this.vozilo.pucaPovremeno(3)
+    this.vozilo.pucaPovremeno(10)
     this.igrac.raketa.dodajCiljeve(this.vozilo)
     this.igrac.cvrstaTela.push(this.vozilo, this.ruina)
 
@@ -45,7 +45,7 @@ export default class Scena1942 extends Scena {
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun())
     this.shume = Array.from({ length: BROJ_SHUME }, () => new Shuma())
 
-    this.dodaj(this.aerodrom, this.igrac, this.vozilo, this.ruina, ...this.oblaci, ...this.zbunovi, ...this.shume)
+    this.dodaj(this.aerodrom, this.igrac, this.ruina, this.vozilo, ...this.oblaci, ...this.zbunovi, ...this.shume)
     this.pocniParalax()
   }
 
