@@ -55,18 +55,12 @@ export default class Raketa extends Predmet {
     let minRazmak
     let najblizaMeta
     this.ciljevi.forEach(cilj => {
-      if (this.nijeValidnaMeta(cilj)) return
-
       const razmak = this.razmakDo(cilj)
       if (!minRazmak) minRazmak = razmak
       if (!najblizaMeta) najblizaMeta = cilj
       if (razmak < minRazmak) minRazmak = razmak
       if (najblizaMeta) this.nisani(najblizaMeta)
     })
-  }
-
-  nijeValidnaMeta(cilj) {
-    return cilj === this || !cilj.ziv || !cilj.vidljiv
   }
 
   proveriSudare() {

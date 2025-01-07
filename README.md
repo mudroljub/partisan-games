@@ -6,11 +6,13 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- raketi ne radi proveriGranice, nastavlja neograničeno da leti
-- prateća ne radi dobro
+- raketi ne radi proveriGranice, nastavlja neograničeno da leti, ispitati log
 
 BombasScena
 - mitraljez puca iz bunkera
+    - da bunker ispaljuje više raketa
+        - mora logika za puca povremeno na vlasnika
+    - raketa ne cilja dobro kad je bombas preblizu
     - dodati prepreka kao zaklone
 - sukcesivno se povećava broj prepreka i težina igre
 - možda brojati koliko bunkera može uništiti zaredom pre smrti?
