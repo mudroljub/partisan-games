@@ -6,5 +6,5 @@ export const Pucanje = {
     }
   },
   zadnjiPucanj: 0,
-  intervalPucanja: 3 // sekundi
+  intervalPucanja: 1 // sekundi
 }

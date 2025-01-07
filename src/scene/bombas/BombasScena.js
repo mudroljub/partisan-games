@@ -7,7 +7,7 @@ import Bunker from './Bunker.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import { keyboard } from '/game-engine/io/Keyboard.js'
 
-const ZADATO_VREME = 10
+const ZADATO_VREME = 100
 const BROJ_PREPREKA = 20
 
 export default class BombasScena extends Scena {
@@ -19,7 +19,7 @@ export default class BombasScena extends Scena {
 
     this.bombas = new Bombas(najdaljeTacke[0])
     this.bunker = new Bunker(najdaljeTacke[1])
-    this.bunker.raketa.dodajCiljeve(this.bombas)
+    this.bunker.dodajCiljeve(this.bombas)
 
     this.mine = pozicije
       .filter(p => !najdaljeTacke.some(tacka => tacka.x === p.x && tacka.y === p.y))

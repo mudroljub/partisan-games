@@ -7,12 +7,18 @@ export default class Bunker extends Predmet {
     super('/assets/slike/2d-bocno/kuca-bunker.png', { skalar: .5, x, y })
     this.slikaMrtav = '/assets/slike/2d-bocno/kuca-bunker-gori.png'
     this.zapaljiv = true
-    this.raketa = new Raketa(this)
-    this.predmeti.push(this.raketa)
+    this.rakete = Array.from({ length: 5 }, () => new Raketa(this))
+    this.predmeti.push(...this.rakete)
+    this.i = 0
+  }
+
+  dodajCiljeve(...x) {
+    this.rakete.forEach(r => r.dodajCiljeve(...x))
   }
 
   puca() {
-    this.raketa.pucaPratecu()
+    const raketa = this.rakete[this.i++ % this.rakete.length]
+    raketa.pucaCiljano()
   }
 
   update(dt, t) {

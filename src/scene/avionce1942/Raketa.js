@@ -39,7 +39,7 @@ export default class Raketa extends Predmet {
     this.pali()
   }
 
-  pucaPratecu() {
+  pucaCiljano() {
     if (!this.ciljevi.some(cilj => cilj.ziv)) return
 
     this.pripremi()

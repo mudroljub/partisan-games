@@ -20,7 +20,7 @@ BombasScena
 
 Scena1942
 - probati da tenkovi dolaze i pucaju
-- prateća nekad ne radi?
+- srediti ispravljanje gore dole dok leti
 
 Scena1944
 - dodati stvar za hvatanje (paketić)
