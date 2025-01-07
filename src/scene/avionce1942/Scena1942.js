@@ -130,7 +130,7 @@ export default class Scena1942 extends Scena {
 
   update(dt) {
     super.update(dt)
-    // this.vozilo.povremenoPucaPratecu()
+    this.vozilo.povremenoPucaPratecu()
     this.proveriTlo()
     this.proveriSmrt()
   }

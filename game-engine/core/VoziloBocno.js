@@ -7,11 +7,11 @@ export default class VoziloBocno extends Predmet {
     super(src, { x, y, skalar })
     this.brzina = 120
     this.zapaljiv = true
-    this.sansaPucnja = 0.5
     this.oznake.add('neprijatelj')
     this.raketa = new Raketa(this)
     this.vreme = new Vreme()
     this.zadnjeVreme = 0
+    this.predmeti = [this.raketa]
   }
 
   onload() {
@@ -32,14 +32,10 @@ export default class VoziloBocno extends Predmet {
     this.raketa.pucaPratecu()
   }
 
-  get spremno() {
-    return (this.vreme.proteklo - this.zadnjeVreme > 3000)
-  }
-
   povremenoPucaPratecu() {
     if (!this.ziv) return
 
-    if (this.spremno && Math.random() < this.sansaPucnja) {
+    if ((this.vreme.proteklo - this.zadnjeVreme > 3000)) {
       this.pucaPratecu()
       this.zadnjeVreme = this.vreme.proteklo
     }
@@ -53,7 +49,6 @@ export default class VoziloBocno extends Predmet {
     super.update(dt)
     this.patroliraj()
     this.azurirajSliku()
-    this.raketa.update(dt)
     this.lastX = this.x
   }
 }
