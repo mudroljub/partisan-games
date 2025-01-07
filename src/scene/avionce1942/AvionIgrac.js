@@ -26,7 +26,7 @@ export default class AvionIgrac extends Igrac {
   proveriTipke() {
     super.proveriTipke()
     if (keyboard.pressed.Enter && !this.raketa.ispaljena)
-      this.raketa.pucaCiljano()
+      this.raketa.pucaCiljano(this, this.ugao)
   }
 
   nalevo() {

@@ -18,7 +18,7 @@ export default class Bunker extends Predmet {
 
   puca() {
     const raketa = this.rakete[this.i++ % this.rakete.length]
-    raketa.pucaCiljano()
+    raketa.pucaCiljano(this, this.ugao)
   }
 
   update(dt, t) {

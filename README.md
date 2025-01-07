@@ -11,9 +11,9 @@ Male igrice o Nemcima i partizanima.
 BombasScena
 - mitraljez puca iz bunkera
     - da bunker ispaljuje više raketa
-        - mora logika za puca povremeno na vlasnika
     - raketa ne cilja dobro kad je bombas preblizu
     - dodati prepreka kao zaklone
+    - dodati završni prozor kad ga ubije raketa
 - BUG: pobedim, vreme se nastavlja, na kraju vreme isteklo, izgubio si
 - sukcesivno se povećava broj prepreka i težina igre
 - možda brojati koliko bunkera može uništiti zaredom pre smrti?

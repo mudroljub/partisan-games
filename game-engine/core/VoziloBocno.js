@@ -27,7 +27,7 @@ export default class VoziloBocno extends Predmet {
   }
 
   puca() {
-    this.raketa.pucaCiljano()
+    this.raketa.pucaCiljano(this, this.ugao)
   }
 
   azurirajSliku() {

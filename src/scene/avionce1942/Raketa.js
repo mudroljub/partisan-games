@@ -2,9 +2,8 @@ import Predmet from '/game-engine/core/Predmet.js'
 import { izasaoIgde } from '/game-engine/utils/granice.js'
 
 export default class Raketa extends Predmet {
-  constructor(vlasnik) {
+  constructor() {
     super('/assets/slike/raketa.png', { skalar: .55 })
-    this.vlasnik = vlasnik
     this.oznake.add('raketa')
     this.ciljevi = []
     this.reset()
@@ -23,7 +22,7 @@ export default class Raketa extends Predmet {
     this.sakrij()
   }
 
-  pripremi(polozaj = this.vlasnik, ugao = this.vlasnik.ugao) {
+  pripremi(polozaj, ugao) {
     this.polozaj(polozaj.x, polozaj.y)
     this.ugao = ugao
   }
@@ -39,10 +38,10 @@ export default class Raketa extends Predmet {
     this.pali()
   }
 
-  pucaCiljano() {
+  pucaCiljano(polozaj, ugao) {
     if (!this.ciljevi.some(cilj => cilj.ziv)) return
 
-    this.pripremi()
+    this.pripremi(polozaj, ugao)
     this.traziNajblizuMetu()
     this.pali()
   }
