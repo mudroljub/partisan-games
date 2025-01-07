@@ -37,7 +37,6 @@ export default class Scena1942 extends Scena {
     this.igrac = new AvionIgrac(this.nivoTla)
 
     this.vozilo.raketa.dodajCiljeve(this.igrac)
-    this.vozilo.pucaPovremeno(10)
     this.igrac.raketa.dodajCiljeve(this.vozilo)
     this.igrac.cvrstaTela.push(this.vozilo, this.ruina)
 

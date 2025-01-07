@@ -14,6 +14,7 @@ BombasScena
         - mora logika za puca povremeno na vlasnika
     - raketa ne cilja dobro kad je bombas preblizu
     - dodati prepreka kao zaklone
+- BUG: pobedim, vreme se nastavlja, na kraju vreme isteklo, izgubio si
 - sukcesivno se povećava broj prepreka i težina igre
 - možda brojati koliko bunkera može uništiti zaredom pre smrti?
 

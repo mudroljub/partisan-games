@@ -1,5 +1,6 @@
 import Predmet from '/game-engine/core/Predmet.js'
 import Raketa from '../../src/scene/avionce1942/Raketa.js'
+import { Pucanje } from '/game-engine/prosirenja.js'
 
 export default class VoziloBocno extends Predmet {
   constructor(src, { x, y, skalar }) {
@@ -25,10 +26,6 @@ export default class VoziloBocno extends Predmet {
       this.skreni(Math.PI)
   }
 
-  pucaPovremeno(sekunde) {
-    this.raketa.intervalPucanja = sekunde
-  }
-
   azurirajSliku() {
     this.odrazX = this.ugao === Math.PI ? -1 : 1
   }
@@ -37,5 +34,8 @@ export default class VoziloBocno extends Predmet {
     super.update(dt, t)
     this.patroliraj()
     this.azurirajSliku()
+    this.pucaPovremeno(t)
   }
 }
+
+Object.assign(VoziloBocno.prototype, Pucanje)
