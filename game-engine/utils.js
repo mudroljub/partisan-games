@@ -31,16 +31,24 @@ export function skaliranRazmak(predmet, predmet2) {
 export function slucajnePozicije(n, velicinaPolja) {
   const rows = Math.floor(platno.height / velicinaPolja)
   const cols = Math.floor(platno.width / velicinaPolja)
-
   const allPositions = []
 
   for (let i = 0; i < rows; i++)
     for (let j = 0; j < cols; j++)
       allPositions.push([i, j])
 
-  const randomPositions = allPositions.sort(() => Math.random() - 0.5).slice(0, n)
+  // Fisher-Yates shuffle for better randomness
+  for (let i = allPositions.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+      ;[allPositions[i], allPositions[j]] = [allPositions[j], allPositions[i]]
+  }
 
-  return randomPositions.map(([i, j]) => ({ x: velicinaPolja * i, y: velicinaPolja * j }))
+  return allPositions
+    .slice(0, n)
+    .map(([i, j]) => ({
+      y: velicinaPolja * i + velicinaPolja / 2,
+      x: velicinaPolja * j + velicinaPolja / 2
+    }))
 }
 
 const distance = (p1, p2) => Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2)
@@ -58,5 +66,5 @@ export function nadjiNajdaljeTacke(pozicije) {
       }
     }
 
-  return najdaljeTacke
+  return najdaljeTacke.sort((a, b) => a.x - b.x)
 }

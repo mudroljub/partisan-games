@@ -2,11 +2,10 @@ import Igrac from '/game-engine/core/Igrac.js'
 
 export default class Bombas extends Igrac {
 
-  constructor() {
-    super('/assets/slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif')
+  constructor({ x = 100, y = 100 } = {}) {
+    super('/assets/slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif', { x, y })
     this.potisak = 75
     this.faktorTrenja = 0.3
-    this.polozaj(100, 100)
   }
 
   puca() {

@@ -7,10 +7,10 @@ Male igrice o Nemcima i partizanima.
 ## TODO:
 
 BombasScena
-- FIX: da se ne preklapa bombaš sa minama, dodeliti jedinstvene pozicije
 - mitraljez puca iz bunkera, prepreke su zakloni
 - napraviti smrt (mina eksplodira, vojnik padne)
 - sukcesivno se povećava broj prepreka i težina igre
+- možda brojati koliko bunkera može uništiti zaredom pre smrti?
 
 Scena1942
 - probati da tenkovi dolaze i pucaju
