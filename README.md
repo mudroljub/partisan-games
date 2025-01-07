@@ -9,10 +9,10 @@ Male igrice o Nemcima i partizanima.
 - naći tutorijal za Sprite
 
 BombasScena
-- mitraljez puca iz bunkera, prepreke su zakloni
-- napraviti smrt (mina eksplodira, vojnik padne)
 - sukcesivno se povećava broj prepreka i težina igre
 - možda brojati koliko bunkera može uništiti zaredom pre smrti?
+- mitraljez puca iz bunkera, prepreke su zakloni
+- napraviti smrt (mina eksplodira, vojnik padne)
 
 Scena1942
 - probati da tenkovi dolaze i pucaju

@@ -4,6 +4,7 @@ import Pozadina from '/game-engine/core/Pozadina.js'
 import Bombas from './Bombas.js'
 import Bunker from './Bunker.js'
 import Predmet from '/game-engine/core/Predmet.js'
+import { keyboard } from '/game-engine/io/Keyboard.js'
 
 const ZADATO_VREME = 10
 const BROJ_PREPREKA = 20
@@ -36,14 +37,16 @@ export default class BombasScena extends Scena {
   }
 
   proveriPrepreke() {
-    for (let i = 0; i < BROJ_PREPREKA; i++)
-      if (this.bombas.sudara(this.prepreke[i]))
+    this.prepreke.forEach(prepreka => {
+      if (this.bombas.sudara(prepreka))
         this.zavrsi('Poginuo si. Igra je završena.')
+    })
   }
 
   update(dt, t) {
     super.update(dt)
     this.proveriVreme(t)
+    if (!keyboard.keyPressed) return
     this.proveriPobedu()
     this.proveriPrepreke(dt)
   }
