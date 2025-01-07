@@ -78,6 +78,8 @@ export default class Raketa extends Predmet {
   }
 
   pucaPovremeno(t) {
+    if (!this.ciljevi.some(cilj => cilj.ziv)) return
+
     if (t - this.zadnjiPucanj > this.intervalPucanja) {
       this.pucaPratecu()
       this.zadnjiPucanj = t
@@ -90,11 +92,12 @@ export default class Raketa extends Predmet {
   }
 
   update(dt, t) {
+    if (this.vlasnik.ziv && this.intervalPucanja)
+      this.pucaPovremeno(t)
+
     if (this.ispaljena) {
       super.update(dt)
       this.proveriSudare()
     }
-    if (this.intervalPucanja)
-      this.pucaPovremeno(t)
   }
 }
