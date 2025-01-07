@@ -86,12 +86,11 @@ export default class AvionIgrac extends Igrac {
     })
   }
 
-  update(dt) {
-    super.update(dt)
+  update(dt, t) {
+    super.update(dt, t)
     this.proveriTlo()
     this.proveriSudare()
     this.proveriGravitaciju()
     this.ispraviAvion()
-    this.raketa.update(dt)
   }
 }

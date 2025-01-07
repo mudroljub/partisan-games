@@ -37,6 +37,7 @@ export default class Scena1942 extends Scena {
     this.igrac = new AvionIgrac(this.nivoTla)
 
     this.vozilo.raketa.dodajCiljeve(this.igrac)
+    this.vozilo.pucaPovremeno(3)
     this.igrac.raketa.dodajCiljeve(this.vozilo)
     this.igrac.cvrstaTela.push(this.vozilo, this.ruina)
 
@@ -128,9 +129,8 @@ export default class Scena1942 extends Scena {
       if (this.igrac.y > this.visina * 0.125) this.dizePredmete(-DIZAJ)
   }
 
-  update(dt) {
-    super.update(dt)
-    this.vozilo.povremenoPucaPratecu()
+  update(dt, t) {
+    super.update(dt, t)
     this.proveriTlo()
     this.proveriSmrt()
   }

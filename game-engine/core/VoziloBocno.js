@@ -1,5 +1,4 @@
 import Predmet from '/game-engine/core/Predmet.js'
-import Vreme from '/game-engine/core/Vreme.js'
 import Raketa from '../../src/scene/avionce1942/Raketa.js'
 
 export default class VoziloBocno extends Predmet {
@@ -9,8 +8,6 @@ export default class VoziloBocno extends Predmet {
     this.zapaljiv = true
     this.oznake.add('neprijatelj')
     this.raketa = new Raketa(this)
-    this.vreme = new Vreme()
-    this.zadnjeVreme = 0
     this.predmeti = [this.raketa]
   }
 
@@ -28,27 +25,17 @@ export default class VoziloBocno extends Predmet {
       this.skreni(Math.PI)
   }
 
-  pucaPratecu() {
-    this.raketa.pucaPratecu()
-  }
-
-  povremenoPucaPratecu() {
-    if (!this.ziv) return
-
-    if ((this.vreme.proteklo - this.zadnjeVreme > 3000)) {
-      this.pucaPratecu()
-      this.zadnjeVreme = this.vreme.proteklo
-    }
+  pucaPovremeno(sekunde) {
+    this.raketa.intervalPucanja = sekunde
   }
 
   azurirajSliku() {
     this.odrazX = this.ugao === Math.PI ? -1 : 1
   }
 
-  update(dt) {
-    super.update(dt)
+  update(dt, t) {
+    super.update(dt, t)
     this.patroliraj()
     this.azurirajSliku()
-    this.lastX = this.x
   }
 }

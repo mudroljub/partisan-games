@@ -9,6 +9,8 @@ export default class Raketa extends Predmet {
     this.oznake.add('raketa')
     this.ciljevi = []
     this.reset()
+    this.zadnjePucanje = 0
+    this.intervalPucanja = 0
   }
 
   dodajCiljeve(...args) {
@@ -76,9 +78,24 @@ export default class Raketa extends Predmet {
     })
   }
 
-  update(dt) {
+  pucaPovremeno(t) {
+    if (t - this.zadnjePucanje > this.intervalPucanja) {
+      this.pucaPratecu()
+      this.zadnjePucanje = t
+    }
+  }
+
+  render() {
     if (!this.ispaljena) return
-    super.update(dt)
-    this.proveriSudare()
+    super.render()
+  }
+
+  update(dt, t) {
+    if (this.ispaljena) {
+      super.update(dt)
+      this.proveriSudare()
+    }
+    if (this.intervalPucanja)
+      this.pucaPovremeno(t)
   }
 }
