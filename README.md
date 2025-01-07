@@ -4,12 +4,9 @@
 
 Male igrice o Nemcima i partizanima.
 
-## TODO:
-
-- naći tutorijal za Sprite
+## TODO
 
 BombasScena
-- napraviti smrt (vojnik padne)
 - mitraljez puca iz bunkera
     - dodati prepreka kao zaklone
 - sukcesivno se povećava broj prepreka i težina igre
@@ -17,6 +14,7 @@ BombasScena
 
 Scena1942
 - probati da tenkovi dolaze i pucaju
+- prateća nekad ne radi?
 
 Scena1944
 - dodati stvar za hvatanje (paketić)

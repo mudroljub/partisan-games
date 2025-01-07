@@ -26,7 +26,6 @@ export default class BombasScena extends Scena {
         mina.zapaljiv = true
         return mina
       })
-
     this.dodaj(this.bunker, this.bombas, ...this.mine)
   }
 
