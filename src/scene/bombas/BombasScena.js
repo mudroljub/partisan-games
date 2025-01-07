@@ -1,6 +1,7 @@
 import Scena from '/game-engine/core/Scena.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
+import { slucajnePozicije, nadjiNajdaljeTacke } from '/game-engine/utils.js'
 import Bombas from './Bombas.js'
 import Bunker from './Bunker.js'
 import Prepreka from './Prepreka.js'
@@ -12,10 +13,15 @@ export default class BombasScena extends Scena {
   init() {
     this.vreme = new Vreme()
     this.pozadina = new Pozadina('/assets/slike/teksture/beton.gif')
+    const pozicije = slucajnePozicije(BROJ_PREPREKA + 2, 80)
+    console.log(pozicije)
+    const najdaljeTacke = nadjiNajdaljeTacke(pozicije)
+
     this.bombas = new Bombas()
     this.bunker = new Bunker()
     this.bunker.onload = () => this.bunker.nemojPreko(this.bombas)
     this.prepreke = Array.from({ length: BROJ_PREPREKA }, () => new Prepreka([this.bunker, this.bombas]))
+
     this.dodaj(...this.prepreke, this.bunker, this.bombas)
   }
 
