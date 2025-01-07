@@ -1,4 +1,4 @@
-[![](screen.png)](https://mudroljub.github.io/igrica-partizani/)
+[![](screen.png)](https:-mudroljub.github.io/igrica-partizani/)
 
 # Partisan Games ★
 
@@ -6,24 +6,58 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO:
 
-- da svi ispaljuju više projektila kao na Avionce
+BombasScena
+- FIX: da se ne preklapa bombaš sa minama, dodeliti jedinstvene pozicije
+- mitraljez puca iz bunkera, prepreke su zakloni
+- napraviti smrt (mina eksplodira, vojnik padne)
+- sukcesivno se povećava broj prepreka i težina igre
 
-### BombasScena
+Scena1942
+- probati da tenkovi dolaze i pucaju
 
-// FIX: da se ne preklapa bombaš sa minama, dodeliti jedinstvene pozicije
-// mitraljez puca iz bunkera, prepreke su zakloni
-// napraviti smrt (mina eksplodira, vojnik padne)
-// sukcesivno se povećava broj prepreka i težina igre
+Scena1944
+- dodati stvar za hvatanje (paketić)
+- ubaciti jednog neprijatelja
+- senku ispod aviona, kao u avion.png
 
-### Sređivanje nivoa
-- spojiti ranjenike
+TopScena
+- neprijatelji nadiru
+- dodati više projektila
+
+CamacScena
+- beskonačan ekran nadesno
+- mozda ubaciti obale da promiču
+- nailazi na prepreke, stenje, brodolomnike, čamce, krstarice, brodove....
+
+OtpisaniScena
+- BUG: nekad se ne pojavi odmah
+- BUG: mrtav reaguje na pogodak
+- da se u nekom trenutku okrene i pripuca
+- da ih izlazi više
+- dodati zavrsniEkran
+
+TenkicIde
+- BUG: raketa ne leti lepo
+- tenkovi, bunkeri, vojnici...
+
+RanjenikScena
+- prikazati prozore umesto log
 - preimenovati u ranjenici na sutjesci
+- povecavati broj patrola
+- spojiti Bekstvo iz Jasenovca i RanjenikPaljba?
+- u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
+
+TenkOdozgoScena
+- scena kao velika mapa lavirint
+- kretanje po vise ekrana, kamera prati igraca
+- razlicite podloge ubrzavaju/usporavaju tenk
+- pobeda/poraz - prepreke ili vreme
 
 ### 3D
 - dodati predmetima z osu (default 0)
-- srediti 3D koliziju
-- integrisati https://github.com/mudroljub/partisans
+- integrisati https:-github.com/mudroljub/partisans
 - dodati neke 3D igre, poput Savo i napad na aerodrom
+- srediti 3D koliziju
 
 ### Test
 - proveriti sve nivoe sa sporijim i bržim fps

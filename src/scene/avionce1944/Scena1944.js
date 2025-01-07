@@ -1,7 +1,3 @@
-// dodati stvar za hvatanje (paketić)
-// ubaciti jednog neprijatelja
-// senku ispod aviona, kao u avion.png
-
 import Scena from '/game-engine/core/Scena.js'
 import { Avionce } from './Avionce.js'
 import PokretnaPozadina from './PokretnaPozadina.js'

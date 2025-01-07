@@ -1,5 +1,3 @@
-// BUG: raketa ne leti lepo
-// tenkovi, bunkeri, vojnici...
 import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import { progresBar, komande } from '/game-ui/components.js'

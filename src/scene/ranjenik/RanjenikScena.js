@@ -1,7 +1,3 @@
-// prikazati prozore umesto log
-// iskoristiti za Bekstvo iz Jasenovca i ranjenik paljba
-// povecavati broj patrola
-// u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
 import { izasaoDesno } from '/game-engine/utils/granice.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'

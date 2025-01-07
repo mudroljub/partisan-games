@@ -1,8 +1,3 @@
-// srediti boju pozadine
-// beskonačan ekran nadesno
-// mozda ubaciti obale da promiču
-// nailazi na prepreke, stenje, brodolomnike, čamce, krstarice, brodove....
-
 import Scena from '/game-engine/core/Scena.js'
 import CamacIgracOdozgo from '../2d-odozgo/CamacIgracOdozgo.js'
 

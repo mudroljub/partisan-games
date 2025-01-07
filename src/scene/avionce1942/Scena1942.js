@@ -1,5 +1,3 @@
-// nekad ide prebrzo, prebrzo se zaleće
-// probati da tenkovi dolaze i pucaju
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import platno, { crtaNebo } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
