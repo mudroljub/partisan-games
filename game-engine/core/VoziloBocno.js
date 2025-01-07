@@ -9,9 +9,7 @@ export default class VoziloBocno extends Predmet {
     this.zapaljiv = true
     this.sansaPucnja = 0.5
     this.oznake.add('neprijatelj')
-    this.neprijatelji = [] // treba raketi
     this.raketa = new Raketa(this)
-    this.raketa.cilj = 'igrac'
     this.vreme = new Vreme()
     this.zadnjeVreme = 0
   }

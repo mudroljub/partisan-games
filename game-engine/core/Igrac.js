@@ -8,7 +8,6 @@ export default class Igrac extends Predmet {
     this.oznake.add('igrac')
     this.potisak = 31
     this.komandeNapredne = false // da se okreće oko svoje ose
-    this.neprijatelji = []
     this.cvrstaTela = []
     this.okret = 0.047
     this.faktorTrenja = .1

@@ -7,8 +7,12 @@ export default class Raketa extends Predmet {
     this.vlasnik = vlasnik
     this.pocetniUgao = this.vlasnik.ugao + Math.PI / 16
     this.oznake.add('raketa')
-    this.cilj = 'neprijatelj'
+    this.ciljevi = []
     this.reset()
+  }
+
+  dodajCiljeve(...args) {
+    this.ciljevi.push(...args)
   }
 
   proveriGranice() {
@@ -42,32 +46,32 @@ export default class Raketa extends Predmet {
     this.pali()
   }
 
-  nisani(predmet) {
-    this.ugao = this.ugaoKa(predmet)
+  nisani(cilj) {
+    this.ugao = this.ugaoKa(cilj)
   }
 
   traziNajblizuMetu() {
     let minRazmak
     let najblizaMeta
-    this.vlasnik.neprijatelji.forEach(predmet => {
-      if (this.nijeValidnaMeta(predmet)) return
+    this.ciljevi.forEach(cilj => {
+      if (this.nijeValidnaMeta(cilj)) return
 
-      const razmak = this.razmakDo(predmet)
+      const razmak = this.razmakDo(cilj)
       if (!minRazmak) minRazmak = razmak
-      if (!najblizaMeta) najblizaMeta = predmet
+      if (!najblizaMeta) najblizaMeta = cilj
       if (razmak < minRazmak) minRazmak = razmak
       if (najblizaMeta) this.nisani(najblizaMeta)
     })
   }
 
-  nijeValidnaMeta(predmet) {
-    return predmet === this || !(predmet.oznake.has(this.cilj)) || !predmet.ziv || !predmet.vidljiv
+  nijeValidnaMeta(cilj) {
+    return cilj === this || !cilj.ziv || !cilj.vidljiv
   }
 
   proveriSudare() {
-    this.vlasnik.neprijatelji.forEach(predmet => {
-      if (!(predmet.oznake.has(this.cilj)) || !this.sudara(predmet)) return
-      predmet.umri()
+    this.ciljevi.forEach(cilj => {
+      if (!this.sudara(cilj)) return
+      cilj.umri()
       this.nestani()
     })
   }

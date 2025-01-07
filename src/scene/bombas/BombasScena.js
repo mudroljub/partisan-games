@@ -62,7 +62,7 @@ export default class BombasScena extends Scena {
   /* UI */
 
   sablon() {
-    const preostalo = Math.max(ZADATO_VREME - Math.floor(this.vreme.protekloSekundi), 0)
+    const preostalo = ZADATO_VREME - Math.floor(this.vreme.protekloSekundi)
     return /* html */`
       <main class='absolute full'>
         <h3 class="centar">Dovedi Žikicu Jovanovića Španca do nemačkog bunkera!</h3>
