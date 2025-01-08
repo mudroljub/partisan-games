@@ -1,11 +1,11 @@
 import { slucajnePozicije, nadjiNajdaljeTacke } from '/game-engine/utils.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
+import { keyboard } from '/game-engine/io/Keyboard.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import Bombas from './Bombas.js'
 import Bunker from './Bunker.js'
-import Predmet from '/game-engine/core/Predmet.js'
-import { keyboard } from '/game-engine/io/Keyboard.js'
+import Mina from './Mina.js'
 
 const ZADATO_VREME = 100
 const BROJ_PREPREKA = 20
@@ -23,7 +23,7 @@ export default class BombasScena extends Scena {
 
     this.mine = pozicije
       .filter(p => !najdaljeTacke.some(tacka => tacka.x === p.x && tacka.y === p.y))
-      .map(p => new Predmet('/assets/slike/2d-bocno/stvari/nagazna.png', { skalar: .75, zapaljiv: true, ...p }))
+      .map(p => new Mina(p))
     this.dodaj(this.bunker, this.bombas, ...this.mine)
   }
 
@@ -34,32 +34,24 @@ export default class BombasScena extends Scena {
     }
   }
 
-  proveriVreme() {
+  proveriVreme(t) {
     if (this.vreme.protekloSekundi > ZADATO_VREME)
       this.zavrsi('Tvoje vreme je isteklo. Izgubio si!')
   }
 
-  proveriMine() {
-    this.mine.forEach(mina => {
-      if (this.bombas.sudara(mina)) {
-        mina.umri()
-        this.bombas.umri()
-        this.zavrsi('Poginuo si. Igra je završena.')
-      }
-    })
-  }
-
   update(dt, t) {
     super.update(dt, t)
+
+    if (this.bombas.mrtav) this.zavrsi('Slavno si pao.')
+
+    this.mine.forEach(mina => mina.proveriSudar(this.bombas))
     this.proveriVreme(t)
-    if (!keyboard.keyPressed) return
     this.proveriPobedu()
-    this.proveriMine(dt)
   }
 
   /* UI */
 
-  sablon() {
+  sablon(t) {
     const preostalo = ZADATO_VREME - Math.floor(this.vreme.protekloSekundi)
     return /* html */`
       <main class='absolute full'>
