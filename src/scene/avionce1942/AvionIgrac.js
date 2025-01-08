@@ -4,7 +4,7 @@ import Raketa from '/game-engine/core/Raketa.js'
 
 const OKRET = 0.01
 const MOGUCNOST_OKRETA = 0.066
-const GRAVITACIJA = 0.3
+const gravitacija = 3
 
 export default class AvionIgrac extends Igrac {
   constructor(nivoTla, src = '/assets/slike/2d-bocno/partizani/potez-25.png') {
@@ -76,8 +76,10 @@ export default class AvionIgrac extends Igrac {
   }
 
   proveriGravitaciju() {
-    if (!this.jePrizemljen()) this.y += GRAVITACIJA
-    if (this.mrtav && !this.jePrizemljen()) this.y += GRAVITACIJA * 20
+    if (this.jePrizemljen()) return
+
+    const teza = this.mrtav ? gravitacija * 40 : gravitacija
+    this.dodajSilu(teza, Math.PI * .5)
   }
 
   proveriSudare() {

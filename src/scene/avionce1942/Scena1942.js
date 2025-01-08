@@ -88,14 +88,14 @@ export default class Scena1942 extends Scena {
   }
 
   proveriSmrt() {
-    this.ostaliPredmeti.forEach(predmet => {
-      if (predmet.mrtav) predmet.dx = PARALAX_1 - this.brzinaScene
-    })
-    if (this.igrac.mrtav && this.dignutostScene > 0)
-      this.dizePredmete(-DIZAJ)
+    if (this.vozilo.mrtav) this.vozilo.dx = PARALAX_1 - this.brzinaScene
+    if (!this.igrac.mrtav) return
 
-    if (this.igrac.mrtav)
-      this.zavrsi('Slavno si pao.')
+    if (this.dignutostScene > 0)
+      this.dizePredmete(-DIZAJ * .5)
+
+    this.zaustaviParalax()
+    this.zavrsi('Slavno si pao.')
   }
 
   proveriTlo() {
