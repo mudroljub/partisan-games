@@ -1,4 +1,4 @@
-import Raketa from '../../src/scene/avionce1942/Raketa.js'
+import Raketa from '../Raketa.js'
 
 export function prosiriPucanjem(intervalPucanja = 3, length = 5) {
 

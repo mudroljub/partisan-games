@@ -1,5 +1,5 @@
-import Predmet from '/game-engine/core/Predmet.js'
-import { prosiriPucanjem } from '/game-engine/prosirenja.js'
+import Predmet from './Predmet.js'
+import { prosiriPucanjem } from './prosirenja/Pucanje.js'
 
 export default class VoziloBocno extends Predmet {
   constructor(src, { x, y, skalar }) {

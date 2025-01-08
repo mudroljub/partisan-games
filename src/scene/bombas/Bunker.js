@@ -1,5 +1,5 @@
 import Predmet from '/game-engine/core/Predmet.js'
-import { prosiriPucanjem } from '/game-engine/prosirenja.js'
+import { prosiriPucanjem } from '/game-engine/core/prosirenja/Pucanje.js'
 
 export default class Bunker extends Predmet {
   constructor({ x, y } = {}) {

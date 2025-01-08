@@ -1,6 +1,6 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Igrac from '/game-engine/core/Igrac.js'
-import Raketa from './Raketa.js'
+import Raketa from '/game-engine/core/Raketa.js'
 
 const OKRET = 0.01
 const MOGUCNOST_OKRETA = 0.066
