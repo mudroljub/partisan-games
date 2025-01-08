@@ -10,10 +10,7 @@ Male igrice o Nemcima i partizanima.
 
 BombasScena
 - mitraljezac iz bunkera?
-- metak umesto rakete
-    - skalar
-    - da brže leti
-    - pucas rafal
+- puca rafal
 - dodati završni prozor kad ga ubije raketa
 - dodati prepreka kao zaklone? ili bar kao dekor
 - BUG: pobedim, vreme se nastavlja, na kraju vreme isteklo, izgubio si

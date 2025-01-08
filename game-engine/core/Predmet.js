@@ -244,8 +244,8 @@ export default class Predmet {
   log() {
     const x = this.x.toFixed()
     const y = this.y.toFixed()
-    const sirina = this.sirina.toFixed()
-    const visina = this.visina.toFixed()
+    const sirina = this.sirina?.toFixed()
+    const visina = this.visina?.toFixed()
     const dx = this.dx.toFixed()
     const dy = this.dy.toFixed()
     const brzina = this.brzina.toFixed()
