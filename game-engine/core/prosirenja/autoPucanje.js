@@ -2,7 +2,7 @@ import Raketa from '../Raketa.js'
 
 export function praviAutoPucanje({ interval = 3, brojRaketa = 5, src } = {}) {
 
-  const AutoPucanje = {
+  const autoPucanje = {
     i: 0,
     interval, // sekundi
 
@@ -26,5 +26,5 @@ export function praviAutoPucanje({ interval = 3, brojRaketa = 5, src } = {}) {
     },
   }
 
-  return AutoPucanje
+  return autoPucanje
 }

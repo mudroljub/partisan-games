@@ -1,5 +1,5 @@
 import Predmet from '/game-engine/core/Predmet.js'
-import { praviAutoPucanje } from '/game-engine/core/prosirenja/AutoPucanje.js'
+import { praviAutoPucanje } from '/game-engine/core/prosirenja/autoPucanje.js'
 
 export default class Bunker extends Predmet {
   constructor({ x, y } = {}) {
@@ -13,6 +13,6 @@ export default class Bunker extends Predmet {
   }
 }
 
-const AutoPucanje = praviAutoPucanje({ interval: 1, brojRaketa: 5, src: '/assets/slike/granata.gif' })
+const autoPucanje = praviAutoPucanje({ interval: 1, brojRaketa: 5, src: '/assets/slike/granata.gif' })
 
-Object.assign(Bunker.prototype, AutoPucanje)
+Object.assign(Bunker.prototype, autoPucanje)
