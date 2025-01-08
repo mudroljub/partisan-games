@@ -9,9 +9,8 @@ Male igrice o Nemcima i partizanima.
 - prebaciti potisak na predmet?
 
 BombasScena
+- dodati završni prozor kad ga ubije rafal
 - mitraljezac iz bunkera?
-- puca rafal
-- dodati završni prozor kad ga ubije raketa
 - dodati prepreka kao zaklone? ili bar kao dekor
 - BUG: pobedim, vreme se nastavlja, na kraju vreme isteklo, izgubio si
     - jel moguće zaustaviti vreme a nastaviti plamen

@@ -3,9 +3,8 @@ import { praviAutoPucanje } from '/game-engine/core/prosirenja/autoPucanje.js'
 
 export default class Bunker extends Predmet {
   constructor({ x, y } = {}) {
-    super('/assets/slike/2d-bocno/kuca-bunker.png', { skalar: .5, x, y })
+    super('/assets/slike/2d-bocno/kuca-bunker.png', { skalar: .5, x, y, zapaljiv: true })
     this.slikaMrtav = '/assets/slike/2d-bocno/kuca-bunker-gori.png'
-    this.zapaljiv = true
   }
 
   update(dt, t) {

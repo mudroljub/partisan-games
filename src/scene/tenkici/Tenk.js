@@ -11,7 +11,7 @@ const vremePunjenja = 1000
 
 export default class Tenk extends Predmet {
   constructor(src = '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', skalar) {
-    super(src, { skalar })
+    super(src, { skalar, zapaljiv: true })
     this.potisak = 25
     this.cev = new Cev(this, '/assets/slike/2d-bocno/partizanski-tenk-cev.png', skalar)
     this.vreme = new Vreme()
@@ -20,7 +20,6 @@ export default class Tenk extends Predmet {
     this.spremno = false
     this.granate = this.praviGranate()
     this.energija = 100
-    this.zapaljiv = true
     this.zapaljivost = 20
     this.predmeti = [...this.granate]
   }

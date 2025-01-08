@@ -8,12 +8,11 @@ const GRAVITACIJA = 0.3
 
 export default class AvionIgrac extends Igrac {
   constructor(nivoTla, src = '/assets/slike/2d-bocno/partizani/potez-25.png') {
-    super(src, { skalar: .55 })
+    super(src, { skalar: .55, zapaljiv: true })
     this.brzina = 0
     this.nivoTla = nivoTla
     this.oznake.add('igrac')
     this.raketa = new Raketa()
-    this.zapaljiv = true
     this.predmeti = [this.raketa]
   }
 

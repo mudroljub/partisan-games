@@ -23,11 +23,7 @@ export default class BombasScena extends Scena {
 
     this.mine = pozicije
       .filter(p => !najdaljeTacke.some(tacka => tacka.x === p.x && tacka.y === p.y))
-      .map(p => {
-        const mina = new Predmet('/assets/slike/2d-bocno/stvari/nagazna.png', { skalar: .75, ...p })
-        mina.zapaljiv = true
-        return mina
-      })
+      .map(p => new Predmet('/assets/slike/2d-bocno/stvari/nagazna.png', { skalar: .75, zapaljiv: true, ...p }))
     this.dodaj(this.bunker, this.bombas, ...this.mine)
   }
 

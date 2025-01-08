@@ -3,9 +3,8 @@ import { praviAutoPucanje } from './prosirenja/autoPucanje.js'
 
 export default class VoziloBocno extends Predmet {
   constructor(src, { x, y, skalar }) {
-    super(src, { x, y, skalar })
+    super(src, { x, y, skalar, zapaljiv: true })
     this.brzina = 120
-    this.zapaljiv = true
     this.oznake.add('neprijatelj')
   }
 

@@ -8,7 +8,7 @@ import {
 export default class Predmet {
   #ugao = 0
 
-  constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1 } = {}) {
+  constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1, zapaljiv = false } = {}) {
     this.x = x
     this.y = y
     this.slika = new Image()
@@ -18,6 +18,7 @@ export default class Predmet {
       this.slika.onload = null
     }
     this.slika.src = src
+    this.zapaljiv = zapaljiv
     this.centrirano = true
     this.vidljiv = true
     this.ziv = true
