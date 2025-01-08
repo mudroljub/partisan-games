@@ -12,7 +12,7 @@ export default class Scena {
     this.prozorElement = document.getElementById('prozor')
     this.upamcenUI = this.upamcenProzor = this.zavrsniTekst = ''
     this.hocuVan = this.gotovo = false
-    this.cameraX = this.cameraY = 0
+    this.kameraX = this.kameraY = 0
     this.init()
   }
 
@@ -152,7 +152,7 @@ export default class Scena {
 
   render(dt, t) {
     ctx.save()
-    ctx.translate(-this.cameraX, -this.cameraY) // pomeramo sve u odnosu na kameru
+    ctx.translate(-this.kameraX, -this.kameraY)
 
     const rekurzivnoRender = predmet => {
       if (predmet.render) predmet.render(dt, t)
