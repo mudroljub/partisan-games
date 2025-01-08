@@ -6,12 +6,9 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- prebaciti potisak na predmet?
-
 BombasScena
 - mitraljezac iz bunkera?
 - dodati prepreka kao zaklone? ili bar kao dekor
-- Bombas ogranici
 - napraviti neku smrt za bombaša, makar dim ili krv ili padne
 
 Scena1942
@@ -57,6 +54,8 @@ TenkOdozgoScena
 - kretanje po vise ekrana, kamera prati igraca
 - razlicite podloge ubrzavaju/usporavaju tenk
 - pobeda/poraz - prepreke ili vreme
+
+- prebaciti potisak na predmet?
 
 ### 3D
 - dodati predmetima z osu (default 0)

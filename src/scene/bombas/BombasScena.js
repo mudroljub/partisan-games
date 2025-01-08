@@ -29,22 +29,17 @@ export default class BombasScena extends Scena {
   proveriPobedu() {
     if (this.bombas.razmakDo(this.bunker) < this.bunker.sirina / 2) {
       this.bunker.umri()
-      this.zavrsi('Neprijateljski bunker je uništen.')
+      this.zavrsi('Neprijateljski bunker je uništen!')
     }
-  }
-
-  proveriVreme(t) {
-    if (t > ZADATO_VREME)
-      this.zavrsi('Tvoje vreme je isteklo. Izgubio si!')
   }
 
   update(dt, t) {
     super.update(dt, t)
+    this.mine.forEach(mina => mina.proveriSudar(this.bombas))
 
     if (this.bombas.mrtav) this.zavrsi('Slavno si pao.')
+    if (t > ZADATO_VREME) this.zavrsi('Tvoje vreme je isteklo.')
 
-    this.mine.forEach(mina => mina.proveriSudar(this.bombas))
-    this.proveriVreme(t)
     this.proveriPobedu()
   }
 
