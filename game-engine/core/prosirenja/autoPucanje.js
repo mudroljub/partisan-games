@@ -6,7 +6,7 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
     i: 0,
     zastoj, // sekundi
     ispaljeno: 0,
-    duzinaRafala: 10,
+    duzinaRafala: 5,
 
     initRakete(...ciljevi) {
       this.zadnjiPucanj = 0
