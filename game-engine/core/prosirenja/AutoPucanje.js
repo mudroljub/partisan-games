@@ -1,6 +1,6 @@
 import Raketa from '../Raketa.js'
 
-export function dodajAutoPucanje(interval = 3, brojRaketa = 5) {
+export function dodajAutoPucanje({ interval = 3, brojRaketa = 5, src } = {}) {
 
   const AutoPucanje = {
     i: 0,
@@ -8,7 +8,7 @@ export function dodajAutoPucanje(interval = 3, brojRaketa = 5) {
 
     initRakete(...ciljevi) {
       this.zadnjiPucanj = 0
-      this.rakete = Array.from({ length: brojRaketa }, () => new Raketa())
+      this.rakete = Array.from({ length: brojRaketa }, () => new Raketa(src))
       this.rakete.forEach(r => r.dodajCiljeve(...ciljevi))
       this.predmeti = [...this.rakete]
     },

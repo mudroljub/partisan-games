@@ -13,4 +13,4 @@ export default class Bunker extends Predmet {
   }
 }
 
-Object.assign(Bunker.prototype, dodajAutoPucanje(1, 5))
+Object.assign(Bunker.prototype, dodajAutoPucanje({ interval: 1, brojRaketa: 5, src: '/assets/slike/granata.gif' }))

@@ -2,8 +2,8 @@ import Predmet from '/game-engine/core/Predmet.js'
 import { izasaoIgde } from '/game-engine/utils/granice.js'
 
 export default class Raketa extends Predmet {
-  constructor() {
-    super('/assets/slike/raketa.png', { skalar: .55 })
+  constructor(src = '/assets/slike/raketa.png') {
+    super(src, { skalar: .55 })
     this.oznake.add('raketa')
     this.ciljevi = []
     this.reset()
