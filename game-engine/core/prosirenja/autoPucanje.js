@@ -1,27 +1,27 @@
 import Raketa from '../Raketa.js'
 
-export function praviAutoPucanje({ interval = 3, brojRaketa = 5, src, potisak, skalar } = {}) {
+export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skalar } = {}) {
 
   const autoPucanje = {
     i: 0,
-    interval, // sekundi
+    zastoj, // sekundi
 
     initRakete(...ciljevi) {
       this.zadnjiPucanj = 0
-      this.rakete = Array.from({ length: brojRaketa }, () => new Raketa(src, { potisak, skalar }))
-      this.rakete.forEach(r => r.dodajCiljeve(...ciljevi))
-      this.predmeti = [...this.rakete]
+      this.meci = Array.from({ length: kolicina }, () => new Raketa(src, { potisak, skalar }))
+      this.meci.forEach(r => r.dodajCiljeve(...ciljevi))
+      this.predmeti = [...this.meci]
     },
 
     pucaPovremeno(t) {
-      if (t - this.zadnjiPucanj > this.interval) {
+      if (t - this.zadnjiPucanj > this.zastoj) {
         this.puca()
         this.zadnjiPucanj = t
       }
     },
 
     puca() {
-      const raketa = this.rakete[this.i++ % this.rakete.length]
+      const raketa = this.meci[this.i++ % this.meci.length]
       raketa.pucaCiljano(this, this.ugao)
     },
   }

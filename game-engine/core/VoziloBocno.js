@@ -35,4 +35,4 @@ export default class VoziloBocno extends Predmet {
   }
 }
 
-Object.assign(VoziloBocno.prototype, praviAutoPucanje({ interval: 10, brojRaketa: 1 }))
+Object.assign(VoziloBocno.prototype, praviAutoPucanje({ zastoj: 10, kolicina: 1 }))
