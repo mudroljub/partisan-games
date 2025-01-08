@@ -8,7 +8,7 @@ import {
 export default class Predmet {
   #ugao = 0
 
-  constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1, zapaljiv = false } = {}) {
+  constructor(src, { sirina, visina, x = 200, y = 200, skalar = 1, zapaljiv = false, ishodiste = 'CENTAR' } = {}) {
     this.x = x
     this.y = y
     this.slika = new Image()
@@ -19,7 +19,7 @@ export default class Predmet {
     }
     this.slika.src = src
     this.zapaljiv = zapaljiv
-    this.centrirano = true
+    this.ishodiste = ishodiste
     this.vidljiv = true
     this.ziv = true
     this.brzina = 0
@@ -102,12 +102,8 @@ export default class Predmet {
     this.brzina = this.brzina // ažurira pravac kretanja
   }
 
-  ugaoKa(predmet) {
-    const mojX = this.x + this.sirina / 2
-    const mojY = this.y + this.visina / 2
-    const tudjX = predmet.x + predmet.sirina / 2
-    const tudjY = predmet.y + predmet.visina / 2
-    return Math.atan2(tudjY - mojY, tudjX - mojX)
+  ugaoKa(cilj) {
+    return Math.atan2(cilj.y - this.y, cilj.x - this.x)
   }
 
   /* KRETANJE */
@@ -256,10 +252,12 @@ export default class Predmet {
 
   crtaOblik() {
     ctx.fillStyle = 'black'
-    if (this.centrirano)
+    if (this.ishodiste === 'CENTAR')
       ctx.fillRect(-this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
-    else
+    else if (this.ishodiste === 'GORE_LEVO')
       ctx.fillRect(0, 0, this.sirina, this.visina)
+    else if (this.ishodiste === 'DOLE_DESNO')
+      ctx.fillRect(-this.sirina, -this.visina, this.sirina, this.visina)
   }
 
   /* LOOP */
@@ -288,10 +286,12 @@ export default class Predmet {
   }
 
   crtaSliku() {
-    if (this.centrirano)
+    if (this.ishodiste === 'CENTAR')
       ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
-    else
+    else if (this.ishodiste === 'GORE_LEVO')
       ctx.drawImage(this.slika, 0, 0, this.sirina, this.visina)
+    else if (this.ishodiste === 'DOLE_DESNO')
+      ctx.drawImage(this.slika, -this.sirina, -this.visina, this.sirina, this.visina)
   }
 
   render() {

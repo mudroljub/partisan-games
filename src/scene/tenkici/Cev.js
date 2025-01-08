@@ -2,10 +2,9 @@ import Predmet from '/game-engine/core/Predmet.js'
 
 export default class Cev extends Predmet {
   constructor(vlasnik, src, skalar) {
-    super(src, { skalar })
+    super(src, { skalar, ishodiste: 'GORE_LEVO' })
     this.vlasnik = vlasnik
     this.ugao = Math.PI + Math.PI * 0.9
-    this.centrirano = false
   }
 
   update() {

@@ -9,6 +9,20 @@ import Mina from './Mina.js'
 const ZADATO_VREME = 30
 const BROJ_PREPREKA = 20
 
+import Predmet from '/game-engine/core/Predmet.js'
+
+class Mitraljezac extends Predmet {
+  constructor(x, y, cilj) {
+    super('/assets/slike/2d-bocno/nemci/mitraljezac-01.png', { x, y, ishodiste: 'DOLE_DESNO' })
+    this.cilj = cilj
+  }
+
+  update(dt) {
+    super.update(dt)
+    this.ugao = this.ugaoKa(this.cilj) + Math.PI
+  }
+}
+
 export default class BombasScena extends Scena {
   init() {
     this.vreme = new Vreme()
@@ -19,11 +33,12 @@ export default class BombasScena extends Scena {
     this.bombas = new Bombas(najdaljeTacke[0])
     this.bunker = new Bunker(najdaljeTacke[1])
     this.bunker.initRakete(this.bombas)
+    this.mitraljezac = new Mitraljezac(this.bunker.x, this.bunker.y, this.bombas)
 
     this.mine = pozicije
       .filter(p => !najdaljeTacke.some(tacka => tacka.x === p.x && tacka.y === p.y))
       .map(p => new Mina(p))
-    this.dodaj(this.bunker, this.bombas, ...this.mine)
+    this.dodaj(this.bunker, this.mitraljezac, this.bombas, ...this.mine)
   }
 
   proveriPobedu() {

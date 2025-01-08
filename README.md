@@ -8,7 +8,6 @@ Male igrice o Nemcima i partizanima.
 
 BombasScena
 - mitraljezac iz bunkera?
-- dodati prepreka kao zaklone? ili bar kao dekor
 - napraviti neku smrt za bombaša, makar dim ili krv ili padne
 
 Scena1942
