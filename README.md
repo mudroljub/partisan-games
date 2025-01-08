@@ -6,17 +6,14 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-Scena1942
-- probati da tenkovi dolaze i pucaju
+TopScena
+- neprijatelji nadiru
+- dodati više projektila
 
 Scena1944
 - dodati stvar za hvatanje (paketić)
 - ubaciti jednog neprijatelja
 - senku ispod aviona, kao u avion.png
-
-TopScena
-- neprijatelji nadiru
-- dodati više projektila
 
 CamacScena
 - beskonačan ekran nadesno
@@ -63,3 +60,8 @@ TenkOdozgoScena
 
 ### Test
 - proveriti sve nivoe sa sporijim i bržim fps
+
+### Ideje za kasnije
+
+Avion leti
+- probati da tenkovi dolaze i pucaju

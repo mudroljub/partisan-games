@@ -8,14 +8,11 @@ export default class Scena {
     this.predmeti = []
     this.gameLoop = new GameLoop(this.loop)
     this.handleClick = this.handleClick.bind(this)
-    // UI
     this.elementUI = document.getElementById('ui')
-    this.upamcenUI = ''
     this.prozorElement = document.getElementById('prozor')
-    this.upamcenProzor = ''
-    this.zavrsniTekst = ''
-    this.hocuVan = false
-    this.gotovo = false
+    this.upamcenUI = this.upamcenProzor = this.zavrsniTekst = ''
+    this.hocuVan = this.gotovo = false
+    this.cameraX = this.cameraY = 0
     this.init()
   }
 
@@ -53,7 +50,7 @@ export default class Scena {
       this.manager.start(this.constructor.name)
 
     if (e.target.id == 'menu')
-      this.manager.start('MainMenu')
+      this.manager.start('GlavniMeni')
 
     if (e.target.id == 'cancel')
       this.nastaviIgru()
@@ -154,11 +151,16 @@ export default class Scena {
   }
 
   render(dt, t) {
+    ctx.save()
+    ctx.translate(-this.cameraX, -this.cameraY) // pomeramo sve u odnosu na kameru
+
     const rekurzivnoRender = predmet => {
       if (predmet.render) predmet.render(dt, t)
       if (predmet?.predmeti?.length) predmet.predmeti.forEach(rekurzivnoRender)
     }
     this.predmeti.forEach(rekurzivnoRender)
+
+    ctx.restore()
   }
 
   loop = (dt, t) => {

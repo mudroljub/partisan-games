@@ -1,8 +1,6 @@
 import Scena from '/game-engine/core/Scena.js'
 
 const items = {
-  Scena1942: 'Avionče 1942',
-  NemciIzRovova: 'Nemci iz rovova',
   TopScena: 'Top',
   CamacScena: 'Čamac',
   OtpisaniScena: 'Ubij okupatora!',
@@ -14,9 +12,11 @@ const items = {
   JasenovacScena: 'Bekstvo iz Jasenovca',
   TenkOdozgoScena: 'Tenk odozgo',
   BombasScena: 'Bombaš',
+  Scena1942: 'Avionče 1942',
+  NemciIzRovova: 'Nemci iz rovova',
 }
 
-export default class MainMenu extends Scena {
+export default class GlavniMeni extends Scena {
   handleClick = e => {
     if (!e.target.classList.contains('js-start')) return
 

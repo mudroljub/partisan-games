@@ -1,7 +1,7 @@
 import SceneManager from './SceneManager.js'
 
 const manager = new SceneManager()
-manager.start('MainMenu')
+manager.start('GlavniMeni')
 
 // history.pushState(null, null, location.href)
 window.addEventListener('popstate', () => {

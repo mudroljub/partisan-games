@@ -16,7 +16,7 @@ import RanjenikPaljba from './scene/ranjenik/RanjenikPaljba.js'
 // za spajanje
 import JasenovacScena from './scene/tenkovska/JasenovacScena.js'
 import TenkOdozgoScena from './scene/tenkovska/TenkOdozgoScena.js'
-import MainMenu from './MainMenu.js'
+import GlavniMeni from './GlavniMeni.js'
 
 const scene = {
   BombasScena,
@@ -32,7 +32,7 @@ const scene = {
   TenkiciScena,
   RanjenikScena,
   RanjenikPaljba,
-  MainMenu
+  GlavniMeni
 }
 
 export default scene
