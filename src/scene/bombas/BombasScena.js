@@ -1,13 +1,12 @@
 import { slucajnePozicije, nadjiNajdaljeTacke } from '/game-engine/utils.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
-import { keyboard } from '/game-engine/io/Keyboard.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import Bombas from './Bombas.js'
 import Bunker from './Bunker.js'
 import Mina from './Mina.js'
 
-const ZADATO_VREME = 100
+const ZADATO_VREME = 30
 const BROJ_PREPREKA = 20
 
 export default class BombasScena extends Scena {
@@ -35,7 +34,7 @@ export default class BombasScena extends Scena {
   }
 
   proveriVreme(t) {
-    if (this.vreme.protekloSekundi > ZADATO_VREME)
+    if (t > ZADATO_VREME)
       this.zavrsi('Tvoje vreme je isteklo. Izgubio si!')
   }
 
@@ -52,13 +51,12 @@ export default class BombasScena extends Scena {
   /* UI */
 
   sablon(t) {
-    const preostalo = ZADATO_VREME - Math.floor(this.vreme.protekloSekundi)
+    const preostalo = ZADATO_VREME - Math.floor(t)
     return /* html */`
       <main class='absolute full'>
         <h3 class="centar">Dovedi Žikicu Jovanovića Španca do nemačkog bunkera!</h3>
         <div class='komande bg-poluprovidno komande1'>
           Vreme: ${preostalo} <br>
-          Prepreke: ${BROJ_PREPREKA}
         </div>
       </main>
     `

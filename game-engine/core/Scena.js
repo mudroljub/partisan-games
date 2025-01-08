@@ -86,6 +86,7 @@ export default class Scena {
   zavrsi(text = 'Igra je završena.') {
     this.zavrsniTekst = text
     this.gotovo = true
+    this.gameLoop.stopTime()
   }
 
   sablon() {

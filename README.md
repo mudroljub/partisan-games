@@ -9,11 +9,8 @@ Male igrice o Nemcima i partizanima.
 - prebaciti potisak na predmet?
 
 BombasScena
-- dodati završni prozor kad ga ubije rafal
 - mitraljezac iz bunkera?
 - dodati prepreka kao zaklone? ili bar kao dekor
-- BUG: pobedim, vreme se nastavlja, na kraju vreme isteklo, izgubio si
-    - jel moguće zaustaviti vreme a nastaviti plamen
 - Bombas ogranici
 - napraviti neku smrt za bombaša, makar dim ili krv ili padne
 

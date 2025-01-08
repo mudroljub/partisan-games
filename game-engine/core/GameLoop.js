@@ -3,8 +3,8 @@ export default class GameLoop {
     this.sceneLoop = sceneLoop
     this.lastTimestamp = 0
     this.time = 0
-    this.isPaused = false
     this.loopId = null
+    this.isPaused = this.timeStopped = false
 
     document.addEventListener('keypress', this.handleKeyPress)
 
@@ -25,7 +25,7 @@ export default class GameLoop {
   start() {
     if (this.isRunning) return
 
-    this.isPaused = false
+    this.isPaused = this.timeStopped = false
     this.lastTimestamp = performance.now()
     this.loopId = requestAnimationFrame(this.mainLoop)
   }
@@ -56,6 +56,10 @@ export default class GameLoop {
     this.isPaused = false
     this.lastTimestamp = performance.now()
     this.loopId = requestAnimationFrame(this.mainLoop)
+  }
+
+  stopTime() {
+    this.timeStopped = true
   }
 
   /* EVENTS */
@@ -94,7 +98,7 @@ export default class GameLoop {
 
     const deltaTime = timestamp - this.lastTimestamp
     this.lastTimestamp = timestamp
-    this.time += deltaTime
+    if (!this.timeStopped) this.time += deltaTime
 
     if (this.sceneLoop)
       this.sceneLoop(deltaTime * 0.001, this.time * 0.001) // to seconds
