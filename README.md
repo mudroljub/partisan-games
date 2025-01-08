@@ -17,6 +17,8 @@ BombasScena
 - BUG: pobedim, vreme se nastavlja, na kraju vreme isteklo, izgubio si
 - sukcesivno se povećava broj prepreka i težina igre
 - možda brojati koliko bunkera može uništiti zaredom pre smrti?
+- Bombas ogranici
+- napraviti neku smrt za bombaša, makar dim ili krv ili padne
 
 Scena1942
 - probati da tenkovi dolaze i pucaju

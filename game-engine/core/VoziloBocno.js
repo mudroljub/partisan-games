@@ -1,6 +1,5 @@
 import Predmet from '/game-engine/core/Predmet.js'
-import Raketa from '../../src/scene/avionce1942/Raketa.js'
-import { Pucanje } from '/game-engine/prosirenja.js'
+import { prosiriPucanjem } from '/game-engine/prosirenja.js'
 
 export default class VoziloBocno extends Predmet {
   constructor(src, { x, y, skalar }) {
@@ -8,8 +7,6 @@ export default class VoziloBocno extends Predmet {
     this.brzina = 120
     this.zapaljiv = true
     this.oznake.add('neprijatelj')
-    this.raketa = new Raketa(this)
-    this.predmeti = [this.raketa]
   }
 
   onload() {
@@ -26,10 +23,6 @@ export default class VoziloBocno extends Predmet {
       this.skreni(Math.PI)
   }
 
-  puca() {
-    this.raketa.pucaCiljano(this, this.ugao)
-  }
-
   azurirajSliku() {
     this.odrazX = this.ugao === Math.PI ? -1 : 1
   }
@@ -42,4 +35,4 @@ export default class VoziloBocno extends Predmet {
   }
 }
 
-Object.assign(VoziloBocno.prototype, Pucanje)
+Object.assign(VoziloBocno.prototype, prosiriPucanjem(10, 1))

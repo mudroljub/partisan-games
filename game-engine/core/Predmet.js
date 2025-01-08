@@ -26,7 +26,7 @@ export default class Predmet {
     this.odrazX = 1
     this.oznake = new Set()
     this.debug = false
-    this.predmeti = []
+    // this.predmeti = [] // ako se doda ovde Pucanje prestaje da radi!!
   }
 
   onload() {} // callback
@@ -246,9 +246,9 @@ export default class Predmet {
     const y = this.y.toFixed()
     const sirina = this.sirina.toFixed()
     const visina = this.visina.toFixed()
-    const dx = this.dx.toFixed(2)
-    const dy = this.dy.toFixed(2)
-    const brzina = this.brzina.toFixed(2)
+    const dx = this.dx.toFixed()
+    const dy = this.dy.toFixed()
+    const brzina = this.brzina.toFixed()
     const ugao = this.ugao.toFixed(2)
     console.log(`${this.constructor.name} x: ${x}, y: ${y}, sirina: ${sirina}, visina: ${visina}, dx: ${dx}, dy: ${dy}, brzina: ${brzina}, ugao: ${ugao}, vidljiv: ${this.vidljiv}, ziv: ${this.ziv}`)
   }

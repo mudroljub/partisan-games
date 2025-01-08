@@ -2,8 +2,8 @@ import Scena from '/game-engine/core/Scena.js'
 
 const items = {
   BombasScena: 'Bombaš',
-  NemciIzRovova: 'Nemci iz rovova',
   Scena1942: 'Avionče 1942',
+  NemciIzRovova: 'Nemci iz rovova',
   TopScena: 'Top',
   CamacScena: 'Čamac',
   OtpisaniScena: 'Ubij okupatora!',
