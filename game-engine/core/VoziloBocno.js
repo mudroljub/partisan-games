@@ -1,5 +1,5 @@
 import Predmet from './Predmet.js'
-import { dodajAutoPucanje } from './prosirenja/AutoPucanje.js'
+import { praviAutoPucanje } from './prosirenja/AutoPucanje.js'
 
 export default class VoziloBocno extends Predmet {
   constructor(src, { x, y, skalar }) {
@@ -35,4 +35,4 @@ export default class VoziloBocno extends Predmet {
   }
 }
 
-Object.assign(VoziloBocno.prototype, dodajAutoPucanje({ interval: 10, brojRaketa: 1 }))
+Object.assign(VoziloBocno.prototype, praviAutoPucanje({ interval: 10, brojRaketa: 1 }))

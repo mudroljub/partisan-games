@@ -1,6 +1,6 @@
 import Raketa from '../Raketa.js'
 
-export function dodajAutoPucanje({ interval = 3, brojRaketa = 5, src } = {}) {
+export function praviAutoPucanje({ interval = 3, brojRaketa = 5, src } = {}) {
 
   const AutoPucanje = {
     i: 0,
