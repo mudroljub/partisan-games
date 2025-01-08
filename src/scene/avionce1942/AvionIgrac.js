@@ -58,7 +58,7 @@ export default class AvionIgrac extends Igrac {
   /** * OSTALO ***/
 
   ispraviAvion() {
-    if (keyboard.keyPressed || this.ugao === 0) return
+    if (keyboard.up || keyboard.down || this.ugao === 0) return
     this.ugao += this.ugao < Math.PI ? -OKRET : OKRET
   }
 
