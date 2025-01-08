@@ -2,10 +2,10 @@ import Predmet from '/game-engine/core/Predmet.js'
 import { izasaoIgde } from '/game-engine/utils/granice.js'
 
 export default class Raketa extends Predmet {
-  constructor(src = '/assets/slike/raketa.png', { potisak = 625, skalar = .55 } = {}) {
+  constructor(src = '/assets/slike/raketa.png', { potisak = 625, skalar = .55, callBackMethod = 'umri' } = {}) {
     super(src, { skalar })
     this.potisak = potisak
-    this.oznake.add('raketa')
+    this.callBackMethod = callBackMethod
     this.ciljevi = []
     this.reset()
   }
@@ -66,7 +66,8 @@ export default class Raketa extends Predmet {
   proveriSudare() {
     this.ciljevi.forEach(cilj => {
       if (!this.sudara(cilj)) return
-      cilj.umri()
+
+      if (this.callBackMethod in cilj) cilj[this.callBackMethod]()
       this.reset()
     })
   }

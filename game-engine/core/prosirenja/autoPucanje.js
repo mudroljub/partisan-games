@@ -1,6 +1,6 @@
 import Raketa from '../Raketa.js'
 
-export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skalar, x = 0, y = 0 } = {}) {
+export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skalar, x = 0, y = 0, callBackMethod } = {}) {
 
   const autoPucanje = {
     i: 0,
@@ -12,7 +12,7 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
     initPucanje(...ciljevi) {
       this.zadnjiPucanj = 0
       this.zadnjiPucanjRafala = 0
-      this.meci = Array.from({ length: kolicina }, () => new Raketa(src, { potisak, skalar }))
+      this.meci = Array.from({ length: kolicina }, () => new Raketa(src, { potisak, skalar, callBackMethod }))
       this.meci.forEach(r => r.dodajCiljeve(...ciljevi))
       this.predmeti = [...this.meci]
     },

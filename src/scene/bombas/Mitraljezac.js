@@ -15,7 +15,7 @@ export default class Mitraljezac extends Predmet {
 }
 
 const autoPucanje = praviAutoPucanje({
-  zastoj: 3, kolicina: 50, src: '/assets/slike/granata.gif', skalar: .4, potisak: 600, y: -10
+  zastoj: 3, kolicina: 50, src: '/assets/slike/granata.gif', skalar: .4, potisak: 600, y: -10, callBackMethod: 'umriKrvavo'
 })
 
 Object.assign(Mitraljezac.prototype, autoPucanje)

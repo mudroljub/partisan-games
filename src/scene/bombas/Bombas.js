@@ -16,7 +16,7 @@ export default class Bombas extends Igrac {
     console.log('bacaBombu')
   }
 
-  umri() {
+  umriKrvavo() {
     super.umri()
     this.krv.pustiAnimaciju('prska', false)
   }

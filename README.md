@@ -7,8 +7,8 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 BombasScena
-- napraviti neku smrt za bombaša, makar dim ili krv ili padne
-    - da bi animirao krv, treba da Igrac nasledi Sprite ili kompozicija
+- da krvari samo pogođen, ne od mine
+    - rešenje: callback Raketi
 
 Scena1942
 - srediti ispravljanje gore dole dok leti
