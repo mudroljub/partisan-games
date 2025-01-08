@@ -1,4 +1,5 @@
-export function prosiriPucanjem(intervalPucanja = 3) {
+/* očekuje da bazična klasa ima rakete */
+export function dodajAutoPucanje(intervalPucanja = 3) {
 
   const AutoPucanje = {
     zadnjiPucanj: 0,

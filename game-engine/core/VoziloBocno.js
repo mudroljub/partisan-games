@@ -1,5 +1,5 @@
 import Predmet from './Predmet.js'
-import { prosiriPucanjem } from './prosirenja/AutoPucanje.js'
+import { dodajAutoPucanje } from './prosirenja/AutoPucanje.js'
 import Raketa from '/game-engine/core/Raketa.js'
 
 export default class VoziloBocno extends Predmet {
@@ -38,4 +38,4 @@ export default class VoziloBocno extends Predmet {
   }
 }
 
-Object.assign(VoziloBocno.prototype, prosiriPucanjem(10))
+Object.assign(VoziloBocno.prototype, dodajAutoPucanje(10))
