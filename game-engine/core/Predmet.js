@@ -26,7 +26,7 @@ export default class Predmet {
     this.odrazX = 1
     this.oznake = new Set()
     this.debug = false
-    // this.predmeti = [] // ako se doda ovde AutoPucanje prestaje da radi!!
+    this.predmeti = []
   }
 
   onload() {} // callback

@@ -19,4 +19,4 @@ export default class Bunker extends Predmet {
   }
 }
 
-Object.assign(Bunker.prototype, prosiriPucanjem(1, 10))
+Object.assign(Bunker.prototype, prosiriPucanjem(1))
