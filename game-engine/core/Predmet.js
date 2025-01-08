@@ -267,10 +267,9 @@ export default class Predmet {
 
     this.x += this.dx * dt
     this.y += this.dy * dt
-    this.proveriGranice() // možda i za predmete koji se kreću bez sile??
   }
 
-  azuriraPlamen() {
+  azurirajPlamen() {
     if (!this.zapaljen) return
 
     this.plamen.x = this.x
@@ -282,7 +281,8 @@ export default class Predmet {
     if (dt === undefined) console.error(this.constructor.name, 'ne prosleđuje delta time.', dt)
 
     this.azurirajKretanje(dt)
-    this.azuriraPlamen()
+    this.proveriGranice()
+    this.azurirajPlamen()
   }
 
   crtaSliku() {

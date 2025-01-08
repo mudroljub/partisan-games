@@ -77,7 +77,7 @@ export default class AvionIgrac extends Igrac {
 
   proveriGravitaciju() {
     if (!this.jePrizemljen()) this.y += GRAVITACIJA
-    if (this.mrtav && !this.jePrizemljen()) this.y += GRAVITACIJA * 70
+    if (this.mrtav && !this.jePrizemljen()) this.y += GRAVITACIJA * 20
   }
 
   proveriSudare() {
