@@ -10,10 +10,6 @@ Male igrice o Nemcima i partizanima.
 
 BombasScena
 - mitraljezac iz bunkera?
-    - rakete nekad baguju
-        - nastave da pucaju u istu poziciju gde nema igrača
-        - ide sudar i reset
-        - samo prvi put radi, svaki naredni put raketa gađa referencu na igrača iz prethodne partije
     - metak umesto rakete (možda i crtež kugle, tane)
     - dodati završni prozor kad ga ubije raketa
     - dodati prepreka kao zaklone? ili bar kao dekor
@@ -23,8 +19,9 @@ BombasScena
 - napraviti neku smrt za bombaša, makar dim ili krv ili padne
 
 Scena1942
-- probati da tenkovi dolaze i pucaju
 - srediti ispravljanje gore dole dok leti
+- prebrzo padne kad pogine
+- probati da tenkovi dolaze i pucaju
 
 Scena1944
 - dodati stvar za hvatanje (paketić)
