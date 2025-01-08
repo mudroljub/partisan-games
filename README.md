@@ -6,13 +6,16 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- raketi ne radi proveriGranice, nastavlja neograničeno da leti, ispitati log
+- prebaciti potisak na predmet?
 
 BombasScena
 - mitraljezac iz bunkera?
-    - metak umesto rakete (možda i crtež kugle, tane)
-    - dodati završni prozor kad ga ubije raketa
-    - dodati prepreka kao zaklone? ili bar kao dekor
+- metak umesto rakete
+    - skalar
+    - da brže leti
+    - pucas rafal
+- dodati završni prozor kad ga ubije raketa
+- dodati prepreka kao zaklone? ili bar kao dekor
 - BUG: pobedim, vreme se nastavlja, na kraju vreme isteklo, izgubio si
     - jel moguće zaustaviti vreme a nastaviti plamen
 - Bombas ogranici

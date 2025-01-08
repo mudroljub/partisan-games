@@ -2,8 +2,9 @@ import Predmet from '/game-engine/core/Predmet.js'
 import { izasaoIgde } from '/game-engine/utils/granice.js'
 
 export default class Raketa extends Predmet {
-  constructor(src = '/assets/slike/raketa.png') {
-    super(src, { skalar: .55 })
+  constructor(src = '/assets/slike/raketa.png', { potisak = 625, skalar = .55 } = {}) {
+    super(src, { skalar })
+    this.potisak = potisak
     this.oznake.add('raketa')
     this.ciljevi = []
     this.reset()
@@ -29,7 +30,7 @@ export default class Raketa extends Predmet {
 
   pali() {
     this.pokazi()
-    this.dodajSilu(625)
+    this.dodajSilu(this.potisak)
     this.ispaljena = true
   }
 

@@ -13,6 +13,6 @@ export default class Bunker extends Predmet {
   }
 }
 
-const autoPucanje = praviAutoPucanje({ interval: 1, brojRaketa: 5, src: '/assets/slike/granata.gif' })
+const autoPucanje = praviAutoPucanje({ interval: 1, brojRaketa: 5, src: '/assets/slike/granata.gif', skalar: .4 })
 
 Object.assign(Bunker.prototype, autoPucanje)
