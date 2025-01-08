@@ -120,12 +120,13 @@ export default class Scena1942 extends Scena {
       this.ubrzavaOstale(Math.PI, -POTISAK)
 
     if (keyboard.up && this.dignutostScene - DIZAJ < MAX_DIGNUTOST) {
-      if (this.igrac.y < this.visina * 0.5) this.dizePredmete(DIZAJ)
+      if (this.igrac.y < this.visina * 0.5)
+        this.dizePredmete(DIZAJ)
       if (this.brzinaScene === 0) this.pocniParalax() // kada avion ponovo uzlece
     }
 
     if (keyboard.down && this.dignutostScene - DIZAJ >= 0)
-      if (this.igrac.y > this.visina * 0.125) this.dizePredmete(-DIZAJ)
+      this.dizePredmete(-DIZAJ * 2)
   }
 
   update(dt, t) {

@@ -7,9 +7,7 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 Scena1942
-- prebrzo padne kad pogine
 - probati da tenkovi dolaze i pucaju
-- kad ode previsoko i vraća se, kamera ga presporo prati
 
 Scena1944
 - dodati stvar za hvatanje (paketić)
