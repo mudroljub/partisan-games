@@ -9,14 +9,16 @@ Male igrice o Nemcima i partizanima.
 - raketi ne radi proveriGranice, nastavlja neograničeno da leti, ispitati log
 
 BombasScena
-- mitraljez puca iz bunkera
-    - da bunker ispaljuje više raketa
-    - raketa ne cilja dobro kad je bombas preblizu
-    - dodati prepreka kao zaklone
+- mitraljezac iz bunkera?
+    - rakete nekad baguju
+        - nastave da pucaju u istu poziciju gde nema igrača
+        - ide sudar i reset
+        - samo prvi put radi, svaki naredni put raketa gađa referencu na igrača iz prethodne partije
+    - metak umesto rakete (možda i crtež kugle, tane)
     - dodati završni prozor kad ga ubije raketa
+    - dodati prepreka kao zaklone? ili bar kao dekor
 - BUG: pobedim, vreme se nastavlja, na kraju vreme isteklo, izgubio si
-- sukcesivno se povećava broj prepreka i težina igre
-- možda brojati koliko bunkera može uništiti zaredom pre smrti?
+    - jel moguće zaustaviti vreme a nastaviti plamen
 - Bombas ogranici
 - napraviti neku smrt za bombaša, makar dim ili krv ili padne
 

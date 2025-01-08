@@ -1,15 +1,9 @@
-import Raketa from '../Raketa.js'
-
-export function prosiriPucanjem(intervalPucanja = 3, length = 5) {
-
-  const rakete = Array.from({ length }, () => new Raketa())
+export function prosiriPucanjem(intervalPucanja = 3) {
 
   const AutoPucanje = {
     zadnjiPucanj: 0,
     intervalPucanja, // sekundi
-    rakete,
     i: 0,
-    predmeti: [...rakete],
 
     dodajCiljeve(...x) {
       this.rakete.forEach(r => r.dodajCiljeve(...x))
