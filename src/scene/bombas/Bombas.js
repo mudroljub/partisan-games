@@ -1,12 +1,5 @@
 import Igrac from '/game-engine/core/Igrac.js'
-import { ctx } from '/game-engine/io/platno.js'
-
-function crtajKruzic(x, y, r) {
-  ctx.beginPath()
-  ctx.arc(x, y, r, 0, Math.PI * 2)
-  ctx.fillStyle = 'red'
-  ctx.fill()
-}
+import Sprite from '/game-engine/core/Sprite.js'
 
 export default class Bombas extends Igrac {
 
@@ -14,20 +7,29 @@ export default class Bombas extends Igrac {
     super('/assets/slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif', { x, y })
     this.potisak = 75
     this.faktorTrenja = 0.3
+    this.krv = new Sprite('/assets/slike/sprajtovi/efekti/krv-mala.png', {
+      imena: ['prska'], brojKadrova: 8, vremeAnimacije: .4,
+    })
   }
 
   puca() {
     console.log('bacaBombu')
   }
 
-  reset() {
-    this.polozaj(Math.random() * 800, Math.random() * 600)
-    this.brzina = 0
+  umri() {
+    super.umri()
+    this.krv.pustiAnimaciju('prska', false)
   }
 
-  render() {
+  update(dt) {
+    super.update(dt)
+    this.krv.x = this.x + 5
+    this.krv.y = this.y - 10
+  }
+
+  render(dt, t) {
     super.render()
     if (!this.ziv)
-      crtajKruzic(this.x + 6, this.y - 10, 5)
+      this.krv.render(dt, t)
   }
 }

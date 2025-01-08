@@ -13,14 +13,14 @@ class Animacija {
 }
 
 export default class Sprite extends Predmet {
-  constructor(src, params) { // broj ili niz brojeva ako su nejednake
-    super(src, params)
+  constructor(src, { imena, brojKadrova, vremeAnimacije = .5, ...rest }) { // broj ili niz brojeva ako su nejednake
+    super(src, rest)
     this.animacija = null
     this.imeAnimacije = ''
-    this.vremeAnimacije = .5 // sekundi
-    this.proteklo = 0
+    this.vremeAnimacije = vremeAnimacije // sekundi
+    this.protekloAnimacije = 0
     this.onload = () => {
-      this.animacije = this.praviAnimacije(params.imena, params.brojKadrova)
+      this.animacije = this.praviAnimacije(imena, brojKadrova)
     }
   }
 
@@ -35,13 +35,13 @@ export default class Sprite extends Predmet {
   }
 
   reset() {
-    this.proteklo = 0
+    this.protekloAnimacije = 0
   }
 
   pustiAnimaciju(ime, loop) {
-    this.imeAnimacije = ime // ako još nije učitana čuva za kasnije
+    if (this.imeAnimacije != ime) this.reset()
+    this.imeAnimacije = ime // ako nije učitana čuva za kasnije
     if (!this.animacije) return
-    this.reset()
     this.animacija = this.nadjiAnimaciju(ime)
     if (loop !== undefined) this.animacija.loop = loop
   }
@@ -50,19 +50,24 @@ export default class Sprite extends Predmet {
     return this.animacije.find(animacija => animacija.ime === ime)
   }
 
+  animacijaZavrsena(dt) {
+    return this.protekloAnimacije + dt >= this.vremeAnimacije
+  }
+
   /* RENDER */
 
+  // TODO: odvojiti update i render
   crtaKadar(dt) {
     if (!this.animacija) this.animacija = this.nadjiAnimaciju(this.imeAnimacije)
     if (!this.animacija) return
 
     const { pocetak, sirina, visina, brojKadrova } = this.animacija
 
-    const nijeZavrsena = this.proteklo + dt < this.vremeAnimacije
-    if (this.animacija.loop || nijeZavrsena) this.proteklo += dt
+    if (this.animacija.loop || !this.animacijaZavrsena(dt))
+      this.protekloAnimacije += dt
 
     const duzinaKadra = this.vremeAnimacije / brojKadrova
-    const trenutniKadar = Math.floor((this.proteklo % this.vremeAnimacije) / duzinaKadra)
+    const trenutniKadar = Math.floor((this.protekloAnimacije % this.vremeAnimacije) / duzinaKadra)
     const trenutniRed = Math.floor((pocetak + trenutniKadar) / brojKadrova)
     const trenutnaKolona = (pocetak + trenutniKadar) - (trenutniRed * Math.floor(brojKadrova))
     const slikaX = trenutnaKolona * sirina
