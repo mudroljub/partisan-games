@@ -1,6 +1,5 @@
 import Predmet from './Predmet.js'
 import { dodajAutoPucanje } from './prosirenja/AutoPucanje.js'
-import Raketa from '/game-engine/core/Raketa.js'
 
 export default class VoziloBocno extends Predmet {
   constructor(src, { x, y, skalar }) {
@@ -8,8 +7,6 @@ export default class VoziloBocno extends Predmet {
     this.brzina = 120
     this.zapaljiv = true
     this.oznake.add('neprijatelj')
-    this.rakete = Array.from({ length: 5 }, () => new Raketa())
-    this.predmeti.push(...this.rakete)
   }
 
   onload() {
@@ -38,4 +35,4 @@ export default class VoziloBocno extends Predmet {
   }
 }
 
-Object.assign(VoziloBocno.prototype, dodajAutoPucanje(10))
+Object.assign(VoziloBocno.prototype, dodajAutoPucanje(10, 1))

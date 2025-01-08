@@ -1,13 +1,17 @@
-/* očekuje da bazična klasa ima rakete */
-export function dodajAutoPucanje(intervalPucanja = 3) {
+import Raketa from '../Raketa.js'
+
+export function dodajAutoPucanje(intervalPucanja = 3, brojRaketa = 5) {
 
   const AutoPucanje = {
-    zadnjiPucanj: 0,
-    intervalPucanja, // sekundi
     i: 0,
+    intervalPucanja, // sekundi
 
+    // mozda preimenovati u initRakete?
     dodajCiljeve(...x) {
+      this.zadnjiPucanj = 0
+      this.rakete = Array.from({ length: brojRaketa }, () => new Raketa())
       this.rakete.forEach(r => r.dodajCiljeve(...x))
+      this.predmeti = [...this.rakete]
     },
 
     pucaPovremeno(t) {
