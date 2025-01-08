@@ -7,7 +7,6 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 BombasScena
-- mitraljezac iz bunkera?
 - napraviti neku smrt za bombaša, makar dim ili krv ili padne
 
 Scena1942

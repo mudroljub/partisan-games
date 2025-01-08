@@ -1,6 +1,6 @@
 import Raketa from '../Raketa.js'
 
-export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skalar } = {}) {
+export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skalar, x = 0, y = 0 } = {}) {
 
   const autoPucanje = {
     i: 0,
@@ -38,7 +38,8 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
 
     puca() {
       const raketa = this.meci[this.i++ % this.meci.length]
-      raketa.pucaCiljano(this, this.ugao)
+      const polozaj = { x: this.x + x, y: this.y + y }
+      raketa.pucaCiljano(polozaj, this.ugao)
     },
   }
 
