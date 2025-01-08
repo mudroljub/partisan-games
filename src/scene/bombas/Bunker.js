@@ -9,10 +9,11 @@ export default class Bunker extends Predmet {
   }
 
   update(dt, t) {
-    this.pucaPovremeno(t)
+    super.update(dt, t)
+    this.rafalPovremeno(t)
   }
 }
 
-const autoPucanje = praviAutoPucanje({ zastoj: 1, kolicina: 5, src: '/assets/slike/granata.gif', skalar: .4 })
+const autoPucanje = praviAutoPucanje({ zastoj: 2, kolicina: 5, src: '/assets/slike/granata.gif', skalar: .4, potisak: 400 })
 
 Object.assign(Bunker.prototype, autoPucanje)
