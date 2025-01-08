@@ -36,7 +36,7 @@ export default class Scena1942 extends Scena {
     this.vozilo = new VoziloBocno('/assets/slike/2d-bocno/hummel.png', { x: 150, y: this.nivoTla, skalar: .75 })
     this.igrac = new AvionIgrac(this.nivoTla)
 
-    this.vozilo.dodajCiljeve(this.igrac)
+    this.vozilo.initRakete(this.igrac)
     this.igrac.raketa.dodajCiljeve(this.vozilo)
     this.igrac.cvrstaTela.push(this.vozilo, this.ruina)
 
@@ -139,7 +139,7 @@ export default class Scena1942 extends Scena {
       <main class='absolute full'>
         <h3 class='centar'>Uništi nemački tenk i bezbedno sleti! </h3>
         <div class='komande bg-poluprovidno komande1'>
-          AutoPucanje: Space <br>
+          Pucanje: Space <br>
           Prateća: Enter <br>
         </div>
       </main>
