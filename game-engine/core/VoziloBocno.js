@@ -20,6 +20,8 @@ export default class VoziloBocno extends Predmet {
 
     if (this.x >= 600)
       this.skreni(Math.PI)
+
+    this.azurirajSliku()
   }
 
   azurirajSliku() {
@@ -28,8 +30,6 @@ export default class VoziloBocno extends Predmet {
 
   update(dt, t) {
     super.update(dt, t)
-    this.patroliraj()
-    this.azurirajSliku()
     this.pucaPovremeno(t)
   }
 }

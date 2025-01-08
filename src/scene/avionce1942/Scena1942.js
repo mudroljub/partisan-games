@@ -131,6 +131,7 @@ export default class Scena1942 extends Scena {
 
   update(dt, t) {
     super.update(dt, t)
+    this.vozilo.patroliraj()
     this.proveriTlo()
     this.proveriSmrt()
   }

@@ -78,7 +78,7 @@ export default class AvionIgrac extends Igrac {
   proveriGravitaciju() {
     if (this.jePrizemljen()) return
 
-    const teza = this.mrtav ? gravitacija * 40 : gravitacija
+    const teza = this.mrtav ? gravitacija * 100 : gravitacija
     this.dodajSilu(teza, Math.PI * .5)
   }
 

@@ -14,7 +14,7 @@ export default class TopScena extends Scena {
     this.top = new Top(230, tlo - 32)
     const posada = new Posada(110, tlo + 8)
     const strelac = new Strelac(300, tlo + 8)
-    this.tenk = new Tenk(250, tlo)
+    this.tenk = new Tenk(this.sirina, tlo + 20)
     this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)
   }
 
