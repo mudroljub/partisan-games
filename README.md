@@ -8,7 +8,6 @@ Male igrice o Nemcima i partizanima.
 
 TopScena
 - neprijatelji nadiru
-- dodati više projektila
 
 Scena1944
 - dodati stvar za hvatanje (paketić)

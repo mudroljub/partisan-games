@@ -12,9 +12,9 @@ export default class Top extends Predmet {
     this.postolje = new Predmet('/assets/slike/2d-bocno/top-postolje.gif', { x: x - 40, y: y + 32, skalar })
     this.pocetniX = x
     this.ugao = -0.2
-    this.sila = this.minSila = 600
-    this.projektil = new Projektil()
-    this.predmeti = [this.projektil]
+    this.sila = this.minSila = 500
+    this.projektili = Array.from({ length: 5 }, () => new Projektil())
+    this.predmeti = [...this.projektili]
   }
 
   get vrhX() {
@@ -25,24 +25,19 @@ export default class Top extends Predmet {
     return this.y - this.sirina * 0.5 * Math.sin(-this.ugao) + 8
   }
 
-  get spremno() {
-    return !this.projektil.ispaljen
-  }
-
-  pripremi() {
-    this.projektil.x = this.vrhX
-    this.projektil.y = this.vrhY
-  }
-
   pali() {
-    this.pripremi()
-    this.projektil.pali(this.sila, this.ugao)
+    const projektil = this.projektili.find(p => !p.ispaljen)
+    if (!projektil) return
+
+    projektil.x = this.vrhX
+    projektil.y = this.vrhY
+    projektil.pali(this.sila, this.ugao)
     this.trza()
     this.sila = this.minSila
   }
 
   proveriTipke(dt) {
-    if (keyboard.space && this.spremno)
+    if (keyboard.space)
       this.sila += 10
     else if (this.sila > this.minSila)
       this.pali()
