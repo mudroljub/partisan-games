@@ -139,7 +139,7 @@ export default class Scena1942 extends Scena {
       <main class='absolute full'>
         <h3 class='centar'>Uništi nemački tenk i bezbedno sleti! </h3>
         <div class='komande bg-poluprovidno komande1'>
-          Pucanje: Space <br>
+          AutoPucanje: Space <br>
           Prateća: Enter <br>
         </div>
       </main>

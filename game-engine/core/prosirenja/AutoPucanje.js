@@ -4,7 +4,7 @@ export function prosiriPucanjem(intervalPucanja = 3, length = 5) {
 
   const rakete = Array.from({ length }, () => new Raketa())
 
-  const Pucanje = {
+  const AutoPucanje = {
     zadnjiPucanj: 0,
     intervalPucanja, // sekundi
     rakete,
@@ -28,5 +28,5 @@ export function prosiriPucanjem(intervalPucanja = 3, length = 5) {
     },
   }
 
-  return Pucanje
+  return AutoPucanje
 }

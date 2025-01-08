@@ -1,5 +1,5 @@
 import Predmet from './Predmet.js'
-import { prosiriPucanjem } from './prosirenja/Pucanje.js'
+import { prosiriPucanjem } from './prosirenja/AutoPucanje.js'
 
 export default class VoziloBocno extends Predmet {
   constructor(src, { x, y, skalar }) {
