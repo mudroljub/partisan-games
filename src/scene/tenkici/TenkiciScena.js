@@ -17,10 +17,10 @@ export default class TenkiciScena extends Scena {
   init() {
     this.pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
 
-    this.tenk = new Tenk('/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', {
+    this.tenk = new Tenk({ src: '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png',
       skalar, y: nivoTla, cevSlika: '/assets/slike/2d-bocno/partizanski-tenk-cev.png', callback
     })
-    this.tenk2 = new Tenk('/assets/slike/2d-bocno/nemacki-tenk-bez-cevi.png', {
+    this.tenk2 = new Tenk({ src: '/assets/slike/2d-bocno/nemacki-tenk-bez-cevi.png',
       skalar, y: nivoTla, tenkDesno: true, cevSlika: '/assets/slike/2d-bocno/nemacki-tenk-cev.png', callback
     })
 

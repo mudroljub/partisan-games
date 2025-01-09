@@ -13,7 +13,7 @@ const vremePunjenja = 1000
 const vremePunjenjaAI = 1500
 
 export default class Tenk extends Predmet {
-  constructor(src, { skalar = .05, tenkDesno = false, cevSlika, callback, ...rest } = {}) {
+  constructor({ src, skalar = .05, tenkDesno = false, cevSlika, callback, ...rest } = {}) {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
     this.callback = callback
