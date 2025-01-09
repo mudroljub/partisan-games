@@ -59,7 +59,8 @@ export default class Tenk extends Predmet {
       .forEach(granata => granata.proveriPogodak(cilj))
   }
 
-  proveriPucanje(key = 'space') {
+  proveriPucanje() {
+    const key = this.tenkDesno ? 'enter' : 'space'
     if (keyboard[key]) this.spremno = true
     if (this.spremno && !keyboard[key]) {
       this.pucaj()
@@ -90,14 +91,25 @@ export default class Tenk extends Predmet {
   proveriTipke() {
     if (this.mrtav) return
 
-    if (keyboard.pressed.KeyA && this.x > 0)
-      this.dodajSilu(this.potisak * 0.6, Math.PI)
-    if (keyboard.pressed.KeyD && this.x < platno.width / 2)
-      this.dodajSilu(this.potisak, 0)
-    if (keyboard.pressed.KeyW)
-      this.cev.nagore()
-    if (keyboard.pressed.KeyS)
-      this.cev.nadole()
+    if (this.tenkDesno) {
+      if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2)
+        this.dodajSilu(this.potisak, Math.PI)
+      if (keyboard.pressed.ArrowRight && this.x < platno.width)
+        this.dodajSilu(this.potisak * 0.6, 0)
+      if (keyboard.pressed.ArrowUp)
+        this.cev.nagore()
+      if (keyboard.pressed.ArrowDown)
+        this.cev.nadole()
+    } else {
+      if (keyboard.pressed.KeyA && this.x > 0)
+        this.dodajSilu(this.potisak * 0.6, Math.PI)
+      if (keyboard.pressed.KeyD && this.x < platno.width / 2)
+        this.dodajSilu(this.potisak, 0)
+      if (keyboard.pressed.KeyW)
+        this.cev.nagore()
+      if (keyboard.pressed.KeyS)
+        this.cev.nadole()
+    }
 
     this.proveriPucanje()
   }

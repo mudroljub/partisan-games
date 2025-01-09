@@ -14,19 +14,4 @@ export default class Tenk2 extends Tenk {
     this.odrazX = this.odrazY = -1
     this.predmeti = [...this.granate]
   }
-
-  proveriTipke() {
-    if (this.mrtav) return
-
-    if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2)
-      this.dodajSilu(this.potisak, Math.PI)
-    if (keyboard.pressed.ArrowRight && this.x < platno.width)
-      this.dodajSilu(this.potisak * 0.6, 0)
-    if (keyboard.pressed.ArrowUp)
-      this.cev.nagore()
-    if (keyboard.pressed.ArrowDown)
-      this.cev.nadole()
-
-    this.proveriPucanje('enter')
-  }
 }
