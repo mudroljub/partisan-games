@@ -1,9 +1,9 @@
 import { ctx } from '../io/platno.js'
 
-const maxLife = 60
-const speed = 3
-const renewal = 10
-const size = 20
+const brzina = 120
+const velicina = 20
+const zivotniVek = 1.25
+const brojNovih = 10
 
 class Iskra {
   constructor(x, y, dx, dy) {
@@ -11,23 +11,23 @@ class Iskra {
     this.y = y
     this.dx = dx
     this.dy = dy
-    this.life = 0
+    this.vreme = 0
   }
 
-  update() {
-    this.x += this.dx
-    this.y += this.dy
-    this.life++
+  update(dt) {
+    this.x += this.dx * dt
+    this.y += this.dy * dt
+    this.vreme += dt
   }
 
   render() {
-    const red = 260 - this.life * 2
-    const green = this.life * 2 + 50
-    const blue = this.life * 2
-    const opacity = (maxLife - this.life) / maxLife * 0.4
+    const red = 260 - this.vreme * 2
+    const green = this.vreme * 2 + 50
+    const blue = this.vreme * 2
+    const opacity = (zivotniVek - this.vreme) / zivotniVek * 0.4
     ctx.fillStyle = `rgba(${red}, ${green}, ${blue}, ${opacity})`
     ctx.beginPath()
-    const radius = (maxLife - this.life) / maxLife * size / 2 + size / 2
+    const radius = (zivotniVek - this.vreme) / zivotniVek * velicina / 2 + velicina / 2
     ctx.arc(this.x, this.y, radius, 0, 2 * Math.PI)
     ctx.fill()
   }
@@ -41,18 +41,18 @@ export default class Plamen {
   }
 
   praviNoveCestice() {
-    for (let i = 0; i < renewal; i++) {
-      const dx = (Math.random() * 2 * speed - speed) / 2
-      const dy = 0 - Math.random() * 2 * speed
+    for (let i = 0; i < brojNovih; i++) {
+      const dx = (Math.random() * 2 * brzina - brzina) / 2
+      const dy = 0 - Math.random() * 2 * brzina
       this.iskre.push(new Iskra(this.x, this.y, dx, dy))
     }
   }
 
-  update() {
+  update(dt) {
     this.praviNoveCestice()
     this.iskre.forEach((iskra, i) => {
-      iskra.update()
-      if (iskra.life >= maxLife) this.iskre.splice(i, 1)
+      iskra.update(dt)
+      if (iskra.vreme >= zivotniVek) this.iskre.splice(i, 1)
     })
   }
 
