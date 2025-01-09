@@ -15,17 +15,24 @@ export default class Tenk extends Predmet {
   constructor(src, { skalar = .05, tenkDesno = false, callback, cevSlika, ...rest } = {}) {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
+    this.x = tenkDesno
+      ? platno.width - Math.random() * platno.width * 0.3 - 100
+      : Math.random() * platno.width * 0.3
     this.cev = new Cev(this, cevSlika, skalar)
-    this.potisak = 25
+    this.ime = tenkDesno ? 'Nemački tenk' : 'Partizanski tenk'
     this.vreme = new Vreme()
-    this.x = Math.random() * platno.width * 0.3
-    this.ime = 'Partizanski tenk'
-    this.spremno = false
+    this.potisak = 25
     this.granate = Array.from({ length: 10 }, () => new Granata({ callback }))
+    this.predmeti = [...this.granate]
     this.energija = 100
     this.zapaljivost = 20
-    this.predmeti = [...this.granate]
+    this.spremno = false
+    if (tenkDesno) {
+      this.ugao = Math.PI
+      this.odrazX = this.odrazY = -1
+    }
     // AI
+    this.smer = this.ugao
     this.vremeGasa = new Vreme()
     this.vremeSmera = new Vreme()
     this.vremePucanja = new Vreme()
