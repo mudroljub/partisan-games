@@ -5,6 +5,7 @@ import Predmet from '/game-engine/core/Predmet.js'
 import Cev from './Cev.js'
 import Granata from './Granata.js'
 import { gravitacija } from './konstante.js'
+import { randomInRange } from '/game-engine/utils.js'
 
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
@@ -16,8 +17,8 @@ export default class Tenk extends Predmet {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
     this.x = tenkDesno
-      ? platno.width - Math.random() * platno.width * 0.3 - 100
-      : Math.random() * platno.width * 0.3
+      ? randomInRange(platno.width * 0.7, platno.width) - 100
+      : randomInRange(0, platno.width * 0.3)
     this.cev = new Cev(this, cevSlika, skalar)
     this.ime = tenkDesno ? 'Nemački tenk' : 'Partizanski tenk'
     this.vreme = new Vreme()

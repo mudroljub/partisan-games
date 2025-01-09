@@ -1,6 +1,6 @@
 import Predmet from '/game-engine/core/Predmet.js'
 import platno from '/game-engine/io/platno.js'
-import { randomRange } from '/game-engine/utils.js'
+import { randomInRange } from '/game-engine/utils.js'
 
 export default class Oblak extends Predmet {
   constructor(nivoTla = platno.height, dx = 0) {
@@ -11,7 +11,7 @@ export default class Oblak extends Predmet {
   }
 
   onload() {
-    this.polozaj(Math.random() * platno.width, randomRange(0, this.nivoTla))
+    this.polozaj(Math.random() * platno.width, randomInRange(0, this.nivoTla))
   }
 
   proveriGranice() {

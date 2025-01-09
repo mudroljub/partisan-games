@@ -1,4 +1,4 @@
-import { randomRange } from '/game-engine/utils.js'
+import { randomInRange } from '/game-engine/utils.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import platno from '/game-engine/io/platno.js'
 
@@ -10,7 +10,7 @@ export default class Zbun extends Predmet {
   }
 
   randomDoTla(nivoTla) {
-    this.polozaj(Math.random() * platno.width, randomRange(nivoTla - this.visina / 2, platno.height))
+    this.polozaj(Math.random() * platno.width, randomInRange(nivoTla - this.visina / 2, platno.height))
   }
 
   proveriGranice() {

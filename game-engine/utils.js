@@ -14,12 +14,12 @@ export function pitagora(x1, x2, y1, y2) {
   return Math.sqrt((duzinaX * duzinaX) + (duzinaY * duzinaY))
 }
 
-export function randomRange(min, max) {
+export function randomInRange(min, max) {
   return Math.random() * (max - min) + min
 }
 
 export function nasumicnoOkruglo(min, max) {
-  return Math.floor(randomRange(min, max + 1))
+  return Math.floor(randomInRange(min, max + 1))
 }
 
 // vraca od 0 do 1 zavisno od razmaka dva predmeta, u odnosu na scenu
