@@ -9,11 +9,7 @@ import { gravitacija } from './konstante.js'
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 const vremePunjenja = 1000
-
 const vremePunjenjaAI = 1500
-const vremeGasa = new Vreme()
-const vremeSmera = new Vreme()
-const vremePucanja = new Vreme()
 
 export default class Tenk extends Predmet {
   constructor(src = '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', params) {
@@ -28,6 +24,10 @@ export default class Tenk extends Predmet {
     this.energija = 100
     this.zapaljivost = 20
     this.predmeti = [...this.granate]
+    // if AI
+    this.vremeGasa = new Vreme()
+    this.vremeSmera = new Vreme()
+    this.vremePucanja = new Vreme()
   }
 
   get zapaljen() {
@@ -110,22 +110,22 @@ export default class Tenk extends Predmet {
 
   mrdajNasumicno() {
     const random = Math.random()
-    if (vremeGasa.proteklo > 70) {
+    if (this.vremeGasa.proteklo > 70) {
       this.dodajSilu((random * this.potisak), this.smer)
-      vremeGasa.reset()
+      this.vremeGasa.reset()
     }
-    if (vremeSmera.proteklo > 300) {
+    if (this.vremeSmera.proteklo > 300) {
       this.smer = random > 0.55 ? Math.PI : 0
-      vremeSmera.reset()
+      this.vremeSmera.reset()
     }
     if (this.x > platno.width * 0.9) this.smer = 0
     if (this.x < platno.width / 2) this.smer = Math.PI
   }
 
   pucajNasumicno() {
-    if (vremePucanja.proteklo < vremePunjenjaAI) return
+    if (this.vremePucanja.proteklo < vremePunjenjaAI) return
     this.pucaj()
-    vremePucanja.reset()
+    this.vremePucanja.reset()
   }
 
   samohod(cilj) {
