@@ -17,7 +17,7 @@ export default class NemciIzRovova extends Scena {
     this.daljiRovovi = this.praviSvabe(12, DALJI_Y, { skalar: .5, ucestalost: 0.02, callback: this.nanesiStetu.bind(this) })
     this.sveSvabe = [...this.bliziRovovi, ...this.daljiRovovi]
     this.dodaj(...this.sveSvabe)
-    this.pozadina = new Pozadina('/assets/slike/teksture/suva-trava.jpg')
+    this.pozadina = new Pozadina('teksture/suva-trava.jpg')
     this.ucitajRekord()
     mish.dodajNishan()
   }

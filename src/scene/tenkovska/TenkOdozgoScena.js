@@ -4,8 +4,8 @@ import VoziloIgracOdozgo from '/src/2d-odozgo/VoziloIgracOdozgo.js'
 
 export default class TenkOdozgoScena extends Scena {
   init() {
-    this.pozadina = new Pozadina('/assets/slike/2d-odozgo/shumarak-pozadina.png')
-    this.tenk = new VoziloIgracOdozgo('/assets/slike/2d-odozgo/tenk-rdjavi.gif', { skalar: .5 })
+    this.pozadina = new Pozadina('2d-odozgo/shumarak-pozadina.png')
+    this.tenk = new VoziloIgracOdozgo('2d-odozgo/tenk-rdjavi.gif', { skalar: .5 })
     this.dodaj(this.tenk)
   }
 }

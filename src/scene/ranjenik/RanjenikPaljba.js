@@ -10,7 +10,7 @@ const ZADATO_VREME = 60
 
 export default class RanjenikPaljba extends Scena {
   init() {
-    this.pozadina = new Pozadina('/assets/slike/teksture/beton.gif')
+    this.pozadina = new Pozadina('teksture/beton.gif')
     this.ranjenik = new Ranjenik()
     this.vreme = new Vreme()
     this.dodaj(this.ranjenik)

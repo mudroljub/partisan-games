@@ -4,7 +4,7 @@ import { randomInRange } from '/game-engine/utils.js'
 
 export default class Oblak extends Predmet {
   constructor(nivoTla = platno.height, dx = 0) {
-    super('/assets/slike/oblak.gif')
+    super('oblak.gif')
     this.nivoTla = nivoTla
     this.dx = dx
     this.dy = Math.random() * 20 - 10

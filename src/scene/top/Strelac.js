@@ -2,7 +2,7 @@ import Predmet from '/game-engine/core/Predmet.js'
 
 export default class Strelac extends Predmet {
   constructor(x, y) {
-    super('/assets/slike/2d-bocno/partizani/vojnici/partizan-30.png', { x, y })
+    super('2d-bocno/partizani/vojnici/partizan-30.png', { x, y })
     this.pocetniX = x
     this.ucestalost = 3
     this.poslednje = 0

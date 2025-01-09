@@ -3,8 +3,8 @@ import Sprite from '/game-engine/core/Sprite.js'
 
 export default class Zastavnik extends Predmet {
   constructor(x, y) {
-    super('/assets/slike/2d-bocno/partizani/vojnici/savo.png', { x, y })
-    this.zastava = new Sprite('/assets/slike/sprajtovi/zastava.png', {
+    super('2d-bocno/partizani/vojnici/savo.png', { x, y })
+    this.zastava = new Sprite('sprajtovi/zastava.png', {
       imena: ['vijori'], brojKadrova: 4, x: x + 28, y: y - 76
     })
     this.zastava.pustiAnimaciju('vijori')

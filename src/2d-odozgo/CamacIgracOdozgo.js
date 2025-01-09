@@ -4,7 +4,7 @@ const JACINA_STRUJE = 6
 
 export default class CamacIgracOdozgo extends VoziloIgracOdozgo {
 
-  constructor(src = '/assets/slike/2d-odozgo/camac.png') {
+  constructor(src = '2d-odozgo/camac.png') {
     super(src, { skalar: .5 })
     this.potisak = 50
     this.faktorTrenja = 0.15

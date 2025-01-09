@@ -13,7 +13,7 @@ const BROJ_PREPREKA = 20
 export default class BombasScena extends Scena {
   init() {
     this.vreme = new Vreme()
-    this.pozadina = new Pozadina('/assets/slike/teksture/beton.gif')
+    this.pozadina = new Pozadina('teksture/beton.gif')
     const pozicije = slucajnePozicije(BROJ_PREPREKA + 2, 100)
     const najdaljeTacke = nadjiNajdaljeTacke(pozicije)
 

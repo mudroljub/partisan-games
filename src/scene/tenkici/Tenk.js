@@ -17,8 +17,8 @@ const defaultSkalar = window.innerWidth > 1280 ? 0.5 : 0.4
 export default class Tenk extends Predmet {
   constructor({
     tenkDesno = false,
-    src = tenkDesno ? '/assets/slike/2d-bocno/nemacki-tenk-bez-cevi.png' : '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png',
-    cevSlika = tenkDesno ? '/assets/slike/2d-bocno/nemacki-tenk-cev.png' : '/assets/slike/2d-bocno/partizanski-tenk-cev.png',
+    src = tenkDesno ? '2d-bocno/nemacki-tenk-bez-cevi.png' : '2d-bocno/partizanski-tenk-bez-cevi.png',
+    cevSlika = tenkDesno ? '2d-bocno/nemacki-tenk-cev.png' : '2d-bocno/partizanski-tenk-cev.png',
     skalar = defaultSkalar,
     callback,
     ...rest

@@ -3,7 +3,7 @@ import Predmet from '/game-engine/core/Predmet.js'
 export default class Metak extends Predmet {
 
   constructor(vlasnik) {
-    super('/assets/slike/granata.gif', { skalar: .5 })
+    super('granata.gif', { skalar: .5 })
     this.vlasnik = vlasnik
     this.ugao = this.vlasnik.ugao
     this.sakrij()

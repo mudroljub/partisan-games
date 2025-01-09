@@ -1,7 +1,7 @@
 import Predmet from '/game-engine/core/Predmet.js'
 
 export default class Ruina extends Predmet {
-  constructor(nivoTla, src = '/assets/slike/2d-bocno/zgrade/ruina.png') {
+  constructor(nivoTla, src = '2d-bocno/zgrade/ruina.png') {
     super(src)
     this.onload = () => {
       this.tlo(nivoTla)

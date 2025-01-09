@@ -3,7 +3,7 @@ import { keyboard } from '/game-engine/io/Keyboard.js'
 
 export default class Posada extends Predmet {
   constructor(x, y) {
-    super('/assets/slike/2d-bocno/partizani/artiljerija/posada-01.png', { x, y })
+    super('2d-bocno/partizani/artiljerija/posada-01.png', { x, y })
     this.pocetniX = x
     this.maxX = x + 10
   }

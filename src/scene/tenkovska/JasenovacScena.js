@@ -5,9 +5,9 @@ import TenkOdozgo from './TenkOdozgo.js'
 
 export default class JasenovacScena extends Scena {
   init() {
-    this.pozadina = new Pozadina('/assets/slike/teksture/beton.gif')
+    this.pozadina = new Pozadina('teksture/beton.gif')
     this.tenk = new TenkOdozgo(100, 200)
-    const zica = new Predmet('/assets/slike/2d-bocno/stvari/bodljikava-zica.gif', { x: 400, y: 100 })
+    const zica = new Predmet('2d-bocno/stvari/bodljikava-zica.gif', { x: 400, y: 100 })
     this.dodaj(zica, this.tenk)
   }
 

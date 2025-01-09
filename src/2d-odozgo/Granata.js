@@ -2,7 +2,7 @@ import Predmet from '/game-engine/core/Predmet.js'
 
 export default class Granata extends Predmet {
 
-  constructor(vlasnik, src = '/assets/slike/granata.gif') {
+  constructor(vlasnik, src = 'granata.gif') {
     super(src)
     this.sakrij()
     this.vlasnik = vlasnik

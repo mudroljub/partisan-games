@@ -19,7 +19,7 @@ export default class Predmet {
       this.onload()
       this.slika.onload = null
     }
-    this.slika.src = src
+    this.slika.src = '/assets/slike/' + src
     this.brzina = brzina
     this.zapaljiv = zapaljiv
     this.ishodiste = ishodiste

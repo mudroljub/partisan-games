@@ -7,7 +7,7 @@ const rafal = new Audio('/assets/zvuci/rafal.mp3')
 export default class Svabo extends Predmet {
 
   constructor({ skalar, ucestalost = 0.03, callback }) {
-    super ('/assets/slike/2d-prvo-lice/rov-prazan.gif', { skalar })
+    super ('2d-prvo-lice/rov-prazan.gif', { skalar })
     this.ucestalost = ucestalost
     this.callback = callback
     this.init()

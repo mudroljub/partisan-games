@@ -14,7 +14,7 @@ const callback = cilj => {
 
 export default class TenkiciScena extends Scena {
   init() {
-    this.pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
+    this.pozadina = new Pozadina('pozadine/razrusen-grad-savremen.jpg')
     this.tenk = new Tenk({ y: nivoTla, callback })
     this.tenk2 = new Tenk({ y: nivoTla, tenkDesno: true, callback })
     this.predmeti = [this.tenk, this.tenk2]

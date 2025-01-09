@@ -4,10 +4,10 @@ import Sprite from '/game-engine/core/Sprite.js'
 export default class Bombas extends Igrac {
 
   constructor({ x = 100, y = 100 } = {}) {
-    super('/assets/slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif', { x, y })
+    super('2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif', { x, y })
     this.potisak = 75
     this.faktorTrenja = 0.3
-    this.krv = new Sprite('/assets/slike/sprajtovi/efekti/krv-mala.png', {
+    this.krv = new Sprite('sprajtovi/efekti/krv-mala.png', {
       imena: ['prska'], brojKadrova: 8, vremeAnimacije: .4,
     })
   }

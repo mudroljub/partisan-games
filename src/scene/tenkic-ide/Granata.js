@@ -2,7 +2,7 @@ import Predmet from '/game-engine/core/Predmet.js'
 
 export default class Granata extends Predmet {
   constructor() {
-    super('/assets/slike/granata.gif', { skalar: .33 })
+    super('granata.gif', { skalar: .33 })
     this.sakrij()
   }
 

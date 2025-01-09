@@ -6,7 +6,7 @@ const zvuciTraganje = ['eatdirtpig.wav', 'killthepig.wav', 'QuicklyQuickly.wav',
 const zvuciNadjen = ['Stop.wav', 'StopStayWhereYouAre.wav', 'thereheis.wav']
 
 export default class Patrola extends Predmet {
-  constructor(src = '/assets/slike/2d-odozgo/nemci-patrola.gif', target) {
+  constructor(src = '2d-odozgo/nemci-patrola.gif', target) {
     super(src)
     this.brzina = 90
     this.vremePricanja = new Vreme()

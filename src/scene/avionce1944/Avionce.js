@@ -10,7 +10,7 @@ const PAUZA_PALJBE = 0.1
 
 export class Avionce extends Igrac {
   constructor() {
-    super('/assets/slike/2d-odozgo/avionce.gif', { skalar: .75 })
+    super('2d-odozgo/avionce.gif', { skalar: .75 })
     this.vreme = new Vreme()
     this.trenutniMetak = 0
     this.brzina = 0

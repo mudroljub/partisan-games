@@ -4,7 +4,7 @@ import { randomInRange } from '/game-engine/utils.js'
 
 export default class Oblak extends Predmet {
   constructor(brzina) {
-    super('/assets/slike/oblak.gif')
+    super('oblak.gif')
     this.brzina = brzina
     this.reset()
   }

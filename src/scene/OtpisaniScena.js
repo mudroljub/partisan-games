@@ -5,7 +5,7 @@ import mish from '/game-engine/io/mish.js'
 
 export default class OtpisaniScena extends Scena {
   init() {
-    this.pozadina = new Pozadina('/assets/slike/pozadine/rusevine-varsava.jpg')
+    this.pozadina = new Pozadina('pozadine/rusevine-varsava.jpg')
     this.svabo = new Okupator()
     this.pesma = new Audio('/assets/zvuci/otpisani.mp3')
     this.pesma.play()
