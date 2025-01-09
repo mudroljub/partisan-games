@@ -9,11 +9,16 @@ const nivoTla = platno.height * 0.8
 const skalar = window.innerWidth > 1280 ? 0.5 : 0.4
 let dvaIgraca = false
 
+const callback = cilj => {
+  cilj.dodajSilu(15, cilj.ugao + Math.PI)
+  cilj.skiniEnergiju(Math.ceil(Math.random() * 2))
+}
+
 export default class TenkiciScena extends Scena {
   init() {
     this.pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
-    this.tenk = new Tenk(undefined, { skalar, y: nivoTla })
-    this.tenk2 = new Tenk2({ skalar, y: nivoTla })
+    this.tenk = new Tenk(undefined, { skalar, y: nivoTla, callback })
+    this.tenk2 = new Tenk2({ skalar, y: nivoTla, callback })
     this.predmeti = [this.tenk, this.tenk2]
   }
 

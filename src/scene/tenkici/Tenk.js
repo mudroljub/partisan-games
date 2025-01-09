@@ -18,7 +18,7 @@ export default class Tenk extends Predmet {
     this.x = Math.random() * platno.width * 0.3
     this.ime = 'Partizanski tenk'
     this.spremno = false
-    this.granate = this.praviGranate()
+    this.granate = this.praviGranate(10, params.callback)
     this.energija = 100
     this.zapaljivost = 20
     this.predmeti = [...this.granate]
@@ -34,11 +34,7 @@ export default class Tenk extends Predmet {
     return { x, y }
   }
 
-  praviGranate(length = 10) {
-    const callback = () => {
-      this.dodajSilu(15, this.ugao + Math.PI)
-      this.skiniEnergiju(Math.ceil(Math.random() * 2))
-    }
+  praviGranate(length, callback) {
     return Array.from({ length }, () => new Granata({ callback }))
   }
 

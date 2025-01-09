@@ -18,7 +18,7 @@ export default class Tenk2 extends Tenk {
     this.x = platno.width - Math.random() * platno.width * 0.3 - 100
     this.ime = 'Nemački tenk'
     this.smer = this.ugao = Math.PI
-    this.granate = this.praviGranate()
+    this.granate = this.praviGranate(10, params.callback)
     this.odrazX = this.odrazY = -1
     this.predmeti = [...this.granate]
   }

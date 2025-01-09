@@ -42,7 +42,7 @@ export default class Granata extends Predmet {
 
     this.eksplodiraj()
     setTimeout(() => this.reset(), trajanjeEksplozije)
-    if (this.callback) this.callback()
+    if (this.callback) this.callback(cilj)
     else cilj.umri()
   }
 
