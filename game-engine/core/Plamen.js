@@ -3,7 +3,7 @@ import { ctx } from '../io/platno.js'
 const brzina = 120
 const velicina = 20
 const zivotniVek = 1.25
-const brojNovih = 10
+const cesticaPoSekundi = 200
 
 class Iskra {
   constructor(x, y, dx, dy) {
@@ -40,8 +40,9 @@ export default class Plamen {
     this.y = y
   }
 
-  praviNoveCestice() {
-    for (let i = 0; i < brojNovih; i++) {
+  stvaraj(dt) {
+    const cesticaPoKrugu = Math.round(cesticaPoSekundi * dt)
+    for (let i = 0; i < cesticaPoKrugu; i++) {
       const dx = (Math.random() * 2 * brzina - brzina) / 2
       const dy = 0 - Math.random() * 2 * brzina
       this.iskre.push(new Iskra(this.x, this.y, dx, dy))
@@ -49,11 +50,9 @@ export default class Plamen {
   }
 
   update(dt) {
-    this.praviNoveCestice()
-    this.iskre.forEach((iskra, i) => {
-      iskra.update(dt)
-      if (iskra.vreme >= zivotniVek) this.iskre.splice(i, 1)
-    })
+    this.stvaraj(dt)
+    this.iskre.forEach(iskra => iskra.update(dt))
+    this.iskre = this.iskre.filter(iskra => iskra.vreme < zivotniVek)
   }
 
   render() {

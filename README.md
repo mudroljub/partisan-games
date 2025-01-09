@@ -12,6 +12,7 @@ Male igrice o Nemcima i partizanima.
 TopScena
 - spojiti Tenk i Tenk2, nije prirodno da se nasleđuju
 - tenk neprijatelj puca
+    - dodaj callback za tenk i top
 - menjati neprijatelja ili dodavati više?
 
 Scena1944
