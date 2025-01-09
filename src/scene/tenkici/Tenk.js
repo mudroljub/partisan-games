@@ -88,28 +88,35 @@ export default class Tenk extends Predmet {
       : Math.min(Math.max(this.x, 0), platno.width / 2)
   }
 
+  /* TIPKE */
+
+  proveriTipkeLevo() {
+    if (keyboard.pressed.KeyA && this.x > 0)
+      this.dodajSilu(this.potisak * 0.6, Math.PI)
+    if (keyboard.pressed.KeyD && this.x < platno.width / 2)
+      this.dodajSilu(this.potisak, 0)
+    if (keyboard.pressed.KeyW)
+      this.cev.nagore()
+    if (keyboard.pressed.KeyS)
+      this.cev.nadole()
+  }
+
+  proveriTipkeDesno() {
+    if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2)
+      this.dodajSilu(this.potisak, Math.PI)
+    if (keyboard.pressed.ArrowRight && this.x < platno.width)
+      this.dodajSilu(this.potisak * 0.6, 0)
+    if (keyboard.pressed.ArrowUp)
+      this.cev.nagore()
+    if (keyboard.pressed.ArrowDown)
+      this.cev.nadole()
+  }
+
   proveriTipke() {
     if (this.mrtav) return
 
-    if (this.tenkDesno) {
-      if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2)
-        this.dodajSilu(this.potisak, Math.PI)
-      if (keyboard.pressed.ArrowRight && this.x < platno.width)
-        this.dodajSilu(this.potisak * 0.6, 0)
-    } else {
-      if (keyboard.pressed.KeyA && this.x > 0)
-        this.dodajSilu(this.potisak * 0.6, Math.PI)
-      if (keyboard.pressed.KeyD && this.x < platno.width / 2)
-        this.dodajSilu(this.potisak, 0)
-    }
-
-    const keyUp = this.tenkDesno ? 'ArrowUp' : 'KeyW'
-    const keyDown = this.tenkDesno ? 'ArrowDown' : 'KeyS'
-
-    if (keyboard.pressed[keyUp])
-      this.cev.nagore()
-    if (keyboard.pressed[keyDown])
-      this.cev.nadole()
+    if (this.tenkDesno) this.proveriTipkeDesno()
+    else this.proveriTipkeLevo()
 
     this.proveriPucanje()
   }
