@@ -9,6 +9,7 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
     duzinaRafala: 5,
     proredRafala: .1,
 
+    // TODO: prebaciti konfiguraciju ovde??
     initPucanje(...ciljevi) {
       this.zadnjiPucanj = 0
       this.zadnjiPucanjRafala = 0

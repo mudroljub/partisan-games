@@ -2,9 +2,8 @@ import Predmet from './Predmet.js'
 import { praviAutoPucanje } from './prosirenja/autoPucanje.js'
 
 export default class VoziloBocno extends Predmet {
-  constructor(src, { x, y, skalar }) {
-    super(src, { x, y, skalar, zapaljiv: true })
-    this.brzina = 120
+  constructor(src, params) {
+    super(src, { brzina: 120, zapaljiv: true, ...params })
     this.oznake.add('neprijatelj')
   }
 

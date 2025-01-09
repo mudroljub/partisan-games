@@ -8,9 +8,10 @@ Male igrice o Nemcima i partizanima.
 
 TopScena
 - neprijatelji nadiru
-    - dodati nekoliko vrsta neprijatelja u niz i težinski nasumično ih vraćati ukrug
-    - poraz ako tenk stigne do njih
-    - probati i da puca
+    - dodati nekoliko vrsta neprijatelja u niz i vraćati ukrug
+- poraz ako tenk stigne do branilaca
+- tenk da puca
+- probati tenk koji diže kupolu da puca
 
 Scena1944
 - dodati stvar za hvatanje (paketić)
