@@ -1,8 +1,8 @@
 export const platno = document.getElementById('platno')
 export const ctx = platno.getContext('2d')
 
-platno.width = window.innerWidth
-platno.height = window.innerHeight
+platno.sirina = platno.width = window.innerWidth
+platno.visina = platno.height = window.innerHeight
 platno.focus()
 
 export const dijagonalaPlatna = Math.sqrt(platno.height * platno.height + platno.width * platno.width)

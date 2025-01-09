@@ -6,12 +6,16 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
+- malo pregledati slike, probrati, kropovati
+- pregledati gpt slike
+
 TopScena
-- neprijatelji nadiru
+- ili neprijatelji nadiru
     - dodati nekoliko vrsta neprijatelja u niz i vraćati ukrug
-- poraz ako tenk stigne do branilaca
-- tenk da puca
-- probati tenk koji diže kupolu da puca
+    - napraviti fabriku za kreiranje neprijatelja
+    - poraz ako tenk stigne do branilaca
+- ili tenk stoji puca
+- probati obe varijante
 
 Scena1944
 - dodati stvar za hvatanje (paketić)
