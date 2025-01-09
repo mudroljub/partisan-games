@@ -5,7 +5,6 @@ import { progresBar, komande } from '/game-ui/components.js'
 import Tenk from './Tenk.js'
 
 const nivoTla = platno.height * 0.8
-const skalar = window.innerWidth > 1280 ? 0.5 : 0.4
 let dvaIgraca = false
 
 const callback = cilj => {
@@ -16,14 +15,8 @@ const callback = cilj => {
 export default class TenkiciScena extends Scena {
   init() {
     this.pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
-
-    this.tenk = new Tenk({ src: '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png',
-      skalar, y: nivoTla, cevSlika: '/assets/slike/2d-bocno/partizanski-tenk-cev.png', callback
-    })
-    this.tenk2 = new Tenk({ src: '/assets/slike/2d-bocno/nemacki-tenk-bez-cevi.png',
-      skalar, y: nivoTla, tenkDesno: true, cevSlika: '/assets/slike/2d-bocno/nemacki-tenk-cev.png', callback
-    })
-
+    this.tenk = new Tenk({ y: nivoTla, callback })
+    this.tenk2 = new Tenk({ y: nivoTla, tenkDesno: true, callback })
     this.predmeti = [this.tenk, this.tenk2]
   }
 

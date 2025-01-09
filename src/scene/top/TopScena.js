@@ -14,9 +14,7 @@ export default class TopScena extends Scena {
     this.top = new Top(230, tlo - 32)
     const posada = new Posada(110, tlo + 8)
     const strelac = new Strelac(300, tlo + 8)
-    this.tenk = new Tenk({ src: '/assets/slike/2d-bocno/nemacki-tenk-bez-cevi.png', 
-      skalar: .6, y: tlo, tenkDesno: true, cevSlika: '/assets/slike/2d-bocno/nemacki-tenk-cev.png'
-    })
+    this.tenk = new Tenk({ skalar: .6, y: tlo, tenkDesno: true })
     this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)
   }
 

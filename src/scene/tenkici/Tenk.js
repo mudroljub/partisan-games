@@ -12,8 +12,17 @@ const kinetickoTrenje = 0.1
 const vremePunjenja = 1000
 const vremePunjenjaAI = 1500
 
+const defaultSkalar = window.innerWidth > 1280 ? 0.5 : 0.4
+
 export default class Tenk extends Predmet {
-  constructor({ src, skalar = .05, tenkDesno = false, cevSlika, callback, ...rest } = {}) {
+  constructor({
+    tenkDesno = false,
+    src = tenkDesno ? '/assets/slike/2d-bocno/nemacki-tenk-bez-cevi.png' : '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png',
+    cevSlika = tenkDesno ? '/assets/slike/2d-bocno/nemacki-tenk-cev.png' : '/assets/slike/2d-bocno/partizanski-tenk-cev.png',
+    skalar = defaultSkalar,
+    callback,
+    ...rest
+  } = {}) {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
     this.callback = callback

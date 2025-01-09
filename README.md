@@ -10,7 +10,7 @@ Male igrice o Nemcima i partizanima.
 - pregledati gpt slike
 
 TopScena
-- spojiti Tenk i Tenk2, nije prirodno da se nasleđuju
+- pokušati cev nalevo za desni tenk
 - tenk neprijatelj puca
     - dodaj callback za tenk i top
 - menjati neprijatelja ili dodavati više?
