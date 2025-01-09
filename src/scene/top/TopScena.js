@@ -5,6 +5,7 @@ import Top from './Top.js'
 import Strelac from './Strelac.js'
 import Zastavnik from './Zastavnik.js'
 import Posada from './Posada.js'
+import Tenk2 from '../tenkici/Tenk2.js'
 
 const tlo = platno.height * .75
 
@@ -22,12 +23,19 @@ export default class TopScena extends Scena {
     this.top = new Top(230, tlo - 32)
     const posada = new Posada(110, tlo + 8)
     const strelac = new Strelac(300, tlo + 8)
-    this.tenk = praviTenk()
+    // this.tenk = praviTenk()
+    this.tenk = new Tenk2({ y: tlo, skalar: .5 })
     this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)
   }
 
   cisti() {
     crtaNeboZemlju(tlo, { linija: true })
+  }
+
+  update(dt, t) {
+    super.update(dt, t)
+    this.tenk.automatuj(this.top)
+    this.tenk.proveriPogodak(this.top)
   }
 
   sablon() {

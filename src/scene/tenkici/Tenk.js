@@ -10,10 +10,10 @@ const kinetickoTrenje = 0.1
 const vremePunjenja = 1000
 
 export default class Tenk extends Predmet {
-  constructor(src = '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', skalar) {
-    super(src, { skalar, zapaljiv: true })
+  constructor(src = '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', params) {
+    super(src, { zapaljiv: true, ...params })
     this.potisak = 25
-    this.cev = new Cev(this, '/assets/slike/2d-bocno/partizanski-tenk-cev.png', skalar)
+    this.cev = new Cev(this, '/assets/slike/2d-bocno/partizanski-tenk-cev.png', params.skalar)
     this.vreme = new Vreme()
     this.x = Math.random() * platno.width * 0.3
     this.ime = 'Partizanski tenk'
