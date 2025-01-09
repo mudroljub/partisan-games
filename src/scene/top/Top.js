@@ -8,7 +8,7 @@ const MAX_UGAO = 6.18
 
 export default class Top extends Predmet {
   constructor(x, y) {
-    super('/assets/slike/2d-bocno/top-cev.gif', { x, y, skalar })
+    super('/assets/slike/2d-bocno/top-cev.gif', { x, y, skalar, zapaljiv: true })
     this.postolje = new Predmet('/assets/slike/2d-bocno/top-postolje.gif', { x: x - 40, y: y + 32, skalar })
     this.pocetniX = x
     this.ugao = -0.2
@@ -52,6 +52,7 @@ export default class Top extends Predmet {
   }
 
   update(dt) {
+    super.update(dt)
     if (this.x < this.pocetniX) this.x += 20 * dt
   }
 
