@@ -67,26 +67,6 @@ export default class Tenk extends Predmet {
     }
   }
 
-  proveriTipke() {
-    if (this.mrtav) return
-
-    if (keyboard.pressed.KeyA && this.x > 0)
-      this.dodajSilu(this.potisak * 0.6, Math.PI)
-    if (keyboard.pressed.KeyD && this.x < platno.width / 2)
-      this.dodajSilu(this.potisak, 0)
-    if (keyboard.pressed.KeyW)
-      this.cev.nagore()
-    if (keyboard.pressed.KeyS)
-      this.cev.nadole()
-
-    this.proveriPucanje()
-  }
-
-  proveriGranice() {
-    if (this.x < 0) this.x = 0
-    if (this.x > platno.width / 2) this.x = platno.width / 2
-  }
-
   pucaj() {
     if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
 
@@ -100,6 +80,26 @@ export default class Tenk extends Predmet {
 
   trzaj() {
     this.dodajSilu(this.potisak, this.ugao + Math.PI)
+  }
+
+  proveriGranice() {
+    if (this.x < 0) this.x = 0
+    if (this.x > platno.width / 2) this.x = platno.width / 2
+  }
+
+  proveriTipke() {
+    if (this.mrtav) return
+
+    if (keyboard.pressed.KeyA && this.x > 0)
+      this.dodajSilu(this.potisak * 0.6, Math.PI)
+    if (keyboard.pressed.KeyD && this.x < platno.width / 2)
+      this.dodajSilu(this.potisak, 0)
+    if (keyboard.pressed.KeyW)
+      this.cev.nagore()
+    if (keyboard.pressed.KeyS)
+      this.cev.nadole()
+
+    this.proveriPucanje()
   }
 
   /* AI */
