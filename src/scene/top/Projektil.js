@@ -17,7 +17,9 @@ export default class Projektil {
     this.ispaljen = false
   }
 
-  pali(sila, ugao) {
+  pali(polozaj, sila, ugao) {
+    this.x = polozaj.x
+    this.y = polozaj.y
     this.ispaljen = true
     this.dx = sila * Math.cos(ugao)
     this.dy = sila * Math.sin(ugao)

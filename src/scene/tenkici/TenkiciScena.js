@@ -24,7 +24,7 @@ export default class TenkiciScena extends Scena {
 
   update(dt) {
     super.update(dt)
-    if (!dvaIgraca) this.tenk2.automatuj(this.tenk)
+    if (!dvaIgraca) this.tenk2.samohod(this.tenk)
     this.tenk.proveriPogodak(this.tenk2)
     this.tenk2.proveriPogodak(this.tenk)
     if (this.tenk.mrtav || this.tenk2.mrtav) this.gotovo = true

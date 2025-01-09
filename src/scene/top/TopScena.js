@@ -8,8 +8,6 @@ import Tenk2 from '../tenkici/Tenk2.js'
 
 const tlo = platno.height * .75
 
-// const slike = ['/assets/slike/2d-bocno/nemci/tenkovi/panzer3-l60.png']
-
 export default class TopScena extends Scena {
   init() {
     const zastavnik = new Zastavnik(40, tlo + 1)
@@ -26,7 +24,7 @@ export default class TopScena extends Scena {
 
   update(dt, t) {
     super.update(dt, t)
-    this.tenk.automatuj(this.top)
+    this.tenk.samohod(this.top)
     this.tenk.proveriPogodak(this.top)
   }
 
