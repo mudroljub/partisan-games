@@ -18,7 +18,7 @@ export default class TenkiciScena extends Scena {
   init() {
     this.pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
     this.tenk = new Tenk(undefined, { skalar, y: nivoTla, callback })
-    this.tenk2 = new Tenk2({ skalar, y: nivoTla, callback })
+    this.tenk2 = new Tenk2({ skalar, y: nivoTla, callback, tenkDesno: true })
     this.predmeti = [this.tenk, this.tenk2]
   }
 

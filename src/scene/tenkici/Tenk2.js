@@ -15,11 +15,6 @@ export default class Tenk2 extends Tenk {
     this.predmeti = [...this.granate]
   }
 
-  proveriGranice() {
-    if (this.x < platno.width / 2) this.x = platno.width / 2
-    if (this.x > platno.width) this.x = platno.width
-  }
-
   proveriTipke() {
     if (this.mrtav) return
 

@@ -12,15 +12,16 @@ const vremePunjenja = 1000
 const vremePunjenjaAI = 1500
 
 export default class Tenk extends Predmet {
-  constructor(src = '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', params) {
-    super(src, { zapaljiv: true, ...params })
+  constructor(src = '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', { skalar = .05, tenkDesno = false, callback, ...rest } = {}) {
+    super(src, { zapaljiv: true, skalar, ...rest })
+    this.tenkDesno = tenkDesno
+    this.cev = new Cev(this, '/assets/slike/2d-bocno/partizanski-tenk-cev.png', skalar)
     this.potisak = 25
-    this.cev = new Cev(this, '/assets/slike/2d-bocno/partizanski-tenk-cev.png', params.skalar)
     this.vreme = new Vreme()
     this.x = Math.random() * platno.width * 0.3
     this.ime = 'Partizanski tenk'
     this.spremno = false
-    this.granate = this.praviGranate(10, params.callback)
+    this.granate = this.praviGranate(10, callback)
     this.energija = 100
     this.zapaljivost = 20
     this.predmeti = [...this.granate]
@@ -45,8 +46,7 @@ export default class Tenk extends Predmet {
   }
 
   skiniEnergiju(steta) {
-    this.energija -= steta
-    if (this.energija <= 0) this.energija = 0
+    this.energija = Math.max(this.energija - steta, 0)
   }
 
   proveriSmrt() {
@@ -69,7 +69,6 @@ export default class Tenk extends Predmet {
 
   pucaj() {
     if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
-
     const granata = this.granate.find(g => !g.ispaljena)
     if (!granata) return
 
@@ -83,8 +82,9 @@ export default class Tenk extends Predmet {
   }
 
   proveriGranice() {
-    if (this.x < 0) this.x = 0
-    if (this.x > platno.width / 2) this.x = platno.width / 2
+    this.x = this.tenkDesno
+      ? Math.min(Math.max(this.x, platno.width / 2), platno.width)
+      : Math.min(Math.max(this.x, 0), platno.width / 2)
   }
 
   proveriTipke() {
