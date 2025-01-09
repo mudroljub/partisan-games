@@ -2,7 +2,7 @@ import { platno, ctx } from '/game-engine/io/platno.js'
 
 const gravitacija = 9.8
 
-export default class Projektil {
+export default class Djule {
   constructor(x = 0, y = 0) {
     this.x = x
     this.y = y

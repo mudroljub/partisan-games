@@ -1,6 +1,6 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Predmet from '/game-engine/core/Predmet.js'
-import Projektil from './Projektil.js'
+import Djule from './Djule.js'
 
 const skalar = .75
 const MIN_UGAO = 5.68
@@ -13,7 +13,7 @@ export default class Top extends Predmet {
     this.pocetniX = x
     this.ugao = -0.2
     this.sila = this.minSila = 500
-    this.projektili = Array.from({ length: 5 }, () => new Projektil())
+    this.projektili = Array.from({ length: 5 }, () => new Djule())
     this.predmeti = [...this.projektili]
   }
 
