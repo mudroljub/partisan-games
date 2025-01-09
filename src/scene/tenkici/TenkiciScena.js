@@ -3,7 +3,6 @@ import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
 import { progresBar, komande } from '/game-ui/components.js'
 import Tenk from './Tenk.js'
-import Tenk2 from './Tenk2.js'
 
 const nivoTla = platno.height * 0.8
 const skalar = window.innerWidth > 1280 ? 0.5 : 0.4
@@ -19,10 +18,10 @@ export default class TenkiciScena extends Scena {
     this.pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
 
     this.tenk = new Tenk('/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', {
-      skalar, y: nivoTla, callback, cevSlika: '/assets/slike/2d-bocno/partizanski-tenk-cev.png',
+      skalar, y: nivoTla, cevSlika: '/assets/slike/2d-bocno/partizanski-tenk-cev.png', callback
     })
     this.tenk2 = new Tenk('/assets/slike/2d-bocno/nemacki-tenk-bez-cevi.png', {
-      skalar, y: nivoTla, callback, tenkDesno: true, cevSlika: '/assets/slike/2d-bocno/nemacki-tenk-cev.png'
+      skalar, y: nivoTla, tenkDesno: true, cevSlika: '/assets/slike/2d-bocno/nemacki-tenk-cev.png', callback
     })
 
     this.predmeti = [this.tenk, this.tenk2]

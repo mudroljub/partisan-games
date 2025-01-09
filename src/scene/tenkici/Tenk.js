@@ -13,9 +13,10 @@ const vremePunjenja = 1000
 const vremePunjenjaAI = 1500
 
 export default class Tenk extends Predmet {
-  constructor(src, { skalar = .05, tenkDesno = false, callback, cevSlika, ...rest } = {}) {
+  constructor(src, { skalar = .05, tenkDesno = false, cevSlika, callback, ...rest } = {}) {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
+    this.callback = callback
     this.x = tenkDesno
       ? randomInRange(platno.width * 0.7, platno.width) - 100
       : randomInRange(0, platno.width * 0.3)
@@ -23,8 +24,8 @@ export default class Tenk extends Predmet {
     this.ime = tenkDesno ? 'Nemački tenk' : 'Partizanski tenk'
     this.vreme = new Vreme()
     this.potisak = 25
-    this.granate = Array.from({ length: 10 }, () => new Granata({ callback }))
-    this.predmeti = [...this.granate]
+    this.granate = []
+    this.predmeti = this.granate
     this.energija = 100
     this.zapaljivost = 20
     this.spremno = false
@@ -72,10 +73,15 @@ export default class Tenk extends Predmet {
     }
   }
 
+  novaGranata() {
+    const granata = new Granata({ callback: this.callback })
+    this.granate.push(granata)
+    return granata
+  }
+
   pucaj() {
-    if (this.vreme.proteklo < vremePunjenja || !this.granate.length) return
-    const granata = this.granate.find(g => !g.ispaljena)
-    if (!granata) return
+    if (this.vreme.proteklo < vremePunjenja) return
+    const granata = this.granate.find(g => !g.ispaljena) || this.novaGranata()
 
     granata.pucaj(this.polozajGranate, this.cev.ugao)
     this.trzaj()
