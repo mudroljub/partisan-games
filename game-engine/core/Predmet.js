@@ -271,12 +271,12 @@ export default class Predmet {
     this.y += this.dy * dt
   }
 
-  azurirajPlamen() {
+  azurirajPlamen(dt) {
     if (!this.zapaljen) return
 
     this.plamen.x = this.x
     this.plamen.y = this.y
-    this.plamen.update()
+    this.plamen.update(dt)
   }
 
   update(dt) {
@@ -284,7 +284,7 @@ export default class Predmet {
 
     this.azurirajKretanje(dt)
     this.proveriGranice()
-    this.azurirajPlamen()
+    this.azurirajPlamen(dt)
   }
 
   crtaSliku() {
