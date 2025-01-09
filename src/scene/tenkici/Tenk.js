@@ -91,17 +91,24 @@ export default class Tenk extends Predmet {
   proveriTipke() {
     if (this.mrtav) return
 
-    const komande = this.tenkDesno
-      ? { levo: 'ArrowLeft', desno: 'ArrowRight', gore: 'ArrowUp', dole: 'ArrowDown', smer: Math.PI }
-      : { levo: 'KeyA', desno: 'KeyD', gore: 'KeyW', dole: 'KeyS', smer: 0 }
+    if (this.tenkDesno) {
+      if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2)
+        this.dodajSilu(this.potisak, Math.PI)
+      if (keyboard.pressed.ArrowRight && this.x < platno.width)
+        this.dodajSilu(this.potisak * 0.6, 0)
+    } else {
+      if (keyboard.pressed.KeyA && this.x > 0)
+        this.dodajSilu(this.potisak * 0.6, Math.PI)
+      if (keyboard.pressed.KeyD && this.x < platno.width / 2)
+        this.dodajSilu(this.potisak, 0)
+    }
 
-    if (keyboard.pressed[komande.levo] && this.x > platno.width / 2)
-      this.dodajSilu(this.potisak, komande.smer)
-    if (keyboard.pressed[komande.desno] && this.x < platno.width)
-      this.dodajSilu(this.potisak * 0.6, 0)
-    if (keyboard.pressed[komande.gore])
+    const keyUp = this.tenkDesno ? 'ArrowUp' : 'KeyW'
+    const keyDown = this.tenkDesno ? 'ArrowDown' : 'KeyS'
+
+    if (keyboard.pressed[keyUp])
       this.cev.nagore()
-    if (keyboard.pressed[komande.dole])
+    if (keyboard.pressed[keyDown])
       this.cev.nadole()
 
     this.proveriPucanje()
