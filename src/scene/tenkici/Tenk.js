@@ -28,8 +28,14 @@ export default class Tenk extends Predmet {
     return this.energija <= this.zapaljivost
   }
 
+  get polozajGranate() {
+    const x = Math.cos(this.cev.ugao) * this.cev.dijagonala + this.cev.x
+    const y = Math.sin(this.cev.ugao) * this.cev.dijagonala + this.cev.y
+    return { x, y }
+  }
+
   praviGranate(length = 10) {
-    return Array.from({ length }, () => new Granata(this.cev))
+    return Array.from({ length }, () => new Granata())
   }
 
   skiniEnergiju(steta) {
@@ -81,7 +87,7 @@ export default class Tenk extends Predmet {
     const granata = this.granate.find(g => !g.ispaljena)
     if (!granata) return
 
-    granata.pucaj()
+    granata.pucaj(this.polozajGranate, this.cev.ugao)
     this.trzaj()
     this.vreme.reset()
   }

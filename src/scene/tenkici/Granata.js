@@ -3,14 +3,12 @@ import { gravitacija } from './konstante.js'
 import { platno } from '/game-engine/io/platno.js'
 import { izasaoIgde } from '/game-engine/utils/granice.js'
 
-const potisak = 500
 const silaUdara = 15
 const trajanjeEksplozije = 150
 
 export default class Granata extends Predmet {
-  constructor(vlasnik, src = '/assets/slike/granata.gif') {
+  constructor(src = '/assets/slike/granata.gif') {
     super(src, { skalar: .5 })
-    this.vlasnik = vlasnik
     this.nivoTla = platno.height - Math.random() * platno.height * 0.2
     this.plamen = new Predmet('/assets/slike/plamen.gif', { skalar: 0.4 })
     this.reset()
@@ -22,15 +20,15 @@ export default class Granata extends Predmet {
     this.ispaljena = false
   }
 
-  postavi() {
-    this.x = Math.cos(this.vlasnik.ugao) * this.vlasnik.dijagonala + this.vlasnik.x
-    this.y = Math.sin(this.vlasnik.ugao) * this.vlasnik.dijagonala + this.vlasnik.y
-    this.ugao = this.vlasnik.ugao
+  postavi(polozaj, ugao) {
+    this.x = polozaj.x
+    this.y = polozaj.y
+    this.ugao = ugao
   }
 
-  pucaj() {
+  pucaj(polozaj, ugao, potisak = 500) {
     this.pokazi()
-    this.postavi()
+    this.postavi(polozaj, ugao)
     this.dodajSilu(potisak)
     this.ispaljena = true
   }

@@ -10,12 +10,9 @@ Male igrice o Nemcima i partizanima.
 - pregledati gpt slike
 
 TopScena
-- ili neprijatelji nadiru
-    - dodati nekoliko vrsta neprijatelja u niz i vraćati ukrug
-    - napraviti fabriku za kreiranje neprijatelja
-    - poraz ako tenk stigne do branilaca
-- ili tenk stoji puca
-- probati obe varijante
+- tenk neprijatelj puca
+    - srediti skiniEnergiju callback
+- menjati neprijatelja ili dodavati više?
 
 Scena1944
 - dodati stvar za hvatanje (paketić)
