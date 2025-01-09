@@ -25,10 +25,8 @@ export default class TenkiciScena extends Scena {
   update(dt) {
     super.update(dt)
     if (!dvaIgraca) this.tenk2.automatuj(this.tenk)
-    if (!this.gotovo) {
-      this.tenk.proveriPogodak(this.tenk2)
-      this.tenk2.proveriPogodak(this.tenk)
-    }
+    this.tenk.proveriPogodak(this.tenk2)
+    this.tenk2.proveriPogodak(this.tenk)
     if (this.tenk.mrtav || this.tenk2.mrtav) this.gotovo = true
   }
 
@@ -37,7 +35,7 @@ export default class TenkiciScena extends Scena {
       <div class="prozorce bg-black">
         <p class="valencia">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>
         <p class="avocado">${this.tenk.ziv ? this.tenk.ime : this.tenk2.ime} je pobedio ovu borbu.</p>
-        <button id="igraj-opet" class="white">Igraj opet</button><button id="menu">Glavni meni</button>
+        <button id="igraj-opet">Igraj opet</button><button id="menu">Glavni meni</button>
       </div>
     `
   }

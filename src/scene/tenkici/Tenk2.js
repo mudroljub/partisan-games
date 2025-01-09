@@ -23,11 +23,11 @@ export default class Tenk2 extends Tenk {
     this.predmeti = [...this.granate]
   }
 
-  automatuj(predmet) {
+  automatuj(cilj) {
     if (this.mrtav) return
     this.mrdajNasumicno()
-    if (predmet.mrtav) return
-    this.nisani(predmet)
+    if (cilj.mrtav) return
+    this.nisani(cilj)
     this.pucajNasumicno()
   }
 

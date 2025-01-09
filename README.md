@@ -9,9 +9,12 @@ Male igrice o Nemcima i partizanima.
 - malo pregledati slike, probrati, kropovati
 - pregledati gpt slike
 
+refaktoriši callBackMethod
+    - bombas.callBackMethod() prosleđivati iz scene
+
 TopScena
 - tenk neprijatelj puca
-    - srediti skiniEnergiju callback
+    - dodati skiniEnergiju callback
 - menjati neprijatelja ili dodavati više?
 
 Scena1944
