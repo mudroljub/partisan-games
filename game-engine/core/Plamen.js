@@ -40,14 +40,6 @@ export default class Plamen {
     this.y = y
   }
 
-  update() {
-    this.praviNoveCestice()
-    this.iskre.forEach((p, i) => {
-      p.update()
-      if (p.life >= maxLife) this.iskre.splice(i, 1)
-    })
-  }
-
   praviNoveCestice() {
     for (let i = 0; i < renewal; i++) {
       const dx = (Math.random() * 2 * speed - speed) / 2
@@ -56,9 +48,17 @@ export default class Plamen {
     }
   }
 
+  update() {
+    this.praviNoveCestice()
+    this.iskre.forEach((iskra, i) => {
+      iskra.update()
+      if (iskra.life >= maxLife) this.iskre.splice(i, 1)
+    })
+  }
+
   render() {
     ctx.globalCompositeOperation = 'lighter'
-    this.iskre.forEach(p => p.render())
+    this.iskre.forEach(iskra => iskra.render())
     ctx.globalCompositeOperation = 'source-over'
   }
 }
