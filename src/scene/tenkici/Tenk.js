@@ -12,20 +12,20 @@ const vremePunjenja = 1000
 const vremePunjenjaAI = 1500
 
 export default class Tenk extends Predmet {
-  constructor(src = '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', { skalar = .05, tenkDesno = false, callback, ...rest } = {}) {
+  constructor(src, { skalar = .05, tenkDesno = false, callback, cevSlika, ...rest } = {}) {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
-    this.cev = new Cev(this, '/assets/slike/2d-bocno/partizanski-tenk-cev.png', skalar)
+    this.cev = new Cev(this, cevSlika, skalar)
     this.potisak = 25
     this.vreme = new Vreme()
     this.x = Math.random() * platno.width * 0.3
     this.ime = 'Partizanski tenk'
     this.spremno = false
-    this.granate = this.praviGranate(10, callback)
+    this.granate = Array.from({ length: 10 }, () => new Granata({ callback }))
     this.energija = 100
     this.zapaljivost = 20
     this.predmeti = [...this.granate]
-    // if AI
+    // AI
     this.vremeGasa = new Vreme()
     this.vremeSmera = new Vreme()
     this.vremePucanja = new Vreme()
@@ -39,10 +39,6 @@ export default class Tenk extends Predmet {
     const x = Math.cos(this.cev.ugao) * this.cev.dijagonala + this.cev.x
     const y = Math.sin(this.cev.ugao) * this.cev.dijagonala + this.cev.y
     return { x, y }
-  }
-
-  praviGranate(length, callback) {
-    return Array.from({ length }, () => new Granata({ callback }))
   }
 
   skiniEnergiju(steta) {

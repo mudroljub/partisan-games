@@ -17,8 +17,14 @@ const callback = cilj => {
 export default class TenkiciScena extends Scena {
   init() {
     this.pozadina = new Pozadina('/assets/slike/pozadine/razrusen-grad-savremen.jpg')
-    this.tenk = new Tenk(undefined, { skalar, y: nivoTla, callback })
-    this.tenk2 = new Tenk2({ skalar, y: nivoTla, callback, tenkDesno: true })
+
+    this.tenk = new Tenk('/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', {
+      skalar, y: nivoTla, callback, cevSlika: '/assets/slike/2d-bocno/partizanski-tenk-cev.png',
+    })
+    this.tenk2 = new Tenk2('/assets/slike/2d-bocno/nemacki-tenk-bez-cevi.png', {
+      skalar, y: nivoTla, callback, tenkDesno: true, cevSlika: '/assets/slike/2d-bocno/nemacki-tenk-cev.png'
+    })
+
     this.predmeti = [this.tenk, this.tenk2]
   }
 
