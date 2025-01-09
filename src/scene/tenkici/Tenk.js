@@ -4,10 +4,16 @@ import Vreme from '/game-engine/core/Vreme.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import Cev from './Cev.js'
 import Granata from './Granata.js'
+import { gravitacija } from './konstante.js'
 
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 const vremePunjenja = 1000
+
+const vremePunjenjaAI = 1500
+const vremeGasa = new Vreme()
+const vremeSmera = new Vreme()
+const vremePucanja = new Vreme()
 
 export default class Tenk extends Predmet {
   constructor(src = '/assets/slike/2d-bocno/partizanski-tenk-bez-cevi.png', params) {
@@ -96,6 +102,42 @@ export default class Tenk extends Predmet {
     this.dodajSilu(this.potisak, this.ugao + Math.PI)
   }
 
+  /* AI */
+
+  nisani(predmet) {
+    this.cev.ugao = Math.PI + this.razmakDo(predmet) / (gravitacija * gravitacija * 0.8)
+  }
+
+  mrdajNasumicno() {
+    const random = Math.random()
+    if (vremeGasa.proteklo > 70) {
+      this.dodajSilu((random * this.potisak), this.smer)
+      vremeGasa.reset()
+    }
+    if (vremeSmera.proteklo > 300) {
+      this.smer = random > 0.55 ? Math.PI : 0
+      vremeSmera.reset()
+    }
+    if (this.x > platno.width * 0.9) this.smer = 0
+    if (this.x < platno.width / 2) this.smer = Math.PI
+  }
+
+  pucajNasumicno() {
+    if (vremePucanja.proteklo < vremePunjenjaAI) return
+    this.pucaj()
+    vremePucanja.reset()
+  }
+
+  samohod(cilj) {
+    if (this.mrtav) return
+    this.mrdajNasumicno()
+    if (cilj.mrtav) return
+    this.nisani(cilj)
+    this.pucajNasumicno()
+  }
+
+  /* LOOP */
+
   update(dt) {
     super.update(dt)
     this.cev.update(dt)
@@ -104,7 +146,7 @@ export default class Tenk extends Predmet {
   }
 
   render() {
-    this.cev.render() // ovako cev ne ide preko plamena
+    this.cev.render() // da cev ide iza plamena
     super.render()
   }
 }
