@@ -11,7 +11,6 @@ Male igrice o Nemcima i partizanima.
 
 TopScena
 - tenk neprijatelj puca
-    - dodati skiniEnergiju callback
 - menjati neprijatelja ili dodavati više?
 
 Scena1944

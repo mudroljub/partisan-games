@@ -35,7 +35,11 @@ export default class Tenk extends Predmet {
   }
 
   praviGranate(length = 10) {
-    return Array.from({ length }, () => new Granata())
+    const callback = () => {
+      this.dodajSilu(15, this.ugao + Math.PI)
+      this.skiniEnergiju(Math.ceil(Math.random() * 2))
+    }
+    return Array.from({ length }, () => new Granata({ callback }))
   }
 
   skiniEnergiju(steta) {
