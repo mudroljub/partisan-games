@@ -9,11 +9,10 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
     duzinaRafala: 5,
     proredRafala: .1,
 
-    // TODO: prebaciti konfiguraciju ovde?? i callback?
-    initPucanje({ ciljevi }) {
+    initPucanje({ ciljevi, callback }) {
       this.zadnjiPucanj = 0
       this.zadnjiPucanjRafala = 0
-      this.meci = Array.from({ length: kolicina }, () => new Raketa(src, { potisak, skalar }))
+      this.meci = Array.from({ length: kolicina }, () => new Raketa(src, { potisak, skalar, callback }))
       this.meci.forEach(r => r.dodajCiljeve(...ciljevi))
       this.predmeti = [...this.meci]
     },
