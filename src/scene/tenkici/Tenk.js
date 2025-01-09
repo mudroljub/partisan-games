@@ -47,10 +47,10 @@ export default class Tenk extends Predmet {
     if (this.energija <= 0) this.umri()
   }
 
-  proveriPogodak(predmet) {
+  proveriPogodak(cilj) {
     this.granate
       .filter(granata => granata.ispaljena)
-      .forEach(granata => granata.proveriPogodak(predmet))
+      .forEach(granata => granata.proveriPogodak(cilj))
   }
 
   proveriPucanje(key = 'space') {

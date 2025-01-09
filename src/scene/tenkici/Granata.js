@@ -37,12 +37,13 @@ export default class Granata extends Predmet {
     if (izasaoIgde(this) || this.y > this.nivoTla) this.reset()
   }
 
-  proveriPogodak(predmet) {
-    if (!this.sudara(predmet)) return
+  proveriPogodak(cilj) {
+    if (!this.sudara(cilj)) return
+
     this.eksplodiraj()
     setTimeout(() => this.reset(), trajanjeEksplozije)
-    predmet.dodajSilu(silaUdara, predmet.ugao + Math.PI)
-    predmet.skiniEnergiju(Math.ceil(Math.random() * 2))
+    cilj.dodajSilu(silaUdara, cilj.ugao + Math.PI)
+    cilj.skiniEnergiju(Math.ceil(Math.random() * 2))
   }
 
   eksplodiraj() {
