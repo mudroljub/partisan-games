@@ -12,6 +12,7 @@ export default class Top extends Predmet {
     this.postolje = new Predmet('2d-bocno/top-postolje.gif', { x: x - 40, y: y + 32, skalar })
     this.pocetniX = x
     this.ugao = -0.2
+    this.energija = 100
     this.sila = this.minSila = 500
     this.projektili = Array.from({ length: 5 }, () => new Djule())
     this.predmeti = [...this.projektili]

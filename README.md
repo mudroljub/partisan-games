@@ -11,6 +11,8 @@ Male igrice o Nemcima i partizanima.
 
 TopScena
 - da se skida energija, ne umire odmah
+    - energiju na predmet?
+- kad top umre, staviti gotovo, da ne proverava tipke
 - menjati neprijatelja ili dodavati više?
 
 Scena1944
