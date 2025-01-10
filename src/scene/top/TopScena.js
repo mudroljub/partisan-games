@@ -21,6 +21,7 @@ export default class TopScena extends Scena {
     const posada = new Posada(110, tlo + 8)
     const strelac = new Strelac(300, tlo + 8)
     this.tenk = new TenkDesno({ skalar: .6, y: tlo, cilj: this.top, callback, vremePunjenjaAI: 3000 })
+    this.top.ciljevi.push(this.tenk)
     this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)
   }
 

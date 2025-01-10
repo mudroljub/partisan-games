@@ -137,7 +137,7 @@ export default class Tenk extends Predmet {
     if (this.ai) this.samohod()
     this.azurirajCev()
     this.trenje(this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje)
-    this.proveriPogodak(this.cilj)
+    this.proveriPogodak()
     this.proveriSmrt()
   }
 
