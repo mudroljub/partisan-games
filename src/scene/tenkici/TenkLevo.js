@@ -23,15 +23,23 @@ export default class TenkLevo extends Tenk {
     super.proveriPucanje('Space')
   }
 
+  diziCev() {
+    if (this.cev.ugao <= Math.PI || this.cev.ugao >= Math.PI * 1.8) this.cev.ugao -= 0.01
+  }
+
+  spustajCev() {
+    if (this.cev.ugao >= Math.PI)
+      this.cev.ugao += 0.01
+  }
+
   proveriTipke() {
     if (keyboard.pressed.KeyA && this.x > 0)
       this.dodajSilu(this.potisak * 0.6, Math.PI)
     if (keyboard.pressed.KeyD && this.x < platno.width / 2)
       this.dodajSilu(this.potisak, 0)
     if (keyboard.pressed.KeyW)
-      this.cev.nagore()
+      this.diziCev()
     if (keyboard.pressed.KeyS)
-      this.cev.nadole()
+      this.spustajCev()
   }
-
 }

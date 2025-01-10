@@ -17,18 +17,6 @@ export default class Cev extends Predmet {
     }
   }
 
-  nagore() {
-    if (this.vlasnik.tenkDesno) {
-      if (this.ugao <= Math.PI * 1.2) this.ugao += 0.01
-    } else
-      if (this.ugao <= Math.PI || this.ugao >= Math.PI * 1.8) this.ugao -= 0.01
-  }
-
-  nadole() {
-    if (this.ugao >= Math.PI)
-      this.ugao += this.vlasnik.tenkDesno ? -0.01 : 0.01
-  }
-
   update() {
     this.pratiTenk()
   }

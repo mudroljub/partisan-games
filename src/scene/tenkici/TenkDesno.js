@@ -25,15 +25,23 @@ export default class TenkDesno extends Tenk {
     super.proveriPucanje('Enter')
   }
 
+  diziCev() {
+    if (this.cev.ugao <= Math.PI * 1.2) this.cev.ugao += 0.01
+  }
+
+  spustajCev() {
+    if (this.cev.ugao >= Math.PI)
+      this.cev.ugao -= 0.01
+  }
+
   proveriTipke() {
     if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2)
       this.dodajSilu(this.potisak, Math.PI)
     if (keyboard.pressed.ArrowRight && this.x < platno.width)
       this.dodajSilu(this.potisak * 0.6, 0)
     if (keyboard.pressed.ArrowUp)
-      this.cev.nagore()
+      this.diziCev()
     if (keyboard.pressed.ArrowDown)
-      this.cev.nadole()
+      this.spustajCev()
   }
-
 }
