@@ -31,6 +31,7 @@ export default class TopScena extends Scena {
 
   update(dt, t) {
     super.update(dt, t)
+    if (this.top.mrtav) this.zavrsi()
   }
 
   sablon() {

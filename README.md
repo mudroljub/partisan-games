@@ -10,9 +10,8 @@ Male igrice o Nemcima i partizanima.
 - pregledati gpt slike
 
 TopScena
-- da top oštećuje tenk
-    - dodati efekat vatre na Djule, kao Granata
-- kad top umre, staviti gotovo, da ne proverava tipke
+- skiniEnergiju kontinuirano radi, treba li jednokratno??
+- dodati efekat vatre na Djule, kao Granata
 - menjati neprijatelja ili dodavati više?
 
 Scena1944
