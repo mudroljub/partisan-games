@@ -28,7 +28,7 @@ export default class Tenk extends Predmet {
     this.cev = new Cev(this, cevSlika, skalar)
     this.vreme = new Vreme()
     this.potisak = 25
-    this.granate = []
+    this.granate = [new Granata({ callback })]
     this.predmeti = this.granate
     this.energija = 100
     this.zapaljivost = 20
