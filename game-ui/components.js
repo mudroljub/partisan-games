@@ -14,3 +14,13 @@ export const komande = () => /* html*/`
     space - puca
   </div>
 `
+
+export const komande2 = () => /* html*/`
+  <div>
+    ← levo<br> 
+    → desno<br> 
+    ↑ gore<br> 
+    ↓ dole<br> 
+    enter - puca 
+  </div>
+`

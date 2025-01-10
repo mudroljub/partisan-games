@@ -2,21 +2,26 @@
 
 .komande {
   position: absolute;
-  padding: .25em;
+  padding: 4px;
   border-radius: 5px;
   min-width: 140px;
+  line-height: 1.4;
 }
 
 .komande1, .komande2 {
-  top: 10px;
+  top: 8px;
 }
 
 .komande1 {
-  left: 10px;
+  left: 8px;
 }
 
 .komande2 {
-  right: 10px;
+  right: 8px;
+}
+
+.komande button {
+  margin-top: 4px;
 }
 
 /* ENERGIJA */
