@@ -6,7 +6,7 @@ const gravitacija = 9.8
 export default class Djule extends Predmet {
   constructor(x = 0, y = 0) {
     super(undefined, { x, y })
-    this.ispaljen = false
+    this.ispaljeno = false
   }
 
   get jeVanEkrana() {
@@ -14,13 +14,13 @@ export default class Djule extends Predmet {
   }
 
   reset() {
-    this.ispaljen = false
+    this.ispaljeno = false
   }
 
   pali(polozaj, sila, ugao) {
     this.x = polozaj.x
     this.y = polozaj.y
-    this.ispaljen = true
+    this.ispaljeno = true
     this.dx = sila * Math.cos(ugao)
     this.dy = sila * Math.sin(ugao)
   }
@@ -30,7 +30,7 @@ export default class Djule extends Predmet {
   }
 
   render() {
-    if (!this.ispaljen) return
+    if (!this.ispaljeno) return
     ctx.fillStyle = 'black'
     ctx.beginPath()
     ctx.arc(this.x, this.y, 4, 0, Math.PI * 2)
@@ -38,7 +38,7 @@ export default class Djule extends Predmet {
   }
 
   update(dt) {
-    if (!this.ispaljen) return
+    if (!this.ispaljeno) return
     super.update(dt)
     this.leti(dt)
     if (this.jeVanEkrana) this.reset()

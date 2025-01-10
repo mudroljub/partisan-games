@@ -19,7 +19,7 @@ export default class Raketa extends Predmet {
   }
 
   reset() {
-    this.ispaljena = false
+    this.ispaljeno = false
     this.nestani()
   }
 
@@ -31,7 +31,7 @@ export default class Raketa extends Predmet {
   pali() {
     this.pokazi()
     this.brzina = this.potisak
-    this.ispaljena = true
+    this.ispaljeno = true
   }
 
   puca(polozaj, ugao) {
@@ -74,12 +74,12 @@ export default class Raketa extends Predmet {
   }
 
   render() {
-    if (!this.ispaljena) return
+    if (!this.ispaljeno) return
     super.render()
   }
 
   update(dt) {
-    if (this.ispaljena) {
+    if (this.ispaljeno) {
       super.update(dt)
       this.proveriSudare()
     }

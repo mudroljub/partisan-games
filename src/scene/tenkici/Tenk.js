@@ -55,7 +55,7 @@ export default class Tenk extends Predmet {
 
   proveriPogodak() {
     this.granate
-      .filter(granata => granata.ispaljena)
+      .filter(granata => granata.ispaljeno)
       .forEach(granata => granata.proveriPogodak(this.cilj))
   }
 
@@ -75,7 +75,7 @@ export default class Tenk extends Predmet {
 
   pucaj() {
     if (this.vreme.proteklo < this.vremePunjenja) return
-    const granata = this.granate.find(g => !g.ispaljena) || this.novaGranata()
+    const granata = this.granate.find(g => !g.ispaljeno) || this.novaGranata()
 
     granata.pucaj(this.polozajGranate, this.cev.ugao)
     this.trzaj()

@@ -17,7 +17,7 @@ export default class Granata extends Predmet {
   reset() {
     this.nestani()
     this.plamen.sakrij()
-    this.ispaljena = false
+    this.ispaljeno = false
   }
 
   postavi(polozaj, ugao) {
@@ -30,7 +30,7 @@ export default class Granata extends Predmet {
     this.pokazi()
     this.postavi(polozaj, ugao)
     this.dodajSilu(potisak)
-    this.ispaljena = true
+    this.ispaljeno = true
   }
 
   proveriGranice() {
@@ -62,7 +62,7 @@ export default class Granata extends Predmet {
   }
 
   update(dt) {
-    if (!this.ispaljena) return
+    if (!this.ispaljeno) return
     this.dodajSilu(gravitacija * dt, Math.PI / 2)
     this.azurirajUgao()
     super.update(dt)

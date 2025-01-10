@@ -24,7 +24,7 @@ export default class AvionIgrac extends Igrac {
 
   proveriTipke() {
     super.proveriTipke()
-    if (keyboard.pressed.Enter && !this.raketa.ispaljena)
+    if (keyboard.pressed.Enter && !this.raketa.ispaljeno)
       this.raketa.pucaCiljano(this, this.ugao)
   }
 
@@ -49,7 +49,7 @@ export default class AvionIgrac extends Igrac {
   }
 
   puca() {
-    if (this.raketa.ispaljena) return
+    if (this.raketa.ispaljeno) return
 
     const polozaj = { x: this.x + 5, y: this.y + 15 }
     this.raketa.puca(polozaj, this.ugao + Math.PI / 16)
