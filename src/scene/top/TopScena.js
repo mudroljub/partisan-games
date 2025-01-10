@@ -34,9 +34,13 @@ export default class TopScena extends Scena {
 
   sablon() {
     return /* html */`
-      <div class="komande">
-        ${progresBar(this.top.energija)}
-      </div>
+    <div class='komande komande1'>
+    ${progresBar(this.top.energija)}
+  </div>
+
+  <div class='komande komande2'>
+    ${progresBar(this.tenk.energija)}
+  </div>
     `
   }
 }

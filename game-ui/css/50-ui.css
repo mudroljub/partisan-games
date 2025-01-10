@@ -21,12 +21,12 @@
 /* ENERGIJA */
 
 progress::-webkit-progress-value {
-  background: #4D5234;
-  color: #4D5234;
+  background: #D94A38;
+  color: #D94A38;
 }
 progress::-moz-progress-bar {
-  background: #4D5234;
-  color: #4D5234;
+  background: #D94A38;
+  color: #D94A38;
 }
 
 .progress-wrapper {

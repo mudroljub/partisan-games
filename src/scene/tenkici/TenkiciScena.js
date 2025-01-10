@@ -53,7 +53,7 @@ export default class TenkiciScena extends Scena {
         <span class='bold'>${this.tenk2.ime}</span>
         ${progresBar(this.tenk2.energija)}
         ${!this.tenk2.ai ? komande() : ''}
-        <button id="dva-igraca" class="${this.tenk2.ai ? '' : 'bg-avocado'} full">
+        <button id="dva-igraca" class="bg-avocado full">
           ${this.tenk2.ai ? 'Dodaj igrača' : 'Uključi<br> neprijatelja'}
         </button>
       </div>
