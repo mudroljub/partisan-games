@@ -14,7 +14,6 @@ export default class Igrac extends Predmet {
   }
 
   proveriTipke() {
-    if (!this.ziv) return
     if (keyboard.left) this.nalevo()
     if (keyboard.right) this.nadesno()
     if (keyboard.up) this.nagore()

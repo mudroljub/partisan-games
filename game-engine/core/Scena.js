@@ -131,7 +131,7 @@ export default class Scena {
     if (keyboard.pressed.Escape) this.potvrdiIzlaz()
 
     this.predmeti.forEach(predmet => {
-      if (predmet.proveriTipke) predmet.proveriTipke(dt)
+      if (predmet.ziv && predmet.proveriTipke) predmet.proveriTipke(dt)
     })
   }
 
