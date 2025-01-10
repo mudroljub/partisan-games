@@ -16,7 +16,7 @@ export default class TenkLevo extends Tenk {
   }
 
   proveriGranice() {
-    Math.min(Math.max(this.x, 0), platno.width / 2)
+    this.x = Math.min(Math.max(this.x, 0), platno.width / 2)
   }
 
   proveriPucanje() {
