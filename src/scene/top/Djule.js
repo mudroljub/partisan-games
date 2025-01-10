@@ -11,10 +11,6 @@ export default class Djule extends Predmet {
     this.reset()
   }
 
-  proveriGranice() {
-    if (izasaoIgde(this) || this.y > this.nivoTla) this.reset()
-  }
-
   reset() {
     this.nestani()
     this.ispaljeno = false
@@ -31,6 +27,10 @@ export default class Djule extends Predmet {
     this.postavi(polozaj, ugao)
     this.dodajSilu(sila, ugao)
     this.ispaljeno = true
+  }
+
+  proveriGranice() {
+    if (izasaoIgde(this) || this.y > this.nivoTla) this.reset()
   }
 
   /* LOOP */

@@ -13,6 +13,7 @@ export default class Granata extends Predmet {
     this.nivoTla = nivoTla
     this.callback = callback
     this.plamen = new Predmet('plamen.gif', { skalar: 0.4 })
+    this.timerId = null
     this.reset()
   }
 
@@ -43,7 +44,12 @@ export default class Granata extends Predmet {
     if (!this.sudara(cilj)) return
 
     this.eksplodiraj()
-    setTimeout(() => this.reset(), trajanjeEksplozije)
+    if (this.timerId === null)
+      this.timerId = setTimeout(() => {
+        this.reset()
+        this.timerId = null
+      }, trajanjeEksplozije)
+
     if (this.callback) this.callback(cilj)
     else cilj.umri()
   }
