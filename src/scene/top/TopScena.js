@@ -11,13 +11,13 @@ const tlo = platno.height * .75
 
 const callback = cilj => {
   const steta = Math.ceil(Math.random() * 2)
-  cilj.energija = Math.max(cilj.energija - steta, 0)
+  cilj.skiniEnergiju(steta)
 }
 
 export default class TopScena extends Scena {
   init() {
     const zastavnik = new Zastavnik(40, tlo + 1)
-    this.top = new Top({ x: 230, y: tlo - 32 })
+    this.top = new Top({ x: 230, y: tlo - 32, callback })
     const posada = new Posada(110, tlo + 8)
     const strelac = new Strelac(300, tlo + 8)
     this.tenk = new TenkDesno({ skalar: .6, y: tlo, cilj: this.top, callback, vremePunjenjaAI: 3000 })

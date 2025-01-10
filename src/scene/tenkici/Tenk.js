@@ -125,7 +125,6 @@ export default class Tenk extends Predmet {
     this.azurirajCev()
     this.trenje(this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje)
     this.proveriPogodak()
-    console.log(this.mrtav)
   }
 
   render() {
