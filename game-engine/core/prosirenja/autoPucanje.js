@@ -4,7 +4,7 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
   return {
     i: 0,
     zastoj, // sekundi
-    ispaljeno: 0,
+    ispaljenih: 0,
     duzinaRafala: 5,
     proredRafala: .1,
 
@@ -26,10 +26,10 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
     rafalPovremeno(t) {
       if (t - this.zadnjiPucanj > this.zastoj && t - this.zadnjiPucanjRafala > this.proredRafala) {
         this.puca()
-        this.ispaljeno++
+        this.ispaljenih++
         this.zadnjiPucanjRafala = t
-        if (this.ispaljeno >= this.duzinaRafala) {
-          this.ispaljeno = 0
+        if (this.ispaljenih >= this.duzinaRafala) {
+          this.ispaljenih = 0
           this.zadnjiPucanj = t
         }
       }
