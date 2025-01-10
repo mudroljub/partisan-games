@@ -12,6 +12,7 @@ export default class TenkLevo extends Tenk {
     super(src, { cevSlika, ...rest })
     this.x = randomInRange(0, platno.width * 0.3)
     this.ime = 'Partizanski tenk'
+    this.cev.ugao = Math.PI * 1.9
   }
 
   proveriGranice() {

@@ -2,7 +2,6 @@ import { keyboard } from '/game-engine/io/Keyboard.js'
 import platno from '/game-engine/io/platno.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import Predmet from '/game-engine/core/Predmet.js'
-import Cev from './Cev.js'
 import Granata from './Granata.js'
 import { gravitacija } from './konstante.js'
 
@@ -25,7 +24,7 @@ export default class Tenk extends Predmet {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
     this.callback = callback
-    this.cev = new Cev(this, cevSlika, skalar)
+    this.cev = new Predmet(cevSlika, { skalar, ishodiste: 'GORE_LEVO' })
     this.vreme = new Vreme()
     this.potisak = 25
     this.granate = [new Granata({ callback })]

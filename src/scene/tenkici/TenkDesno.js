@@ -14,6 +14,7 @@ export default class TenkDesno extends Tenk {
     this.ugao = Math.PI
     this.odrazX = this.odrazY = -1
     this.ime = 'Nemački tenk'
+    this.cev.ugao = Math.PI * 1.1
   }
 
   proveriGranice() {
