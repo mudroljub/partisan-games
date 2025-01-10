@@ -10,8 +10,7 @@ Male igrice o Nemcima i partizanima.
 - pregledati gpt slike
 
 Tenkici
-- BUG: prime komande i kad nije dva igraca
-- prebrzo diže i spušta cev?
+- BUG: prima komande i kad nije dva igraca
 TopScena
 - menjati neprijatelja ili dodavati više?
 

@@ -19,11 +19,13 @@ export default class Tenk extends Predmet {
     skalar = defaultSkalar,
     cevSlika,
     callback,
+    cilj,
     ...rest
   } = {}) {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
     this.callback = callback
+    this.cilj = cilj
     this.cev = new Predmet(cevSlika, { skalar })
     this.vreme = new Vreme()
     this.potisak = 25
@@ -58,10 +60,10 @@ export default class Tenk extends Predmet {
     if (this.energija <= 0) this.umri()
   }
 
-  proveriPogodak(cilj) {
+  proveriPogodak() {
     this.granate
       .filter(granata => granata.ispaljena)
-      .forEach(granata => granata.proveriPogodak(cilj))
+      .forEach(granata => granata.proveriPogodak(this.cilj))
   }
 
   proveriPucanje(key) {
@@ -117,11 +119,11 @@ export default class Tenk extends Predmet {
     this.vremePucanja.reset()
   }
 
-  samohod(cilj) {
+  samohod() {
     if (this.mrtav) return
     this.mrdajNasumicno()
-    if (cilj.mrtav) return
-    this.nisani(cilj)
+    if (this.cilj.mrtav) return
+    this.nisani(this.cilj)
     this.pucajNasumicno()
   }
 
@@ -130,8 +132,10 @@ export default class Tenk extends Predmet {
   update(dt) {
     this.proveriPucanje()
     super.update(dt)
+    if (this.ai) this.samohod()
     this.azurirajCev()
     this.trenje(this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje)
+    this.proveriPogodak(this.cilj)
     this.proveriSmrt()
   }
 

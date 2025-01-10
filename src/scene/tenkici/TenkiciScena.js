@@ -16,7 +16,8 @@ export default class TenkiciScena extends Scena {
   init() {
     this.pozadina = new Pozadina('pozadine/razrusen-grad-savremen.jpg')
     this.tenk = new TenkLevo({ y: nivoTla, callback })
-    this.tenk2 = new TenkDesno({ y: nivoTla, tenkDesno: true, callback })
+    this.tenk2 = new TenkDesno({ y: nivoTla, callback, cilj: this.tenk })
+    this.tenk.cilj = this.tenk2
     this.predmeti = [this.tenk, this.tenk2]
   }
 
@@ -27,10 +28,6 @@ export default class TenkiciScena extends Scena {
 
   update(dt) {
     super.update(dt)
-    if (this.tenk2.ai) this.tenk2.samohod(this.tenk)
-    // TODO: dodati u ciljeve
-    this.tenk.proveriPogodak(this.tenk2)
-    this.tenk2.proveriPogodak(this.tenk)
     if (this.tenk.mrtav || this.tenk2.mrtav) this.gotovo = true
   }
 
