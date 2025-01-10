@@ -131,7 +131,6 @@ export default class Tenk extends Predmet {
   /* LOOP */
 
   update(dt) {
-    this.proveriPucanje()
     super.update(dt)
     if (this.ai) this.samohod()
     this.azurirajCev()

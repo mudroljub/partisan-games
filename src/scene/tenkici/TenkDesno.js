@@ -24,10 +24,6 @@ export default class TenkDesno extends Tenk {
     this.x = Math.min(Math.max(this.x, platno.width / 2), platno.width)
   }
 
-  proveriPucanje() {
-    super.proveriPucanje('Enter')
-  }
-
   diziCev() {
     if (this.cev.ugao <= Math.PI * 1.2) this.cev.ugao += 0.01
   }
@@ -47,6 +43,8 @@ export default class TenkDesno extends Tenk {
       this.diziCev()
     if (keyboard.pressed.ArrowDown)
       this.spustajCev()
+
+    this.proveriPucanje('Enter')
   }
 
   azurirajCev() {

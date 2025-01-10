@@ -20,10 +20,6 @@ export default class TenkLevo extends Tenk {
     this.x = Math.min(Math.max(this.x, 0), platno.width / 2)
   }
 
-  proveriPucanje() {
-    super.proveriPucanje('Space')
-  }
-
   diziCev() {
     if (this.cev.ugao <= Math.PI || this.cev.ugao >= Math.PI * 1.8) this.cev.ugao -= 0.01
   }
@@ -41,6 +37,8 @@ export default class TenkLevo extends Tenk {
       this.diziCev()
     if (keyboard.pressed.KeyS)
       this.spustajCev()
+
+    this.proveriPucanje('Space')
   }
 
   azurirajCev() {
