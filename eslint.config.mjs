@@ -87,7 +87,7 @@ export default [{
       functions: false,
     }],
 
-    'no-useless-constructor': 'error',
+    'no-useless-constructor': 'warn',
     'no-useless-rename': 'error',
     'no-var': 'error',
     'object-curly-spacing': ['warn', 'always'],
