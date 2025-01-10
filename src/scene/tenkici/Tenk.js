@@ -62,7 +62,7 @@ export default class Tenk extends Predmet {
   proveriPucanje(key) {
     if (keyboard.pressed[key]) this.spremno = true
     if (this.spremno && !keyboard.pressed[key]) {
-      this.pucaj()
+      this.pali()
       this.spremno = false
     }
   }
@@ -73,11 +73,11 @@ export default class Tenk extends Predmet {
     return granata
   }
 
-  pucaj() {
+  pali() {
     if (this.vreme.proteklo < this.vremePunjenja) return
     const granata = this.granate.find(g => !g.ispaljeno) || this.novaGranata()
 
-    granata.pucaj(this.polozajGranate, this.cev.ugao)
+    granata.pali(this.polozajGranate, this.cev.ugao)
     this.trzaj()
     this.vreme.reset()
   }
@@ -116,7 +116,7 @@ export default class Tenk extends Predmet {
 
   pucajNasumicno() {
     if (this.vremePucanja.proteklo < this.vremePunjenjaAI) return
-    this.pucaj()
+    this.pali()
     this.vremePucanja.reset()
   }
 

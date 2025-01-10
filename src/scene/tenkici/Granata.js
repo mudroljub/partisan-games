@@ -26,7 +26,7 @@ export default class Granata extends Predmet {
     this.ugao = ugao
   }
 
-  pucaj(polozaj, ugao, potisak = 500) {
+  pali(polozaj, ugao, potisak = 500) {
     this.pokazi()
     this.postavi(polozaj, ugao)
     this.dodajSilu(potisak)
