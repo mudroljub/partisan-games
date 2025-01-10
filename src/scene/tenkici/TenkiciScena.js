@@ -6,7 +6,7 @@ import TenkLevo from './TenkLevo.js'
 import TenkDesno from './TenkDesno.js'
 
 const nivoTla = platno.height * 0.8
-let dvaIgraca = false
+let ai = true
 
 const callback = cilj => {
   cilj.dodajSilu(15, cilj.ugao + Math.PI)
@@ -23,12 +23,12 @@ export default class TenkiciScena extends Scena {
 
   handleClick = e => {
     super.handleClick(e)
-    if (e.target.id == 'dva-igraca') dvaIgraca = !dvaIgraca
+    if (e.target.id == 'dva-igraca') ai = !ai
   }
 
   update(dt) {
     super.update(dt)
-    if (!dvaIgraca) this.tenk2.samohod(this.tenk)
+    if (ai) this.tenk2.samohod(this.tenk)
     this.tenk.proveriPogodak(this.tenk2)
     this.tenk2.proveriPogodak(this.tenk)
     if (this.tenk.mrtav || this.tenk2.mrtav) this.gotovo = true
@@ -55,15 +55,9 @@ export default class TenkiciScena extends Scena {
       <div class='komande bg-poluprovidno komande2'>
         <span class='bold'>${this.tenk2.ime}</span>
         ${progresBar(this.tenk2.energija)}
-        <div class="${dvaIgraca ? '' : 'hide'}">
-          ← levo<br>
-          → desno<br>
-          ↑ gore<br>
-          ↓ dole<br>
-          enter - puca
-        </div>
-        <button id="dva-igraca" class="${dvaIgraca ? 'bg-avocado' : ''} full">
-          ${dvaIgraca ? 'Uključi<br> neprijatelja' : 'Dodaj igrača'}
+        ${!ai ? komande() : ''}
+        <button id="dva-igraca" class="${ai ? '' : 'bg-avocado'} full">
+          ${ai ? 'Dodaj igrača' : 'Uključi<br> neprijatelja'}
         </button>
       </div>
     `

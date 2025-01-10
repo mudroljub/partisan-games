@@ -12,10 +12,6 @@ Male igrice o Nemcima i partizanima.
 Tenkici
 - BUG: prime komande i kad nije dva igraca
 - prebrzo diže i spušta cev?
-- BUG: kratak pucanj i granata ne izleti, možda pre-učitati jednu
-- pokušati cev nalevo za desni tenk
-- tenk neprijatelj puca
-    - dodaj callback za tenk i top
 TopScena
 - menjati neprijatelja ili dodavati više?
 
