@@ -6,7 +6,7 @@ export const progresBar = energija => /* html*/`
 `
 
 export const komande = () => /* html*/`
-  <div>
+  <div class="tipke">
     A - levo<br>
     D - desno<br>
     W - gore<br>
@@ -16,7 +16,7 @@ export const komande = () => /* html*/`
 `
 
 export const komande2 = () => /* html*/`
-  <div>
+  <div class="tipke">
     ← levo<br> 
     → desno<br> 
     ↑ gore<br> 

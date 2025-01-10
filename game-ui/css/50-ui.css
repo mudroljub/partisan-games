@@ -20,8 +20,12 @@
   right: 8px;
 }
 
-.komande button {
+.komande .tipke {
   margin-top: 4px;
+}
+
+.komande button {
+  margin-top: 2px;
 }
 
 /* ENERGIJA */
