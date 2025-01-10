@@ -24,8 +24,6 @@ export default class TopScena extends Scena {
 
   update(dt, t) {
     super.update(dt, t)
-    this.tenk.samohod()
-    this.tenk.proveriPogodak()
   }
 
   sablon() {
