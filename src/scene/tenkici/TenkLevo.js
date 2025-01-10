@@ -13,6 +13,7 @@ export default class TenkLevo extends Tenk {
     this.x = randomInRange(0, platno.width * 0.3)
     this.ime = 'Partizanski tenk'
     this.cev.ugao = Math.PI * 1.9
+    this.cev.ishodiste = 'GORE_LEVO'
   }
 
   proveriGranice() {
@@ -43,7 +44,7 @@ export default class TenkLevo extends Tenk {
   }
 
   azurirajCev() {
-    this.cev.x = this.x * 1.01
+    this.cev.x = this.x + this.sirina * .07
     this.cev.y = this.y - this.visina * 0.33
   }
 }

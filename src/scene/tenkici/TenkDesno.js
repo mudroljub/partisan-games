@@ -12,9 +12,11 @@ export default class TenkDesno extends Tenk {
     super(src, { cevSlika, ...rest })
     this.x = randomInRange(platno.width * 0.7, platno.width) - 100
     this.ugao = Math.PI
-    this.odrazX = this.odrazY = -1
     this.ime = 'Nemački tenk'
+    this.odrazX = this.odrazY = -1
     this.cev.ugao = Math.PI * 1.1
+    this.cev.ishodiste = 'DOLE_DESNO'
+    this.cev.odrazY = -1
   }
 
   proveriGranice() {
@@ -45,7 +47,7 @@ export default class TenkDesno extends Tenk {
   }
 
   azurirajCev() {
-    this.cev.x = this.x - this.sirina * 0.14
-    this.cev.y = this.y - this.visina * 0.2
+    this.cev.x = this.x - this.sirina * .12
+    this.cev.y = this.y - this.visina * 0.35
   }
 }

@@ -24,7 +24,7 @@ export default class Tenk extends Predmet {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
     this.callback = callback
-    this.cev = new Predmet(cevSlika, { skalar, ishodiste: 'GORE_LEVO' })
+    this.cev = new Predmet(cevSlika, { skalar })
     this.vreme = new Vreme()
     this.potisak = 25
     this.granate = [new Granata({ callback })]
