@@ -13,6 +13,7 @@ const vremePunjenjaAI = 1500
 
 const defaultSkalar = window.innerWidth > 1280 ? 0.5 : 0.4
 
+/* Abstract class */
 export default class Tenk extends Predmet {
   constructor(src, {
     tenkDesno = false,
@@ -90,12 +91,6 @@ export default class Tenk extends Predmet {
     this.dodajSilu(this.potisak, this.ugao + Math.PI)
   }
 
-  proveriGranice() {
-    this.x = this.tenkDesno
-      ? Math.min(Math.max(this.x, platno.width / 2), platno.width)
-      : Math.min(Math.max(this.x, 0), platno.width / 2)
-  }
-
   /* AI */
 
   nisani(predmet) {
@@ -141,7 +136,7 @@ export default class Tenk extends Predmet {
   }
 
   render() {
-    this.cev.render() // da cev ide iza plamena
+    this.cev.render() // crta cev iza plamena
     super.render()
   }
 }

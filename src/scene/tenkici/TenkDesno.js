@@ -17,6 +17,10 @@ export default class TenkDesno extends Tenk {
     this.ime = 'Nemački tenk'
   }
 
+  proveriGranice() {
+    Math.min(Math.max(this.x, platno.width / 2), platno.width)
+  }
+
   proveriPucanje() {
     super.proveriPucanje('Enter')
   }

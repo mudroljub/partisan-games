@@ -15,6 +15,10 @@ export default class TenkLevo extends Tenk {
     this.ime = 'Partizanski tenk'
   }
 
+  proveriGranice() {
+    Math.min(Math.max(this.x, 0), platno.width / 2)
+  }
+
   proveriPucanje() {
     super.proveriPucanje('Space')
   }
