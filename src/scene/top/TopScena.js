@@ -6,12 +6,13 @@ import Zastavnik from './Zastavnik.js'
 import Posada from './Posada.js'
 import TenkDesno from '../tenkici/TenkDesno.js'
 import { progresBar } from '/game-ui/components.js'
+import { randomInRange } from '/game-engine/utils.js'
 
 const tlo = platno.height * .75
 
-const callback = cilj => {
-  const steta = Math.ceil(Math.random() * 2)
-  cilj.skiniEnergiju(steta)
+const callback = predmet => {
+  // predmet.dodajSilu(15, predmet.ugao + Math.PI)
+  predmet.skiniEnergiju(randomInRange(5, 15))
 }
 
 export default class TopScena extends Scena {
@@ -20,7 +21,7 @@ export default class TopScena extends Scena {
     this.top = new Top({ x: 230, y: tlo - 32, callback })
     const posada = new Posada(110, tlo + 8)
     const strelac = new Strelac(300, tlo + 8)
-    this.tenk = new TenkDesno({ skalar: .6, y: tlo, cilj: this.top, callback, vremePunjenjaAI: 3000 })
+    this.tenk = new TenkDesno({ y: tlo, cilj: this.top, skalar: .6, callback: p => p.skiniEnergiju(randomInRange(1, 2)), vremePunjenjaAI: 3000 })
     this.top.ciljevi.push(this.tenk)
     this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)
   }
@@ -31,7 +32,8 @@ export default class TopScena extends Scena {
 
   update(dt, t) {
     super.update(dt, t)
-    if (this.top.mrtav) this.zavrsi()
+    if (this.top.mrtav) this.zavrsi('Izgubio si ovu bitku.')
+    if (this.tenk.mrtav) this.zavrsi('Okupator je poražen!')
   }
 
   sablon() {

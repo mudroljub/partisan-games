@@ -9,7 +9,7 @@ const nivoTla = platno.height * 0.8
 
 const callback = cilj => {
   cilj.dodajSilu(15, cilj.ugao + Math.PI)
-  cilj.skiniEnergiju(Math.ceil(Math.random() * 2))
+  cilj.skiniEnergiju(Math.random() * 2)
 }
 
 export default class TenkiciScena extends Scena {
