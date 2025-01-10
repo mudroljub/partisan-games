@@ -49,6 +49,10 @@ export default class Tenk extends Predmet {
     return { x, y }
   }
 
+  get ugaoUnazad() {
+    return this.ugao + Math.PI
+  }
+
   proveriPogodak() {
     this.granate
       .filter(granata => granata.ispaljena)
@@ -79,7 +83,7 @@ export default class Tenk extends Predmet {
   }
 
   trzaj() {
-    this.dodajSilu(this.potisak, this.ugao + Math.PI)
+    this.dodajSilu(this.potisak, this.ugaoUnazad)
   }
 
   /* AI */
@@ -90,12 +94,12 @@ export default class Tenk extends Predmet {
 
   izaberiSmer() {
     if (this.vremeSmera.proteklo > 300) {
-      this.smer = Math.random() > 0.4 ? this.ugao : this.ugao + Math.PI
+      this.smer = Math.random() > 0.4 ? this.ugao : this.ugaoUnazad
       this.vremeSmera.reset()
     }
 
     if (this.x > platno.width * 0.9) this.smer = this.ugao
-    if (this.x < platno.width / 2) this.smer = this.ugao + Math.PI
+    if (this.x < platno.width / 2) this.smer = this.ugaoUnazad
   }
 
   povremenoDodajSilu() {
