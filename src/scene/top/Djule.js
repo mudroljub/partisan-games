@@ -1,16 +1,18 @@
 import Predmet from '/game-engine/core/Predmet.js'
 import { platno, ctx } from '/game-engine/io/platno.js'
+import { izasaoIgde } from '/game-engine/utils/granice.js'
 
 const gravitacija = 9.8 * 33
 
 export default class Djule extends Predmet {
-  constructor(x = 0, y = 0) {
+  constructor({ x = 0, y = 0, nivoTla = platno.height } = {}) {
     super(null, { x, y })
+    this.nivoTla = nivoTla
     this.reset()
   }
 
   proveriGranice() {
-    if (this.x > platno.width || this.y > platno.height) this.reset()
+    if (izasaoIgde(this) || this.y > this.nivoTla) this.reset()
   }
 
   reset() {
@@ -18,12 +20,17 @@ export default class Djule extends Predmet {
     this.ispaljeno = false
   }
 
-  pali(polozaj, sila, ugao) {
+  postavi(polozaj, ugao) {
     this.x = polozaj.x
     this.y = polozaj.y
+    this.ugao = ugao
+  }
+
+  pali(polozaj, sila, ugao) {
+    this.pokazi()
+    this.postavi(polozaj, ugao)
+    this.dodajSilu(sila, ugao)
     this.ispaljeno = true
-    this.dx = sila * Math.cos(ugao)
-    this.dy = sila * Math.sin(ugao)
   }
 
   /* LOOP */

@@ -5,12 +5,14 @@ import { izasaoIgde } from '/game-engine/utils/granice.js'
 
 const trajanjeEksplozije = 150
 
+const randomTlo = () => platno.height - Math.random() * platno.height * 0.2
+
 export default class Granata extends Predmet {
-  constructor({ src = 'granata.gif', callback } = {}) {
+  constructor({ src = 'granata.gif', nivoTla = randomTlo(), callback } = {}) {
     super(src, { skalar: .5 })
-    this.nivoTla = platno.height - Math.random() * platno.height * 0.2
-    this.plamen = new Predmet('plamen.gif', { skalar: 0.4 })
+    this.nivoTla = nivoTla
     this.callback = callback
+    this.plamen = new Predmet('plamen.gif', { skalar: 0.4 })
     this.reset()
   }
 
