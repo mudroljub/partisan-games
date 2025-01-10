@@ -7,10 +7,10 @@ export default class TenkDesno extends Tenk {
   constructor({
     src = '2d-bocno/nemacki-tenk-bez-cevi.png',
     cevSlika = '2d-bocno/nemacki-tenk-cev.png',
+    x = randomInRange(platno.width * 0.7, platno.width) - 100,
     ...rest
   }) {
-    super(src, { cevSlika, ...rest })
-    this.x = randomInRange(platno.width * 0.7, platno.width) - 100
+    super(src, { cevSlika, x, ...rest })
     this.ugao = Math.PI
     this.ime = 'Nemački tenk'
     this.odrazX = this.odrazY = -1

@@ -7,10 +7,10 @@ export default class TenkLevo extends Tenk {
   constructor({
     src = '2d-bocno/partizanski-tenk-bez-cevi.png',
     cevSlika = '2d-bocno/partizanski-tenk-cev.png',
+    x = randomInRange(0, platno.width * 0.3),
     ...rest
   } = {}) {
-    super(src, { cevSlika, ...rest })
-    this.x = randomInRange(0, platno.width * 0.3)
+    super(src, { cevSlika, x, ...rest })
     this.ime = 'Partizanski tenk'
     this.cev.ugao = Math.PI * 1.9
     this.cev.ishodiste = 'GORE_LEVO'

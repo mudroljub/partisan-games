@@ -10,6 +10,7 @@ Male igrice o Nemcima i partizanima.
 - pregledati gpt slike
 
 TopScena
+- da se skida energija, ne umire odmah
 - menjati neprijatelja ili dodavati više?
 
 Scena1944
