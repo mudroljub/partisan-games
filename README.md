@@ -11,7 +11,7 @@ Male igrice o Nemcima i partizanima.
 
 TopScena
 - Djule
-    - videti šta imaju zajedničko Djule i Granata
+    - ujednačiti Djule i Granata
     - dodati efekat vatre, kao Granata
     - da nestaje pri sudaru?
     - skidati energiju na kraju (pre nestanka) ne sve vreme?
