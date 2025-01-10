@@ -38,7 +38,7 @@ export default class Tenk extends Predmet {
     // AI
     this.ai = false
     this.smer = this.ugao
-    this.vremeGasa = new Vreme()
+    this.vremeSile = new Vreme()
     this.vremeSmera = new Vreme()
     this.vremePucanja = new Vreme()
   }
@@ -88,18 +88,26 @@ export default class Tenk extends Predmet {
     this.cev.ugao = Math.PI + this.razmakDo(predmet) / (gravitacija * gravitacija * 0.8)
   }
 
-  mrdajNasumicno() {
-    const random = Math.random()
-    if (this.vremeGasa.proteklo > 70) {
-      this.dodajSilu((random * this.potisak), this.smer)
-      this.vremeGasa.reset()
-    }
+  izaberiSmer() {
     if (this.vremeSmera.proteklo > 300) {
-      this.smer = random > 0.55 ? Math.PI : 0
+      this.smer = Math.random() > 0.4 ? this.ugao : this.ugao + Math.PI
       this.vremeSmera.reset()
     }
-    if (this.x > platno.width * 0.9) this.smer = 0
-    if (this.x < platno.width / 2) this.smer = Math.PI
+
+    if (this.x > platno.width * 0.9) this.smer = this.ugao + Math.PI
+    if (this.x < platno.width / 2) this.smer = this.ugao
+  }
+
+  povremenoDodajSilu() {
+    if (this.vremeSile.proteklo > 70) {
+      this.dodajSilu(Math.random() * this.potisak, this.smer)
+      this.vremeSile.reset()
+    }
+  }
+
+  mrdajNasumicno() {
+    this.izaberiSmer()
+    this.povremenoDodajSilu()
   }
 
   pucajNasumicno() {
