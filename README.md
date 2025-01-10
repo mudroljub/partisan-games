@@ -11,7 +11,6 @@ Male igrice o Nemcima i partizanima.
 
 TopScena
 - da top oštećuje tenk
-    - reuse skiniEnergiju?? energija kompozicija??
     - dodati efekat vatre na Djule, kao Granata
 - kad top umre, staviti gotovo, da ne proverava tipke
 - menjati neprijatelja ili dodavati više?
@@ -64,8 +63,9 @@ TenkOdozgoScena
 - možda različita boja dugmića ili ikonice na dugmiće. pogledati rpg game ui 
 - dodati razliku između pobede i poraza (druga boja prozora, zvuk, slavlje / tuga...)
 
-### Test
+### Test i optimizacija
 - proveriti sve nivoe sa sporijim i bržim fps
+- probati neki build
 
 ### Ideje za kasnije
 

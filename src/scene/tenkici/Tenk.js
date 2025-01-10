@@ -2,6 +2,7 @@ import { keyboard } from '/game-engine/io/Keyboard.js'
 import platno from '/game-engine/io/platno.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import Predmet from '/game-engine/core/Predmet.js'
+import { praviEnergiju } from '/game-engine/core/prosirenja/energija.js'
 import Granata from './Granata.js'
 import { gravitacija } from './konstante.js'
 
@@ -33,8 +34,6 @@ export default class Tenk extends Predmet {
     this.potisak = 25
     this.granate = [new Granata({ callback })]
     this.predmeti = this.granate
-    this.energija = 100
-    this.zapaljivost = 20
     this.spremno = false
     // AI
     this.ai = false
@@ -44,26 +43,10 @@ export default class Tenk extends Predmet {
     this.vremePucanja = new Vreme()
   }
 
-  get zapaljen() {
-    return this.energija <= this.zapaljivost
-  }
-
   get polozajGranate() {
     const x = Math.cos(this.cev.ugao) * this.cev.dijagonala + this.cev.x
     const y = Math.sin(this.cev.ugao) * this.cev.dijagonala + this.cev.y
     return { x, y }
-  }
-
-  skiniEnergiju(steta) {
-    this.energija = Math.max(this.energija - steta, 0)
-  }
-
-  get ziv() {
-    return this.energija > 0
-  }
-
-  set ziv(bul) {
-    this.energija = bul ? 100 : 0
   }
 
   proveriPogodak() {
@@ -142,6 +125,7 @@ export default class Tenk extends Predmet {
     this.azurirajCev()
     this.trenje(this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje)
     this.proveriPogodak()
+    console.log(this.mrtav)
   }
 
   render() {
@@ -149,3 +133,6 @@ export default class Tenk extends Predmet {
     super.render()
   }
 }
+
+// proširuje klasu + get i set
+Object.defineProperties(Tenk.prototype, Object.getOwnPropertyDescriptors(praviEnergiju()))

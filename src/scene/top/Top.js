@@ -1,5 +1,6 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Predmet from '/game-engine/core/Predmet.js'
+import { praviEnergiju } from '/game-engine/core/prosirenja/energija.js'
 import Djule from './Djule.js'
 
 const skalar = .75
@@ -12,7 +13,6 @@ export default class Top extends Predmet {
     this.postolje = new Predmet('2d-bocno/top-postolje.gif', { x: x - 40, y: y + 32, skalar })
     this.pocetniX = x
     this.ugao = -0.2
-    this.energija = 100
     this.sila = this.minSila = 500
     this.projektili = Array.from({ length: 5 }, () => new Djule())
     this.predmeti = [...this.projektili]
@@ -69,7 +69,6 @@ export default class Top extends Predmet {
     super.update(dt)
     this.proveriPogodak()
     if (this.x < this.pocetniX) this.x += 20 * dt
-    this.ziv = this.energija > 0
   }
 
   render() {
@@ -77,3 +76,5 @@ export default class Top extends Predmet {
     this.postolje.render()
   }
 }
+
+Object.defineProperties(Top.prototype, Object.getOwnPropertyDescriptors(praviEnergiju()))

@@ -1,8 +1,7 @@
 import Raketa from '../Raketa.js'
 
 export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skalar, x = 0, y = 0 } = {}) {
-
-  const autoPucanje = {
+  return {
     i: 0,
     zastoj, // sekundi
     ispaljeno: 0,
@@ -42,6 +41,4 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
       raketa.pucaCiljano(polozaj, this.ugao)
     },
   }
-
-  return autoPucanje
 }
