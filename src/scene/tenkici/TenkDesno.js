@@ -17,6 +17,7 @@ export default class TenkDesno extends Tenk {
     this.cev.ugao = Math.PI * 1.1
     this.cev.ishodiste = 'DOLE_DESNO'
     this.cev.odrazY = -1
+    this.ai = true
   }
 
   proveriGranice() {

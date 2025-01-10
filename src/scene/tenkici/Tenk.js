@@ -33,6 +33,7 @@ export default class Tenk extends Predmet {
     this.zapaljivost = 20
     this.spremno = false
     // AI
+    this.ai = false
     this.smer = this.ugao
     this.vremeGasa = new Vreme()
     this.vremeSmera = new Vreme()
