@@ -1,19 +1,20 @@
 import Predmet from '/game-engine/core/Predmet.js'
 import { platno, ctx } from '/game-engine/io/platno.js'
 
-const gravitacija = 9.8
+const gravitacija = 9.8 * 33
 
 export default class Djule extends Predmet {
   constructor(x = 0, y = 0) {
-    super(undefined, { x, y })
-    this.ispaljeno = false
+    super(null, { x, y })
+    this.reset()
   }
 
-  get jeVanEkrana() {
-    return this.x > platno.width || this.y > platno.height
+  proveriGranice() {
+    if (this.x > platno.width || this.y > platno.height) this.reset()
   }
 
   reset() {
+    this.nestani()
     this.ispaljeno = false
   }
 
@@ -25,12 +26,9 @@ export default class Djule extends Predmet {
     this.dy = sila * Math.sin(ugao)
   }
 
-  leti(dt) {
-    this.dy += gravitacija * dt * 33
-  }
+  /* LOOP */
 
   render() {
-    if (!this.ispaljeno) return
     ctx.fillStyle = 'black'
     ctx.beginPath()
     ctx.arc(this.x, this.y, 4, 0, Math.PI * 2)
@@ -39,8 +37,7 @@ export default class Djule extends Predmet {
 
   update(dt) {
     if (!this.ispaljeno) return
+    this.dodajSilu(gravitacija * dt, Math.PI / 2)
     super.update(dt)
-    this.leti(dt)
-    if (this.jeVanEkrana) this.reset()
   }
 }

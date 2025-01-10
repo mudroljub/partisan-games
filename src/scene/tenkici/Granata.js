@@ -52,6 +52,8 @@ export default class Granata extends Predmet {
     this.plamen.pokazi()
   }
 
+  /* LOOP */
+
   azurirajUgao() {
     this.ugao = Math.atan2(this.dy, this.dx)
   }
