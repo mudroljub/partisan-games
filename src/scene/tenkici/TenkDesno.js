@@ -14,6 +14,11 @@ export default class TenkDesno extends Tenk {
     this.x = randomInRange(platno.width * 0.7, platno.width) - 100
     this.ugao = Math.PI
     this.odrazX = this.odrazY = -1
+    this.ime = 'Nemački tenk'
+  }
+
+  proveriPucanje() {
+    super.proveriPucanje('Enter')
   }
 
   proveriTipke() {

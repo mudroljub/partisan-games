@@ -25,7 +25,6 @@ export default class Tenk extends Predmet {
     this.tenkDesno = tenkDesno
     this.callback = callback
     this.cev = new Cev(this, cevSlika, skalar)
-    this.ime = tenkDesno ? 'Nemački tenk' : 'Partizanski tenk'
     this.vreme = new Vreme()
     this.potisak = 25
     this.granate = []
@@ -64,10 +63,9 @@ export default class Tenk extends Predmet {
       .forEach(granata => granata.proveriPogodak(cilj))
   }
 
-  proveriPucanje() {
-    const key = this.tenkDesno ? 'enter' : 'space'
-    if (keyboard[key]) this.spremno = true
-    if (this.spremno && !keyboard[key]) {
+  proveriPucanje(key) {
+    if (keyboard.pressed[key]) this.spremno = true
+    if (this.spremno && !keyboard.pressed[key]) {
       this.pucaj()
       this.spremno = false
     }

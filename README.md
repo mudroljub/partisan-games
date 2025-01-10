@@ -10,6 +10,7 @@ Male igrice o Nemcima i partizanima.
 - pregledati gpt slike
 
 TopScena
+- BUG: kratak pucanj i granata ne izleti, možda pre-učitati jednu
 - pokušati cev nalevo za desni tenk
 - tenk neprijatelj puca
     - dodaj callback za tenk i top

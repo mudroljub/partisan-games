@@ -11,8 +11,12 @@ export default class TenkLevo extends Tenk {
     ...rest
   } = {}) {
     super(src, { cevSlika, ...rest })
-
     this.x = randomInRange(0, platno.width * 0.3)
+    this.ime = 'Partizanski tenk'
+  }
+
+  proveriPucanje() {
+    super.proveriPucanje('Space')
   }
 
   proveriTipke() {
