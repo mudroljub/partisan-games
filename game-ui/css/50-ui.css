@@ -4,6 +4,7 @@
   position: absolute;
   padding: .25em;
   border-radius: 5px;
+  min-width: 140px;
 }
 
 .komande1, .komande2 {
@@ -20,15 +21,6 @@
 
 /* ENERGIJA */
 
-progress::-webkit-progress-value {
-  background: #D94A38;
-  color: #D94A38;
-}
-progress::-moz-progress-bar {
-  background: #D94A38;
-  color: #D94A38;
-}
-
 .progress-wrapper {
   position: relative;
 }
@@ -38,6 +30,16 @@ progress::-moz-progress-bar {
   display: block;
   height: 24px;
   width: 100%;
+}
+
+.progress-wrapper progress::-webkit-progress-value {
+  background: #D94A38;
+  color: #D94A38;
+}
+
+.progress-wrapper progress::-moz-progress-bar {
+  background: #D94A38;
+  color: #D94A38;
 }
 
 .progress-wrapper .energija {

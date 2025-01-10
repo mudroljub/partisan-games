@@ -17,7 +17,7 @@ const callback = cilj => {
 export default class TopScena extends Scena {
   init() {
     const zastavnik = new Zastavnik(40, tlo + 1)
-    this.top = new Top(230, tlo - 32)
+    this.top = new Top({ x: 230, y: tlo - 32 })
     const posada = new Posada(110, tlo + 8)
     const strelac = new Strelac(300, tlo + 8)
     this.tenk = new TenkDesno({ skalar: .6, y: tlo, cilj: this.top, callback, vremePunjenjaAI: 3000 })
@@ -36,6 +36,7 @@ export default class TopScena extends Scena {
     return /* html */`
     <div class='komande komande1'>
     ${progresBar(this.top.energija)}
+    <progress value="${this.top.sila}" max="${this.top.minSila * 2}"></progress>
   </div>
 
   <div class='komande komande2'>

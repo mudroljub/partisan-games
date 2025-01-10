@@ -7,7 +7,7 @@ const MIN_UGAO = 5.68
 const MAX_UGAO = 6.18
 
 export default class Top extends Predmet {
-  constructor(x, y) {
+  constructor({ x, y, ciljevi = [] } = {}) {
     super('2d-bocno/top-cev.gif', { x, y, skalar, zapaljiv: true })
     this.postolje = new Predmet('2d-bocno/top-postolje.gif', { x: x - 40, y: y + 32, skalar })
     this.pocetniX = x
@@ -16,6 +16,7 @@ export default class Top extends Predmet {
     this.sila = this.minSila = 500
     this.projektili = Array.from({ length: 5 }, () => new Djule())
     this.predmeti = [...this.projektili]
+    this.ciljevi = ciljevi
   }
 
   get vrhX() {

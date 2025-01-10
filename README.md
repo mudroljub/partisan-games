@@ -11,7 +11,6 @@ Male igrice o Nemcima i partizanima.
 
 TopScena
 - da top oštećuje tenk
-    - dodati progres za tenk?
 - kad top umre, staviti gotovo, da ne proverava tipke
 - menjati neprijatelja ili dodavati više?
 
