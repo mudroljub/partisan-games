@@ -13,13 +13,7 @@ export default class Predmet {
   } = {}) {
     this.x = x
     this.y = y
-    this.slika = new Image()
-    this.slika.onload = () => {
-      this.dodeliVelicinu(sirina, visina, skalar)
-      this.onload()
-      this.slika.onload = null
-    }
-    this.slika.src = '/assets/slike/' + src
+    if (src) this.ucitajSliku(src, sirina, visina, skalar)
     this.brzina = brzina
     this.zapaljiv = zapaljiv
     this.ishodiste = ishodiste
@@ -30,6 +24,16 @@ export default class Predmet {
     this.oznake = new Set()
     this.debug = false
     this.predmeti = []
+  }
+
+  ucitajSliku(src, sirina, visina, skalar) {
+    this.slika = new Image()
+    this.slika.onload = () => {
+      this.dodeliVelicinu(sirina, visina, skalar)
+      this.onload()
+      this.slika.onload = null
+    }
+    this.slika.src = '/assets/slike/' + src
   }
 
   onload() {} // callback

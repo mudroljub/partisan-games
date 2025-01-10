@@ -11,7 +11,7 @@ import { randomInRange } from '/game-engine/utils.js'
 const tlo = platno.height * .75
 
 const callback = predmet => {
-  predmet.dodajSilu(10, predmet.ugao + Math.PI)
+  predmet.dodajSilu(15, predmet.ugao + Math.PI)
   predmet.skiniEnergiju(randomInRange(5, 15))
 }
 

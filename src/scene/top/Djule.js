@@ -1,11 +1,11 @@
+import Predmet from '/game-engine/core/Predmet.js'
 import { platno, ctx } from '/game-engine/io/platno.js'
 
 const gravitacija = 9.8
 
-export default class Djule {
+export default class Djule extends Predmet {
   constructor(x = 0, y = 0) {
-    this.x = x
-    this.y = y
+    super(undefined, { x, y })
     this.ispaljen = false
   }
 
@@ -27,8 +27,6 @@ export default class Djule {
 
   leti(dt) {
     this.dy += gravitacija * dt * 33
-    this.x += this.dx * dt
-    this.y += this.dy * dt
   }
 
   render() {
@@ -41,6 +39,7 @@ export default class Djule {
 
   update(dt) {
     if (!this.ispaljen) return
+    super.update(dt)
     this.leti(dt)
     if (this.jeVanEkrana) this.reset()
   }

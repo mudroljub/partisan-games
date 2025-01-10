@@ -44,9 +44,9 @@ export default class Top extends Predmet {
     else if (this.sila > this.minSila)
       this.pali()
 
-    if (keyboard.up)
+    if (keyboard.pressed.KeyW)
       this.ugao = Math.max(this.ugao - 0.5 * dt, MIN_UGAO)
-    if (keyboard.down)
+    if (keyboard.pressed.KeyS)
       this.ugao = Math.min(this.ugao + 0.5 * dt, MAX_UGAO)
   }
 

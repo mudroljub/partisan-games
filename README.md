@@ -10,14 +10,11 @@ Male igrice o Nemcima i partizanima.
 - pregledati gpt slike
 
 TopScena
-- Tenk
-    - BUG: desni tenk previše ide udesno
-        - i this.trzaj() i cilj.dodajSilu() ga vraćaju
-    - BUG: kada desni tenk izađe sa scene ne vraća se!
 - Djule
+    - videti šta imaju zajedničko Djule i Granata
     - dodati efekat vatre, kao Granata
     - da nestaje pri sudaru?
-    - skidati energiju na kraju pre nestanka?
+    - skidati energiju na kraju (pre nestanka) ne sve vreme?
 - menjati neprijatelja ili dodavati više?
 - dodati 2. igrača
 - nekad se poremeti raspored partizana kada izgubim

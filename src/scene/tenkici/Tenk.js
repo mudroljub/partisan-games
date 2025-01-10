@@ -94,8 +94,8 @@ export default class Tenk extends Predmet {
       this.vremeSmera.reset()
     }
 
-    if (this.x > platno.width * 0.9) this.smer = this.ugao + Math.PI
-    if (this.x < platno.width / 2) this.smer = this.ugao
+    if (this.x > platno.width * 0.9) this.smer = this.ugao
+    if (this.x < platno.width / 2) this.smer = this.ugao + Math.PI
   }
 
   povremenoDodajSilu() {
