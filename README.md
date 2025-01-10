@@ -10,8 +10,8 @@ Male igrice o Nemcima i partizanima.
 - pregledati gpt slike
 
 TopScena
-- da se skida energija, ne umire odmah
-    - energiju na predmet?
+- da top oštećuje tenk
+    - dodati progres za tenk?
 - kad top umre, staviti gotovo, da ne proverava tipke
 - menjati neprijatelja ili dodavati više?
 

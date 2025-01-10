@@ -55,6 +55,7 @@ export default class Top extends Predmet {
   update(dt) {
     super.update(dt)
     if (this.x < this.pocetniX) this.x += 20 * dt
+    this.ziv = this.energija > 0
   }
 
   render() {

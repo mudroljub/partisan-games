@@ -7,24 +7,26 @@ import { gravitacija } from './konstante.js'
 
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
-const vremePunjenja = 1000
-const vremePunjenjaAI = 1500
 
 const defaultSkalar = window.innerWidth > 1280 ? 0.5 : 0.4
 
 /* Abstract class */
 export default class Tenk extends Predmet {
   constructor(src, {
-    tenkDesno = false,
-    skalar = defaultSkalar,
     cevSlika,
     callback,
     cilj,
+    tenkDesno = false,
+    skalar = defaultSkalar,
+    vremePunjenja = 1000,
+    vremePunjenjaAI = 1500,
     ...rest
   } = {}) {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
     this.callback = callback
+    this.vremePunjenja = vremePunjenja
+    this.vremePunjenjaAI = vremePunjenjaAI
     this.cilj = cilj
     this.cev = new Predmet(cevSlika, { skalar })
     this.vreme = new Vreme()
@@ -81,7 +83,7 @@ export default class Tenk extends Predmet {
   }
 
   pucaj() {
-    if (this.vreme.proteklo < vremePunjenja) return
+    if (this.vreme.proteklo < this.vremePunjenja) return
     const granata = this.granate.find(g => !g.ispaljena) || this.novaGranata()
 
     granata.pucaj(this.polozajGranate, this.cev.ugao)
@@ -114,7 +116,7 @@ export default class Tenk extends Predmet {
   }
 
   pucajNasumicno() {
-    if (this.vremePucanja.proteklo < vremePunjenjaAI) return
+    if (this.vremePucanja.proteklo < this.vremePunjenjaAI) return
     this.pucaj()
     this.vremePucanja.reset()
   }

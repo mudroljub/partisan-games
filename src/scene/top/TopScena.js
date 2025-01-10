@@ -20,7 +20,7 @@ export default class TopScena extends Scena {
     this.top = new Top(230, tlo - 32)
     const posada = new Posada(110, tlo + 8)
     const strelac = new Strelac(300, tlo + 8)
-    this.tenk = new TenkDesno({ skalar: .6, y: tlo, cilj: this.top, callback })
+    this.tenk = new TenkDesno({ skalar: .6, y: tlo, cilj: this.top, callback, vremePunjenjaAI: 3000 })
     this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)
   }
 
