@@ -4,7 +4,7 @@ import Top from './Top.js'
 import Strelac from './Strelac.js'
 import Zastavnik from './Zastavnik.js'
 import Posada from './Posada.js'
-import Tenk from '../tenkici/Tenk.js'
+import TenkDesno from '../tenkici/TenkDesno.js'
 
 const tlo = platno.height * .75
 
@@ -14,7 +14,7 @@ export default class TopScena extends Scena {
     this.top = new Top(230, tlo - 32)
     const posada = new Posada(110, tlo + 8)
     const strelac = new Strelac(300, tlo + 8)
-    this.tenk = new Tenk({ skalar: .6, y: tlo, tenkDesno: true })
+    this.tenk = new TenkDesno({ skalar: .6, y: tlo, tenkDesno: true })
     this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)
   }
 

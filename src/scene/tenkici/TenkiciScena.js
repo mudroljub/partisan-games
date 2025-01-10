@@ -2,7 +2,8 @@ import { platno } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
 import { progresBar, komande } from '/game-ui/components.js'
-import Tenk from './Tenk.js'
+import TenkLevo from './TenkLevo.js'
+import TenkDesno from './TenkDesno.js'
 
 const nivoTla = platno.height * 0.8
 let dvaIgraca = false
@@ -15,8 +16,8 @@ const callback = cilj => {
 export default class TenkiciScena extends Scena {
   init() {
     this.pozadina = new Pozadina('pozadine/razrusen-grad-savremen.jpg')
-    this.tenk = new Tenk({ y: nivoTla, callback })
-    this.tenk2 = new Tenk({ y: nivoTla, tenkDesno: true, callback })
+    this.tenk = new TenkLevo({ y: nivoTla, callback })
+    this.tenk2 = new TenkDesno({ y: nivoTla, tenkDesno: true, callback })
     this.predmeti = [this.tenk, this.tenk2]
   }
 
