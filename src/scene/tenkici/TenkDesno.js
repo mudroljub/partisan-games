@@ -1,10 +1,19 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import platno from '/game-engine/io/platno.js'
+import { randomInRange } from '/game-engine/utils.js'
+
 import Tenk from './Tenk.js'
 
 export default class TenkDesno extends Tenk {
-  constructor(params) {
-    super(params)
+  constructor({
+    src = '2d-bocno/nemacki-tenk-bez-cevi.png',
+    cevSlika = '2d-bocno/nemacki-tenk-cev.png',
+    ...rest
+  }) {
+    super(src, { cevSlika, ...rest })
+    this.x = randomInRange(platno.width * 0.7, platno.width) - 100
+    this.ugao = Math.PI
+    this.odrazX = this.odrazY = -1
   }
 
   proveriTipke() {

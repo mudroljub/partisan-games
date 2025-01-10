@@ -5,7 +5,6 @@ import Predmet from '/game-engine/core/Predmet.js'
 import Cev from './Cev.js'
 import Granata from './Granata.js'
 import { gravitacija } from './konstante.js'
-import { randomInRange } from '/game-engine/utils.js'
 
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
@@ -15,20 +14,16 @@ const vremePunjenjaAI = 1500
 const defaultSkalar = window.innerWidth > 1280 ? 0.5 : 0.4
 
 export default class Tenk extends Predmet {
-  constructor({
+  constructor(src, {
     tenkDesno = false,
-    src = tenkDesno ? '2d-bocno/nemacki-tenk-bez-cevi.png' : '2d-bocno/partizanski-tenk-bez-cevi.png',
-    cevSlika = tenkDesno ? '2d-bocno/nemacki-tenk-cev.png' : '2d-bocno/partizanski-tenk-cev.png',
     skalar = defaultSkalar,
+    cevSlika,
     callback,
     ...rest
   } = {}) {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
     this.callback = callback
-    this.x = tenkDesno
-      ? randomInRange(platno.width * 0.7, platno.width) - 100
-      : randomInRange(0, platno.width * 0.3)
     this.cev = new Cev(this, cevSlika, skalar)
     this.ime = tenkDesno ? 'Nemački tenk' : 'Partizanski tenk'
     this.vreme = new Vreme()
@@ -38,10 +33,6 @@ export default class Tenk extends Predmet {
     this.energija = 100
     this.zapaljivost = 20
     this.spremno = false
-    if (tenkDesno) {
-      this.ugao = Math.PI
-      this.odrazX = this.odrazY = -1
-    }
     // AI
     this.smer = this.ugao
     this.vremeGasa = new Vreme()
