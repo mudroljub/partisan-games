@@ -1,7 +1,6 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import platno from '/game-engine/io/platno.js'
 import { randomInRange } from '/game-engine/utils.js'
-
 import Tenk from './Tenk.js'
 
 export default class TenkDesno extends Tenk {
@@ -30,8 +29,7 @@ export default class TenkDesno extends Tenk {
   }
 
   spustajCev() {
-    if (this.cev.ugao >= Math.PI)
-      this.cev.ugao -= 0.01
+    if (this.cev.ugao >= Math.PI) this.cev.ugao -= 0.01
   }
 
   proveriTipke() {
@@ -43,5 +41,10 @@ export default class TenkDesno extends Tenk {
       this.diziCev()
     if (keyboard.pressed.ArrowDown)
       this.spustajCev()
+  }
+
+  azurirajCev() {
+    this.cev.x = this.x - this.sirina * 0.14
+    this.cev.y = this.y - this.visina * 0.2
   }
 }

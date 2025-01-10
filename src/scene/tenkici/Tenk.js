@@ -130,7 +130,7 @@ export default class Tenk extends Predmet {
   update(dt) {
     this.proveriPucanje()
     super.update(dt)
-    this.cev.update(dt)
+    this.azurirajCev()
     this.trenje(this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje)
     this.proveriSmrt()
   }
