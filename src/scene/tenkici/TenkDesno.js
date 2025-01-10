@@ -37,6 +37,8 @@ export default class TenkDesno extends Tenk {
   }
 
   proveriTipke() {
+    if (this.ai) return
+
     if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2)
       this.dodajSilu(this.potisak, Math.PI)
     if (keyboard.pressed.ArrowRight && this.x < platno.width)
