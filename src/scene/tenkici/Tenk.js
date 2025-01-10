@@ -58,8 +58,12 @@ export default class Tenk extends Predmet {
     this.energija = Math.max(this.energija - steta, 0)
   }
 
-  proveriSmrt() {
-    if (this.energija <= 0) this.umri()
+  get ziv() {
+    return this.energija > 0
+  }
+
+  set ziv(bul) {
+    this.energija = bul ? 100 : 0
   }
 
   proveriPogodak() {
@@ -138,7 +142,6 @@ export default class Tenk extends Predmet {
     this.azurirajCev()
     this.trenje(this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje)
     this.proveriPogodak()
-    this.proveriSmrt()
   }
 
   render() {

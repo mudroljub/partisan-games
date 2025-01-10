@@ -11,6 +11,8 @@ Male igrice o Nemcima i partizanima.
 
 TopScena
 - da top oštećuje tenk
+    - reuse skiniEnergiju?? energija kompozicija??
+    - dodati efekat vatre na Djule, kao Granata
 - kad top umre, staviti gotovo, da ne proverava tipke
 - menjati neprijatelja ili dodavati više?
 
