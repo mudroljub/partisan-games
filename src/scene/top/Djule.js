@@ -2,17 +2,17 @@ import Predmet from '/game-engine/core/Predmet.js'
 import { platno, ctx } from '/game-engine/io/platno.js'
 import { izasaoIgde } from '/game-engine/utils/granice.js'
 
-const gravitacija = 98
 const trajanjeEksplozije = 150
 
 const blizuTla = () => platno.height - Math.random() * platno.height * 0.2
 
 export default class Djule extends Predmet {
-  constructor({ x = 0, y = 0, r = 4, nivoTla = blizuTla() } = {}) {
+  constructor({ x = 0, y = 0, r = 4, nivoTla = blizuTla(), gravitacija = 98 } = {}) {
     super(null, { x, y })
     this.r = r
     this.sirina = this.visina = r * 2
     this.nivoTla = nivoTla
+    this.gravitacija = gravitacija
     this.plamicak = new Predmet('plamen.gif', { skalar: 0.4 })
     this.reset()
   }
@@ -76,7 +76,7 @@ export default class Djule extends Predmet {
 
   update(dt) {
     if (!this.ispaljeno) return
-    this.dodajSilu(gravitacija * dt, Math.PI / 2)
+    this.dodajSilu(this.gravitacija * dt, Math.PI / 2)
     super.update(dt)
   }
 }

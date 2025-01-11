@@ -4,8 +4,8 @@ import { praviEnergiju } from '/game-engine/core/prosirenja/energija.js'
 import Djule from './Djule.js'
 
 const skalar = .75
-const MIN_UGAO = 5.68
-const MAX_UGAO = 6.18
+const GORNJI_UGAO = 5.68
+const DONJI_UGAO = 6.2
 
 export default class Top extends Predmet {
   constructor({ x, y, ciljevi = [], callback } = {}) {
@@ -45,9 +45,9 @@ export default class Top extends Predmet {
       this.pali()
 
     if (keyboard.pressed.KeyW)
-      this.ugao = Math.max(this.ugao - 0.5 * dt, MIN_UGAO)
+      this.ugao = Math.max(this.ugao - 0.5 * dt, GORNJI_UGAO)
     if (keyboard.pressed.KeyS)
-      this.ugao = Math.min(this.ugao + 0.5 * dt, MAX_UGAO)
+      this.ugao = Math.min(this.ugao + 0.5 * dt, DONJI_UGAO)
   }
 
   trza() {
