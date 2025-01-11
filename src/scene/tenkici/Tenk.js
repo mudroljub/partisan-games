@@ -4,8 +4,8 @@ import Vreme from '/game-engine/core/Vreme.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import { praviEnergiju } from '/game-engine/core/prosirenja/energija.js'
 import Granata from './Granata.js'
-import { gravitacija } from './konstante.js'
 
+const gravitacija = 90
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 
@@ -32,7 +32,7 @@ export default class Tenk extends Predmet {
     this.cev = new Predmet(cevSlika, { skalar })
     this.vreme = new Vreme()
     this.potisak = 25
-    this.granate = [new Granata()]
+    this.granate = []
     this.predmeti = this.granate
     this.spremno = false
     // AI
@@ -68,7 +68,7 @@ export default class Tenk extends Predmet {
   }
 
   novaGranata() {
-    const granata = new Granata()
+    const granata = new Granata({ gravitacija })
     this.granate.push(granata)
     return granata
   }
