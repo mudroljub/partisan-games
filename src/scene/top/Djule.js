@@ -64,6 +64,8 @@ export default class Djule extends Predmet {
   /* LOOP */
 
   render() {
+    if (!this.vidljiv) return
+
     ctx.fillStyle = 'black'
     ctx.beginPath()
     ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)

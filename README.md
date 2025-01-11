@@ -9,22 +9,23 @@ Male igrice o Nemcima i partizanima.
 - malo pregledati slike, probrati, kropovati
 - pregledati gpt slike
 
-Raketa vs Granata:
-- jedna dobija callback na stvaranju, druga na proveri sudara
-- jedna može sama da proverava sudare u ažuriraj, druga ne može
-- jedna ima niz ciljeva, druga nema (ima roditelj)
-    - ciljevi se svakako moraju dodati u sceni, samo je pitanje kome?
-- možda napraviti fleksibilno rešenje koje podržava oba pristupa??
-
 TopScena
 - Djule
     - skidati energiju na kraju (pre nestanka) ne sve vreme?
+        - plamicak ostaviti sve vreme
     - prosleđivati callback samo potrebnoj metodi, ne u konstruktor
     - spojiti Djule i Granata
     - BUG: Djule ne nestaje pri sudaru
 - menjati neprijatelja ili dodavati više?
 - dodati 2. igrača
 - nekad se poremeti raspored partizana kada izgubim
+
+Prateca vs Granata:
+- jedna dobija callback na stvaranju, druga na proveri sudara
+- jedna može sama da proverava sudare u ažuriraj, druga ne može
+- jedna ima niz ciljeva, druga nema (ima roditelj)
+    - ciljevi se svakako moraju dodati u sceni, samo je pitanje kome?
+- možda napraviti fleksibilno rešenje koje podržava oba pristupa??
 
 Scena1944
 - dodati stvar za hvatanje (paketić)
