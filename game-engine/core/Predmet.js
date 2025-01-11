@@ -307,7 +307,7 @@ export default class Predmet {
     ctx.translate(this.x, this.y)
     ctx.rotate(this.ugao)
     ctx.scale(this.odrazY, this.odrazX)
-    if (this.debug)
+    if (!this.slika || this.debug)
       this.crtaOblik()
     else
       this.crtaSliku()
