@@ -13,7 +13,6 @@ TopScena
 - Djule
     - skidati energiju na kraju (pre nestanka) ne sve vreme?
         - plamicak ostaviti sve vreme
-    - prosleđivati callback samo potrebnoj metodi, ne u konstruktor
     - spojiti Djule i Granata
     - BUG: Djule ne nestaje pri sudaru
 - menjati neprijatelja ili dodavati više?

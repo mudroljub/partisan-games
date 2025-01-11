@@ -2,7 +2,7 @@ import Predmet from '/game-engine/core/Predmet.js'
 import { platno, ctx } from '/game-engine/io/platno.js'
 import { izasaoIgde } from '/game-engine/utils/granice.js'
 
-const gravitacija = 9.8 * 33
+const gravitacija = 98
 const trajanjeEksplozije = 150
 
 const blizuTla = () => platno.height - Math.random() * platno.height * 0.2

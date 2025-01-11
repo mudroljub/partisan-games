@@ -42,7 +42,7 @@ export default class TopScena extends Scena {
     return /* html */`
     <div class='komande komande1'>
     ${progresBar(this.top.energija)}
-    <progress value="${this.top.sila}" max="${this.top.minSila * 2}"></progress>
+    <progress value="${this.top.sila}" max="${this.top.minSila * 3}"></progress>
   </div>
 
   <div class='komande komande2'>
