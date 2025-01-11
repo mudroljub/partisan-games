@@ -5,8 +5,10 @@ import { izasaoIgde } from '/game-engine/utils/granice.js'
 const gravitacija = 9.8 * 33
 const trajanjeEksplozije = 150
 
+const blizuTla = () => platno.height - Math.random() * platno.height * 0.2
+
 export default class Djule extends Predmet {
-  constructor({ x = 0, y = 0, r = 4, nivoTla = platno.height } = {}) {
+  constructor({ x = 0, y = 0, r = 4, nivoTla = blizuTla() } = {}) {
     super(null, { x, y })
     this.r = r
     this.sirina = this.visina = r * 2
@@ -61,14 +63,14 @@ export default class Djule extends Predmet {
 
   /* LOOP */
 
-  // render() {
-  //   ctx.fillStyle = 'black'
-  //   ctx.beginPath()
-  //   ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
-  //   ctx.fill()
+  render() {
+    ctx.fillStyle = 'black'
+    ctx.beginPath()
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
+    ctx.fill()
 
-  //   this.plamicak.render()
-  // }
+    this.plamicak.render()
+  }
 
   update(dt) {
     if (!this.ispaljeno) return
