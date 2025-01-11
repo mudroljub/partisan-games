@@ -256,16 +256,6 @@ export default class Predmet {
     console.log(`${this.constructor.name} x: ${x}, y: ${y}, sirina: ${sirina}, visina: ${visina}, dx: ${dx}, dy: ${dy}, brzina: ${brzina}, ugao: ${ugao}, vidljiv: ${this.vidljiv}, ziv: ${this.ziv}`)
   }
 
-  crtaOblik() {
-    ctx.fillStyle = 'black'
-    if (this.ishodiste === 'CENTAR')
-      ctx.fillRect(-this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
-    else if (this.ishodiste === 'GORE_LEVO')
-      ctx.fillRect(0, 0, this.sirina, this.visina)
-    else if (this.ishodiste === 'DOLE_DESNO')
-      ctx.fillRect(-this.sirina, -this.visina, this.sirina, this.visina)
-  }
-
   /* LOOP */
 
   azurirajKretanje(dt) {
@@ -289,6 +279,16 @@ export default class Predmet {
     this.azurirajKretanje(dt)
     this.proveriGranice()
     this.azurirajPlamen(dt)
+  }
+
+  crtaOblik() {
+    ctx.fillStyle = 'black'
+    if (this.ishodiste === 'CENTAR')
+      ctx.fillRect(-this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
+    else if (this.ishodiste === 'GORE_LEVO')
+      ctx.fillRect(0, 0, this.sirina, this.visina)
+    else if (this.ishodiste === 'DOLE_DESNO')
+      ctx.fillRect(-this.sirina, -this.visina, this.sirina, this.visina)
   }
 
   crtaSliku() {

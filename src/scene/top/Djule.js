@@ -61,14 +61,14 @@ export default class Djule extends Predmet {
 
   /* LOOP */
 
-  render() {
-    ctx.fillStyle = 'black'
-    ctx.beginPath()
-    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
-    ctx.fill()
+  // render() {
+  //   ctx.fillStyle = 'black'
+  //   ctx.beginPath()
+  //   ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
+  //   ctx.fill()
 
-    this.plamicak.render()
-  }
+  //   this.plamicak.render()
+  // }
 
   update(dt) {
     if (!this.ispaljeno) return
