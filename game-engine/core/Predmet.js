@@ -13,6 +13,8 @@ export default class Predmet {
   } = {}) {
     this.x = x
     this.y = y
+    this.sirina = sirina
+    this.visina = visina
     if (src) this.ucitajSliku(src, sirina, visina, skalar)
     this.brzina = brzina
     this.zapaljiv = zapaljiv
@@ -45,9 +47,6 @@ export default class Predmet {
   /* VELICINA */
 
   dodeliVelicinu = (sirina, visina, skalar) => {
-    this.sirina = sirina
-    this.visina = visina
-
     if (!sirina && !visina) {
       this.sirina = this.slika.naturalWidth * skalar
       this.visina = this.slika.naturalHeight * skalar
@@ -244,7 +243,9 @@ export default class Predmet {
 
   /* DEBUG */
 
-  log() {
+  log(name) {
+    if (name && this.constructor.name !== name) return
+
     const x = this.x.toFixed()
     const y = this.y.toFixed()
     const sirina = this.sirina?.toFixed()
