@@ -58,7 +58,7 @@ export default class Top extends Predmet {
     this.projektili
       .filter(projektil => projektil.ispaljeno)
       .forEach(projektil => {
-        const pogodjen = this.ciljevi.find(cilj => cilj.razmakDo(projektil) < cilj.visina * .5)
+        const pogodjen = this.ciljevi.find(cilj => projektil.sudara(cilj))
         if (!pogodjen) return
         if (this.callback) this.callback(pogodjen)
         else pogodjen.umri()

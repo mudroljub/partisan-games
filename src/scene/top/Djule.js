@@ -5,8 +5,10 @@ import { izasaoIgde } from '/game-engine/utils/granice.js'
 const gravitacija = 9.8 * 33
 
 export default class Djule extends Predmet {
-  constructor({ x = 0, y = 0, nivoTla = platno.height } = {}) {
+  constructor({ x = 0, y = 0, r = 4, nivoTla = platno.height } = {}) {
     super(null, { x, y })
+    this.r = r
+    this.sirina = this.visina = r * 2
     this.nivoTla = nivoTla
     this.reset()
   }
@@ -38,7 +40,7 @@ export default class Djule extends Predmet {
   render() {
     ctx.fillStyle = 'black'
     ctx.beginPath()
-    ctx.arc(this.x, this.y, 4, 0, Math.PI * 2)
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
     ctx.fill()
   }
 

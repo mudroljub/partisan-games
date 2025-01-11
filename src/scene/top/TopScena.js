@@ -12,7 +12,7 @@ const tlo = platno.height * .75
 
 const callback = predmet => {
   predmet.dodajSilu(15, predmet.ugao + Math.PI)
-  predmet.skiniEnergiju(randomInRange(5, 15))
+  predmet.skiniEnergiju(randomInRange(2, 3))
 }
 
 export default class TopScena extends Scena {
