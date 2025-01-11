@@ -11,9 +11,10 @@ Male igrice o Nemcima i partizanima.
 
 TopScena
 - Djule
-    - da nestaje pri sudaru
-    - spojiti Djule i Granata
     - skidati energiju na kraju (pre nestanka) ne sve vreme?
+    - prosleđivati callback samo potrebnoj metodi, ne u konstruktor
+    - spojiti Djule i Granata
+    - BUG: Djule ne nestaje pri sudaru
 - menjati neprijatelja ili dodavati više?
 - dodati 2. igrača
 - nekad se poremeti raspored partizana kada izgubim

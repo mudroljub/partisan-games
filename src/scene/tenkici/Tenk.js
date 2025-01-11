@@ -32,7 +32,7 @@ export default class Tenk extends Predmet {
     this.cev = new Predmet(cevSlika, { skalar })
     this.vreme = new Vreme()
     this.potisak = 25
-    this.granate = [new Granata({ callback })]
+    this.granate = [new Granata()]
     this.predmeti = this.granate
     this.spremno = false
     // AI
@@ -56,7 +56,7 @@ export default class Tenk extends Predmet {
   proveriPogodak() {
     this.granate
       .filter(granata => granata.ispaljeno)
-      .forEach(granata => granata.proveriPogodak(this.cilj))
+      .forEach(granata => granata.proveriPogodak(this.cilj, this.callback))
   }
 
   proveriPucanje(key) {
@@ -68,7 +68,7 @@ export default class Tenk extends Predmet {
   }
 
   novaGranata() {
-    const granata = new Granata({ callback: this.callback })
+    const granata = new Granata()
     this.granate.push(granata)
     return granata
   }
