@@ -13,8 +13,8 @@ export default class Predmet {
   } = {}) {
     this.x = x
     this.y = y
-    this.sirina = sirina
-    this.visina = visina
+    this.sirina = sirina || 10
+    this.visina = visina || 10
     if (src) this.ucitajSliku(src, sirina, visina, skalar)
     this.brzina = brzina
     this.zapaljiv = zapaljiv
