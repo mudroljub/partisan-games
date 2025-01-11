@@ -1,4 +1,4 @@
-import Raketa from '../Raketa.js'
+import Prateca from '../Prateca.js'
 
 export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skalar, x = 0, y = 0 } = {}) {
   return {
@@ -11,7 +11,7 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
     initPucanje({ ciljevi, callback }) {
       this.zadnjiPucanj = 0
       this.zadnjiPucanjRafala = 0
-      this.meci = Array.from({ length: kolicina }, () => new Raketa(src, { potisak, skalar, callback }))
+      this.meci = Array.from({ length: kolicina }, () => new Prateca(src, { potisak, skalar, callback }))
       this.meci.forEach(r => r.dodajCiljeve(...ciljevi))
       this.predmeti = [...this.meci]
     },

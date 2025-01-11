@@ -8,9 +8,10 @@ const trajanjeEksplozije = 150
 const blizuTla = () => platno.height - Math.random() * platno.height * 0.2
 
 export default class Granata extends Predmet {
-  constructor({ src = 'granata.gif', nivoTla = blizuTla() } = {}) {
+  constructor({ src = 'granata.gif', nivoTla = blizuTla(), callback } = {}) {
     super(src, { skalar: .5 })
     this.nivoTla = nivoTla
+    this.callback = callback
     this.plamicak = new Predmet('plamen.gif', { skalar: 0.4 })
     this.timerId = null
     this.reset()
@@ -41,7 +42,7 @@ export default class Granata extends Predmet {
 
   /* SUDAR */
 
-  proveriPogodak(cilj, callback) {
+  proveriPogodak(cilj, callback = this.callback) {
     if (!this.sudara(cilj)) return
 
     this.eksplodiraj()

@@ -1,6 +1,6 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Igrac from '/game-engine/core/Igrac.js'
-import Raketa from '/game-engine/core/Raketa.js'
+import Prateca from '/game-engine/core/Prateca.js'
 
 const OKRET = 0.01
 const MOGUCNOST_OKRETA = 0.066
@@ -12,7 +12,7 @@ export default class AvionIgrac extends Igrac {
     this.brzina = 0
     this.nivoTla = nivoTla
     this.oznake.add('igrac')
-    this.raketa = new Raketa()
+    this.raketa = new Prateca()
     this.predmeti = [this.raketa]
   }
 
