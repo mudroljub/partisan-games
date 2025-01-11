@@ -13,8 +13,6 @@ TopScena
 - Djule
     - skidati energiju na kraju (pre nestanka) ne sve vreme?
         - plamicak ostaviti sve vreme
-    - spojiti Djule i Granata
-    - BUG: Djule ne nestaje pri sudaru
 - menjati neprijatelja ili dodavati više?
 - dodati 2. igrača
 - nekad se poremeti raspored partizana kada izgubim
