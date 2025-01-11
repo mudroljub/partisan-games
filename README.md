@@ -60,12 +60,13 @@ TenkOdozgoScena
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju
 
-### Ostalo
+### Završno
 - glavni meni da bude karta jugoslavije sa izborom misija
 - nazivi nivoa: Bitka za Krupanj, Franjo Kluz...
 - prebaciti potisak na predmet?
 - možda različita boja dugmića ili ikonice na dugmiće. pogledati rpg game ui 
 - dodati razliku između pobede i poraza (druga boja prozora, zvuk, slavlje / tuga...)
+- dodati komande i ciljeve svuda
 
 ### Test i optimizacija
 - proveriti sve nivoe sa sporijim i bržim fps

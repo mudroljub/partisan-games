@@ -55,14 +55,10 @@ export default class Top extends Predmet {
   }
 
   proveriPogodak() {
-    this.projektili
-      .filter(projektil => projektil.ispaljeno)
-      .forEach(projektil => {
-        const pogodjen = this.ciljevi.find(cilj => projektil.sudara(cilj))
-        if (!pogodjen) return
-        if (this.callback) this.callback(pogodjen)
-        else pogodjen.umri()
-      })
+    this.projektili.forEach(projektil => {
+      if (projektil.ispaljeno)
+        this.ciljevi.forEach(cilj => projektil.proveriPogodak(cilj, this.callback))
+    })
   }
 
   update(dt) {

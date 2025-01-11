@@ -3,6 +3,7 @@ import { platno, ctx } from '/game-engine/io/platno.js'
 import { izasaoIgde } from '/game-engine/utils/granice.js'
 
 const gravitacija = 9.8 * 33
+const trajanjeEksplozije = 150
 
 export default class Djule extends Predmet {
   constructor({ x = 0, y = 0, r = 4, nivoTla = platno.height } = {}) {
@@ -10,11 +11,13 @@ export default class Djule extends Predmet {
     this.r = r
     this.sirina = this.visina = r * 2
     this.nivoTla = nivoTla
+    this.plamen = new Predmet('plamen.gif', { skalar: 0.4 })
     this.reset()
   }
 
   reset() {
     this.nestani()
+    this.plamen.sakrij()
     this.ispaljeno = false
   }
 
@@ -34,6 +37,27 @@ export default class Djule extends Predmet {
   proveriGranice() {
     if (izasaoIgde(this) || this.y > this.nivoTla) this.reset()
   }
+  /* SUDAR */
+
+  proveriPogodak(predmet, callback) {
+    if (!this.sudara(predmet)) return
+
+    this.eksplodiraj()
+    if (this.timerId === null)
+      this.timerId = setTimeout(() => {
+        this.reset()
+        this.timerId = null
+      }, trajanjeEksplozije)
+
+    if (callback) callback(predmet)
+    else predmet.umri()
+  }
+
+  eksplodiraj() {
+    this.plamen.x = this.x
+    this.plamen.y = this.y
+    this.plamen.pokazi()
+  }
 
   /* LOOP */
 
@@ -42,6 +66,8 @@ export default class Djule extends Predmet {
     ctx.beginPath()
     ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
     ctx.fill()
+
+    this.plamen.render()
   }
 
   update(dt) {

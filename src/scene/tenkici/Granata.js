@@ -40,6 +40,8 @@ export default class Granata extends Predmet {
     if (izasaoIgde(this) || this.y > this.nivoTla) this.reset()
   }
 
+  /* SUDAR */
+
   proveriPogodak(cilj) {
     if (!this.sudara(cilj)) return
 
