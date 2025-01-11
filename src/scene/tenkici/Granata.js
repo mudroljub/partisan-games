@@ -12,14 +12,14 @@ export default class Granata extends Predmet {
     super(src, { skalar: .5 })
     this.nivoTla = nivoTla
     this.callback = callback
-    this.plamen = new Predmet('plamen.gif', { skalar: 0.4 })
+    this.plamicak = new Predmet('plamen.gif', { skalar: 0.4 })
     this.timerId = null
     this.reset()
   }
 
   reset() {
     this.nestani()
-    this.plamen.sakrij()
+    this.plamicak.sakrij()
     this.ispaljeno = false
   }
 
@@ -57,9 +57,9 @@ export default class Granata extends Predmet {
   }
 
   eksplodiraj() {
-    this.plamen.x = this.x
-    this.plamen.y = this.y
-    this.plamen.pokazi()
+    this.plamicak.x = this.x
+    this.plamicak.y = this.y
+    this.plamicak.pokazi()
   }
 
   /* LOOP */
@@ -70,7 +70,7 @@ export default class Granata extends Predmet {
 
   render() {
     super.render()
-    this.plamen.render()
+    this.plamicak.render()
   }
 
   update(dt) {

@@ -11,13 +11,13 @@ export default class Djule extends Predmet {
     this.r = r
     this.sirina = this.visina = r * 2
     this.nivoTla = nivoTla
-    this.plamen = new Predmet('plamen.gif', { skalar: 0.4 })
+    this.plamicak = new Predmet('plamen.gif', { skalar: 0.4 })
     this.reset()
   }
 
   reset() {
     this.nestani()
-    this.plamen.sakrij()
+    this.plamicak.sakrij()
     this.ispaljeno = false
   }
 
@@ -54,9 +54,9 @@ export default class Djule extends Predmet {
   }
 
   eksplodiraj() {
-    this.plamen.x = this.x
-    this.plamen.y = this.y
-    this.plamen.pokazi()
+    this.plamicak.x = this.x
+    this.plamicak.y = this.y
+    this.plamicak.pokazi()
   }
 
   /* LOOP */
@@ -67,7 +67,7 @@ export default class Djule extends Predmet {
     ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
     ctx.fill()
 
-    this.plamen.render()
+    this.plamicak.render()
   }
 
   update(dt) {
