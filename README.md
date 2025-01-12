@@ -9,6 +9,8 @@ Male igrice o Nemcima i partizanima.
 - malo pregledati slike, probrati, kropovati
 - pregledati gpt slike
 
+- ukloni callback, koristi granata.povredi()
+
 TopScena
 - menjati neprijatelja ili dodavati više?
 - dodati 2. igrača

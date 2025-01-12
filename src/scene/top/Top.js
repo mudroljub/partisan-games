@@ -8,7 +8,7 @@ const GORNJI_UGAO = 5.68
 const DONJI_UGAO = 6.2
 
 export default class Top extends Predmet {
-  constructor({ x, y, ciljevi = [], callback } = {}) {
+  constructor({ x, y, ciljevi = [] } = {}) {
     super('2d-bocno/top-cev.gif', { x, y, skalar, zapaljiv: true })
     this.postolje = new Predmet('2d-bocno/top-postolje.gif', { x: x - 40, y: y + 32, skalar })
     this.pocetniX = x
@@ -17,7 +17,6 @@ export default class Top extends Predmet {
     this.projektili = Array.from({ length: 5 }, () => new Djule())
     this.predmeti = [...this.projektili]
     this.ciljevi = ciljevi
-    this.callback = callback
   }
 
   get vrhX() {
@@ -57,7 +56,7 @@ export default class Top extends Predmet {
   proveriPogodak() {
     this.projektili.forEach(projektil => {
       if (projektil.ispaljeno)
-        this.ciljevi.forEach(cilj => projektil.proveriPogodak(cilj, this.callback))
+        this.ciljevi.forEach(cilj => projektil.proveriPogodak(cilj))
     })
   }
 

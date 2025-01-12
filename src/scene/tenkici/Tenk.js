@@ -15,7 +15,6 @@ const defaultSkalar = window.innerWidth > 1280 ? 0.5 : 0.4
 export default class Tenk extends Predmet {
   constructor(src, {
     cevSlika,
-    callback,
     cilj,
     tenkDesno = false,
     skalar = defaultSkalar,
@@ -25,7 +24,6 @@ export default class Tenk extends Predmet {
   } = {}) {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
-    this.callback = callback
     this.vremePunjenja = vremePunjenja
     this.vremePunjenjaAI = vremePunjenjaAI
     this.cilj = cilj
@@ -56,7 +54,7 @@ export default class Tenk extends Predmet {
   proveriPogodak() {
     this.granate
       .filter(granata => granata.ispaljeno)
-      .forEach(granata => granata.proveriPogodak(this.cilj, this.callback))
+      .forEach(granata => granata.proveriPogodak(this.cilj))
   }
 
   proveriPucanje(key) {

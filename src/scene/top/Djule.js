@@ -1,11 +1,13 @@
 import { ctx } from '/game-engine/io/platno.js'
 import Granata from '/game-engine/core/Granata.js'
+import { randomInRange } from '/game-engine/utils.js'
 
 export default class Djule extends Granata {
   constructor({ r = 4, ...rest } = {}) {
     super({ src: null, ...rest })
     this.r = r
     this.sirina = this.visina = r * 2
+    this.steta = randomInRange(20, 30)
   }
 
   render() {
