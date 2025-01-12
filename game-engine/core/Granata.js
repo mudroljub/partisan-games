@@ -2,7 +2,7 @@ import Predmet from '/game-engine/core/Predmet.js'
 import { platno } from '/game-engine/io/platno.js'
 import { izasaoIgde } from '/game-engine/utils/granice.js'
 
-const trajanjeEksplozije = 150
+const duzinaEksplozije = 150
 
 const blizuTla = () => platno.height - Math.random() * platno.height * 0.2
 
@@ -20,6 +20,7 @@ export default class Granata extends Predmet {
     this.nestani()
     this.plamicak.sakrij()
     this.ispaljeno = false
+    this.timerId = null
   }
 
   postavi(polozaj, ugao) {
@@ -45,20 +46,23 @@ export default class Granata extends Predmet {
     if (!this.sudara(cilj)) return
 
     this.eksplodiraj()
-    if (this.timerId === null)
-      this.timerId = setTimeout(() => {
-        this.reset()
-        this.timerId = null
-      }, trajanjeEksplozije)
 
-    if (callback) callback(cilj)
-    else cilj.umri()
+    if (!this.timerId)
+      this.timerId = setTimeout(() => this.povredi(cilj, callback), duzinaEksplozije)
   }
 
   eksplodiraj() {
     this.plamicak.x = this.x
     this.plamicak.y = this.y
     this.plamicak.pokazi()
+  }
+
+  povredi(cilj, callback) {
+    if (callback)
+      callback(cilj)
+    else
+      cilj.umri()
+    this.reset()
   }
 
   /* LOOP */

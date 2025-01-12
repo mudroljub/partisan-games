@@ -10,9 +10,6 @@ Male igrice o Nemcima i partizanima.
 - pregledati gpt slike
 
 TopScena
-- Djule
-    - skidati energiju na kraju (pre nestanka) ne sve vreme?
-        - plamicak ostaviti sve vreme
 - menjati neprijatelja ili dodavati više?
 - dodati 2. igrača
 - nekad se poremeti raspored partizana kada izgubim

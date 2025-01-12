@@ -10,19 +10,21 @@ import { randomInRange } from '/game-engine/utils.js'
 
 const tlo = platno.height * .75
 
-const callback = predmet => {
+const topCallback = predmet => {
   predmet.dodajSilu(15, predmet.ugao + Math.PI)
-  predmet.skiniEnergiju(randomInRange(2, 3))
+  predmet.skiniEnergiju(randomInRange(20, 30))
 }
+
+const tenkCallback = p => p.skiniEnergiju(randomInRange(10, 20))
 
 export default class TopScena extends Scena {
   init() {
     const zastavnik = new Zastavnik(40, tlo + 1)
-    this.top = new Top({ x: 230, y: tlo - 32, callback })
+    this.top = new Top({ x: 230, y: tlo - 32, callback: topCallback })
     const posada = new Posada(110, tlo + 8)
     const strelac = new Strelac(300, tlo + 8)
     this.tenk = new TenkDesno({
-      y: tlo, cilj: this.top, skalar: .6, callback: p => p.skiniEnergiju(randomInRange(1, 2)), vremePunjenjaAI: 3000 }
+      y: tlo, cilj: this.top, skalar: .6, callback: tenkCallback, vremePunjenjaAI: 3000 }
     )
     this.top.ciljevi.push(this.tenk)
     this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)

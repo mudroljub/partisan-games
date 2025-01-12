@@ -4,12 +4,13 @@ import Pozadina from '/game-engine/core/Pozadina.js'
 import { progresBar, komande, komande2 } from '/game-ui/components.js'
 import TenkLevo from './TenkLevo.js'
 import TenkDesno from './TenkDesno.js'
+import { randomInRange } from '/game-engine/utils.js'
 
 const nivoTla = platno.height * 0.8
 
 const callback = cilj => {
   cilj.dodajSilu(15, cilj.ugao + Math.PI)
-  cilj.skiniEnergiju(Math.random() * 2)
+  cilj.skiniEnergiju(randomInRange(10, 20))
 }
 
 export default class TenkiciScena extends Scena {
