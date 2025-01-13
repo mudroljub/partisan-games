@@ -32,8 +32,10 @@ export class Avionce extends Igrac {
     const nemaMunicije = this.trenutniMetak >= BROJ_METAKA - 2
     if (cevNijeSpremna || nemaMunicije) return
 
+    const polozaj = { x: this.x, y: this.y - this.visina / 4 }
+
     ugloviPucanja.forEach((ugao, i) => {
-      this.meci[this.trenutniMetak + i].puca(this.ugaoGore + ugao)
+      this.meci[this.trenutniMetak + i].puca(polozaj, this.ugaoGore + ugao)
     })
 
     this.trenutniMetak += ugloviPucanja.length
