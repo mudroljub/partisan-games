@@ -4,7 +4,6 @@ import { Avionce } from './Avionce.js'
 import PokretnaPozadina from './PokretnaPozadina.js'
 import Pokretno from './Pokretno.js'
 import Oblak from './Oblak.js'
-import Zdravlje from './Zdravlje.js'
 
 const brojOblaka = 3
 const brzina = 300
@@ -15,7 +14,7 @@ export default class Scena1944 extends Scena {
     this.zivoti = 3
     this.oblaci = Array.from({ length: brojOblaka }, () => new Oblak(brzina))
     this.ostrvo = new Pokretno('2d-odozgo/ostrvo.gif', { potisak: brzina, skalar: 2 })
-    this.zdravlje = new Zdravlje(brzina)
+    this.zdravlje = new Pokretno('zdravlje.png', { potisak: brzina, skalar: .66, faktorY: 10 })
     this.igrac = new Avionce()
     const pozadina = new PokretnaPozadina(brzina, platno.width)
     this.dodaj(pozadina, this.zdravlje, this.ostrvo, this.igrac, ...this.oblaci)
