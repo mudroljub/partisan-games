@@ -7,8 +7,7 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 Scena1944
-- optimizovati BROJ_METAKA = 999
-- dodati stvar za hvatanje (paketić)
+- dodati hvatanje zdravlja
 - ubaciti jednog neprijatelja
 - senku ispod aviona, kao u avion.png
 
