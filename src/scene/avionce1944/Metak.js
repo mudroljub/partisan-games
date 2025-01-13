@@ -2,18 +2,26 @@ import Predmet from '/game-engine/core/Predmet.js'
 
 export default class Metak extends Predmet {
 
-  constructor(vlasnik) {
-    super('granata.gif', { skalar: .5 })
-    this.vlasnik = vlasnik
-    this.ugao = this.vlasnik.ugao + Math.PI * 1.5
-    this.sakrij()
+  constructor({ src = 'granata.gif', skalar = .5, ...rest } = {}) {
+    super(src, { skalar, ...rest })
+    this.reset()
   }
 
-  puca(polozaj, ugao) {
-    this.pokazi()
+  reset() {
+    this.nestani()
+    this.ispaljeno = false
+  }
+
+  postavi(polozaj, ugao) {
     this.polozaj = polozaj
     this.ugao = ugao
-    this.brzina = 1000
+  }
+
+  pali(polozaj, ugao, potisak = 1000) {
+    this.postavi(polozaj, ugao)
+    this.pokazi()
+    this.dodajSilu(potisak)
+    this.ispaljeno = true
   }
 
   proveriGranice() {

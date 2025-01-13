@@ -13,7 +13,7 @@ export class Avionce extends Igrac {
     this.vreme = new Vreme()
     this.trenutniMetak = 0
     this.brzina = 0
-    this.meci = Array.from({ length: BROJ_METAKA }, () => new Metak(this))
+    this.meci = Array.from({ length: BROJ_METAKA }, () => new Metak({ ugao: this.ugao + Math.PI * 1.5 }))
     this.predmeti = this.meci
     this.ugaoGore = this.ugao + Math.PI * 1.5
   }
@@ -35,7 +35,7 @@ export class Avionce extends Igrac {
     const polozaj = { x: this.x, y: this.y - this.visina / 4 }
 
     ugloviPucanja.forEach((ugao, i) => {
-      this.meci[this.trenutniMetak + i].puca(polozaj, this.ugaoGore + ugao)
+      this.meci[this.trenutniMetak + i].pali(polozaj, this.ugaoGore + ugao)
     })
 
     this.trenutniMetak += ugloviPucanja.length
