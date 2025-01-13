@@ -7,7 +7,7 @@ const duzinaEksplozije = 150
 
 const blizuTla = () => platno.height - Math.random() * platno.height * 0.2
 
-export default class Granata extends Predmet {
+export default class GranataBocno extends Predmet {
   constructor({ src = 'granata.gif', nivoTla = blizuTla(), gravitacija = 98 } = {}) {
     super(src, { skalar: .5 })
     this.nivoTla = nivoTla
@@ -20,20 +20,19 @@ export default class Granata extends Predmet {
 
   reset() {
     this.nestani()
-    this.plamicak.sakrij()
     this.ispaljeno = false
+    this.plamicak.sakrij()
     this.timerId = null
   }
 
   postavi(polozaj, ugao) {
-    this.x = polozaj.x
-    this.y = polozaj.y
+    this.polozaj(polozaj.x, polozaj.y)
     this.ugao = ugao
   }
 
   pali(polozaj, ugao, potisak = 500) {
-    this.pokazi()
     this.postavi(polozaj, ugao)
+    this.pokazi()
     this.dodajSilu(potisak)
     this.ispaljeno = true
   }

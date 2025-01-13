@@ -6,8 +6,7 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- malo pregledati slike, probrati, kropovati
-- pregledati gpt slike
+- dodati gpt slike
 
 TopScena
 - menjati neprijatelja ili dodavati više?

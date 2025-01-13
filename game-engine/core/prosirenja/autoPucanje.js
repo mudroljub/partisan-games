@@ -36,9 +36,9 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
     },
 
     puca() {
-      const raketa = this.meci[this.i++ % this.meci.length]
+      const metak = this.meci[this.i++ % this.meci.length]
       const polozaj = { x: this.x + x, y: this.y + y }
-      raketa.pucaCiljano(polozaj, this.ugao)
+      metak.pucaCiljano(polozaj, this.ugao)
     },
   }
 }

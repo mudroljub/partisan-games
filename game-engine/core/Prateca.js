@@ -9,22 +9,23 @@ export default class Prateca extends Predmet {
     this.reset()
   }
 
-  dodajCiljeve(...args) {
-    this.ciljevi.push(...args)
-  }
-
-  proveriGranice() {
-    if (izasaoIgde(this)) this.reset()
-  }
-
   reset() {
     this.ispaljeno = false
     this.nestani()
   }
 
-  pripremi(polozaj, ugao) {
+  dodajCiljeve(...args) {
+    this.ciljevi.push(...args)
+  }
+
+  postavi(polozaj, ugao) {
     this.polozaj(polozaj.x, polozaj.y)
     this.ugao = ugao
+  }
+
+  puca(polozaj, ugao) {
+    this.postavi(polozaj, ugao)
+    this.pali()
   }
 
   pali() {
@@ -33,15 +34,10 @@ export default class Prateca extends Predmet {
     this.ispaljeno = true
   }
 
-  puca(polozaj, ugao) {
-    this.pripremi(polozaj, ugao)
-    this.pali()
-  }
-
   pucaCiljano(polozaj, ugao) {
     if (!this.ciljevi.some(cilj => cilj.ziv)) return
 
-    this.pripremi(polozaj, ugao)
+    this.postavi(polozaj, ugao)
     this.traziNajblizuMetu()
     this.pali()
   }
@@ -62,15 +58,29 @@ export default class Prateca extends Predmet {
     })
   }
 
+  proveriGranice() {
+    if (izasaoIgde(this)) this.reset()
+  }
+
+  /* SUDAR */
+
   proveriSudare() {
     this.ciljevi.forEach(cilj => {
       if (!this.sudara(cilj)) return
 
-      if (cilj.reagujNaPogodak) cilj.reagujNaPogodak()
-      else cilj.umri()
-      this.reset()
+      this.povredi(cilj)
     })
   }
+
+  povredi(cilj) {
+    if (cilj.reagujNaPogodak)
+      cilj.reagujNaPogodak(this.steta)
+    else
+      cilj.umri()
+    this.reset()
+  }
+
+  /* LOOP */
 
   render() {
     if (!this.ispaljeno) return
