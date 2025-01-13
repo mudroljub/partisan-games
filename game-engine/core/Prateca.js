@@ -23,12 +23,12 @@ export default class Prateca extends Predmet {
     this.ugao = ugao
   }
 
-  puca(polozaj, ugao) {
+  pali(polozaj, ugao) {
     this.postavi(polozaj, ugao)
-    this.pali()
+    this.puca()
   }
 
-  pali() {
+  puca() {
     this.pokazi()
     this.brzina = this.potisak
     this.ispaljeno = true
@@ -39,7 +39,7 @@ export default class Prateca extends Predmet {
 
     this.postavi(polozaj, ugao)
     this.traziNajblizuMetu()
-    this.pali()
+    this.puca()
   }
 
   nisani(cilj) {

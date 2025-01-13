@@ -52,7 +52,7 @@ export default class AvionIgrac extends Igrac {
     if (this.raketa.ispaljeno) return
 
     const polozaj = { x: this.x + 5, y: this.y + 15 }
-    this.raketa.puca(polozaj, this.ugao + Math.PI / 16)
+    this.raketa.pali(polozaj, this.ugao + Math.PI / 16)
   }
 
   /** * OSTALO ***/

@@ -7,6 +7,7 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 - dodati gpt slike
+- BUG: pucaPovremeno nekad ne puca prvi put
 
 TopScena
 - menjati neprijatelja ili dodavati više?
