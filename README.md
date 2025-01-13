@@ -6,8 +6,6 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- napraviti hijerarhiju između Metak, Granata i Prateca??
-
 Scena1944
 - optimizovati BROJ_METAKA = 999
 - dodati stvar za hvatanje (paketić)
