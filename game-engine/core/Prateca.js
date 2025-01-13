@@ -1,40 +1,14 @@
-import Predmet from '/game-engine/core/Predmet.js'
-import { izasaoIgde } from '/game-engine/utils/granice.js'
+import Metak from './Metak.js'
 
-export default class Prateca extends Predmet {
+export default class Prateca extends Metak {
   constructor({ src = 'raketa.png', potisak = 625, skalar = .55 } = {}) {
-    super(src, { skalar })
-    this.potisak = potisak
+    super({ src, skalar, potisak })
     this.ciljevi = []
-    this.reset()
   }
 
   dodajCiljeve(...args) {
     this.ciljevi.push(...args)
   }
-
-  reset() {
-    this.nestani()
-    this.ispaljeno = false
-  }
-
-  postavi(polozaj, ugao) {
-    this.polozaj = polozaj
-    this.ugao = ugao
-  }
-
-  pali(polozaj, ugao, potisak = this.potisak) {
-    this.postavi(polozaj, ugao)
-    this.pokazi()
-    this.brzina = potisak
-    this.ispaljeno = true
-  }
-
-  proveriGranice() {
-    if (izasaoIgde(this)) this.reset()
-  }
-
-  /* PRATECA */
 
   pucaCiljano(polozaj, ugao) {
     if (!this.ciljevi.some(cilj => cilj.ziv)) return
@@ -58,25 +32,11 @@ export default class Prateca extends Predmet {
     return najblizaMeta
   }
 
-  /* SUDAR */
-
   proveriSudare() {
     this.ciljevi.forEach(cilj => {
-      if (!this.sudara(cilj)) return
-
-      this.povredi(cilj)
+      if (this.sudara(cilj)) this.povredi(cilj)
     })
   }
-
-  povredi(cilj) {
-    if (cilj.reagujNaPogodak)
-      cilj.reagujNaPogodak(this.steta)
-    else
-      cilj.umri()
-    this.reset()
-  }
-
-  /* LOOP */
 
   update(dt) {
     if (!this.ispaljeno) return
