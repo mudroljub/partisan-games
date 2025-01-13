@@ -33,7 +33,7 @@ export default class Top extends Predmet {
 
     const pozicija = { x: this.vrhX, y: this.vrhY }
     projektil.pali(pozicija, this.ugao, this.sila)
-    this.trza()
+    this.x -= 5
     this.sila = this.minSila
   }
 
@@ -47,10 +47,6 @@ export default class Top extends Predmet {
       this.ugao = Math.max(this.ugao - 0.5 * dt, GORNJI_UGAO)
     if (keyboard.pressed.KeyS)
       this.ugao = Math.min(this.ugao + 0.5 * dt, DONJI_UGAO)
-  }
-
-  trza() {
-    this.x -= 5
   }
 
   proveriPogodak() {
