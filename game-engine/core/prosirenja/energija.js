@@ -12,7 +12,7 @@ export function praviEnergiju() {
     },
 
     get zapaljen() {
-      return this.energija <= this.zapaljivost
+      return this.zapaljiv && this.energija <= this.zapaljivost
     },
 
     skiniEnergiju(steta = 30) {
