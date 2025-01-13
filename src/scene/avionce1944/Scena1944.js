@@ -16,8 +16,11 @@ export default class Scena1944 extends Scena {
     this.ostrvo = new Pokretno('2d-odozgo/ostrvo.gif', { potisak: brzina, skalar: 2 })
     this.zdravlje = new Pokretno('zdravlje.png', { potisak: brzina, skalar: .66, faktorY: 10 })
     this.igrac = new Avionce()
+    this.neprijatelji = [
+      new Pokretno('2d-odozgo/nemci/avioni/avion-01.png', { potisak: brzina, skalar: .66, faktorY: 1 })
+    ]
     const pozadina = new PokretnaPozadina(brzina, platno.width)
-    this.dodaj(pozadina, this.zdravlje, this.ostrvo, this.igrac, ...this.oblaci)
+    this.dodaj(pozadina, this.zdravlje, this.ostrvo, this.igrac, ...this.oblaci, ...this.neprijatelji)
   }
 
   proveriSudare() {

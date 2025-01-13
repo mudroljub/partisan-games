@@ -25,6 +25,6 @@ export default class Pokretno extends Predmet {
   }
 
   proveriGranice() {
-    if (this.y > platno.height) this.reset()
+    if (this.y > platno.height + this.visina) this.reset()
   }
 }
