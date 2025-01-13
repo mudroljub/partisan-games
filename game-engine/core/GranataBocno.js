@@ -53,8 +53,7 @@ export default class GranataBocno extends Predmet {
   }
 
   eksplodiraj() {
-    this.plamicak.x = this.x
-    this.plamicak.y = this.y
+    this.plamicak.polozaj = this.polozaj
     this.plamicak.pokazi()
   }
 
