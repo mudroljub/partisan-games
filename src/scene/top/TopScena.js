@@ -5,7 +5,7 @@ import Strelac from './Strelac.js'
 import Zastavnik from './Zastavnik.js'
 import Posada from './Posada.js'
 import TenkDesno from '../tenkici/TenkDesno.js'
-import { progresBar } from '/game-ui/components.js'
+import { progresBar, topKomande, komande2 } from '/game-ui/components.js'
 
 const tlo = platno.height * .75
 
@@ -35,13 +35,18 @@ export default class TopScena extends Scena {
   sablon() {
     return /* html */`
     <div class='komande komande1'>
-    ${progresBar(this.top.energija)}
-    <progress value="${this.top.sila}" max="${this.top.minSila * 3}"></progress>
-  </div>
+      ${progresBar(this.top.energija)}
+      ${topKomande()}
+      <progress value="${this.top.sila}" max="${this.top.minSila * 3}"></progress>
+    </div>
 
-  <div class='komande komande2'>
-    ${progresBar(this.tenk.energija)}
-  </div>
+    <div class='komande komande2'>
+      ${progresBar(this.tenk.energija)}
+      ${!this.tenk.ai ? komande2() : ''}
+      <button id="dva-igraca" class="bg-avocado full">
+        ${this.tenk.ai ? 'Dodaj igrača' : 'Uključi<br> neprijatelja'}
+      </button>
+    </div>
     `
   }
 }

@@ -6,15 +6,9 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- dodati gpt slike
-
-
-- ujednaciti Prateca i GranataBocno
-- BUG: pucaPovremeno nekad ne puca prvi put
-
 TopScena
-- menjati neprijatelja ili dodavati više?
 - dodati 2. igrača
+- menjati neprijatelja ili dodavati više?
 - nekad se poremeti raspored partizana kada izgubim
 
 Scena1944

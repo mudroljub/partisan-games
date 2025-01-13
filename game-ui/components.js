@@ -24,3 +24,11 @@ export const komande2 = () => /* html*/`
     enter - puca 
   </div>
 `
+
+export const topKomande = () => /* html*/`
+  <div class="tipke">
+    W - gore<br>
+    S - dole<br>
+    space - puca
+  </div>
+`
