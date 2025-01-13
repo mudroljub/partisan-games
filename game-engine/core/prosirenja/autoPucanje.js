@@ -8,10 +8,10 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
     duzinaRafala: 5,
     proredRafala: .1,
 
-    initPucanje({ ciljevi, callback }) {
+    initPucanje({ ciljevi }) {
       this.zadnjiPucanj = 0
       this.zadnjiPucanjRafala = 0
-      this.meci = Array.from({ length: kolicina }, () => new Prateca(src, { potisak, skalar, callback }))
+      this.meci = Array.from({ length: kolicina }, () => new Prateca(src, { potisak, skalar }))
       this.meci.forEach(r => r.dodajCiljeve(...ciljevi))
       this.predmeti = [...this.meci]
     },

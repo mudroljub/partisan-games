@@ -38,7 +38,7 @@ export default class Predmet {
     this.slika.src = '/assets/slike/' + src
   }
 
-  onload() {} // callback
+  onload() {} // za naslednike
 
   zameniSliku(src) {
     this.slika.src = src

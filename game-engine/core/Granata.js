@@ -60,9 +60,8 @@ export default class Granata extends Predmet {
   }
 
   povredi(cilj) {
-    if (cilj.trzaj) cilj.trzaj()
-    if (cilj.skiniEnergiju)
-      cilj.skiniEnergiju(this.steta)
+    if (cilj.reagujNaPogodak)
+      cilj.reagujNaPogodak(this.steta)
     else
       cilj.umri()
     this.reset()

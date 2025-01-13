@@ -84,6 +84,11 @@ export default class Tenk extends Predmet {
     this.dodajSilu(this.potisak, this.ugaoUnazad)
   }
 
+  reagujNaPogodak(steta) {
+    this.trzaj()
+    this.skiniEnergiju(steta)
+  }
+
   /* AI */
 
   nisani(predmet) {

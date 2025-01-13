@@ -56,6 +56,10 @@ export default class Top extends Predmet {
     })
   }
 
+  reagujNaPogodak(steta) {
+    this.skiniEnergiju(steta)
+  }
+
   update(dt) {
     super.update(dt)
     this.proveriPogodak()
