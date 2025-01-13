@@ -2,7 +2,7 @@ import Predmet from '/game-engine/core/Predmet.js'
 import { izasaoIgde } from '/game-engine/utils/granice.js'
 
 export default class Prateca extends Predmet {
-  constructor(src = 'raketa.png', { potisak = 625, skalar = .55 } = {}) {
+  constructor({ src = 'raketa.png', potisak = 625, skalar = .55 } = {}) {
     super(src, { skalar })
     this.potisak = potisak
     this.ciljevi = []
