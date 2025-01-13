@@ -60,6 +60,10 @@ export default class Top extends Predmet {
     this.skiniEnergiju(steta)
   }
 
+  sudara(predmet) {
+    return super.sudara(predmet) || this.postolje.sudara(predmet)
+  }
+
   update(dt) {
     super.update(dt)
     this.proveriPogodak()

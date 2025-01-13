@@ -44,7 +44,7 @@ export default class GranataBocno extends Predmet {
   /* SUDAR */
 
   proveriPogodak(cilj) {
-    if (!this.sudara(cilj)) return
+    if (!cilj.sudara(this)) return
 
     this.eksplodiraj()
 

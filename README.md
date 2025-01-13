@@ -7,7 +7,6 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 TopScena
-- BUG: granata tenka prolazi kroz postolje, samo cev se računa
 - menjati neprijatelja ili dodavati više?
 - nekad se poremeti raspored partizana kada izgubim
 
