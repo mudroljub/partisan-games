@@ -2,9 +2,10 @@ import Predmet from '/game-engine/core/Predmet.js'
 import platno from '/game-engine/io/platno.js'
 
 export default class Pokretno extends Predmet {
-  constructor(src, { potisak, ...rest }) {
+  constructor(src, { potisak, faktorY = .5, ...rest }) {
     super(src, { ...rest })
     this.potisak = potisak
+    this.faktorY = faktorY
     this.reset()
   }
 
@@ -15,7 +16,7 @@ export default class Pokretno extends Predmet {
 
   postaviPolozaj() {
     const x = Math.random() * platno.width
-    this.polozaj = { x, y: -50 }
+    this.polozaj = { x, y: -platno.height * this.faktorY }
   }
 
   reset() {
