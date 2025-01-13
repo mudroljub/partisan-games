@@ -9,7 +9,7 @@ export default class PokretnaPozadina extends Predmet {
   }
 
   onload() {
-    this.polozaj(this.sirina / 2, 0)
+    this.polozaj = { x: this.sirina / 2, y: 0 }
   }
 
   proveriGranice() {

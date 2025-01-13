@@ -12,7 +12,7 @@ export class Ostrvo extends Predmet {
     this.dy = this.brzina
     this.dx = 0
     const x = Math.random() * platno.width
-    this.polozaj(x, -50)
+    this.polozaj = { x, y: -50 }
   }
 
   proveriGranice() {

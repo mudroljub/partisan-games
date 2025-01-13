@@ -11,7 +11,7 @@ export default class RanjenikScena extends Scena {
     this.pozadina = new Pozadina('2d-odozgo/shumarak-pozadina.png')
     this.ranjenik = new Ranjenik(this.sirina / 4, this.visina / 2)
     this.patrola = new Patrola('2d-odozgo/nemci-patrola.gif', this.ranjenik)
-    this.patrola.polozaj(this.sirina * 3 / 4, this.visina * 3 / 4)
+    this.patrola.polozaj = { x: this.sirina * 3 / 4, y: this.visina * 3 / 4 }
     this.strelica = new Strelica()
     this.dodaj(this.pozadina, this.ranjenik, this.patrola, this.strelica)
   }

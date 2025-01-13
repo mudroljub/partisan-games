@@ -11,7 +11,7 @@ export default class Oblak extends Predmet {
   }
 
   onload() {
-    this.polozaj(Math.random() * platno.width, randomInRange(0, this.nivoTla))
+    this.polozaj = { x: Math.random() * platno.width, y: randomInRange(0, this.nivoTla) }
   }
 
   proveriGranice() {

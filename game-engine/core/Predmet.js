@@ -62,9 +62,13 @@ export default class Predmet {
 
   /* POLOZAJ */
 
-  polozaj(x, y) {
-    this.x = x
-    this.y = y
+  get polozaj() {
+    return { x: this.x, y: this.y }
+  }
+
+  set polozaj(poz) {
+    this.x = poz.x
+    this.y = poz.y
   }
 
   tlo(y) {

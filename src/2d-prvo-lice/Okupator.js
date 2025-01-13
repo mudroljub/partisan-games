@@ -10,7 +10,7 @@ export default class Okupator extends Sprite {
     this.brzina = 200
     this.limitLevo = platno.width * .15
     this.limitDesno = platno.width * .85
-    this.polozaj(this.limitLevo, platno.height * .75)
+    this.polozaj = { x: this.limitLevo, y: platno.height * .75 }
   }
 
   patroliraj() {

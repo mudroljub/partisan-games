@@ -13,7 +13,7 @@ export default class Oblak extends Predmet {
     this.dy = randomInRange(this.brzina * .75, this.brzina * 1.25)
     this.dx = Math.random() * 10 - 5
     const noviX = Math.random() * platno.width
-    this.polozaj(noviX, 50)
+    this.polozaj = { x: noviX, y: 50 }
   }
 
   proveriGranice() {

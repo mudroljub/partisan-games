@@ -19,7 +19,7 @@ export class Avionce extends Igrac {
   }
 
   onload() {
-    this.polozaj(platno.width / 2, platno.height - this.visina)
+    this.polozaj = { x: platno.width / 2, y: platno.height - this.visina }
   }
 
   proveriGranice() {

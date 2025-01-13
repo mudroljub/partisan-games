@@ -11,7 +11,7 @@ export default class Metak extends Predmet {
 
   puca(polozaj, ugao) {
     this.pokazi()
-    this.polozaj(polozaj.x, polozaj.y)
+    this.polozaj = polozaj
     this.ugao = ugao
     this.brzina = 1000
   }

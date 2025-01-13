@@ -12,7 +12,7 @@ export default class Granata extends Predmet {
 
   puca(cev, pravac) {
     this.skreni(cev.ugao - pravac)
-    this.polozaj(cev.x, cev.y)
+    this.polozaj = cev.polozaj
     this.brzina = 900
     this.pokazi()
   }

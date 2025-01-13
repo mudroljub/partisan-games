@@ -26,7 +26,7 @@ export default class GranataBocno extends Predmet {
   }
 
   postavi(polozaj, ugao) {
-    this.polozaj(polozaj.x, polozaj.y)
+    this.polozaj = polozaj
     this.ugao = ugao
   }
 

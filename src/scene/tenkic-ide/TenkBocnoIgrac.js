@@ -53,7 +53,7 @@ export default class TenkBocnoIgrac extends Igrac {
   }
 
   reset() {
-    this.polozaj(Math.random() * 400, 450)
+    this.polozaj = { x: Math.random() * 400, y: 450 }
     this.energija = 100
   }
 
@@ -64,7 +64,7 @@ export default class TenkBocnoIgrac extends Igrac {
 
   update(dt) {
     super.update(dt)
-    this.cev.polozaj(this.x + 1, this.y - 9)
+    this.cev.polozaj = { x: this.x + 1, y: this.y - 9 }
     this.cev.update(dt)
     this.granata.update(dt)
   }
