@@ -12,11 +12,10 @@ export default class Scena1944 extends Scena {
   init() {
     this.poeni = 0
     this.zivoti = 3
-    this.oblaci = []
+    this.oblaci = Array.from({ length: brojOblaka }, () => new Oblak(brzinaPozadine))
     this.ostrvo = new Ostrvo(brzinaPozadine)
     this.igrac = new Avionce()
     const pozadina = new PokretnaPozadina(brzinaPozadine, platno.width)
-    for (let i = 0; i < brojOblaka; i++) this.oblaci[i] = new Oblak(brzinaPozadine)
     this.dodaj(pozadina, this.igrac, this.ostrvo, ...this.oblaci)
   }
 
@@ -43,7 +42,6 @@ export default class Scena1944 extends Scena {
       <div class='komande bg-poluprovidno komande1'>
         Poeni: ${this.poeni}<br>
         Životi: ${this.zivoti}<br>
-        Meci: ${this.igrac.preostaloMetaka()}
       </div>
     `
   }
