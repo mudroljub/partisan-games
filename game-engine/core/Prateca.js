@@ -14,8 +14,8 @@ export default class Prateca extends Predmet {
   }
 
   reset() {
-    this.ispaljeno = false
     this.nestani()
+    this.ispaljeno = false
   }
 
   postavi(polozaj, ugao) {
@@ -23,10 +23,10 @@ export default class Prateca extends Predmet {
     this.ugao = ugao
   }
 
-  pali(polozaj, ugao) {
+  pali(polozaj, ugao, potisak = this.potisak) {
     this.postavi(polozaj, ugao)
     this.pokazi()
-    this.brzina = this.potisak
+    this.brzina = potisak
     this.ispaljeno = true
   }
 
@@ -78,15 +78,9 @@ export default class Prateca extends Predmet {
 
   /* LOOP */
 
-  render() {
-    if (!this.ispaljeno) return
-    super.render()
-  }
-
   update(dt) {
-    if (this.ispaljeno) {
-      super.update(dt)
-      this.proveriSudare()
-    }
+    if (!this.ispaljeno) return
+    super.update(dt)
+    this.proveriSudare()
   }
 }

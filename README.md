@@ -9,7 +9,7 @@ Male igrice o Nemcima i partizanima.
 - dodati gpt slike
 
 
-- ujednaciti Prateca i Granata:
+- ujednaciti Prateca i GranataBocno
 - BUG: pucaPovremeno nekad ne puca prvi put
 
 TopScena
