@@ -7,7 +7,7 @@ const duzinaEksplozije = 150
 
 const blizuTla = () => platno.height - Math.random() * platno.height * 0.2
 
-export default class GranataBocno extends Metak {
+export default class Granata extends Metak {
   constructor({ skalar = .5, potisak = 500, nivoTla = blizuTla(), gravitacija = 98, ...rest } = {}) {
     super({ skalar, potisak, ...rest })
     this.nivoTla = nivoTla

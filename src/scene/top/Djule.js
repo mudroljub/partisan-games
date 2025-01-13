@@ -1,5 +1,5 @@
 import { ctx } from '/game-engine/io/platno.js'
-import Granata from '/game-engine/core/projektili/GranataBocno.js'
+import Granata from '/game-engine/core/projektili/Granata.js'
 import { randomInRange } from '/game-engine/utils.js'
 
 export default class Djule extends Granata {
