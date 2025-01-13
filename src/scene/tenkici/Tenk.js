@@ -3,7 +3,7 @@ import platno from '/game-engine/io/platno.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import { praviEnergiju } from '/game-engine/core/prosirenja/energija.js'
-import Granata from '/game-engine/core/GranataBocno.js'
+import Granata from '/game-engine/core/projektili/GranataBocno.js'
 
 const gravitacija = 90
 const statickoTrenje = 0.3

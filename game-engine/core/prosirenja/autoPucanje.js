@@ -1,4 +1,4 @@
-import Prateca from '../Prateca.js'
+import Prateca from '../projektili/Prateca.js'
 
 export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skalar, x = 0, y = 0 } = {}) {
   return {
