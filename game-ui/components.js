@@ -1,9 +1,12 @@
-export const progresBar = energija => /* html*/`
+export const progresBar = (energija, tekst) => {
+  const label = tekst || Math.round(energija)
+  return /* html*/`
   <div class="progress-wrapper">
     <progress value='${energija}' max='100'></progress>
-    <div class="energija">${Math.round(energija)}</div>
+    <div class="energija">${label}</div>
   </div>
 `
+}
 
 export const komande = () => /* html*/`
   <div class="tipke">
@@ -11,7 +14,7 @@ export const komande = () => /* html*/`
     D - desno<br>
     W - gore<br>
     S - dole<br>
-    space - puca
+    space - pucanje
   </div>
 `
 
@@ -21,7 +24,7 @@ export const komande2 = () => /* html*/`
     → desno<br> 
     ↑ gore<br> 
     ↓ dole<br> 
-    enter - puca 
+    enter - pucanje 
   </div>
 `
 
@@ -29,6 +32,6 @@ export const topKomande = () => /* html*/`
   <div class="tipke">
     W - gore<br>
     S - dole<br>
-    space - puca
+    space - pucanje
   </div>
 `
