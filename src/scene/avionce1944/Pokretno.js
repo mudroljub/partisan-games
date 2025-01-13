@@ -1,18 +1,26 @@
 import Predmet from '/game-engine/core/Predmet.js'
 import platno from '/game-engine/io/platno.js'
 
-export class Ostrvo extends Predmet {
-  constructor(brzina = 10) {
-    super('2d-odozgo/ostrvo.gif', { skalar: 2 })
-    this.brzina = brzina
+export default class Pokretno extends Predmet {
+  constructor(src, { potisak, ...rest }) {
+    super(src, { ...rest })
+    this.potisak = potisak
     this.reset()
   }
 
-  reset() {
-    this.dy = this.brzina
+  postaviBrzinu() {
+    this.dy = this.potisak
     this.dx = 0
+  }
+
+  postaviPolozaj() {
     const x = Math.random() * platno.width
     this.polozaj = { x, y: -50 }
+  }
+
+  reset() {
+    this.postaviBrzinu()
+    this.postaviPolozaj()
   }
 
   proveriGranice() {

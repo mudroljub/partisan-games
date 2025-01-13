@@ -2,21 +2,22 @@ import platno from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import { Avionce } from './Avionce.js'
 import PokretnaPozadina from './PokretnaPozadina.js'
-import { Ostrvo } from './Ostrvo.js'
+import Pokretno from './Pokretno.js'
 import Oblak from './Oblak.js'
 
 const brojOblaka = 3
-const brzinaPozadine = 300
+const brzina = 300
 
 export default class Scena1944 extends Scena {
   init() {
     this.poeni = 0
     this.zivoti = 3
-    this.oblaci = Array.from({ length: brojOblaka }, () => new Oblak(brzinaPozadine))
-    this.ostrvo = new Ostrvo(brzinaPozadine)
+    this.oblaci = Array.from({ length: brojOblaka }, () => new Oblak(brzina))
+    this.ostrvo = new Pokretno('2d-odozgo/ostrvo.gif', { potisak: brzina, skalar: 2 })
+    this.zdravlje = new Pokretno('zdravlje.png', { potisak: brzina })
     this.igrac = new Avionce()
-    const pozadina = new PokretnaPozadina(brzinaPozadine, platno.width)
-    this.dodaj(pozadina, this.igrac, this.ostrvo, ...this.oblaci)
+    const pozadina = new PokretnaPozadina(brzina, platno.width)
+    this.dodaj(pozadina, this.zdravlje, this.igrac, this.ostrvo, ...this.oblaci)
   }
 
   proveriSudare() {

@@ -1,22 +1,13 @@
-import Predmet from '/game-engine/core/Predmet.js'
-import platno from '/game-engine/io/platno.js'
 import { randomInRange } from '/game-engine/utils.js'
+import Pokretno from './Pokretno.js'
 
-export default class Oblak extends Predmet {
+export default class Oblak extends Pokretno {
   constructor(potisak) {
-    super('oblak.gif')
-    this.potisak = potisak
-    this.reset()
+    super('oblak.gif', { potisak })
   }
 
-  reset() {
+  postaviBrzinu() {
     this.dy = randomInRange(this.potisak * .75, this.potisak * 1.25)
     this.dx = Math.random() * 10 - 5
-    const noviX = Math.random() * platno.width
-    this.polozaj = { x: noviX, y: -50 }
-  }
-
-  proveriGranice() {
-    if (this.y > platno.height) this.reset()
   }
 }
