@@ -1,9 +1,9 @@
+import platno from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import { Avionce } from './Avionce.js'
 import PokretnaPozadina from './PokretnaPozadina.js'
 import { Ostrvo } from './Ostrvo.js'
 import Oblak from './Oblak.js'
-import platno from '/game-engine/io/platno.js'
 
 const brojOblaka = 3
 const brzinaPozadine = 300

@@ -1,4 +1,3 @@
-import { KRUZNICA } from '/game-engine/konstante.js'
 import Igrac from '/game-engine/core/Igrac.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import platno from '/game-engine/io/platno.js'
@@ -14,7 +13,6 @@ export class Avionce extends Igrac {
     this.vreme = new Vreme()
     this.trenutniMetak = 0
     this.brzina = 0
-    this.ugao = KRUZNICA * 3 / 4
     this.meci = Array.from({ length: BROJ_METAKA }, () => new Metak(this))
     this.predmeti = this.meci
   }
@@ -36,6 +34,7 @@ export class Avionce extends Igrac {
     this.meci[this.trenutniMetak].puca(0)
     this.meci[this.trenutniMetak + 1].puca(-SIRINA_PALJBE)
     this.meci[this.trenutniMetak + 2].puca(SIRINA_PALJBE)
+
     this.trenutniMetak += 3
     this.vreme.reset()
   }
