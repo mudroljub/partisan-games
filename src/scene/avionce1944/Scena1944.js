@@ -17,10 +17,10 @@ export default class Scena1944 extends Scena {
     this.zdravlje = new Pokretno('zdravlje.png', { potisak: brzina, skalar: .66, faktorY: 10 })
     this.igrac = new Avionce()
     this.neprijatelji = [
-      new Pokretno('2d-odozgo/nemci/avioni/avion-01.png', { potisak: brzina, skalar: .66, faktorY: 1 })
+      new Pokretno('2d-odozgo/nemci/avioni/avion-01.png', { potisak: brzina * .5, skalar: .5, faktorY: 1, odrazX: -1 })
     ]
     const pozadina = new PokretnaPozadina(brzina, platno.width)
-    this.dodaj(pozadina, this.zdravlje, this.ostrvo, this.igrac, ...this.oblaci, ...this.neprijatelji)
+    this.dodaj(pozadina, this.zdravlje, this.ostrvo, ...this.neprijatelji, this.igrac, ...this.oblaci)
   }
 
   proveriSudare() {

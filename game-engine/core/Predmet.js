@@ -9,7 +9,8 @@ export default class Predmet {
   #ugao = 0
 
   constructor(src, {
-    sirina, visina, x = 200, y = 200, skalar = 1, brzina = 0, zapaljiv = false, ishodiste = 'CENTAR'
+    sirina, visina, x = 200, y = 200, skalar = 1, brzina = 0, zapaljiv = false, ishodiste = 'CENTAR',
+    odrazY = 1, odrazX = 1
   } = {}) {
     this.x = x
     this.y = y
@@ -19,10 +20,10 @@ export default class Predmet {
     this.brzina = brzina
     this.zapaljiv = zapaljiv
     this.ishodiste = ishodiste
+    this.odrazY = odrazY
+    this.odrazX = odrazX
     this.vidljiv = true
     this.ziv = true
-    this.odrazY = 1
-    this.odrazX = 1
     this.oznake = new Set()
     this.debug = false
     this.predmeti = []
