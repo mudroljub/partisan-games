@@ -39,13 +39,13 @@ export default class TopScena extends Scena {
 
   sablon() {
     return /* html */`
-    <div class='komande komande1'>
+    <div class='komande komande1 bg-poluprovidno'>
       ${progresBar(this.top.energija)}
       ${topKomande()}
       <progress value="${this.top.sila}" max="${this.top.minSila * 3}"></progress>
     </div>
 
-    <div class='komande komande2'>
+    <div class='komande komande2 bg-poluprovidno'>
       ${progresBar(this.tenk.energija)}
       ${!this.tenk.ai ? komande2() : ''}
       <button id="dva-igraca" class="bg-avocado full">

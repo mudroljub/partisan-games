@@ -6,10 +6,6 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-TopScena
-- menjati neprijatelja ili dodavati više?
-- nekad se poremeti raspored partizana kada izgubim
-
 Scena1944
 - dodati stvar za hvatanje (paketić)
 - ubaciti jednog neprijatelja
