@@ -41,7 +41,7 @@ export default class Tenk extends Predmet {
     this.vremePucanja = new Vreme()
   }
 
-  get polozajGranate() {
+  get vrhCevi() {
     const x = Math.cos(this.cev.ugao) * this.cev.dijagonala + this.cev.x
     const y = Math.sin(this.cev.ugao) * this.cev.dijagonala + this.cev.y
     return { x, y }
@@ -75,7 +75,7 @@ export default class Tenk extends Predmet {
     if (this.vreme.proteklo < this.vremePunjenja) return
     const granata = this.granate.find(g => !g.ispaljeno) || this.novaGranata()
 
-    granata.pali(this.polozajGranate, this.cev.ugao)
+    granata.pali(this.vrhCevi, this.cev.ugao)
     this.trzaj()
     this.vreme.reset()
   }

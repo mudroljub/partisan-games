@@ -1,10 +1,12 @@
 import Predmet from '/game-engine/core/Predmet.js'
 import { izasaoIgde } from '/game-engine/utils/granice.js'
+import { randomInRange } from '/game-engine/utils.js'
 
 export default class Metak extends Predmet {
   constructor({ src = 'granata.gif', skalar = .5, potisak = 1000, ...rest } = {}) {
     super(src, { skalar, ...rest })
     this.potisak = potisak
+    this.steta = randomInRange(10, 20)
     this.reset()
   }
 
