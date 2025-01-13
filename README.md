@@ -9,8 +9,10 @@ Male igrice o Nemcima i partizanima.
 - dodati restart na esc
 
 Scena1944
-- dodati hvatanje zdravlja
-- ubaciti jednog neprijatelja
+- dodati neprijatelje
+    - ubijanje neprijatelja
+    - neprijatelji pucaju
+    - neprijatelji umiru (da se smanjuje, kao da pada, gori)
 - senku ispod aviona, kao u avion.png
 
 CamacScena
@@ -48,6 +50,7 @@ TenkOdozgoScena
 - integrisati https:-github.com/mudroljub/partisans
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju
+- dodati 3d model u 1944
 
 ### Završno
 - glavni meni da bude karta jugoslavije sa izborom misija
