@@ -9,10 +9,10 @@ export default class Metak extends Predmet {
     this.sakrij()
   }
 
-  puca(odstupanje = 0) {
+  puca(ugao) {
     this.pokazi()
     this.polozaj(this.vlasnik.x, this.vlasnik.y - this.vlasnik.visina / 4)
-    this.ugao += odstupanje
+    this.ugao = ugao
     this.brzina = 1000
   }
 

@@ -4,8 +4,8 @@ import platno from '/game-engine/io/platno.js'
 import Metak from './Metak.js'
 
 const BROJ_METAKA = 999
-const SIRINA_PALJBE = 13
 const PAUZA_PALJBE = 0.1
+const ugloviPucanja = [-13, 0, 13]
 
 export class Avionce extends Igrac {
   constructor() {
@@ -15,6 +15,7 @@ export class Avionce extends Igrac {
     this.brzina = 0
     this.meci = Array.from({ length: BROJ_METAKA }, () => new Metak(this))
     this.predmeti = this.meci
+    this.ugaoGore = this.ugao + Math.PI * 1.5
   }
 
   onload() {
@@ -31,11 +32,11 @@ export class Avionce extends Igrac {
     const nemaMunicije = this.trenutniMetak >= BROJ_METAKA - 2
     if (cevNijeSpremna || nemaMunicije) return
 
-    this.meci[this.trenutniMetak].puca(0)
-    this.meci[this.trenutniMetak + 1].puca(-SIRINA_PALJBE)
-    this.meci[this.trenutniMetak + 2].puca(SIRINA_PALJBE)
+    ugloviPucanja.forEach((ugao, i) => {
+      this.meci[this.trenutniMetak + i].puca(this.ugaoGore + ugao)
+    })
 
-    this.trenutniMetak += 3
+    this.trenutniMetak += ugloviPucanja.length
     this.vreme.reset()
   }
 
