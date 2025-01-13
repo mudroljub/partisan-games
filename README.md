@@ -7,19 +7,15 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 - dodati gpt slike
+
+
+- ujednaciti Prateca i Granata:
 - BUG: pucaPovremeno nekad ne puca prvi put
 
 TopScena
 - menjati neprijatelja ili dodavati više?
 - dodati 2. igrača
 - nekad se poremeti raspored partizana kada izgubim
-
-Prateca vs Granata:
-- jedna dobija callback na stvaranju, druga na proveri sudara
-- jedna može sama da proverava sudare u ažuriraj, druga ne može
-- jedna ima niz ciljeva, druga nema (ima roditelj)
-    - ciljevi se svakako moraju dodati u sceni, samo je pitanje kome?
-- možda napraviti fleksibilno rešenje koje podržava oba pristupa??
 
 Scena1944
 - dodati stvar za hvatanje (paketić)

@@ -9,13 +9,13 @@ export default class Prateca extends Predmet {
     this.reset()
   }
 
+  dodajCiljeve(...args) {
+    this.ciljevi.push(...args)
+  }
+
   reset() {
     this.ispaljeno = false
     this.nestani()
-  }
-
-  dodajCiljeve(...args) {
-    this.ciljevi.push(...args)
   }
 
   postavi(polozaj, ugao) {
@@ -25,25 +25,25 @@ export default class Prateca extends Predmet {
 
   pali(polozaj, ugao) {
     this.postavi(polozaj, ugao)
-    this.puca()
-  }
-
-  puca() {
     this.pokazi()
     this.brzina = this.potisak
     this.ispaljeno = true
   }
 
+  proveriGranice() {
+    if (izasaoIgde(this)) this.reset()
+  }
+
+  /* PRATECA */
+
   pucaCiljano(polozaj, ugao) {
     if (!this.ciljevi.some(cilj => cilj.ziv)) return
 
     this.postavi(polozaj, ugao)
-    this.traziNajblizuMetu()
-    this.puca()
-  }
+    const meta = this.traziNajblizuMetu()
+    if (!meta) return
 
-  nisani(cilj) {
-    this.ugao = this.ugaoKa(cilj)
+    this.pali(polozaj, this.ugaoKa(meta))
   }
 
   traziNajblizuMetu() {
@@ -54,12 +54,8 @@ export default class Prateca extends Predmet {
       if (!minRazmak) minRazmak = razmak
       if (!najblizaMeta) najblizaMeta = cilj
       if (razmak < minRazmak) minRazmak = razmak
-      if (najblizaMeta) this.nisani(najblizaMeta)
     })
-  }
-
-  proveriGranice() {
-    if (izasaoIgde(this)) this.reset()
+    return najblizaMeta
   }
 
   /* SUDAR */
