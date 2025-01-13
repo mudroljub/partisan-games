@@ -6,7 +6,7 @@ import Pokretno from './Pokretno.js'
 import Oblak from './Oblak.js'
 
 const brojOblaka = 3
-const brzina = 300
+const brzina = 200
 
 export default class Scena1944 extends Scena {
   init() {
@@ -17,7 +17,10 @@ export default class Scena1944 extends Scena {
     this.zdravlje = new Pokretno('zdravlje.png', { potisak: brzina, skalar: .66, faktorY: 10 })
     this.igrac = new Avionce()
     this.neprijatelji = [
-      new Pokretno('2d-odozgo/nemci/avioni/avion-01.png', { potisak: brzina * .5, skalar: .66, faktorY: 1, odrazX: -1 })
+      new Pokretno('2d-odozgo/nemci/avioni/avion-01.png', { potisak: brzina * 1.1, skalar: .66, faktorY: 3, odrazX: -1 }),
+      new Pokretno('2d-odozgo/nemci/avioni/avion-03.png', { potisak: brzina * 1.2, skalar: .8, faktorY: 3, odrazX: -1 }),
+      new Pokretno('2d-odozgo/nemci/avioni/avion-05.png', { potisak: brzina * 1.3, skalar: .66, faktorY: 3, odrazX: -1 }),
+      new Pokretno('2d-odozgo/nemci/avioni/Reggiane-Re-2005.png', { potisak: brzina * 1.4, skalar: .8, faktorY: 3, odrazX: -1 }),
     ]
     const pozadina = new PokretnaPozadina(brzina, platno.width)
     this.dodaj(pozadina, this.zdravlje, this.ostrvo, ...this.neprijatelji, this.igrac, ...this.oblaci)

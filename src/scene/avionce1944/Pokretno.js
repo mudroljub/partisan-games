@@ -16,7 +16,7 @@ export default class Pokretno extends Predmet {
 
   postaviPolozaj() {
     const x = Math.random() * platno.width
-    this.polozaj = { x, y: -platno.height * this.faktorY }
+    this.polozaj = { x, y: -platno.height * Math.random() * this.faktorY }
   }
 
   reset() {
