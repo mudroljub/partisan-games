@@ -1,7 +1,7 @@
 import Igrac from '/game-engine/core/Igrac.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import platno from '/game-engine/io/platno.js'
-import Metak from './Metak.js'
+import Metak from '/game-engine/core/Metak.js'
 
 const BROJ_METAKA = 999
 const PAUZA_PALJBE = 0.1
