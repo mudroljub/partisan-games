@@ -6,6 +6,8 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
+- dodati restart na esc
+
 Scena1944
 - dodati hvatanje zdravlja
 - ubaciti jednog neprijatelja

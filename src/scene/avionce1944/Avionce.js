@@ -8,7 +8,7 @@ const ugloviPucanja = [-13, 0, 13]
 
 export class Avionce extends Igrac {
   constructor() {
-    super('2d-odozgo/avionce.gif', { skalar: .75 })
+    super('2d-odozgo/avionce.gif', { skalar: .75, zapaljiv: true })
     this.vreme = new Vreme()
     this.brzina = 0
     this.meci = []
