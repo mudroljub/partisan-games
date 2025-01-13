@@ -1,9 +1,11 @@
 import Predmet from '/game-engine/core/Predmet.js'
+import { izasaoIgde } from '/game-engine/utils/granice.js'
 
 export default class Metak extends Predmet {
 
-  constructor({ src = 'granata.gif', skalar = .5, ...rest } = {}) {
+  constructor({ src = 'granata.gif', skalar = .5, potisak = 1000, ...rest } = {}) {
     super(src, { skalar, ...rest })
+    this.potisak = potisak
     this.reset()
   }
 
@@ -17,7 +19,7 @@ export default class Metak extends Predmet {
     this.ugao = ugao
   }
 
-  pali(polozaj, ugao, potisak = 1000) {
+  pali(polozaj, ugao, potisak = this.potisak) {
     this.postavi(polozaj, ugao)
     this.pokazi()
     this.dodajSilu(potisak)
@@ -25,6 +27,6 @@ export default class Metak extends Predmet {
   }
 
   proveriGranice() {
-    this.nestaje()
+    if (izasaoIgde(this)) this.reset()
   }
 }
