@@ -8,6 +8,8 @@ Male igrice o Nemcima i partizanima.
 
 nijeVidljiv -> nijePrikazan
 
+- reuse praviPucanje za tenk
+
 Scena1944
 - dodati neprijatelje
     - neprijatelji pucaju
