@@ -44,8 +44,11 @@ export class Avionce extends Igrac {
 
   proveriPucanje() {
     this.neprijatelji.forEach(neprijatelj => {
-      // ako je van ekrana return
+      if (neprijatelj.vanEkrana) return
+
       this.meci.forEach(metak => {
+        if (metak.vanEkrana) return
+
         if (metak.sudara(neprijatelj)) {
           neprijatelj.umri()
           metak.reset()

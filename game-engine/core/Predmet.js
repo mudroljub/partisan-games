@@ -2,7 +2,7 @@ import { platno, ctx } from '../io/platno.js'
 import { pitagora, randomInRange } from '../utils.js'
 import { sudar } from '../utils/sudari.js'
 import {
-  izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, izasaoVAn
+  izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, vanEkrana
 } from '/game-engine/utils/granice.js'
 
 export default class Predmet {
@@ -206,12 +206,12 @@ export default class Predmet {
       this.skreni(2 * Math.PI - this.ugao)
     if (izasaoLevo(this) || izasaoDesno(this))
       this.skreni(Math.PI - this.ugao)
-    if (izasaoVAn(this))
+    if (vanEkrana(this))
       this.pomeri(5)
   }
 
   nestaje() {
-    if (izasaoVAn(this)) this.nestani()
+    if (vanEkrana(this)) this.nestani()
   }
 
   ogranici() {
@@ -227,6 +227,10 @@ export default class Predmet {
     const marginaDole = platno.height - marginaGore
     if (this.y <= marginaGore) this.y = marginaGore
     if (this.y >= marginaDole) this.y = marginaDole
+  }
+
+  get vanEkrana() {
+    return vanEkrana(this)
   }
 
   /* PLAMEN */

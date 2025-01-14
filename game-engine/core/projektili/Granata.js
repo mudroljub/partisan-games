@@ -1,6 +1,6 @@
 import Predmet from '/game-engine/core/Predmet.js'
 import { platno } from '/game-engine/io/platno.js'
-import { izasaoVAn } from '/game-engine/utils/granice.js'
+import { vanEkrana } from '/game-engine/utils/granice.js'
 import Metak from './Metak.js'
 
 const duzinaEksplozije = 150
@@ -24,7 +24,7 @@ export default class Granata extends Metak {
   }
 
   proveriGranice() {
-    if (izasaoVAn(this) || this.y > this.nivoTla) this.reset()
+    if (vanEkrana(this) || this.y > this.nivoTla) this.reset()
   }
 
   /* SUDAR */
