@@ -77,10 +77,13 @@ export default class Tenk extends Predmet {
     this.trzaj()
   }
 
-  proveriPogodak() {
+  proveriPogodak(cilj) {
+    if (cilj.nijePrikazan || cilj.mrtav) return
+
     this.meci.forEach(metak => {
       if (metak.nijePrikazan) return
-      metak.proveriPogodak(this.cilj)
+
+      metak.proveriPogodak(cilj)
     })
   }
 
@@ -142,7 +145,7 @@ export default class Tenk extends Predmet {
     if (this.ai) this.samohod()
     this.azurirajCev()
     this.trenje(this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje)
-    this.proveriPogodak()
+    this.proveriPogodak(this.cilj)
   }
 
   render() {
