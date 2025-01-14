@@ -8,10 +8,6 @@ export default class PokretnaPozadina extends Predmet {
     this.dy = brzina
   }
 
-  get vanEkrana() {
-    return false
-  }
-
   onload() {
     this.polozaj = { x: this.sirina / 2, y: 0 }
   }

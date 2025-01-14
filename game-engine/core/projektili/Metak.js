@@ -1,5 +1,4 @@
 import Predmet from '/game-engine/core/Predmet.js'
-import { vanEkrana } from '/game-engine/utils/granice.js'
 import { randomInRange } from '/game-engine/utils.js'
 
 export default class Metak extends Predmet {
@@ -12,7 +11,6 @@ export default class Metak extends Predmet {
 
   reset() {
     this.nestani()
-    this.ispaljeno = false
   }
 
   postavi(polozaj, ugao) {
@@ -24,11 +22,10 @@ export default class Metak extends Predmet {
     this.postavi(polozaj, ugao)
     this.pokazi()
     this.dodajSilu(potisak)
-    this.ispaljeno = true
   }
 
   proveriGranice() {
-    if (vanEkrana(this)) this.reset()
+    if (this.vanEkrana) this.reset()
   }
 
   povredi(cilj) {

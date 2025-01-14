@@ -35,7 +35,7 @@ export class Avionce extends Igrac {
     const polozaj = { x: this.x, y: this.y - this.visina / 4 }
 
     ugloviPucanja.forEach(ugao => {
-      const metak = this.meci.find(g => !g.ispaljeno) || this.novMetak()
+      const metak = this.meci.find(g => !g.vidljiv) || this.novMetak()
       metak.pali(polozaj, this.ugaoNapred + ugao)
     })
 

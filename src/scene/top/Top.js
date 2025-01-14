@@ -28,7 +28,7 @@ export default class Top extends Predmet {
   }
 
   pali() {
-    const projektil = this.projektili.find(p => !p.ispaljeno)
+    const projektil = this.projektili.find(p => !p.vidljiv)
     if (!projektil) return
 
     const pozicija = { x: this.vrhX, y: this.vrhY }
@@ -51,7 +51,7 @@ export default class Top extends Predmet {
 
   proveriPogodak() {
     this.projektili.forEach(projektil => {
-      if (projektil.ispaljeno)
+      if (projektil.vidljiv)
         this.ciljevi.forEach(cilj => projektil.proveriPogodak(cilj))
     })
   }

@@ -39,7 +39,7 @@ export default class Prateca extends Metak {
   }
 
   update(dt) {
-    if (!this.ispaljeno) return
+    if (!this.vidljiv) return
     super.update(dt)
     this.proveriSudare()
   }
