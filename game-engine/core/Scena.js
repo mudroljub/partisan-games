@@ -60,7 +60,7 @@ export default class Scena {
     return /* html */`
       <div class="prozorce centar">
         <p>Napusti igru?</p>
-        <button id="menu">Da</button><button id="cancel">Ne</button>
+        <button id="menu">Da</button><button id="cancel">Ne</button><button id="igraj-opet">Igraj opet</button>
       </div>
     `
   }

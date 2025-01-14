@@ -10,6 +10,6 @@
   transform: translate(-50%,-50%);
 }
 
-.prozorce button:nth-of-type(2) {
+.prozorce button:nth-of-type(n+2) {
   margin-left: 20px;
 }
