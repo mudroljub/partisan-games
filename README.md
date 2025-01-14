@@ -6,9 +6,8 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-nijeVidljiv -> nijePrikazan
-
 - reuse praviPucanje za tenk
+- spojiti nijePrikazan i vidljiv?
 
 Scena1944
 - dodati neprijatelje

@@ -30,8 +30,8 @@ export default class Tenk extends Predmet {
     this.cev = new Predmet(cevSlika, { skalar })
     this.vreme = new Vreme()
     this.potisak = 25
-    this.granate = []
-    this.predmeti = this.granate
+    this.meci = []
+    this.predmeti = this.meci
     this.spremno = false
     // AI
     this.ai = false
@@ -51,11 +51,7 @@ export default class Tenk extends Predmet {
     return this.ugao + Math.PI
   }
 
-  proveriPogodak() {
-    this.granate
-      .filter(granata => granata.vidljiv)
-      .forEach(granata => granata.proveriPogodak(this.cilj))
-  }
+  /* PUCANJE */
 
   pokusajPucanje(key) {
     if (keyboard.pressed[key]) this.spremno = true
@@ -65,19 +61,27 @@ export default class Tenk extends Predmet {
     }
   }
 
-  novaGranata() {
-    const granata = new Granata({ gravitacija })
-    this.granate.push(granata)
-    return granata
+  proveriPogodak() {
+    this.meci.forEach(metak => {
+      if (metak.nijePrikazan) return
+      metak.proveriPogodak(this.cilj)
+    })
+  }
+
+  novMetak() {
+    const metak = new Granata({ gravitacija })
+    this.meci.push(metak)
+    return metak
   }
 
   pali() {
     if (this.vreme.proteklo < this.vremePunjenja) return
-    const granata = this.granate.find(g => !g.vidljiv) || this.novaGranata()
+    const metak = this.meci.find(g => !g.vidljiv) || this.novMetak()
 
-    granata.pali(this.vrhCevi, this.cev.ugao)
-    this.trzaj()
+    metak.pali(this.vrhCevi, this.cev.ugao)
     this.vreme.reset()
+
+    this.trzaj()
   }
 
   trzaj() {

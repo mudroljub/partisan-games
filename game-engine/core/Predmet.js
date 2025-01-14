@@ -149,7 +149,7 @@ export default class Predmet {
 
   /* STANJE */
 
-  get nijeVidljiv() {
+  get nijePrikazan() {
     return !this.vidljiv || this.vanEkrana
   }
 
@@ -315,7 +315,7 @@ export default class Predmet {
   }
 
   render() {
-    if (this.nijeVidljiv) return
+    if (this.nijePrikazan) return
 
     ctx.save()
     ctx.translate(this.x, this.y)

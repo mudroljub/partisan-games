@@ -15,7 +15,7 @@ export function praviPucanje({ pauzaPaljbe = 100, ugloviPucanja = [-13, 0, 13] }
       return metak
     },
 
-    puca() {
+    pali() {
       if (this.vreme.proteklo <= pauzaPaljbe) return
       const polozaj = { x: this.x, y: this.y - this.visina / 4 }
 
@@ -28,10 +28,10 @@ export function praviPucanje({ pauzaPaljbe = 100, ugloviPucanja = [-13, 0, 13] }
 
     proveriPogotke(callback) {
       this.ciljevi.forEach(neprijatelj => {
-        if (neprijatelj.nijeVidljiv || neprijatelj.mrtav) return
+        if (neprijatelj.nijePrikazan || neprijatelj.mrtav) return
 
         this.meci.forEach(metak => {
-          if (metak.nijeVidljiv) return
+          if (metak.nijePrikazan) return
 
           if (metak.sudara(neprijatelj)) {
             neprijatelj.umri()

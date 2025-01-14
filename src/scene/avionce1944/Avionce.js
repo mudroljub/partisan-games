@@ -17,6 +17,10 @@ export class Avionce extends Igrac {
     this.ogranici()
   }
 
+  puca() {
+    this.pali()
+  }
+
   update(dt) {
     super.update(dt)
     this.proveriPogotke(() => this.poeni++)
