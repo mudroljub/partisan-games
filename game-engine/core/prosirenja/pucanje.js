@@ -1,7 +1,7 @@
 import Metak from '/game-engine/core/projektili/Metak.js'
 import Vreme from '/game-engine/core/Vreme.js'
 
-export function praviPucanje({ pauzaPaljbe = 100, ugloviPucanja = [-13, 0, 13] } = {}) {
+export function praviPucanje({ vremePunjenja = 100, ugloviPucanja = [-13, 0, 13] } = {}) {
   return {
     meci: [],
     ciljevi: [],
@@ -16,7 +16,7 @@ export function praviPucanje({ pauzaPaljbe = 100, ugloviPucanja = [-13, 0, 13] }
     },
 
     pali() {
-      if (this.vreme.proteklo <= pauzaPaljbe) return
+      if (this.vreme.proteklo <= vremePunjenja) return
       const polozaj = { x: this.x, y: this.y - this.visina / 4 }
 
       ugloviPucanja.forEach(ugao => {

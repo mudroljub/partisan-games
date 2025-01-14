@@ -27,4 +27,4 @@ export class Avionce extends Igrac {
   }
 }
 
-Object.assign(Avionce.prototype, praviPucanje({ pauzaPaljbe: 100, ugloviPucanja: [-13, 0, 13] }))
+Object.assign(Avionce.prototype, praviPucanje({ vremePunjenja: 100, ugloviPucanja: [-13, 0, 13] }))
