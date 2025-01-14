@@ -7,7 +7,7 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 - reuse praviPucanje za tenk
-- spojiti nijePrikazan i vidljiv?
+- spojiti nijePrikazan i vidljiv? ili preimenovati bez negacije?
 
 Scena1944
 - dodati neprijatelje

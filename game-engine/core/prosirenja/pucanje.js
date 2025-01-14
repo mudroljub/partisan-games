@@ -27,14 +27,14 @@ export function praviPucanje({ pauzaPaljbe = 100, ugloviPucanja = [-13, 0, 13] }
     },
 
     proveriPogotke(callback) {
-      this.ciljevi.forEach(neprijatelj => {
-        if (neprijatelj.nijePrikazan || neprijatelj.mrtav) return
+      this.ciljevi.forEach(cilj => {
+        if (cilj.nijePrikazan || cilj.mrtav) return
 
         this.meci.forEach(metak => {
           if (metak.nijePrikazan) return
 
-          if (metak.sudara(neprijatelj)) {
-            neprijatelj.umri()
+          if (metak.sudara(cilj)) {
+            cilj.umri()
             metak.reset()
             if (callback) callback()
           }
