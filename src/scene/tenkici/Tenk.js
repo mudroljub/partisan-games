@@ -57,7 +57,7 @@ export default class Tenk extends Predmet {
       .forEach(granata => granata.proveriPogodak(this.cilj))
   }
 
-  proveriPucanje(key) {
+  pokusajPucanje(key) {
     if (keyboard.pressed[key]) this.spremno = true
     if (this.spremno && !keyboard.pressed[key]) {
       this.pali()

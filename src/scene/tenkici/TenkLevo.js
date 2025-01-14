@@ -38,7 +38,7 @@ export default class TenkLevo extends Tenk {
     if (keyboard.pressed.KeyS)
       this.spustajCev()
 
-    this.proveriPucanje('Space')
+    this.pokusajPucanje('Space')
   }
 
   azurirajCev() {

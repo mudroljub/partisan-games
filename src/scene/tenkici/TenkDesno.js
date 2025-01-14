@@ -44,7 +44,7 @@ export default class TenkDesno extends Tenk {
     if (keyboard.pressed.ArrowDown)
       this.spustajCev()
 
-    this.proveriPucanje('Enter')
+    this.pokusajPucanje('Enter')
   }
 
   azurirajCev() {
