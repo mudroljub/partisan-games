@@ -12,8 +12,10 @@ export class Avionce extends Igrac {
     this.vreme = new Vreme()
     this.brzina = 0
     this.meci = []
+    this.neprijatelji = []
     this.predmeti = this.meci
     this.ugaoNapred = this.ugao + Math.PI * 1.5
+    this.poeni = 0
   }
 
   onload() {
@@ -44,15 +46,15 @@ export class Avionce extends Igrac {
 
   proveriPucanje() {
     this.neprijatelji.forEach(neprijatelj => {
-      if (!neprijatelj.vidljiv || neprijatelj.vanEkrana) return
+      if (neprijatelj.nijeVidljiv || neprijatelj.mrtav) return
 
       this.meci.forEach(metak => {
-        if (!metak.vidljiv || metak.vanEkrana) return
+        if (metak.nijeVidljiv) return
 
         if (metak.sudara(neprijatelj)) {
           neprijatelj.umri()
           metak.reset()
-          // this.poeni--
+          this.poeni++
         }
       })
     })

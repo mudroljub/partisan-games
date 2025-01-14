@@ -11,7 +11,6 @@ const brzina = 150
 
 export default class Scena1944 extends Scena {
   init() {
-    this.poeni = 0
     this.zivoti = 3
     this.oblaci = Array.from({ length: brojOblaka }, () => new Oblak(brzina))
     this.ostrvo = new Pokretno('2d-odozgo/ostrvo.gif', { potisak: brzina, skalar: 2 })
@@ -50,7 +49,7 @@ export default class Scena1944 extends Scena {
   sablon() {
     return /* html */`
       <div class='komande bg-poluprovidno komande1'>
-        Poeni: ${this.poeni}<br>
+        Poeni: ${this.igrac.poeni}<br>
         Životi: ${this.zivoti}<br>
       </div>
     `
