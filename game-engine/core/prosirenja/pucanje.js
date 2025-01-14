@@ -28,7 +28,7 @@ export function praviPucanje() {
       this.vreme.reset()
     },
 
-    proveriPucanje(callback) {
+    proveriPogotke(callback) {
       this.ciljevi.forEach(neprijatelj => {
         if (neprijatelj.nijeVidljiv || neprijatelj.mrtav) return
 

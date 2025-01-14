@@ -20,7 +20,7 @@ export class Avionce extends Igrac {
 
   update(dt) {
     super.update(dt)
-    this.proveriPucanje(() => this.poeni++)
+    this.proveriPogotke(() => this.poeni++)
   }
 }
 
