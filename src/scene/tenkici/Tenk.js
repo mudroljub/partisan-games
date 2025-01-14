@@ -31,7 +31,6 @@ export default class Tenk extends Predmet {
     this.vreme = new Vreme()
     this.potisak = 25
     this.meci = []
-    this.predmeti = this.meci
     this.spremno = false
     // AI
     this.ai = false
@@ -61,16 +60,10 @@ export default class Tenk extends Predmet {
     }
   }
 
-  proveriPogodak() {
-    this.meci.forEach(metak => {
-      if (metak.nijePrikazan) return
-      metak.proveriPogodak(this.cilj)
-    })
-  }
-
   novMetak() {
     const metak = new Granata({ gravitacija })
     this.meci.push(metak)
+    this.predmeti.push(metak)
     return metak
   }
 
@@ -82,6 +75,13 @@ export default class Tenk extends Predmet {
     this.vreme.reset()
 
     this.trzaj()
+  }
+
+  proveriPogodak() {
+    this.meci.forEach(metak => {
+      if (metak.nijePrikazan) return
+      metak.proveriPogodak(this.cilj)
+    })
   }
 
   trzaj() {

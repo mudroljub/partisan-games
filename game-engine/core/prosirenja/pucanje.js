@@ -26,20 +26,22 @@ export function praviPucanje({ pauzaPaljbe = 100, ugloviPucanja = [-13, 0, 13] }
       this.vreme.reset()
     },
 
-    proveriPogotke(callback) {
-      this.ciljevi.forEach(cilj => {
-        if (cilj.nijePrikazan || cilj.mrtav) return
+    proveriPogodak(cilj, callback) {
+      if (cilj.nijePrikazan || cilj.mrtav) return
 
-        this.meci.forEach(metak => {
-          if (metak.nijePrikazan) return
+      this.meci.forEach(metak => {
+        if (metak.nijePrikazan) return
 
-          if (metak.sudara(cilj)) {
-            cilj.umri()
-            metak.reset()
-            if (callback) callback()
-          }
-        })
+        if (metak.sudara(cilj)) {
+          cilj.umri()
+          metak.reset()
+          if (callback) callback()
+        }
       })
+    },
+
+    proveriPogotke(callback) {
+      this.ciljevi.forEach(cilj => this.proveriPogodak(cilj, callback))
     }
   }
 }
