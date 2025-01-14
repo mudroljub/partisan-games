@@ -16,15 +16,15 @@ export default class Scena1944 extends Scena {
     this.ostrvo = new Pokretno('2d-odozgo/ostrvo.gif', { potisak: brzina, skalar: 2 })
     this.zdravlje = new Pokretno('zdravlje.png', { potisak: brzina, skalar: .66, faktorY: 10 })
     this.igrac = new Avionce()
-    const neprijatelji = [
+    this.neprijatelji = [
       new Neprijatelj('2d-odozgo/nemci/avioni/avion-01.png', { potisak: brzina }),
       new Neprijatelj('2d-odozgo/nemci/avioni/avion-03.png', { potisak: brzina }),
       new Neprijatelj('2d-odozgo/nemci/avioni/avion-05.png', { potisak: brzina }),
       new Neprijatelj('2d-odozgo/nemci/avioni/Reggiane-Re-2005.png', { potisak: brzina }),
     ]
-    this.igrac.neprijatelji = neprijatelji
+    this.igrac.ciljevi = this.neprijatelji
     const pozadina = new PokretnaPozadina(brzina, platno.width)
-    this.dodaj(pozadina, this.zdravlje, this.ostrvo, ...neprijatelji, this.igrac, ...this.oblaci)
+    this.dodaj(pozadina, this.zdravlje, this.ostrvo, ...this.neprijatelji, this.igrac, ...this.oblaci)
   }
 
   proveriSudare() {
@@ -32,7 +32,7 @@ export default class Scena1944 extends Scena {
       this.zdravlje.reset()
       this.zivoti++
     }
-    this.igrac.neprijatelji.forEach(neprijatelj => {
+    this.neprijatelji.forEach(neprijatelj => {
       if (this.igrac.sudara(neprijatelj)) {
         // neprijatelj.umri()
         this.igrac.umri()
