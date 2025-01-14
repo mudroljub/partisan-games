@@ -6,7 +6,7 @@ export class Avionce extends Igrac {
   constructor() {
     super('2d-odozgo/avionce.gif', { skalar: .75, zapaljiv: true })
     this.brzina = 0
-    this.predmeti = this.meci
+    // this.predmeti = this.meci
     this.poeni = 0
   }
 

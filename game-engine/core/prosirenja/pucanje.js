@@ -14,6 +14,7 @@ export function praviPucanje() {
     novMetak() {
       const metak = new Metak()
       this.meci.push(metak)
+      this.predmeti.push(metak)
       return metak
     },
 
