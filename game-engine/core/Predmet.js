@@ -187,6 +187,10 @@ export default class Predmet {
 
   /* GRANICE */
 
+  get vanEkrana() {
+    return vanEkrana(this)
+  }
+
   proveriGranice() {}
 
   kruzi(procenat = 1) {
@@ -211,7 +215,7 @@ export default class Predmet {
   }
 
   nestaje() {
-    if (izasaoIgde(this)) this.nestani()
+    if (this.vanEkrana) this.nestani()
   }
 
   ogranici() {
@@ -227,10 +231,6 @@ export default class Predmet {
     const marginaDole = platno.height - marginaGore
     if (this.y <= marginaGore) this.y = marginaGore
     if (this.y >= marginaDole) this.y = marginaDole
-  }
-
-  get vanEkrana() {
-    return vanEkrana(this)
   }
 
   /* PLAMEN */
