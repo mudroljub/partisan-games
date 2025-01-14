@@ -311,7 +311,7 @@ export default class Predmet {
   }
 
   render() {
-    if (!this.vidljiv) return
+    if (!this.vidljiv || this.vanEkrana) return
 
     ctx.save()
     ctx.translate(this.x, this.y)

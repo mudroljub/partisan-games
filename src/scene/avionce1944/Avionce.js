@@ -44,10 +44,10 @@ export class Avionce extends Igrac {
 
   proveriPucanje() {
     this.neprijatelji.forEach(neprijatelj => {
-      if (neprijatelj.vanEkrana) return
+      if (!neprijatelj.vidljiv || neprijatelj.vanEkrana) return
 
       this.meci.forEach(metak => {
-        if (metak.vanEkrana) return
+        if (!metak.vidljiv || metak.vanEkrana) return
 
         if (metak.sudara(neprijatelj)) {
           neprijatelj.umri()
