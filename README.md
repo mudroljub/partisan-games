@@ -10,9 +10,9 @@ Male igrice o Nemcima i partizanima.
 
 Scena1944
 - dodati neprijatelje
-    - ubijanje neprijatelja
     - neprijatelji pucaju
     - neprijatelji umiru (da se smanjuje, kao da pada, gori)
+        - resetuje ga nakon nekog vremena
 - senku ispod aviona, kao u avion.png
 
 CamacScena

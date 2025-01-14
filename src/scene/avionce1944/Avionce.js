@@ -41,4 +41,22 @@ export class Avionce extends Igrac {
 
     this.vreme.reset()
   }
+
+  proveriPucanje() {
+    this.neprijatelji.forEach(neprijatelj => {
+      // ako je van ekrana return
+      this.meci.forEach(metak => {
+        if (metak.sudara(neprijatelj)) {
+          neprijatelj.umri()
+          metak.reset()
+          // this.poeni--
+        }
+      })
+    })
+  }
+
+  update(dt) {
+    super.update(dt)
+    this.proveriPucanje()
+  }
 }

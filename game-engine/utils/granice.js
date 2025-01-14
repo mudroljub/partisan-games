@@ -7,4 +7,4 @@ export const izasaoDesno = predmet => predmet.x > platno.width
 export const izasaoLevo = predmet => predmet.x < 0
 export const izasaoLevoSkroz = predmet => predmet.x < -predmet.sirina / 2
 export const izasaoDesnoSkroz = predmet => predmet.x > platno.width + predmet.sirina / 2
-export const izasaoIgde = predmet => izasaoLevo(predmet) || izasaoDesno(predmet) || izasaoGore(predmet) || izasaoDole(predmet)
+export const izasaoVAn = predmet => izasaoLevo(predmet) || izasaoDesno(predmet) || izasaoGore(predmet) || izasaoDole(predmet)
