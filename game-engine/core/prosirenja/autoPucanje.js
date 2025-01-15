@@ -1,7 +1,7 @@
 import Prateca from '../projektili/Prateca.js'
 import Vreme from '/game-engine/core/Vreme.js'
 
-export function praviAutoPucanje({ zastoj = 3, src, potisakMetka = 600, skalar, x = 0, y = 0, ciljevi } = {}) {
+export function praviAutoPucanje({ zastoj = 3, src, skalar, ciljevi } = {}) {
   return {
     meci: [],
     vreme: new Vreme(),
@@ -9,7 +9,7 @@ export function praviAutoPucanje({ zastoj = 3, src, potisakMetka = 600, skalar, 
     ispaljenih: 0,
     duzinaRafala: 5,
     vremePunjenja: 100,
-    zadnjiRafal: 0,
+    zadnjiInterval: 0,
 
     novMetak() {
       const metak = new Prateca({ src, skalar, ciljevi })
@@ -18,27 +18,21 @@ export function praviAutoPucanje({ zastoj = 3, src, potisakMetka = 600, skalar, 
       return metak
     },
 
-    puca() {
-      const metak = this.meci.find(g => !g.vidljiv) || this.novMetak()
-      const polozaj = { x: this.x + x, y: this.y + y }
-      metak.pucaCiljano(polozaj, this.ugao, potisakMetka)
-    },
-
     pucaPovremeno(t) {
-      if (t - this.zadnjiRafal > this.zastoj) {
-        this.puca()
-        this.zadnjiRafal = t
+      if (t - this.zadnjiInterval > this.zastoj) {
+        this.pucaCiljano()
+        this.zadnjiInterval = t
       }
     },
 
     rafalPovremeno(t) {
-      if (t - this.zadnjiRafal > this.zastoj && this.vreme.proteklo > this.vremePunjenja) {
-        this.puca()
+      if (t - this.zadnjiInterval > this.zastoj && this.vreme.proteklo > this.vremePunjenja) {
+        this.pucaCiljano()
         this.ispaljenih++
         this.vreme.reset()
         if (this.ispaljenih >= this.duzinaRafala) {
           this.ispaljenih = 0
-          this.zadnjiRafal = t
+          this.zadnjiInterval = t
         }
       }
     },

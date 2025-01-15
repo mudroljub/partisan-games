@@ -38,6 +38,7 @@ export default class Scena1942 extends Scena {
 
     this.igrac.cvrstaTela.push(this.vozilo, this.ruina)
     this.igrac.ciljevi.push(this.vozilo)
+    this.vozilo.ciljevi.push(this.igrac)
 
     this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak())
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun())

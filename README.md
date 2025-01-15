@@ -9,6 +9,7 @@ Male igrice o Nemcima i partizanima.
 - popraviti VoziloBocno
 - auto pucanje spoji sa pucanje?
 - odvojiti još neka proširenja
+    - organizovati imenski prostor proširenja, zbog moguće kolizije
 
 Scena1944
 - neprijatelji pucaju
