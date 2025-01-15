@@ -15,7 +15,7 @@ export default class Mitraljezac extends Predmet {
   update(dt, t) {
     super.update(dt, t)
     this.ugao = this.ugaoKa(this.cilj) + Math.PI
-    this.rafalPovremeno(t)
+    this.rafalPovremenoCiljano(t)
     this.proveriPogotke()
   }
 }

@@ -23,6 +23,7 @@ export default class Scena1944 extends Scena {
       new Neprijatelj('2d-odozgo/nemci/avioni/Reggiane-Re-2005.png', { potisak: brzina }),
     ]
     this.igrac.ciljevi = this.neprijatelji
+    this.neprijatelji.forEach(neprijatelj => neprijatelj.ciljevi.push(this.igrac))
     const pozadina = new PokretnaPozadina(brzina, platno.width)
     this.dodaj(pozadina, this.zdravlje, this.ostrvo, ...this.neprijatelji, this.igrac, ...this.oblaci)
   }
@@ -41,8 +42,8 @@ export default class Scena1944 extends Scena {
     })
   }
 
-  update(dt) {
-    super.update(dt)
+  update(dt, t) {
+    super.update(dt, t)
     this.proveriSudare()
   }
 

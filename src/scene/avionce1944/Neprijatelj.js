@@ -8,7 +8,7 @@ export default class Neprijatelj extends Pokretno {
       skalar: .66, odrazX: -1, zapaljiv: true,
       potisak: potisak * randomInRange(1.1, 1.4), faktorY: randomInRange(3, 5),
     })
-    Object.assign(this, praviPucanje({ vremePunjenja: .1, ugloviPucanja: [-.33, 0, .33] }))
+    Object.assign(this, praviPucanje({ vremePunjenja: .1, ugloviPucanja: [-.33, 0, .33], potisakMetka: 600, stankaPucanja: 2 }))
   }
 
   puca() {
@@ -18,6 +18,7 @@ export default class Neprijatelj extends Pokretno {
 
   update(dt, t) {
     super.update(dt, t)
-    this.puca()
+    this.rafalPovremeno(t)
+    this.proveriPogotke()
   }
 }

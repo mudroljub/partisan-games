@@ -50,7 +50,7 @@ export function praviPucanje({
       this.ciljevi.forEach(cilj => this.proveriPogodak(cilj, callback))
     },
 
-    /* AUTOMATSKO */
+    /* CILJANO */
 
     traziNajblizuMetu() {
       let minRazmak
@@ -73,16 +73,30 @@ export function praviPucanje({
       this.pali(this.polozaj, this.ugaoKa(meta))
     },
 
-    pucaPovremeno(t) {
+    pucaPovremenoCiljano(t) {
       if (t - this.zadnjePucanje > stankaPucanja) {
         this.pucaCiljano()
         this.zadnjePucanje = t
       }
     },
 
-    rafalPovremeno(t) {
+    /* RAFALNO */
+
+    rafalPovremenoCiljano(t) {
       if (t - this.zadnjePucanje > stankaPucanja && this.vreme.protekloSekundi > vremePunjenja) {
         this.pucaCiljano()
+        this.ispaljenih++
+        this.vreme.reset()
+        if (this.ispaljenih >= this.duzinaRafala) {
+          this.ispaljenih = 0
+          this.zadnjePucanje = t
+        }
+      }
+    },
+
+    rafalPovremeno(t) {
+      if (t - this.zadnjePucanje > stankaPucanja && this.vreme.protekloSekundi > vremePunjenja) {
+        this.puca()
         this.ispaljenih++
         this.vreme.reset()
         if (this.ispaljenih >= this.duzinaRafala) {
