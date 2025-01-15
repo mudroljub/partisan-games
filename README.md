@@ -6,10 +6,10 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
+- popravi sva proširenja
+
 Scena1944
 - neprijatelji pucaju
-    - BUG: sve metke trpa u isti niz (isto će biti i za ciljeve)
-        - pokušati refaktor u klasu?
 - neprijatelji umiru (da se smanjuje, kao da pada, gori)
     - resetuje ga nakon nekog vremena
 - senku ispod aviona, kao u avion.png

@@ -7,6 +7,7 @@ export class Avionce extends Igrac {
     super('2d-odozgo/avionce.gif', { skalar: .75, zapaljiv: true })
     this.brzina = 0
     this.poeni = 0
+    Object.assign(this, praviPucanje({ vremePunjenja: 100, ugloviPucanja: [-.33, 0, .33] }))
   }
 
   onload() {
@@ -27,5 +28,3 @@ export class Avionce extends Igrac {
     this.proveriPogotke(() => this.poeni++)
   }
 }
-
-Object.assign(Avionce.prototype, praviPucanje({ vremePunjenja: 100, ugloviPucanja: [-13, 0, 13] }))
