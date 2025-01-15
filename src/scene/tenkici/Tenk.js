@@ -11,15 +11,13 @@ const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
 const potisakMetka = 500
 
-const defaultSkalar = window.innerWidth > 1280 ? 0.5 : 0.4
-
 /* Abstract class */
 export default class Tenk extends Predmet {
   constructor(src, {
     cevSlika,
     cilj,
     tenkDesno = false,
-    skalar = defaultSkalar,
+    skalar = window.innerWidth > 1280 ? 0.5 : 0.4,
     vremePunjenjaAI = 1500,
     ...rest
   } = {}) {
