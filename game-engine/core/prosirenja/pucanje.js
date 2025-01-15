@@ -6,7 +6,6 @@ export function praviPucanje({ vremePunjenja = 100, ugloviPucanja = [-13, 0, 13]
     meci: [],
     ciljevi: [],
     vreme: new Vreme(),
-    ugaoPucanja: Math.PI * 1.5,
 
     novMetak() {
       const metak = new Metak()
@@ -15,13 +14,12 @@ export function praviPucanje({ vremePunjenja = 100, ugloviPucanja = [-13, 0, 13]
       return metak
     },
 
-    pali() {
+    pali(polozaj, ugao) {
       if (this.vreme.proteklo <= vremePunjenja) return
-      const polozaj = { x: this.x, y: this.y - this.visina / 4 }
 
-      ugloviPucanja.forEach(ugao => {
+      ugloviPucanja.forEach(ofset => {
         const metak = this.meci.find(g => !g.vidljiv) || this.novMetak()
-        metak.pali(polozaj, this.ugaoPucanja + ugao)
+        metak.pali(polozaj, ugao + ofset)
       })
       this.vreme.reset()
     },
