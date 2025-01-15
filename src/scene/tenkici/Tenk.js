@@ -38,7 +38,7 @@ export default class Tenk extends Predmet {
     this.vremePucanja = new Vreme()
     // proširenja
     Object.defineProperties(this, Object.getOwnPropertyDescriptors(praviEnergiju()))
-    Object.assign(this, praviPucanje({ projektil: Granata, vremePunjenja: 1000, potisakMetka, gravitacija }))
+    Object.assign(this, praviPucanje({ projektil: Granata, vremePunjenja: 1, potisakMetka, gravitacija }))
   }
 
   get vrhCevi() {

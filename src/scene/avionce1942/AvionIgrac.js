@@ -12,7 +12,7 @@ export default class AvionIgrac extends Igrac {
     this.brzina = 0
     this.nivoTla = nivoTla
     this.oznake.add('igrac')
-    Object.assign(this, praviRakete({ vremePunjenja: 1500 }))
+    Object.assign(this, praviRakete({ vremePunjenja: 1.5 }))
   }
 
   proveriGranice() {

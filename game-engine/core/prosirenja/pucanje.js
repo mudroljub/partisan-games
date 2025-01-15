@@ -2,7 +2,7 @@ import Metak from '/game-engine/core/projektili/Metak.js'
 import Vreme from '/game-engine/core/Vreme.js'
 
 export function praviPucanje({
-  projektil = Metak, vremePunjenja = 100, ugloviPucanja = [0], potisakMetka = 1000, stankaPucanja = 3, // sec
+  projektil = Metak, vremePunjenja = .1, ugloviPucanja = [0], potisakMetka = 1000, stankaPucanja = 3,
   gravitacija = 0, src, skalar, x = 0, y = 0,
 } = {}) {
   return {
@@ -24,7 +24,7 @@ export function praviPucanje({
     },
 
     pali(polozaj, ugao, potisak = potisakMetka) {
-      if (this.pripucao && this.vreme.proteklo <= vremePunjenja) return
+      if (this.pripucao && this.vreme.protekloSekundi <= vremePunjenja) return
 
       const tacanPolozaj = { x: polozaj.x + x, y: polozaj.y + y }
 
@@ -81,7 +81,7 @@ export function praviPucanje({
     },
 
     rafalPovremeno(t) {
-      if (t - this.zadnjePucanje > stankaPucanja && this.vreme.proteklo > vremePunjenja) {
+      if (t - this.zadnjePucanje > stankaPucanja && this.vreme.protekloSekundi > vremePunjenja) {
         this.pucaCiljano()
         this.ispaljenih++
         this.vreme.reset()
