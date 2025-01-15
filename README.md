@@ -7,7 +7,9 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 - popravi proširenja
+    - auto pucanje - ciljeve treba nekako proslediti iz scene svakom metku
 - odvojiti još neka proširenja
+- popraviti Mitraljezac ugaoKa
 
 Scena1944
 - neprijatelji pucaju

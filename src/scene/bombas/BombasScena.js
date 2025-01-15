@@ -19,8 +19,7 @@ export default class BombasScena extends Scena {
 
     this.bombas = new Bombas(najdaljeTacke[0])
     this.bunker = new Bunker(najdaljeTacke[1])
-    this.mitraljezac = new Mitraljezac(this.bunker.x + 60, this.bunker.y + 20, this.bombas)
-    this.mitraljezac.initPucanje({ ciljevi: [this.bombas] })
+    this.mitraljezac = new Mitraljezac(this.bunker.x + 60, this.bunker.y + 20, [this.bombas])
 
     this.mine = pozicije
       .filter(p => !najdaljeTacke.some(tacka => tacka.x === p.x && tacka.y === p.y))

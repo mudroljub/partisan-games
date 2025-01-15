@@ -1,19 +1,20 @@
 import Prateca from '../projektili/Prateca.js'
 
-export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skalar, x = 0, y = 0 } = {}) {
+export function praviAutoPucanje({ zastoj = 3, src, potisakMetka = 600, skalar, x = 0, y = 0, ciljevi } = {}) {
   return {
-    i: 0,
+    meci: [],
     zastoj, // sekundi
     ispaljenih: 0,
     duzinaRafala: 5,
     proredRafala: .1,
     zadnjiPucanj: 0,
     zadnjiPucanjRafala: 0,
-    meci: Array.from({ length: kolicina }, () => new Prateca({ src, potisak, skalar })),
 
-    initPucanje({ ciljevi }) {
-      this.meci.forEach(r => r.dodajCiljeve(...ciljevi))
-      this.predmeti = [...this.meci]
+    novMetak() {
+      const metak = new Prateca({ src, skalar, ciljevi })
+      this.meci.push(metak)
+      this.predmeti.push(metak)
+      return metak
     },
 
     pucaPovremeno(t) {
@@ -36,9 +37,9 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
     },
 
     puca() {
-      const metak = this.meci[this.i++ % this.meci.length]
+      const metak = this.meci.find(g => !g.vidljiv) || this.novMetak()
       const polozaj = { x: this.x + x, y: this.y + y }
-      metak.pucaCiljano(polozaj, this.ugao, potisak)
+      metak.pucaCiljano(polozaj, this.ugao, potisakMetka)
     },
   }
 }

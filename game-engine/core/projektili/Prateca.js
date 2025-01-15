@@ -1,13 +1,9 @@
 import Metak from './Metak.js'
 
 export default class Prateca extends Metak {
-  constructor({ src = 'raketa.png', skalar = .55 } = {}) {
+  constructor({ src = 'raketa.png', skalar = .55, ciljevi = [] } = {}) {
     super({ src, skalar })
-    this.ciljevi = []
-  }
-
-  dodajCiljeve(...args) {
-    this.ciljevi.push(...args)
+    this.ciljevi = ciljevi
   }
 
   pucaCiljano(polozaj, ugao, potisak) {
