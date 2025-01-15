@@ -1,8 +1,8 @@
 import Metak from './Metak.js'
 
 export default class Prateca extends Metak {
-  constructor({ src = 'raketa.png', potisak = 625, skalar = .55 } = {}) {
-    super({ src, skalar, potisak })
+  constructor({ src = 'raketa.png', skalar = .55 } = {}) {
+    super({ src, skalar })
     this.ciljevi = []
   }
 
@@ -10,14 +10,14 @@ export default class Prateca extends Metak {
     this.ciljevi.push(...args)
   }
 
-  pucaCiljano(polozaj, ugao) {
+  pucaCiljano(polozaj, ugao, potisak) {
     if (!this.ciljevi.some(cilj => cilj.ziv)) return
 
     this.postavi(polozaj, ugao)
     const meta = this.traziNajblizuMetu()
     if (!meta) return
 
-    this.pali(polozaj, this.ugaoKa(meta))
+    this.pali(polozaj, this.ugaoKa(meta), potisak)
   }
 
   traziNajblizuMetu() {

@@ -6,7 +6,8 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- popravi sva proširenja
+- popravi proširenja
+- odvojiti još neka proširenja
 
 Scena1944
 - neprijatelji pucaju

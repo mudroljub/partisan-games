@@ -7,11 +7,11 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
     ispaljenih: 0,
     duzinaRafala: 5,
     proredRafala: .1,
+    zadnjiPucanj: 0,
+    zadnjiPucanjRafala: 0,
+    meci: Array.from({ length: kolicina }, () => new Prateca({ src, potisak, skalar })),
 
     initPucanje({ ciljevi }) {
-      this.zadnjiPucanj = 0
-      this.zadnjiPucanjRafala = 0
-      this.meci = Array.from({ length: kolicina }, () => new Prateca({ src, potisak, skalar }))
       this.meci.forEach(r => r.dodajCiljeve(...ciljevi))
       this.predmeti = [...this.meci]
     },
@@ -38,7 +38,7 @@ export function praviAutoPucanje({ zastoj = 3, kolicina = 5, src, potisak, skala
     puca() {
       const metak = this.meci[this.i++ % this.meci.length]
       const polozaj = { x: this.x + x, y: this.y + y }
-      metak.pucaCiljano(polozaj, this.ugao)
+      metak.pucaCiljano(polozaj, this.ugao, potisak)
     },
   }
 }
