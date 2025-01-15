@@ -17,6 +17,7 @@ export default class Top extends Predmet {
     this.projektili = Array.from({ length: 5 }, () => new Djule())
     this.predmeti = [...this.projektili]
     this.ciljevi = ciljevi
+    Object.defineProperties(this, Object.getOwnPropertyDescriptors(praviEnergiju()))
   }
 
   get vrhX() {
@@ -75,5 +76,3 @@ export default class Top extends Predmet {
     this.postolje.render()
   }
 }
-
-Object.defineProperties(Top.prototype, Object.getOwnPropertyDescriptors(praviEnergiju()))
