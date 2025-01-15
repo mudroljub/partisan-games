@@ -10,9 +10,7 @@ export function praviPucanje({
     ciljevi: [],
     vreme: new Vreme(),
     pripucao: false,
-    // automatsko
     zadnjePucanje: 0,
-    // rafalno
     ispaljenih: 0,
     duzinaRafala: 5,
 
@@ -52,7 +50,7 @@ export function praviPucanje({
       this.ciljevi.forEach(cilj => this.proveriPogodak(cilj, callback))
     },
 
-    /* AI */
+    /* AUTOMATSKO */
 
     traziNajblizuMetu() {
       let minRazmak
