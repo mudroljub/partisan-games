@@ -27,15 +27,7 @@ export function praviPucanje({ vremePunjenja = 100, ugloviPucanja = [-13, 0, 13]
     proveriPogodak(cilj, callback) {
       if (cilj.nijePrikazan || cilj.mrtav) return
 
-      this.meci.forEach(metak => {
-        if (metak.nijePrikazan) return
-
-        if (metak.sudara(cilj)) {
-          cilj.umri()
-          metak.reset()
-          if (callback) callback()
-        }
-      })
+      this.meci.forEach(metak => metak.proveriPogodak(cilj, callback))
     },
 
     proveriPogotke(callback) {

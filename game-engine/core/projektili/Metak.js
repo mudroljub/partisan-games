@@ -28,11 +28,18 @@ export default class Metak extends Predmet {
     if (this.vanEkrana) this.reset()
   }
 
-  povredi(cilj) {
+  proveriPogodak(cilj, callback) {
+    if (this.nijePrikazan || !cilj.sudara(this)) return
+
+    this.povredi(cilj, callback)
+  }
+
+  povredi(cilj, callback) {
     if (cilj.reagujNaPogodak)
       cilj.reagujNaPogodak(this.steta)
     else
       cilj.umri()
     this.reset()
+    if (callback) callback()
   }
 }
