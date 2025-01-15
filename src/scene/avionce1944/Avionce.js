@@ -7,7 +7,6 @@ export class Avionce extends Igrac {
     super('2d-odozgo/avionce.gif', { skalar: .75, zapaljiv: true })
     this.brzina = 0
     this.poeni = 0
-    this.ugaoPucanja = Math.PI * 1.5
   }
 
   onload() {
@@ -20,7 +19,7 @@ export class Avionce extends Igrac {
 
   puca() {
     const polozaj = { x: this.x, y: this.y - this.visina / 4 }
-    this.pali(polozaj, this.ugaoPucanja)
+    this.pali(polozaj, Math.PI * 1.5)
   }
 
   update(dt) {
