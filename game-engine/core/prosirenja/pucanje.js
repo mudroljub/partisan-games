@@ -2,7 +2,8 @@ import Metak from '/game-engine/core/projektili/Metak.js'
 import Vreme from '/game-engine/core/Vreme.js'
 
 export function praviPucanje({
-  projektil = Metak, vremePunjenja = 100, ugloviPucanja = [0], gravitacija = 0, potisakMetka = 1000
+  projektil = Metak, vremePunjenja = 100, ugloviPucanja = [0], potisakMetka = 1000,
+  gravitacija = 0, src, skalar
 } = {}) {
   return {
     meci: [],
@@ -11,7 +12,7 @@ export function praviPucanje({
     zapoceto: false,
 
     novMetak() {
-      const metak = new projektil({ gravitacija })
+      const metak = new projektil({ gravitacija, src, skalar })
       this.meci.push(metak)
       this.predmeti.push(metak)
       return metak
@@ -41,6 +42,8 @@ export function praviPucanje({
     proveriPogotke(callback) {
       this.ciljevi.forEach(cilj => this.proveriPogodak(cilj, callback))
     },
+
+    /* CILJANO */
 
     pucaCiljano() {
       if (!this.ciljevi.some(cilj => cilj.ziv)) return
