@@ -44,19 +44,8 @@ export default class Granata extends Metak {
 
   /* LOOP */
 
-  azurirajUgao() {
-    this.ugao = Math.atan2(this.dy, this.dx)
-  }
-
   render() {
     super.render()
     this.plamicak.render()
-  }
-
-  update(dt) {
-    if (!this.vidljiv) return
-    this.dodajSilu(this.gravitacija * dt, Math.PI / 2)
-    this.azurirajUgao()
-    super.update(dt)
   }
 }

@@ -7,6 +7,8 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 - reuse praviPucanje za tenk
+    - koristiti Granatu, srediti vremePunjenjaAI
+
 - spojiti nijePrikazan i vidljiv? ili preimenovati bez negacije?
 
 Scena1944

@@ -3,11 +3,12 @@ import platno from '/game-engine/io/platno.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import { praviEnergiju } from '/game-engine/core/prosirenja/energija.js'
-import Granata from '/game-engine/core/projektili/Granata.js'
+import { praviPucanje } from '/game-engine/core/prosirenja/pucanje.js'
 
 const gravitacija = 90
 const statickoTrenje = 0.3
 const kinetickoTrenje = 0.1
+const potisakMetka = 500
 
 const defaultSkalar = window.innerWidth > 1280 ? 0.5 : 0.4
 
@@ -18,13 +19,11 @@ export default class Tenk extends Predmet {
     cilj,
     tenkDesno = false,
     skalar = defaultSkalar,
-    vremePunjenja = 1000,
     vremePunjenjaAI = 1500,
     ...rest
   } = {}) {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
-    this.vremePunjenja = vremePunjenja
     this.vremePunjenjaAI = vremePunjenjaAI
     this.cilj = cilj
     this.cev = new Predmet(cevSlika, { skalar })
@@ -60,31 +59,9 @@ export default class Tenk extends Predmet {
     }
   }
 
-  novMetak() {
-    const metak = new Granata({ gravitacija })
-    this.meci.push(metak)
-    this.predmeti.push(metak)
-    return metak
-  }
-
   pali(polozaj, ugao) {
-    if (this.vreme.proteklo < this.vremePunjenja) return
-    const metak = this.meci.find(g => !g.vidljiv) || this.novMetak()
-
-    metak.pali(polozaj, ugao)
-    this.vreme.reset()
-
+    super.pali(polozaj, ugao)
     this.trzaj()
-  }
-
-  proveriPogodak(cilj) {
-    if (cilj.nijePrikazan || cilj.mrtav) return
-
-    this.meci.forEach(metak => {
-      if (metak.nijePrikazan) return
-
-      metak.proveriPogodak(cilj)
-    })
   }
 
   trzaj() {
@@ -154,5 +131,6 @@ export default class Tenk extends Predmet {
   }
 }
 
-// proširuje klasu + get i set
 Object.defineProperties(Tenk.prototype, Object.getOwnPropertyDescriptors(praviEnergiju()))
+
+Object.assign(Tenk.prototype, praviPucanje({ vremePunjenja: 1000, potisakMetka, gravitacija }))
