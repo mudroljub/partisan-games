@@ -66,7 +66,6 @@ export function praviPucanje({
 
     pucaCiljano() {
       if (!this.ciljevi.some(cilj => cilj.ziv)) return
-
       const meta = this.traziNajblizuMetu()
       if (!meta) return
 
@@ -82,11 +81,16 @@ export function praviPucanje({
 
     /* RAFALNO */
 
-    rafalPovremenoCiljano(t) {
+    rafalPovremeno(t, ciljano = false) {
       if (t - this.zadnjePucanje > stankaPucanja && this.vreme.protekloSekundi > vremePunjenja) {
-        this.pucaCiljano()
+
+        if (ciljano)
+          this.pucaCiljano()
+        else
+          this.puca()
         this.ispaljenih++
         this.vreme.reset()
+
         if (this.ispaljenih >= this.duzinaRafala) {
           this.ispaljenih = 0
           this.zadnjePucanje = t
@@ -94,16 +98,8 @@ export function praviPucanje({
       }
     },
 
-    rafalPovremeno(t) {
-      if (t - this.zadnjePucanje > stankaPucanja && this.vreme.protekloSekundi > vremePunjenja) {
-        this.puca()
-        this.ispaljenih++
-        this.vreme.reset()
-        if (this.ispaljenih >= this.duzinaRafala) {
-          this.ispaljenih = 0
-          this.zadnjePucanje = t
-        }
-      }
+    rafalPovremenoCiljano(t) {
+      return this.rafalPovremeno(t, true)
     },
   }
 }
