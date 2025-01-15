@@ -3,7 +3,7 @@ import Vreme from '/game-engine/core/Vreme.js'
 
 export function praviPucanje({
   projektil = Metak, vremePunjenja = 100, ugloviPucanja = [0], potisakMetka = 1000, stankaPucanja = 3, // sec
-  gravitacija = 0, src, skalar
+  gravitacija = 0, src, skalar, x = 0, y = 0,
 } = {}) {
   return {
     meci: [],
@@ -28,9 +28,11 @@ export function praviPucanje({
     pali(polozaj, ugao, potisak = potisakMetka) {
       if (this.pripucao && this.vreme.proteklo <= vremePunjenja) return
 
+      const tacanPolozaj = { x: polozaj.x + x, y: polozaj.y + y }
+
       ugloviPucanja.forEach(ofset => {
         const metak = this.meci.find(g => !g.vidljiv) || this.novMetak()
-        metak.pali(polozaj, ugao + ofset, potisak)
+        metak.pali(tacanPolozaj, ugao + ofset, potisak)
       })
       this.vreme.reset()
       this.pripucao = true
