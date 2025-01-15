@@ -55,7 +55,7 @@ export default class Tenk extends Predmet {
   pokusajPucanje(key) {
     if (keyboard.pressed[key]) this.spremno = true
     if (this.spremno && !keyboard.pressed[key]) {
-      this.pali()
+      this.pali(this.vrhCevi, this.cev.ugao)
       this.spremno = false
     }
   }
@@ -67,11 +67,11 @@ export default class Tenk extends Predmet {
     return metak
   }
 
-  pali() {
+  pali(polozaj, ugao) {
     if (this.vreme.proteklo < this.vremePunjenja) return
     const metak = this.meci.find(g => !g.vidljiv) || this.novMetak()
 
-    metak.pali(this.vrhCevi, this.cev.ugao)
+    metak.pali(polozaj, ugao)
     this.vreme.reset()
 
     this.trzaj()
@@ -126,7 +126,7 @@ export default class Tenk extends Predmet {
 
   pucajNasumicno() {
     if (this.vremePucanja.proteklo < this.vremePunjenjaAI) return
-    this.pali()
+    this.pali(this.vrhCevi, this.cev.ugao)
     this.vremePucanja.reset()
   }
 
