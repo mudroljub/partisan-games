@@ -6,7 +6,9 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- auto pucanje spoji sa pucanje
+- napraviti proširenje za puca ciljano
+- popraviti VoziloBocno
+- auto pucanje spoji sa pucanje?
 - odvojiti još neka proširenja
 
 Scena1944

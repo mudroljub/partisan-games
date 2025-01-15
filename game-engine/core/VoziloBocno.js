@@ -30,6 +30,6 @@ export default class VoziloBocno extends Predmet {
 
   update(dt, t) {
     super.update(dt, t)
-    this.pucaPovremeno(t)
+    // this.pucaPovremeno(t)
   }
 }

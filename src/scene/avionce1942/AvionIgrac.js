@@ -1,6 +1,7 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Igrac from '/game-engine/core/Igrac.js'
 import Prateca from '/game-engine/core/projektili/Prateca.js'
+import { praviPucanje } from '/game-engine/core/prosirenja/pucanje.js'
 
 const OKRET = 0.01
 const MOGUCNOST_OKRETA = 0.066
@@ -12,20 +13,19 @@ export default class AvionIgrac extends Igrac {
     this.brzina = 0
     this.nivoTla = nivoTla
     this.oznake.add('igrac')
-    this.raketa = new Prateca()
-    this.predmeti = [this.raketa]
+    Object.assign(this, praviPucanje({ vremePunjenja: 1500, potisakMetka: 500, projektil: Prateca }))
   }
 
   proveriGranice() {
     this.ogranici()
   }
 
-  /** * KOMANDE ***/
+  /** KOMANDE ***/
 
   proveriTipke() {
     super.proveriTipke()
-    if (keyboard.pressed.Enter && !this.raketa.vidljiv)
-      this.raketa.pucaCiljano(this, this.ugao)
+    if (keyboard.pressed.Enter)
+      this.pucaCiljano()
   }
 
   nalevo() {
@@ -49,10 +49,8 @@ export default class AvionIgrac extends Igrac {
   }
 
   puca() {
-    if (this.raketa.vidljiv) return
-
     const polozaj = { x: this.x + 5, y: this.y + 15 }
-    this.raketa.pali(polozaj, this.ugao + Math.PI / 16)
+    this.pali(polozaj, this.ugao + Math.PI / 16)
   }
 
   /** * OSTALO ***/
@@ -75,7 +73,7 @@ export default class AvionIgrac extends Igrac {
     if (this.ugao > MOGUCNOST_OKRETA / 2) return this.umri()
   }
 
-  proveriGravitaciju() {
+  dodajGravitaciju() {
     if (this.jePrizemljen()) return
 
     const teza = this.mrtav ? gravitacija * 100 : gravitacija
@@ -94,7 +92,8 @@ export default class AvionIgrac extends Igrac {
     super.update(dt, t)
     this.proveriTlo()
     this.proveriSudare()
-    this.proveriGravitaciju()
+    this.proveriPogotke()
+    this.dodajGravitaciju()
     this.ispraviAvion()
   }
 }

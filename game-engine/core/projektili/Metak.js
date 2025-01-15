@@ -2,9 +2,10 @@ import Predmet from '/game-engine/core/Predmet.js'
 import { randomInRange } from '/game-engine/utils.js'
 
 export default class Metak extends Predmet {
-  constructor({ src = 'granata.gif', skalar = .5, gravitacija = 0, ...rest } = {}) {
+  constructor({ src = 'granata.gif', skalar = .5, gravitacija = 0, potisak = 500, ...rest } = {}) {
     super(src, { skalar, ...rest })
     this.gravitacija = gravitacija
+    this.potisak = potisak
     this.steta = randomInRange(10, 20)
     this.reset()
   }
@@ -18,7 +19,7 @@ export default class Metak extends Predmet {
     this.ugao = ugao
   }
 
-  pali(polozaj, ugao, potisak) {
+  pali(polozaj, ugao, potisak = this.potisak) {
     this.postavi(polozaj, ugao)
     this.pokazi()
     this.dodajSilu(potisak)

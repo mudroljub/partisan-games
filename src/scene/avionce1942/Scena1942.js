@@ -37,6 +37,7 @@ export default class Scena1942 extends Scena {
     this.vozilo = new VoziloBocno('2d-bocno/hummel.png', { x: 150, y: this.nivoTla, skalar: .75, ciljevi: [this.igrac] })
 
     this.igrac.cvrstaTela.push(this.vozilo, this.ruina)
+    this.igrac.ciljevi.push(this.vozilo)
 
     this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak())
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun())
