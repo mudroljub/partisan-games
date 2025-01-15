@@ -1,18 +1,24 @@
 import Metak from '/game-engine/core/projektili/Metak.js'
 import Vreme from '/game-engine/core/Vreme.js'
 
+// TODO: možda export nekih prekonfigurisanih
+
 export function praviPucanje({
-  projektil = Metak, vremePunjenja = 100, ugloviPucanja = [0], potisakMetka = 1000, zastoj = 3,
+  projektil = Metak, vremePunjenja = 100, ugloviPucanja = [0], potisakMetka = 1000, zastoj = 3, // sec
   gravitacija = 0, src, skalar
 } = {}) {
   return {
     meci: [],
     ciljevi: [],
     vreme: new Vreme(),
-    zapoceto: false,
+    pripucao: false,
     // automatsko
     zadnjiInterval: 0,
-    zastoj, // sekundi
+    // rafalno
+    ispaljenih: 0,
+    duzinaRafala: 5,
+
+    /* OSNOVNO */
 
     novMetak() {
       const metak = new projektil({ gravitacija, src, skalar })
@@ -22,14 +28,14 @@ export function praviPucanje({
     },
 
     pali(polozaj, ugao, potisak = potisakMetka) {
-      if (this.zapoceto && this.vreme.proteklo <= vremePunjenja) return
+      if (this.pripucao && this.vreme.proteklo <= vremePunjenja) return
 
       ugloviPucanja.forEach(ofset => {
         const metak = this.meci.find(g => !g.vidljiv) || this.novMetak()
         metak.pali(polozaj, ugao + ofset, potisak)
       })
       this.vreme.reset()
-      this.zapoceto = true
+      this.pripucao = true
     },
 
     proveriPogodak(cilj, callback) {
@@ -72,11 +78,22 @@ export function praviPucanje({
     /* AUTOMATSKO */
 
     pucaPovremeno(t) {
-      if (t - this.zadnjiInterval > this.zastoj) {
+      if (t - this.zadnjiInterval > zastoj) {
         this.pucaCiljano()
         this.zadnjiInterval = t
       }
     },
 
+    rafalPovremeno(t) {
+      if (t - this.zadnjiInterval > zastoj && this.vreme.proteklo > vremePunjenja) {
+        this.pucaCiljano()
+        this.ispaljenih++
+        this.vreme.reset()
+        if (this.ispaljenih >= this.duzinaRafala) {
+          this.ispaljenih = 0
+          this.zadnjiInterval = t
+        }
+      }
+    },
   }
 }
