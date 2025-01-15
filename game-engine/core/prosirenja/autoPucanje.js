@@ -1,12 +1,14 @@
 import Prateca from '../projektili/Prateca.js'
+import Vreme from '/game-engine/core/Vreme.js'
 
 export function praviAutoPucanje({ zastoj = 3, src, potisakMetka = 600, skalar, x = 0, y = 0, ciljevi } = {}) {
   return {
     meci: [],
+    vreme: new Vreme(),
     zastoj, // sekundi
     ispaljenih: 0,
     duzinaRafala: 5,
-    vremePunjenja: .1,
+    vremePunjenja: 100,
     zadnjiRafal: 0,
     zadnjiMetak: 0,
 
@@ -25,10 +27,10 @@ export function praviAutoPucanje({ zastoj = 3, src, potisakMetka = 600, skalar, 
     },
 
     rafalPovremeno(t) {
-      if (t - this.zadnjiRafal > this.zastoj && t - this.zadnjiMetak > this.vremePunjenja) {
+      if (t - this.zadnjiRafal > this.zastoj && this.vreme.proteklo > this.vremePunjenja) {
         this.puca()
         this.ispaljenih++
-        this.zadnjiMetak = t
+        this.vreme.reset()
         if (this.ispaljenih >= this.duzinaRafala) {
           this.ispaljenih = 0
           this.zadnjiRafal = t
