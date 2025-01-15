@@ -1,11 +1,11 @@
 import Predmet from './Predmet.js'
-import { praviPucanje } from './prosirenja/pucanje.js'
+import { praviRakete } from './prosirenja/pucanje.js'
 
 export default class VoziloBocno extends Predmet {
   constructor(src, params) {
     super(src, { brzina: 120, zapaljiv: true, ...params })
     this.oznake.add('neprijatelj')
-    Object.assign(this, praviPucanje({ zastoj: 10, src: 'raketa.png', skalar: .55, potisakMetka: 500 }))
+    Object.assign(this, praviRakete({ stankaPucanja: 10 }))
   }
 
   onload() {

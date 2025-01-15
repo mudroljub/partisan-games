@@ -6,7 +6,7 @@ export default class Mitraljezac extends Predmet {
     super('2d-bocno/nemci/mitraljezac-01.png', { x, y, ishodiste: 'DOLE_DESNO' })
     this.cilj = cilj
     const autoPucanje = praviPucanje({
-      zastoj: 3, src: 'granata.gif', skalar: .4, potisakMetka: 600, y: -10,
+      stankaPucanja: 3, src: 'granata.gif', skalar: .4, potisakMetka: 600, y: -10,
     })
     Object.assign(this, autoPucanje)
     this.ciljevi.push(cilj)

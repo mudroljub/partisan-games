@@ -7,6 +7,7 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 - auto pucanje spoji sa pucanje
+    - spojiti vreme pucanja i zastoj?
     - organizovati imenski prostor proširenja, zbog moguće kolizije
 - odvojiti još neka proširenja
 

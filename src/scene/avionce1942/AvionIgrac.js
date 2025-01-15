@@ -1,6 +1,6 @@
 import { keyboard } from '/game-engine/io/Keyboard.js'
 import Igrac from '/game-engine/core/Igrac.js'
-import { praviPucanje } from '/game-engine/core/prosirenja/pucanje.js'
+import { praviRakete } from '/game-engine/core/prosirenja/pucanje.js'
 
 const OKRET = 0.01
 const MOGUCNOST_OKRETA = 0.066
@@ -12,7 +12,7 @@ export default class AvionIgrac extends Igrac {
     this.brzina = 0
     this.nivoTla = nivoTla
     this.oznake.add('igrac')
-    Object.assign(this, praviPucanje({ vremePunjenja: 1500, potisakMetka: 500, src: 'raketa.png', skalar: .55 }))
+    Object.assign(this, praviRakete({ vremePunjenja: 1500 }))
   }
 
   proveriGranice() {

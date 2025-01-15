@@ -1,10 +1,8 @@
 import Metak from '/game-engine/core/projektili/Metak.js'
 import Vreme from '/game-engine/core/Vreme.js'
 
-// TODO: možda export nekih prekonfigurisanih
-
 export function praviPucanje({
-  projektil = Metak, vremePunjenja = 100, ugloviPucanja = [0], potisakMetka = 1000, zastoj = 3, // sec
+  projektil = Metak, vremePunjenja = 100, ugloviPucanja = [0], potisakMetka = 1000, stankaPucanja = 3, // sec
   gravitacija = 0, src, skalar
 } = {}) {
   return {
@@ -13,7 +11,7 @@ export function praviPucanje({
     vreme: new Vreme(),
     pripucao: false,
     // automatsko
-    zadnjiInterval: 0,
+    zadnjePucanje: 0,
     // rafalno
     ispaljenih: 0,
     duzinaRafala: 5,
@@ -52,16 +50,7 @@ export function praviPucanje({
       this.ciljevi.forEach(cilj => this.proveriPogodak(cilj, callback))
     },
 
-    /* CILJANO */
-
-    pucaCiljano() {
-      if (!this.ciljevi.some(cilj => cilj.ziv)) return
-
-      const meta = this.traziNajblizuMetu()
-      if (!meta) return
-
-      this.pali(this.polozaj, this.ugaoKa(meta))
-    },
+    /* AI */
 
     traziNajblizuMetu() {
       let minRazmak
@@ -75,25 +64,35 @@ export function praviPucanje({
       return najblizaMeta
     },
 
-    /* AUTOMATSKO */
+    pucaCiljano() {
+      if (!this.ciljevi.some(cilj => cilj.ziv)) return
+
+      const meta = this.traziNajblizuMetu()
+      if (!meta) return
+
+      this.pali(this.polozaj, this.ugaoKa(meta))
+    },
 
     pucaPovremeno(t) {
-      if (t - this.zadnjiInterval > zastoj) {
+      if (t - this.zadnjePucanje > stankaPucanja) {
         this.pucaCiljano()
-        this.zadnjiInterval = t
+        this.zadnjePucanje = t
       }
     },
 
     rafalPovremeno(t) {
-      if (t - this.zadnjiInterval > zastoj && this.vreme.proteklo > vremePunjenja) {
+      if (t - this.zadnjePucanje > stankaPucanja && this.vreme.proteklo > vremePunjenja) {
         this.pucaCiljano()
         this.ispaljenih++
         this.vreme.reset()
         if (this.ispaljenih >= this.duzinaRafala) {
           this.ispaljenih = 0
-          this.zadnjiInterval = t
+          this.zadnjePucanje = t
         }
       }
     },
   }
 }
+
+export const praviRakete = ({ src = 'raketa.png', skalar = .55, potisakMetka = 500, ...rest } = {}) =>
+  praviPucanje({ src, skalar, potisakMetka, ...rest })
