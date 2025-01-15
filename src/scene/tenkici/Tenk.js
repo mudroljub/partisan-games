@@ -54,13 +54,13 @@ export default class Tenk extends Predmet {
   pokusajPucanje(key) {
     if (keyboard.pressed[key]) this.spremno = true
     if (this.spremno && !keyboard.pressed[key]) {
-      this.pali(this.vrhCevi, this.cev.ugao)
+      this.pucaj(this.vrhCevi, this.cev.ugao)
       this.spremno = false
     }
   }
 
-  pali(polozaj, ugao) {
-    super.pali(polozaj, ugao)
+  pucaj(polozaj, ugao) {
+    this.pali(polozaj, ugao)
     this.trzaj()
   }
 
@@ -103,7 +103,7 @@ export default class Tenk extends Predmet {
 
   pucajNasumicno() {
     if (this.vremePucanja.proteklo < this.vremePunjenjaAI) return
-    this.pali(this.vrhCevi, this.cev.ugao)
+    this.pucaj(this.vrhCevi, this.cev.ugao)
     this.vremePucanja.reset()
   }
 
