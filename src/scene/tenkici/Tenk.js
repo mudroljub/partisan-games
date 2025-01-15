@@ -4,6 +4,7 @@ import Vreme from '/game-engine/core/Vreme.js'
 import Predmet from '/game-engine/core/Predmet.js'
 import { praviEnergiju } from '/game-engine/core/prosirenja/energija.js'
 import { praviPucanje } from '/game-engine/core/prosirenja/pucanje.js'
+import Granata from '/game-engine/core/projektili/Granata.js'
 
 const gravitacija = 90
 const statickoTrenje = 0.3
@@ -133,4 +134,4 @@ export default class Tenk extends Predmet {
 
 Object.defineProperties(Tenk.prototype, Object.getOwnPropertyDescriptors(praviEnergiju()))
 
-Object.assign(Tenk.prototype, praviPucanje({ vremePunjenja: 1000, potisakMetka, gravitacija }))
+Object.assign(Tenk.prototype, praviPucanje({ projektil: Granata, vremePunjenja: 1000, potisakMetka, gravitacija }))

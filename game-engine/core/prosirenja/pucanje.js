@@ -1,14 +1,16 @@
 import Metak from '/game-engine/core/projektili/Metak.js'
 import Vreme from '/game-engine/core/Vreme.js'
 
-export function praviPucanje({ vremePunjenja = 100, ugloviPucanja = [0], gravitacija = 0, potisakMetka = 1000 } = {}) {
+export function praviPucanje({
+  projektil = Metak, vremePunjenja = 100, ugloviPucanja = [0], gravitacija = 0, potisakMetka = 1000
+} = {}) {
   return {
     meci: [],
     ciljevi: [],
     vreme: new Vreme(),
 
     novMetak() {
-      const metak = new Metak({ gravitacija })
+      const metak = new projektil({ gravitacija })
       this.meci.push(metak)
       this.predmeti.push(metak)
       return metak
