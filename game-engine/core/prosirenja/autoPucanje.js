@@ -6,9 +6,9 @@ export function praviAutoPucanje({ zastoj = 3, src, potisakMetka = 600, skalar, 
     zastoj, // sekundi
     ispaljenih: 0,
     duzinaRafala: 5,
-    proredRafala: .1,
-    zadnjiPucanj: 0,
-    zadnjiPucanjRafala: 0,
+    vremePunjenja: .1,
+    zadnjiRafal: 0,
+    zadnjiMetak: 0,
 
     novMetak() {
       const metak = new Prateca({ src, skalar, ciljevi })
@@ -18,20 +18,20 @@ export function praviAutoPucanje({ zastoj = 3, src, potisakMetka = 600, skalar, 
     },
 
     pucaPovremeno(t) {
-      if (t - this.zadnjiPucanj > this.zastoj) {
+      if (t - this.zadnjiRafal > this.zastoj) {
         this.puca()
-        this.zadnjiPucanj = t
+        this.zadnjiRafal = t
       }
     },
 
     rafalPovremeno(t) {
-      if (t - this.zadnjiPucanj > this.zastoj && t - this.zadnjiPucanjRafala > this.proredRafala) {
+      if (t - this.zadnjiRafal > this.zastoj && t - this.zadnjiMetak > this.vremePunjenja) {
         this.puca()
         this.ispaljenih++
-        this.zadnjiPucanjRafala = t
+        this.zadnjiMetak = t
         if (this.ispaljenih >= this.duzinaRafala) {
           this.ispaljenih = 0
-          this.zadnjiPucanj = t
+          this.zadnjiRafal = t
         }
       }
     },
