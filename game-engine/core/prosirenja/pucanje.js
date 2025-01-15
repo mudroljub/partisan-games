@@ -8,8 +8,8 @@ export function praviPucanje({
   return {
     meci: [],
     ciljevi: [],
-    vreme: new Vreme(),
     pripucao: false,
+    cekanjePucanja: new Vreme(),
     zadnjePucanje: 0,
     ispaljenih: 0,
     duzinaRafala: 5,
@@ -24,7 +24,7 @@ export function praviPucanje({
     },
 
     pali(polozaj, ugao, potisak = potisakMetka) {
-      if (this.pripucao && this.vreme.protekloSekundi <= vremePunjenja) return
+      if (this.pripucao && this.cekanjePucanja.protekloSekundi <= vremePunjenja) return
 
       const tacanPolozaj = { x: polozaj.x + x, y: polozaj.y + y }
 
@@ -32,7 +32,7 @@ export function praviPucanje({
         const metak = this.meci.find(g => !g.vidljiv) || this.novMetak()
         metak.pali(tacanPolozaj, ugao + ofset, potisak)
       })
-      this.vreme.reset()
+      this.cekanjePucanja.reset()
       this.pripucao = true
     },
 
@@ -82,14 +82,14 @@ export function praviPucanje({
     /* RAFALNO */
 
     rafalPovremeno(t, ciljano = false) {
-      if (t - this.zadnjePucanje > stankaPucanja && this.vreme.protekloSekundi > vremePunjenja) {
+      if (t - this.zadnjePucanje > stankaPucanja && this.cekanjePucanja.protekloSekundi > vremePunjenja) {
 
         if (ciljano)
           this.pucaCiljano()
         else
           this.puca()
         this.ispaljenih++
-        this.vreme.reset()
+        this.cekanjePucanja.reset()
 
         if (this.ispaljenih >= this.duzinaRafala) {
           this.ispaljenih = 0
