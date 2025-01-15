@@ -27,10 +27,10 @@ export function praviPucanje({
     },
 
     proveriPogodak(cilj, callback) {
-      if (cilj.nijePrikazan || cilj.mrtav) return
+      if (!cilj.prikazan || cilj.mrtav) return
 
       this.meci.forEach(metak => {
-        if (metak.nijePrikazan) return
+        if (!metak.prikazan) return
 
         metak.proveriPogodak(cilj, callback)
       })

@@ -149,8 +149,8 @@ export default class Predmet {
 
   /* STANJE */
 
-  get nijePrikazan() {
-    return !this.vidljiv || this.vanEkrana
+  get prikazan() {
+    return this.vidljiv && !this.vanEkrana
   }
 
   get mrtav() {
@@ -315,7 +315,7 @@ export default class Predmet {
   }
 
   render() {
-    if (this.nijePrikazan) return
+    if (!this.prikazan) return
 
     ctx.save()
     ctx.translate(this.x, this.y)

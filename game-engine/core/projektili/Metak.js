@@ -49,7 +49,7 @@ export default class Metak extends Predmet {
   }
 
   update(dt) {
-    if (this.nijePrikazan) return
+    if (!this.prikazan) return
 
     if (this.gravitacija) {
       this.dodajSilu(this.gravitacija * dt, Math.PI / 2)
