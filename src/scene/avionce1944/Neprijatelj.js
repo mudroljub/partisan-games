@@ -20,7 +20,9 @@ export default class Neprijatelj extends Pokretno {
 
   update(dt, t) {
     super.update(dt, t)
-    this.rafalPovremeno(t)
-    this.proveriPogotke()
+    if (this.ziv) {
+      this.rafalPovremeno(t)
+      this.proveriPogotke()
+    }
   }
 }

@@ -6,13 +6,7 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- auto pucanje spoji sa pucanje
-    - organizovati imenski prostor proširenja, zbog moguće kolizije
-- odvojiti još neka proširenja
-
 Scena1944
-- neprijatelji pucaju
-    - da ne pucaju mrtvi
 - neprijatelji umiru (da se smanjuje, kao da pada, gori)
     - resetuje ga nakon nekog vremena
 - senku ispod aviona, kao u avion.png
