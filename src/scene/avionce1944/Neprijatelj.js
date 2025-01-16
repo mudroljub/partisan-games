@@ -24,6 +24,7 @@ export default class Neprijatelj extends Pokretno {
     this.pada = true
     setTimeout(() => {
       this.pada = false
+      this.nestani()
     }, 2000)
   }
 

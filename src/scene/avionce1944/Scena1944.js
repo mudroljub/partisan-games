@@ -34,7 +34,7 @@ export default class Scena1944 extends Scena {
       this.zivoti++
     }
     this.neprijatelji.forEach(neprijatelj => {
-      if (this.igrac.sudara(neprijatelj)) {
+      if (neprijatelj.ziv && this.igrac.sudara(neprijatelj)) {
         neprijatelj.umri()
         this.igrac.umri()
         this.zivoti--
