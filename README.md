@@ -6,9 +6,6 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-Scena1944
-- reuse pada
-
 CamacScena
 - beskonačan ekran nadesno
 - mozda ubaciti obale da promiču
