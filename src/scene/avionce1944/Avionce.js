@@ -23,8 +23,25 @@ export class Avionce extends Igrac {
     this.pali(polozaj, Math.PI * 1.5)
   }
 
+  reset() {
+    this.ziv = true
+    this.scaleX = this.scaleY = 1
+  }
+
+  umri() {
+    this.ziv = false
+    this.pada = true
+    setTimeout(() => {
+      this.pada = false
+      this.reset()
+    }, 2500)
+  }
+
   update(dt, t) {
     super.update(dt, t)
     this.proveriPogotke(() => this.poeni++)
+
+    if (this.pada)
+      this.scaleX = this.scaleY = this.scaleX * Math.pow(0.8, dt)
   }
 }
