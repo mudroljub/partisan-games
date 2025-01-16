@@ -9,6 +9,8 @@ Male igrice o Nemcima i partizanima.
 Scena1944
 - neprijatelji umiru (da se smanjuje, kao da pada, gori)
     - resetuje ga nakon nekog vremena
+    - da ne sudara mrtvog neprijatelja
+- zavrsniEkran
 - senku ispod aviona, kao u avion.png
 
 CamacScena

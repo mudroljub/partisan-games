@@ -10,7 +10,7 @@ export default class Predmet {
 
   constructor(src, {
     sirina, visina, x = 200, y = 200, skalar = 1, brzina = 0, zapaljiv = false, ishodiste = 'CENTAR',
-    odrazY = 1, odrazX = 1
+    odrazY = 1, odrazX = 1, scaleX = 1, scaleY = 1
   } = {}) {
     this.x = x
     this.y = y
@@ -22,6 +22,8 @@ export default class Predmet {
     this.ishodiste = ishodiste
     this.odrazY = odrazY
     this.odrazX = odrazX
+    this.scaleX = scaleX
+    this.scaleY = scaleY
     this.vidljiv = true
     this.ziv = true
     this.oznake = new Set()
@@ -321,6 +323,7 @@ export default class Predmet {
     ctx.translate(this.x, this.y)
     ctx.rotate(this.ugao)
     ctx.scale(this.odrazY, this.odrazX)
+    ctx.scale(this.scaleX, this.scaleY)
     if (!this.slika || this.debug)
       this.crtaOblik()
     else

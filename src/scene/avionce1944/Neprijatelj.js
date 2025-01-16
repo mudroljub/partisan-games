@@ -11,11 +11,20 @@ export default class Neprijatelj extends Pokretno {
     Object.assign(this, praviPucanje({
       vremePunjenja: .1, ugloviPucanja: [-.33, 0, .33], potisakMetka: 600, stankaPucanja: 2
     }))
+    this.pada = false
   }
 
   puca() {
     const polozaj = { x: this.x, y: this.y + this.visina / 4 }
     this.pali(polozaj, Math.PI * .5)
+  }
+
+  umri() {
+    this.ziv = false
+    this.pada = true
+    setTimeout(() => {
+      this.pada = false
+    }, 2000)
   }
 
   update(dt, t) {
@@ -24,5 +33,7 @@ export default class Neprijatelj extends Pokretno {
       this.rafalPovremeno(t)
       this.proveriPogotke()
     }
+    if (this.pada)
+      this.scaleX = this.scaleY = this.scaleX * Math.pow(0.8, dt)
   }
 }
