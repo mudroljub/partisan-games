@@ -282,10 +282,11 @@ export default class Predmet {
   }
 
   azurirajPlamen(dt) {
-    if (!this.zapaljen) return
+    if (!this.plamen) return
 
     this.plamen.x = this.x
     this.plamen.y = this.y
+
     this.plamen.update(dt)
   }
 

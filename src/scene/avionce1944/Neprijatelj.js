@@ -19,21 +19,28 @@ export default class Neprijatelj extends Pokretno {
     this.pali(polozaj, Math.PI * .5)
   }
 
+  reset() {
+    super.reset()
+    this.ziv = true
+    this.scaleX = this.scaleY = 1
+  }
+
   umri() {
     this.ziv = false
     this.pada = true
     setTimeout(() => {
       this.pada = false
-      this.nestani()
+      this.reset()
     }, 2000)
   }
 
   update(dt, t) {
     super.update(dt, t)
-    if (this.ziv) {
+    if (this.ziv)
       this.rafalPovremeno(t)
-      this.proveriPogotke()
-    }
+
+    this.proveriPogotke()
+
     if (this.pada)
       this.scaleX = this.scaleY = this.scaleX * Math.pow(0.8, dt)
   }

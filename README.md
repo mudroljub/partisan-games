@@ -7,7 +7,6 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 Scena1944
-- resetuje neprijatelje
 - igrac pada
 - zavrsniEkran
 - senku ispod aviona, kao u avion.png
