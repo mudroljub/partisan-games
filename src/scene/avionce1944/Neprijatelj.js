@@ -5,7 +5,7 @@ import { praviPucanje } from '/game-engine/core/prosirenja/pucanje.js'
 export default class Neprijatelj extends Pokretno {
   constructor(src, { potisak }) {
     super(src, {
-      skalar: .66, odrazX: -1, zapaljiv: true,
+      skalar: .66, odrazX: -1, zapaljiv: true, senka: true,
       potisak: potisak * randomInRange(1.1, 1.4), faktorY: randomInRange(3, 5),
     })
     Object.assign(this, praviPucanje({

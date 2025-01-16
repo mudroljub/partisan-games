@@ -13,7 +13,7 @@ export default class Scena1944 extends Scena {
   init() {
     this.oblaci = Array.from({ length: brojOblaka }, () => new Oblak(brzina))
     this.ostrvo = new Pokretno('2d-odozgo/ostrvo.gif', { potisak: brzina, skalar: 2 })
-    this.zdravlje = new Pokretno('zdravlje.png', { potisak: brzina, skalar: .66, faktorY: 10 })
+    this.zdravlje = new Pokretno('zdravlje.png', { potisak: brzina, skalar: .66, faktorY: 10, senka: true })
     this.igrac = new Avionce()
     this.neprijatelji = [
       new Neprijatelj('2d-odozgo/nemci/avioni/avion-01.png', { potisak: brzina }),

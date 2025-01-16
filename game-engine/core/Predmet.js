@@ -10,7 +10,7 @@ export default class Predmet {
 
   constructor(src, {
     sirina, visina, x = 200, y = 200, skalar = 1, brzina = 0, zapaljiv = false, ishodiste = 'CENTAR',
-    odrazY = 1, odrazX = 1, scaleX = 1, scaleY = 1
+    odrazY = 1, odrazX = 1, scaleX = 1, scaleY = 1, senka
   } = {}) {
     this.x = x
     this.y = y
@@ -24,6 +24,7 @@ export default class Predmet {
     this.odrazX = odrazX
     this.scaleX = scaleX
     this.scaleY = scaleY
+    this.senka = senka
     this.vidljiv = true
     this.ziv = true
     this.oznake = new Set()
@@ -317,8 +318,21 @@ export default class Predmet {
       ctx.drawImage(this.slika, -this.sirina, -this.visina, this.sirina, this.visina)
   }
 
+  crtaSenku() {
+    if (this.senka) {
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'
+      ctx.shadowOffsetX = 10
+      ctx.shadowOffsetY = 10
+    } else {
+      ctx.shadowColor = 'rgba(0, 0, 0, 0)'
+      ctx.shadowOffsetX = 0
+      ctx.shadowOffsetY = 0
+    }
+  }
+
   render() {
     if (!this.prikazan) return
+    this.crtaSenku()
 
     ctx.save()
     ctx.translate(this.x, this.y)

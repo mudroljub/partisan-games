@@ -4,7 +4,7 @@ import { praviPucanje } from '/game-engine/core/prosirenja/pucanje.js'
 
 export class Avionce extends Igrac {
   constructor() {
-    super('2d-odozgo/avionce.gif', { skalar: .75, zapaljiv: true })
+    super('2d-odozgo/avionce.gif', { skalar: .75, zapaljiv: true, senka: true })
     this.brzina = 0
     this.poeni = 0
     this.zivoti = 2
