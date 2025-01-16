@@ -9,6 +9,6 @@ export default class Ranjenik extends Igrac {
   }
 
   proveriGranice() {
-    this.ograniciVodoravno()
+    this.ograniciUspravno()
   }
 }

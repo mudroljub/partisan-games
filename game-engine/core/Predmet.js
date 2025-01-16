@@ -226,14 +226,18 @@ export default class Predmet {
   }
 
   ogranici() {
+    this.ograniciVodoravno()
+    this.ograniciUspravno()
+  }
+
+  ograniciVodoravno() {
     const marginaLevo = this.sirina / 4
     const marginaDesno = platno.width - marginaLevo
     if (this.x <= marginaLevo) this.x = marginaLevo
     if (this.x >= marginaDesno) this.x = marginaDesno
-    this.ograniciVodoravno()
   }
 
-  ograniciVodoravno() {
+  ograniciUspravno() {
     const marginaGore = this.visina / 2
     const marginaDole = platno.height - marginaGore
     if (this.y <= marginaGore) this.y = marginaGore
