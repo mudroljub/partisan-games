@@ -7,6 +7,7 @@ export class Avionce extends Igrac {
     super('2d-odozgo/avionce.gif', { skalar: .75, zapaljiv: true })
     this.brzina = 0
     this.poeni = 0
+    this.zivoti = 2
     Object.assign(this, praviPucanje({ potisakMetka: 1000, vremePunjenja: .1, ugloviPucanja: [-.33, 0, .33] }))
   }
 
@@ -31,9 +32,10 @@ export class Avionce extends Igrac {
   umri() {
     this.ziv = false
     this.pada = true
+    this.zivoti--
     setTimeout(() => {
       this.pada = false
-      this.reset()
+      if (this.zivoti) this.reset()
     }, 2500)
   }
 

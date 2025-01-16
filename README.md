@@ -7,9 +7,7 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 Scena1944
-- igrac pada
-- zavrsniEkran
-- senku ispod aviona, kao u avion.png
+- senku ispod aviona, kao u avion.png?
 
 CamacScena
 - beskonačan ekran nadesno

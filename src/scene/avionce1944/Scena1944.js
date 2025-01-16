@@ -11,7 +11,6 @@ const brzina = 150
 
 export default class Scena1944 extends Scena {
   init() {
-    this.zivoti = 3
     this.oblaci = Array.from({ length: brojOblaka }, () => new Oblak(brzina))
     this.ostrvo = new Pokretno('2d-odozgo/ostrvo.gif', { potisak: brzina, skalar: 2 })
     this.zdravlje = new Pokretno('zdravlje.png', { potisak: brzina, skalar: .66, faktorY: 10 })
@@ -29,17 +28,16 @@ export default class Scena1944 extends Scena {
   }
 
   proveriSudare() {
+    if (!this.igrac.ziv) return
+
     if (this.igrac.sudara(this.zdravlje)) {
       this.zdravlje.reset()
-      this.zivoti++
+      this.igrac.zivoti++
     }
     this.neprijatelji.forEach(neprijatelj => {
-      if (!neprijatelj.ziv || !this.igrac.ziv) return
-
-      if (this.igrac.sudara(neprijatelj)) {
+      if (neprijatelj.ziv && this.igrac.sudara(neprijatelj)) {
         neprijatelj.umri()
         this.igrac.umri()
-        this.zivoti--
       }
     })
   }
@@ -47,13 +45,14 @@ export default class Scena1944 extends Scena {
   update(dt, t) {
     super.update(dt, t)
     this.proveriSudare()
+    if (!this.igrac.zivoti) this.gotovo = true
   }
 
   sablon() {
     return /* html */`
       <div class='komande bg-poluprovidno komande1'>
         Poeni: ${this.igrac.poeni}<br>
-        Životi: ${this.zivoti}<br>
+        Životi: ${this.igrac.zivoti}<br>
       </div>
     `
   }
