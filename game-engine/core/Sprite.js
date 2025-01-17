@@ -61,6 +61,8 @@ export default class Sprite extends Predmet {
   }
 
   crtaSliku() {
+    if (!this.animacija) return
+
     const { pocetniKadar, sirina, visina, brojKadrova } = this.animacija
 
     const duzinaKadra = this.vremeAnimacije / brojKadrova
@@ -73,14 +75,5 @@ export default class Sprite extends Predmet {
     ctx.drawImage(
       this.slika, slikaX, slikaY, sirina, visina, 0 - sirina / 2, 0 - visina / 2, sirina, visina
     )
-  }
-
-  render(dt) {
-    if (!this.animacija) return
-    ctx.save()
-    ctx.translate(this.x, this.y)
-    ctx.rotate(this._ugaoSlike)
-    this.crtaSliku(dt)
-    ctx.restore()
   }
 }

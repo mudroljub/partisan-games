@@ -14,6 +14,10 @@ export default class Okupator extends Sprite {
     this.smer = this.ugao
   }
 
+  proveriPogodak() {
+    if (mish.iznad(this)) this.umri()
+  }
+
   patroliraj() {
     if (this.x <= this.limitLevo) this.smer = 0
     if (this.x >= this.limitDesno) this.smer = Math.PI
@@ -25,8 +29,10 @@ export default class Okupator extends Sprite {
     this.skreni(ugao)
   }
 
-  proveriPogodak() {
-    if (mish.iznad(this)) this.umri()
+  // TODO: pauziraj anim
+  pucaj() {
+    this.dodeliAnimaciju('nadole')
+    this.stani()
   }
 
   umri() {
@@ -34,9 +40,13 @@ export default class Okupator extends Sprite {
     this.dodeliAnimaciju('umire', false)
   }
 
-  update(dt) {
-    super.update(dt)
-    if (this.ziv)
-    this.patroliraj()
+  update(dt, t) {
+    super.update(dt, t)
+    if (!this.ziv) return
+
+    if (t < 3)
+      this.patroliraj()
+    else
+      this.pucaj()
   }
 }
