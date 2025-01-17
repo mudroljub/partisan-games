@@ -54,17 +54,21 @@ export default class Sprite extends Predmet {
     return this.protekloAnimacije + dt >= this.vremeAnimacije
   }
 
-  /* RENDER */
+  /* LOOP */
 
-  // TODO: odvojiti update i render
-  crtaKadar(dt) {
+  update(dt) {
+    super.update(dt)
+    if (!this.animacije) return
+
     if (!this.animacija) this.animacija = this.nadjiAnimaciju(this.imeAnimacije)
     if (!this.animacija) return
 
-    const { pocetak, sirina, visina, brojKadrova } = this.animacija
-
     if (this.animacija.loop || !this.animacijaZavrsena(dt))
       this.protekloAnimacije += dt
+  }
+
+  crtaSliku() {
+    const { pocetak, sirina, visina, brojKadrova } = this.animacija
 
     const duzinaKadra = this.vremeAnimacije / brojKadrova
     const trenutniKadar = Math.floor((this.protekloAnimacije % this.vremeAnimacije) / duzinaKadra)
@@ -79,11 +83,11 @@ export default class Sprite extends Predmet {
   }
 
   render(dt) {
-    if (!this.animacije) return
+    if (!this.animacija) return
     ctx.save()
     ctx.translate(this.x, this.y)
     ctx.rotate(this._ugaoSlike)
-    this.crtaKadar(dt)
+    this.crtaSliku(dt)
     ctx.restore()
   }
 }

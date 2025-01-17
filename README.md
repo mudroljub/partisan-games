@@ -6,18 +6,15 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-CamacScena
-- beskonačan ekran nadesno
-- mozda ubaciti obale da promiču
-- nailazi na prepreke, stenje, brodolomnike, čamce, krstarice, brodove....
-
 OtpisaniScena
+- play na klik
 - BUG: nekad se ne pojavi odmah
 - BUG: mrtav reaguje na pogodak
 - da se u nekom trenutku okrene i pripuca
 - da ih izlazi više
     - dodati druge spite-ove
 - dodati zavrsniEkran
+- probati Sprite kao proširenje
 
 TenkicIde
 - BUG: raketa ne leti lepo
