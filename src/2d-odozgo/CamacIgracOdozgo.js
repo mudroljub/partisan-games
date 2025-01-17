@@ -10,6 +10,8 @@ export default class CamacIgracOdozgo extends VoziloIgracOdozgo {
     this.faktorTrenja = 0.15
   }
 
+  nadole() {}
+
   proveriGranice() {
     const ofset = 75
     if (this.y < 0 + ofset || this.y > platno.height - ofset) {
