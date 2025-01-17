@@ -2,10 +2,10 @@ import Predmet from './Predmet.js'
 import { ctx } from '../io/platno.js'
 
 class Animacija {
-  constructor(ime, brojKadrova, pocetak, sirinaSlicice, visinaSlicice, loop = true) {
+  constructor(ime, brojKadrova, pocetniKadar, sirinaSlicice, visinaSlicice, loop = true) {
     this.ime = ime
     this.brojKadrova = brojKadrova
-    this.pocetak = pocetak
+    this.pocetniKadar = pocetniKadar
     this.sirina = sirinaSlicice
     this.visina = visinaSlicice
     this.loop = loop
@@ -68,12 +68,12 @@ export default class Sprite extends Predmet {
   }
 
   crtaSliku() {
-    const { pocetak, sirina, visina, brojKadrova } = this.animacija
+    const { pocetniKadar, sirina, visina, brojKadrova } = this.animacija
 
     const duzinaKadra = this.vremeAnimacije / brojKadrova
     const trenutniKadar = Math.floor((this.protekloAnimacije % this.vremeAnimacije) / duzinaKadra)
-    const trenutniRed = Math.floor((pocetak + trenutniKadar) / brojKadrova)
-    const trenutnaKolona = (pocetak + trenutniKadar) - (trenutniRed * Math.floor(brojKadrova))
+    const trenutniRed = Math.floor((pocetniKadar + trenutniKadar) / brojKadrova)
+    const trenutnaKolona = (pocetniKadar + trenutniKadar) - (trenutniRed * Math.floor(brojKadrova))
     const slikaX = trenutnaKolona * sirina
     const slikaY = trenutniRed * visina
 
