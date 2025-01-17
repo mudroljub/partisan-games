@@ -24,11 +24,6 @@ export default class OtpisaniScena extends Scena {
     mish.ukloniNishan()
   }
 
-  update(dt) {
-    super.update(dt)
-    this.svabo.patroliraj()
-  }
-
   sablon() {
     return /* html */`
       <main class='absolute full centar'>

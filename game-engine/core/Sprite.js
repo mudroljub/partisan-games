@@ -38,16 +38,12 @@ export default class Sprite extends Predmet {
     this.protekloAnimacije = 0
   }
 
-  pustiAnimaciju(ime, loop) {
-    if (this.imeAnimacije != ime) this.reset()
-    this.imeAnimacije = ime // ako nije učitana čuva za kasnije
+  dodeliAnimaciju(ime, loop) {
     if (!this.animacije) return
-    this.animacija = this.nadjiAnimaciju(ime)
-    if (loop !== undefined) this.animacija.loop = loop
-  }
+    if (this.animacija?.ime != ime) this.reset()
 
-  nadjiAnimaciju(ime) {
-    return this.animacije.find(animacija => animacija.ime === ime)
+    this.animacija = this.animacije.find(anim => anim.ime === ime)
+    if (loop !== undefined) this.animacija.loop = loop
   }
 
   animacijaZavrsena(dt) {
@@ -58,9 +54,6 @@ export default class Sprite extends Predmet {
 
   update(dt) {
     super.update(dt)
-    if (!this.animacije) return
-
-    if (!this.animacija) this.animacija = this.nadjiAnimaciju(this.imeAnimacije)
     if (!this.animacija) return
 
     if (this.animacija.loop || !this.animacijaZavrsena(dt))

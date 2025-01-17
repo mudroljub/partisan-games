@@ -7,13 +7,11 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 OtpisaniScena
-- možda pocetniProzor
 - da se u nekom trenutku okrene i pripuca
 - da ih izlazi više
     - dodati druge spite-ove
 - dodati zavrsniEkran
 - probati Sprite kao proširenje
-- BUG: nekad se ne pojavi odmah
 
 TenkicIde
 - BUG: raketa ne leti lepo

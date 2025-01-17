@@ -18,7 +18,7 @@ export default class Bombas extends Igrac {
 
   reagujNaPogodak() {
     super.umri()
-    this.krv.pustiAnimaciju('prska', false)
+    this.krv.dodeliAnimaciju('prska', false)
   }
 
   update(dt) {

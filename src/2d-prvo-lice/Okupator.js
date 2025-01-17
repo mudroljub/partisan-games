@@ -11,15 +11,17 @@ export default class Okupator extends Sprite {
     this.limitLevo = platno.width * .15
     this.limitDesno = platno.width * .85
     this.polozaj = { x: this.limitLevo, y: platno.height * .75 }
+    this.smer = this.ugao
   }
 
   patroliraj() {
-    if (this.x <= this.limitLevo) this.hodaj('nadesno', 0)
-    if (this.x >= this.limitDesno) this.hodaj('nalevo', Math.PI)
+    if (this.x <= this.limitLevo) this.smer = 0
+    if (this.x >= this.limitDesno) this.smer = Math.PI
+    this.hodaj(this.smer == 0 ? 'nadesno' : 'nalevo', this.smer)
   }
 
   hodaj(naziv, ugao) {
-    this.pustiAnimaciju(naziv)
+    this.dodeliAnimaciju(naziv)
     this.skreni(ugao)
   }
 
@@ -29,6 +31,12 @@ export default class Okupator extends Sprite {
 
   umri() {
     super.umri()
-    this.pustiAnimaciju('umire', false)
+    this.dodeliAnimaciju('umire', false)
+  }
+
+  update(dt) {
+    super.update(dt)
+    if (this.ziv)
+    this.patroliraj()
   }
 }

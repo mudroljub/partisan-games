@@ -7,7 +7,7 @@ export default class Zastavnik extends Predmet {
     this.zastava = new Sprite('sprajtovi/zastava.png', {
       imena: ['vijori'], brojKadrova: 4, x: x + 28, y: y - 76
     })
-    this.zastava.pustiAnimaciju('vijori')
+    this.zastava.dodeliAnimaciju('vijori')
   }
 
   render(dt, t) {
