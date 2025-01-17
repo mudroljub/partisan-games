@@ -8,7 +8,6 @@ export default class OtpisaniScena extends Scena {
     this.pozadina = new Pozadina('pozadine/rusevine-varsava.jpg')
     this.svabo = new Okupator()
     this.pesma = new Audio('/assets/zvuci/otpisani.mp3')
-    this.pesma.play()
     mish.dodajNishan()
     this.dodaj(this.svabo)
   }
@@ -16,6 +15,7 @@ export default class OtpisaniScena extends Scena {
   handleClick = e => {
     super.handleClick(e)
     this.svabo.proveriPogodak()
+    this.pesma.play()
   }
 
   end() {
