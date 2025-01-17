@@ -9,8 +9,8 @@ const random = opsegSuma => Math.random() * opsegSuma * 2 - opsegSuma
 
 export default class Obala {
   constructor() {
-    this.noiseResolution = 100
-    this.opsegSuma = 25
+    this.noiseResolution = 75
+    this.opsegSuma = 10
     this.sirinaReke = canvas.height - this.noiseResolution * .75
     this.noisePoints = Array.from({ length: canvas.width / this.noiseResolution + 2 }, () => random(this.opsegSuma))
     this.history = []
