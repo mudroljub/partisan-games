@@ -14,6 +14,8 @@ export default class Okupator extends Sprite {
     this.smer = this.ugao
     this.callback = callback
     this.pucanjeSlika = new Image()
+    this.pucanjeSlika.src = 'assets/slike/pucanje.png'
+    this.pokaziPucanje = false
   }
 
   proveriPogodak() {
@@ -34,18 +36,19 @@ export default class Okupator extends Sprite {
   pucaj(dt) {
     this.dodeliAnimaciju('nadole', false)
     this.stani()
-    this.pucanjeSlika.src = 'assets/slike/pucanje.png'
+    this.pokaziPucanje = true
     if (this.callback) this.callback(dt)
   }
 
   umri() {
     super.umri()
+    this.pokaziPucanje = false
     this.dodeliAnimaciju('umire', false)
   }
 
   render() {
     super.render()
-    ctx.drawImage(this.pucanjeSlika, this.x - 15, this.y - 25)
+    if (this.pokaziPucanje) ctx.drawImage(this.pucanjeSlika, this.x - 15, this.y - 25)
   }
 
   update(dt, t) {
