@@ -7,7 +7,6 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 OtpisaniScena
-- dodati indikator pucanja
 - da ih izlazi više
     - dodati druge spite-ove
 - dodati zavrsniEkran

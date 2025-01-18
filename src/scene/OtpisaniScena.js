@@ -10,7 +10,7 @@ export default class OtpisaniScena extends Scena {
     this.pozadina = new Pozadina('pozadine/rusevine-varsava.jpg')
     this.pesma = new Audio('/assets/zvuci/otpisani.mp3')
     Object.defineProperties(this, Object.getOwnPropertyDescriptors(praviEnergiju()))
-    this.svabo = new Okupator({ callback: () => this.skiniEnergiju(1) })
+    this.svabo = new Okupator({ callback: dt => this.skiniEnergiju(dt * 5) })
     this.dodaj(this.svabo)
     mish.dodajNishan()
   }

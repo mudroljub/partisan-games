@@ -1,5 +1,5 @@
 import Sprite from '/game-engine/core/Sprite.js'
-import platno from '/game-engine/io/platno.js'
+import platno, {ctx} from '/game-engine/io/platno.js'
 import mish from '/game-engine/io/mish.js'
 
 export default class Okupator extends Sprite {
@@ -13,6 +13,7 @@ export default class Okupator extends Sprite {
     this.polozaj = { x: this.limitLevo, y: platno.height * .75 }
     this.smer = this.ugao
     this.callback = callback
+    this.pucanjeSlika = new Image()
   }
 
   proveriPogodak() {
@@ -30,15 +31,21 @@ export default class Okupator extends Sprite {
     this.skreni(ugao)
   }
 
-  pucaj() {
+  pucaj(dt) {
     this.dodeliAnimaciju('nadole', false)
     this.stani()
-    if (this.callback) this.callback()
+    this.pucanjeSlika.src = 'assets/slike/pucanje.png'
+    if (this.callback) this.callback(dt)
   }
 
   umri() {
     super.umri()
     this.dodeliAnimaciju('umire', false)
+  }
+
+  render() {
+    super.render()
+    ctx.drawImage(this.pucanjeSlika, this.x - 15, this.y - 25)
   }
 
   update(dt, t) {
@@ -48,6 +55,6 @@ export default class Okupator extends Sprite {
     if (t < 3)
       this.patroliraj()
     else
-      this.pucaj()
+      this.pucaj(dt)
   }
 }
