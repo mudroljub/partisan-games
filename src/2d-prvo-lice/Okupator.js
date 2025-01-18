@@ -4,7 +4,7 @@ import mish from '/game-engine/io/mish.js'
 
 export default class Okupator extends Sprite {
   constructor() {
-    super ('sprajtovi/okupator-sprite.png', {
+    super ('sprajtovi/vojnici/okupator-sprite.png', {
       imena: ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], brojKadrova: 5, sirina: 50, visina: 180
     })
     this.brzina = 200
@@ -29,7 +29,6 @@ export default class Okupator extends Sprite {
     this.skreni(ugao)
   }
 
-  // TODO: pauziraj anim
   pucaj() {
     this.dodeliAnimaciju('nadole')
     this.stani()
