@@ -7,7 +7,8 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 OtpisaniScena
-- da ih izlazi više
+- da izlaze neprijatelji
+    - randomizovati izlazak
     - dodati druge spite-ove
 - dodati zavrsniEkran
 - probati Sprite kao proširenje

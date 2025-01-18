@@ -1,6 +1,7 @@
 import Sprite from '/game-engine/core/Sprite.js'
 import platno, {ctx} from '/game-engine/io/platno.js'
 import mish from '/game-engine/io/mish.js'
+import Vreme from '/game-engine/core/Vreme.js'
 
 export default class Okupator extends Sprite {
   constructor({ callback } = {}) {
@@ -16,6 +17,7 @@ export default class Okupator extends Sprite {
     this.pucanjeSlika = new Image()
     this.pucanjeSlika.src = 'assets/slike/pucanje.png'
     this.pokaziPucanje = false
+    this.vreme = new Vreme()
   }
 
   proveriPogodak() {
@@ -55,7 +57,7 @@ export default class Okupator extends Sprite {
     super.update(dt, t)
     if (!this.ziv) return
 
-    if (t < 3)
+    if (this.vreme.proteklo < 3000)
       this.patroliraj()
     else
       this.pucaj(dt)
