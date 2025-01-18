@@ -7,11 +7,11 @@ import { progresBar } from '/game-ui/components.js'
 export default class OtpisaniScena extends Scena {
   init() {
     this.pozadina = new Pozadina('pozadine/rusevine-varsava.jpg')
-    this.svabo = new Okupator()
     this.pesma = new Audio('/assets/zvuci/otpisani.mp3')
-    mish.dodajNishan()
-    this.dodaj(this.svabo)
     this.energija = 100
+    this.svabo = new Okupator({ callback: () => this.energija-- })
+    this.dodaj(this.svabo)
+    mish.dodajNishan()
   }
 
   handleClick = e => {
