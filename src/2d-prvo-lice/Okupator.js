@@ -1,7 +1,10 @@
 import Sprite from '/game-engine/core/Sprite.js'
-import platno, {ctx} from '/game-engine/io/platno.js'
+import platno, { ctx } from '/game-engine/io/platno.js'
 import mish from '/game-engine/io/mish.js'
 import Vreme from '/game-engine/core/Vreme.js'
+
+const limitLevo = platno.width * .1
+const limitDesno = platno.width * .9
 
 export default class Okupator extends Sprite {
   constructor({ callback } = {}) {
@@ -9,10 +12,12 @@ export default class Okupator extends Sprite {
       imena: ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], brojKadrova: 5, sirina: 50, visina: 180
     })
     this.brzina = 200
-    this.limitLevo = platno.width * .15
-    this.limitDesno = platno.width * .85
-    this.polozaj = { x: this.limitLevo, y: platno.height * .75 }
+    this.y = platno.height * .75
+
+    // TODO: random položaj i odgovarajući smer
+    this.x = limitLevo
     this.smer = this.ugao
+
     this.callback = callback
     this.pucanjeSlika = new Image()
     this.pucanjeSlika.src = 'assets/slike/pucanje.png'
@@ -25,8 +30,8 @@ export default class Okupator extends Sprite {
   }
 
   patroliraj() {
-    if (this.x <= this.limitLevo) this.smer = 0
-    if (this.x >= this.limitDesno) this.smer = Math.PI
+    if (this.x <= limitLevo) this.smer = 0
+    if (this.x >= limitDesno) this.smer = Math.PI
     this.hodaj(this.smer == 0 ? 'nadesno' : 'nalevo', this.smer)
   }
 
