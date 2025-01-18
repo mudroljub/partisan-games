@@ -8,7 +8,7 @@ Male igrice o Nemcima i partizanima.
 
 OtpisaniScena
 - da izlaze neprijatelji
-    - randomizovati izlazak
+    - bez patroliranja, samo dolaze sa neke strane, random staju i pucaju
     - dodati druge spite-ove
 - dodati zavrsniEkran
 - probati Sprite kao proširenje

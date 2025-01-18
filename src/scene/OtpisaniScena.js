@@ -14,7 +14,7 @@ export default class OtpisaniScena extends Scena {
     this.vreme = new Vreme()
     this.dodajNeprijatelja()
     mish.dodajNishan()
-
+    this.intervalIzlaska = 3000
   }
 
   dodajNeprijatelja() {
@@ -35,10 +35,11 @@ export default class OtpisaniScena extends Scena {
 
   update(dt, t) {
     super.update(dt, t)
-    if (this.vreme.proteklo > 3000) {
+    if (this.vreme.proteklo > Math.max(this.intervalIzlaska, 500)) {
       this.dodajNeprijatelja()
       this.vreme.reset()
     }
+    this.intervalIzlaska -= dt * 100
   }
 
   sablon() {
