@@ -32,6 +32,7 @@ export default class Okupator extends Sprite {
   pucaj() {
     this.dodeliAnimaciju('nadole', false)
     this.stani()
+    // TODO: dodati neku vatru ili pucanj
   }
 
   umri() {
