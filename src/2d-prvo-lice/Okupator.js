@@ -30,7 +30,7 @@ export default class Okupator extends Sprite {
   }
 
   pucaj() {
-    this.dodeliAnimaciju('nadole')
+    this.dodeliAnimaciju('nadole', false)
     this.stani()
   }
 
