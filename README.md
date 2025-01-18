@@ -7,8 +7,7 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 OtpisaniScena
-- da se u nekom trenutku okrene i pripuca
-    - skidanje energije
+- dodati indikator pucanja
 - da ih izlazi više
     - dodati druge spite-ove
 - dodati zavrsniEkran

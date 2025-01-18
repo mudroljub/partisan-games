@@ -3,13 +3,14 @@ import Pozadina from '/game-engine/core/Pozadina.js'
 import Okupator from '../2d-prvo-lice/Okupator.js'
 import mish from '/game-engine/io/mish.js'
 import { progresBar } from '/game-ui/components.js'
+import { praviEnergiju } from '/game-engine/core/prosirenja/energija.js'
 
 export default class OtpisaniScena extends Scena {
   init() {
     this.pozadina = new Pozadina('pozadine/rusevine-varsava.jpg')
     this.pesma = new Audio('/assets/zvuci/otpisani.mp3')
-    this.energija = 100
-    this.svabo = new Okupator({ callback: () => this.energija-- })
+    Object.defineProperties(this, Object.getOwnPropertyDescriptors(praviEnergiju()))
+    this.svabo = new Okupator({ callback: () => this.skiniEnergiju(1) })
     this.dodaj(this.svabo)
     mish.dodajNishan()
   }
