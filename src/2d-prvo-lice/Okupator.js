@@ -13,42 +13,40 @@ export default class Okupator extends Sprite {
     this.callback = callback
     this.pucanjeSlika = new Image()
     this.pucanjeSlika.src = 'assets/slike/pucanje.png'
-    this.pokaziPucanje = false
+    this.pripucao = false
     this.vreme = new Vreme()
-    this.vremeHodanja = randomInRange(1000, 2500)
-    this.postaviNasumicno()
+    this.vremeHodanja = randomInRange(700, 3200)
+    this.izlazi()
+  }
+
+  izlazi() {
+    const izlaziLevo = Math.random() > .5
+    this.x = izlaziLevo ? 0 : platno.sirina
+    this.imeAnimacije = izlaziLevo ? 'nadesno' : 'nalevo'
+    this.brzina = izlaziLevo ? 200 : -200
+  }
+
+  pucaj(dt) {
+    this.dodeliAnimaciju('nadole', false)
+    this.stani()
+    this.pripucao = true
+    if (this.callback) this.callback(dt)
   }
 
   proveriPogodak() {
     if (mish.iznad(this)) this.umri()
   }
 
-  postaviNasumicno() {
-    this.x = Math.random() * platno.sirina
-    this.imeAnimacije = this.x < platno.sirina / 2 ? 'nadesno' : 'nalevo'
-    this.brzina = this.x < platno.sirina / 2 ? 200 : -200
-  }
-
-  hodaj() {
-    this.dodeliAnimaciju(this.imeAnimacije)
-  }
-
-  pucaj(dt) {
-    this.dodeliAnimaciju('nadole', false)
-    this.stani()
-    this.pokaziPucanje = true
-    if (this.callback) this.callback(dt)
-  }
-
   umri() {
     super.umri()
-    this.pokaziPucanje = false
+    this.pripucao = false
     this.dodeliAnimaciju('umire', false)
   }
 
   render() {
     super.render()
-    if (this.pokaziPucanje) ctx.drawImage(this.pucanjeSlika, this.x - 15, this.y - 25)
+    if (this.pripucao)
+      ctx.drawImage(this.pucanjeSlika, this.x - 15, this.y - 25)
   }
 
   update(dt, t) {
@@ -56,7 +54,7 @@ export default class Okupator extends Sprite {
     if (!this.ziv) return
 
     if (this.vreme.proteklo < this.vremeHodanja)
-      this.hodaj()
+      this.dodeliAnimaciju(this.imeAnimacije)
     else
       this.pucaj(dt)
   }
