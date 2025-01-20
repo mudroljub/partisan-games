@@ -20,7 +20,7 @@ export default class TenkicIde extends Scena {
     this.planina = new Planina(nivoTla, PARALAX_1)
     this.shumarak = new Shuma(nivoTla, PARALAX_1)
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun(nivoTla, PARALAX_1))
-    this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak(nivoTla, PARALAX_1))
+    this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak(nivoTla - 100, PARALAX_1))
     this.bunker = new Bunker({ y: nivoTla - 20, x: platno.sirina - 100, skalar: .33 })
     this.bunker.brzina = PARALAX_1
 
