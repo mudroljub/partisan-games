@@ -1,7 +1,7 @@
 import SceneManager from './SceneManager.js'
 
 const manager = new SceneManager()
-manager.start('TenkicIde')
+manager.start('GlavniMeni')
 
 window.addEventListener('popstate', () => {
   const confirmation = window.confirm('Pritiskom na back napuštate sajt. Potvrdite komandu.')

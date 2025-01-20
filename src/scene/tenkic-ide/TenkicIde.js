@@ -6,6 +6,7 @@ import Shuma from '/src/2d-bocno/Shuma.js'
 import Planina from '/src/2d-bocno/Planina.js'
 import Oblak from '/src/2d-bocno/Oblak.js'
 import TenkLevo from '../tenkici/TenkLevo.js'
+import Bunker from '/src/scene/bombas/Bunker.js'
 
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10
@@ -20,8 +21,11 @@ export default class TenkicIde extends Scena {
     this.shumarak = new Shuma(nivoTla, PARALAX_1)
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun(nivoTla, PARALAX_1))
     this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak(nivoTla, PARALAX_1))
+    this.bunker = new Bunker({ y: nivoTla - 20, x: platno.sirina - 100, skalar: .33 })
+    this.bunker.brzina = PARALAX_1
 
-    this.dodaj(this.planina, this.shumarak, ...this.zbunovi, this.tenk, ...this.oblaci)
+    this.dodaj(this.planina, this.shumarak, this.bunker, ...this.zbunovi, this.tenk, ...this.oblaci)
+    this.tenk.ciljevi.push(this.bunker)
   }
 
   cisti() {

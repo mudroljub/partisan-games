@@ -7,7 +7,8 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 TenkicIde
-- tenkovi, bunkeri, vojnici...
+- bunkeri, vojnici, vozila...
+    - da se bunker pomera i mrtav
 - BUG: ponekad zbunovi svi u istoj ravni (isti x); ne znam kad
 
 RanjenikScena
