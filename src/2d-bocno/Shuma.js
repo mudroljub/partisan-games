@@ -15,6 +15,6 @@ export default class Shuma extends Predmet {
   }
 
   proveriGranice() {
-    this.vracaVodoravno(1)
+    this.vracaVodoravno()
   }
 }

@@ -208,7 +208,7 @@ export default class Predmet {
   }
 
   vracaVodoravno(procenat = 1, callback) {
-    if (izasaoLevoSkroz(this) && Math.random() < procenat) {
+    if (izasaoLevoSkroz(this) && Math.random() <= procenat) {
       this.x = platno.width + this.sirina / 2
       if (callback) callback()
     }

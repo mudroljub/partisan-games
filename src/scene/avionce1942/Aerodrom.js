@@ -7,6 +7,6 @@ export default class Aerodrom extends Predmet {
   }
 
   proveriGranice() {
-    this.vracaVodoravno(0.001)
+    this.vracaVodoravno(0.005)
   }
 }

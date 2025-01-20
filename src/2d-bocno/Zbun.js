@@ -14,6 +14,6 @@ export default class Zbun extends Predmet {
   }
 
   proveriGranice() {
-    this.vracaVodoravno(1)
+    this.vracaVodoravno()
   }
 }

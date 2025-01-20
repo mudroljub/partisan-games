@@ -23,6 +23,6 @@ export default class Oblak extends Predmet {
       this.y = this.nivoTla
       this.dy = -this.dy
     }
-    this.vracaVodoravno(1)
+    this.vracaVodoravno()
   }
 }
