@@ -35,12 +35,16 @@ export default class OtpisaniScena extends Scena {
   }
 
   update(dt, t) {
+    if (this.gotovo) return
     super.update(dt, t)
+
     if (this.vreme.proteklo > Math.max(this.intervalIzlaska, 500)) {
       this.dodajNeprijatelja()
       this.vreme.reset()
     }
     this.intervalIzlaska -= dt * 100
+
+    if (this.energija === 0) this.zavrsi()
   }
 
   sablon() {

@@ -6,10 +6,10 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
+- ukinuti gotovo?
+
 OtpisaniScena
-- da izlaze neprijatelji
-    - dodati druge spite-ove
-- dodati zavrsniEkran
+- dodati druge spite-ove
 - probati Sprite kao proširenje
 
 TenkicIde
