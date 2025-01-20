@@ -15,6 +15,7 @@ export default class OtpisaniScena extends Scena {
     this.dodajNeprijatelja()
     mish.dodajNishan()
     this.intervalIzlaska = 3000
+    this.poeni = 0
   }
 
   dodajNeprijatelja() {
@@ -23,7 +24,7 @@ export default class OtpisaniScena extends Scena {
 
   handleClick = e => {
     super.handleClick(e)
-    this.predmeti.forEach(svabo => svabo.proveriPogodak())
+    this.predmeti.forEach(svabo => svabo.proveriPogodak(() => this.poeni++))
     this.pesma.play()
   }
 
@@ -48,7 +49,7 @@ export default class OtpisaniScena extends Scena {
         <h1>Ubij okupatora!</h1>
         <p>Oslobođenje se bliži</p>
         <div class="komande komande1 bg-poluprovidno">
-          Pogoci: ${0} <br>
+          Pogoci: ${this.poeni} <br>
           Energija 
           ${progresBar(this.energija)}
         </div>

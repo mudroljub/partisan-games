@@ -33,8 +33,10 @@ export default class Okupator extends Sprite {
     if (this.callback) this.callback(dt)
   }
 
-  proveriPogodak() {
-    if (mish.iznad(this)) this.umri()
+  proveriPogodak(callback) {
+    if (!mish.iznad(this)) return
+    this.umri()
+    if (callback) callback()
   }
 
   umri() {
