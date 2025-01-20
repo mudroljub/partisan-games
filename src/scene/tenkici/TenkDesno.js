@@ -8,6 +8,7 @@ export default class TenkDesno extends Tenk {
     src = '2d-bocno/nemacki-tenk-bez-cevi.png',
     cevSlika = '2d-bocno/nemacki-tenk-cev.png',
     x = randomInRange(platno.width * 0.7, platno.width) - 100,
+    ai = true,
     ...rest
   }) {
     super(src, { cevSlika, x, ...rest })
@@ -17,7 +18,7 @@ export default class TenkDesno extends Tenk {
     this.cev.ugao = Math.PI * 1.1
     this.cev.ishodiste = 'DOLE_DESNO'
     this.cev.odrazY = -1
-    this.ai = true
+    this.ai = ai
   }
 
   proveriGranice() {

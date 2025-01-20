@@ -10,20 +10,22 @@ import TenkLevo from '../tenkici/TenkLevo.js'
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10
 const PARALAX_1 = -160
+const nivoTla = platno.height * .75
 
 export default class TenkicIde extends Scena {
   init() {
-    this.nivoTla = platno.height * .75
-    this.tenk = new TenkLevo({ y: this.nivoTla, skalar: .4 })
-    this.planina = new Planina(this.nivoTla, PARALAX_1)
-    this.shumarak = new Shuma(this.nivoTla, PARALAX_1)
-    this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun(this.nivoTla, PARALAX_1))
-    this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak(this.nivoTla, PARALAX_1))
+    this.tenk = new TenkLevo({ y: nivoTla, skalar: .4 })
+
+    this.planina = new Planina(nivoTla, PARALAX_1)
+    this.shumarak = new Shuma(nivoTla, PARALAX_1)
+    this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun(nivoTla, PARALAX_1))
+    this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak(nivoTla, PARALAX_1))
+
     this.dodaj(this.planina, this.shumarak, ...this.zbunovi, this.tenk, ...this.oblaci)
   }
 
   cisti() {
-    crtaNeboZemlju(this.nivoTla)
+    crtaNeboZemlju(nivoTla)
   }
 
   sablon() {
