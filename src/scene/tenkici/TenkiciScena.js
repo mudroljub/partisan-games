@@ -23,7 +23,7 @@ export default class TenkiciScena extends Scena {
 
   update(dt) {
     super.update(dt)
-    if (this.tenk.mrtav || this.tenk2.mrtav) this.gotovo = true
+    if (this.tenk.mrtav || this.tenk2.mrtav) this.zavrsi()
   }
 
   zavrsniProzor() {

@@ -35,7 +35,7 @@ export default class OtpisaniScena extends Scena {
   }
 
   update(dt, t) {
-    if (this.gotovo) return
+    if (this.zavrsniTekst) return
     super.update(dt, t)
 
     if (this.vreme.proteklo > Math.max(this.intervalIzlaska, 500)) {

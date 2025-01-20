@@ -6,8 +6,6 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- ukinuti gotovo?
-
 OtpisaniScena
 - dodati druge spite-ove
 - probati Sprite kao proširenje

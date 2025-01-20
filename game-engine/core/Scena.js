@@ -11,7 +11,7 @@ export default class Scena {
     this.elementUI = document.getElementById('ui')
     this.prozorElement = document.getElementById('prozor')
     this.upamcenUI = this.upamcenProzor = this.zavrsniTekst = ''
-    this.hocuVan = this.gotovo = false
+    this.hocuVan = false
     this.kameraX = this.kameraY = 0
     this.init()
   }
@@ -76,13 +76,12 @@ export default class Scena {
 
   prozor() {
     if (this.hocuVan) return this.napustiIgru()
-    if (this.gotovo) return this.zavrsniProzor()
+    if (this.zavrsniTekst) return this.zavrsniProzor()
     return ''
   }
 
   zavrsi(text = 'Igra je završena.') {
     this.zavrsniTekst = text
-    this.gotovo = true
     this.gameLoop.stopTime()
   }
 
@@ -126,7 +125,7 @@ export default class Scena {
   }
 
   proveriTipke(dt) {
-    if (this.gotovo) return
+    if (this.zavrsniTekst) return
 
     if (keyboard.pressed.Escape) this.potvrdiIzlaz()
 

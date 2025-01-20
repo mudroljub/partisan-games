@@ -45,7 +45,7 @@ export default class Scena1944 extends Scena {
   update(dt, t) {
     super.update(dt, t)
     this.proveriSudare()
-    if (!this.igrac.zivoti) this.gotovo = true
+    if (!this.igrac.zivoti) this.zavrsi()
   }
 
   sablon() {
