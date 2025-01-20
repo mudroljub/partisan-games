@@ -7,8 +7,6 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 TenkicIde
-- reuse tenk
-- BUG: raketa ne leti lepo
 - tenkovi, bunkeri, vojnici...
 
 RanjenikScena
