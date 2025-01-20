@@ -11,8 +11,9 @@ export default class TenkiciScena extends Scena {
   init() {
     this.pozadina = new Pozadina('pozadine/razrusen-grad-savremen.jpg')
     this.tenk = new TenkLevo({ y: nivoTla })
-    this.tenk2 = new TenkDesno({ y: nivoTla, cilj: this.tenk })
-    this.tenk.cilj = this.tenk2
+    this.tenk2 = new TenkDesno({ y: nivoTla })
+    this.tenk.ciljevi.push(this.tenk2)
+    this.tenk2.ciljevi.push(this.tenk)
     this.predmeti = [this.tenk, this.tenk2]
   }
 

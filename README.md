@@ -6,11 +6,8 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-OtpisaniScena
-- dodati druge spite-ove
-- probati Sprite kao proširenje
-
 TenkicIde
+- reuse tenk
 - BUG: raketa ne leti lepo
 - tenkovi, bunkeri, vojnici...
 

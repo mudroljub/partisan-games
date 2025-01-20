@@ -15,7 +15,6 @@ const potisakMetka = 500
 export default class Tenk extends Predmet {
   constructor(src, {
     cevSlika,
-    cilj,
     tenkDesno = false,
     skalar = window.innerWidth > 1280 ? 0.5 : 0.4,
     vremePunjenjaAI = 1500,
@@ -24,7 +23,6 @@ export default class Tenk extends Predmet {
     super(src, { zapaljiv: true, skalar, ...rest })
     this.tenkDesno = tenkDesno
     this.vremePunjenjaAI = vremePunjenjaAI
-    this.cilj = cilj
     this.cev = new Predmet(cevSlika, { skalar })
     this.vreme = new Vreme()
     this.potisak = 25
@@ -112,8 +110,9 @@ export default class Tenk extends Predmet {
   samohod() {
     if (this.mrtav) return
     this.mrdajNasumicno()
-    if (this.cilj.mrtav) return
-    this.nisani(this.cilj)
+    const cilj = this.traziNajblizuMetu()
+    if (!cilj || cilj.mrtav) return
+    this.nisani(cilj)
     this.pucajNasumicno()
   }
 
@@ -124,7 +123,7 @@ export default class Tenk extends Predmet {
     if (this.ai) this.samohod()
     this.azurirajCev()
     this.trenje(this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje)
-    this.proveriPogodak(this.cilj)
+    this.proveriPogotke()
   }
 
   render() {
