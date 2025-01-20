@@ -175,7 +175,6 @@ export default class Predmet {
 
   umri() {
     this.stani()
-    if (this.slikaMrtav) this.zameniSliku(this.slikaMrtav)
     this.ziv = false
   }
 
