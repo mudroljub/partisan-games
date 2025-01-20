@@ -24,15 +24,15 @@ export default class TenkDesno extends Tenk {
     this.x = Math.min(Math.max(this.x, platno.width / 2), platno.width)
   }
 
-  diziCev() {
-    if (this.cev.ugao <= Math.PI * 1.2) this.cev.ugao += 0.01
+  diziCev(dt) {
+    if (this.cev.ugao <= Math.PI * 1.2) this.cev.ugao += dt * .5
   }
 
-  spustajCev() {
-    if (this.cev.ugao >= Math.PI) this.cev.ugao -= 0.01
+  spustajCev(dt) {
+    if (this.cev.ugao >= Math.PI) this.cev.ugao -= dt * .5
   }
 
-  proveriTipke() {
+  proveriTipke(dt) {
     if (this.ai) return
 
     if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2)
@@ -40,9 +40,9 @@ export default class TenkDesno extends Tenk {
     if (keyboard.pressed.ArrowRight && this.x < platno.width)
       this.dodajSilu(this.potisak * 0.6, 0)
     if (keyboard.pressed.ArrowUp)
-      this.diziCev()
+      this.diziCev(dt)
     if (keyboard.pressed.ArrowDown)
-      this.spustajCev()
+      this.spustajCev(dt)
 
     this.pokusajPucanje('Enter')
   }
