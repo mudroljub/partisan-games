@@ -4,7 +4,6 @@ import { praviPucanje } from '/game-engine/core/prosirenja/pucanje.js'
 export default class Mitraljezac extends Predmet {
   constructor(x, y, cilj) {
     super('2d-bocno/nemci/mitraljezac-01.png', { x, y, ishodiste: 'DOLE_DESNO' })
-    this.cilj = cilj
     const autoPucanje = praviPucanje({
       stankaPucanja: 3, src: 'granata.gif', skalar: .4, potisakMetka: 600, y: -10,
     })
@@ -14,7 +13,8 @@ export default class Mitraljezac extends Predmet {
 
   update(dt, t) {
     super.update(dt, t)
-    this.ugao = this.ugaoKa(this.cilj) + Math.PI
+    const cilj = this.traziNajblizuMetu()
+    this.ugao = this.ugaoKa(cilj) + Math.PI
     this.rafalPovremenoCiljano(t)
     this.proveriPogotke()
   }
