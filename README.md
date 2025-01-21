@@ -6,13 +6,6 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-BUG: 1942 sletanje ne radi!
-
-TenkicIde
-- još neke zgrade?
-    - klasa Vracanje?
-- BUG: ponekad zbunovi svi u istoj ravni (isti x); ne znam kad
-
 RanjenikScena
 - prikazati prozore umesto log
 - preimenovati u ranjenici na sutjesci

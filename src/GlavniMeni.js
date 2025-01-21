@@ -1,8 +1,6 @@
 import Scena from '/game-engine/core/Scena.js'
 
 const items = {
-  TenkicIde: 'Tenkić ide',
-  TenkiciScena: 'Tenkići',
   RanjenikScena: 'Ranjenik',
   RanjenikPaljba: 'Ranjenik paljba',
   JasenovacScena: 'Bekstvo iz Jasenovca',
@@ -14,6 +12,8 @@ const items = {
   Scena1944: 'Avionče 1944',
   CamacScena: 'Čamac',
   OtpisaniScena: 'Otpisani scena',
+  TenkicIde: 'Tenkić ide',
+  TenkiciScena: 'Tenkići',
 }
 
 export default class GlavniMeni extends Scena {
