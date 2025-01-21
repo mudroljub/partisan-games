@@ -56,8 +56,11 @@ export default class RanjenikScena extends Scena {
   sablon() {
     return /* html */`
       <div class='komande bg-poluprovidno komande1'>
-       ${adws()}
-     </div>
+        A - levo<br>
+        D - desno<br>
+        W - napred<br>
+        S - nazad<br>
+      </div>
     `
   }
 }
