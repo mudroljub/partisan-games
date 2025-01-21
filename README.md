@@ -6,10 +6,12 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- bolje osmisliti procenat vraćanja za proveriGranice
+- reuse vracaVodoravno?
+    - proširenje vraćanje?
 
 TenkicIde
 - bunkeri, vojnici, vozila...
+    - bunker puca
 - BUG: ponekad zbunovi svi u istoj ravni (isti x); ne znam kad
 
 RanjenikScena

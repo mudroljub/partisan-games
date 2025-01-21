@@ -199,8 +199,7 @@ export default class Predmet {
 
   proveriGranice() {}
 
-  kruzi(procenat = 1) {
-    if (Math.random() > procenat) return
+  kruzi() {
     if (izasaoLevoSkroz(this)) this.x = platno.width + this.sirina / 2
     if (izasaoDesnoSkroz(this)) this.x = 0
     if (izasaoDole(this)) this.y = 0
@@ -221,10 +220,6 @@ export default class Predmet {
       this.skreni(Math.PI - this.ugao)
     if (izasaoIgde(this))
       this.pomeri(5)
-  }
-
-  nestaje() {
-    if (this.vanEkrana) this.nestani()
   }
 
   ogranici() {
