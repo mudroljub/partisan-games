@@ -6,6 +6,8 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
+BUG: 1942 sletanje ne radi!
+
 TenkicIde
 - još neke zgrade?
     - klasa Vracanje?
