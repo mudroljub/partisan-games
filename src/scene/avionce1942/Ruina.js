@@ -2,8 +2,8 @@ import Predmet from '/game-engine/core/Predmet.js'
 import Vreme from '/game-engine/core/Vreme.js'
 
 export default class Ruina extends Predmet {
-  constructor(nivoTla, src = '2d-bocno/zgrade/ruina.png') {
-    super(src)
+  constructor(nivoTla, { src = '2d-bocno/zgrade/ruina.png', ...rest } = {}) {
+    super(src, rest)
     this.x = -400
     this.onload = () => this.tlo(nivoTla)
     this.vreme = new Vreme()

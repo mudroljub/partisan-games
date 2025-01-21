@@ -6,12 +6,9 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- reuse vracaVodoravno?
-    - proširenje vraćanje?
-
 TenkicIde
-- bunkeri, vojnici, vozila...
-    - bunker puca
+- još neke zgrade?
+    - klasa Vracanje?
 - BUG: ponekad zbunovi svi u istoj ravni (isti x); ne znam kad
 
 RanjenikScena
