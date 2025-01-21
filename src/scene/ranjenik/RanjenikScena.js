@@ -27,7 +27,7 @@ export default class RanjenikScena extends Scena {
 
     this.patrola.stani()
     this.patrola.pustiNadjen()
-    this.zavrsi('Uhvaćen si. Tvoja sudbina je zapečaćena...')
+    this.zavrsi('Uhvaćen si. Sva nada je izgubljena...')
   }
 
   proveriPobedu() {
@@ -37,12 +37,12 @@ export default class RanjenikScena extends Scena {
       this.patrola.nestani()
       this.pozadina.slika.src = '/assets/slike/2d-odozgo/shumarak-pozadina.png'
       this.predmeti = this.predmeti.filter(p => p.constructor.name !== 'Paljba')
-      this.zavrsi('Pobeda! Uspeo si da pronađeš spas!')
+      this.zavrsi('Uspeo si da pronađeš spas!')
     }
   }
 
   promeniScenu() {
-    this.pozadina.slika.src = '/assets/slike/teksture/sprzena-zemlja.jpg' // teksture/beton.gif
+    this.pozadina.slika.src = '/assets/slike/teksture/sprzena-zemlja.jpg'
     this.patrola.slika.src = '/assets/slike/2d-odozgo/talijani-patrola.gif'
     this.patrola.postaviRandom()
     this.ranjenik.x = 10
@@ -50,11 +50,11 @@ export default class RanjenikScena extends Scena {
   }
 
   pali() {
-    if (this.vreme.proteklo < this.pocetakPaljbe) return
+    if (this.vreme.proteklo < RITAM_PALJBE) return
 
     const krater = new Paljba()
     this.predmeti.unshift(krater)
-    this.pocetakPaljbe += RITAM_PALJBE
+    this.vreme.reset()
 
     if (this.ranjenik.sudara(krater))
       this.zavrsi('Hrabro si pao u pokušaju bega.')
