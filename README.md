@@ -7,7 +7,6 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 RanjenikScena
-- prikazati prozore umesto log
 - preimenovati u ranjenici na sutjesci
 - povecavati broj patrola
 - spojiti Bekstvo iz Jasenovca i RanjenikPaljba?

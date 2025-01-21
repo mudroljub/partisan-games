@@ -19,8 +19,9 @@ export default class RanjenikScena extends Scena {
 
   proveriSudare() {
     if (!this.patrola.sudara(this.ranjenik)) return
+
     this.patrola.stani()
-    this.patrola.vikniZaredom(2)
+    this.patrola.pustiNadjen()
     this.zavrsi('Uhvaćen si...')
   }
 
@@ -41,13 +42,10 @@ export default class RanjenikScena extends Scena {
     this.scena++
   }
 
-  end() {
-    super.end()
-    this.patrola.zvuk.pause()
-  }
-
   update(dt, t) {
+    if (this.zavrsniTekst) return
     super.update(dt, t)
+
     this.proveriSudare()
     this.proveriPobedu()
   }
