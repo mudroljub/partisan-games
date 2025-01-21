@@ -4,6 +4,10 @@ import Pozadina from '/game-engine/core/Pozadina.js'
 import Ranjenik from './Ranjenik.js'
 import Patrola from './Patrola.js'
 import Strelica from './Strelica.js'
+import Vreme from '/game-engine/core/Vreme.js'
+import Paljba from './Paljba.js'
+
+const RITAM_PALJBE = 1500
 
 export default class RanjenikScena extends Scena {
   init() {
@@ -13,7 +17,9 @@ export default class RanjenikScena extends Scena {
     this.patrola = new Patrola('2d-odozgo/nemci-patrola.gif', this.ranjenik)
     this.patrola.polozaj = { x: this.sirina * 3 / 4, y: this.visina * 3 / 4 }
     this.strelica = new Strelica()
-    this.dodaj(this.pozadina, this.ranjenik, this.patrola, this.strelica)
+    this.vreme = new Vreme()
+    this.pocetakPaljbe = 500
+    this.dodaj(this.ranjenik, this.patrola, this.strelica)
   }
 
   proveriSudare() {
@@ -29,27 +35,37 @@ export default class RanjenikScena extends Scena {
 
     if (this.scena === 2) {
       this.patrola.nestani()
+      this.pozadina.slika.src = '/assets/slike/2d-odozgo/shumarak-pozadina.png'
+      this.predmeti = this.predmeti.filter(p => p.constructor.name !== 'Paljba')
       this.zavrsi('Pobeda! Uspeo si da pronađeš spas!')
     }
   }
 
   promeniScenu() {
-    const parna = this.scena % 2 === 0
-    const pozadina = parna ? 'teksture/beton.gif' : '2d-odozgo/shumarak-pozadina.png'
-    const patrola = parna ? '2d-odozgo/talijani-patrola.gif' : '2d-odozgo/nemci-patrola.gif'
-    this.pozadina.slika.src = '/assets/slike/' + pozadina
-    this.patrola.slika.src = '/assets/slike/' + patrola
+    this.pozadina.slika.src = '/assets/slike/teksture/sprzena-zemlja.jpg' // teksture/beton.gif
+    this.patrola.slika.src = '/assets/slike/2d-odozgo/talijani-patrola.gif'
     this.patrola.postaviRandom()
     this.ranjenik.x = 10
     this.scena++
   }
 
+  pali() {
+    if (this.vreme.proteklo < this.pocetakPaljbe) return
+
+    const krater = new Paljba()
+    this.predmeti.unshift(krater)
+    this.pocetakPaljbe += RITAM_PALJBE
+
+    if (this.ranjenik.sudara(krater))
+      this.zavrsi('Hrabro si pao u pokušaju bega.')
+  }
+
   update(dt, t) {
     if (this.zavrsniTekst) return
     super.update(dt, t)
-
     this.proveriSudare()
     this.proveriPobedu()
+    if (this.scena === 1) this.pali()
   }
 
   sablon() {

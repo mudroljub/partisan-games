@@ -2,7 +2,6 @@ import Scena from '/game-engine/core/Scena.js'
 
 const items = {
   RanjenikScena: 'Ranjenik na Sutjesci',
-  RanjenikPaljba: 'Ranjenik paljba',
   JasenovacScena: 'Bekstvo iz Jasenovca',
   TenkOdozgoScena: 'Tenk odozgo',
   BombasScena: 'Bombaš',
