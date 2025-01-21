@@ -22,21 +22,24 @@ export default class RanjenikScena extends Scena {
 
     this.patrola.stani()
     this.patrola.pustiNadjen()
-    this.zavrsi('Uhvaćen si...')
+    this.zavrsi('Uhvaćen si. Tvoja sudbina je zapečaćena...')
   }
 
   proveriPobedu() {
     if (izasaoDesno(this.ranjenik)) this.promeniScenu()
-    if (this.scena < 4) return
-    this.zavrsi('pobeda!')
+
+    if (this.scena === 2) {
+      this.patrola.nestani()
+      this.zavrsi('Pobeda! Uspeo si da pronađeš spas.')
+    }
   }
 
   promeniScenu() {
     const parna = this.scena % 2 === 0
     const pozadina = parna ? 'teksture/beton.gif' : '2d-odozgo/shumarak-pozadina.png'
     const patrola = parna ? '2d-odozgo/talijani-patrola.gif' : '2d-odozgo/nemci-patrola.gif'
-    this.pozadina.zameniSliku(`${pozadina}`)
-    this.patrola.zameniSliku(`${patrola}`)
+    this.pozadina.slika.src = '/assets/slike/' + pozadina
+    this.patrola.slika.src = '/assets/slike/' + patrola
     this.patrola.postaviRandom()
     this.ranjenik.x = 10
     this.scena++

@@ -7,7 +7,6 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 RanjenikScena
-- preimenovati u ranjenici na sutjesci
 - povecavati broj patrola
 - spojiti Bekstvo iz Jasenovca i RanjenikPaljba?
 - u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
