@@ -6,15 +6,9 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-TenkOdozgoScena
-- scena kao velika mapa lavirint
-- kretanje po vise ekrana, kamera prati igraca
-- razlicite podloge ubrzavaju/usporavaju tenk
-- pobeda/poraz - prepreke ili vreme
-
 ### 3D
-- dodati predmetima z osu (default 0)
 - integrisati https:-github.com/mudroljub/partisans
+    - dodati predmetima z osu (default 0)
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju
 - dodati 3d model u 1944
