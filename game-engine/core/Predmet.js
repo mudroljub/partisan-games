@@ -207,11 +207,11 @@ export default class Predmet {
     if (izasaoGore(this)) this.y = platno.height
   }
 
-  vracaVodoravno(procenat = 1, callback) {
-    if (izasaoLevoSkroz(this) && Math.random() <= procenat) {
-      this.x = platno.width + this.sirina / 2
-      if (callback) callback()
-    }
+  vracaVodoravno(callback) {
+    if (!izasaoLevoSkroz(this)) return
+
+    this.x = platno.width + this.sirina / 2
+    if (callback) callback()
   }
 
   odbija() {

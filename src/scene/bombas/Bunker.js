@@ -14,6 +14,6 @@ export default class Bunker extends Predmet {
   }
 
   proveriGranice() {
-    this.vracaVodoravno(1, () => this.reset())
+    this.vracaVodoravno(() => this.reset())
   }
 }

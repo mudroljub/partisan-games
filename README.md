@@ -6,23 +6,7 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- bolje osmisliti procenat vraćanja za proveriGranice, nezavisno od fps
-```js
-if (vreme.proteklo > 1000) {
-    sansa = Math.random()
-    vreme.reset()
-}
-```
-    - mora se dodati vreme u Predmet
-
-- pseudo random na osnovu t:
-```js
-function seededRandom(timestamp) {
-  const x = Math.sin(timestamp) * 10000
-  return x - Math.floor(x)
-}
-```
-    - mora se prosleđivati t
+- bolje osmisliti procenat vraćanja za proveriGranice
 
 TenkicIde
 - bunkeri, vojnici, vozila...
