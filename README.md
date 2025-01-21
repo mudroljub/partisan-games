@@ -6,10 +6,6 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-RanjenikScena
-- spojiti Bekstvo iz Jasenovca i RanjenikPaljba?
-- u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
-
 TenkOdozgoScena
 - scena kao velika mapa lavirint
 - kretanje po vise ekrana, kamera prati igraca
