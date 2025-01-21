@@ -4,7 +4,6 @@ import Pozadina from '/game-engine/core/Pozadina.js'
 import Ranjenik from './Ranjenik.js'
 import Patrola from './Patrola.js'
 import Strelica from './Strelica.js'
-import { adws } from '/game-ui/components.js'
 
 export default class RanjenikScena extends Scena {
   init() {
@@ -30,7 +29,7 @@ export default class RanjenikScena extends Scena {
 
     if (this.scena === 2) {
       this.patrola.nestani()
-      this.zavrsi('Pobeda! Uspeo si da pronađeš spas.')
+      this.zavrsi('Pobeda! Uspeo si da pronađeš spas!')
     }
   }
 

@@ -7,7 +7,7 @@ Male igrice o Nemcima i partizanima.
 ## TODO
 
 RanjenikScena
-- povecavati broj patrola
+- drugi nivo RanjenikPaljba?
 - spojiti Bekstvo iz Jasenovca i RanjenikPaljba?
 - u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
 
