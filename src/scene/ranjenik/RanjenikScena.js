@@ -4,6 +4,7 @@ import Pozadina from '/game-engine/core/Pozadina.js'
 import Ranjenik from './Ranjenik.js'
 import Patrola from './Patrola.js'
 import Strelica from './Strelica.js'
+import { adws } from '/game-ui/components.js'
 
 export default class RanjenikScena extends Scena {
   init() {
@@ -20,15 +21,13 @@ export default class RanjenikScena extends Scena {
     if (!this.patrola.sudara(this.ranjenik)) return
     this.patrola.stani()
     this.patrola.vikniZaredom(2)
-    console.log('Uhvaćen si...')
-    this.end()
+    this.zavrsi('Uhvaćen si...')
   }
 
   proveriPobedu() {
     if (izasaoDesno(this.ranjenik)) this.promeniScenu()
     if (this.scena < 4) return
-    console.log('pobeda!')
-    this.end()
+    this.zavrsi('pobeda!')
   }
 
   promeniScenu() {
@@ -56,11 +55,7 @@ export default class RanjenikScena extends Scena {
   sablon() {
     return /* html */`
       <div class='komande bg-poluprovidno komande1'>
-       <b>Komande</b>
-       <br> A - levo
-       <br> D - desno
-       <br> W - napred
-       <br> S - nazad
+       ${adws()}
      </div>
     `
   }

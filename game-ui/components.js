@@ -8,12 +8,16 @@ export const progresBar = (energija, tekst) => {
 `
 }
 
+export const adws = () => /* html*/`
+  A - levo<br>
+  D - desno<br>
+  W - gore<br>
+  S - dole<br>
+`
+
 export const komande = () => /* html*/`
   <div class="tipke">
-    A - levo<br>
-    D - desno<br>
-    W - gore<br>
-    S - dole<br>
+    ${adws()}
     space - pucanje
   </div>
 `

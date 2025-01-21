@@ -28,6 +28,7 @@ TenkOdozgoScena
 
 ### Završno
 - glavni meni da bude karta jugoslavije sa izborom misija
+    - sakriti platno ako ne treba
 - nazivi nivoa: Bitka za Krupanj, Franjo Kluz...
 - prebaciti potisak na predmet?
 - možda različita boja dugmića ili ikonice na dugmiće. pogledati rpg game ui 
