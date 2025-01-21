@@ -3,11 +3,12 @@ import platno, { crtaNebo } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import AvionIgrac from './AvionIgrac.js'
 import VoziloBocno from '/game-engine/core/VoziloBocno.js'
-import Aerodrom from './Aerodrom.js'
-import Ruina from './Ruina.js'
 import Oblak from '/src/2d-bocno/Oblak.js'
 import Zbun from '/src/2d-bocno/Zbun.js'
 import Shuma from '/src/2d-bocno/Shuma.js'
+import Vracanje from '/game-engine/core/Vracanje.js'
+
+const nivoTla = platno.height
 
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10
@@ -27,14 +28,13 @@ const MAX_DIGNUTOST = 5555
 
 export default class Scena1942 extends Scena {
   init() {
-    this.nivoTla = platno.height
     this.brzinaScene = 0
     this.dignutostScene = 0
 
-    this.aerodrom = new Aerodrom(this.nivoTla)
-    this.ruina = new Ruina(this.nivoTla)
-    this.igrac = new AvionIgrac(this.nivoTla)
-    this.vozilo = new VoziloBocno('2d-bocno/hummel.png', { x: 150, y: this.nivoTla, skalar: .75, ciljevi: [this.igrac] })
+    this.aerodrom = new Vracanje(nivoTla, {src: '2d-bocno/zgrade/aerodrom.png', procenat: .25 })
+    this.ruina = new Vracanje(nivoTla, { src: '2d-bocno/zgrade/ruina.png', x: -400 })
+    this.igrac = new AvionIgrac(nivoTla)
+    this.vozilo = new VoziloBocno('2d-bocno/hummel.png', { x: 150, y: nivoTla, skalar: .75, ciljevi: [this.igrac] })
 
     this.igrac.cvrstaTela.push(this.vozilo, this.ruina)
     this.igrac.ciljevi.push(this.vozilo)
@@ -106,7 +106,7 @@ export default class Scena1942 extends Scena {
   }
 
   cisti() {
-    crtaNebo(this.nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
+    crtaNebo(nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
   }
 
   proveriTipke() {
