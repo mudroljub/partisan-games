@@ -1,18 +1,19 @@
 import { keyboard } from '../io/Keyboard.js'
 import { platno, ctx } from '../io/platno.js'
 import GameLoop from './GameLoop.js'
+import Renderer from './Renderer.js'
 
 export default class Scena {
   constructor(manager) {
     this.manager = manager
     this.predmeti = []
     this.gameLoop = new GameLoop(this.loop)
+    this.renderer = new Renderer()
     this.handleClick = this.handleClick.bind(this)
     this.elementUI = document.getElementById('ui')
     this.prozorElement = document.getElementById('prozor')
     this.upamcenUI = this.upamcenProzor = this.zavrsniTekst = ''
     this.hocuVan = false
-    this.kameraX = this.kameraY = 0
     this.init()
   }
 
@@ -34,13 +35,9 @@ export default class Scena {
 
   /* POZADINA */
 
+  // TODO: ukloniti
   set bojaPozadine(boja) {
-    // ctx.fillStyle = boja
     platno.style.backgroundColor = boja
-  }
-
-  get bojaPozadine() {
-    return ctx.fillStyle
   }
 
   /* UI */
@@ -143,23 +140,11 @@ export default class Scena {
   }
 
   cisti() {
-    if (this.pozadina)
-      this.pozadina.render()
-    else
-      ctx.clearRect(0, 0, this.sirina, this.visina)
+    this.renderer.cisti(this.pozadina)
   }
 
-  render(dt, t) {
-    ctx.save()
-    ctx.translate(-this.kameraX, -this.kameraY)
-
-    const rekurzivnoRender = predmet => {
-      if (predmet.render) predmet.render(dt, t)
-      if (predmet?.predmeti?.length) predmet.predmeti.forEach(rekurzivnoRender)
-    }
-    this.predmeti.forEach(rekurzivnoRender)
-
-    ctx.restore()
+  render() {
+    this.renderer.render(this.predmeti)
   }
 
   loop = (dt, t) => {
