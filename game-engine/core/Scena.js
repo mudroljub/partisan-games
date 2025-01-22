@@ -1,14 +1,15 @@
 import { keyboard } from '../io/Keyboard.js'
-import { platno, ctx } from '../io/platno.js'
+import { platno } from '../io/platno.js'
 import GameLoop from './GameLoop.js'
 import Renderer from './Renderer.js'
+
+const renderer = new Renderer()
 
 export default class Scena {
   constructor(manager) {
     this.manager = manager
     this.predmeti = []
     this.gameLoop = new GameLoop(this.loop)
-    this.renderer = new Renderer()
     this.handleClick = this.handleClick.bind(this)
     this.elementUI = document.getElementById('ui')
     this.prozorElement = document.getElementById('prozor')
@@ -140,11 +141,11 @@ export default class Scena {
   }
 
   cisti() {
-    this.renderer.cisti(this.pozadina)
+    renderer.cisti(this.pozadina)
   }
 
   render() {
-    this.renderer.render(this.predmeti)
+    renderer.render(this.predmeti)
   }
 
   loop = (dt, t) => {

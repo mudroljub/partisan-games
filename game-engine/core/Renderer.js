@@ -4,11 +4,11 @@ const poravnaj = niz => niz.flatMap(predmet =>
   [predmet, ...(predmet.predmeti ? poravnaj(predmet.predmeti) : [])]
 )
 
-// TODO: ukloniti render sa predmeta
-// TODO: ukloniti render sa pozadine
-
 export default class Renderer {
   constructor() {
+    if (Renderer.instance) return Renderer.instance
+    Renderer.instance = this
+
     this.kameraX = this.kameraY = 0
   }
 

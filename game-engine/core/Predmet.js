@@ -319,7 +319,7 @@ export default class Predmet {
       ctx.drawImage(this.slika, -this.sirina, -this.visina, this.sirina, this.visina)
   }
 
-  crtaSenku() {
+  dodajSenku() {
     if (this.senka) {
       ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'
       ctx.shadowOffsetX = 10
@@ -333,7 +333,7 @@ export default class Predmet {
 
   render() {
     if (!this.prikazan) return
-    this.crtaSenku()
+    this.dodajSenku()
 
     ctx.save()
     ctx.translate(this.x, this.y)
