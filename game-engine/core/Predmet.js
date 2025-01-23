@@ -5,6 +5,10 @@ import {
   izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde, vanEkrana
 } from '/game-engine/utils/granice.js'
 
+import Renderer from './Renderer.js'
+
+const renderer = new Renderer()
+
 export default class Predmet {
   #ugao = 0
 
@@ -300,52 +304,7 @@ export default class Predmet {
     this.azurirajPlamen(dt)
   }
 
-  crtaOblik() {
-    ctx.fillStyle = 'black'
-    if (this.ishodiste === 'CENTAR')
-      ctx.fillRect(-this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
-    else if (this.ishodiste === 'GORE_LEVO')
-      ctx.fillRect(0, 0, this.sirina, this.visina)
-    else if (this.ishodiste === 'DOLE_DESNO')
-      ctx.fillRect(-this.sirina, -this.visina, this.sirina, this.visina)
-  }
-
-  crtaSliku() {
-    if (this.ishodiste === 'CENTAR')
-      ctx.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
-    else if (this.ishodiste === 'GORE_LEVO')
-      ctx.drawImage(this.slika, 0, 0, this.sirina, this.visina)
-    else if (this.ishodiste === 'DOLE_DESNO')
-      ctx.drawImage(this.slika, -this.sirina, -this.visina, this.sirina, this.visina)
-  }
-
-  dodajSenku() {
-    if (this.senka) {
-      ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'
-      ctx.shadowOffsetX = 10
-      ctx.shadowOffsetY = 10
-    } else {
-      ctx.shadowColor = 'rgba(0, 0, 0, 0)'
-      ctx.shadowOffsetX = 0
-      ctx.shadowOffsetY = 0
-    }
-  }
-
   render() {
-    if (!this.prikazan) return
-    this.dodajSenku()
-
-    ctx.save()
-    ctx.translate(this.x, this.y)
-    ctx.rotate(this.ugao)
-    ctx.scale(this.odrazY, this.odrazX)
-    ctx.scale(this.scaleX, this.scaleY)
-    if (!this.slika || this.debug)
-      this.crtaOblik()
-    else
-      this.crtaSliku()
-    ctx.restore()
-
-    if (this.zapaljen) this.plamen.render()
+    renderer.crtaPredmet(this)
   }
 }
