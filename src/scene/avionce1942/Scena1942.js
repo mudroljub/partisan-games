@@ -99,7 +99,7 @@ export default class Scena1942 extends Scena {
   }
 
   proveriTlo() {
-    if (this.igrac.jePrizemljen() && this.dignutostScene === 0) {
+    if (this.igrac.jePrizemljen() && this.dignutostScene <= 0) {
       this.zaustaviParalax()
       if (this.igrac.ziv && this.vozilo.mrtav) this.zavrsi('Misija je uspešno završena!')
     }

@@ -4,9 +4,6 @@ const poravnaj = niz => niz.flatMap(predmet =>
   [predmet, ...(predmet.predmeti ? poravnaj(predmet.predmeti) : [])]
 )
 
-/**
- * cisti: dodati boju pozadine
- */
 export default class Renderer {
   constructor() {
     if (Renderer.instance) return Renderer.instance
