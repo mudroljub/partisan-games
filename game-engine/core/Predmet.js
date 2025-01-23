@@ -1,13 +1,10 @@
-import { platno, ctx } from '../io/platno.js'
+import { platno } from '../io/platno.js'
 import { pitagora, randomInRange } from '../utils.js'
 import { sudar } from '../utils/sudari.js'
 import {
   izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde, vanEkrana
 } from '/game-engine/utils/granice.js'
-
-import Renderer from './Renderer.js'
-
-const renderer = new Renderer()
+import { renderer } from './Renderer.js'
 
 export default class Predmet {
   #ugao = 0

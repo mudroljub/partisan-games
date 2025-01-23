@@ -1,9 +1,7 @@
 import { keyboard } from '../io/Keyboard.js'
 import { platno } from '../io/platno.js'
 import GameLoop from './GameLoop.js'
-import Renderer from './Renderer.js'
-
-const renderer = new Renderer()
+import { renderer } from './Renderer.js'
 
 export default class Scena {
   constructor(manager) {

@@ -82,3 +82,5 @@ export default class Renderer {
     ctx.restore()
   }
 }
+
+export const renderer = new Renderer()
