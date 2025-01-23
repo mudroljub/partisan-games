@@ -76,4 +76,11 @@ export default class Sprite extends Predmet {
       this.slika, slikaX, slikaY, sirina, visina, 0 - sirina / 2, 0 - visina / 2, sirina, visina
     )
   }
+
+  render() {
+    ctx.save()
+    ctx.translate(this.x, this.y)
+    this.crtaSliku()
+    ctx.restore()
+  }
 }
