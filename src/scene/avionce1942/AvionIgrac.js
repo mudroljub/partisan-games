@@ -15,6 +15,14 @@ export default class AvionIgrac extends Igrac {
     Object.assign(this, praviRakete({ vremePunjenja: 1.5 }))
   }
 
+  get jeNaVrhu() {
+    return this.y <= this.visina / 2
+  }
+
+  get jePrizemljen() {
+    return this.y + this.visina / 2 >= this.nivoTla
+  }
+
   proveriGranice() {
     this.ogranici()
   }
@@ -28,11 +36,11 @@ export default class AvionIgrac extends Igrac {
   }
 
   nalevo() {
-    if (!this.jePrizemljen()) super.nalevo()
+    if (!this.jePrizemljen) super.nalevo()
   }
 
   nagore() {
-    if (this.jeNaVrhu()) return
+    if (this.jeNaVrhu) return
 
     super.nagore()
     if (this.ugao === 0 || this.ugao >= 2 * Math.PI - MOGUCNOST_OKRETA)
@@ -40,7 +48,7 @@ export default class AvionIgrac extends Igrac {
   }
 
   nadole() {
-    if (this.jePrizemljen()) return
+    if (this.jePrizemljen) return
 
     super.nadole()
     if (this.ugao <= MOGUCNOST_OKRETA)
@@ -59,21 +67,13 @@ export default class AvionIgrac extends Igrac {
     this.ugao += this.ugao < Math.PI ? -OKRET : OKRET
   }
 
-  jeNaVrhu() {
-    return this.y <= this.visina / 2
-  }
-
-  jePrizemljen() {
-    return this.y + this.visina / 2 >= this.nivoTla
-  }
-
   proveriTlo() {
-    if (!this.jePrizemljen()) return
-    if (this.ugao > MOGUCNOST_OKRETA / 2) return this.umri()
+    if (!this.jePrizemljen) return
+    if (this.ugao > MOGUCNOST_OKRETA / 2) this.umri()
   }
 
   dodajGravitaciju() {
-    if (this.jePrizemljen()) return
+    if (this.jePrizemljen) return
 
     const teza = this.mrtav ? gravitacija * 100 : gravitacija
     this.dodajSilu(teza, Math.PI * .5)
