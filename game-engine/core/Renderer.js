@@ -63,12 +63,13 @@ export default class Renderer {
     ctx.rotate(predmet.ugao)
     ctx.scale(predmet.odrazY, predmet.odrazX)
     ctx.scale(predmet.scaleX, predmet.scaleY)
+
     if (!predmet.slika || predmet.debug)
       this.crtaOblik(predmet)
     else
       this.crtaSliku(predmet)
-    ctx.restore()
 
+    ctx.restore()
     if (predmet.zapaljen) predmet.plamen.render()
   }
 

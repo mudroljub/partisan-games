@@ -11,8 +11,9 @@ export default class Granata extends Metak {
     super({ skalar, ...rest })
     this.nivoTla = nivoTla
     this.gravitacija = gravitacija
-    this.plamicak = new Predmet('plamen.gif', { skalar: 0.4 })
     this.timerId = null
+    this.plamicak = new Predmet('plamen.gif', { skalar: 0.4 })
+    this.predmeti.push(this.plamicak)
     this.reset()
   }
 
@@ -40,12 +41,5 @@ export default class Granata extends Metak {
   eksplodiraj() {
     this.plamicak.polozaj = this.polozaj
     this.plamicak.pokazi()
-  }
-
-  /* LOOP */
-
-  render() {
-    super.render()
-    this.plamicak.render()
   }
 }
