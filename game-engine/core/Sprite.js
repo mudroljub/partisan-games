@@ -13,7 +13,7 @@ class Animacija {
 }
 
 export default class Sprite extends Predmet {
-  constructor(src, { imena, brojKadrova, vremeAnimacije = .5, ...rest }) { // broj ili niz brojeva ako su nejednake
+  constructor(src, { imena, brojKadrova, defaultAnimacija, vremeAnimacije = .5, ...rest }) { // broj ili niz brojeva ako su nejednake
     super(src, rest)
     this.animacija = null
     this.imeAnimacije = ''
@@ -21,6 +21,7 @@ export default class Sprite extends Predmet {
     this.protekloAnimacije = 0
     this.onload = () => {
       this.animacije = this.praviAnimacije(imena, brojKadrova)
+      if (defaultAnimacija) this.dodeliAnimaciju(defaultAnimacija)
     }
   }
 
