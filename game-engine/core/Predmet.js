@@ -1,5 +1,5 @@
 import { platno } from '../io/platno.js'
-import { pitagora, randomInRange } from '../utils.js'
+import { pitagora } from '../utils.js'
 import { sudar } from '../utils/sudari.js'
 import {
   izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde, vanEkrana
@@ -89,19 +89,6 @@ export default class Predmet {
 
   tlo(y) {
     this.y = y - this.visina / 2
-  }
-
-  randomX(marginaX) {
-    this.x = randomInRange(marginaX, platno.width - marginaX)
-  }
-
-  randomY(marginaY) {
-    this.y = randomInRange(marginaY, platno.height - marginaY)
-  }
-
-  postaviRandom(marginaX = 10, marginaY = 10) {
-    this.randomX(marginaX)
-    this.randomY(marginaY)
   }
 
   /* UGAO */
