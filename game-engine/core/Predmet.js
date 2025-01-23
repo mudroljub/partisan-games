@@ -14,7 +14,7 @@ export default class Predmet {
     sirina, visina, x = 200, y = 200, z = 0, skalar = 1, brzina = 0, zapaljiv = false, ishodiste = 'CENTAR',
     odrazY = 1, odrazX = 1, scaleX = 1, scaleY = 1, senka
   } = {}) {
-    this.pozicija = new Vector(x, y, z)
+    this.polozaj = new Vector(x, y, z)
     this.sirina = sirina || 10
     this.visina = visina || 10
     if (src) this.ucitajSliku(src, sirina, visina, skalar)
@@ -68,31 +68,23 @@ export default class Predmet {
   /* POLOZAJ */
 
   get x() {
-    return this.pozicija.x
+    return this.polozaj.x
   }
 
   set x(val) {
-    this.pozicija.x = val
+    this.polozaj.x = val
   }
 
   get y() {
-    return this.pozicija.y
+    return this.polozaj.y
   }
 
   set y(val) {
-    this.pozicija.y = val
-  }
-
-  get polozaj() {
-    return this.pozicija
-  }
-
-  set polozaj({ x, y, z }) {
-    this.pozicija.postavi({ x, y, z })
+    this.polozaj.y = val
   }
 
   postavi(x, y, z) {
-    this.pozicija.postavi({ x, y, z })
+    this.polozaj.postavi({ x, y, z })
   }
 
   tlo(y) {

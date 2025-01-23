@@ -11,7 +11,7 @@ export default class Granata extends Predmet {
   puca() {
     this.pokazi()
     this.brzina = 20
-    this.pozicija = this.vlasnik.pozicija
+    this.polozaj = this.vlasnik.polozaj
     this.ugao = this.vlasnik.ugao
   }
 

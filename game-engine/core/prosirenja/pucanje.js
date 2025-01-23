@@ -69,7 +69,7 @@ export function praviPucanje({
       const meta = this.traziNajblizuMetu()
       if (!meta) return
 
-      this.pali(this.pozicija, this.ugaoKa(meta))
+      this.pali(this.polozaj, this.ugaoKa(meta))
     },
 
     pucaPovremenoCiljano(t) {

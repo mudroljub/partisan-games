@@ -32,8 +32,8 @@ export default class Top extends Predmet {
     const projektil = this.projektili.find(p => !p.vidljiv)
     if (!projektil) return
 
-    const pozicija = { x: this.vrhX, y: this.vrhY }
-    projektil.pali(pozicija, this.ugao, this.sila)
+    const polozaj = { x: this.vrhX, y: this.vrhY }
+    projektil.pali(polozaj, this.ugao, this.sila)
     this.x -= 5
     this.sila = this.minSila
   }
