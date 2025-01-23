@@ -4,6 +4,10 @@ const poravnaj = niz => niz.flatMap(predmet =>
   [predmet, ...(predmet.predmeti ? poravnaj(predmet.predmeti) : [])]
 )
 
+/**
+ * probati uklanjanje render sa nekih predmeta
+ * cisti: dodati boju pozadine
+ */
 export default class Renderer {
   constructor() {
     if (Renderer.instance) return Renderer.instance
@@ -68,7 +72,7 @@ export default class Renderer {
     if (predmet.zapaljen) predmet.plamen.render()
   }
 
-  render(predmeti) {
+  crtaPredmete(predmeti) {
     ctx.save()
     ctx.translate(-this.kameraX, -this.kameraY)
 

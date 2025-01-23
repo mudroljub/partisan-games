@@ -145,7 +145,7 @@ export default class Scena {
   }
 
   render() {
-    renderer.render(this.predmeti)
+    renderer.crtaPredmete(this.predmeti)
   }
 
   loop = (dt, t) => {
