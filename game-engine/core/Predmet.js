@@ -101,14 +101,6 @@ export default class Predmet {
     this.#ugao = (noviUgao + Math.PI * 2) % (Math.PI * 2)
   }
 
-  get ugaoStepeni() {
-    return this.ugao * 180 / Math.PI
-  }
-
-  set ugaoStepeni(ugaoRadijani) {
-    this.ugao = ugaoRadijani * Math.PI / 180
-  }
-
   skreni(noviUgao) {
     this.ugao = noviUgao
     this.brzina = this.brzina // ažurira pravac kretanja
@@ -138,11 +130,6 @@ export default class Predmet {
     const modifikator = 1 - faktorTrenja
     this.dx *= modifikator
     this.dy *= modifikator
-  }
-
-  pomeri(razmak) {
-    this.x += razmak * Math.cos(this.ugao)
-    this.y += razmak * Math.sin(this.ugao)
   }
 
   stani() {
@@ -217,8 +204,6 @@ export default class Predmet {
       this.skreni(2 * Math.PI - this.ugao)
     if (izasaoLevo(this) || izasaoDesno(this))
       this.skreni(Math.PI - this.ugao)
-    if (izasaoIgde(this))
-      this.pomeri(5)
   }
 
   ogranici() {

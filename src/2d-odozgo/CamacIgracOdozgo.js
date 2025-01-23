@@ -16,7 +16,7 @@ export default class CamacIgracOdozgo extends VoziloIgracOdozgo {
     const ofset = 75
     if (this.y < 0 + ofset || this.y > platno.height - ofset) {
       this.skreni(2 * Math.PI - this.ugao)
-      this.pomeri(5)
+      this.dodajSilu(5)
     }
     this.ograniciVodoravno()
   }
