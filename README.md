@@ -14,6 +14,7 @@ Male igrice o Nemcima i partizanima.
 - dodati 3d model u 1944
 
 ### Završno
+- na scenu top dinamičku pozadinu, dim, avione kako lete...
 - glavni meni da bude karta jugoslavije sa izborom misija
     - sakriti platno ako ne treba
 - nazivi nivoa: Bitka za Krupanj, Franjo Kluz...

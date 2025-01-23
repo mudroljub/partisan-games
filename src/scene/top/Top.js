@@ -15,7 +15,7 @@ export default class Top extends Predmet {
     this.ugao = -0.2
     this.sila = this.minSila = 300
     this.projektili = Array.from({ length: 5 }, () => new Djule())
-    this.predmeti = [...this.projektili]
+    this.predmeti = [...this.projektili, this.postolje]
     this.ciljevi = ciljevi
     Object.defineProperties(this, Object.getOwnPropertyDescriptors(praviEnergiju()))
   }
@@ -69,10 +69,5 @@ export default class Top extends Predmet {
     super.update(dt)
     this.proveriPogodak()
     if (this.x < this.pocetniX) this.x += 20 * dt
-  }
-
-  render() {
-    super.render()
-    this.postolje.render()
   }
 }
