@@ -16,13 +16,13 @@ export default class Okupator extends Sprite {
     this.pripucao = false
     this.vreme = new Vreme()
     this.vremeHodanja = randomInRange(700, 3200)
-    this.izlazi()
+    this.kreni()
   }
 
-  izlazi() {
+  kreni() {
     const izlaziLevo = Math.random() > .5
     this.x = izlaziLevo ? 0 : platno.sirina
-    this.imeAnimacije = izlaziLevo ? 'nadesno' : 'nalevo'
+    this.defaultAnimacija = izlaziLevo ? 'nadesno' : 'nalevo'
     this.brzina = izlaziLevo ? 200 : -200
   }
 
@@ -55,9 +55,7 @@ export default class Okupator extends Sprite {
     super.update(dt, t)
     if (!this.ziv) return
 
-    if (this.vreme.proteklo < this.vremeHodanja)
-      this.dodeliAnimaciju(this.imeAnimacije)
-    else
+    if (this.vreme.proteklo > this.vremeHodanja)
       this.pucaj(dt)
   }
 }

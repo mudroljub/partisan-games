@@ -19,10 +19,14 @@ export default class Sprite extends Predmet {
     this.imeAnimacije = ''
     this.vremeAnimacije = vremeAnimacije // sekundi
     this.protekloAnimacije = 0
-    this.onload = () => {
-      this.animacije = this.praviAnimacije(imena, brojKadrova)
-      if (defaultAnimacija) this.dodeliAnimaciju(defaultAnimacija)
-    }
+    this.imena = imena
+    this.brojKadrova = brojKadrova
+    this.defaultAnimacija = defaultAnimacija
+  }
+
+  onload() {
+    this.animacije = this.praviAnimacije(this.imena, this.brojKadrova)
+    if (this.defaultAnimacija) this.dodeliAnimaciju(this.defaultAnimacija)
   }
 
   praviAnimacije(imena, duzine) {
