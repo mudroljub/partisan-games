@@ -56,8 +56,8 @@ export default class AvionIgrac extends Igrac {
   }
 
   puca() {
-    const polozaj = { x: this.x + 5, y: this.y + 15 }
-    this.pali(polozaj, this.ugao + Math.PI / 16)
+    const poz = { x: this.x + 5, y: this.y + 15 }
+    this.pali(poz, this.ugao + Math.PI / 16)
   }
 
   /** OSTALO ***/

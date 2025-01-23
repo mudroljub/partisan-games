@@ -5,16 +5,16 @@ import {
   izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde, vanEkrana
 } from '/game-engine/utils/granice.js'
 import { renderer } from './Renderer.js'
+import Vector from './Vector.js'
 
 export default class Predmet {
   #ugao = 0
 
   constructor(src, {
-    sirina, visina, x = 200, y = 200, skalar = 1, brzina = 0, zapaljiv = false, ishodiste = 'CENTAR',
+    sirina, visina, x = 200, y = 200, z = 0, skalar = 1, brzina = 0, zapaljiv = false, ishodiste = 'CENTAR',
     odrazY = 1, odrazX = 1, scaleX = 1, scaleY = 1, senka
   } = {}) {
-    this.x = x
-    this.y = y
+    this.pozicija = new Vector(x, y, z)
     this.sirina = sirina || 10
     this.visina = visina || 10
     if (src) this.ucitajSliku(src, sirina, visina, skalar)
@@ -67,13 +67,32 @@ export default class Predmet {
 
   /* POLOZAJ */
 
-  get polozaj() {
-    return { x: this.x, y: this.y }
+  get x() {
+    return this.pozicija.x
   }
 
-  set polozaj(poz) {
-    this.x = poz.x
-    this.y = poz.y
+  set x(val) {
+    this.pozicija.x = val
+  }
+
+  get y() {
+    return this.pozicija.y
+  }
+
+  set y(val) {
+    this.pozicija.y = val
+  }
+
+  get polozaj() {
+    return this.pozicija
+  }
+
+  set polozaj({ x, y, z }) {
+    this.pozicija.postavi({ x, y, z })
+  }
+
+  postavi(x, y, z) {
+    this.pozicija.postavi({ x, y, z })
   }
 
   tlo(y) {

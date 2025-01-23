@@ -28,7 +28,7 @@ export default class NemciIzRovova extends Scena {
     return Array.from({ length: n }, (_, i) => {
       const x = i * razmak + polaRazmaka
       const svabo = new Svabo(params)
-      svabo.polozaj = { x, y }
+      svabo.postavi(x, y)
       return svabo
     })
   }

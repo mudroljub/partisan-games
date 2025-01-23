@@ -59,8 +59,8 @@ export default class Tenk extends Predmet {
     }
   }
 
-  pucaj(polozaj, ugao) {
-    this.pali(polozaj, ugao)
+  pucaj(poz, ugao) {
+    this.pali(poz, ugao)
     this.trzaj()
   }
 

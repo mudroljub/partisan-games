@@ -15,8 +15,8 @@ export default class Neprijatelj extends Pokretno {
   }
 
   puca() {
-    const polozaj = { x: this.x, y: this.y + this.visina / 4 }
-    this.pali(polozaj, Math.PI * .5)
+    const poz = { x: this.x, y: this.y + this.visina / 4 }
+    this.pali(poz, Math.PI * .5)
   }
 
   reset() {

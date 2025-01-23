@@ -12,7 +12,7 @@ export class Avionce extends Igrac {
   }
 
   onload() {
-    this.polozaj = { x: platno.width / 2, y: platno.height - this.visina }
+    this.postavi(platno.width / 2, platno.height - this.visina)
   }
 
   proveriGranice() {
@@ -20,8 +20,8 @@ export class Avionce extends Igrac {
   }
 
   puca() {
-    const polozaj = { x: this.x, y: this.y - this.visina / 4 }
-    this.pali(polozaj, Math.PI * 1.5)
+    const poz = { x: this.x, y: this.y - this.visina / 4 }
+    this.pali(poz, Math.PI * 1.5)
   }
 
   reset() {

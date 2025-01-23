@@ -10,7 +10,7 @@ export default class Zbun extends Predmet {
   }
 
   randomDoTla(nivoTla) {
-    this.polozaj = { x: Math.random() * platno.width, y: randomInRange(nivoTla - this.visina / 2, platno.height) }
+    this.postavi(Math.random() * platno.width, randomInRange(nivoTla - this.visina / 2, platno.height))
   }
 
   proveriGranice() {

@@ -14,13 +14,9 @@ export default class Metak extends Predmet {
     this.nestani()
   }
 
-  postavi(polozaj, ugao) {
-    this.polozaj = polozaj
+  pali(poz, ugao, potisak = this.potisak) {
+    this.postavi(poz.x, poz.y)
     this.ugao = ugao
-  }
-
-  pali(polozaj, ugao, potisak = this.potisak) {
-    this.postavi(polozaj, ugao)
     this.pokazi()
     this.dodajSilu(potisak)
   }

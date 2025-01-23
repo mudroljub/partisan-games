@@ -23,10 +23,10 @@ export function praviPucanje({
       return metak
     },
 
-    pali(polozaj, ugao, potisak = potisakMetka) {
+    pali(poz, ugao, potisak = potisakMetka) {
       if (this.pripucao && this.cekanjePucanja.protekloSekundi <= vremePunjenja) return
 
-      const tacanPolozaj = { x: polozaj.x + x, y: polozaj.y + y }
+      const tacanPolozaj = { x: poz.x + x, y: poz.y + y }
 
       ugloviPucanja.forEach(ofset => {
         const metak = this.meci.find(g => !g.vidljiv) || this.novMetak()
@@ -69,7 +69,7 @@ export function praviPucanje({
       const meta = this.traziNajblizuMetu()
       if (!meta) return
 
-      this.pali(this.polozaj, this.ugaoKa(meta))
+      this.pali(this.pozicija, this.ugaoKa(meta))
     },
 
     pucaPovremenoCiljano(t) {

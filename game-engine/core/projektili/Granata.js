@@ -39,7 +39,7 @@ export default class Granata extends Metak {
   }
 
   eksplodiraj() {
-    this.plamicak.polozaj = this.polozaj
+    this.plamicak.pozicija = this.pozicija
     this.plamicak.pokazi()
   }
 }
