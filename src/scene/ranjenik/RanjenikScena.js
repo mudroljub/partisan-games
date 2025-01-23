@@ -44,7 +44,7 @@ export default class RanjenikScena extends Scena {
   promeniScenu() {
     this.pozadina.slika.src = '/assets/slike/teksture/sprzena-zemlja.jpg'
     this.patrola.slika.src = '/assets/slike/2d-odozgo/talijani-patrola.gif'
-    this.patrola.postaviRandom()
+    this.patrola.postavi(this.sirina * 3 / 4, this.visina * 3 / 4)
     this.ranjenik.x = 10
     this.scena++
   }
