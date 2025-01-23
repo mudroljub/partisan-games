@@ -5,7 +5,6 @@ const poravnaj = niz => niz.flatMap(predmet =>
 )
 
 /**
- * probati uklanjanje render sa nekih predmeta
  * cisti: dodati boju pozadine
  */
 export default class Renderer {
@@ -16,10 +15,13 @@ export default class Renderer {
     this.kameraX = this.kameraY = 0
   }
 
-  cisti(pozadina) {
+  cisti({ pozadina, bojaPozadine } = {}) {
     if (pozadina)
       pozadina.render()
-    else
+    else if (bojaPozadine) {
+      ctx.fillStyle = bojaPozadine
+      ctx.fillRect(0, 0, platno.width, platno.height)
+    } else
       ctx.clearRect(0, 0, platno.width, platno.height)
   }
 

@@ -34,13 +34,6 @@ export default class Scena {
     return platno.height
   }
 
-  /* POZADINA */
-
-  // TODO: ukloniti
-  set bojaPozadine(boja) {
-    platno.style.backgroundColor = boja
-  }
-
   /* UI */
 
   handleClick(e) {
@@ -141,7 +134,7 @@ export default class Scena {
   }
 
   cisti() {
-    renderer.cisti(this.pozadina)
+    renderer.cisti({ pozadina: this.pozadina, bojaPozadine: this.bojaPozadine })
   }
 
   render() {

@@ -4,11 +4,11 @@ import Obala from './Obala.js'
 
 export default class CamacScena extends Scena {
   init() {
-    this.bojaPozadine = '#000066'
     this.camac = new CamacIgracOdozgo()
     this.obala = new Obala()
     this.dodaj(this.obala, this.camac)
     this.poslednjiX = this.camac.x
+    this.bojaPozadine = '#000066'
   }
 
   update(dt, t) {

@@ -6,6 +6,8 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
+- BUG: sletanje nekad ne radi 1942
+
 ### 3D
 - integrisati https:-github.com/mudroljub/partisans
     - dodati predmetima z osu (default 0)
