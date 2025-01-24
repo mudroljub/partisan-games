@@ -11,7 +11,19 @@ export default class Vector {
     if (z !== undefined) this.z = z
   }
 
-  add(other) {
-    return new Vector(this.x + other.x, this.y + other.y, this.z + other.z)
+  add(polozaj) {
+    return new Vector(this.x + polozaj.x, this.y + polozaj.y, this.z + polozaj.z)
+  }
+
+  subtract(polozaj) {
+    return new Vector(this.x - polozaj.x, this.y - polozaj.y, this.z - polozaj.z)
+  }
+
+  magnitude() {
+    return Math.sqrt(this.x ** 2 + this.y ** 2 + this.z ** 2)
+  }
+
+  razmakDo(polozaj) {
+    return this.subtract(polozaj).magnitude()
   }
 }

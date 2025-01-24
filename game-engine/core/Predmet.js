@@ -172,9 +172,7 @@ export default class Predmet {
   }
 
   razmakDo(predmet) {
-    const razlikaX = this.x - predmet.x
-    const razlikaY = this.y - predmet.y
-    return Math.sqrt((razlikaX * razlikaX) + (razlikaY * razlikaY))
+    return this.polozaj.razmakDo(predmet.polozaj)
   }
 
   /* GRANICE */
