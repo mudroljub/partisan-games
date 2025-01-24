@@ -11,19 +11,10 @@ export default class Vector {
     if (z !== undefined) this.z = z
   }
 
-  get duzina() {
-    return Math.sqrt(this.x ** 2 + this.y ** 2 + this.z ** 2)
-  }
-
-  saberi(polozaj) {
-    return new Vector(this.x + polozaj.x, this.y + polozaj.y, this.z + polozaj.z)
-  }
-
-  oduzmi(polozaj) {
-    return new Vector(this.x - polozaj.x, this.y - polozaj.y, this.z - polozaj.z)
-  }
-
   razmakDo(polozaj) {
-    return this.oduzmi(polozaj).duzina
+    const dx = this.x - polozaj.x
+    const dy = this.y - polozaj.y
+    const dz = this.z - polozaj.z
+    return Math.sqrt(dx ** 2 + dy ** 2 + dz ** 2)
   }
 }
