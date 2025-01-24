@@ -5,7 +5,7 @@ export default class Vector {
     this.z = z
   }
 
-  postavi({ x, y, z }) {
+  set({ x, y, z }) {
     if (x !== undefined) this.x = x
     if (y !== undefined) this.y = y
     if (z !== undefined) this.z = z

@@ -1,8 +1,7 @@
 import { platno } from '../io/platno.js'
-import { pitagora } from '../utils.js'
 import { sudar } from '../utils/sudari.js'
 import {
-  izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, izasaoIgde, vanEkrana
+  izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, vanEkrana
 } from '/game-engine/utils/granice.js'
 import { renderer } from './Renderer.js'
 import Vector from './Vector.js'
@@ -62,7 +61,7 @@ export default class Predmet {
   }
 
   get dijagonala() {
-    return pitagora(0, this.sirina, 0, this.visina)
+    return Math.sqrt(this.sirina ** 2 + this.visina ** 2)
   }
 
   /* POLOZAJ */
@@ -84,7 +83,7 @@ export default class Predmet {
   }
 
   postavi(x, y, z) {
-    this.polozaj.postavi({ x, y, z })
+    this.polozaj.set({ x, y, z })
   }
 
   tlo(y) {
