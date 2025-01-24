@@ -37,7 +37,6 @@ export default class Predmet {
     this.slika.onload = () => {
       this.dodeliVelicinu(sirina, visina, skalar)
       this.onload()
-      this.slika.onload = null
     }
     this.slika.src = '/assets/slike/' + src
   }

@@ -11,7 +11,6 @@ export default class AvionIgrac extends Igrac {
     super(src, { skalar: .55, zapaljiv: true })
     this.brzina = 0
     this.nivoTla = nivoTla
-    this.oznake.add('igrac')
     Object.assign(this, praviRakete({ vremePunjenja: 1.5 }))
   }
 
