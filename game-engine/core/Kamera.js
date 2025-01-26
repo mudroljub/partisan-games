@@ -1,5 +1,5 @@
 import Vector from './Vector.js'
-import { platno } from '..io/platno.js'
+import { platno } from '../io/platno.js'
 
 const sensitivity = 0.02
 const zoomSensitivity = 0.0001
@@ -31,7 +31,7 @@ export class Kamera extends Vector {
     return { x, y, z }
   }
 
-  rotiraj(polozaj) {
+  primeniRotaciju(polozaj) {
     const cos = Math.cos(this.rotacija)
     const sin = Math.sin(this.rotacija)
     return {

@@ -1,15 +1,18 @@
 import { platno, ctx } from '../io/platno.js'
+import { kamera } from './Kamera.js'
 
 const poravnaj = niz => niz.flatMap(predmet =>
   [predmet, ...(predmet.predmeti ? poravnaj(predmet.predmeti) : [])]
 )
+
+const racunajZ = polozaj => kamera.primeniRotaciju(polozaj).z
 
 export default class Renderer {
   constructor() {
     if (Renderer.instance) return Renderer.instance
     Renderer.instance = this
 
-    this.kameraX = this.kameraY = 0
+    this.kameraX = this.kameraY = 0 // TODO: integriši sa kamerom
   }
 
   cisti({ pozadina, bojaPozadine } = {}) {
@@ -77,7 +80,12 @@ export default class Renderer {
     ctx.translate(-this.kameraX, -this.kameraY)
 
     const sviPredmeti = poravnaj(predmeti)
-    sviPredmeti.forEach(predmet => predmet.render())
+    sviPredmeti
+      .sort((a, b) => racunajZ(b.polozaj) - racunajZ(a.polozaj))
+      .forEach(predmet => predmet.render())
+
+    ctx.fillStyle = 'rgba(112, 66, 20, 0.15)'
+    ctx.fillRect(0, 0, platno.width, platno.height)
 
     ctx.restore()
   }
