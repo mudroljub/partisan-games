@@ -21,7 +21,7 @@ export default class Okupator extends Sprite {
 
   kreni() {
     const izlaziLevo = Math.random() > .5
-    this.x = izlaziLevo ? 0 : platno.sirina
+    this.x = izlaziLevo ? 0 : platno.width
     this.defaultAnimacija = izlaziLevo ? 'nadesno' : 'nalevo'
     this.brzina = izlaziLevo ? 200 : -200
   }

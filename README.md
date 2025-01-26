@@ -10,8 +10,9 @@ Male igrice o Nemcima i partizanima.
 - proveriti upotrebu oznake
 
 ### 3D
-- integrisati https:-github.com/mudroljub/partisans
-    - dodati predmetima z osu (default 0)
+- integrisati partisans
+    - integrisati Predmet, Renderer...
+    - integrisati Drvar scenu
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju
 - dodati 3d model u 1944

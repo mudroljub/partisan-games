@@ -3,7 +3,7 @@ import Vreme from '/game-engine/core/Vreme.js'
 import platno from '/game-engine/io/platno.js'
 
 export default class Vracanje extends Predmet {
-  constructor({ src, tlo, procenat = .25, x = Math.random() * platno.sirina, ...rest } = {}) {
+  constructor({ src, tlo, procenat = .25, x = Math.random() * platno.width, ...rest } = {}) {
     super(src, { x, ...rest })
     this.vreme = new Vreme()
     this.procenat = procenat
