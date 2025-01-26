@@ -10,9 +10,8 @@ Male igrice o Nemcima i partizanima.
 - proveriti upotrebu oznake
 
 ### 3D
-- integrisati partisans
-    - integrisati Predmet, Renderer...
-    - integrisati Drvar scenu
+- integrisati Drvar scenu
+    - probati projekciju još negde
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju
 - dodati 3d model u 1944
