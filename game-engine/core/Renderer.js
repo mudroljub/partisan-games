@@ -44,6 +44,17 @@ export default class Renderer {
       ctx.drawImage(predmet.slika, -predmet.sirina, -predmet.visina, predmet.sirina, predmet.visina)
   }
 
+  crtaProjekciju(predmet) {
+    const { slika, polozaj, sirina, visina } = predmet
+    const rotirano = kamera.primeniRotaciju(polozaj)
+    const projekcija = kamera.projektuj(rotirano)
+    const skaliranaSirina = sirina * projekcija.z
+    const skaliranaVisina = visina * projekcija.z
+    if (this.vanPrikaza(rotirano.z, projekcija.x, projekcija.y, skaliranaSirina, skaliranaVisina)) return
+
+    ctx.drawImage(slika, projekcija.x, projekcija.y, skaliranaSirina, skaliranaVisina)
+  }
+
   dodajSenku(predmet) {
     if (predmet.senka) {
       ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'

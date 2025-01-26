@@ -10,17 +10,17 @@ export class Kamera extends Vector {
     this.rotacija = 0
     this.smerX = this.smerY = this.zoom = 0
 
-    document.addEventListener('mousemove', e => {
-      const MOUSE_X = e.clientX - window.innerWidth / 2
-      const MOUSE_Y = e.clientY - window.innerHeight / 2
+    // document.addEventListener('mousemove', e => {
+    //   const MOUSE_X = e.clientX - window.innerWidth / 2
+    //   const MOUSE_Y = e.clientY - window.innerHeight / 2
 
-      this.smerX = (-MOUSE_X / window.innerWidth) * sensitivity
-      this.y += (MOUSE_Y / window.innerHeight) * sensitivity
-    })
+    //   this.smerX = (-MOUSE_X / window.innerWidth) * sensitivity
+    //   this.y += (MOUSE_Y / window.innerHeight) * sensitivity
+    // })
 
-    document.addEventListener('wheel', e => {
-      this.z += e.deltaY * zoomSensitivity
-    })
+    // document.addEventListener('wheel', e => {
+    //   this.z += e.deltaY * zoomSensitivity
+    // })
   }
 
   projektuj(polozaj) {
