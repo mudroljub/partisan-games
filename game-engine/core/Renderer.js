@@ -56,6 +56,10 @@ export default class Renderer {
     }
   }
 
+  vanPrikaza(z, x, y, sirina, visina) {
+    return z <= kamera.z || x < 0 || y < 0 || x >= platno.width - sirina || y >= platno.height - visina
+  }
+
   crtaPredmet(predmet) {
     if (!predmet.prikazan) return
     this.dodajSenku(predmet)
