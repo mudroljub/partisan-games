@@ -84,7 +84,7 @@ export default class Renderer {
       .sort((a, b) => racunajZ(b.polozaj) - racunajZ(a.polozaj))
       .forEach(predmet => predmet.render())
 
-    ctx.fillStyle = 'rgba(112, 66, 20, 0.15)'
+    ctx.fillStyle = 'rgba(112, 66, 20, 0.1)'
     ctx.fillRect(0, 0, platno.width, platno.height)
 
     ctx.restore()
