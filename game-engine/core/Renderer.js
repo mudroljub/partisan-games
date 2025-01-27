@@ -2,11 +2,9 @@ import { platno, ctx } from '../io/platno.js'
 import { kamera } from './Kamera.js'
 import { ishodista, naciniPrikaza } from '../konstante.js'
 
-const poravnaj = niz => niz.flatMap(predmet =>
-  [predmet, ...(predmet.predmeti ? poravnaj(predmet.predmeti) : [])]
+const poravnajNiz = niz => niz.flatMap(predmet =>
+  [predmet, ...(predmet.predmeti ? poravnajNiz(predmet.predmeti) : [])]
 )
-
-const racunajZ = polozaj => kamera.racunajRotaciju(polozaj).z
 
 export default class Renderer {
   constructor() {
@@ -46,12 +44,11 @@ export default class Renderer {
   }
 
   crtaProjekciju(predmet) {
-    const { slika, polozaj, sirina, visina } = predmet
-    const rotirano = kamera.racunajRotaciju(polozaj)
-    const projekcija = kamera.projektuj(rotirano)
+    const { slika, sirina, visina, rotacijaKamere } = predmet
+    const projekcija = kamera.projektuj(rotacijaKamere)
     const skaliranaSirina = sirina * projekcija.z
     const skaliranaVisina = visina * projekcija.z
-    if (this.vanPrikaza(rotirano.z, projekcija.x, projekcija.y, skaliranaSirina, skaliranaVisina)) return
+    if (this.vanPrikaza(rotacijaKamere.z, projekcija.x, projekcija.y, skaliranaSirina, skaliranaVisina)) return
 
     ctx.drawImage(slika, projekcija.x, projekcija.y, skaliranaSirina, skaliranaVisina)
   }
@@ -97,10 +94,9 @@ export default class Renderer {
     ctx.save()
     ctx.translate(-this.kameraX, -this.kameraY)
 
-    const sviPredmeti = poravnaj(predmeti)
-    sviPredmeti
+    poravnajNiz(predmeti)
       .sort((a, b) => a.nacinPrikaza === naciniPrikaza.projekcija
-        ? racunajZ(b.polozaj) - racunajZ(a.polozaj)
+        ? b.rotacijaKamere.z - a.rotacijaKamere.z
         : b.polozaj.z - a.polozaj.z
       )
       .forEach(predmet => predmet.render())

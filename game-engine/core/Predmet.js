@@ -6,6 +6,7 @@ import {
 import { renderer } from './Renderer.js'
 import Vector from './Vector.js'
 import { ishodista, naciniPrikaza } from '../konstante.js'
+import { kamera } from './Kamera.js'
 
 export default class Predmet {
   #ugao = 0
@@ -237,6 +238,12 @@ export default class Predmet {
 
   get zapaljen() {
     return this.zapaljiv && this.mrtav
+  }
+
+  /* PROJEKCIJA */
+
+  get rotacijaKamere() {
+    return kamera.racunajRotaciju(this.polozaj)
   }
 
   /* DEBUG */
