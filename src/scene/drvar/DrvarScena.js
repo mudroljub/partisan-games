@@ -23,7 +23,7 @@ export default class DrvarScena extends Scena {
     const y = origin.y + randSpread(range.y)
     const z = origin.z + randSpread(range.z)
     const src = el.urls[i % el.urls.length]
-    this.predmeti.push(new Predmet(src, { x, y, z }))
+    this.predmeti.push(new Predmet(src, { x, y, z, nacinPrikaza: 'PROJEKCIJA' }))
   }
 
   update(dt, t) {

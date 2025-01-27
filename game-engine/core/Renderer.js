@@ -1,5 +1,6 @@
 import { platno, ctx } from '../io/platno.js'
 import { kamera } from './Kamera.js'
+import { ishodista, naciniPrikaza } from '../konstante.js'
 
 const poravnaj = niz => niz.flatMap(predmet =>
   [predmet, ...(predmet.predmeti ? poravnaj(predmet.predmeti) : [])]
@@ -27,20 +28,20 @@ export default class Renderer {
 
   crtaOblik(predmet) {
     ctx.fillStyle = 'black'
-    if (predmet.ishodiste === 'CENTAR')
+    if (predmet.ishodiste === ishodista.centar)
       ctx.fillRect(-predmet.sirina / 2, -predmet.visina / 2, predmet.sirina, predmet.visina)
-    else if (predmet.ishodiste === 'GORE_LEVO')
+    else if (predmet.ishodiste === ishodista.goreLevo)
       ctx.fillRect(0, 0, predmet.sirina, predmet.visina)
-    else if (predmet.ishodiste === 'DOLE_DESNO')
+    else if (predmet.ishodiste === ishodista.doleDesno)
       ctx.fillRect(-predmet.sirina, -predmet.visina, predmet.sirina, predmet.visina)
   }
 
   crtaSliku(predmet) {
-    if (predmet.ishodiste === 'CENTAR')
+    if (predmet.ishodiste === ishodista.centar)
       ctx.drawImage(predmet.slika, -predmet.sirina / 2, -predmet.visina / 2, predmet.sirina, predmet.visina)
-    else if (predmet.ishodiste === 'GORE_LEVO')
+    else if (predmet.ishodiste === ishodista.goreLevo)
       ctx.drawImage(predmet.slika, 0, 0, predmet.sirina, predmet.visina)
-    else if (predmet.ishodiste === 'DOLE_DESNO')
+    else if (predmet.ishodiste === ishodista.doleDesno)
       ctx.drawImage(predmet.slika, -predmet.sirina, -predmet.visina, predmet.sirina, predmet.visina)
   }
 
@@ -81,8 +82,10 @@ export default class Renderer {
     ctx.scale(predmet.odrazY, predmet.odrazX)
     ctx.scale(predmet.scaleX, predmet.scaleY)
 
-    if (!predmet.slika || predmet.debug)
+    if (!predmet.slika || predmet.nacinPrikaza === naciniPrikaza.oblik)
       this.crtaOblik(predmet)
+    else if (predmet.nacinPrikaza === naciniPrikaza.projekcija)
+      this.crtaProjekciju(predmet)
     else
       this.crtaSliku(predmet)
 
