@@ -97,7 +97,7 @@ export default class Renderer {
     poravnajNiz(predmeti)
       .sort((a, b) => a.nacinPrikaza === naciniPrikaza.projekcija
         ? b.rotirano.z - a.rotirano.z
-        : b.polozaj.z - a.polozaj.z
+        : b.polozaj?.z - a.polozaj?.z
       )
       .forEach(predmet => predmet.render())
 

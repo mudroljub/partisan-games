@@ -6,7 +6,6 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- obrisati duplikate Granata
 - proveriti upotrebu oznake
 
 ### 3D
