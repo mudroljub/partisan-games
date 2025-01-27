@@ -84,7 +84,7 @@ export default class Renderer {
     if (!predmet.slika || predmet.debug)
       this.crtaOblik(predmet)
     else
-      this.crtaProjekciju(predmet)
+      this.crtaSliku(predmet)
 
     ctx.restore()
     if (predmet.zapaljen) predmet.plamen.render()
