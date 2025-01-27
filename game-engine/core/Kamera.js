@@ -8,7 +8,7 @@ export class Kamera extends Vector {
   constructor() {
     super(0, -.9, -2)
     this.rotacija = 0
-    this.smerX = this.smerY = this.zoom = 0
+    this.smerX = 0
 
     document.addEventListener('mousemove', e => {
       const MOUSE_X = e.clientX - window.innerWidth / 2

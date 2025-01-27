@@ -6,7 +6,6 @@ import Panorama from './Panorama.js'
 
 const randSpread = range => range * (Math.random() - Math.random())
 
-// TODO: naredba rendereru da crtaProjekciju
 export default class DrvarScena extends Scena {
   init() {
     elements.forEach(el => {

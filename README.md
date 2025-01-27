@@ -11,8 +11,11 @@ Male igrice o Nemcima i partizanima.
 
 ### 3D
 - integrisati Drvar scenu
-    - probati prikaz bez projekcije (potrebna promena ishodišta i još ponešto)
+    - probati prikaz bez projekcije (treba promena ishodišta i još ponešto)
+    - probati pomeranje kamere po x osi
     - probati projekciju još negde
+    - keširati trigonometriju
+    - da avioni lete
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju
 - dodati 3d model u 1944
