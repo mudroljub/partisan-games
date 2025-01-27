@@ -26,11 +26,6 @@ export default class DrvarScena extends Scena {
     this.predmeti.push(new Predmet(src, { x, y, z }))
   }
 
-  render() {
-    this.pozadina.render()
-    super.render()
-  }
-
   update(dt, t) {
     super.update(dt, t)
     kamera.update()
