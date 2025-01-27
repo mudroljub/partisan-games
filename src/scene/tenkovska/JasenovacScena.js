@@ -10,7 +10,7 @@ export default class JasenovacScena extends Scena {
     this.tenk = new TenkOdozgo(100, 200)
     this.ranjenik = new Ranjenik(this.sirina / 4, this.visina / 2)
 
-    const zica = new Predmet('2d-bocno/stvari/bodljikava-zica.gif', { x: 400, y: 100 })
+    const zica = new Predmet('stvari/bodljikava-zica.gif', { x: 400, y: 100 })
     this.dodaj(zica, this.ranjenik, this.tenk)
   }
 
