@@ -1,3 +1,4 @@
+import DrvarScena from './scene/drvar/DrvarScena.js'
 import BombasScena from './scene/bombas/BombasScena.js'
 import NemciIzRovova from './scene/rovovi/NemciIzRovova.js'
 import Scena1942 from './scene/avionce1942/Scena1942.js'
@@ -18,6 +19,7 @@ import TenkOdozgoScena from './scene/tenkovska/TenkOdozgoScena.js'
 import GlavniMeni from './GlavniMeni.js'
 
 const scene = {
+  DrvarScena,
   BombasScena,
   NemciIzRovova,
   Scena1942,

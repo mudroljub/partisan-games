@@ -27,7 +27,7 @@ export class Kamera extends Vector {
     const dz = platno.height / (this.z - polozaj.z) // dubina z, udaljenost od kamere
     const x = (this.x + polozaj.x) * dz + platno.width / 2
     const y = (this.y + polozaj.y) * dz + platno.height / 2
-    const z = dz / platno.height
+    const z = dz / platno.height * 2
     return { x, y, z }
   }
 
