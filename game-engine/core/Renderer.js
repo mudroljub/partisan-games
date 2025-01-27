@@ -5,7 +5,7 @@ const poravnaj = niz => niz.flatMap(predmet =>
   [predmet, ...(predmet.predmeti ? poravnaj(predmet.predmeti) : [])]
 )
 
-const racunajZ = polozaj => kamera.primeniRotaciju(polozaj).z
+const racunajZ = polozaj => kamera.racunajRotaciju(polozaj).z
 
 export default class Renderer {
   constructor() {
@@ -46,7 +46,7 @@ export default class Renderer {
 
   crtaProjekciju(predmet) {
     const { slika, polozaj, sirina, visina } = predmet
-    const rotirano = kamera.primeniRotaciju(polozaj)
+    const rotirano = kamera.racunajRotaciju(polozaj)
     const projekcija = kamera.projektuj(rotirano)
     const skaliranaSirina = sirina * projekcija.z
     const skaliranaVisina = visina * projekcija.z

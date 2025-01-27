@@ -31,7 +31,7 @@ export class Kamera extends Vector {
     return { x, y, z }
   }
 
-  primeniRotaciju(polozaj) {
+  racunajRotaciju(polozaj) {
     const cos = Math.cos(this.rotacija)
     const sin = Math.sin(this.rotacija)
     return {
