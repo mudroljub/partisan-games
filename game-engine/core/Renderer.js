@@ -44,11 +44,11 @@ export default class Renderer {
   }
 
   crtaProjekciju(predmet) {
-    const { slika, sirina, visina, rotacijaKamere } = predmet
-    const projekcija = kamera.projektuj(rotacijaKamere)
+    const { slika, sirina, visina, rotirano } = predmet
+    const projekcija = kamera.projektuj(rotirano)
     const skaliranaSirina = sirina * projekcija.z
     const skaliranaVisina = visina * projekcija.z
-    if (this.vanPrikaza(rotacijaKamere.z, projekcija.x, projekcija.y, skaliranaSirina, skaliranaVisina)) return
+    if (this.vanPrikaza(rotirano.z, projekcija.x, projekcija.y, skaliranaSirina, skaliranaVisina)) return
 
     ctx.drawImage(slika, projekcija.x, projekcija.y, skaliranaSirina, skaliranaVisina)
   }
@@ -96,7 +96,7 @@ export default class Renderer {
 
     poravnajNiz(predmeti)
       .sort((a, b) => a.nacinPrikaza === naciniPrikaza.projekcija
-        ? b.rotacijaKamere.z - a.rotacijaKamere.z
+        ? b.rotirano.z - a.rotirano.z
         : b.polozaj.z - a.polozaj.z
       )
       .forEach(predmet => predmet.render())

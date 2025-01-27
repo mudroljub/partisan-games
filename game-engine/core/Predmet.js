@@ -242,7 +242,7 @@ export default class Predmet {
 
   /* PROJEKCIJA */
 
-  get rotacijaKamere() {
+  get rotirano() {
     return kamera.racunajRotaciju(this.polozaj)
   }
 
