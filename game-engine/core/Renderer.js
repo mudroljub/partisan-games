@@ -99,7 +99,10 @@ export default class Renderer {
 
     const sviPredmeti = poravnaj(predmeti)
     sviPredmeti
-      .sort((a, b) => racunajZ(b.polozaj) - racunajZ(a.polozaj))
+      .sort((a, b) => a.nacinPrikaza === naciniPrikaza.projekcija
+        ? racunajZ(b.polozaj) - racunajZ(a.polozaj)
+        : b.polozaj.z - a.polozaj.z
+      )
       .forEach(predmet => predmet.render())
 
     ctx.fillStyle = 'rgba(112, 66, 20, 0.1)'
