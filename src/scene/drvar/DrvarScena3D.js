@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import Scena3D from '/core/actor/Scena3D.js'
-import { elements } from '../drvar/data.js'
+import { elements } from './data.js'
 import { createGround } from '/core/3d/ground.js'
 import { createSun } from '/core/3d/light.js'
 
@@ -8,7 +8,7 @@ const textureLoader = new THREE.TextureLoader()
 
 const randSpread = range => range * (Math.random() - Math.random())
 
-export default class Scena3DProba extends Scena3D {
+export default class DrvarScena3D extends Scena3D {
   init3D() {
     const tlo = createGround()
     this.dodaj(tlo)
