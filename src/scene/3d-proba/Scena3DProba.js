@@ -25,9 +25,9 @@ export default class Scena3DProba extends Scena3D {
       const scaleY = 5
       sprite.scale.set(scaleX, scaleY, 1)
 
-      const skalar = 4
       const origin = el.origin ?? { x: 0, y: 0, z: 0 }
-      const range = el.range ?? { x: 10 * skalar, y: 0, z: 10 * skalar }
+      const range = el.range ?? { x: 10, y: 0, z: 10 }
+      const skalar = 10
       const x = origin.x * skalar + randSpread(range.x * skalar)
       const y = origin.y * skalar + randSpread(range.y * skalar)
       const z = origin.z * skalar + randSpread(range.z * skalar)
