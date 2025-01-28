@@ -1,5 +1,5 @@
 import platno, { crtaNeboZemlju } from '/core/io/platno.js'
-import Scena from '/core/actor/Scena.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import Top from './Top.js'
 import Strelac from './Strelac.js'
 import Zastavnik from './Zastavnik.js'
@@ -9,7 +9,7 @@ import { progresBar, topKomande, komande2 } from '/game-ui/components.js'
 
 const tlo = platno.height * .75
 
-export default class TopScena extends Scena {
+export default class TopScena extends Scena2D {
   init() {
     const zastavnik = new Zastavnik(40, tlo + 1)
     this.top = new Top({ x: 230, y: tlo - 32 })

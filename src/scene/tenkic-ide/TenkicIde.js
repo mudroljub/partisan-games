@@ -1,5 +1,5 @@
 import platno, { crtaNeboZemlju } from '/core/io/platno.js'
-import Scena from '/core/actor/Scena.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import { progresBar, komande } from '/game-ui/components.js'
 import Zbun from '/src/klase/Zbun.js'
 import Shuma from '/src/klase/Shuma.js'
@@ -13,7 +13,7 @@ const BROJ_ZBUNOVA = 10
 const PARALAX_1 = -160
 const nivoTla = platno.height * .75
 
-export default class TenkicIde extends Scena {
+export default class TenkicIde extends Scena2D {
   init() {
     this.tenk = new TenkLevo({ y: nivoTla, skalar: .4 })
 

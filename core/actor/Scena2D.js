@@ -3,7 +3,7 @@ import { platno } from '../io/platno.js'
 import GameLoop from './GameLoop.js'
 import { renderer } from './Renderer.js'
 
-export default class Scena {
+export default class Scena2D {
   constructor(manager) {
     this.manager = manager
     this.predmeti = []

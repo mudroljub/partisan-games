@@ -1,5 +1,5 @@
 import { platno } from '/core/io/platno.js'
-import Scena from '/core/actor/Scena.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import Pozadina from '/core/actor/Pozadina.js'
 import { progresBar, komande, komande2 } from '/game-ui/components.js'
 import TenkLevo from './TenkLevo.js'
@@ -7,7 +7,7 @@ import TenkDesno from './TenkDesno.js'
 
 const nivoTla = platno.height * 0.8
 
-export default class TenkiciScena extends Scena {
+export default class TenkiciScena extends Scena2D {
   init() {
     this.pozadina = new Pozadina('pozadine/razrusen-grad-savremen.jpg')
     this.tenk = new TenkLevo({ y: nivoTla })

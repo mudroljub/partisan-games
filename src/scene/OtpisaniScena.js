@@ -1,4 +1,4 @@
-import Scena from '/core/actor/Scena.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import Pozadina from '/core/actor/Pozadina.js'
 import Okupator from '../klase/Okupator.js'
 import mish from '/core/io/mish.js'
@@ -6,7 +6,7 @@ import { progresBar } from '/game-ui/components.js'
 import { praviEnergiju } from '/core/actor/prosirenja/energija.js'
 import Vreme from '/core/actor/Vreme.js'
 
-export default class OtpisaniScena extends Scena {
+export default class OtpisaniScena extends Scena2D {
   init() {
     Object.defineProperties(this, Object.getOwnPropertyDescriptors(praviEnergiju()))
     this.pozadina = new Pozadina('pozadine/rusevine-varsava.jpg')

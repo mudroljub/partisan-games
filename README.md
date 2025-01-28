@@ -9,7 +9,8 @@ Male igrice o Nemcima i partizanima.
 - proveriti upotrebu oznake
 
 ### 3D
-- koristiti dva platna ili jedno? trenutno ima greška
+- Scena2D i Scena3D da nasleđuju bazičnu scenu
+    - videti treba li jedno platno ili dva nakon toga
 - Drvar scena
     - da avioni lete
 - dodati neke 3D igre, poput Savo i napad na aerodrom

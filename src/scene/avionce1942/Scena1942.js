@@ -1,6 +1,6 @@
 import { keyboard } from '/core/io/Keyboard.js'
 import platno, { crtaNebo } from '/core/io/platno.js'
-import Scena from '/core/actor/Scena.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import AvionIgrac from './AvionIgrac.js'
 import VoziloBocno from '/core/actor/VoziloBocno.js'
 import Oblak from '/src/klase/Oblak.js'
@@ -26,7 +26,7 @@ const MAX_BRZINA = 600
 const DIZAJ = 10
 const MAX_DIGNUTOST = 5555
 
-export default class Scena1942 extends Scena {
+export default class Scena1942 extends Scena2D {
   init() {
     this.brzinaScene = 0
     this.dignutostScene = 0

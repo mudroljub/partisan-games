@@ -1,5 +1,5 @@
 import { izasaoDesno } from '/core/utils/granice.js'
-import Scena from '/core/actor/Scena.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import Pozadina from '/core/actor/Pozadina.js'
 import Ranjenik from './Ranjenik.js'
 import Patrola from './Patrola.js'
@@ -9,7 +9,7 @@ import Paljba from './Paljba.js'
 
 const RITAM_PALJBE = 1500
 
-export default class RanjenikScena extends Scena {
+export default class RanjenikScena extends Scena2D {
   init() {
     this.scena = 0
     this.pozadina = new Pozadina('2d-odozgo/shumarak-pozadina.png')

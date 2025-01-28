@@ -1,8 +1,8 @@
 ## Dokumentacija
 
-### Scena
+### Scena2D
 
-`Scena` automatski poziva razne metode, koje nasledne scene mogu implementirati.
+`Scena2D` automatski poziva razne metode, koje nasledne scene mogu implementirati.
 
 Metode koje poziva jednom:
 
@@ -18,7 +18,7 @@ handleClick = () => {}
 
 #### Glavna petlja
 
-Metode koje Scena poziva unutar glavne petlje:
+Metode koje Scena2D poziva unutar glavne petlje:
 
 ```js
 loop(dt, t) {
@@ -30,7 +30,7 @@ loop(dt, t) {
 }
 ```
 
-Ako dodamo predmet sceni, Scena na njemu svaki frejm poziva sledeće metode:
+Ako dodamo predmet sceni, Scena2D na njemu svaki frejm poziva sledeće metode:
 
 ```js
 predmet.proveriTipke()

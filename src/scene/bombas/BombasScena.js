@@ -1,5 +1,5 @@
 import { slucajnePozicije, nadjiNajdaljeTacke } from '/core/utils.js'
-import Scena from '/core/actor/Scena.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import Pozadina from '/core/actor/Pozadina.js'
 import Vreme from '/core/actor/Vreme.js'
 import Bombas from './Bombas.js'
@@ -10,7 +10,7 @@ import Mitraljezac from './Mitraljezac.js'
 const ZADATO_VREME = 30
 const BROJ_PREPREKA = 20
 
-export default class BombasScena extends Scena {
+export default class BombasScena extends Scena2D {
   init() {
     this.vreme = new Vreme()
     this.pozadina = new Pozadina('teksture/beton.gif')

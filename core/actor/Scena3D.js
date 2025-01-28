@@ -5,9 +5,9 @@ export const platno = document.getElementById('platno-3d')
 const renderer = new THREE.WebGLRenderer({ canvas: platno })
 renderer.setSize(window.innerWidth, window.innerHeight)
 
-import Scena from './Scena.js'
+import Scena2D from './Scena2D.js'
 
-export default class Scena3D extends Scena {
+export default class Scena3D extends Scena2D {
   constructor(manager) {
     super(manager, '3d')
     this.scene = new THREE.Scene()

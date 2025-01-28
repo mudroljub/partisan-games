@@ -1,8 +1,8 @@
-import Scena from '/core/actor/Scena.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import CamacIgracOdozgo from '../klase/CamacIgracOdozgo.js'
 import Obala from './Obala.js'
 
-export default class CamacScena extends Scena {
+export default class CamacScena extends Scena2D {
   init() {
     this.camac = new CamacIgracOdozgo()
     this.obala = new Obala()

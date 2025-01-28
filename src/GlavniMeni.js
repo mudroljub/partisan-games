@@ -1,4 +1,4 @@
-import Scena from '/core/actor/Scena.js'
+import Scena2D from '/core/actor/Scena2D.js'
 
 const items = {
   DrvarScena: 'Desant na Drvar',
@@ -17,7 +17,7 @@ const items = {
   TenkOdozgoScena: 'Tenk odozgo',
 }
 
-export default class GlavniMeni extends Scena {
+export default class GlavniMeni extends Scena2D {
   handleClick = e => {
     if (!e.target.classList.contains('js-start')) return
 

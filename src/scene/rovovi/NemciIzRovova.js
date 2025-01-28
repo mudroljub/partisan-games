@@ -1,5 +1,5 @@
 import mish from '/core/io/mish.js'
-import Scena from '/core/actor/Scena.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import Pozadina from '/core/actor/Pozadina.js'
 import { progresBar } from '/game-ui/components.js'
 import Svabo from './Svabo.js'
@@ -7,7 +7,7 @@ import Svabo from './Svabo.js'
 const DALJI_Y = 150
 const BLIZI_Y = 300
 
-export default class NemciIzRovova extends Scena {
+export default class NemciIzRovova extends Scena2D {
   init() {
     this.pogoci = 0
     this.rekord = 0

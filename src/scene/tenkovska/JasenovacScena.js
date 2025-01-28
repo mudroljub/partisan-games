@@ -1,10 +1,10 @@
-import Scena from '/core/actor/Scena.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import Predmet from '/core/actor/Predmet.js'
 import Pozadina from '/core/actor/Pozadina.js'
 import TenkOdozgo from './TenkOdozgo.js'
 import Ranjenik from '../ranjenik/Ranjenik.js'
 
-export default class JasenovacScena extends Scena {
+export default class JasenovacScena extends Scena2D {
   init() {
     this.pozadina = new Pozadina('teksture/beton.gif')
     this.tenk = new TenkOdozgo(100, 200)

@@ -1,12 +1,12 @@
 import { elements } from './data.js'
 import Predmet from '/core/actor/Predmet.js'
 import { kamera } from '/core/actor/Kamera.js'
-import Scena from '/core/actor/Scena.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import Panorama from './Panorama.js'
 
 const randSpread = range => range * (Math.random() - Math.random())
 
-export default class DrvarScena extends Scena {
+export default class DrvarScena extends Scena2D {
   init() {
     elements.forEach(el => {
       for (let i = 0; i < el.number; ++i)
