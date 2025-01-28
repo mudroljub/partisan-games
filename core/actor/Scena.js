@@ -1,12 +1,11 @@
 import { keyboard } from '../io/Keyboard.js'
 import { platno } from '../io/platno.js'
 import GameLoop from './GameLoop.js'
-import { praviRenderer } from './Renderer.js'
+import { renderer } from './Renderer.js'
 
 export default class Scena {
-  constructor(manager, renderType = '2d') {
+  constructor(manager) {
     this.manager = manager
-    this.renderer = praviRenderer(renderType)
     this.predmeti = []
     this.gameLoop = new GameLoop(this.loop)
     this.handleClick = this.handleClick.bind(this)
@@ -133,11 +132,11 @@ export default class Scena {
   }
 
   cisti() {
-    this.renderer.cisti({ pozadina: this.pozadina, bojaPozadine: this.bojaPozadine })
+    renderer.cisti({ pozadina: this.pozadina, bojaPozadine: this.bojaPozadine })
   }
 
   render() {
-    this.renderer.crtaPredmete(this.predmeti)
+    renderer.crtaPredmete(this.predmeti)
   }
 
   loop = (dt, t) => {

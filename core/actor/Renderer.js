@@ -1,7 +1,6 @@
 import { platno, ctx } from '../io/platno.js'
 import { kamera } from './Kamera.js'
 import { ishodista, naciniPrikaza } from '../konstante.js'
-import * as THREE from 'three'
 
 const poravnajNiz = niz => niz.flatMap(predmet =>
   [predmet, ...(predmet.predmeti ? poravnajNiz(predmet.predmeti) : [])]
@@ -12,12 +11,7 @@ class Renderer2D {
     if (Renderer2D.instance) return Renderer2D.instance
     Renderer2D.instance = this
 
-    ctx.scale(devicePixelRatio, devicePixelRatio)
     this.kameraX = this.kameraY = 0 // TODO: integriši sa kamerom
-
-    window.addEventListener('resize', () => {
-      ctx.scale(devicePixelRatio, devicePixelRatio)
-    })
   }
 
   cisti({ pozadina, bojaPozadine } = {}) {
@@ -114,12 +108,4 @@ class Renderer2D {
   }
 }
 
-const noviRenderer3D = () => {
-  const renderer = new THREE.WebGLRenderer({ canvas: platno })
-  renderer.setSize(window.innerWidth, window.innerHeight)
-  return renderer
-}
-
-export const praviRenderer = type => type === '3d'
-  ? noviRenderer3D()
-  : new Renderer2D()
+export const renderer = new Renderer2D()

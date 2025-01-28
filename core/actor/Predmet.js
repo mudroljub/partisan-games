@@ -3,7 +3,7 @@ import { sudar } from '../utils/sudari.js'
 import {
   izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, vanEkrana
 } from '/core/utils/granice.js'
-import { praviRenderer } from './Renderer.js'
+import { renderer } from './Renderer.js'
 import Vector from './Vector.js'
 import { ishodista, naciniPrikaza } from '../konstante.js'
 import { kamera } from './Kamera.js'
@@ -32,7 +32,6 @@ export default class Predmet {
     this.ziv = true
     this.oznake = new Set()
     this.predmeti = []
-    this.renderer = praviRenderer(renderType) // TODO: ukloniti ako može
   }
 
   ucitajSliku(src, sirina, visina, skalar) {
@@ -290,6 +289,6 @@ export default class Predmet {
   }
 
   render() {
-    this.renderer.crtaPredmet(this)
+    renderer.crtaPredmet(this)
   }
 }
