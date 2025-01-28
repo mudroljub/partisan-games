@@ -1,6 +1,6 @@
 import Scena from '/game-engine/core/Scena.js'
 import Pozadina from '/game-engine/core/Pozadina.js'
-import Okupator from '../2d-prvo-lice/Okupator.js'
+import Okupator from '../klase/Okupator.js'
 import mish from '/game-engine/io/mish.js'
 import { progresBar } from '/game-ui/components.js'
 import { praviEnergiju } from '/game-engine/core/prosirenja/energija.js'

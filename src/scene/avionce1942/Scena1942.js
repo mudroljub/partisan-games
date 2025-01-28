@@ -3,9 +3,9 @@ import platno, { crtaNebo } from '/game-engine/io/platno.js'
 import Scena from '/game-engine/core/Scena.js'
 import AvionIgrac from './AvionIgrac.js'
 import VoziloBocno from '/game-engine/core/VoziloBocno.js'
-import Oblak from '/src/2d-bocno/Oblak.js'
-import Zbun from '/src/2d-bocno/Zbun.js'
-import Shuma from '/src/2d-bocno/Shuma.js'
+import Oblak from '/src/klase/Oblak.js'
+import Zbun from '/src/klase/Zbun.js'
+import Shuma from '/src/klase/Shuma.js'
 import Vracanje from '/game-engine/core/Vracanje.js'
 
 const nivoTla = platno.height

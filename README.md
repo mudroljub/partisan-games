@@ -9,11 +9,9 @@ Male igrice o Nemcima i partizanima.
 - proveriti upotrebu oznake
 
 ### 3D
-- integrisati Drvar scenu
-    - probati prikaz bez projekcije (treba promena ishodišta i još ponešto)
-    - probati pomeranje kamere po x osi
-    - probati projekciju još negde
-    - keširati trigonometriju
+- ima li smisla razvijati 3D render kako mogu uključiti three.js
+    - uključiti three.js ili neku drugu biblioteku??
+- Drvar scena
     - da avioni lete
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju

@@ -1,5 +1,5 @@
 import Scena from '/game-engine/core/Scena.js'
-import CamacIgracOdozgo from '../2d-odozgo/CamacIgracOdozgo.js'
+import CamacIgracOdozgo from '../klase/CamacIgracOdozgo.js'
 import Obala from './Obala.js'
 
 export default class CamacScena extends Scena {
