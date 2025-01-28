@@ -9,8 +9,7 @@ Male igrice o Nemcima i partizanima.
 - proveriti upotrebu oznake
 
 ### 3D
-- ima li smisla razvijati 3D render kako mogu uključiti three.js
-    - uključiti three.js ili neku drugu biblioteku??
+- koristiti dva platna ili jedno? trenutno ima greška
 - Drvar scena
     - da avioni lete
 - dodati neke 3D igre, poput Savo i napad na aerodrom
