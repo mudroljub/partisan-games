@@ -1,13 +1,22 @@
-import Scena3D from '/game-engine/core/Scena3D.js'
 import * as THREE from 'three'
+import Scena3D from '/game-engine/core/Scena3D.js'
+import { elements } from '../drvar/data.js'
+
+console.log(elements)
+
+const getSprite = src => {
+  const map = new THREE.TextureLoader().load('/assets/slike/' + src)
+  const material = new THREE.SpriteMaterial({ map })
+
+  const sprite = new THREE.Sprite(material)
+  sprite.position.set(0, 0, 0)
+  return sprite
+}
 
 export default class Scena3DProba extends Scena3D {
-  constructor() {
-    super()
-    const geometry = new THREE.BoxGeometry(1, 1, 1)
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
-    const cube = new THREE.Mesh(geometry, material)
-    this.dodaj(cube)
+  init3D() {
+    const sprite = getSprite('priroda/drvece/Evergreen.png')
+    this.dodaj(sprite)
   }
 
   sablon(t) {
