@@ -3,7 +3,7 @@ import { sudar } from '../utils/sudari.js'
 import {
   izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, vanEkrana
 } from '/game-engine/utils/granice.js'
-import { renderer } from './Renderer.js'
+import { praviRenderer } from './Renderer.js'
 import Vector from './Vector.js'
 import { ishodista, naciniPrikaza } from '../konstante.js'
 import { kamera } from './Kamera.js'
@@ -13,7 +13,7 @@ export default class Predmet {
 
   constructor(src, {
     sirina, visina, x = 200, y = 200, z = 0, skalar = 1, brzina = 0, zapaljiv = false, ishodiste = ishodista.centar,
-    odrazY = 1, odrazX = 1, scaleX = 1, scaleY = 1, senka = false, nacinPrikaza = naciniPrikaza.slika
+    odrazY = 1, odrazX = 1, scaleX = 1, scaleY = 1, senka = false, nacinPrikaza = naciniPrikaza.slika, renderType = '2d'
   } = {}) {
     this.polozaj = new Vector(x, y, z)
     this.sirina = sirina || 10
@@ -32,6 +32,7 @@ export default class Predmet {
     this.ziv = true
     this.oznake = new Set()
     this.predmeti = []
+    this.renderer = praviRenderer(renderType) // TODO: ukloniti ako može
   }
 
   ucitajSliku(src, sirina, visina, skalar) {
@@ -289,6 +290,6 @@ export default class Predmet {
   }
 
   render() {
-    renderer.crtaPredmet(this)
+    this.renderer.crtaPredmet(this)
   }
 }

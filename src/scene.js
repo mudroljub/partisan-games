@@ -9,7 +9,7 @@ import TopScena from './scene/top/TopScena.js'
 import TenkicIde from './scene/tenkic-ide/TenkicIde.js'
 import TenkiciScena from './scene/tenkici/TenkiciScena.js'
 import RanjenikScena from './scene/ranjenik/RanjenikScena.js'
-import Scena3D from './scene/3d-proba/Scena3D.js'
+import Scena3DProba from './scene/3d-proba/Scena3DProba.js'
 
 // za spajanje
 import JasenovacScena from './scene/tenkovska/JasenovacScena.js'
@@ -18,7 +18,7 @@ import TenkOdozgoScena from './scene/tenkovska/TenkOdozgoScena.js'
 import GlavniMeni from './GlavniMeni.js'
 
 const scene = {
-  Scena3D,
+  Scena3DProba,
   DrvarScena,
   BombasScena,
   NemciIzRovova,
