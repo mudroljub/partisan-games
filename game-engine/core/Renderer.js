@@ -13,8 +13,12 @@ class Renderer2D {
     Renderer2D.instance = this
 
     this.ctx = platno.getContext('2d')
-    this.ctx.scale(devicePixelRatio, devicePixelRatio) // TODO: dodati resize
+    this.ctx.scale(devicePixelRatio, devicePixelRatio)
     this.kameraX = this.kameraY = 0 // TODO: integriši sa kamerom
+
+    window.addEventListener('resize', () => {
+      this.ctx.scale(devicePixelRatio, devicePixelRatio)
+    })
   }
 
   cisti({ pozadina, bojaPozadine } = {}) {

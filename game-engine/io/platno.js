@@ -5,11 +5,10 @@ platno.focus()
 const resize = () => {
   platno.width = window.innerWidth * devicePixelRatio | 0
   platno.height = window.innerHeight * devicePixelRatio | 0
-  // ctx.scale(devicePixelRatio, devicePixelRatio)
 }
 
 resize()
-window.onresize = resize
+window.addEventListener('resize', resize)
 
 export const dijagonalaPlatna = Math.sqrt(platno.height * platno.height + platno.width * platno.width)
 
