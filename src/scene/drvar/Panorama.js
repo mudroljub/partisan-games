@@ -1,4 +1,4 @@
-import { platno, ctx } from '/game-engine/io/platno.js'
+import { platno } from '/game-engine/io/platno.js'
 import { kamera } from '/game-engine/core/Kamera.js'
 
 export default class Panorama {
@@ -9,6 +9,7 @@ export default class Panorama {
     this.bojaTla = '#030'
     this.granicaTla = platno.height * 0.55
     this.faktorPomeranja = 500
+    this.ctx = platno.getContext('2d')
   }
 
   get bgOffsetX() {
@@ -18,13 +19,13 @@ export default class Panorama {
   render() {
     if (!this.slika.complete) return
 
-    ctx.fillStyle = this.bojaNeba
-    ctx.fillRect(0, 0, platno.width, this.granicaTla)
+    this.ctx.fillStyle = this.bojaNeba
+    this.ctx.fillRect(0, 0, platno.width, this.granicaTla)
 
     for (let x = this.bgOffsetX - this.slika.width; x < window.innerWidth; x += this.slika.width)
-      ctx.drawImage(this.slika, x, this.granicaTla - this.slika.height, this.slika.width, this.slika.height)
+      this.ctx.drawImage(this.slika, x, this.granicaTla - this.slika.height, this.slika.width, this.slika.height)
 
-    ctx.fillStyle = this.bojaTla
-    ctx.fillRect(0, this.granicaTla, platno.width, platno.height)
+    this.ctx.fillStyle = this.bojaTla
+    this.ctx.fillRect(0, this.granicaTla, platno.width, platno.height)
   }
 }

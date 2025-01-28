@@ -1,7 +1,4 @@
-const canvas = document.getElementById('platno')
-const ctx = canvas.getContext('2d')
-canvas.width = window.innerWidth
-canvas.height = window.innerHeight
+import platno from '/game-engine/io/platno.js'
 
 const lerp = (a, b, t) => a + (b - a) * t
 
@@ -11,9 +8,10 @@ export default class Obala {
   constructor() {
     this.noiseResolution = 75
     this.opsegSuma = 10
-    this.sirinaReke = canvas.height - this.noiseResolution * .75
-    this.noisePoints = Array.from({ length: canvas.width / this.noiseResolution + 2 }, () => random(this.opsegSuma))
+    this.sirinaReke = platno.height - this.noiseResolution * .75
+    this.noisePoints = Array.from({ length: platno.width / this.noiseResolution + 2 }, () => random(this.opsegSuma))
     this.history = []
+    this.ctx = platno.getContext('2d')
   }
 
   napred() {
@@ -28,14 +26,14 @@ export default class Obala {
   }
 
   render() {
-    for (let i = 0; i < canvas.width; i++) {
+    for (let i = 0; i < platno.width; i++) {
       const index = Math.floor(i / this.noiseResolution)
       const t = (i % this.noiseResolution) / this.noiseResolution
       const offset = lerp(this.noisePoints[index], this.noisePoints[index + 1], t)
 
-      ctx.fillStyle = '#228B22'
-      ctx.fillRect(i, 0, 1, canvas.height / 2 + offset - this.sirinaReke / 2)
-      ctx.fillRect(i, canvas.height / 2 + offset + this.sirinaReke / 2, 1, canvas.height)
+      this.ctx.fillStyle = '#228B22'
+      this.ctx.fillRect(i, 0, 1, platno.height / 2 + offset - this.sirinaReke / 2)
+      this.ctx.fillRect(i, platno.height / 2 + offset + this.sirinaReke / 2, 1, platno.height)
     }
   }
 }

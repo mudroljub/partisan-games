@@ -1,5 +1,5 @@
 import Sprite from '/game-engine/core/Sprite.js'
-import platno, { ctx } from '/game-engine/io/platno.js'
+import platno from '/game-engine/io/platno.js'
 import mish from '/game-engine/io/mish.js'
 import Vreme from '/game-engine/core/Vreme.js'
 import { randomInRange } from '/game-engine/utils.js'
@@ -17,6 +17,7 @@ export default class Okupator extends Sprite {
     this.vreme = new Vreme()
     this.vremeHodanja = randomInRange(700, 3200)
     this.kreni()
+    this.ctx = platno.getContext('2d')
   }
 
   kreni() {
@@ -48,7 +49,7 @@ export default class Okupator extends Sprite {
   render() {
     super.render()
     if (this.pripucao)
-      ctx.drawImage(this.pucanjeSlika, this.x - 15, this.y - 25)
+      this.ctx.drawImage(this.pucanjeSlika, this.x - 15, this.y - 25)
   }
 
   update(dt, t) {

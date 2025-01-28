@@ -1,4 +1,4 @@
-import { ctx } from '../io/platno.js'
+import { platno } from '../io/platno.js'
 
 const brzina = 120
 const velicina = 20
@@ -12,6 +12,7 @@ class Iskra {
     this.dx = dx
     this.dy = dy
     this.vreme = 0
+    this.ctx = platno.getContext('2d')
   }
 
   update(dt) {
@@ -25,11 +26,11 @@ class Iskra {
     const green = this.vreme * 2 + 50
     const blue = this.vreme * 2
     const opacity = (zivotniVek - this.vreme) / zivotniVek * 0.4
-    ctx.fillStyle = `rgba(${red}, ${green}, ${blue}, ${opacity})`
-    ctx.beginPath()
+    this.ctx.fillStyle = `rgba(${red}, ${green}, ${blue}, ${opacity})`
+    this.ctx.beginPath()
     const radius = (zivotniVek - this.vreme) / zivotniVek * velicina / 2 + velicina / 2
-    ctx.arc(this.x, this.y, radius, 0, 2 * Math.PI)
-    ctx.fill()
+    this.ctx.arc(this.x, this.y, radius, 0, 2 * Math.PI)
+    this.ctx.fill()
   }
 }
 
@@ -38,6 +39,7 @@ export default class Plamen {
     this.iskre = []
     this.x = x
     this.y = y
+    this.ctx = platno.getContext('2d')
   }
 
   stvaraj(dt) {
@@ -56,8 +58,8 @@ export default class Plamen {
   }
 
   render() {
-    ctx.globalCompositeOperation = 'lighter'
+    this.ctx.globalCompositeOperation = 'lighter'
     this.iskre.forEach(iskra => iskra.render())
-    ctx.globalCompositeOperation = 'source-over'
+    this.ctx.globalCompositeOperation = 'source-over'
   }
 }

@@ -1,12 +1,11 @@
 export const platno = document.getElementById('platno')
-export const ctx = platno.getContext('2d')
 
 platno.focus()
 
 const resize = () => {
   platno.width = window.innerWidth * devicePixelRatio | 0
   platno.height = window.innerHeight * devicePixelRatio | 0
-  ctx.scale(devicePixelRatio, devicePixelRatio)
+  // ctx.scale(devicePixelRatio, devicePixelRatio)
 }
 
 resize()
@@ -15,6 +14,7 @@ window.onresize = resize
 export const dijagonalaPlatna = Math.sqrt(platno.height * platno.height + platno.width * platno.width)
 
 export function crtaNebo(nivoTla, bojaNeba = 'blue', bojaNebaPreliv = 'lightblue', pocetakPreliva = 0) {
+  const ctx = platno.getContext('2d')
   ctx.fillStyle = bojaNeba
   if (bojaNebaPreliv) {
     const preliv = ctx.createLinearGradient(0, pocetakPreliva, 0, nivoTla)
@@ -26,11 +26,13 @@ export function crtaNebo(nivoTla, bojaNeba = 'blue', bojaNebaPreliv = 'lightblue
 }
 
 function crtaZemlju(nivoTla, bojaZemlje = '#00b011') {
+  const ctx = platno.getContext('2d')
   ctx.fillStyle = bojaZemlje
   ctx.fillRect(0, nivoTla, platno.width, platno.height)
 }
 
 function crtaLiniju(nivoTla) {
+  const ctx = platno.getContext('2d')
   ctx.beginPath()
   ctx.moveTo(0, nivoTla)
   ctx.lineTo(platno.width, nivoTla)
