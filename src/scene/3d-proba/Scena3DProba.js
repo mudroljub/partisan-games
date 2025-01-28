@@ -1,7 +1,8 @@
 import * as THREE from 'three'
 import Scena3D from '/core/actor/Scena3D.js'
 import { elements } from '../drvar/data.js'
-import { createGround } from './ground.js'
+import { createGround } from '/core/3d/ground.js'
+import { createSun } from '/core/3d/light.js'
 
 const textureLoader = new THREE.TextureLoader()
 
@@ -9,7 +10,9 @@ const randSpread = range => range * (Math.random() - Math.random())
 
 export default class Scena3DProba extends Scena3D {
   init3D() {
-    this.dodaj(createGround())
+    const tlo = createGround()
+    this.dodaj(tlo)
+    this.dodaj(createSun({ scene: this.scene }))
     elements.forEach(el => {
       for (let i = 0; i < el.number; ++i)
         this.dodajSprite(el, i)
@@ -22,19 +25,16 @@ export default class Scena3DProba extends Scena3D {
       const material = new THREE.SpriteMaterial({ map: texture })
       const sprite = new THREE.Sprite(material)
 
-      const aspectRatio = texture.image.width / texture.image.height
-      const scaleX = 5 * aspectRatio
-      const scaleY = 5
-      sprite.scale.set(scaleX, scaleY, 1)
+      const skalarSlike = .05
+      sprite.scale.set(texture.image.width * skalarSlike, texture.image.height * skalarSlike, 1)
 
       const origin = el.origin ?? { x: 0, y: 0, z: 0 }
       const range = el.range ?? { x: 10, y: 0, z: 10 }
-      const skalar = 10
-      const x = origin.x * skalar + randSpread(range.x * skalar)
-      const y = origin.y * skalar + randSpread(range.y * skalar)
-      const z = origin.z * skalar + randSpread(range.z * skalar)
-      sprite.position.set(x, y, z)
-
+      const skalarRastojanja = 10
+      const x = origin.x * skalarRastojanja + randSpread(range.x * skalarRastojanja)
+      const y = origin.y * skalarRastojanja + randSpread(range.y * skalarRastojanja)
+      const z = origin.z * skalarRastojanja + randSpread(range.z * skalarRastojanja)
+      sprite.position.set(x, y + texture.image.height * skalarSlike * .5, z)
       this.dodaj(sprite)
     })
   }
