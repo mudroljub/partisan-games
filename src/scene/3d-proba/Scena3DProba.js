@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import Scena3D from '/game-engine/core/Scena3D.js'
 import { elements } from '../drvar/data.js'
+import { createGround } from './ground.js'
 
 const textureLoader = new THREE.TextureLoader()
 
@@ -8,6 +9,7 @@ const randSpread = range => range * (Math.random() - Math.random())
 
 export default class Scena3DProba extends Scena3D {
   init3D() {
+    this.dodaj(createGround())
     elements.forEach(el => {
       for (let i = 0; i < el.number; ++i)
         this.dodajSprite(el, i)
