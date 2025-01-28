@@ -11,6 +11,12 @@ export default class Scena3D extends Scena {
     this.camera.position.set(0, 2, 20)
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
     this.init3D()
+
+    window.addEventListener('resize', () => {
+      this.renderer.setSize(window.innerWidth, window.innerHeight)
+      this.camera.aspect = window.innerWidth / window.innerHeight
+      this.camera.updateProjectionMatrix()
+    })
   }
 
   init3D() {}
