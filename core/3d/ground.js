@@ -10,7 +10,7 @@ const createTexture = ({ file, repeat = 1 } = {}) => {
 
 /* GROUND */
 
-export function createGroundMaterial({ color = 0x509f53, file, repeat } = {}) {
+export function createGroundMaterial({ color = 0x006600, file, repeat } = {}) {
   const params = { side: THREE.FrontSide }
   const material = file
     ? new THREE.MeshBasicMaterial({
