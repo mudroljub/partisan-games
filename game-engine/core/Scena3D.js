@@ -8,7 +8,7 @@ export default class Scena3D extends Scena {
     super(manager, '3d')
     this.scene = new THREE.Scene()
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
-    this.camera.position.z = 5
+    this.camera.position.set(0, 2, 20)
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
     this.init3D()
   }
