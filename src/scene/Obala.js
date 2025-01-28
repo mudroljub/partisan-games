@@ -1,4 +1,4 @@
-import platno from '/game-engine/io/platno.js'
+import platno from '/core/io/platno.js'
 
 const lerp = (a, b, t) => a + (b - a) * t
 

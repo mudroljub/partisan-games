@@ -1,8 +1,8 @@
-import Sprite from '/game-engine/core/Sprite.js'
-import platno from '/game-engine/io/platno.js'
-import mish from '/game-engine/io/mish.js'
-import Vreme from '/game-engine/core/Vreme.js'
-import { randomInRange } from '/game-engine/utils.js'
+import Sprite from '/core/actor/Sprite.js'
+import platno from '/core/io/platno.js'
+import mish from '/core/io/mish.js'
+import Vreme from '/core/actor/Vreme.js'
+import { randomInRange } from '/core/utils.js'
 
 export default class Okupator extends Sprite {
   constructor({ callback } = {}) {

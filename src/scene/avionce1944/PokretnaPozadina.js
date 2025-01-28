@@ -1,4 +1,4 @@
-import Predmet from '/game-engine/core/Predmet.js'
+import Predmet from '/core/actor/Predmet.js'
 
 export default class PokretnaPozadina extends Predmet {
 

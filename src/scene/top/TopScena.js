@@ -1,5 +1,5 @@
-import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
-import Scena from '/game-engine/core/Scena.js'
+import platno, { crtaNeboZemlju } from '/core/io/platno.js'
+import Scena from '/core/actor/Scena.js'
 import Top from './Top.js'
 import Strelac from './Strelac.js'
 import Zastavnik from './Zastavnik.js'

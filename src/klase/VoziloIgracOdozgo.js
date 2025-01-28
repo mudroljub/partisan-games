@@ -1,4 +1,4 @@
-import Igrac from '/game-engine/core/Igrac.js'
+import Igrac from '/core/actor/Igrac.js'
 
 export default class VoziloIgracOdozgo extends Igrac {
 

@@ -1,6 +1,6 @@
-import { skaliranRazmak, nasumicnoOkruglo } from '/game-engine/utils.js'
-import Predmet from '/game-engine/core/Predmet.js'
-import Vreme from '/game-engine/core/Vreme.js'
+import { skaliranRazmak, nasumicnoOkruglo } from '/core/utils.js'
+import Predmet from '/core/actor/Predmet.js'
+import Vreme from '/core/actor/Vreme.js'
 
 const zvuciTraganje = ['eatdirtpig.wav', 'killthepig.wav', 'QuicklyQuickly.wav', 'schnell.wav', 'UpThere.wav', 'whereishe.wav']
 const zvuciNadjen = ['Stop.wav', 'StopStayWhereYouAre.wav', 'thereheis.wav']

@@ -1,5 +1,5 @@
-import { KRUZNICA } from '/game-engine/konstante.js'
-import { keyboard } from '/game-engine/io/Keyboard.js'
+import { KRUZNICA } from '/core/konstante.js'
+import { keyboard } from '/core/io/Keyboard.js'
 import Predmet from './Predmet.js'
 
 export default class Igrac extends Predmet {

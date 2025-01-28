@@ -1,6 +1,6 @@
-import { keyboard } from '/game-engine/io/Keyboard.js'
-import Predmet from '/game-engine/core/Predmet.js'
-import { praviEnergiju } from '/game-engine/core/prosirenja/energija.js'
+import { keyboard } from '/core/io/Keyboard.js'
+import Predmet from '/core/actor/Predmet.js'
+import { praviEnergiju } from '/core/actor/prosirenja/energija.js'
 import Djule from './Djule.js'
 
 const skalar = .75

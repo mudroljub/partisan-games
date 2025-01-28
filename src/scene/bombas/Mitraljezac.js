@@ -1,5 +1,5 @@
-import Predmet from '/game-engine/core/Predmet.js'
-import { praviPucanje } from '/game-engine/core/prosirenja/pucanje.js'
+import Predmet from '/core/actor/Predmet.js'
+import { praviPucanje } from '/core/actor/prosirenja/pucanje.js'
 
 export default class Mitraljezac extends Predmet {
   constructor(x, y, cilj) {

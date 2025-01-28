@@ -1,6 +1,6 @@
 import Pokretno from './Pokretno.js'
-import { randomInRange } from '/game-engine/utils.js'
-import { praviPucanje } from '/game-engine/core/prosirenja/pucanje.js'
+import { randomInRange } from '/core/utils.js'
+import { praviPucanje } from '/core/actor/prosirenja/pucanje.js'
 
 export default class Neprijatelj extends Pokretno {
   constructor(src, { potisak }) {

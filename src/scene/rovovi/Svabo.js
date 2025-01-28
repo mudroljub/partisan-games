@@ -1,6 +1,6 @@
-import Predmet from '/game-engine/core/Predmet.js'
-import Vreme from '/game-engine/core/Vreme.js'
-import mish from '/game-engine/io/mish.js'
+import Predmet from '/core/actor/Predmet.js'
+import Vreme from '/core/actor/Vreme.js'
+import mish from '/core/io/mish.js'
 
 const rafal = new Audio('/assets/zvuci/rafal.mp3')
 

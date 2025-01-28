@@ -1,6 +1,6 @@
-import { keyboard } from '/game-engine/io/Keyboard.js'
-import platno from '/game-engine/io/platno.js'
-import { randomInRange } from '/game-engine/utils.js'
+import { keyboard } from '/core/io/Keyboard.js'
+import platno from '/core/io/platno.js'
+import { randomInRange } from '/core/utils.js'
 import Tenk from './Tenk.js'
 
 export default class TenkLevo extends Tenk {

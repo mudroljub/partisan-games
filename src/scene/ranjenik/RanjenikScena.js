@@ -1,10 +1,10 @@
-import { izasaoDesno } from '/game-engine/utils/granice.js'
-import Scena from '/game-engine/core/Scena.js'
-import Pozadina from '/game-engine/core/Pozadina.js'
+import { izasaoDesno } from '/core/utils/granice.js'
+import Scena from '/core/actor/Scena.js'
+import Pozadina from '/core/actor/Pozadina.js'
 import Ranjenik from './Ranjenik.js'
 import Patrola from './Patrola.js'
 import Strelica from './Strelica.js'
-import Vreme from '/game-engine/core/Vreme.js'
+import Vreme from '/core/actor/Vreme.js'
 import Paljba from './Paljba.js'
 
 const RITAM_PALJBE = 1500

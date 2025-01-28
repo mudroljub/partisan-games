@@ -1,5 +1,5 @@
-import platno from '/game-engine/io/platno.js'
-import Scena from '/game-engine/core/Scena.js'
+import platno from '/core/io/platno.js'
+import Scena from '/core/actor/Scena.js'
 import { Avionce } from './Avionce.js'
 import PokretnaPozadina from './PokretnaPozadina.js'
 import Pokretno from './Pokretno.js'

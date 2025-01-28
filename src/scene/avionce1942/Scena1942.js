@@ -1,12 +1,12 @@
-import { keyboard } from '/game-engine/io/Keyboard.js'
-import platno, { crtaNebo } from '/game-engine/io/platno.js'
-import Scena from '/game-engine/core/Scena.js'
+import { keyboard } from '/core/io/Keyboard.js'
+import platno, { crtaNebo } from '/core/io/platno.js'
+import Scena from '/core/actor/Scena.js'
 import AvionIgrac from './AvionIgrac.js'
-import VoziloBocno from '/game-engine/core/VoziloBocno.js'
+import VoziloBocno from '/core/actor/VoziloBocno.js'
 import Oblak from '/src/klase/Oblak.js'
 import Zbun from '/src/klase/Zbun.js'
 import Shuma from '/src/klase/Shuma.js'
-import Vracanje from '/game-engine/core/Vracanje.js'
+import Vracanje from '/core/actor/Vracanje.js'
 
 const nivoTla = platno.height
 

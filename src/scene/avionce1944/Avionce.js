@@ -1,6 +1,6 @@
-import Igrac from '/game-engine/core/Igrac.js'
-import platno from '/game-engine/io/platno.js'
-import { praviPucanje } from '/game-engine/core/prosirenja/pucanje.js'
+import Igrac from '/core/actor/Igrac.js'
+import platno from '/core/io/platno.js'
+import { praviPucanje } from '/core/actor/prosirenja/pucanje.js'
 
 export class Avionce extends Igrac {
   constructor() {

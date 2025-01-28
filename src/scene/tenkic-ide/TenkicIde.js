@@ -1,12 +1,12 @@
-import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
-import Scena from '/game-engine/core/Scena.js'
+import platno, { crtaNeboZemlju } from '/core/io/platno.js'
+import Scena from '/core/actor/Scena.js'
 import { progresBar, komande } from '/game-ui/components.js'
 import Zbun from '/src/klase/Zbun.js'
 import Shuma from '/src/klase/Shuma.js'
 import Planina from '/src/klase/Planina.js'
 import Oblak from '/src/klase/Oblak.js'
 import TenkLevo from '../tenkici/TenkLevo.js'
-import Vracanje from '/game-engine/core/Vracanje.js'
+import Vracanje from '/core/actor/Vracanje.js'
 
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10

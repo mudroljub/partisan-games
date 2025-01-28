@@ -1,10 +1,10 @@
-import { keyboard } from '/game-engine/io/Keyboard.js'
-import platno from '/game-engine/io/platno.js'
-import Vreme from '/game-engine/core/Vreme.js'
-import Predmet from '/game-engine/core/Predmet.js'
-import { praviEnergiju } from '/game-engine/core/prosirenja/energija.js'
-import { praviPucanje } from '/game-engine/core/prosirenja/pucanje.js'
-import Granata from '/game-engine/core/projektili/Granata.js'
+import { keyboard } from '/core/io/Keyboard.js'
+import platno from '/core/io/platno.js'
+import Vreme from '/core/actor/Vreme.js'
+import Predmet from '/core/actor/Predmet.js'
+import { praviEnergiju } from '/core/actor/prosirenja/energija.js'
+import { praviPucanje } from '/core/actor/prosirenja/pucanje.js'
+import Granata from '/core/actor/projektili/Granata.js'
 
 const gravitacija = 90
 const statickoTrenje = 0.3

@@ -1,5 +1,5 @@
-import Scena from '/game-engine/core/Scena.js'
-import Pozadina from '/game-engine/core/Pozadina.js'
+import Scena from '/core/actor/Scena.js'
+import Pozadina from '/core/actor/Pozadina.js'
 import VoziloIgracOdozgo from '/src/klase/VoziloIgracOdozgo.js'
 
 export default class TenkOdozgoScena extends Scena {

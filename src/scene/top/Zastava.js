@@ -1,4 +1,4 @@
-import Sprite from '/game-engine/core/Sprite.js'
+import Sprite from '/core/actor/Sprite.js'
 
 export default class Zastava extends Sprite {
   constructor({ x, y }) {

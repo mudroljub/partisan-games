@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import Scena3D from '/game-engine/core/Scena3D.js'
+import Scena3D from '/core/actor/Scena3D.js'
 import { elements } from '../drvar/data.js'
 import { createGround } from './ground.js'
 

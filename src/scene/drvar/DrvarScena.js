@@ -1,7 +1,7 @@
 import { elements } from './data.js'
-import Predmet from '/game-engine/core/Predmet.js'
-import { kamera } from '/game-engine/core/Kamera.js'
-import Scena from '/game-engine/core/Scena.js'
+import Predmet from '/core/actor/Predmet.js'
+import { kamera } from '/core/actor/Kamera.js'
+import Scena from '/core/actor/Scena.js'
 import Panorama from './Panorama.js'
 
 const randSpread = range => range * (Math.random() - Math.random())

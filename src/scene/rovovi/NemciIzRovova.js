@@ -1,6 +1,6 @@
-import mish from '/game-engine/io/mish.js'
-import Scena from '/game-engine/core/Scena.js'
-import Pozadina from '/game-engine/core/Pozadina.js'
+import mish from '/core/io/mish.js'
+import Scena from '/core/actor/Scena.js'
+import Pozadina from '/core/actor/Pozadina.js'
 import { progresBar } from '/game-ui/components.js'
 import Svabo from './Svabo.js'
 

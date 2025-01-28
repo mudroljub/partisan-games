@@ -1,6 +1,6 @@
-import { platno } from '/game-engine/io/platno.js'
-import Granata from '/game-engine/core/projektili/Granata.js'
-import { randomInRange } from '/game-engine/utils.js'
+import { platno } from '/core/io/platno.js'
+import Granata from '/core/actor/projektili/Granata.js'
+import { randomInRange } from '/core/utils.js'
 
 export default class Djule extends Granata {
   constructor({ r = 4, ...rest } = {}) {

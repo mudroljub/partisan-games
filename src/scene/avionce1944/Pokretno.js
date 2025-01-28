@@ -1,5 +1,5 @@
-import Predmet from '/game-engine/core/Predmet.js'
-import platno from '/game-engine/io/platno.js'
+import Predmet from '/core/actor/Predmet.js'
+import platno from '/core/io/platno.js'
 
 export default class Pokretno extends Predmet {
   constructor(src, { potisak, faktorY = .5, ...rest }) {

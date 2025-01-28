@@ -1,6 +1,6 @@
-import Predmet from '/game-engine/core/Predmet.js'
-import { platno } from '/game-engine/io/platno.js'
-import { randomInRange } from '/game-engine/utils.js'
+import Predmet from '/core/actor/Predmet.js'
+import { platno } from '/core/io/platno.js'
+import { randomInRange } from '/core/utils.js'
 
 export default class Paljba extends Predmet {
   constructor() {

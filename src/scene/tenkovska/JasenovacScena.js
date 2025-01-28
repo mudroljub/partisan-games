@@ -1,6 +1,6 @@
-import Scena from '/game-engine/core/Scena.js'
-import Predmet from '/game-engine/core/Predmet.js'
-import Pozadina from '/game-engine/core/Pozadina.js'
+import Scena from '/core/actor/Scena.js'
+import Predmet from '/core/actor/Predmet.js'
+import Pozadina from '/core/actor/Pozadina.js'
 import TenkOdozgo from './TenkOdozgo.js'
 import Ranjenik from '../ranjenik/Ranjenik.js'
 

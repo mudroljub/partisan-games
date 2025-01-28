@@ -1,6 +1,6 @@
-import Predmet from '/game-engine/core/Predmet.js'
-import Vreme from '/game-engine/core/Vreme.js'
-import platno from '/game-engine/io/platno.js'
+import Predmet from '/core/actor/Predmet.js'
+import Vreme from '/core/actor/Vreme.js'
+import platno from '/core/io/platno.js'
 
 export default class Vracanje extends Predmet {
   constructor({ src, tlo, procenat = .25, x = Math.random() * platno.width, ...rest } = {}) {

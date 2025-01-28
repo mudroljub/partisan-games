@@ -1,4 +1,4 @@
-import Predmet from '/game-engine/core/Predmet.js'
+import Predmet from '/core/actor/Predmet.js'
 
 export default class TenkOdozgo extends Predmet {
   constructor(x = 100, y = 200) {

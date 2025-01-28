@@ -1,10 +1,10 @@
-import Scena from '/game-engine/core/Scena.js'
-import Pozadina from '/game-engine/core/Pozadina.js'
+import Scena from '/core/actor/Scena.js'
+import Pozadina from '/core/actor/Pozadina.js'
 import Okupator from '../klase/Okupator.js'
-import mish from '/game-engine/io/mish.js'
+import mish from '/core/io/mish.js'
 import { progresBar } from '/game-ui/components.js'
-import { praviEnergiju } from '/game-engine/core/prosirenja/energija.js'
-import Vreme from '/game-engine/core/Vreme.js'
+import { praviEnergiju } from '/core/actor/prosirenja/energija.js'
+import Vreme from '/core/actor/Vreme.js'
 
 export default class OtpisaniScena extends Scena {
   init() {

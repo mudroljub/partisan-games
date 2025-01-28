@@ -1,4 +1,4 @@
-import Scena from '/game-engine/core/Scena.js'
+import Scena from '/core/actor/Scena.js'
 
 const items = {
   DrvarScena: 'Desant na Drvar',

@@ -1,4 +1,4 @@
-import { unutar } from '/game-engine/utils/sudari.js'
+import { unutar } from '/core/utils/sudari.js'
 
 const mish = {
   stisnut: false,

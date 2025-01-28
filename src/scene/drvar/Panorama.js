@@ -1,5 +1,5 @@
-import { platno } from '/game-engine/io/platno.js'
-import { kamera } from '/game-engine/core/Kamera.js'
+import { platno } from '/core/io/platno.js'
+import { kamera } from '/core/actor/Kamera.js'
 
 export default class Panorama {
   constructor() {

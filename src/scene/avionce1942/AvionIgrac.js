@@ -1,6 +1,6 @@
-import { keyboard } from '/game-engine/io/Keyboard.js'
-import Igrac from '/game-engine/core/Igrac.js'
-import { praviRakete } from '/game-engine/core/prosirenja/pucanje.js'
+import { keyboard } from '/core/io/Keyboard.js'
+import Igrac from '/core/actor/Igrac.js'
+import { praviRakete } from '/core/actor/prosirenja/pucanje.js'
 
 const OKRET = 0.01
 const MOGUCNOST_OKRETA = 0.066

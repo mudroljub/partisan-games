@@ -2,7 +2,7 @@ import { platno } from '../io/platno.js'
 import { sudar } from '../utils/sudari.js'
 import {
   izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, vanEkrana
-} from '/game-engine/utils/granice.js'
+} from '/core/utils/granice.js'
 import { praviRenderer } from './Renderer.js'
 import Vector from './Vector.js'
 import { ishodista, naciniPrikaza } from '../konstante.js'

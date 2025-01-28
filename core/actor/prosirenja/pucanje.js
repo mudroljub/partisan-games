@@ -1,5 +1,5 @@
-import Metak from '/game-engine/core/projektili/Metak.js'
-import Vreme from '/game-engine/core/Vreme.js'
+import Metak from '/core/actor/projektili/Metak.js'
+import Vreme from '/core/actor/Vreme.js'
 
 export function praviPucanje({
   projektil = Metak, vremePunjenja = .1, ugloviPucanja = [0], potisakMetka = 1000, stankaPucanja = 3,

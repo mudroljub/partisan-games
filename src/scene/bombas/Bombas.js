@@ -1,5 +1,5 @@
-import Igrac from '/game-engine/core/Igrac.js'
-import Sprite from '/game-engine/core/Sprite.js'
+import Igrac from '/core/actor/Igrac.js'
+import Sprite from '/core/actor/Sprite.js'
 
 export default class Bombas extends Igrac {
 

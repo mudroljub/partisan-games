@@ -1,5 +1,5 @@
-import Predmet from '/game-engine/core/Predmet.js'
-import { keyboard } from '/game-engine/io/Keyboard.js'
+import Predmet from '/core/actor/Predmet.js'
+import { keyboard } from '/core/io/Keyboard.js'
 
 export default class Posada extends Predmet {
   constructor(x, y) {

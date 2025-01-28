@@ -1,5 +1,5 @@
-import Predmet from '/game-engine/core/Predmet.js'
-import { randomInRange } from '/game-engine/utils.js'
+import Predmet from '/core/actor/Predmet.js'
+import { randomInRange } from '/core/utils.js'
 
 export default class Metak extends Predmet {
   constructor({ src = 'granata.gif', skalar = .5, gravitacija = 0, potisak = 500, ...rest } = {}) {

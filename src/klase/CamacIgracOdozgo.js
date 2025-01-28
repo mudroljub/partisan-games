@@ -1,5 +1,5 @@
 import VoziloIgracOdozgo from '../klase/VoziloIgracOdozgo.js'
-import platno from '/game-engine/io/platno.js'
+import platno from '/core/io/platno.js'
 
 const JACINA_STRUJE = 6
 
