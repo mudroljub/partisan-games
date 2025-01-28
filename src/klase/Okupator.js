@@ -1,5 +1,5 @@
 import Sprite from '/core/actor/Sprite.js'
-import platno from '/core/io/platno.js'
+import platno, { ctx } from '/core/io/platno.js'
 import mish from '/core/io/mish.js'
 import Vreme from '/core/actor/Vreme.js'
 import { randomInRange } from '/core/utils.js'
@@ -17,7 +17,6 @@ export default class Okupator extends Sprite {
     this.vreme = new Vreme()
     this.vremeHodanja = randomInRange(700, 3200)
     this.kreni()
-    this.ctx = platno.getContext('2d')
   }
 
   kreni() {
@@ -49,7 +48,7 @@ export default class Okupator extends Sprite {
   render() {
     super.render()
     if (this.pripucao)
-      this.ctx.drawImage(this.pucanjeSlika, this.x - 15, this.y - 25)
+      ctx.drawImage(this.pucanjeSlika, this.x - 15, this.y - 25)
   }
 
   update(dt, t) {

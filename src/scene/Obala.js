@@ -1,4 +1,4 @@
-import platno from '/core/io/platno.js'
+import platno, { ctx } from '/core/io/platno.js'
 
 const lerp = (a, b, t) => a + (b - a) * t
 
@@ -11,7 +11,6 @@ export default class Obala {
     this.sirinaReke = platno.height - this.noiseResolution * .75
     this.noisePoints = Array.from({ length: platno.width / this.noiseResolution + 2 }, () => random(this.opsegSuma))
     this.history = []
-    this.ctx = platno.getContext('2d')
   }
 
   napred() {
@@ -31,9 +30,9 @@ export default class Obala {
       const t = (i % this.noiseResolution) / this.noiseResolution
       const offset = lerp(this.noisePoints[index], this.noisePoints[index + 1], t)
 
-      this.ctx.fillStyle = '#228B22'
-      this.ctx.fillRect(i, 0, 1, platno.height / 2 + offset - this.sirinaReke / 2)
-      this.ctx.fillRect(i, platno.height / 2 + offset + this.sirinaReke / 2, 1, platno.height)
+      ctx.fillStyle = '#228B22'
+      ctx.fillRect(i, 0, 1, platno.height / 2 + offset - this.sirinaReke / 2)
+      ctx.fillRect(i, platno.height / 2 + offset + this.sirinaReke / 2, 1, platno.height)
     }
   }
 }

@@ -1,4 +1,4 @@
-import { platno } from '/core/io/platno.js'
+import { platno, ctx } from '/core/io/platno.js'
 import { kamera } from '/core/actor/Kamera.js'
 
 export default class Panorama {
@@ -9,7 +9,6 @@ export default class Panorama {
     this.bojaTla = '#030'
     this.granicaTla = platno.height * 0.55
     this.faktorPomeranja = 500
-    this.ctx = platno.getContext('2d')
   }
 
   get bgOffsetX() {
@@ -19,13 +18,13 @@ export default class Panorama {
   render() {
     if (!this.slika.complete) return
 
-    this.ctx.fillStyle = this.bojaNeba
-    this.ctx.fillRect(0, 0, platno.width, this.granicaTla)
+    ctx.fillStyle = this.bojaNeba
+    ctx.fillRect(0, 0, platno.width, this.granicaTla)
 
     for (let x = this.bgOffsetX - this.slika.width; x < window.innerWidth; x += this.slika.width)
-      this.ctx.drawImage(this.slika, x, this.granicaTla - this.slika.height, this.slika.width, this.slika.height)
+      ctx.drawImage(this.slika, x, this.granicaTla - this.slika.height, this.slika.width, this.slika.height)
 
-    this.ctx.fillStyle = this.bojaTla
-    this.ctx.fillRect(0, this.granicaTla, platno.width, platno.height)
+    ctx.fillStyle = this.bojaTla
+    ctx.fillRect(0, this.granicaTla, platno.width, platno.height)
   }
 }

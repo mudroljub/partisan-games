@@ -1,5 +1,5 @@
 import Predmet from './Predmet.js'
-import { platno } from '../io/platno.js'
+import { ctx } from '../io/platno.js'
 
 class Animacija {
   constructor(ime, brojKadrova, pocetniKadar, sirinaSlicice, visinaSlicice, loop = true) {
@@ -25,7 +25,6 @@ export default class Sprite extends Predmet {
     this.imena = imena
     this.brojKadrova = brojKadrova
     this.defaultAnimacija = defaultAnimacija
-    this.ctx = platno.getContext('2d')
   }
 
   onload() {
@@ -81,15 +80,15 @@ export default class Sprite extends Predmet {
     const slikaX = trenutnaKolona * sirina
     const slikaY = trenutniRed * visina
 
-    this.ctx.drawImage(
+    ctx.drawImage(
       this.slika, slikaX, slikaY, sirina, visina, 0 - sirina / 2, 0 - visina / 2, sirina, visina
     )
   }
 
   render() {
-    this.ctx.save()
-    this.ctx.translate(this.x, this.y)
+    ctx.save()
+    ctx.translate(this.x, this.y)
     this.crtaSliku()
-    this.ctx.restore()
+    ctx.restore()
   }
 }

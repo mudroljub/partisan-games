@@ -1,4 +1,5 @@
 export const platno = document.getElementById('platno')
+export const ctx = platno.getContext('2d')
 
 platno.focus()
 

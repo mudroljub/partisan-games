@@ -1,4 +1,4 @@
-import { platno } from '/core/io/platno.js'
+import { platno, ctx } from '/core/io/platno.js'
 import Vreme from '/core/actor/Vreme.js'
 
 const trajanjeStrelice = 500
@@ -8,7 +8,6 @@ export default class Strelica {
   constructor() {
     this.vidljiva = false
     this.vreme = new Vreme()
-    this.ctx = platno.getContext('2d')
   }
 
   update() {
@@ -21,14 +20,14 @@ export default class Strelica {
 
   render() {
     if (!this.vidljiva) return
-    this.ctx.lineWidth = 5
-    this.ctx.strokeStyle = 'red'
-    this.ctx.beginPath()
-    this.ctx.moveTo(platno.width * 0.6, platno.height * 0.5)
-    this.ctx.lineTo(platno.width * 0.9, platno.height * 0.5)
-    this.ctx.moveTo(platno.width * 0.8, platno.height * 0.4)
-    this.ctx.lineTo(platno.width * 0.9, platno.height * 0.5)
-    this.ctx.lineTo(platno.width * 0.8, platno.height * 0.6)
-    this.ctx.stroke()
+    ctx.lineWidth = 5
+    ctx.strokeStyle = 'red'
+    ctx.beginPath()
+    ctx.moveTo(platno.width * 0.6, platno.height * 0.5)
+    ctx.lineTo(platno.width * 0.9, platno.height * 0.5)
+    ctx.moveTo(platno.width * 0.8, platno.height * 0.4)
+    ctx.lineTo(platno.width * 0.9, platno.height * 0.5)
+    ctx.lineTo(platno.width * 0.8, platno.height * 0.6)
+    ctx.stroke()
   }
 }
