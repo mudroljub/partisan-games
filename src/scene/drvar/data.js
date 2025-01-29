@@ -79,9 +79,12 @@ export const elements = [
       // '2d-bocno/nemci/avioni/avion-02.png',
       // '2d-bocno/nemci/avioni/avion-03.png',
       // '2d-bocno/nemci/avioni/dornier-do-355-01.png',
-      '2d-bocno/nemci/avioni/fieseler-fi-156.png',
+      // '2d-bocno/nemci/avioni/fieseler-fi-156-storch-02.png',
+      // '2d-bocno/nemci/avioni/fieseler-fi-156-storch-03.png',
       // '2d-bocno/nemci/avioni/focke-wulf-fw-190.png',
+      // '2d-bocno/nemci/avioni/focke-wulf-fw-190-02.png',
       // '2d-bocno/nemci/avioni/fw-190f-8.png',
+      '2d-bocno/nemci/avioni/fw-190f-8.png',
     ],
   },
   {
