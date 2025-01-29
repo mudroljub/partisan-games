@@ -9,6 +9,7 @@ Male igrice o Nemcima i partizanima.
 - proveriti upotrebu oznake
 
 ### 3D
+- pokušati scene bez svetla, promeniti materijale
 - Scena2D i Scena3D da nasleđuju bazičnu scenu
     - videti treba li jedno platno ili dva nakon toga
 - Drvar scena

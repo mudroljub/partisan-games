@@ -9,7 +9,7 @@ const textureLoader = new THREE.TextureLoader()
 const randSpread = range => range * (Math.random() - Math.random())
 
 export default class DrvarScena3D extends Scena3D {
-  init3D() {
+  init() {
     this.scene.background = new THREE.Color(0x440033)
     const tlo = createGround()
     this.dodaj(tlo)
