@@ -6,11 +6,12 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- cilj je da neke 2d scene lako prikažem 3d
-
 ### 3D
 - Drvar scena
-    - da avioni lete
+    - ukinuti skalar za range
+    - avioni lete
+    - da ne lete svi istom brzinom
+    - padobranci padaju
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju
 - dodati 3d model u 1944

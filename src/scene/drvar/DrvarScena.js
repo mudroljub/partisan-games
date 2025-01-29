@@ -8,7 +8,7 @@ const textureLoader = new THREE.TextureLoader()
 
 const randSpread = range => range * (Math.random() - Math.random())
 
-export default class DrvarScena3D extends Scena3D {
+export default class DrvarScena extends Scena3D {
   init() {
     this.bojaPozadine = 0x440033
     this.dodaj(createGround())
@@ -17,8 +17,10 @@ export default class DrvarScena3D extends Scena3D {
         this.dodajSprite(el, i)
     })
     this.scene.add(praviPanoramu())
-    this.controls.autoRotate = true
-    this.controls.autoRotateSpeed = .5
+    // this.controls.autoRotate = true
+    // this.controls.autoRotateSpeed = .5
+    this.avioni = []
+    this.padobranci = []
   }
 
   dodajSprite(el, i) {
@@ -28,10 +30,10 @@ export default class DrvarScena3D extends Scena3D {
       texture.magFilter = THREE.LinearFilter // glatko blizu
 
       const material = new THREE.SpriteMaterial({ map: texture })
-      const sprite = new THREE.Sprite(material)
+      const object = new THREE.Sprite(material)
 
       const skalarSlike = .05
-      sprite.scale.set(texture.image.width * skalarSlike, texture.image.height * skalarSlike, 1)
+      object.scale.set(texture.image.width * skalarSlike, texture.image.height * skalarSlike, 1)
 
       const origin = el.origin ?? { x: 0, y: 0, z: 0 }
       const range = el.range ?? { x: 10, y: 0, z: 10 }
@@ -39,14 +41,24 @@ export default class DrvarScena3D extends Scena3D {
       const x = origin.x * skalarRastojanja + randSpread(range.x * skalarRastojanja)
       const y = origin.y * skalarRastojanja + randSpread(range.y * skalarRastojanja)
       const z = origin.z * skalarRastojanja + randSpread(range.z * skalarRastojanja)
-      sprite.position.set(x, y + texture.image.height * skalarSlike * .5, z)
-      this.dodaj(sprite)
+      object.position.set(x, y + texture.image.height * skalarSlike * .5, z)
+      this.dodaj(object)
+
+      if (el.type == 'avioni') this.avioni.push(object)
+      if (el.type == 'padobranci') this.padobranci.push(object)
     })
   }
 
   update(dt) {
     super.update(dt)
     this.camera.lookAt(0, 10, 0)
+
+    this.avioni.forEach(avion => {
+      avion.position.x -= dt * 10
+
+      if (avion.position.x <= -150)
+        avion.position.x = 150
+    })
   }
 
   sablon(t) {
