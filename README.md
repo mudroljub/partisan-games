@@ -6,11 +6,10 @@ Male igrice o Nemcima i partizanima.
 
 ## TODO
 
-- proveriti upotrebu oznake
+- cilj je da neke 2d scene lako prikažem 3d
 
 ### 3D
 - Drvar scena
-    - pokušati skalar na običnoj
     - da avioni lete
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju

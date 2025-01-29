@@ -18,7 +18,7 @@ export default class DrvarScena extends Scena2D {
   praviPredmet(el, i) {
     const origin = el.origin ?? { x: 0, y: 0, z: 0 }
     const range = el.range ?? { x: 10, y: 0, z: 10 }
-    const skalarRastojanja = 2
+    const skalarRastojanja = 1
     const x = origin.x * skalarRastojanja + randSpread(range.x * skalarRastojanja)
     const y = origin.y * skalarRastojanja + randSpread(range.y * skalarRastojanja)
     const z = origin.z * skalarRastojanja + randSpread(range.z * skalarRastojanja)
