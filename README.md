@@ -9,8 +9,6 @@ Male igrice o Nemcima i partizanima.
 - proveriti upotrebu oznake
 
 ### 3D
-- Scena2D i Scena3D da nasleđuju bazičnu scenu
-    - možda ne treba resize za platno3D, možda threejs hendluje
 - pokušati scene bez svetla, promeniti materijale
 - Drvar scena
     - da avioni lete
