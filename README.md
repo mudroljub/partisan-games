@@ -9,9 +9,9 @@ Male igrice o Nemcima i partizanima.
 - proveriti upotrebu oznake
 
 ### 3D
-- pokušati scene bez svetla, promeniti materijale
 - Drvar scena
     - da avioni lete
+    - belo tlo deluje ok
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju
 - dodati 3d model u 1944
