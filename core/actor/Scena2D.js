@@ -4,6 +4,7 @@ import { renderer } from './Renderer.js'
 export default class Scena2D extends Scena {
   constructor(manager) {
     super(manager)
+    this.bojaPozadine = null
     this.init()
   }
 

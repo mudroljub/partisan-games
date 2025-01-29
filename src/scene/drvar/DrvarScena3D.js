@@ -10,10 +10,8 @@ const randSpread = range => range * (Math.random() - Math.random())
 
 export default class DrvarScena3D extends Scena3D {
   init() {
-    this.scene.background = new THREE.Color(0x440033)
-    const tlo = createGround()
-    this.dodaj(tlo)
-    this.dodaj(createSun({ scene: this.scene }))
+    this.bojaPozadine = 0x440033
+    this.dodaj(createGround(), createSun({ scene: this.scene }))
     elements.forEach(el => {
       for (let i = 0; i < el.number; ++i)
         this.dodajSprite(el, i)

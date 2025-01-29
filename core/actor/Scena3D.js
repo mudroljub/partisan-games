@@ -22,8 +22,12 @@ export default class Scena3D extends Scena {
     })
   }
 
-  dodaj(object3D) {
-    this.scene.add(object3D)
+  set bojaPozadine(boja) {
+    this.scene.background = new THREE.Color(boja)
+  }
+
+  dodaj(...predmeti) {
+    this.scene.add(...predmeti)
   }
 
   update() {
