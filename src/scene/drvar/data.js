@@ -1,6 +1,6 @@
 export const elements = [
   {
-    number: 60,
+    number: 30,
     urls: [
       'priroda/drvece/Evergreen.png',
       'priroda/drvece/A_Lumpy_Evergreen.png',

@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import Scena3D from '/core/actor/Scena3D.js'
 import { elements } from './data.js'
 import { createGround } from '/core/3d/ground.js'
+import { praviPanoramu } from './utils.js'
 
 const textureLoader = new THREE.TextureLoader()
 
@@ -17,6 +18,7 @@ export default class DrvarScena3D extends Scena3D {
       for (let i = 0; i < el.number; ++i)
         this.dodajSprite(el, i)
     })
+    this.scene.add(praviPanoramu())
   }
 
   dodajSprite(el, i) {
