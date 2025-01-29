@@ -1,11 +1,14 @@
 export const platno = document.getElementById('platno')
+export const platno3D = document.getElementById('platno-3d')
 export const ctx = platno.getContext('2d')
 
-platno.focus()
+platno.style.display = platno3D.style.display = 'none'
 
 const resize = () => {
   platno.width = window.innerWidth * devicePixelRatio | 0
   platno.height = window.innerHeight * devicePixelRatio | 0
+  platno3D.width = window.innerWidth * devicePixelRatio | 0
+  platno3D.height = window.innerHeight * devicePixelRatio | 0
   ctx.scale(devicePixelRatio, devicePixelRatio)
 }
 

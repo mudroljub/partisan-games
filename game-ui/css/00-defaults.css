@@ -11,10 +11,6 @@ body {
   margin: 0;
 }
 
-canvas {
-  display: block;
-}
-
 h1 {
   text-align: center;
 }

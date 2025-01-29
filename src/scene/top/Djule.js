@@ -17,7 +17,5 @@ export default class Djule extends Granata {
     ctx.beginPath()
     ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
     ctx.fill()
-
-    // this.plamicak.render()
   }
 }

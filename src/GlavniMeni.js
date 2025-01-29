@@ -1,4 +1,5 @@
 import Scena2D from '/core/actor/Scena2D.js'
+import { platno } from '/core/io/platno.js'
 
 const items = {
   DrvarScena: 'Desant na Drvar',
@@ -18,6 +19,11 @@ const items = {
 }
 
 export default class GlavniMeni extends Scena2D {
+  start() {
+    super.start()
+    platno.style.display = 'none'
+  }
+
   handleClick = e => {
     if (!e.target.classList.contains('js-start')) return
 
