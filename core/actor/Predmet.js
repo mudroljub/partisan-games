@@ -5,7 +5,6 @@ import {
 } from '/core/utils/granice.js'
 import Vector from './Vector.js'
 import { ishodista, naciniPrikaza } from '../konstante.js'
-import { kamera } from './Kamera.js'
 
 export default class Predmet {
   #ugao = 0
@@ -237,12 +236,6 @@ export default class Predmet {
 
   get zapaljen() {
     return this.zapaljiv && this.mrtav
-  }
-
-  /* PROJEKCIJA */
-
-  get rotirano() {
-    return kamera.racunajRotaciju(this.polozaj)
   }
 
   /* DEBUG */

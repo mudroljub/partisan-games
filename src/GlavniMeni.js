@@ -3,7 +3,6 @@ import { platno } from '/core/io/platno.js'
 
 const items = {
   DrvarScena: 'Desant na Drvar',
-  DrvarScena3D: 'Desant na Drvar 3D',
   BombasScena: 'Bombaš',
   Scena1942: 'Avionče 1942',
   NemciIzRovova: 'Nemci iz rovova',

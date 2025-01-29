@@ -9,5 +9,4 @@ export const ishodista = Object.freeze({
 export const naciniPrikaza = Object.freeze({
   oblik: 'OBLIK',
   slika: 'SLIKA',
-  projekcija: 'PROJEKCIJA',
 })

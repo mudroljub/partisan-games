@@ -1,5 +1,4 @@
 import { platno, ctx } from '../io/platno.js'
-import { kamera } from './Kamera.js'
 import { ishodista, naciniPrikaza } from '../konstante.js'
 
 const poravnajNiz = niz => niz.flatMap(predmet =>
@@ -43,16 +42,6 @@ export default class Renderer2D {
       ctx.drawImage(predmet.slika, -predmet.sirina, -predmet.visina, predmet.sirina, predmet.visina)
   }
 
-  crtaProjekciju(predmet) {
-    const { slika, sirina, visina, rotirano } = predmet
-    const projekcija = kamera.projektuj(rotirano)
-    const skaliranaSirina = sirina * projekcija.z
-    const skaliranaVisina = visina * projekcija.z
-    if (this.vanPrikaza(rotirano.z, projekcija.x, projekcija.y, skaliranaSirina, skaliranaVisina)) return
-
-    ctx.drawImage(slika, projekcija.x, projekcija.y, skaliranaSirina, skaliranaVisina)
-  }
-
   dodajSenku(predmet) {
     if (predmet.senka) {
       ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'
@@ -63,10 +52,6 @@ export default class Renderer2D {
       ctx.shadowOffsetX = 0
       ctx.shadowOffsetY = 0
     }
-  }
-
-  vanPrikaza(z, x, y, sirina, visina) {
-    return z <= kamera.z || x < 0 || y < 0 || x >= platno.width - sirina || y >= platno.height - visina
   }
 
   crtaPredmet(predmet) {
@@ -81,8 +66,6 @@ export default class Renderer2D {
 
     if (!predmet.slika || predmet.nacinPrikaza === naciniPrikaza.oblik)
       this.crtaOblik(predmet)
-    else if (predmet.nacinPrikaza === naciniPrikaza.projekcija)
-      this.crtaProjekciju(predmet)
     else
       this.crtaSliku(predmet)
 
@@ -95,10 +78,7 @@ export default class Renderer2D {
     ctx.translate(-this.kameraX, -this.kameraY)
 
     poravnajNiz(predmeti)
-      .sort((a, b) => a.nacinPrikaza === naciniPrikaza.projekcija
-        ? b.rotirano.z - a.rotirano.z
-        : b.polozaj?.z - a.polozaj?.z
-      )
+      .sort((a, b) => b.polozaj?.z - a.polozaj?.z)
       .forEach(predmet => predmet.render ? predmet.render() : this.crtaPredmet(predmet))
 
     ctx.fillStyle = 'rgba(112, 66, 20, 0.1)'
