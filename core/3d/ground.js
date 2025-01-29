@@ -8,19 +8,6 @@ const createTexture = ({ file, repeat = 1 } = {}) => {
   return texture
 }
 
-/* GROUND */
-
-export function createGroundMaterial({ color = 0x006600, file, repeat } = {}) {
-  const params = { side: THREE.FrontSide }
-  const material = file
-    ? new THREE.MeshBasicMaterial({
-      ...params,
-      map: createTexture({ file, repeat }),
-    })
-    : new THREE.MeshToonMaterial({ ...params, color })
-  return material
-}
-
 export function crateGroundGeometry({ size, width = size, height = size, circle = true, segments = circle ? 32 : 1 }) {
   const geometry = circle
     ? new THREE.CircleGeometry(size, segments)
@@ -30,8 +17,9 @@ export function crateGroundGeometry({ size, width = size, height = size, circle 
   return geometry
 }
 
-export function createGround({ size = 1000, color, circle, file, repeat = size / 8 } = {}) {
-  const material = createGroundMaterial({ file, color, repeat })
+export function createGround({ size = 1000, color = 0x006600, circle, file, repeat = size / 8 } = {}) {
+  const material = new THREE.MeshBasicMaterial({ color })
+  if (file) material.map = createTexture({ file, repeat })
   const geometry = crateGroundGeometry({ size, circle })
 
   const mesh = new THREE.Mesh(geometry, material)
