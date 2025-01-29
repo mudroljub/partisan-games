@@ -18,9 +18,10 @@ export default class DrvarScena extends Scena2D {
   praviPredmet(el, i) {
     const origin = el.origin ?? { x: 0, y: 0, z: 0 }
     const range = el.range ?? { x: 10, y: 0, z: 10 }
-    const x = origin.x + randSpread(range.x)
-    const y = origin.y + randSpread(range.y)
-    const z = origin.z + randSpread(range.z)
+    const skalarRastojanja = 2
+    const x = origin.x * skalarRastojanja + randSpread(range.x * skalarRastojanja)
+    const y = origin.y * skalarRastojanja + randSpread(range.y * skalarRastojanja)
+    const z = origin.z * skalarRastojanja + randSpread(range.z * skalarRastojanja)
     const src = el.urls[i % el.urls.length]
     this.predmeti.push(new Predmet(src, { x, y, z, nacinPrikaza: 'PROJEKCIJA' }))
   }

@@ -7,6 +7,8 @@ const textureLoader = new THREE.TextureLoader()
 
 const randSpread = range => range * (Math.random() - Math.random())
 
+let angle = 0
+
 export default class DrvarScena3D extends Scena3D {
   init() {
     this.bojaPozadine = 0x440033
@@ -20,7 +22,7 @@ export default class DrvarScena3D extends Scena3D {
   dodajSprite(el, i) {
     const src = el.urls[i % el.urls.length]
     textureLoader.load('/assets/slike/' + src, texture => {
-      texture.magFilter = texture.minFilter = THREE.NearestFilter // ostavlja piksele
+      texture.magFilter = texture.minFilter = THREE.NearestFilter
 
       const material = new THREE.SpriteMaterial({ map: texture })
       const sprite = new THREE.Sprite(material)
@@ -37,6 +39,13 @@ export default class DrvarScena3D extends Scena3D {
       sprite.position.set(x, y + texture.image.height * skalarSlike * .5, z)
       this.dodaj(sprite)
     })
+  }
+
+  update(dt) {
+    angle += dt * .1
+    this.camera.position.x = 10 * Math.cos(angle)
+    this.camera.position.z = 10 * Math.sin(angle)
+    this.camera.lookAt(0, 10, 0)
   }
 
   sablon(t) {
