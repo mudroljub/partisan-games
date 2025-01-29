@@ -4,14 +4,14 @@ import {
   izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, vanEkrana
 } from '/core/utils/granice.js'
 import Vector from './Vector.js'
-import { ishodista, naciniPrikaza } from '../konstante.js'
+import { ishodista } from '../konstante.js'
 
 export default class Predmet {
   #ugao = 0
 
   constructor(src, {
     sirina, visina, x = 200, y = 200, z = 0, skalar = 1, brzina = 0, zapaljiv = false, ishodiste = ishodista.centar,
-    odrazY = 1, odrazX = 1, scaleX = 1, scaleY = 1, senka = false, nacinPrikaza = naciniPrikaza.slika,
+    odrazY = 1, odrazX = 1, scaleX = 1, scaleY = 1, senka = false, debug = false,
   } = {}) {
     this.polozaj = new Vector(x, y, z)
     this.sirina = sirina || 10
@@ -25,7 +25,7 @@ export default class Predmet {
     this.scaleX = scaleX
     this.scaleY = scaleY
     this.senka = senka
-    this.nacinPrikaza = nacinPrikaza
+    this.debug = debug
     this.vidljiv = true
     this.ziv = true
     this.oznake = new Set()

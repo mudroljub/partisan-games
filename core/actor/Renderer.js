@@ -1,5 +1,5 @@
 import { platno, ctx } from '../io/platno.js'
-import { ishodista, naciniPrikaza } from '../konstante.js'
+import { ishodista } from '../konstante.js'
 
 const poravnajNiz = niz => niz.flatMap(predmet =>
   [predmet, ...(predmet.predmeti ? poravnajNiz(predmet.predmeti) : [])]
@@ -64,7 +64,7 @@ export default class Renderer2D {
     ctx.scale(predmet.odrazY, predmet.odrazX)
     ctx.scale(predmet.scaleX, predmet.scaleY)
 
-    if (!predmet.slika || predmet.nacinPrikaza === naciniPrikaza.oblik)
+    if (!predmet.slika || predmet.debug)
       this.crtaOblik(predmet)
     else
       this.crtaSliku(predmet)
