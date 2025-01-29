@@ -20,7 +20,7 @@ export default class Tenk extends Predmet {
     vremePunjenjaAI = 1500,
     ...rest
   } = {}) {
-    super(src, { zapaljiv: true, skalar, ...rest })
+    super(src, { zapaljiv: true, skalar, z: -1, ...rest })
     this.tenkDesno = tenkDesno
     this.vremePunjenjaAI = vremePunjenjaAI
     this.cev = new Predmet(cevSlika, { skalar })
@@ -37,6 +37,7 @@ export default class Tenk extends Predmet {
     // proširenja
     Object.defineProperties(this, Object.getOwnPropertyDescriptors(praviEnergiju()))
     Object.assign(this, praviPucanje({ projektil: Granata, vremePunjenja: 1, potisakMetka, gravitacija }))
+    this.predmeti.push(this.cev)
   }
 
   get vrhCevi() {
@@ -124,10 +125,5 @@ export default class Tenk extends Predmet {
     this.azurirajCev()
     this.trenje(this.brzina > 0.1 ? kinetickoTrenje : statickoTrenje)
     this.proveriPogotke()
-  }
-
-  render() {
-    this.cev.render() // crta cev iza plamena
-    super.render()
   }
 }

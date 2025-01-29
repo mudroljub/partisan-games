@@ -3,7 +3,6 @@ import { sudar } from '../utils/sudari.js'
 import {
   izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, vanEkrana
 } from '/core/utils/granice.js'
-import { renderer } from './Renderer.js'
 import Vector from './Vector.js'
 import { ishodista, naciniPrikaza } from '../konstante.js'
 import { kamera } from './Kamera.js'
@@ -13,7 +12,7 @@ export default class Predmet {
 
   constructor(src, {
     sirina, visina, x = 200, y = 200, z = 0, skalar = 1, brzina = 0, zapaljiv = false, ishodiste = ishodista.centar,
-    odrazY = 1, odrazX = 1, scaleX = 1, scaleY = 1, senka = false, nacinPrikaza = naciniPrikaza.slika, renderType = '2d'
+    odrazY = 1, odrazX = 1, scaleX = 1, scaleY = 1, senka = false, nacinPrikaza = naciniPrikaza.slika,
   } = {}) {
     this.polozaj = new Vector(x, y, z)
     this.sirina = sirina || 10
@@ -286,9 +285,5 @@ export default class Predmet {
     this.azurirajKretanje(dt)
     this.proveriGranice()
     this.azurirajPlamen(dt)
-  }
-
-  render() {
-    renderer.crtaPredmet(this)
   }
 }

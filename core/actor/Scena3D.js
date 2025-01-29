@@ -2,9 +2,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/controls/OrbitControls.js'
 import Scena from './Scena.js'
 
-export const platno = document.getElementById('platno-3d')
-const renderer = new THREE.WebGLRenderer({ canvas: platno })
-renderer.setSize(window.innerWidth, window.innerHeight)
+const canvas = document.getElementById('platno-3d')
 
 export default class Scena3D extends Scena {
   constructor(manager) {
@@ -12,11 +10,14 @@ export default class Scena3D extends Scena {
     this.scene = new THREE.Scene()
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
     this.camera.position.set(0, 2, 20)
-    this.controls = new OrbitControls(this.camera, renderer.domElement)
+    this.renderer = new THREE.WebGLRenderer({ canvas })
+    this.renderer.setSize(window.innerWidth, window.innerHeight)
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+
     this.init()
 
     window.addEventListener('resize', () => {
-      renderer.setSize(window.innerWidth, window.innerHeight)
+      this.renderer.setSize(window.innerWidth, window.innerHeight)
       this.camera.aspect = window.innerWidth / window.innerHeight
       this.camera.updateProjectionMatrix()
     })
@@ -35,6 +36,6 @@ export default class Scena3D extends Scena {
   }
 
   render() {
-    renderer.render(this.scene, this.camera)
+    this.renderer.render(this.scene, this.camera)
   }
 }

@@ -6,7 +6,7 @@ const poravnajNiz = niz => niz.flatMap(predmet =>
   [predmet, ...(predmet.predmeti ? poravnajNiz(predmet.predmeti) : [])]
 )
 
-class Renderer2D {
+export default class Renderer2D {
   constructor() {
     if (Renderer2D.instance) return Renderer2D.instance
     Renderer2D.instance = this
@@ -99,7 +99,7 @@ class Renderer2D {
         ? b.rotirano.z - a.rotirano.z
         : b.polozaj?.z - a.polozaj?.z
       )
-      .forEach(predmet => predmet.render())
+      .forEach(predmet => predmet.render ? predmet.render() : this.crtaPredmet(predmet))
 
     ctx.fillStyle = 'rgba(112, 66, 20, 0.1)'
     ctx.fillRect(0, 0, platno.width, platno.height)
@@ -107,5 +107,3 @@ class Renderer2D {
     ctx.restore()
   }
 }
-
-export const renderer = new Renderer2D()
