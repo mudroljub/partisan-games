@@ -84,7 +84,11 @@ export const elements = [
       // '2d-bocno/nemci/avioni/focke-wulf-fw-190.png',
       // '2d-bocno/nemci/avioni/focke-wulf-fw-190-02.png',
       // '2d-bocno/nemci/avioni/fw-190f-8.png',
-      '2d-bocno/nemci/avioni/fw-190f-8.png',
+      // '2d-bocno/nemci/avioni/Fw_190_A4_Hanning.png',
+      // '2d-bocno/nemci/avioni/junkers-ju87b-stuka.png',
+      // '2d-bocno/nemci/avioni/junkers-ju87d-stuka-03.png',
+      // '2d-bocno/nemci/avioni/junkers-ju-52.png',
+      '2d-bocno/nemci/avioni/me262-02.png',
     ],
   },
   {
