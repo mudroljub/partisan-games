@@ -49,7 +49,7 @@ export default class BombasScena extends Scena2D {
   sablon(t) {
     const preostalo = ZADATO_VREME - Math.floor(t)
     return /* html */`
-      <main class='absolute full font1942'>
+      <main class='absolute full'>
         <h3 class="centar">Dovedi Žikicu Jovanovića Španca do nemačkog bunkera!</h3>
         <div class='komande bg-poluprovidno komande1'>
           Vreme: ${preostalo} <br>

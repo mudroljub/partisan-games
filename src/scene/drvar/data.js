@@ -10,7 +10,7 @@ export const elements = [
     ],
   },
   {
-    number: 10,
+    number: 8,
     urls: [
       'zgrade/kuca-bunker.png',
       'zgrade/kuca-01.png',
@@ -18,6 +18,12 @@ export const elements = [
       'stvari/ograda-01.png',
       'stvari/vrece-s-peskom.png',
       'stvari/zidic-07.png',
+    ],
+  },
+  {
+    number: 4,
+    type: 'vozila',
+    urls: [
       '2d-bocno/partizani/tenkovi/tenk-04.png',
       '2d-bocno/partizani/vozila/dzip-01.png',
     ],
@@ -65,23 +71,23 @@ export const elements = [
     ],
   },
   {
-    number: 15,
-    range: { x: 100, y: 5, z: 100 },
-    origin: { x: 0, y: 25, z: 0 },
+    number: 20,
+    range: { x: 150, y: 5, z: 150 },
+    origin: { x: 0, y: 40, z: 0 },
     type: 'avioni',
     urls: [
-      '2d-bocno/nemci/avioni/avion-03.png',
-      '2d-bocno/nemci/avioni/dornier-do-355-01.png',
+      // '2d-bocno/nemci/avioni/avion-02.png',
+      // '2d-bocno/nemci/avioni/avion-03.png',
+      // '2d-bocno/nemci/avioni/dornier-do-355-01.png',
       '2d-bocno/nemci/avioni/fieseler-fi-156.png',
-      '2d-bocno/nemci/avioni/focke-wulf-fw-190.png',
-      '2d-bocno/nemci/avioni/fw-190f-8.png',
-      '2d-bocno/ndh/avioni/fi156d.png',
+      // '2d-bocno/nemci/avioni/focke-wulf-fw-190.png',
+      // '2d-bocno/nemci/avioni/fw-190f-8.png',
     ],
   },
   {
     number: 10,
     range: { x: 100, y: 5, z: 100 },
-    origin: { x: 0, y: 15, z: 0 },
+    origin: { x: 0, y: 35, z: 0 },
     type: 'padobranci',
     urls: [
       '2d-bocno/nemci/padobranci/padobranac-01.png',

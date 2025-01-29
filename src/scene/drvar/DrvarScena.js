@@ -17,17 +17,16 @@ export default class DrvarScena extends Scena3D {
         this.dodajSprite(el, i)
     })
     this.scene.add(praviPanoramu())
-    // this.controls.autoRotate = true
-    // this.controls.autoRotateSpeed = .5
     this.avioni = []
     this.padobranci = []
+    this.vozila = []
   }
 
   dodajSprite(el, i) {
     const src = el.urls[i % el.urls.length]
     textureLoader.load('/assets/slike/' + src, texture => {
       texture.minFilter = THREE.NearestFilter // pikselizovano iz daleka
-      texture.magFilter = THREE.LinearFilter // glatko blizu
+      texture.magFilter = THREE.NearestFilter // glatko blizu
 
       const material = new THREE.SpriteMaterial({ map: texture })
       const object = new THREE.Sprite(material)
@@ -43,8 +42,7 @@ export default class DrvarScena extends Scena3D {
       object.position.set(x, y + texture.image.height * skalarSlike * .5, z)
       this.dodaj(object)
 
-      if (el.type == 'avioni') this.avioni.push(object)
-      if (el.type == 'padobranci') this.padobranci.push(object)
+      if (el.type) this[el.type].push(object)
     })
   }
 
@@ -53,18 +51,21 @@ export default class DrvarScena extends Scena3D {
     this.camera.lookAt(0, 10, 0)
 
     this.avioni.forEach(avion => {
-      avion.position.x -= dt * 10
-
+      avion.position.x -= dt * 20
       if (avion.position.x <= -150)
         avion.position.x = 150
     })
-  }
 
-  sablon(t) {
-    return `
-      <div class='komande bg-poluprovidno komande1'>
-        Vreme: ${Math.floor(t)} <br>
-      </div>
-    `
+    this.padobranci.forEach(padobranac => {
+      padobranac.position.y -= dt * 5
+      if (padobranac.position.y <= 0)
+        padobranac.position.y = 35
+    })
+
+    this.vozila.forEach(vozilo => {
+      vozilo.position.x += dt * 10
+      if (vozilo.position.x >= 150)
+        vozilo.position.x = -150
+    })
   }
 }

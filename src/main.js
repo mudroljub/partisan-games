@@ -1,7 +1,7 @@
 import SceneManager from './SceneManager.js'
 
 const manager = new SceneManager()
-manager.start('GlavniMeni')
+manager.start('DrvarScena')
 
 window.addEventListener('popstate', () => {
   const confirmation = window.confirm('Pritiskom na back napuštate sajt. Potvrdite komandu.')
