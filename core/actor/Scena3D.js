@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/controls/OrbitControls.js'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import Scena from './Scena.js'
 import { platno3D } from '/core/io/platno.js'
 
@@ -12,6 +12,7 @@ export default class Scena3D extends Scena {
     this.renderer = new THREE.WebGLRenderer({ canvas: platno3D })
     this.renderer.setSize(window.innerWidth, window.innerHeight)
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+    this.controls.maxPolarAngle = Math.PI / 2 - 0.1
 
     this.init()
 

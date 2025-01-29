@@ -11,11 +11,9 @@ Male igrice o Nemcima i partizanima.
 ### 3D
 - Drvar scena
     - da avioni lete
-    - belo tlo deluje ok
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju
 - dodati 3d model u 1944
-- OrbitControls kopirati lokalno
 
 ### Završno
 - na scenu top dinamičku pozadinu, dim, avione kako lete...
