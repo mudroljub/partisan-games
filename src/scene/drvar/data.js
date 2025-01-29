@@ -1,9 +1,12 @@
 export const elements = [
   {
-    number: 30,
+    number: 60,
     urls: [
       'priroda/drvece/Evergreen.png',
       'priroda/drvece/A_Lumpy_Evergreen.png',
+      'priroda/drvece/drvo-slomljeno-01.png',
+      'priroda/drvece/drvo-slomljeno-02.png',
+      'priroda/drvece/drvo-slomljeno-04.png',
     ],
   },
   {

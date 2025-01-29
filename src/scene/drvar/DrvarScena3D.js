@@ -8,8 +8,6 @@ const textureLoader = new THREE.TextureLoader()
 
 const randSpread = range => range * (Math.random() - Math.random())
 
-let angle = 0
-
 export default class DrvarScena3D extends Scena3D {
   init() {
     this.bojaPozadine = 0x440033
@@ -19,12 +17,15 @@ export default class DrvarScena3D extends Scena3D {
         this.dodajSprite(el, i)
     })
     this.scene.add(praviPanoramu())
+    this.controls.autoRotate = true
+    this.controls.autoRotateSpeed = .5
   }
 
   dodajSprite(el, i) {
     const src = el.urls[i % el.urls.length]
     textureLoader.load('/assets/slike/' + src, texture => {
-      texture.magFilter = texture.minFilter = THREE.NearestFilter
+      texture.minFilter = THREE.NearestFilter // pikselizovano iz daleka
+      texture.magFilter = THREE.LinearFilter // glatko blizu
 
       const material = new THREE.SpriteMaterial({ map: texture })
       const sprite = new THREE.Sprite(material)
@@ -44,9 +45,7 @@ export default class DrvarScena3D extends Scena3D {
   }
 
   update(dt) {
-    angle += dt * .1
-    this.camera.position.x = 10 * Math.cos(angle)
-    this.camera.position.z = 10 * Math.sin(angle)
+    super.update(dt)
     this.camera.lookAt(0, 10, 0)
   }
 
