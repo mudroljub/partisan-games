@@ -66,8 +66,8 @@ export const elements = [
   },
   {
     number: 15,
-    range: { x: 10, y: 0.5, z: 10 },
-    origin: { x: 0, y: 2.5, z: 0 },
+    range: { x: 100, y: 5, z: 100 },
+    origin: { x: 0, y: 25, z: 0 },
     type: 'avioni',
     urls: [
       '2d-bocno/nemci/avioni/avion-03.png',
@@ -80,8 +80,8 @@ export const elements = [
   },
   {
     number: 10,
-    range: { x: 10, y: 0.5, z: 10 },
-    origin: { x: 0, y: 1.5, z: 0 },
+    range: { x: 100, y: 5, z: 100 },
+    origin: { x: 0, y: 15, z: 0 },
     type: 'padobranci',
     urls: [
       '2d-bocno/nemci/padobranci/padobranac-01.png',

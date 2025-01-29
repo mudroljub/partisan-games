@@ -8,7 +8,6 @@ Male igrice o Nemcima i partizanima.
 
 ### 3D
 - Drvar scena
-    - ukinuti skalar za range
     - avioni lete
     - da ne lete svi istom brzinom
     - padobranci padaju

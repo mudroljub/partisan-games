@@ -36,11 +36,10 @@ export default class DrvarScena extends Scena3D {
       object.scale.set(texture.image.width * skalarSlike, texture.image.height * skalarSlike, 1)
 
       const origin = el.origin ?? { x: 0, y: 0, z: 0 }
-      const range = el.range ?? { x: 10, y: 0, z: 10 }
-      const skalarRastojanja = 10
-      const x = origin.x * skalarRastojanja + randSpread(range.x * skalarRastojanja)
-      const y = origin.y * skalarRastojanja + randSpread(range.y * skalarRastojanja)
-      const z = origin.z * skalarRastojanja + randSpread(range.z * skalarRastojanja)
+      const range = el.range ?? { x: 100, y: 0, z: 100 }
+      const x = origin.x + randSpread(range.x)
+      const y = origin.y + randSpread(range.y)
+      const z = origin.z + randSpread(range.z)
       object.position.set(x, y + texture.image.height * skalarSlike * .5, z)
       this.dodaj(object)
 
