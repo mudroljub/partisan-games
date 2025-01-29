@@ -10,7 +10,7 @@ const randSpread = range => range * (Math.random() - Math.random())
 export default class DrvarScena3D extends Scena3D {
   init() {
     this.bojaPozadine = 0x440033
-    this.dodaj(createGround()) // { color: 0xFFFFFF }
+    this.dodaj(createGround())
     elements.forEach(el => {
       for (let i = 0; i < el.number; ++i)
         this.dodajSprite(el, i)
@@ -20,6 +20,8 @@ export default class DrvarScena3D extends Scena3D {
   dodajSprite(el, i) {
     const src = el.urls[i % el.urls.length]
     textureLoader.load('/assets/slike/' + src, texture => {
+      texture.magFilter = texture.minFilter = THREE.NearestFilter // ostavlja piksele
+
       const material = new THREE.SpriteMaterial({ map: texture })
       const sprite = new THREE.Sprite(material)
 

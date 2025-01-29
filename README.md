@@ -10,6 +10,7 @@ Male igrice o Nemcima i partizanima.
 
 ### 3D
 - Drvar scena
+    - pokušati skalar na običnoj
     - da avioni lete
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju

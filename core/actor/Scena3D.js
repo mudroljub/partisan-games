@@ -9,8 +9,10 @@ export default class Scena3D extends Scena {
     this.scene = new THREE.Scene()
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
     this.camera.position.set(0, 5, 30)
+
     this.renderer = new THREE.WebGLRenderer({ canvas: platno3D })
     this.renderer.setSize(window.innerWidth, window.innerHeight)
+
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
     this.controls.maxPolarAngle = Math.PI / 2 - 0.1
 
