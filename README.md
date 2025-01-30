@@ -2,7 +2,11 @@
 
 # Partisan Games ★
 
-Male igrice o Nemcima i partizanima.
+Small games inspired by Yugoslav partisans.
+
+Homepage: [partisan-games.github.io](https://partisan-games.github.io/)
+
+Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/partisan-games/partisan-games.github.io)
 
 ## TODO
 
