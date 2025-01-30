@@ -1,4 +1,4 @@
-[![](screen.png)](https:-mudroljub.github.io/igrica-partizani/)
+![](screen.png)
 
 # Partisan Games ★
 
