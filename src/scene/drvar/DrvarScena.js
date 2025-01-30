@@ -3,6 +3,7 @@ import Scena3D from '/core/actor/Scena3D.js'
 import { elements } from './data.js'
 import { createGround } from '/core/3d/ground.js'
 import { praviPanoramu } from './utils.js'
+import Sprite from './Sprite.js'
 
 const textureLoader = new THREE.TextureLoader()
 
@@ -17,11 +18,15 @@ export default class DrvarScena extends Scena3D {
         this.dodajSprite(el, i)
     })
     this.scene.add(praviPanoramu())
-    this.controls.enablePan = this.controls.enableRotate = false
+    // this.controls.enablePan = this.controls.enableRotate = false
+    this.controls.minAzimuthAngle = -Math.PI / 8
+    this.controls.maxAzimuthAngle = Math.PI / 8
     this.avioni = []
     this.padobranci = []
     this.vozila = []
     this.partizani = []
+    this.animator = new Sprite('assets/slike/sprajtovi/efekti/eksplozija-01.png', 8, 4)
+    this.scene.add(this.animator.getSprite())
   }
 
   dodajSprite(el, i) {
@@ -33,15 +38,15 @@ export default class DrvarScena extends Scena3D {
       const material = new THREE.SpriteMaterial({ map: texture })
       const object = new THREE.Sprite(material)
 
-      const skalarSlike = .05
-      object.scale.set(texture.image.width * skalarSlike, texture.image.height * skalarSlike, 1)
+      const skalar = .05
+      object.scale.set(texture.image.width * skalar, texture.image.height * skalar, 1)
 
       const origin = el.origin ?? { x: 0, y: 0, z: 0 }
       const range = el.range ?? { x: 100, y: 0, z: 100 }
       const x = origin.x + randSpread(range.x)
       const y = origin.y + randSpread(range.y)
       const z = origin.z + randSpread(range.z)
-      object.position.set(x, y + texture.image.height * skalarSlike * .5, z)
+      object.position.set(x, y + texture.image.height * skalar * .5, z)
       this.dodaj(object)
 
       if (el.type) this[el.type].push(object)
@@ -73,5 +78,7 @@ export default class DrvarScena extends Scena3D {
     this.partizani.forEach(partizan => {
       partizan.position.x += randSpread(dt)
     })
+
+    this.animator.update(dt)
   }
 }

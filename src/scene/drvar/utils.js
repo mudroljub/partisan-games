@@ -1,11 +1,11 @@
 import * as THREE from 'three'
 
-export function praviPanoramu() {
+export function praviPanoramu(r = 300) {
   const textureLoader = new THREE.TextureLoader()
   const texture = textureLoader.load('/assets/slike/planine.png')
   texture.wrapS = THREE.RepeatWrapping
   texture.repeat.x = -1
-  const geometry = new THREE.CylinderGeometry(500, 500, 300, 32, 1, true) // Cilindar bez gornje/donje strane
+  const geometry = new THREE.CylinderGeometry(r, r, 600, 32, 1, true) // Cilindar bez gornje/donje strane
   const material = new THREE.MeshBasicMaterial({
     map: texture,
     side: THREE.BackSide,
