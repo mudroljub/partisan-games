@@ -1,5 +1,5 @@
 import { izasaoDesno } from '/core/utils/granice.js'
-import Scena2D from '/core/actor/Scena2D.js'
+import Scena2D from '/core/Scena2D.js'
 import Pozadina from '/core/actor/Pozadina.js'
 import Ranjenik from './Ranjenik.js'
 import Patrola from './Patrola.js'

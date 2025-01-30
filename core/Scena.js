@@ -1,5 +1,5 @@
-import { keyboard } from '../io/Keyboard.js'
-import { platno } from '../io/platno.js'
+import { keyboard } from './io/Keyboard.js'
+import { platno } from './io/platno.js'
 import GameLoop from './GameLoop.js'
 
 export default class Scena2D {

@@ -1,4 +1,4 @@
-import Scena2D from '/core/actor/Scena2D.js'
+import Scena2D from '/core/Scena2D.js'
 import Predmet from '/core/actor/Predmet.js'
 import Pozadina from '/core/actor/Pozadina.js'
 import TenkOdozgo from './TenkOdozgo.js'

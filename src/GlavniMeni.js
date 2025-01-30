@@ -1,4 +1,4 @@
-import Scena2D from '/core/actor/Scena2D.js'
+import Scena2D from '/core/Scena2D.js'
 import { platno } from '/core/io/platno.js'
 
 const items = {

@@ -1,4 +1,4 @@
-import Scena2D from '/core/actor/Scena2D.js'
+import Scena2D from '/core/Scena2D.js'
 import Pozadina from '/core/actor/Pozadina.js'
 import Okupator from '../klase/Okupator.js'
 import mish from '/core/io/mish.js'

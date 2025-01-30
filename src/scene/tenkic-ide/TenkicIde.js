@@ -1,5 +1,5 @@
 import platno, { crtaNeboZemlju } from '/core/io/platno.js'
-import Scena2D from '/core/actor/Scena2D.js'
+import Scena2D from '/core/Scena2D.js'
 import { progresBar, komande } from '/game-ui/components.js'
 import Zbun from '/src/klase/Zbun.js'
 import Shuma from '/src/klase/Shuma.js'

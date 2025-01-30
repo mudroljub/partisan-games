@@ -1,4 +1,4 @@
-import Scena2D from '/core/actor/Scena2D.js'
+import Scena2D from '/core/Scena2D.js'
 import CamacIgracOdozgo from '../klase/CamacIgracOdozgo.js'
 import Obala from './Obala.js'
 

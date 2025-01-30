@@ -1,6 +1,6 @@
 import { keyboard } from '/core/io/Keyboard.js'
 import platno, { crtaNebo } from '/core/io/platno.js'
-import Scena2D from '/core/actor/Scena2D.js'
+import Scena2D from '/core/Scena2D.js'
 import AvionIgrac from './AvionIgrac.js'
 import VoziloBocno from '/core/actor/VoziloBocno.js'
 import Oblak from '/src/klase/Oblak.js'

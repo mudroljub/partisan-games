@@ -1,5 +1,5 @@
 import { platno } from '/core/io/platno.js'
-import Scena2D from '/core/actor/Scena2D.js'
+import Scena2D from '/core/Scena2D.js'
 import Pozadina from '/core/actor/Pozadina.js'
 import { progresBar, komande, komande2 } from '/game-ui/components.js'
 import TenkLevo from './TenkLevo.js'

@@ -1,5 +1,5 @@
 import platno, { crtaNeboZemlju } from '/core/io/platno.js'
-import Scena2D from '/core/actor/Scena2D.js'
+import Scena2D from '/core/Scena2D.js'
 import Top from './Top.js'
 import Strelac from './Strelac.js'
 import Zastavnik from './Zastavnik.js'
