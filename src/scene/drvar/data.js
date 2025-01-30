@@ -30,6 +30,7 @@ export const elements = [
   },
   {
     number: 100,
+    type: 'partizani',
     urls: [
       '2d-bocno/partizani/bolnicari/bolnicarka-02.png',
       '2d-bocno/partizani/vojnici/komesar-01.png',

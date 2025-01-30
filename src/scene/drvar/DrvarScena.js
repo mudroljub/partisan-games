@@ -17,9 +17,11 @@ export default class DrvarScena extends Scena3D {
         this.dodajSprite(el, i)
     })
     this.scene.add(praviPanoramu())
+    this.controls.enablePan = this.controls.enableRotate = false
     this.avioni = []
     this.padobranci = []
     this.vozila = []
+    this.partizani = []
   }
 
   dodajSprite(el, i) {
@@ -66,6 +68,10 @@ export default class DrvarScena extends Scena3D {
       vozilo.position.x += dt * 10
       if (vozilo.position.x >= 150)
         vozilo.position.x = -150
+    })
+
+    this.partizani.forEach(partizan => {
+      partizan.position.x += randSpread(dt)
     })
   }
 }
