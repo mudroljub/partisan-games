@@ -1,13 +1,14 @@
-import { keyboard } from '/game-engine/io/Keyboard.js'
-import platno, { crtaNebo } from '/game-engine/io/platno.js'
-import Scena from '/game-engine/core/Scena.js'
+import { keyboard } from '/core/io/Keyboard.js'
+import platno, { crtaNebo } from '/core/io/platno.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import AvionIgrac from './AvionIgrac.js'
-import VoziloBocno from '/game-engine/core/VoziloBocno.js'
-import Aerodrom from './Aerodrom.js'
-import Ruina from './Ruina.js'
-import Oblak from '/src/2d-bocno/Oblak.js'
-import Zbun from '/src/2d-bocno/Zbun.js'
-import Shuma from '/src/2d-bocno/Shuma.js'
+import VoziloBocno from '/core/actor/VoziloBocno.js'
+import Oblak from '/src/klase/Oblak.js'
+import Zbun from '/src/klase/Zbun.js'
+import Shuma from '/src/klase/Shuma.js'
+import Vracanje from '/core/actor/Vracanje.js'
+
+const nivoTla = platno.height
 
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10
@@ -25,16 +26,15 @@ const MAX_BRZINA = 600
 const DIZAJ = 10
 const MAX_DIGNUTOST = 5555
 
-export default class Scena1942 extends Scena {
+export default class Scena1942 extends Scena2D {
   init() {
-    this.nivoTla = platno.height
     this.brzinaScene = 0
     this.dignutostScene = 0
 
-    this.aerodrom = new Aerodrom(this.nivoTla)
-    this.ruina = new Ruina(this.nivoTla)
-    this.igrac = new AvionIgrac(this.nivoTla)
-    this.vozilo = new VoziloBocno('2d-bocno/hummel.png', { x: 150, y: this.nivoTla, skalar: .75, ciljevi: [this.igrac] })
+    this.aerodrom = new Vracanje({src: 'zgrade/aerodrom.png', tlo: nivoTla, procenat: .25 })
+    this.ruina = new Vracanje({ src: 'zgrade/ruina.png', tlo: nivoTla, x: -400 })
+    this.igrac = new AvionIgrac(nivoTla)
+    this.vozilo = new VoziloBocno('2d-bocno/hummel.png', { x: 150, y: nivoTla, skalar: .75, ciljevi: [this.igrac] })
 
     this.igrac.cvrstaTela.push(this.vozilo, this.ruina)
     this.igrac.ciljevi.push(this.vozilo)
@@ -99,14 +99,14 @@ export default class Scena1942 extends Scena {
   }
 
   proveriTlo() {
-    if (this.igrac.jePrizemljen() && this.dignutostScene === 0) {
+    if (this.igrac.jePrizemljen && this.dignutostScene <= 0) {
       this.zaustaviParalax()
       if (this.igrac.ziv && this.vozilo.mrtav) this.zavrsi('Misija je uspešno završena!')
     }
   }
 
   cisti() {
-    crtaNebo(this.nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
+    crtaNebo(nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
   }
 
   proveriTipke() {

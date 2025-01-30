@@ -1,5 +1,5 @@
-import platno, { crtaNeboZemlju } from '/game-engine/io/platno.js'
-import Scena from '/game-engine/core/Scena.js'
+import platno, { crtaNeboZemlju } from '/core/io/platno.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import Top from './Top.js'
 import Strelac from './Strelac.js'
 import Zastavnik from './Zastavnik.js'
@@ -9,15 +9,14 @@ import { progresBar, topKomande, komande2 } from '/game-ui/components.js'
 
 const tlo = platno.height * .75
 
-export default class TopScena extends Scena {
+export default class TopScena extends Scena2D {
   init() {
     const zastavnik = new Zastavnik(40, tlo + 1)
     this.top = new Top({ x: 230, y: tlo - 32 })
     const posada = new Posada(110, tlo + 8)
     const strelac = new Strelac(300, tlo + 8)
-    this.tenk = new TenkDesno({
-      y: tlo, cilj: this.top, skalar: .6, vremePunjenjaAI: 3000 }
-    )
+    this.tenk = new TenkDesno({ y: tlo, skalar: .6, vremePunjenjaAI: 3000 })
+    this.tenk.ciljevi.push(this.top)
     this.top.ciljevi.push(this.tenk)
     this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)
   }
@@ -48,7 +47,7 @@ export default class TopScena extends Scena {
     <div class='komande komande2 bg-poluprovidno'>
       ${progresBar(this.tenk.energija)}
       ${!this.tenk.ai ? komande2() : ''}
-      <button id="dva-igraca" class="bg-avocado full">
+      <button id="dva-igraca" class="bg-avocado full dva-igraca">
         ${this.tenk.ai ? 'Dodaj igrača' : 'Uključi<br> neprijatelja'}
       </button>
     </div>

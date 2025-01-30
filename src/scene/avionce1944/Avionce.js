@@ -1,6 +1,6 @@
-import Igrac from '/game-engine/core/Igrac.js'
-import platno from '/game-engine/io/platno.js'
-import { praviPucanje } from '/game-engine/core/prosirenja/pucanje.js'
+import Igrac from '/core/actor/Igrac.js'
+import platno from '/core/io/platno.js'
+import { praviPucanje } from '/core/actor/prosirenja/pucanje.js'
 
 export class Avionce extends Igrac {
   constructor() {
@@ -12,7 +12,7 @@ export class Avionce extends Igrac {
   }
 
   onload() {
-    this.polozaj = { x: platno.width / 2, y: platno.height - this.visina }
+    this.postavi(platno.width / 2, platno.height - this.visina)
   }
 
   proveriGranice() {
@@ -20,8 +20,8 @@ export class Avionce extends Igrac {
   }
 
   puca() {
-    const polozaj = { x: this.x, y: this.y - this.visina / 4 }
-    this.pali(polozaj, Math.PI * 1.5)
+    const poz = { x: this.x, y: this.y - this.visina / 4 }
+    this.pali(poz, Math.PI * 1.5)
   }
 
   reset() {

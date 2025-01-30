@@ -1,6 +1,6 @@
-import { keyboard } from '/game-engine/io/Keyboard.js'
-import Predmet from '/game-engine/core/Predmet.js'
-import { praviEnergiju } from '/game-engine/core/prosirenja/energija.js'
+import { keyboard } from '/core/io/Keyboard.js'
+import Predmet from '/core/actor/Predmet.js'
+import { praviEnergiju } from '/core/actor/prosirenja/energija.js'
 import Djule from './Djule.js'
 
 const skalar = .75
@@ -15,7 +15,7 @@ export default class Top extends Predmet {
     this.ugao = -0.2
     this.sila = this.minSila = 300
     this.projektili = Array.from({ length: 5 }, () => new Djule())
-    this.predmeti = [...this.projektili]
+    this.predmeti = [...this.projektili, this.postolje]
     this.ciljevi = ciljevi
     Object.defineProperties(this, Object.getOwnPropertyDescriptors(praviEnergiju()))
   }
@@ -32,8 +32,8 @@ export default class Top extends Predmet {
     const projektil = this.projektili.find(p => !p.vidljiv)
     if (!projektil) return
 
-    const pozicija = { x: this.vrhX, y: this.vrhY }
-    projektil.pali(pozicija, this.ugao, this.sila)
+    const polozaj = { x: this.vrhX, y: this.vrhY }
+    projektil.pali(polozaj, this.ugao, this.sila)
     this.x -= 5
     this.sila = this.minSila
   }
@@ -69,10 +69,5 @@ export default class Top extends Predmet {
     super.update(dt)
     this.proveriPogodak()
     if (this.x < this.pocetniX) this.x += 20 * dt
-  }
-
-  render() {
-    super.render()
-    this.postolje.render()
   }
 }

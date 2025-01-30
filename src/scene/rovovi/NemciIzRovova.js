@@ -1,13 +1,13 @@
-import mish from '/game-engine/io/mish.js'
-import Scena from '/game-engine/core/Scena.js'
-import Pozadina from '/game-engine/core/Pozadina.js'
+import mish from '/core/io/mish.js'
+import Scena2D from '/core/actor/Scena2D.js'
+import Pozadina from '/core/actor/Pozadina.js'
 import { progresBar } from '/game-ui/components.js'
 import Svabo from './Svabo.js'
 
 const DALJI_Y = 150
 const BLIZI_Y = 300
 
-export default class NemciIzRovova extends Scena {
+export default class NemciIzRovova extends Scena2D {
   init() {
     this.pogoci = 0
     this.rekord = 0
@@ -28,7 +28,7 @@ export default class NemciIzRovova extends Scena {
     return Array.from({ length: n }, (_, i) => {
       const x = i * razmak + polaRazmaka
       const svabo = new Svabo(params)
-      svabo.polozaj = { x, y }
+      svabo.postavi(x, y)
       return svabo
     })
   }

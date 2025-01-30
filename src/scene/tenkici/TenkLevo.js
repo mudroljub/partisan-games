@@ -1,6 +1,6 @@
-import { keyboard } from '/game-engine/io/Keyboard.js'
-import platno from '/game-engine/io/platno.js'
-import { randomInRange } from '/game-engine/utils.js'
+import { keyboard } from '/core/io/Keyboard.js'
+import platno from '/core/io/platno.js'
+import { randomInRange } from '/core/utils.js'
 import Tenk from './Tenk.js'
 
 export default class TenkLevo extends Tenk {
@@ -20,23 +20,24 @@ export default class TenkLevo extends Tenk {
     this.x = Math.min(Math.max(this.x, 0), platno.width / 2)
   }
 
-  diziCev() {
-    if (this.cev.ugao <= Math.PI || this.cev.ugao >= Math.PI * 1.8) this.cev.ugao -= 0.01
+  diziCev(dt) {
+    if (this.cev.ugao <= Math.PI || this.cev.ugao >= Math.PI * 1.8) 
+      this.cev.ugao -= dt * .5
   }
 
-  spustajCev() {
-    if (this.cev.ugao >= Math.PI) this.cev.ugao += 0.01
+  spustajCev(dt) {
+    if (this.cev.ugao >= Math.PI) this.cev.ugao += dt * .5
   }
 
-  proveriTipke() {
+  proveriTipke(dt) {
     if (keyboard.pressed.KeyA && this.x > 0)
       this.dodajSilu(this.potisak * 0.6, Math.PI)
     if (keyboard.pressed.KeyD && this.x < platno.width / 2)
       this.dodajSilu(this.potisak, 0)
     if (keyboard.pressed.KeyW)
-      this.diziCev()
+      this.diziCev(dt)
     if (keyboard.pressed.KeyS)
-      this.spustajCev()
+      this.spustajCev(dt)
 
     this.pokusajPucanje('Space')
   }

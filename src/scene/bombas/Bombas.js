@@ -1,5 +1,5 @@
-import Igrac from '/game-engine/core/Igrac.js'
-import Sprite from '/game-engine/core/Sprite.js'
+import Igrac from '/core/actor/Igrac.js'
+import Sprite from '/core/actor/Sprite.js'
 
 export default class Bombas extends Igrac {
 
@@ -10,26 +10,19 @@ export default class Bombas extends Igrac {
     this.krv = new Sprite('sprajtovi/efekti/krv-mala.png', {
       imena: ['prska'], brojKadrova: 8, vremeAnimacije: .4,
     })
-  }
-
-  puca() {
-    console.log('bacaBombu')
+    this.krv.sakrij()
+    this.predmeti.push(this.krv)
   }
 
   reagujNaPogodak() {
     super.umri()
-    this.krv.pustiAnimaciju('prska', false)
+    this.krv.dodeliAnimaciju('prska', false)
+    this.krv.pokazi()
   }
 
   update(dt) {
     super.update(dt)
     this.krv.x = this.x + 5
     this.krv.y = this.y - 10
-  }
-
-  render(dt, t) {
-    super.render()
-    if (!this.ziv)
-      this.krv.render(dt, t)
   }
 }

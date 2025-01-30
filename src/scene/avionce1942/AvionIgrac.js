@@ -1,6 +1,6 @@
-import { keyboard } from '/game-engine/io/Keyboard.js'
-import Igrac from '/game-engine/core/Igrac.js'
-import { praviRakete } from '/game-engine/core/prosirenja/pucanje.js'
+import { keyboard } from '/core/io/Keyboard.js'
+import Igrac from '/core/actor/Igrac.js'
+import { praviRakete } from '/core/actor/prosirenja/pucanje.js'
 
 const OKRET = 0.01
 const MOGUCNOST_OKRETA = 0.066
@@ -11,8 +11,15 @@ export default class AvionIgrac extends Igrac {
     super(src, { skalar: .55, zapaljiv: true })
     this.brzina = 0
     this.nivoTla = nivoTla
-    this.oznake.add('igrac')
     Object.assign(this, praviRakete({ vremePunjenja: 1.5 }))
+  }
+
+  get jeNaVrhu() {
+    return this.y <= this.visina / 2
+  }
+
+  get jePrizemljen() {
+    return this.y + this.visina / 2 >= this.nivoTla
   }
 
   proveriGranice() {
@@ -28,11 +35,11 @@ export default class AvionIgrac extends Igrac {
   }
 
   nalevo() {
-    if (!this.jePrizemljen()) super.nalevo()
+    if (!this.jePrizemljen) super.nalevo()
   }
 
   nagore() {
-    if (this.jeNaVrhu()) return
+    if (this.jeNaVrhu) return
 
     super.nagore()
     if (this.ugao === 0 || this.ugao >= 2 * Math.PI - MOGUCNOST_OKRETA)
@@ -40,7 +47,7 @@ export default class AvionIgrac extends Igrac {
   }
 
   nadole() {
-    if (this.jePrizemljen()) return
+    if (this.jePrizemljen) return
 
     super.nadole()
     if (this.ugao <= MOGUCNOST_OKRETA)
@@ -48,8 +55,8 @@ export default class AvionIgrac extends Igrac {
   }
 
   puca() {
-    const polozaj = { x: this.x + 5, y: this.y + 15 }
-    this.pali(polozaj, this.ugao + Math.PI / 16)
+    const poz = { x: this.x + 5, y: this.y + 15 }
+    this.pali(poz, this.ugao + Math.PI / 16)
   }
 
   /** OSTALO ***/
@@ -59,21 +66,13 @@ export default class AvionIgrac extends Igrac {
     this.ugao += this.ugao < Math.PI ? -OKRET : OKRET
   }
 
-  jeNaVrhu() {
-    return this.y <= this.visina / 2
-  }
-
-  jePrizemljen() {
-    return this.y + this.visina / 2 >= this.nivoTla
-  }
-
   proveriTlo() {
-    if (!this.jePrizemljen()) return
-    if (this.ugao > MOGUCNOST_OKRETA / 2) return this.umri()
+    if (!this.jePrizemljen) return
+    if (this.ugao > MOGUCNOST_OKRETA / 2) this.umri()
   }
 
   dodajGravitaciju() {
-    if (this.jePrizemljen()) return
+    if (this.jePrizemljen) return
 
     const teza = this.mrtav ? gravitacija * 100 : gravitacija
     this.dodajSilu(teza, Math.PI * .5)

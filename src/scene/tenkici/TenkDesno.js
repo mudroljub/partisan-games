@@ -1,6 +1,6 @@
-import { keyboard } from '/game-engine/io/Keyboard.js'
-import platno from '/game-engine/io/platno.js'
-import { randomInRange } from '/game-engine/utils.js'
+import { keyboard } from '/core/io/Keyboard.js'
+import platno from '/core/io/platno.js'
+import { randomInRange } from '/core/utils.js'
 import Tenk from './Tenk.js'
 
 export default class TenkDesno extends Tenk {
@@ -8,6 +8,7 @@ export default class TenkDesno extends Tenk {
     src = '2d-bocno/nemacki-tenk-bez-cevi.png',
     cevSlika = '2d-bocno/nemacki-tenk-cev.png',
     x = randomInRange(platno.width * 0.7, platno.width) - 100,
+    ai = true,
     ...rest
   }) {
     super(src, { cevSlika, x, ...rest })
@@ -17,22 +18,22 @@ export default class TenkDesno extends Tenk {
     this.cev.ugao = Math.PI * 1.1
     this.cev.ishodiste = 'DOLE_DESNO'
     this.cev.odrazY = -1
-    this.ai = true
+    this.ai = ai
   }
 
   proveriGranice() {
     this.x = Math.min(Math.max(this.x, platno.width / 2), platno.width)
   }
 
-  diziCev() {
-    if (this.cev.ugao <= Math.PI * 1.2) this.cev.ugao += 0.01
+  diziCev(dt) {
+    if (this.cev.ugao <= Math.PI * 1.2) this.cev.ugao += dt * .5
   }
 
-  spustajCev() {
-    if (this.cev.ugao >= Math.PI) this.cev.ugao -= 0.01
+  spustajCev(dt) {
+    if (this.cev.ugao >= Math.PI) this.cev.ugao -= dt * .5
   }
 
-  proveriTipke() {
+  proveriTipke(dt) {
     if (this.ai) return
 
     if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2)
@@ -40,9 +41,9 @@ export default class TenkDesno extends Tenk {
     if (keyboard.pressed.ArrowRight && this.x < platno.width)
       this.dodajSilu(this.potisak * 0.6, 0)
     if (keyboard.pressed.ArrowUp)
-      this.diziCev()
+      this.diziCev(dt)
     if (keyboard.pressed.ArrowDown)
-      this.spustajCev()
+      this.spustajCev(dt)
 
     this.pokusajPucanje('Enter')
   }

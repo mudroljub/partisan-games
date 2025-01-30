@@ -54,3 +54,8 @@ button:hover {
     left: 60%;
   }
 }
+
+.dva-igraca {
+  padding: 5px 10px;
+  font-size: 16px;
+}

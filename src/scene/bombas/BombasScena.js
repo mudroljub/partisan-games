@@ -1,7 +1,7 @@
-import { slucajnePozicije, nadjiNajdaljeTacke } from '/game-engine/utils.js'
-import Scena from '/game-engine/core/Scena.js'
-import Pozadina from '/game-engine/core/Pozadina.js'
-import Vreme from '/game-engine/core/Vreme.js'
+import { slucajnePozicije, nadjiNajdaljeTacke } from '/core/utils.js'
+import Scena2D from '/core/actor/Scena2D.js'
+import Pozadina from '/core/actor/Pozadina.js'
+import Vreme from '/core/actor/Vreme.js'
 import Bombas from './Bombas.js'
 import Bunker from './Bunker.js'
 import Mina from './Mina.js'
@@ -10,7 +10,7 @@ import Mitraljezac from './Mitraljezac.js'
 const ZADATO_VREME = 30
 const BROJ_PREPREKA = 20
 
-export default class BombasScena extends Scena {
+export default class BombasScena extends Scena2D {
   init() {
     this.vreme = new Vreme()
     this.pozadina = new Pozadina('teksture/beton.gif')

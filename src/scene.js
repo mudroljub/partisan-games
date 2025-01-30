@@ -5,20 +5,19 @@ import CamacScena from './scene/CamacScena.js'
 import OtpisaniScena from './scene/OtpisaniScena.js'
 import Scena1944 from './scene/avionce1944/Scena1944.js'
 import TopScena from './scene/top/TopScena.js'
-
 import TenkicIde from './scene/tenkic-ide/TenkicIde.js'
 import TenkiciScena from './scene/tenkici/TenkiciScena.js'
-
-// za spajanje
 import RanjenikScena from './scene/ranjenik/RanjenikScena.js'
-import RanjenikPaljba from './scene/ranjenik/RanjenikPaljba.js'
+import DrvarScena from './scene/drvar/DrvarScena.js'
 
 // za spajanje
 import JasenovacScena from './scene/tenkovska/JasenovacScena.js'
 import TenkOdozgoScena from './scene/tenkovska/TenkOdozgoScena.js'
+
 import GlavniMeni from './GlavniMeni.js'
 
 const scene = {
+  DrvarScena,
   BombasScena,
   NemciIzRovova,
   Scena1942,
@@ -31,7 +30,6 @@ const scene = {
   TenkicIde,
   TenkiciScena,
   RanjenikScena,
-  RanjenikPaljba,
   GlavniMeni
 }
 

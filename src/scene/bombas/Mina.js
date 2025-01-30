@@ -1,8 +1,8 @@
-import Predmet from '/game-engine/core/Predmet.js'
+import Predmet from '/core/actor/Predmet.js'
 
 export default class Mina extends Predmet {
   constructor(params) {
-    super('2d-bocno/stvari/nagazna.png', { skalar: .75, zapaljiv: true, ...params })
+    super('stvari/nagazna.png', { skalar: .75, zapaljiv: true, ...params })
   }
 
   proveriSudar(telo) {

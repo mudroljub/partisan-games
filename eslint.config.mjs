@@ -25,7 +25,6 @@ export default [{
     'arrow-spacing': 'warn',
     'block-scoped-var': 'error',
     'brace-style': ['warn', '1tbs'],
-    'class-methods-use-this': 'warn',
 
     'comma-spacing': ['warn', {
       before: false,

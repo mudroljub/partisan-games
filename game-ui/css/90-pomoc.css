@@ -11,3 +11,38 @@
 .poluprovidno {
   opacity: 0.6;
 }
+
+/* PRIKAZ */
+
+.absolute {
+  position: absolute;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+/* VIDLJIVOST */
+
+.none,
+.hide {
+  display: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+/* POMOC */
+
+.full {
+  width: 100%;
+}

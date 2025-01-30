@@ -1,4 +1,4 @@
-import Predmet from '/game-engine/core/Predmet.js'
+import Predmet from '/core/actor/Predmet.js'
 
 export default class PokretnaPozadina extends Predmet {
 
@@ -9,7 +9,7 @@ export default class PokretnaPozadina extends Predmet {
   }
 
   onload() {
-    this.polozaj = { x: this.sirina / 2, y: 0 }
+    this.postavi(this.sirina / 2, 0)
   }
 
   proveriGranice() {

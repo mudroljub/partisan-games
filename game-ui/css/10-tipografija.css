@@ -1,9 +1,17 @@
-/* TIPOGRAFIJA */
+@font-face {
+  font-family: '1942';
+  src: url('../fontovi/1942.ttf');
+}
+
+@font-face {
+  font-family: 'Special Elite';
+  src: url('../fontovi/SpecialElite.ttf');
+}
 
 /** FONTOVI **/
 
-.1942 {
-  font-family: '1942';
+.font1942 {
+  font-family: '1942', Courier;
 }
 
 .elite {

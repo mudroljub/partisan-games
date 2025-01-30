@@ -1,5 +1,5 @@
-import platno from '/game-engine/io/platno.js'
-import Scena from '/game-engine/core/Scena.js'
+import platno from '/core/io/platno.js'
+import Scena2D from '/core/actor/Scena2D.js'
 import { Avionce } from './Avionce.js'
 import PokretnaPozadina from './PokretnaPozadina.js'
 import Pokretno from './Pokretno.js'
@@ -9,7 +9,7 @@ import Neprijatelj from './Neprijatelj.js'
 const brojOblaka = 3
 const brzina = 150
 
-export default class Scena1944 extends Scena {
+export default class Scena1944 extends Scena2D {
   init() {
     this.oblaci = Array.from({ length: brojOblaka }, () => new Oblak(brzina))
     this.ostrvo = new Pokretno('2d-odozgo/ostrvo.gif', { potisak: brzina, skalar: 2 })
@@ -45,7 +45,7 @@ export default class Scena1944 extends Scena {
   update(dt, t) {
     super.update(dt, t)
     this.proveriSudare()
-    if (!this.igrac.zivoti) this.gotovo = true
+    if (!this.igrac.zivoti) this.zavrsi()
   }
 
   sablon() {

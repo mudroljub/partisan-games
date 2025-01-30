@@ -1,4 +1,4 @@
-import { randomInRange } from '/game-engine/utils.js'
+import { randomInRange } from '/core/utils.js'
 import Pokretno from './Pokretno.js'
 
 export default class Oblak extends Pokretno {

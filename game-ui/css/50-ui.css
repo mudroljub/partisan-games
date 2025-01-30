@@ -4,7 +4,6 @@
   position: absolute;
   padding: 4px;
   border-radius: 5px;
-  min-width: 140px;
   line-height: 1.4;
 }
 
@@ -56,4 +55,22 @@
   position: absolute;
   top: 50%;
   transform: translate(-50%,-50%);
+}
+
+/* PROZORCE */
+
+.prozorce {
+  background-color: rgba(0,0,0, 0.8);
+  border-radius: 5px;
+  color: #848C58;
+  left: 50%;
+  padding: 20px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.prozorce button:nth-of-type(n+2) {
+  margin-left: 20px;
 }

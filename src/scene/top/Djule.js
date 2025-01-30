@@ -1,6 +1,6 @@
-import { ctx } from '/game-engine/io/platno.js'
-import Granata from '/game-engine/core/projektili/Granata.js'
-import { randomInRange } from '/game-engine/utils.js'
+import { ctx } from '/core/io/platno.js'
+import Granata from '/core/actor/projektili/Granata.js'
+import { randomInRange } from '/core/utils.js'
 
 export default class Djule extends Granata {
   constructor({ r = 4, ...rest } = {}) {
@@ -17,7 +17,5 @@ export default class Djule extends Granata {
     ctx.beginPath()
     ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
     ctx.fill()
-
-    this.plamicak.render()
   }
 }

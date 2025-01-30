@@ -1,18 +1,11 @@
-import Predmet from '/game-engine/core/Predmet.js'
-import Sprite from '/game-engine/core/Sprite.js'
+import Predmet from '/core/actor/Predmet.js'
+import Zastava from './Zastava.js'
 
 export default class Zastavnik extends Predmet {
   constructor(x, y) {
     super('2d-bocno/partizani/vojnici/savo.png', { x, y })
-    this.zastava = new Sprite('sprajtovi/zastava.png', {
-      imena: ['vijori'], brojKadrova: 4, x: x + 28, y: y - 76
-    })
-    this.zastava.pustiAnimaciju('vijori')
-  }
-
-  render(dt, t) {
-    super.render()
-    this.zastava.render(dt, t)
+    const zastava = new Zastava({ x: x + 28, y: y - 76 })
+    this.predmeti.push(zastava)
   }
 
   update(dt, t) {
