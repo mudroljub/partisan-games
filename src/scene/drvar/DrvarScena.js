@@ -16,7 +16,7 @@ export default class DrvarScena extends Scena3D {
         this.dodajSprite(el, i)
     })
     this.scene.add(praviPanoramu())
-    // this.controls.enablePan = this.controls.enableRotate = false
+    this.controls.enablePan = false
     this.controls.minAzimuthAngle = -Math.PI / 8
     this.controls.maxAzimuthAngle = Math.PI / 8
     this.avioni = []
@@ -24,7 +24,7 @@ export default class DrvarScena extends Scena3D {
     this.vozila = []
     this.partizani = []
     this.animator = new Sprite('assets/slike/sprajtovi/efekti/eksplozija-01.png', 8, 4)
-    this.scene.add(this.animator.sprite)
+    this.scene.add(this.animator.object)
   }
 
   dodajSprite(el, i) {
