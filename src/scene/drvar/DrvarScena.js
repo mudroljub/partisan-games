@@ -2,12 +2,10 @@ import * as THREE from 'three'
 import Scena3D from '/core/actor/Scena3D.js'
 import { elements } from './data.js'
 import { createGround } from '/core/3d/ground.js'
-import { praviPanoramu } from './utils.js'
+import { randSpread, praviPanoramu } from './utils.js'
 import Sprite from './Sprite.js'
 
 const textureLoader = new THREE.TextureLoader()
-
-const randSpread = range => range * (Math.random() - Math.random())
 
 export default class DrvarScena extends Scena3D {
   init() {

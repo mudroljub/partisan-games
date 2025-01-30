@@ -1,5 +1,7 @@
 import * as THREE from 'three'
 
+export const randSpread = range => range * (Math.random() - Math.random())
+
 export function praviPanoramu(r = 300) {
   const textureLoader = new THREE.TextureLoader()
   const texture = textureLoader.load('/assets/slike/planine.png')

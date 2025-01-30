@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import { randSpread } from './utils.js'
 
 export default class SpriteAnimator {
   constructor(imgSrc, frameCount, frameRate = 10) {
@@ -7,21 +8,24 @@ export default class SpriteAnimator {
     this.currentFrame = 0
     this.timeAccumulator = 0
     const skalar = .25
-
     this.texture = new THREE.TextureLoader().load(imgSrc, texture => {
       const frameWidth = texture.image.width / frameCount
-      const frameHeight = texture.image.height
-      this.sprite.scale.set(frameWidth * skalar, frameHeight * skalar, 1)
-      this.sprite.position.set(0, texture.image.height * skalar * .25, 5)
+      this.sprite.scale.set(frameWidth * skalar, texture.image.height * skalar, 1)
+      this.randPosition()
     })
-
     this.texture.wrapS = THREE.RepeatWrapping
     this.texture.wrapT = THREE.RepeatWrapping
     this.texture.repeat.set(1 / frameCount, 1)
 
     this.material = new THREE.SpriteMaterial({ map: this.texture })
     this.sprite = new THREE.Sprite(this.material)
+  }
 
+  randPosition() {
+    const range = 10
+    const x = randSpread(range)
+    const z = randSpread(range)
+    this.sprite.position.set(x, this.sprite.scale.y * .25, z)
   }
 
   update(dt) {
