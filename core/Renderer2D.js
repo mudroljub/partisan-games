@@ -1,5 +1,5 @@
-import { platno, ctx } from '../io/platno.js'
-import { ishodista } from '../konstante.js'
+import { platno, ctx } from './io/platno.js'
+import { ishodista } from './konstante.js'
 
 const poravnajNiz = niz => niz.flatMap(predmet =>
   [predmet, ...(predmet.predmeti ? poravnajNiz(predmet.predmeti) : [])]

@@ -1,5 +1,5 @@
 import Scena from './Scena.js'
-import Renderer2D from './actor/Renderer.js'
+import Renderer2D from './Renderer2D.js'
 import { platno } from '/core/io/platno.js'
 
 export default class Scena2D extends Scena {
