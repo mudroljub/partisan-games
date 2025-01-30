@@ -38,8 +38,4 @@ export default class SpriteAnimator {
       this.texture.offset.x = this.currentFrame / this.frameCount
     }
   }
-
-  getSprite() {
-    return this.sprite
-  }
 }

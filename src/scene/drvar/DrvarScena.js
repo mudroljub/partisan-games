@@ -24,7 +24,7 @@ export default class DrvarScena extends Scena3D {
     this.vozila = []
     this.partizani = []
     this.animator = new Sprite('assets/slike/sprajtovi/efekti/eksplozija-01.png', 8, 4)
-    this.scene.add(this.animator.getSprite())
+    this.scene.add(this.animator.sprite)
   }
 
   dodajSprite(el, i) {
