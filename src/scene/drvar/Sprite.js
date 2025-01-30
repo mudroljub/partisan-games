@@ -22,7 +22,7 @@ export default class SpriteAnimator {
   }
 
   randPosition() {
-    const range = 10
+    const range = 50
     const x = randSpread(range)
     const z = randSpread(range)
     this.sprite.position.set(x, this.sprite.scale.y * .25, z)
@@ -36,6 +36,9 @@ export default class SpriteAnimator {
       this.timeAccumulator -= frameDuration
       this.currentFrame = (this.currentFrame + 1) % this.frameCount
       this.texture.offset.x = this.currentFrame / this.frameCount
+
+      if (this.currentFrame === this.frameCount - 1)
+        this.randPosition()
     }
   }
 }

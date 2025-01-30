@@ -8,7 +8,7 @@ Male igrice o Nemcima i partizanima.
 
 ### 3D
 - Drvar scena
-    - nasumične eksplozije
+    - objaviti odvojeno
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju
 - dodati 3d model u 1944
