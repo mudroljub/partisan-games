@@ -1,36 +1,21 @@
-import BombasScena from './scene/bombas/BombasScena.js'
-import NemciIzRovova from './scene/rovovi/NemciIzRovova.js'
-import Scena1942 from './scene/avionce1942/Scena1942.js'
-import CamacScena from './scene/CamacScena.js'
-import OtpisaniScena from './scene/OtpisaniScena.js'
-import Scena1944 from './scene/avionce1944/Scena1944.js'
-import TopScena from './scene/top/TopScena.js'
-import TenkicIde from './scene/tenkic-ide/TenkicIde.js'
-import TenkiciScena from './scene/tenkici/TenkiciScena.js'
-import RanjenikScena from './scene/ranjenik/RanjenikScena.js'
-import DrvarScena from './scene/drvar/DrvarScena.js'
-
-// za spajanje
-import JasenovacScena from './scene/tenkovska/JasenovacScena.js'
-import TenkOdozgoScena from './scene/tenkovska/TenkOdozgoScena.js'
-
-import GlavniMeni from './GlavniMeni.js'
-
-const scene = {
-  DrvarScena,
-  BombasScena,
-  NemciIzRovova,
-  Scena1942,
-  JasenovacScena,
-  TenkOdozgoScena,
-  TopScena,
-  CamacScena,
-  OtpisaniScena,
-  Scena1944,
-  TenkicIde,
-  TenkiciScena,
-  RanjenikScena,
-  GlavniMeni
+const putanje = {
+  BombasScena: './scene/bombas/BombasScena.js',
+  NemciIzRovova: './scene/rovovi/NemciIzRovova.js',
+  Scena1942: './scene/avionce1942/Scena1942.js',
+  CamacScena: './scene/CamacScena.js',
+  OtpisaniScena: './scene/OtpisaniScena.js',
+  Scena1944: './scene/avionce1944/Scena1944.js',
+  TopScena: './scene/top/TopScena.js',
+  TenkicIde: './scene/tenkic-ide/TenkicIde.js',
+  TenkiciScena: './scene/tenkici/TenkiciScena.js',
+  RanjenikScena: './scene/ranjenik/RanjenikScena.js',
+  DrvarScena: './scene/drvar/DrvarScena.js',
+  JasenovacScena: './scene/tenkovska/JasenovacScena.js',
+  TenkOdozgoScena: './scene/tenkovska/TenkOdozgoScena.js',
+  GlavniMeni: './GlavniMeni.js'
 }
 
-export default scene
+export async function loadScene(ime) {
+  const module = await import(putanje[ime])
+  return module.default
+}

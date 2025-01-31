@@ -1,4 +1,4 @@
-import scene from './scene.js'
+import { loadScene } from './scene.js'
 
 export default class SceneManager {
   constructor() {
@@ -11,8 +11,9 @@ export default class SceneManager {
     if (this.currentScene)
       this.currentScene.end()
 
-    const novaScena = new scene[key](this)
-    this.currentScene = novaScena
-    this.currentScene.start()
+    loadScene(key).then(Scena => {
+      this.currentScene = new Scena(this)
+      this.currentScene.start()
+    })
   }
 }
