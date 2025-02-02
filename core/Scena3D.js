@@ -1,7 +1,9 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import Scena from './Scena.js'
-import { platno3D } from '/core/io/platno.js'
+
+const platno3D = document.getElementById('platno-3d')
+platno3D.style.display = 'none'
 
 export default class Scena3D extends Scena {
   constructor(manager) {

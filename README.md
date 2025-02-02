@@ -10,6 +10,8 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
+- odvojiti GUI?
+
 ### 3D
 - dodati neke 3D igre, poput Savo i napad na aerodrom
 - srediti 3D koliziju

@@ -1,8 +1,7 @@
 export const platno = document.getElementById('platno')
-export const platno3D = document.getElementById('platno-3d')
 export const ctx = platno.getContext('2d')
 
-platno.style.display = platno3D.style.display = 'none'
+platno.style.display = 'none'
 
 const resize = () => {
   platno.width = window.innerWidth * devicePixelRatio | 0

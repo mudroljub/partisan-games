@@ -2,7 +2,7 @@ import { keyboard } from './io/Keyboard.js'
 import { platno } from './io/platno.js'
 import GameLoop from './GameLoop.js'
 
-export default class Scena2D {
+export default class Scena {
   constructor(manager) {
     this.manager = manager
     this.predmeti = []
