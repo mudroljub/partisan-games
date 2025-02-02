@@ -1,7 +1,7 @@
 import mish from '/core/io/mish.js'
 import Scena2D from '/core/Scena2D.js'
 import Pozadina from '/core/actor/Pozadina.js'
-import { progresBar } from '/game-ui/components.js'
+import { progresBar } from '/ui/components.js'
 import Svabo from './Svabo.js'
 
 const DALJI_Y = 150

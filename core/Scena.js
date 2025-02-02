@@ -1,16 +1,18 @@
 import { keyboard } from './io/Keyboard.js'
 import { platno } from './io/platno.js'
 import GameLoop from './GameLoop.js'
+import UI from '../ui/UI.js'
 
 export default class Scena {
   constructor(manager) {
     this.manager = manager
+    this.ui = new UI()
     this.predmeti = []
     this.gameLoop = new GameLoop(this.loop)
     this.handleClick = this.handleClick.bind(this)
     this.elementUI = document.getElementById('ui')
     this.prozorElement = document.getElementById('prozor')
-    this.upamcenUI = this.upamcenProzor = this.zavrsniTekst = ''
+    this.upamcenUI = this.upamcenProzor = ''
     this.hocuVan = false
   }
 
@@ -32,6 +34,14 @@ export default class Scena {
 
   /* UI */
 
+  get zavrsniTekst() {
+    return this.ui.zavrsniTekst
+  }
+
+  set zavrsniTekst(txt) {
+    this.ui.zavrsniTekst = txt
+  }
+
   handleClick(e) {
     if (e.target.id == 'igraj-opet')
       this.manager.start(this.constructor.name)
@@ -43,27 +53,9 @@ export default class Scena {
       this.nastaviIgru()
   }
 
-  napustiIgru() {
-    return /* html */`
-      <div class="prozorce centar">
-        <p>Napusti igru?</p>
-        <button id="menu">Da</button><button id="cancel">Ne</button><button id="igraj-opet">Igraj opet</button>
-      </div>
-    `
-  }
-
-  zavrsniProzor() {
-    return /* html */`
-      <div class="prozorce centar">
-        <p>${this.zavrsniTekst}</p>
-        <button id="igraj-opet">Igraj opet</button><button id="menu">Glavni meni</button>
-      </div>
-    `
-  }
-
   prozor() {
-    if (this.hocuVan) return this.napustiIgru()
-    if (this.zavrsniTekst) return this.zavrsniProzor()
+    if (this.hocuVan) return this.ui.napustiIgruProzor()
+    if (this.zavrsniTekst) return this.ui.zavrsniProzor()
     return ''
   }
 

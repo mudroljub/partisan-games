@@ -5,7 +5,7 @@ import Strelac from './Strelac.js'
 import Zastavnik from './Zastavnik.js'
 import Posada from './Posada.js'
 import TenkDesno from '../tenkici/TenkDesno.js'
-import { progresBar, topKomande, komande2 } from '/game-ui/components.js'
+import { progresBar, topKomande, komande2 } from '/ui/components.js'
 
 const tlo = platno.height * .75
 
