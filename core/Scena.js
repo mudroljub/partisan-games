@@ -6,14 +6,10 @@ import UI from '../ui/UI.js'
 export default class Scena {
   constructor(manager) {
     this.manager = manager
-    this.ui = new UI()
+    this.ui = new UI(this)
     this.predmeti = []
     this.gameLoop = new GameLoop(this.loop)
     this.handleClick = this.handleClick.bind(this)
-    this.elementUI = document.getElementById('ui')
-    this.prozorElement = document.getElementById('prozor')
-    this.upamcenUI = this.upamcenProzor = ''
-    this.hocuVan = false
   }
 
   init() {}
@@ -34,14 +30,6 @@ export default class Scena {
 
   /* UI */
 
-  get zavrsniTekst() {
-    return this.ui.zavrsniTekst
-  }
-
-  set zavrsniTekst(txt) {
-    this.ui.zavrsniTekst = txt
-  }
-
   handleClick(e) {
     if (e.target.id == 'igraj-opet')
       this.manager.start(this.constructor.name)
@@ -53,14 +41,8 @@ export default class Scena {
       this.nastaviIgru()
   }
 
-  prozor() {
-    if (this.hocuVan) return this.ui.napustiIgruProzor()
-    if (this.zavrsniTekst) return this.ui.zavrsniProzor()
-    return ''
-  }
-
   zavrsi(text = 'Igra je završena.') {
-    this.zavrsniTekst = text
+    this.ui.zavrsniTekst = text
     this.gameLoop.stopTime()
   }
 
@@ -68,25 +50,14 @@ export default class Scena {
     return ''
   }
 
-  #renderUI(t) {
-    if (this.upamcenUI !== this.sablon(t)) {
-      this.elementUI.innerHTML = this.sablon(t)
-      this.upamcenUI = this.sablon(t)
-    }
-    if (this.upamcenProzor !== this.prozor()) {
-      this.prozorElement.innerHTML = this.prozor()
-      this.upamcenProzor = this.prozor()
-    }
-  }
-
   potvrdiIzlaz() {
     this.gameLoop.pause()
-    this.hocuVan = true
+    this.ui.hoceVan = true
   }
 
   nastaviIgru() {
     this.gameLoop.unpause()
-    this.hocuVan = false
+    this.ui.hoceVan = false
   }
 
   /* GLAVNA PETLJA */
@@ -99,12 +70,12 @@ export default class Scena {
   end() {
     this.gameLoop.stop()
     this.predmeti = []
-    this.elementUI.innerHTML = this.prozorElement.innerHTML = ''
+    this.ui.cisti()
     document.removeEventListener('click', this.handleClick)
   }
 
   proveriTipke(dt) {
-    if (this.zavrsniTekst) return
+    if (this.ui.zavrsniTekst) return
 
     if (keyboard.pressed.Escape) this.potvrdiIzlaz()
 
@@ -130,6 +101,6 @@ export default class Scena {
     this.update(dt, t)
     this.cisti()
     this.render(dt, t)
-    this.#renderUI(t)
+    this.ui.renderUI(t)
   }
 }

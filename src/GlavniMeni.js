@@ -24,9 +24,9 @@ export default class GlavniMeni extends Scena2D {
   }
 
   handleClick = e => {
-    if (!e.target.classList.contains('js-start')) return
-
-    this.manager.start(e.target.value)
+    super.handleClick(e)
+    if (e.target.classList.contains('js-start'))
+      this.manager.start(e.target.value)
   }
 
   napustiIgru() {
