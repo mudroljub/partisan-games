@@ -30,6 +30,10 @@ export default class Scena {
 
   /* UI */
 
+  sablon() {
+    return ''
+  }
+
   handleClick(e) {
     if (e.target.id == 'igraj-opet')
       this.manager.start(this.constructor.name)
@@ -41,15 +45,6 @@ export default class Scena {
       this.nastaviIgru()
   }
 
-  zavrsi(text = 'Igra je završena.') {
-    this.ui.zavrsniTekst = text
-    this.gameLoop.stopTime()
-  }
-
-  sablon() {
-    return ''
-  }
-
   potvrdiIzlaz() {
     this.gameLoop.pause()
     this.ui.hoceVan = true
@@ -58,6 +53,11 @@ export default class Scena {
   nastaviIgru() {
     this.gameLoop.unpause()
     this.ui.hoceVan = false
+  }
+
+  zavrsi(text = 'Igra je završena.') {
+    this.ui.zavrsniTekst = text
+    this.gameLoop.stopTime()
   }
 
   /* GLAVNA PETLJA */
