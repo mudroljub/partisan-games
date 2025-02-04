@@ -42,7 +42,7 @@ export default class RanjenikScena extends Scena2D {
   }
 
   promeniScenu() {
-    this.pozadina.slika.src = '/assets/slicice/teksture/sprzena-zemlja.jpg'
+    this.pozadina.slika.src = '/assets/images/textures/sprzena-zemlja.jpg'
     this.patrola.slika.src = '/assets/slicice/2d-odozgo/talijani-patrola.gif'
     this.patrola.postavi(this.sirina * 3 / 4, this.visina * 3 / 4)
     this.ranjenik.x = 10

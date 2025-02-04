@@ -3,7 +3,7 @@ import Predmet from '/core/actor/Predmet.js'
 export default class PokretnaPozadina extends Predmet {
 
   constructor(brzina = 10, sirina = window.innerWidth) {
-    super('teksture/okean.gif', { sirina })
+    super('textures/okean.gif', { sirina })
     this.dx = 0
     this.dy = brzina
   }
