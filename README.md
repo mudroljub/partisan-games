@@ -10,10 +10,13 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
-- odvojiti GUI?
-
 ### 3D
-- dodati neke 3D igre, poput Savo i napad na aerodrom
+
+- integrisati oba projekta (core2d i core3d)
+  - dodati neke 3D igre, poput Savo i napad na aerodrom
+  - koristiti Spinner u upravniku scena
+  - srediti zvuk kuckanja na izveštaju
+  - integrisati ui i GUI
 - srediti 3D koliziju
 - dodati 3d model u 1944
 
