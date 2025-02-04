@@ -4,7 +4,7 @@ export const randSpread = range => range * (Math.random() - Math.random())
 
 export function praviPanoramu(r = 300) {
   const textureLoader = new THREE.TextureLoader()
-  const texture = textureLoader.load('/assets/slicice/planine.png')
+  const texture = textureLoader.load('/assets/images/backgrounds/planine.png')
   texture.wrapS = THREE.RepeatWrapping
   texture.repeat.x = -1
   const geometry = new THREE.CylinderGeometry(r, r, 600, 32, 1, true) // Cilindar bez gornje/donje strane

@@ -5,8 +5,8 @@ import Tenk from './Tenk.js'
 
 export default class TenkDesno extends Tenk {
   constructor({
-    src = '2d-bocno/nemacki-tenk-bez-cevi.png',
-    cevSlika = '2d-bocno/nemacki-tenk-cev.png',
+    src = 'slicice/nemacki-tenk-bez-cevi.png',
+    cevSlika = 'slicice/nemacki-tenk-cev.png',
     x = randomInRange(platno.width * 0.7, platno.width) - 100,
     ai = true,
     ...rest

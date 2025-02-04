@@ -23,8 +23,8 @@ export default class TenkicIde extends Scena2D {
     const oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak(nivoTla - 100, PARALAX_1))
 
     const ciljevi = [
-      new Vracanje({ src: 'zgrade/kuca-bunker.png', tlo: nivoTla + 15, skalar: .33, zapaljiv: true, brzina: PARALAX_1 }),
-      new Vracanje({ src: 'zgrade/crkva-01.png', tlo: nivoTla + 5, skalar: .5, zapaljiv: true, brzina: PARALAX_1 }),
+      new Vracanje({ src: 'buildings/kuca-bunker.png', tlo: nivoTla + 15, skalar: .33, zapaljiv: true, brzina: PARALAX_1 }),
+      new Vracanje({ src: 'buildings/crkva-01.png', tlo: nivoTla + 5, skalar: .5, zapaljiv: true, brzina: PARALAX_1 }),
     ]
     this.dodaj(planina, shumarak, ...ciljevi, ...zbunovi, this.tenk, ...oblaci)
     this.tenk.ciljevi.push(...ciljevi)

@@ -9,8 +9,8 @@ const DONJI_UGAO = 6.2
 
 export default class Top extends Predmet {
   constructor({ x, y, ciljevi = [] } = {}) {
-    super('2d-bocno/top-cev.gif', { x, y, skalar, zapaljiv: true })
-    this.postolje = new Predmet('2d-bocno/top-postolje.gif', { x: x - 40, y: y + 32, skalar })
+    super('slicice/top-cev.gif', { x, y, skalar, zapaljiv: true })
+    this.postolje = new Predmet('slicice/top-postolje.gif', { x: x - 40, y: y + 32, skalar })
     this.pocetniX = x
     this.ugao = -0.2
     this.sila = this.minSila = 300

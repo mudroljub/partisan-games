@@ -2,7 +2,7 @@ import Predmet from '/core/actor/Predmet.js'
 
 export default class TenkOdozgo extends Predmet {
   constructor(x = 100, y = 200) {
-    super('2d-odozgo/tenk-rdjavi.gif', { x, y, skalar: .5 })
+    super('slicice/tenk-rdjavi.gif', { x, y, skalar: .5 })
     this.zvuk = new Audio('/assets/sounds/zvuk-tenka.mp3')
     this.dodajSilu(66, 0)
   }

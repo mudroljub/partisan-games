@@ -4,7 +4,7 @@ import { randomInRange } from '/core/utils.js'
 
 export default class Paljba extends Predmet {
   constructor() {
-    super('2d-odozgo/krateri/krater.gif')
+    super('items/krateri/krater.gif')
     this.postaviRandom()
   }
 

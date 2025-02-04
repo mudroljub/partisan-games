@@ -6,13 +6,13 @@ import { randomInRange } from '/core/utils.js'
 
 export default class Okupator extends Sprite {
   constructor({ callback } = {}) {
-    super ('sprajtovi/vojnici/okupator-sprite.png', {
+    super ('sprites/vojnici/okupator-sprite.png', {
       imena: ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], brojKadrova: 5, sirina: 50, visina: 180
     })
     this.y = platno.height * .75
     this.callback = callback
     this.pucanjeSlika = new Image()
-    this.pucanjeSlika.src = 'assets/slicice/pucanje.png'
+    this.pucanjeSlika.src = 'assets/images/pucanje.png'
     this.pripucao = false
     this.vreme = new Vreme()
     this.vremeHodanja = randomInRange(700, 3200)

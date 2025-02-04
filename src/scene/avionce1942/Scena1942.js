@@ -31,10 +31,10 @@ export default class Scena1942 extends Scena2D {
     this.brzinaScene = 0
     this.dignutostScene = 0
 
-    this.aerodrom = new Vracanje({src: 'zgrade/aerodrom.png', tlo: nivoTla, procenat: .25 })
-    this.ruina = new Vracanje({ src: 'zgrade/ruina.png', tlo: nivoTla, x: -400 })
+    this.aerodrom = new Vracanje({src: 'buildings/aerodrom.png', tlo: nivoTla, procenat: .25 })
+    this.ruina = new Vracanje({ src: 'buildings/ruina.png', tlo: nivoTla, x: -400 })
     this.igrac = new AvionIgrac(nivoTla)
-    this.vozilo = new VoziloBocno('2d-bocno/hummel.png', { x: 150, y: nivoTla, skalar: .75, ciljevi: [this.igrac] })
+    this.vozilo = new VoziloBocno('slicice/hummel.png', { x: 150, y: nivoTla, skalar: .75, ciljevi: [this.igrac] })
 
     this.igrac.cvrstaTela.push(this.vozilo, this.ruina)
     this.igrac.ciljevi.push(this.vozilo)

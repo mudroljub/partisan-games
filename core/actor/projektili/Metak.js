@@ -2,7 +2,7 @@ import Predmet from '/core/actor/Predmet.js'
 import { randomInRange } from '/core/utils.js'
 
 export default class Metak extends Predmet {
-  constructor({ src = 'granata.gif', skalar = .5, gravitacija = 0, potisak = 500, ...rest } = {}) {
+  constructor({ src = 'items/granata.gif', skalar = .5, gravitacija = 0, potisak = 500, ...rest } = {}) {
     super(src, { skalar, ...rest })
     this.gravitacija = gravitacija
     this.potisak = potisak

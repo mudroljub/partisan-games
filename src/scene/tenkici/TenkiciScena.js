@@ -9,7 +9,7 @@ const nivoTla = platno.height * 0.8
 
 export default class TenkiciScena extends Scena2D {
   init() {
-    this.pozadina = new Pozadina('pozadine/razrusen-grad-savremen.jpg')
+    this.pozadina = new Pozadina('backgrounds/razrusen-grad-savremen.jpg')
     this.tenk = new TenkLevo({ y: nivoTla })
     this.tenk2 = new TenkDesno({ y: nivoTla })
     this.tenk.ciljevi.push(this.tenk2)

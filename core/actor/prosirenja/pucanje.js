@@ -104,5 +104,5 @@ export function praviPucanje({
   }
 }
 
-export const praviRakete = ({ src = 'raketa.png', skalar = .55, potisakMetka = 500, ...rest } = {}) =>
+export const praviRakete = ({ src = 'items/raketa.png', skalar = .55, potisakMetka = 500, ...rest } = {}) =>
   praviPucanje({ src, skalar, potisakMetka, ...rest })

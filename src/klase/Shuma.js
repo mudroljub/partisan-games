@@ -4,7 +4,7 @@ import platno from '/core/io/platno.js'
 export default class Shuma extends Predmet {
 
   constructor(nivoTla = platno.height, dx = 0) {
-    super('priroda/shumarak.png')
+    super('nature/shumarak.png')
     this.nivoTla = nivoTla
     this.x = Math.random() * platno.width
     this.dx = dx

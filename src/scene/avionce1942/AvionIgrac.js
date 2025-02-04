@@ -7,7 +7,7 @@ const MOGUCNOST_OKRETA = 0.066
 const gravitacija = 3
 
 export default class AvionIgrac extends Igrac {
-  constructor(nivoTla, src = '2d-bocno/partizani/potez-25.png') {
+  constructor(nivoTla, src = 'slicice/partizani/potez-25.png') {
     super(src, { skalar: .55, zapaljiv: true })
     this.brzina = 0
     this.nivoTla = nivoTla

@@ -3,7 +3,7 @@ import Pokretno from './Pokretno.js'
 
 export default class Oblak extends Pokretno {
   constructor(potisak) {
-    super('oblak.gif', { potisak, senka: true })
+    super('nature/oblak.gif', { potisak, senka: true })
   }
 
   postaviBrzinu() {

@@ -23,13 +23,13 @@ export default class DrvarScena extends Scena3D {
     this.padobranci = []
     this.vozila = []
     this.partizani = []
-    this.eksplozija = new Sprite('assets/slicice/sprajtovi/efekti/eksplozija-01.png', 8, 4)
+    this.eksplozija = new Sprite('assets/images/sprites/efekti/eksplozija-01.png', 8, 4)
     this.scene.add(this.eksplozija.mesh)
   }
 
   dodajSprite(el, i) {
     const src = el.urls[i % el.urls.length]
-    textureLoader.load('/assets/slicice/' + src, texture => {
+    textureLoader.load('/assets/images/' + src, texture => {
       texture.minFilter = THREE.NearestFilter // pikselizovano iz daleka
       texture.magFilter = THREE.NearestFilter // glatko blizu
 

@@ -3,9 +3,9 @@ import { praviPucanje } from '/core/actor/prosirenja/pucanje.js'
 
 export default class Mitraljezac extends Predmet {
   constructor(x, y, cilj) {
-    super('2d-bocno/nemci/mitraljezac-01.png', { x, y, ishodiste: 'DOLE_DESNO' })
+    super('slicice/nemci/mitraljezac-01.png', { x, y, ishodiste: 'DOLE_DESNO' })
     const autoPucanje = praviPucanje({
-      stankaPucanja: 3, src: 'granata.gif', skalar: .4, potisakMetka: 600, y: -10,
+      stankaPucanja: 3, src: 'items/granata.gif', skalar: .4, potisakMetka: 600, y: -10,
     })
     Object.assign(this, autoPucanje)
     this.ciljevi.push(cilj)

@@ -7,7 +7,7 @@ const rafal = new Audio('/assets/sounds/rafal.mp3')
 export default class Svabo extends Predmet {
 
   constructor({ skalar, ucestalost = 0.03, callback }) {
-    super ('2d-prvo-lice/rov-prazan.gif', { skalar })
+    super ('slicice/rov-prazan.gif', { skalar })
     this.ucestalost = ucestalost
     this.callback = callback
     this.init()
@@ -17,8 +17,8 @@ export default class Svabo extends Predmet {
     this.stoji = false
     this.vreme = new Vreme()
     this.vremeNisanjenja = 2.5
-    this.slikaGore = '/assets/slicice/2d-prvo-lice/nemac-rov.gif'
-    this.slikaDole = '/assets/slicice/2d-prvo-lice/rov-prazan.gif'
+    this.slikaGore = '/assets/images/slicice/nemac-rov.gif'
+    this.slikaDole = '/assets/images/slicice/rov-prazan.gif'
   }
 
   povremenoUstaje(dt) {
@@ -42,7 +42,7 @@ export default class Svabo extends Predmet {
   }
 
   puca() {
-    this.slika.src = '/assets/slicice/2d-prvo-lice/nemac-rov-puca.gif'
+    this.slika.src = '/assets/images/nemac-rov-puca.gif'
   }
 
   jePogodjen() {
