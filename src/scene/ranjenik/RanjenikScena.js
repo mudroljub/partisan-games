@@ -1,10 +1,10 @@
 import { izasaoDesno } from '/core/utils/granice.js'
 import Scena2D from '/core/Scena2D.js'
-import Pozadina from '/core/actor/Pozadina.js'
+import Pozadina from '/core/objects/Pozadina.js'
 import Ranjenik from './Ranjenik.js'
 import Patrola from './Patrola.js'
 import Strelica from './Strelica.js'
-import Vreme from '/core/actor/Vreme.js'
+import Vreme from '/core/Vreme.js'
 import Paljba from './Paljba.js'
 
 const RITAM_PALJBE = 1500

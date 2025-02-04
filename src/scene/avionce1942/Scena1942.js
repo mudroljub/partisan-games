@@ -6,7 +6,7 @@ import VoziloBocno from '/core/actor/VoziloBocno.js'
 import Oblak from '/core/objects/Oblak.js'
 import Zbun from '/core/objects/Zbun.js'
 import Shuma from '/core/objects/Shuma.js'
-import Vracanje from '/core/actor/Vracanje.js'
+import Vracanje from '/core/objects/Vracanje.js'
 
 const nivoTla = platno.height
 

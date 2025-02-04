@@ -1,5 +1,5 @@
 import Predmet from '/core/actor/Predmet.js'
-import Vreme from '/core/actor/Vreme.js'
+import Vreme from '/core/Vreme.js'
 import mish from '/core/io/mish.js'
 
 const rafal = new Audio('/assets/sounds/rafal.mp3')

@@ -1,5 +1,5 @@
 import Predmet from '/core/actor/Predmet.js'
-import Vreme from '/core/actor/Vreme.js'
+import Vreme from '/core/Vreme.js'
 import platno from '/core/io/platno.js'
 
 export default class Vracanje extends Predmet {

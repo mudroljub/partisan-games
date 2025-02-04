@@ -1,6 +1,6 @@
 import { skaliranRazmak, nasumicnoOkruglo } from '/core/utils.js'
 import Predmet from '/core/actor/Predmet.js'
-import Vreme from '/core/actor/Vreme.js'
+import Vreme from '/core/Vreme.js'
 
 const zvuciTraganje = ['eatdirtpig.wav', 'killthepig.wav', 'QuicklyQuickly.wav', 'schnell.wav', 'UpThere.wav', 'whereishe.wav']
 const zvuciNadjen = ['Stop.wav', 'StopStayWhereYouAre.wav', 'thereheis.wav']

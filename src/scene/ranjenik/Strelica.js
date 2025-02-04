@@ -1,5 +1,5 @@
 import { platno, ctx } from '/core/io/platno.js'
-import Vreme from '/core/actor/Vreme.js'
+import Vreme from '/core/Vreme.js'
 
 const trajanjeStrelice = 500
 const pauzaCrtanja = 3000

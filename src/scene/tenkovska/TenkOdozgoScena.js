@@ -1,5 +1,5 @@
 import Scena2D from '/core/Scena2D.js'
-import Pozadina from '/core/actor/Pozadina.js'
+import Pozadina from '/core/objects/Pozadina.js'
 import VoziloIgracOdozgo from '/core/actor/VoziloIgracOdozgo.js'
 
 export default class TenkOdozgoScena extends Scena2D {

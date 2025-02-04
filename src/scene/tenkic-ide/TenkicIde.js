@@ -6,7 +6,7 @@ import Shuma from '/core/objects/Shuma.js'
 import Planina from '/core/objects/Planina.js'
 import Oblak from '/core/objects/Oblak.js'
 import TenkLevo from '../tenkici/TenkLevo.js'
-import Vracanje from '/core/actor/Vracanje.js'
+import Vracanje from '/core/objects/Vracanje.js'
 
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10

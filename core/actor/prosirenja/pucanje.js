@@ -1,5 +1,5 @@
 import Metak from '/core/actor/projektili/Metak.js'
-import Vreme from '/core/actor/Vreme.js'
+import Vreme from '/core/Vreme.js'
 
 export function praviPucanje({
   projektil = Metak, vremePunjenja = .1, ugloviPucanja = [0], potisakMetka = 1000, stankaPucanja = 3,

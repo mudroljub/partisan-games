@@ -1,6 +1,6 @@
 import { keyboard } from '/core/io/Keyboard.js'
 import platno from '/core/io/platno.js'
-import Vreme from '/core/actor/Vreme.js'
+import Vreme from '/core/Vreme.js'
 import Predmet from '/core/actor/Predmet.js'
 import { praviEnergiju } from '/core/actor/prosirenja/energija.js'
 import { praviPucanje } from '/core/actor/prosirenja/pucanje.js'

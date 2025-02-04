@@ -1,7 +1,7 @@
 import Sprite from '/core/actor/Sprite.js'
 import platno, { ctx } from '/core/io/platno.js'
 import mish from '/core/io/mish.js'
-import Vreme from '/core/actor/Vreme.js'
+import Vreme from '/core/Vreme.js'
 import { randomInRange } from '/core/utils.js'
 
 export default class Okupator extends Sprite {

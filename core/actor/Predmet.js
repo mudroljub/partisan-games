@@ -3,7 +3,7 @@ import { sudar } from '../utils/sudari.js'
 import {
   izasaoDole, izasaoGore, izasaoDesno, izasaoLevo, izasaoLevoSkroz, izasaoDesnoSkroz, vanEkrana
 } from '/core/utils/granice.js'
-import Vector from './Vector.js'
+import Vector from '../Vector.js'
 import { ishodista } from '../konstante.js'
 
 export default class Predmet {

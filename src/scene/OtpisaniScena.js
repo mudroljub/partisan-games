@@ -1,10 +1,10 @@
 import Scena2D from '/core/Scena2D.js'
-import Pozadina from '/core/actor/Pozadina.js'
-import Okupator from '/core/objects/Okupator.js'
+import Pozadina from '/core/objects/Pozadina.js'
+import Okupator from '/core/actor/Okupator.js'
 import mish from '/core/io/mish.js'
 import { progresBar } from '/ui/components.js'
 import { praviEnergiju } from '/core/actor/prosirenja/energija.js'
-import Vreme from '/core/actor/Vreme.js'
+import Vreme from '/core/Vreme.js'
 
 export default class OtpisaniScena extends Scena2D {
   init() {
