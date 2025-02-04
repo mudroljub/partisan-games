@@ -35,15 +35,15 @@ export default class RanjenikScena extends Scena2D {
 
     if (this.scena === 2) {
       this.patrola.nestani()
-      this.pozadina.slika.src = '/assets/slike/2d-odozgo/shumarak-pozadina.png'
+      this.pozadina.slika.src = '/assets/slicice/2d-odozgo/shumarak-pozadina.png'
       this.predmeti = this.predmeti.filter(p => p.constructor.name !== 'Paljba')
       this.zavrsi('Uspeo si da pronađeš spas!')
     }
   }
 
   promeniScenu() {
-    this.pozadina.slika.src = '/assets/slike/teksture/sprzena-zemlja.jpg'
-    this.patrola.slika.src = '/assets/slike/2d-odozgo/talijani-patrola.gif'
+    this.pozadina.slika.src = '/assets/slicice/teksture/sprzena-zemlja.jpg'
+    this.patrola.slika.src = '/assets/slicice/2d-odozgo/talijani-patrola.gif'
     this.patrola.postavi(this.sirina * 3 / 4, this.visina * 3 / 4)
     this.ranjenik.x = 10
     this.scena++

@@ -38,7 +38,7 @@ export default class Predmet {
       this.dodeliVelicinu(sirina, visina, skalar)
       this.onload()
     }
-    this.slika.src = '/assets/slike/' + src
+    this.slika.src = '/assets/slicice/' + src
   }
 
   onload() {} // za naslednike

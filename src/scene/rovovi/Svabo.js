@@ -17,8 +17,8 @@ export default class Svabo extends Predmet {
     this.stoji = false
     this.vreme = new Vreme()
     this.vremeNisanjenja = 2.5
-    this.slikaGore = '/assets/slike/2d-prvo-lice/nemac-rov.gif'
-    this.slikaDole = '/assets/slike/2d-prvo-lice/rov-prazan.gif'
+    this.slikaGore = '/assets/slicice/2d-prvo-lice/nemac-rov.gif'
+    this.slikaDole = '/assets/slicice/2d-prvo-lice/rov-prazan.gif'
   }
 
   povremenoUstaje(dt) {
@@ -42,7 +42,7 @@ export default class Svabo extends Predmet {
   }
 
   puca() {
-    this.slika.src = '/assets/slike/2d-prvo-lice/nemac-rov-puca.gif'
+    this.slika.src = '/assets/slicice/2d-prvo-lice/nemac-rov-puca.gif'
   }
 
   jePogodjen() {

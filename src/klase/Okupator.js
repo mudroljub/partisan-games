@@ -12,7 +12,7 @@ export default class Okupator extends Sprite {
     this.y = platno.height * .75
     this.callback = callback
     this.pucanjeSlika = new Image()
-    this.pucanjeSlika.src = 'assets/slike/pucanje.png'
+    this.pucanjeSlika.src = 'assets/slicice/pucanje.png'
     this.pripucao = false
     this.vreme = new Vreme()
     this.vremeHodanja = randomInRange(700, 3200)
