@@ -1,5 +1,5 @@
 import Scena2D from '/core/Scena2D.js'
-import CamacIgracOdozgo from '/core/objects/CamacIgracOdozgo.js'
+import CamacIgracOdozgo from '/core/actor/CamacIgracOdozgo.js'
 import Obala from './Obala.js'
 
 export default class CamacScena extends Scena2D {
