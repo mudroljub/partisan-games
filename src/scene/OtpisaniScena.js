@@ -9,7 +9,7 @@ import Vreme from '/core/actor/Vreme.js'
 export default class OtpisaniScena extends Scena2D {
   init() {
     Object.defineProperties(this, Object.getOwnPropertyDescriptors(praviEnergiju()))
-    this.pozadina = new Pozadina('backgrounds/rusevine-varsava.jpg')
+    this.pozadina = new Pozadina('background/rusevine-varsava.jpg')
     this.pesma = new Audio('/assets/sounds/otpisani.mp3')
     this.vreme = new Vreme()
     this.dodajNeprijatelja()
