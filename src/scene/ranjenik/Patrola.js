@@ -33,7 +33,7 @@ export default class Patrola extends Predmet {
     if (this.zvuk && !this.zvuk.paused) return
 
     const fajl = zvuci[nasumicnoOkruglo(0, zvuci.length - 1)]
-    const src = `/assets/zvuci/patrola/${fajl}`
+    const src = `/assets/sounds/patrola/${fajl}`
 
     this.zvuk = new Audio(src)
     this.zvuk.volume = this.target ? skaliranRazmak(this, this.target) : .5
