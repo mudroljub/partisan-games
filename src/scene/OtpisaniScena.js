@@ -1,6 +1,6 @@
 import Scena2D from '/core/Scena2D.js'
 import Pozadina from '/core/actor/Pozadina.js'
-import Okupator from '../klase/Okupator.js'
+import Okupator from '/core/objects/Okupator.js'
 import mish from '/core/io/mish.js'
 import { progresBar } from '/ui/components.js'
 import { praviEnergiju } from '/core/actor/prosirenja/energija.js'
