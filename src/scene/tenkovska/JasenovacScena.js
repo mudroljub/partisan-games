@@ -6,7 +6,7 @@ import Ranjenik from '../ranjenik/Ranjenik.js'
 
 export default class JasenovacScena extends Scena2D {
   init() {
-    this.pozadina = new Pozadina('textures/beton.gif')
+    this.pozadina = new Pozadina('textures/terrain/beton.gif')
     this.tenk = new TenkOdozgo(100, 200)
     this.ranjenik = new Ranjenik(this.sirina / 4, this.visina / 2)
 
