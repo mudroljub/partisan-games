@@ -1,6 +1,206 @@
-@import "css/00-defaults.css";
-@import "css/10-tipografija.css";
-@import "css/20-boje.css";
-@import "css/40-dugmici.css";
-@import "css/50-ui.css";
-@import "css/90-pomoc.css";
+@font-face {
+  font-family: '1942';
+  src: url('/assets/fonts/1942.ttf');
+}
+
+@font-face {
+  font-family: 'Special Elite';
+  src: url('/assets/fonts/SpecialElite.ttf');
+}
+
+/* DEFAULTS */
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  filter: sepia(0.3);
+  background-color: #DDD;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+}
+
+ul {
+  text-align: left;
+}
+
+input {
+  border: 0;
+  padding: 0.625em;
+  font-family: Courier;
+  font-size: inherit;
+}
+
+/** TIPOGRAFIJA **/
+
+body {
+  font-weight: bold;
+  font-family: 'Special Elite', Courier;
+}
+
+.font1942 {
+  font-family: '1942', Courier;
+}
+
+.elite {
+  font-family: 'Special Elite';
+}
+
+.centar {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* BOJE */
+
+.bg-black {
+  background-color: black;
+}
+
+.white {
+  color: white;
+}
+
+.valencia {
+  color: #D94A38;
+}
+
+.avocado {
+  color: #848C58;
+}
+
+.bg-avocado {
+  background-color: #848C58;
+}
+
+/* DUGMICI */
+
+button {
+  background-color: #D94A38;
+  border-radius: 6px;
+  border: 1px solid gray;
+  cursor: pointer;
+  font-family: Courier;
+  font-size: 110%;
+  font-weight: bold;
+  min-width: 96px;
+  padding: 16px 24px;
+  transition: background-color .4s;
+}
+
+button:hover {
+  background-color: red;
+}
+
+.prozorce button {
+  text-transform: uppercase;
+}
+
+.dva-igraca {
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+/* GUI */
+
+.komande {
+  position: absolute;
+  padding: 4px;
+  border-radius: 5px;
+  line-height: 1.4;
+}
+
+.komande1, .komande2 {
+  top: 8px;
+}
+
+.komande1 {
+  left: 8px;
+}
+
+.komande2 {
+  right: 8px;
+}
+
+.komande .tipke {
+  margin-top: 4px;
+}
+
+.komande button {
+  margin-top: 2px;
+}
+
+.progress-wrapper {
+  position: relative;
+}
+
+.progress-wrapper progress {
+  background-color: inherit;
+  display: block;
+  height: 24px;
+  width: 100%;
+}
+
+.progress-wrapper progress::-webkit-progress-value {
+  background: #D94A38;
+  color: #D94A38;
+}
+
+.progress-wrapper progress::-moz-progress-bar {
+  background: #D94A38;
+  color: #D94A38;
+}
+
+.progress-wrapper .energija {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.prozorce {
+  background-color: rgba(0,0,0, 0.8);
+  border-radius: 5px;
+  color: #848C58;
+  left: 50%;
+  padding: 20px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.prozorce button:nth-of-type(n+2) {
+  margin-left: 20px;
+}
+
+/* POMOC */
+
+.pointer {
+  cursor: pointer;
+}
+
+.bg-poluprovidno {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.absolute {
+  position: absolute;
+}
+
+.full {
+  width: 100%;
+}
