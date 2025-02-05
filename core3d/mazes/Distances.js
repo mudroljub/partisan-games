@@ -1,4 +1,4 @@
-import { sample } from '/core/helpers.js'
+import { sample } from '/core3d/helpers.js'
 
 export default class Distances {
   constructor(root) {

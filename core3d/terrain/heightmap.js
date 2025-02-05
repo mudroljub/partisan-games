@@ -1,6 +1,6 @@
 import * as THREE from 'three'
-import { material } from '/core/shaders/heightmap-shader.js'
-import { heightColors, desertPlanetColors } from '/core/ground.js'
+import { material } from '/core3d/shaders/heightmap-shader.js'
+import { heightColors, desertPlanetColors } from '/core3d/ground.js'
 
 const textureLoader = new THREE.TextureLoader()
 

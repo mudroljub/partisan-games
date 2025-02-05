@@ -1,8 +1,8 @@
-import Player from '/core/actor/Player.js'
-import FPSRenderer from '/core/actor/FPSRenderer.js'
-import { getCameraIntersects } from '/core/helpers.js'
-import { attackStyles, jumpStyles } from '/core/constants.js'
-import { createPlayerBox } from '/core/geometry/index.js'
+import Player from '/core3d/actor/Player.js'
+import FPSRenderer from '/core3d/actor/FPSRenderer.js'
+import { getCameraIntersects } from '/core3d/helpers.js'
+import { attackStyles, jumpStyles } from '/core3d/constants.js'
+import { createPlayerBox } from '/core3d/geometry/index.js'
 
 export default class FPSPlayer extends Player {
   constructor({

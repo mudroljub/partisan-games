@@ -1,5 +1,5 @@
 import Airship from '../Airship.js'
-import { loadModel } from '/core/loaders.js'
+import { loadModel } from '/core3d/loaders.js'
 
 const [mesh, propeller] = await Promise.all([
   await loadModel({ file: 'aircraft/airship/dirigible/model.fbx', size: 4, shouldCenter: true, shouldAdjustHeight: true }),

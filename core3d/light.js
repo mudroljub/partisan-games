@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import config from '/config.js'
-import { scene as defaultScene } from '/core/scene.js'
+import { scene as defaultScene } from '/core3d/scene.js'
 import { mapRange } from './helpers.js'
 
 const { randInt } = THREE.MathUtils
@@ -69,7 +69,7 @@ export function createSun({ color = 0xffffff, intensity = Math.PI * 1.5, target,
       color: planetColor,
       transparent,
       opacity: transparent ? 0 : 1,
-      map: file ? new THREE.TextureLoader().load(`/assets/textures/${file}`) : null
+      map: file ? new THREE.TextureLoader().load(`/assets/images/textures/${file}`) : null
     })
   )
   if (addLight) {

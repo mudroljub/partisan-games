@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { dir } from '/core/constants.js'
+import { dir } from '/core3d/constants.js'
 
 const { randFloat, randFloatSpread } = THREE.MathUtils
 const raycaster = new THREE.Raycaster()
@@ -163,7 +163,7 @@ export function getCameraIntersects(camera, target) {
 /* TEXTURES */
 
 export const createTexture = ({ file, repeat = 1 } = {}) => {
-  const texture = new THREE.TextureLoader().load(`/assets/textures/${file}`)
+  const texture = new THREE.TextureLoader().load(`/assets/images/textures/${file}`)
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping
   texture.magFilter = THREE.NearestFilter
   // texture.minFilter = THREE.LinearMipMapLinearFilter

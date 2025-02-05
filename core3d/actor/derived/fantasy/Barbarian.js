@@ -1,7 +1,7 @@
-import Player from '/core/actor/Player.js'
-import AI from '/core/actor/AI.js'
-import { loadModel } from '/core/loaders.js'
-import { RedFlame } from '/core/Particles.js'
+import Player from '/core3d/actor/Player.js'
+import AI from '/core3d/actor/AI.js'
+import { loadModel } from '/core3d/loaders.js'
+import { RedFlame } from '/core3d/Particles.js'
 
 const animDict = {
   idle: 'Idle',

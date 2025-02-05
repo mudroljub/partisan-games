@@ -1,9 +1,9 @@
 import * as THREE from 'three'
-import { createSphere } from '/core/geometry/index.js'
-import { material as fractalMaterial } from '/core/shaders/fractal-planet.js'
-import { material as fireMaterial } from '/core/shaders/fireball.js'
-import { material as lavaMaterial } from '/core/shaders/lava.js'
-import { addRings } from '/core/geometry/planets.js'
+import { createSphere } from '/core3d/geometry/index.js'
+import { material as fractalMaterial } from '/core3d/shaders/fractal-planet.js'
+import { material as fireMaterial } from '/core3d/shaders/fireball.js'
+import { material as lavaMaterial } from '/core3d/shaders/lava.js'
+import { addRings } from '/core3d/geometry/planets.js'
 
 const { randFloat } = THREE.MathUtils
 

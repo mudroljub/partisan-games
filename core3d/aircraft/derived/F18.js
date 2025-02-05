@@ -1,4 +1,4 @@
-import { loadModel } from '/core/loaders.js'
+import { loadModel } from '/core3d/loaders.js'
 import Warplane from '../Warplane.js'
 
 const mesh = await loadModel({ file: 'aircraft/airplane/f18/model.fbx', size: 3 })

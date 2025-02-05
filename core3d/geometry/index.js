@@ -16,10 +16,10 @@ const translateY = (mesh, y) => {
 export function createBox({ size = 1, width = size, height = size, depth = size, file, bumpFile, normalFile, color = randomGray(), castShadow = true, receiveShadow = true, translateHeight = true, pos, quat } = {}) {
   const geometry = new THREE.BoxGeometry(width, height, depth)
   const options = {
-    map: file ? textureLoader.load(`/assets/textures/${file}`) : null,
+    map: file ? textureLoader.load(`/assets/images/textures/${file}`) : null,
     color: !file ? color : null,
-    bumpMap: bumpFile ? textureLoader.load(`/assets/textures/${bumpFile}`) : null,
-    normalMap: normalFile ? textureLoader.load(`/assets/textures/${normalFile}`) : null,
+    bumpMap: bumpFile ? textureLoader.load(`/assets/images/textures/${bumpFile}`) : null,
+    normalMap: normalFile ? textureLoader.load(`/assets/images/textures/${normalFile}`) : null,
   }
   const material = new THREE.MeshPhongMaterial(options)
   const mesh = new THREE.Mesh(geometry, material)
@@ -59,8 +59,8 @@ export function createSphere({
   const geometry = new THREE.SphereGeometry(r, segments, segments)
   const material = new THREE.MeshStandardMaterial({
     color,
-    map: file ? textureLoader.load(`/assets/textures/${file}`) : null,
-    bumpMap: bumpFile ? textureLoader.load(`/assets/textures/${bumpFile}`) : null,
+    map: file ? textureLoader.load(`/assets/images/textures/${file}`) : null,
+    bumpMap: bumpFile ? textureLoader.load(`/assets/images/textures/${bumpFile}`) : null,
   })
   const mesh = new THREE.Mesh(geometry, material)
   mesh.receiveShadow = receiveShadow
@@ -78,13 +78,13 @@ export const createMoonSphere = () => createSphere({ r: .5, file: 'planets/moon.
 export function createRustyBarrel({ r = .5, height = 1.5, segments = 32, file = 'metal/rust.jpg', topFile = 'barrel/rust-top.jpg', translateHeight = true } = {}) {
   const geometry = new THREE.CylinderGeometry(r, r, height, segments)
   const sideMaterial = new THREE.MeshPhongMaterial({
-    map: textureLoader.load(`/assets/textures/${file}`),
-    bumpMap: textureLoader.load(`/assets/textures/${file}`),
+    map: textureLoader.load(`/assets/images/textures/${file}`),
+    bumpMap: textureLoader.load(`/assets/images/textures/${file}`),
     bumpScale: .02
   })
   const topMaterial = new THREE.MeshPhongMaterial({
-    map: textureLoader.load(`/assets/textures/${topFile || file}`),
-    bumpMap: textureLoader.load(`/assets/textures/${topFile || file}`),
+    map: textureLoader.load(`/assets/images/textures/${topFile || file}`),
+    bumpMap: textureLoader.load(`/assets/images/textures/${topFile || file}`),
     bumpScale: .02
   })
   const materials = [
@@ -117,12 +117,12 @@ export function createWoodBarrel({ r = .4, R = .5, h = 1 } = {}) {
   geometry.scale(1, h * 0.5, 1)
 
   const sideMaterial = new THREE.MeshPhongMaterial({
-    map: textureLoader.load('/assets/textures/barrel/WoodBarrel-side.jpg'),
-    specularMap: textureLoader.load('/assets/textures/barrel/WoodBarrel-side-s.jpg'),
+    map: textureLoader.load('/assets/images/textures/barrel/WoodBarrel-side.jpg'),
+    specularMap: textureLoader.load('/assets/images/textures/barrel/WoodBarrel-side-s.jpg'),
   })
   const topMaterial = new THREE.MeshPhongMaterial({
-    map: textureLoader.load('/assets/textures/barrel/WoodBarrel-top.jpg'),
-    specularMap: textureLoader.load('/assets/textures/barrel/WoodBarrel-top-s.jpg'),
+    map: textureLoader.load('/assets/images/textures/barrel/WoodBarrel-top.jpg'),
+    specularMap: textureLoader.load('/assets/images/textures/barrel/WoodBarrel-top-s.jpg'),
   })
 
   const materials = [

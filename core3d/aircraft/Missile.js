@@ -1,6 +1,6 @@
 import * as THREE from 'three'
-import GameObject from '/core/objects/GameObject.js'
-import { getSize } from '/core/helpers.js'
+import GameObject from '/core3d/objects/GameObject.js'
+import { getSize } from '/core3d/helpers.js'
 
 const material = new THREE.MeshBasicMaterial({ color: 0x333333 })
 const geometry = new THREE.CylinderGeometry(.4, .4, 2)

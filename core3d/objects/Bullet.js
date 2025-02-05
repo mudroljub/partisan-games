@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import GameObject from '/core/objects/GameObject.js'
+import GameObject from '/core3d/objects/GameObject.js'
 
 const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0x333333 })
 const sphereGeo = new THREE.SphereGeometry(.3)

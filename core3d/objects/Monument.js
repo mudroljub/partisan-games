@@ -1,5 +1,5 @@
-import GameObject from '/core/objects/GameObject.js'
-import { loadModel } from '/core/loaders.js'
+import GameObject from '/core3d/objects/GameObject.js'
+import { loadModel } from '/core3d/loaders.js'
 
 const mesh = await loadModel({ file: 'building/monument/knight/knight.fbx', size: 15, shouldAdjustHeight: true, shouldCenter: true })
 

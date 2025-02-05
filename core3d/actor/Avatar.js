@@ -1,8 +1,8 @@
 import * as THREE from 'three'
-import { clock } from '/core/scene.js'
+import { clock } from '/core3d/scene.js'
 import Player from './Player.js'
-import { material } from '/core/shaders/lava.js'
-import { jumpStyles } from '/core/constants.js'
+import { material } from '/core3d/shaders/lava.js'
+import { jumpStyles } from '/core3d/constants.js'
 
 const skins = {
   STONE: 'STONE',
@@ -13,7 +13,7 @@ const { STONE, LAVA, DISCO } = skins
 
 const createMaterial = skin => {
   if (skin == STONE) return new THREE.MeshStandardMaterial({
-    map: new THREE.TextureLoader().load('/assets/textures/terrain/snow.jpg')
+    map: new THREE.TextureLoader().load('/assets/images/textures/terrain/snow.jpg')
   })
   if (skin == LAVA) return material
   return new THREE.MeshNormalMaterial()

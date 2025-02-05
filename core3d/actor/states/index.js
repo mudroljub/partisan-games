@@ -1,4 +1,4 @@
-import { jumpStyles } from '/core/constants.js'
+import { jumpStyles } from '/core3d/constants.js'
 
 import IdleState from './IdleState.js'
 import RunState from './RunState.js'

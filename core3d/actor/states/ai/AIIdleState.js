@@ -1,5 +1,5 @@
 import { MathUtils } from 'three'
-import { baseStates } from '/core/constants.js'
+import { baseStates } from '/core3d/constants.js'
 import IdleState from '../IdleState.js'
 
 const { randInt } = MathUtils

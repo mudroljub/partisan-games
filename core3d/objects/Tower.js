@@ -1,4 +1,4 @@
-import { loadModel } from '/core/loaders.js'
+import { loadModel } from '/core3d/loaders.js'
 import Bullet from './Bullet.js'
 import Building from './Building.js'
 

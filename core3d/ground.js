@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { createTexture, similarColor } from '/core/helpers.js'
+import { createTexture, similarColor } from '/core3d/helpers.js'
 
 const { randFloat } = THREE.MathUtils
 
@@ -57,7 +57,7 @@ export function createFloor({ color = 0x808080, circle = false, ...rest } = {}) 
 export async function createLava({ size = 100 } = {}) {
   const geometry = new THREE.CircleGeometry(size)
   geometry.rotateX(- Math.PI / 2)
-  const { material } = await import('/core/shaders/lava.js')
+  const { material } = await import('/core3d/shaders/lava.js')
   const mesh = new THREE.Mesh(geometry, material)
   mesh.translateY(.1)
   return mesh
@@ -65,7 +65,7 @@ export async function createLava({ size = 100 } = {}) {
 
 export async function createMarble({ size = 100 } = {}) {
   const geometry = new THREE.PlaneGeometry(size, size)
-  const { material } = await import('/core/shaders/marble.js')
+  const { material } = await import('/core3d/shaders/marble.js')
   const mesh = new THREE.Mesh(geometry, material)
   mesh.rotateX(-Math.PI * 0.5)
   return mesh

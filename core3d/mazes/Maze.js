@@ -1,6 +1,6 @@
-import { sample, shuffle } from '/core/helpers.js'
-import { meshFromMaze, meshFromTilemap, tileToPosition, calcPyramidHeight } from '/core/mazes/index.js'
-import { recursiveBacktracker } from '/core/mazes/algorithms.js'
+import { sample, shuffle } from '/core3d/helpers.js'
+import { meshFromMaze, meshFromTilemap, tileToPosition, calcPyramidHeight } from '/core3d/mazes/index.js'
+import { recursiveBacktracker } from '/core3d/mazes/algorithms.js'
 import Cell from './Cell.js'
 
 const EMPTY = 0, WALL = 1

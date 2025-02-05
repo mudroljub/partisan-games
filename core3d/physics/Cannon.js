@@ -1,8 +1,8 @@
 import * as THREE from 'three'
-import { Ammo } from '/core/physics/index.js'
-import { loadModel } from '/core/loaders.js'
-import Vehicle from '/core/physics/Vehicle.js'
-import { createSphere } from '/core/geometry/index.js'
+import { Ammo } from '/core3d/physics/index.js'
+import { loadModel } from '/core3d/loaders.js'
+import Vehicle from '/core3d/physics/Vehicle.js'
+import { createSphere } from '/core3d/geometry/index.js'
 
 const mesh = await loadModel({ file: 'weapon/cannon/mortar/mortar.obj', mtl: 'weapon/cannon/mortar/mortar.mtl', size: 1, angle: Math.PI * .5 })
 

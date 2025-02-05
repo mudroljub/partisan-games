@@ -1,9 +1,9 @@
 import * as THREE from 'three'
 
-import Input from '/core/io/Input.js'
-import { getSize } from '/core/helpers.js'
-import { Ammo, createRigidBody, updateMeshTransform } from '/core/physics/index.js'
-import ChaseCamera from '/core/actor/ChaseCamera.js'
+import Input from '/core3d/io/Input.js'
+import { getSize } from '/core3d/helpers.js'
+import { Ammo, createRigidBody, updateMeshTransform } from '/core3d/physics/index.js'
+import ChaseCamera from '/core3d/actor/ChaseCamera.js'
 
 const FRONT_LEFT = 0
 const FRONT_RIGHT = 1

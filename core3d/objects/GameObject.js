@@ -1,4 +1,4 @@
-import { getMesh, putOnSolids, getSize } from '/core/helpers.js'
+import { getMesh, putOnSolids, getSize } from '/core3d/helpers.js'
 import { clone } from 'three/examples/jsm/utils/SkeletonUtils.js'
 
 const getScene = object => {

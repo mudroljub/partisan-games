@@ -1,4 +1,4 @@
-import { loadModel } from '/core/loaders.js'
+import { loadModel } from '/core3d/loaders.js'
 import Warplane from '../Warplane.js'
 
 const [mesh, propeller] = await Promise.all([

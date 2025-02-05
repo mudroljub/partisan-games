@@ -1,9 +1,9 @@
 import * as THREE from 'three'
-import { createSphere } from '/core/geometry/index.js'
-import { sample, similarColor } from '/core/helpers.js'
+import { createSphere } from '/core3d/geometry/index.js'
+import { sample, similarColor } from '/core3d/helpers.js'
 
 const textureLoader = new THREE.TextureLoader()
-textureLoader.setPath('/assets/textures/planets/')
+textureLoader.setPath('/assets/images/textures/planets/')
 
 /* EARTH */
 

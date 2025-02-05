@@ -1,4 +1,6 @@
 const putanje = {
+  RajlovacScena: './rajlovac/RajlovacScena.js',
+  SavoScena: './savo/SavoScena.js',
   BombasScena: './bombas/BombasScena.js',
   NemciIzRovova: './rovovi/NemciIzRovova.js',
   Scena1942: './avionce1942/Scena1942.js',

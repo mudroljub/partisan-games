@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { getSize, getMesh } from '/core/helpers.js'
+import { getSize, getMesh } from '/core3d/helpers.js'
 
 export const Ammo = typeof window.Ammo == 'function' ? await window.Ammo() : window.Ammo
 
@@ -133,7 +133,7 @@ function createTerrainShape({ data, width, depth, mapWidth, mapDepth, minHeight,
 export async function createTerrain({ data, width, depth, minHeight = 0, maxHeight = 24 } = {}) {
   const averageHeight = (maxHeight + minHeight) / 2
 
-  const { meshFromData } = await import('/core/terrain/heightmap.js')
+  const { meshFromData } = await import('/core3d/terrain/heightmap.js')
   const mesh = await meshFromData({ data, width, depth, minHeight, maxHeight })
   mesh.translateY(-averageHeight)
 

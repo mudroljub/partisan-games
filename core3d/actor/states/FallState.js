@@ -1,4 +1,4 @@
-import { jumpStyles } from '/core/constants.js'
+import { jumpStyles } from '/core3d/constants.js'
 import State from './State.js'
 
 const movableJumps = [jumpStyles.FLY, jumpStyles.FLY_JUMP]

@@ -2,6 +2,8 @@ import Scena2D from '/core/Scena2D.js'
 import { platno } from '/core/io/platno.js'
 
 const items = {
+  SavoScena: 'Savo Mitraljezac',
+  RajlovacScena: 'Napad na aerodrom Rajlovac',
   BombasScena: 'Bombaš',
   Scena1942: 'Avionče 1942',
   NemciIzRovova: 'Nemci iz rovova',

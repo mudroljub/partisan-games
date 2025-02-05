@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { similarColor, findGround, getEmptyCoords, maxItems } from '/core/helpers.js'
+import { similarColor, findGround, getEmptyCoords, maxItems } from '/core3d/helpers.js'
 
 const { randFloat } = THREE.MathUtils
 

@@ -1,6 +1,6 @@
 import Maze from './Maze.js'
 import PolarCell from './PolarCell.js'
-import { meshFromPolarMaze, createPipe, createCityWall, createWall } from '/core/mazes/index.js'
+import { meshFromPolarMaze, createPipe, createCityWall, createWall } from '/core3d/mazes/index.js'
 
 export default class PolarMaze extends Maze {
   constructor(rows, algorithm, cellSize = 10) {

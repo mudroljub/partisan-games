@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import * as BufferGeometryUtils from 'three/examples/jsm/utils/BufferGeometryUtils.js'
-import { createTexture } from '/core/helpers.js'
-import { createBuildingTexture, createBuildingGeometry } from '/core/city.js'
+import { createTexture } from '/core3d/helpers.js'
+import { createBuildingTexture, createBuildingGeometry } from '/core3d/city.js'
 import chroma from '/libs/chroma.js'
 
 const { Vector2, Vector3 } = THREE
@@ -87,8 +87,8 @@ export function meshFromTilemap({ tilemap, cellSize = 1, maxHeight = cellSize, t
 
   const options = {
     vertexColors: !texture,
-    map: cityTexture ? createBuildingTexture() : texture ? textureLoader.load(`/assets/textures/${texture}`) : null,
-    bumpMap: bumpFile ? textureLoader.load(`/assets/textures/${bumpFile}`) : null,
+    map: cityTexture ? createBuildingTexture() : texture ? textureLoader.load(`/assets/images/textures/${texture}`) : null,
+    bumpMap: bumpFile ? textureLoader.load(`/assets/images/textures/${bumpFile}`) : null,
   }
   const mesh = new THREE.Mesh(geometry, material || new THREE.MeshPhongMaterial(options))
   return mesh

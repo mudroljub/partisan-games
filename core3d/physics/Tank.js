@@ -1,7 +1,7 @@
-import { mapRange } from '/core/helpers.js'
-import { loadModel } from '/core/loaders.js'
-import Vehicle from '/core/physics/Vehicle.js'
-import { Smoke } from '/core/Particles.js'
+import { mapRange } from '/core3d/helpers.js'
+import { loadModel } from '/core3d/loaders.js'
+import Vehicle from '/core3d/physics/Vehicle.js'
+import { Smoke } from '/core3d/Particles.js'
 
 const wheelFront = { x: .75, y: .1, z: 1.25 }
 const wheelBack = { x: .75, y: .1, z: -1.25 }

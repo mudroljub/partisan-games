@@ -1,4 +1,4 @@
-import { getCursorPosition } from '/core/helpers.js'
+import { getCursorPosition } from '/core3d/helpers.js'
 
 /**
  * Joystick and screen controls

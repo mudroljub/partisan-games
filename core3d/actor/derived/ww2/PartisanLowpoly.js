@@ -1,6 +1,6 @@
-import { loadModel } from '/core/loaders.js'
-import AI from '/core/actor/AI.js'
-import Player from '/core/actor/Player.js'
+import { loadModel } from '/core3d/loaders.js'
+import AI from '/core3d/actor/AI.js'
+import Player from '/core3d/actor/Player.js'
 
 const animDict = {
   idle: 'Rifle Idle',

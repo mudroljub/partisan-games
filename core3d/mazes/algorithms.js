@@ -1,4 +1,4 @@
-import { sample, shuffle } from '/core/helpers.js'
+import { sample, shuffle } from '/core3d/helpers.js'
 
 /* BINARY TREE */
 

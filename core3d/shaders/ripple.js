@@ -31,7 +31,7 @@ const fragmentShader = /* glsl */`
 `
 
 export const uniforms = {
-  u_texture: { value: new THREE.TextureLoader().load('/assets/textures/water512.jpg') },
+  u_texture: { value: new THREE.TextureLoader().load('/assets/images/textures/water512.jpg') },
   u_time: { value: 0.0 },
   u_resolution: { value: { x: window.innerWidth, y: window.innerHeight } }
 }

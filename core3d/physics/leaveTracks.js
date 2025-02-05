@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 import { DecalGeometry } from 'three/examples/jsm/geometries/DecalGeometry.js'
 
-import { Ammo } from '/core/physics/index.js'
-import { getMesh } from '/core/helpers.js'
+import { Ammo } from '/core3d/physics/index.js'
+import { getMesh } from '/core3d/helpers.js'
 
 const textureLoader = new THREE.TextureLoader()
 

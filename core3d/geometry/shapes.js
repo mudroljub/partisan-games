@@ -1,6 +1,6 @@
 import * as THREE from 'three'
-import { RIGHT_ANGLE } from '/core/constants.js'
-import { randomGray, getHeight } from '/core/helpers.js'
+import { RIGHT_ANGLE } from '/core3d/constants.js'
+import { randomGray, getHeight } from '/core3d/helpers.js'
 
 const { randFloatSpread } = THREE.MathUtils
 

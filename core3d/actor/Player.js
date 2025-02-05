@@ -1,8 +1,8 @@
-import Input from '/core/io/Input.js'
-import { jumpStyles, attackStyles, reactions } from '/core/constants.js'
+import Input from '/core3d/io/Input.js'
+import { jumpStyles, attackStyles, reactions } from '/core3d/constants.js'
 import { getPlayerState } from './states/index.js'
 import Actor from './Actor.js'
-import ChaseCamera from '/core/actor/ChaseCamera.js'
+import ChaseCamera from '/core3d/actor/ChaseCamera.js'
 
 export default class Player extends Actor {
   constructor({

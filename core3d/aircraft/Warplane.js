@@ -1,8 +1,8 @@
-import Input from '/core/io/Input.js'
-import GameObject from '/core/objects/GameObject.js'
+import Input from '/core3d/io/Input.js'
+import GameObject from '/core3d/objects/GameObject.js'
 import Missile from './Missile.js'
-import { Explosion } from '/core/Particles.js'
-import ChaseCamera from '/core/actor/ChaseCamera.js'
+import { Explosion } from '/core3d/Particles.js'
+import ChaseCamera from '/core3d/actor/ChaseCamera.js'
 
 export default class Warplane extends GameObject {
   constructor({ camera, limit, speed = 40, y = 29, ...rest } = {}) {
@@ -106,7 +106,7 @@ export default class Warplane extends GameObject {
   }
 
   addSmoke() {
-    const promise = import('/core/Particles.js')
+    const promise = import('/core3d/Particles.js')
     promise.then(obj => {
       const { Smoke } = obj
       this.smoke = new Smoke()

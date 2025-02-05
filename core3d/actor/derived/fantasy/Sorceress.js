@@ -1,7 +1,7 @@
-import Player from '/core/actor/Player.js'
-import AI from '/core/actor/AI.js'
-import { loadModel } from '/core/loaders.js'
-import { jumpStyles } from '/core/constants.js'
+import Player from '/core3d/actor/Player.js'
+import AI from '/core3d/actor/AI.js'
+import { loadModel } from '/core3d/loaders.js'
+import { jumpStyles } from '/core3d/constants.js'
 
 const animDict = {
   idle: 'Standing Idle',

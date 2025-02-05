@@ -1,5 +1,5 @@
-import Building from '/core/objects/Building.js'
-import { loadModel } from '/core/loaders.js'
+import Building from '/core3d/objects/Building.js'
+import { loadModel } from '/core3d/loaders.js'
 
 const mesh = await loadModel({
   file: 'aircraft/airplane/dornier-do-217/WXSUTGFGGAETK9J6AYCJWA8OO.obj',

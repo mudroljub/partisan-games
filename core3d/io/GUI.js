@@ -1,4 +1,4 @@
-import { jumpStyles } from '/core/constants.js'
+import { jumpStyles } from '/core3d/constants.js'
 
 const isNumber = num => typeof num == 'number'
 

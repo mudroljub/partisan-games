@@ -1,5 +1,5 @@
 import WalkState from '../WalkState.js'
-import { reactions } from '/core/constants.js'
+import { reactions } from '/core3d/constants.js'
 
 export default class FollowState extends WalkState {
 

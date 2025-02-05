@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { similarColor } from '/core/helpers.js'
+import { similarColor } from '/core3d/helpers.js'
 import config from '/config.js'
 
 const { randFloat } = THREE.MathUtils
@@ -56,7 +56,7 @@ export default class Particles {
       opacity,
     })
     if (file) {
-      material.map = textureLoader.load(`/assets/textures/particles/${file}`)
+      material.map = textureLoader.load(`/assets/images/textures/particles/${file}`)
       material.blending = blending
       material.depthWrite = false // for explosion
     }

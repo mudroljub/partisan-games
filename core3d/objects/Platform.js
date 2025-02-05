@@ -1,6 +1,6 @@
-import { createBox } from '/core/geometry/index.js'
-import GameObject from '/core/objects/GameObject.js'
-import { sample } from '/core/helpers.js'
+import { createBox } from '/core3d/geometry/index.js'
+import GameObject from '/core3d/objects/GameObject.js'
+import { sample } from '/core3d/helpers.js'
 
 export default class Platform extends GameObject {
   constructor({

@@ -1,6 +1,6 @@
 import * as THREE from 'three'
-import { createBox } from '/core/geometry/index.js'
-import { centerMesh, adjustHeight } from '/core/helpers.js'
+import { createBox } from '/core3d/geometry/index.js'
+import { centerMesh, adjustHeight } from '/core3d/helpers.js'
 import * as BufferGeometryUtils from 'three/examples/jsm/utils/BufferGeometryUtils.js'
 
 const CIRCLE = Math.PI * 2

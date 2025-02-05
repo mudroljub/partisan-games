@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 
-import { getHeight, centerMesh, adjustHeight } from '/core/helpers.js'
+import { getHeight, centerMesh, adjustHeight } from '/core3d/helpers.js'
 
 const textureLoader = new THREE.TextureLoader()
 
@@ -25,7 +25,7 @@ const prepareMesh = async({ model, size = 2, texture, angle, axis = [0, 1, 0], a
   if (shouldCenter) centerMesh(model)
   if (shouldAdjustHeight) adjustHeight(model)
 
-  const map = texture ? await textureLoader.loadAsync(`/assets/textures/${texture}`) : null
+  const map = texture ? await textureLoader.loadAsync(`/assets/images/textures/${texture}`) : null
 
   model.traverse(child => {
     if (child.isMesh) {

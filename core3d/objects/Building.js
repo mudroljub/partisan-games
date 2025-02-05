@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import GameObject from '/core/objects/GameObject.js'
+import GameObject from '/core3d/objects/GameObject.js'
 
 const { randFloat } = THREE.MathUtils
 
@@ -12,7 +12,7 @@ export default class Building extends GameObject {
 
   addFire() {
     if (this.fire) return
-    const promise = import('/core/Particles.js')
+    const promise = import('/core3d/Particles.js')
     promise.then(obj => {
       this.fire = (this.randomSmoke && Math.random() > .5) ? new obj.BigSmoke() : new obj.Fire()
       this.add(this.fire.mesh)

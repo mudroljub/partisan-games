@@ -1,9 +1,9 @@
 import * as THREE from 'three'
 import { clone } from 'three/examples/jsm/utils/SkeletonUtils.js'
 
-import GameObject from '/core/objects/GameObject.js'
-import { getGroundY, directionBlocked, getMesh, intersect, belongsTo } from '/core/helpers.js'
-import { dir, RIGHT_ANGLE, reactions, jumpStyles } from '/core/constants.js'
+import GameObject from '/core3d/objects/GameObject.js'
+import { getGroundY, directionBlocked, getMesh, intersect, belongsTo } from '/core3d/helpers.js'
+import { dir, RIGHT_ANGLE, reactions, jumpStyles } from '/core3d/constants.js'
 import config from '/config.js'
 
 const { randInt } = THREE.MathUtils
@@ -86,7 +86,7 @@ export default class Actor extends GameObject {
     }
 
     if (useRicochet) {
-      const promise = import('/core/Particles.js')
+      const promise = import('/core3d/Particles.js')
       promise.then(obj => {
         const Particles = obj.default
         this.ricochet = new Particles({ num: 100, size: .05, unitAngle: 0.2 })
@@ -94,7 +94,7 @@ export default class Actor extends GameObject {
     }
 
     if (flame) {
-      const promise = import('/core/Particles.js')
+      const promise = import('/core3d/Particles.js')
       promise.then(obj => {
         const { Flame } = obj
         this.flame = new Flame({ num: 25, minRadius: 0, maxRadius: .5 })
@@ -103,7 +103,7 @@ export default class Actor extends GameObject {
     }
 
     if (leaveDecals) {
-      const promise = import('/core/decals.js')
+      const promise = import('/core3d/decals.js')
       promise.then(obj => {
         this.shootDecals = obj.shootDecals
       })

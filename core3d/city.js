@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 import * as BufferGeometryUtils from 'three/examples/jsm/utils/BufferGeometryUtils.js'
-import { randomGrayish, getEmptyCoords, sample, mapRange, maxItems } from '/core/helpers.js'
-import { createTrees } from '/core/geometry/trees.js'
-import { createFloor } from '/core/ground.js'
+import { randomGrayish, getEmptyCoords, sample, mapRange, maxItems } from '/core3d/helpers.js'
+import { createTrees } from '/core3d/geometry/trees.js'
+import { createFloor } from '/core3d/ground.js'
 
 const { randInt, randFloat } = THREE.MathUtils
 
@@ -258,7 +258,7 @@ export function createBuilding(params = {}) {
   return new THREE.Mesh(geometry, material)
 }
 
-export function createTexturedBuilding({ width, height, depth = width, color = 0x999999, path = '/assets/textures/', files = [], defaultFile, halfOnSides = false, graffitiChance = 0, ...rest } = {}) {
+export function createTexturedBuilding({ width, height, depth = width, color = 0x999999, path = '/assets/images/textures/', files = [], defaultFile, halfOnSides = false, graffitiChance = 0, ...rest } = {}) {
   const geometry = createBuildingGeometry({ width, height, depth, ...rest })
   const { width: buildingWidth, height: buildingHeight } = geometry.parameters // could be random values
 
