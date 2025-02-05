@@ -13,7 +13,11 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### 3D
 
 - integrisati oba projekta (core2d i core3d)
-    - dodati neke 3D igre, poput Savo i napad na aerodrom
+    - dodati 3D igre: 
+        - Savo Mitraljezac (uporediti sa starim, srediti)
+        - napad na aerodrom
+        - avion 3D
+        - spomenici?
     - koristiti Spinner u upravniku scena
     - srediti zvuk kuckanja na izveštaju
     - integrisati ui i GUI
