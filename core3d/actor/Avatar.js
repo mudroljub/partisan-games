@@ -1,8 +1,9 @@
 import * as THREE from 'three'
-import { clock } from '/core3d/scene.js'
 import Player from './Player.js'
 import { material } from '/core3d/shaders/lava.js'
 import { jumpStyles } from '/core3d/constants.js'
+
+const clock = new THREE.Clock()
 
 const skins = {
   STONE: 'STONE',
