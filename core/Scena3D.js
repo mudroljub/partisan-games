@@ -58,10 +58,6 @@ export default class Scena3D extends Scena {
     this.controls?.update(dt)
   }
 
-  update(dt) {
-    this.controls.update(dt)
-  }
-
   render() {
     this.renderer.render(this.scene, this.camera)
   }

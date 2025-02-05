@@ -1,4 +1,4 @@
-import Scena3D from '/core3d/Scena3D.js'
+import Scena3D from '/core/Scena3D.js'
 import { createGround } from '/core3d/ground.js'
 import { sample } from '/core3d/helpers.js'
 import { hemLight, lightningStrike } from '/core3d/light.js'

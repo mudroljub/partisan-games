@@ -1,4 +1,4 @@
-import Scena3D from '/core3d/Scena3D.js'
+import Scena3D from '/core/Scena3D.js'
 import { createGround, createFloor } from '/core3d/ground.js'
 import { createMoon } from '/core3d/light.js'
 import { sample, getEmptyCoords } from '/core3d/helpers.js'
