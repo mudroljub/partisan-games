@@ -17,6 +17,7 @@ export default class Scena3D extends Scena {
     this.renderer.shadowMap.enabled = true
     if (toon) this.createToonRenderer()
 
+    platno3D.style.display = 'block'
     this.init()
 
     window.addEventListener('resize', () => {
@@ -42,11 +43,6 @@ export default class Scena3D extends Scena {
 
   dodajMesh(...predmeti) {
     this.scene.add(...predmeti)
-  }
-
-  start() {
-    super.start()
-    platno3D.style.display = 'block'
   }
 
   end() {
