@@ -7,11 +7,6 @@ export default class Scena2D extends Scena {
     super(manager)
     this.bojaPozadine = null
     this.renderer = new Renderer2D()
-    this.init()
-  }
-
-  start() {
-    super.start()
     platno.style.display = 'block'
   }
 

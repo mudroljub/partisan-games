@@ -39,7 +39,7 @@ class SceneManager {
 
     const SceneClass = await this.loadScene(ime)
     this.currentScene = new SceneClass(this)
-    // this.currentScene.start()
+    this.currentScene.init()
   }
 }
 

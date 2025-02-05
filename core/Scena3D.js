@@ -18,7 +18,6 @@ export default class Scena3D extends Scena {
     if (toon) this.createToonRenderer()
 
     platno3D.style.display = 'block'
-    this.init()
 
     window.addEventListener('resize', () => {
       this.renderer.setSize(window.innerWidth, window.innerHeight)
