@@ -4,11 +4,11 @@ import GameLoop from './GameLoop.js'
 import UI from '../ui/UI.js'
 
 export default class Scena {
-  constructor(manager) {
+  constructor(manager, { autostart = false, usePointerLock = false } = {}) {
     this.manager = manager
-    this.ui = new UI(this)
     this.predmeti = []
-    this.gameLoop = new GameLoop(this.loop)
+    this.gameLoop = new GameLoop(this.loop, autostart, usePointerLock)
+    this.ui = new UI(this)
     this.handleClick = this.handleClick.bind(this)
   }
 

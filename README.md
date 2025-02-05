@@ -25,7 +25,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - napad na aerodrom
     - avion 3D
     - spomenici?
-    - Drvar integrisati u novu strukturu
 - srediti 3D koliziju
 - dodati 3d model u 1944
 
