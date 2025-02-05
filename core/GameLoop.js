@@ -1,5 +1,5 @@
 export default class GameLoop {
-  constructor(sceneLoop, autostart = false, usePointerLock = false) {
+  constructor(sceneLoop, autostart = true, usePointerLock = false) {
     this.sceneLoop = sceneLoop
     this.lastTimestamp = 0
     this.time = 0
