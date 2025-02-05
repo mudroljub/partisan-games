@@ -1,6 +1,5 @@
 import * as THREE from 'three'
 import config from '/config.js'
-import { scene as defaultScene } from '/core3d/scene.js'
 import { mapRange } from './helpers.js'
 
 const { randInt } = THREE.MathUtils
@@ -10,7 +9,7 @@ let oldIntensity, oldBackground
 /* LIGHTS */
 
 export function dirLight({
-  scene = defaultScene,
+  scene,
   pos = [20, 50, 20],
   color = 0xffffff,
   intensity = Math.PI,
@@ -31,7 +30,7 @@ export function dirLight({
   return light
 }
 
-export function pointLight({ scene = defaultScene, color = 0xffffff, intensity = Math.PI, mapSize = 512, pos = [0, 30, 30] } = {}) {
+export function pointLight({ scene, color = 0xffffff, intensity = Math.PI, mapSize = 512, pos = [0, 30, 30] } = {}) {
   const light = new THREE.PointLight(color, intensity)
   light.position.set(...pos)
   light.castShadow = true
@@ -40,7 +39,7 @@ export function pointLight({ scene = defaultScene, color = 0xffffff, intensity =
   return light
 }
 
-export function spotLight({ scene = defaultScene, color = 0xffffff, intensity = Math.PI, mapSize = 512 } = {}) {
+export function spotLight({ scene, color = 0xffffff, intensity = Math.PI, mapSize = 512 } = {}) {
   const light = new THREE.SpotLight(color, intensity)
   light.castShadow = true
   light.shadow.mapSize.width = light.shadow.mapSize.height = mapSize
@@ -48,13 +47,13 @@ export function spotLight({ scene = defaultScene, color = 0xffffff, intensity = 
   return light
 }
 
-export function hemLight({ scene = defaultScene, skyColor = 0xfffff0, groundColor = 0x101020, intensity = Math.PI } = {}) {
+export function hemLight({ scene, skyColor = 0xfffff0, groundColor = 0x101020, intensity = Math.PI } = {}) {
   const light = new THREE.HemisphereLight(skyColor, groundColor, intensity)
   if (scene) scene.add(light)
   return light
 }
 
-export function ambLight({ scene = defaultScene, color = 0xffffff, intensity = Math.PI } = {}) { // 0x343434
+export function ambLight({ scene, color = 0xffffff, intensity = Math.PI } = {}) { // 0x343434
   const light = new THREE.AmbientLight(color, intensity)
   if (scene) scene.add(light)
   return light
@@ -87,7 +86,7 @@ export const createMoon = ({
 
 /* EFFECTS */
 
-export function lightningStrike(light, scene = defaultScene) {
+export function lightningStrike(light, scene) {
   if (!oldIntensity) oldIntensity = light.intensity
   if (!oldBackground) oldBackground = new THREE.Color(scene.background)
 

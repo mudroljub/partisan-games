@@ -13,7 +13,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### 3D
 
 - integrisati oba projekta
-    - ažurirati Scena3D i Scena
     - obrisati scene.js
     - integrisati style
     - koristiti Spinner u upravniku scena

@@ -1,8 +1,7 @@
-import { scene as defaultScene } from '/core3d/scene.js'
 import { createPhysicsWorld, createRigidBody, updateMesh } from '/core3d/physics/index.js'
 
 export default class PhysicsWorld {
-  constructor({ scene = defaultScene, maxSteps = 10 } = {}) {
+  constructor({ scene, maxSteps = 10 } = {}) {
     this.scene = scene
     this.maxSteps = maxSteps
     this.rigidBodies = []
