@@ -15,8 +15,9 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - integrisati oba projekta
     - integrisati style
     - integrisati ui i GUI
-- srediti 3D igre: 
+- dodati 3D igre: 
     - Savo Mitraljezac (uporediti sa starim, srediti)
+        - BUG: kuckanje ne staje kad počne igra
         - BUG: this.flame is undefined
     - napad na aerodrom
     - avion 3D

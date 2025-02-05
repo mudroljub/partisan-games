@@ -1,21 +1,9 @@
-.black {
-  color: black;
-}
-
 .bg-black {
   background-color: black;
 }
 
 .white {
   color: white;
-}
-
-.bg-white {
-  background-color: white;
-}
-
-.red {
-  color: red;
 }
 
 .valencia {
@@ -30,7 +18,7 @@
   background-color: #848C58;
 }
 
-.verdigris {
+/* .verdigris {
   color: #4D5234;
 }
 
@@ -40,4 +28,4 @@
 
 button.bg-avocado:hover {
   background-color: #4D5234;
-}
+} */

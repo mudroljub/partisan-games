@@ -38,7 +38,3 @@
 .bold {
   font-weight: bold;
 }
-
-.pocetno-veliko:first-letter {
-  text-transform: capitalize;
-}
