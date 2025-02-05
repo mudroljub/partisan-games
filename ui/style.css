@@ -16,62 +16,25 @@
 }
 
 body {
-  margin: 0;
-  filter: sepia(0.3);
   background-color: #DDD;
+  filter: sepia(0.3);
+  font-family: 'Special Elite', Courier;
+  /* font-weight: bold; */
+  margin: 0;
 }
 
 h1 {
   text-align: center;
 }
 
-a {
-  text-decoration: none;
-  color: red;
-}
-
 ul {
   text-align: left;
-}
-
-input {
-  border: 0;
-  padding: 0.625em;
-  font-family: Courier;
-  font-size: inherit;
-}
-
-/** TIPOGRAFIJA **/
-
-body {
-  font-weight: bold;
-  font-family: 'Special Elite', Courier;
-}
-
-.font1942 {
-  font-family: '1942', Courier;
-}
-
-.elite {
-  font-family: 'Special Elite';
-}
-
-.centar {
-  text-align: center;
-}
-
-.bold {
-  font-weight: bold;
 }
 
 /* BOJE */
 
 .bg-black {
   background-color: black;
-}
-
-.white {
-  color: white;
 }
 
 .valencia {
@@ -117,13 +80,10 @@ button:hover {
 /* GUI */
 
 .komande {
-  position: absolute;
-  padding: 4px;
   border-radius: 5px;
   line-height: 1.4;
-}
-
-.komande1, .komande2 {
+  padding: 4px;
+  position: absolute;
   top: 8px;
 }
 
@@ -203,4 +163,12 @@ button:hover {
 
 .full {
   width: 100%;
+}
+
+.centar {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
 }
