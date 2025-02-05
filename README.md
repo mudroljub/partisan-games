@@ -12,19 +12,20 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### 3D
 
-- integrisati oba projekta (core2d i core3d)
-    - dodati 3D igre: 
-        - Savo Mitraljezac (uporediti sa starim, srediti)
-        - BUG: this.flame is undefined
-        - napad na aerodrom
-        - avion 3D
-        - spomenici?
-        - Drvar integrisati u novu strukturu
-    - obrisati scene
+- integrisati oba projekta
+    - ažurirati Scena3D i Scena
+    - obrisati scene.js
     - integrisati style
     - koristiti Spinner u upravniku scena
     - srediti zvuk kuckanja na izveštaju
     - integrisati ui i GUI
+- srediti 3D igre: 
+    - Savo Mitraljezac (uporediti sa starim, srediti)
+        - BUG: this.flame is undefined
+    - napad na aerodrom
+    - avion 3D
+    - spomenici?
+    - Drvar integrisati u novu strukturu
 - srediti 3D koliziju
 - dodati 3d model u 1944
 

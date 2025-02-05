@@ -4,6 +4,7 @@ import { platno } from '/core/io/platno.js'
 const items = {
   SavoScena: 'Savo Mitraljezac',
   RajlovacScena: 'Napad na aerodrom Rajlovac',
+  DrvarScena: 'Desant na Drvar',
   BombasScena: 'Bombaš',
   Scena1942: 'Avionče 1942',
   NemciIzRovova: 'Nemci iz rovova',
@@ -16,7 +17,6 @@ const items = {
   RanjenikScena: 'Ranjenik na Sutjesci',
   JasenovacScena: 'Bekstvo iz Jasenovca',
   TenkOdozgoScena: 'Tenk odozgo',
-  DrvarScena: 'Desant na Drvar',
 }
 
 export default class GlavniMeni extends Scena2D {

@@ -21,12 +21,10 @@ export function createHill(r, height = r * .4) {
 
 export function createGroundMaterial({ color = 0x509f53, file, repeat } = {}) {
   const params = { side: THREE.FrontSide }
-  const material = file
-    ? new THREE.MeshBasicMaterial({
-      ...params,
-      map: createTexture({ file, repeat }),
-    })
-    : new THREE.MeshToonMaterial({ ...params, color })
+  const material = new THREE.MeshBasicMaterial({
+    ...params,
+    ...(file ? { map: createTexture({ file, repeat }) } : { color }),
+  })
   return material
 }
 
