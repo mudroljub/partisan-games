@@ -10,6 +10,7 @@ export default class Scena {
     this.ui = new UI(this)
     this.predmeti = []
     this.handleClick = this.handleClick.bind(this)
+    document.addEventListener('click', this.handleClick)
   }
 
   init() {}
@@ -64,7 +65,6 @@ export default class Scena {
 
   start() {
     this.gameLoop.start()
-    document.addEventListener('click', this.handleClick)
   }
 
   end() {

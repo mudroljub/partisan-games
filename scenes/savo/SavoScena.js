@@ -75,6 +75,6 @@ export default class SavoScena extends Scena3D {
     const blinkingMessage = won ? '' : 'Find a way out!'
     this.gui.update({ time: t, points: killed.length, left, dead: this.player.dead, blinkingMessage })
 
-    if (Math.random() > .998) lightningStrike(this.light)
+    if (Math.random() > .998) lightningStrike(this.light, this.scene)
   }
 }

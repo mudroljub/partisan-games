@@ -25,7 +25,7 @@ export default class GlavniMeni extends Scena2D {
     platno.style.display = 'none'
   }
 
-  handleClick = e => {
+  handleClick(e) {
     if (e.target.classList.contains('js-start'))
       this.manager.start(e.target.value)
   }
