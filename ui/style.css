@@ -1,11 +1,16 @@
-@font-face {
+/* @font-face {
   font-family: '1942';
   src: url('/assets/fonts/1942.ttf');
-}
+} */
 
 @font-face {
   font-family: 'Special Elite';
   src: url('/assets/fonts/SpecialElite.ttf');
+}
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("/assets/fonts/PressStart2P.ttf");
 }
 
 /* DEFAULTS */
@@ -17,18 +22,29 @@
 
 body {
   background-color: #DDD;
+  cursor: url(/assets/images/rpgui/cursor/default.png), auto;
   filter: sepia(0.3);
-  font-family: 'Special Elite', Courier;
-  /* font-weight: bold; */
+  font-family: 'Press Start 2P', Courier;
+  font-size: 0.8em;
+  image-rendering: pixelated;
+  line-height: 22px;
   margin: 0;
 }
 
-h1 {
+h1,
+h2,
+h3 {
   text-align: center;
 }
 
 ul {
-  text-align: left;
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+li {
+  color: yellow;
+  margin-left: 20px;
 }
 
 /* BOJE */
@@ -55,10 +71,9 @@ button {
   background-color: #D94A38;
   border-radius: 6px;
   border: 1px solid gray;
-  cursor: pointer;
-  font-family: Courier;
-  font-size: 110%;
-  font-weight: bold;
+  cursor: inherit;
+  font-family: inherit;
+  font-size: inherit;
   min-width: 96px;
   padding: 16px 24px;
   transition: background-color .4s;
@@ -74,7 +89,6 @@ button:hover {
 
 .dva-igraca {
   padding: 5px 10px;
-  font-size: 16px;
 }
 
 /* GUI */
@@ -103,25 +117,30 @@ button:hover {
   margin-top: 2px;
 }
 
+progress {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid #000;
+}
+
+progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+progress::-webkit-progress-value {
+  background-color: #D94A38;
+}
+
+progress::-moz-progress-bar {
+  background-color: #D94A38;
+}
+
 .progress-wrapper {
   position: relative;
 }
 
 .progress-wrapper progress {
-  background-color: inherit;
-  display: block;
   height: 24px;
-  width: 100%;
-}
-
-.progress-wrapper progress::-webkit-progress-value {
-  background: #D94A38;
-  color: #D94A38;
-}
-
-.progress-wrapper progress::-moz-progress-bar {
-  background: #D94A38;
-  color: #D94A38;
 }
 
 .progress-wrapper .energija {
@@ -145,6 +164,17 @@ button:hover {
 
 .prozorce button:nth-of-type(n+2) {
   margin-left: 20px;
+}
+
+.rpgui-container h1,
+.rpgui-container h2,
+.rpgui-container h3 {
+  /* order is important */
+  background: linear-gradient(to bottom, #ff8a00 0%, yellow 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
 }
 
 /* POMOC */

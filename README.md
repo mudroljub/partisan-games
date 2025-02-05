@@ -10,10 +10,13 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
+- BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
+
 ### 3D
 
 - integrisati oba projekta
     - integrisati style
+        - Top scena: drugu boju progresa za potisak
     - integrisati ui i GUI
 - dodati 3D igre: 
     - Savo Mitraljezac (uporediti sa starim, srediti)
