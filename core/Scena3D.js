@@ -55,6 +55,7 @@ export default class Scena3D extends Scena {
   }
 
   proveriTipke(dt) {
+    super.proveriTipke(dt)
     this.controls?.update(dt)
   }
 

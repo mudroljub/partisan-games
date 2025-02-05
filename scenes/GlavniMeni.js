@@ -26,14 +26,11 @@ export default class GlavniMeni extends Scena2D {
   }
 
   handleClick = e => {
-    super.handleClick(e)
     if (e.target.classList.contains('js-start'))
       this.manager.start(e.target.value)
   }
 
-  napustiIgru() {
-    return ''
-  }
+  proveriTipke() {}
 
   sablon() {
     const izbornik = Object.entries(items).map(([kljuc, naziv]) =>
