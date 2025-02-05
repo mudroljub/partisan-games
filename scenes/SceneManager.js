@@ -1,3 +1,5 @@
+import { Spinner } from '/core3d/loaders.js'
+
 const putanje = {
   RajlovacScena: './rajlovac/RajlovacScena.js',
   SavoScena: './savo/SavoScena.js',
@@ -26,20 +28,18 @@ class SceneManager {
 
     this.currentScene = null
     SceneManager.instance = this
-  }
-
-  async loadScene(ime) {
-    const sceneModule = await import(putanje[ime])
-    return sceneModule.default
+    this.spinner = new Spinner()
   }
 
   async start(ime) {
+    this.spinner.show()
     if (this.currentScene)
       this.currentScene.end()
 
-    const SceneClass = await this.loadScene(ime)
-    this.currentScene = new SceneClass(this)
+    const SceneClass = await import(putanje[ime])
+    this.currentScene = new SceneClass.default(this)
     this.currentScene.init()
+    this.spinner.hide()
   }
 }
 

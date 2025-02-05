@@ -14,8 +14,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - integrisati oba projekta
     - integrisati style
-    - koristiti Spinner u upravniku scena
-    - srediti zvuk kuckanja na izveštaju
     - integrisati ui i GUI
 - srediti 3D igre: 
     - Savo Mitraljezac (uporediti sa starim, srediti)
