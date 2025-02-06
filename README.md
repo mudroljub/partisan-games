@@ -30,6 +30,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
         - BUG: kuckanje ne staje kad počne igra
 - integrisati stilove
     - spojiti klase za game UI
+    - kopirati preostale klase
 - integrisati ui i GUI    
 - srediti 3D koliziju
 - dodati 3d model u 1944
