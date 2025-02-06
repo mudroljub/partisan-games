@@ -52,7 +52,7 @@ export default class GUI {
     player = null,
     controls = {},
     controlsClass = '', // rpgui-button
-    controlsWindowClass = 'rpgui-container framed',
+    controlsWindowClass = 'rpgui-container',
     controlsOpen = false,
     useBaseControls = true,
 
@@ -141,12 +141,12 @@ export default class GUI {
   }
 
   closeGameScreen() {
-    this.gameScreen.classList.remove('rpgui-container', 'framed', 'pointer')
+    this.gameScreen.classList.remove('rpgui-container', 'pointer')
     this.gameScreen.innerHTML = ''
   }
 
   openGameScreen(html) {
-    this.gameScreen.classList.add('rpgui-container', 'framed', 'pointer')
+    this.gameScreen.classList.add('rpgui-container', 'pointer')
     this.gameScreen.innerHTML = html
   }
 

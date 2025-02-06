@@ -13,7 +13,7 @@ export default class UI {
 
   izadjiProzor() {
     return /* html */`
-      <div class="prozorce centar">
+      <div class="central-screen simple-container">
         <p>Napusti igru?</p>
         <button id="menu">Da</button><button id="cancel">Ne</button><button id="igraj-opet">Igraj opet</button>
       </div>
@@ -22,7 +22,7 @@ export default class UI {
 
   zavrsniProzor() {
     return /* html */`
-      <div class="prozorce centar">
+      <div class="central-screen simple-container">
         <p>${this.zavrsniTekst}</p>
         <button id="igraj-opet">Igraj opet</button><button id="menu">Glavni meni</button>
       </div>

@@ -104,7 +104,7 @@ button:hover {
   background-color: red;
 }
 
-.prozorce button {
+.central-screen button {
   text-transform: uppercase;
 }
 
@@ -159,35 +159,37 @@ button:hover {
 
 /* GAME SCREEN */
 
-.prozorce {
-  background-color: rgba(0,0,0, 0.8);
-  border-radius: 5px;
-  color: #848C58;
-  left: 50%;
-  padding: 20px;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  transform: translate(-50%,-50%);
-}
-
-.prozorce button:nth-of-type(n+2) {
-  margin-left: 20px;
-}
-
 .central-screen {
   left: 50%;
-  position: fixed;
+  position: absolute;
   text-align: center;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
 }
 
-.game-screen-select {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.central-screen button:nth-of-type(n+2) {
+  margin-left: 20px;
+}
+
+.simple-container {
+  background-color: rgba(0,0,0, 0.8);
+  border-radius: 5px;
+  color: #848C58;
+  padding: 20px;
+}
+
+.rpgui-container {
+  border-image-repeat: repeat;
+  border-image-width: 18px;
+  border-style: solid;
+  border-width: 15px;
+  box-sizing: border-box;
+  padding: 12px;
+  color: #EEE;
+  background-color: #4E4A4E;
+  border-image-slice: 6 6 6 6;
+  border-image-source: url("/assets/images/rpgui/border-image.png");
 }
 
 .rpgui-container h1,
@@ -201,28 +203,6 @@ button:hover {
   text-shadow: none;
 }
 
-.rpgui-container {
-  border-image-repeat: repeat;
-  border-image-width: 18px;
-  border-style: solid;
-  border-width: 15px;
-  box-sizing: border-box;
-  padding: 12px;
-  color: #EEE;
-}
-
-.rpgui-container.framed {
-  background-color: #4E4A4E;
-  border-image-slice: 6 6 6 6;
-  border-image-source: url("/assets/images/rpgui/border-image.png");
-}
-
-.rpgui-container.framed-golden {
-  background-color: #854C30;
-  border-image-slice: 4 4 4 4;
-  border-image-source: url("/assets/images/rpgui/border-image-golden.png");
-}
-
 .rpgui-container li {
   color: yellow;
 }
@@ -231,6 +211,12 @@ button:hover {
   margin-top: 10px;
   border: 2px solid white;
   padding: 10px;
+}
+
+.game-screen-select {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* REPORT */
