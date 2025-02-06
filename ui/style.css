@@ -43,7 +43,6 @@ ul {
 }
 
 li {
-  color: yellow;
   margin-left: 20px;
 }
 
@@ -176,17 +175,6 @@ button:hover {
   margin-left: 20px;
 }
 
-.rpgui-container h1,
-.rpgui-container h2,
-.rpgui-container h3 {
-  /* order is important */
-  background: linear-gradient(to bottom, #ff8a00 0%, yellow 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
-}
-
 .central-screen {
   left: 50%;
   position: fixed;
@@ -202,6 +190,17 @@ button:hover {
   justify-content: center;
 }
 
+.rpgui-container h1,
+.rpgui-container h2,
+.rpgui-container h3 {
+  /* order is important */
+  background: linear-gradient(to bottom, #ff8a00 0%, yellow 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
 .rpgui-container {
   border-image-repeat: repeat;
   border-image-width: 18px;
@@ -209,6 +208,7 @@ button:hover {
   border-width: 15px;
   box-sizing: border-box;
   padding: 12px;
+  color: #EEE;
 }
 
 .rpgui-container.framed {
@@ -221,6 +221,10 @@ button:hover {
   background-color: #854C30;
   border-image-slice: 4 4 4 4;
   border-image-source: url("/assets/images/rpgui/border-image-golden.png");
+}
+
+.rpgui-container li {
+  color: yellow;
 }
 
 .white-window {

@@ -39,3 +39,16 @@ export const topKomande = () => /* html*/`
     space - pucanje
   </div>
 `
+
+export const centralScreen = () => /* html*/`
+  <div class="central-screen rpgui-container framed pointer">
+    <ul>
+      <li>Find the way out</li>
+      <li>Bonus: Kill all enemies</li>
+    </ul>
+    <h2>Press to START!</h2>
+    Shoot: MOUSE<br> 
+    Move: WASD or ARROWS<br> 
+    Run: CAPSLOCK
+  </div>
+`

@@ -48,7 +48,7 @@ export default class GUI {
     scoreClass = 'rpgui-button golden',
     useBlink = false,
 
-    controlsTitle = 'KEYBOARD',
+    controlsTitle = 'CONTROLS',
     player = null,
     controls = {},
     controlsClass = '', // rpgui-button
