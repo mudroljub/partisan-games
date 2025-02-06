@@ -47,10 +47,14 @@ li {
   margin-left: 20px;
 }
 
+/* PROGRESS */
+
 progress {
   width: 100%;
   background-color: transparent;
-  border: 1px solid #000;
+  border: 1px solid black;
+  height: 22px;
+  min-width: 210px;
 }
 
 progress::-webkit-progress-bar {
@@ -59,18 +63,20 @@ progress::-webkit-progress-bar {
 
 progress::-webkit-progress-value {
   background-color: #D94A38;
+  background-image: url("/assets/images/rpgui/progress-red.png");
+  background-repeat: repeat-x;
+  background-size: 36px 100%;
 }
 
 progress::-moz-progress-bar {
   background-color: #D94A38;
+  background-image: url("/assets/images/rpgui/progress-red.png");
+  background-repeat: repeat-x;
+  background-size: 36px 100%;
 }
 
 .progress-wrapper {
   position: relative;
-}
-
-.progress-wrapper progress {
-  height: 24px;
 }
 
 .progress-wrapper .energija {
