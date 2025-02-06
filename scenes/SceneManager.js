@@ -1,6 +1,7 @@
 import { Spinner } from '/core3d/loaders.js'
 
 const putanje = {
+  WarplaneScena: './warplane/WarplaneScena.js',
   RajlovacScena: './rajlovac/RajlovacScena.js',
   SavoScena: './savo/SavoScena.js',
   BombasScena: './bombas/BombasScena.js',

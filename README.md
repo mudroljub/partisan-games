@@ -19,14 +19,15 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### 3D
 
 - dodati 3D igre: 
+    - spomeniks
+    - urban-guerrilla (promeniti NOB grafite)
+    - physics-tank
+- srediti 3D igre:
+    - warplane (promeniti da liči na stari)
     - Savo Mitraljezac (uporediti sa starim, srediti)
         - BUG: kuckanje ne staje kad počne igra
-        - BUG: this.flame is undefined
-    - napad na aerodrom
-    - avion 3D
-    - spomenici?
-- integrisati style
-    - Top scena: drugu boju progresa za potisak
+- integrisati stilove
+    - spojiti klase za game UI
 - integrisati ui i GUI    
 - srediti 3D koliziju
 - dodati 3d model u 1944
