@@ -91,7 +91,7 @@ progress::-moz-progress-bar {
 button {
   background-color: #D94A38;
   border-radius: 6px;
-  border: 1px solid gray;
+  border: none;
   cursor: url("/assets/images/rpgui/cursor/point.png") 10 0, auto;
   font-family: inherit;
   font-size: inherit;
@@ -255,6 +255,7 @@ button:hover {
 
 /* GAME UI */
 
+/* top right */
 .health-bar {
   position: absolute;
   right: 20px;
@@ -270,6 +271,7 @@ button:hover {
   }
 }
 
+/* top left */
 .score {
   left: 28px;
   position: absolute;
@@ -294,10 +296,12 @@ button:hover {
   top: 8px;
 }
 
+/* top left */
 .komande1 {
   left: 8px;
 }
 
+/* top right */
 .komande2 {
   right: 8px;
 }
@@ -310,6 +314,7 @@ button:hover {
   margin-top: 2px;
 }
 
+/* bottom left */
 .controls {
   bottom: 18px;
   left: 20px;
@@ -319,6 +324,14 @@ button:hover {
 .controls p {
   margin-bottom: 2px;
   margin-top: 2px;
+}
+
+/* bottom right */
+.change-camera {
+  bottom: 20px;
+  image-rendering: initial;
+  position: absolute;
+  right: 20px;
 }
 
 /* BOJE */

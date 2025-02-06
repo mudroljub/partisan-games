@@ -2,16 +2,6 @@
 
 button {
   background-color: transparent;
-  border: none;
-}
-
-/* CAMERA */
-
-.change-camera {
-  bottom: 20px;
-  image-rendering: initial;
-  position: absolute;
-  right: 20px;
 }
 
 /* SCREEN BUTTONS */
