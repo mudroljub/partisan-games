@@ -40,15 +40,15 @@ export default class TenkiciScena extends Scena2D {
   sablon() {
     return /* html*/`
       <div class='komande bg-poluprovidno komande1'>
-        <b>${this.tenk.ime}</b>
-        ${progresBar(this.tenk.energija)}
+        ${this.tenk.ime}
+        ${progresBar(this.tenk.energija, 'rpg')}
         ${komande()}
       </div>
 
       <div class='komande bg-poluprovidno komande2'>
-        <span class='bold'>${this.tenk2.ime}</span>
-        ${progresBar(this.tenk2.energija)}
-        ${!this.tenk2.ai ? komande2() : ''}
+        ${this.tenk2.ime}
+        ${progresBar(this.tenk2.energija, 'rpg')}
+        ${this.tenk2.ai ? '' : komande2()}
         <button id="dva-igraca" class="bg-avocado full dva-igraca">
           ${this.tenk2.ai ? 'Dodaj igrača' : 'Uključi<br> neprijatelja'}
         </button>

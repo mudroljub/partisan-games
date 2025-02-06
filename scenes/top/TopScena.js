@@ -41,7 +41,7 @@ export default class TopScena extends Scena2D {
     <div class='komande komande1 bg-poluprovidno'>
       ${progresBar(this.top.energija)}
       ${topKomande()}
-      <progress value="${this.top.sila}" max="${this.top.minSila * 3}"></progress>
+      <progress class="potisak" value="${this.top.sila}" max="${this.top.minSila * 3}"></progress>
     </div>
 
     <div class='komande komande2 bg-poluprovidno'>

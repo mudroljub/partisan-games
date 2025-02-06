@@ -62,16 +62,30 @@ progress::-webkit-progress-bar {
 
 progress::-webkit-progress-value {
   background-color: #D94A38;
+}
+
+progress::-moz-progress-bar {
+  background-color: #D94A38;
+}
+
+progress.rpg::-webkit-progress-value {
   background-image: url("/assets/images/rpgui/progress-red.png");
   background-repeat: repeat-x;
   background-size: 36px 100%;
 }
 
-progress::-moz-progress-bar {
-  background-color: #D94A38;
+progress.rpg::-moz-progress-bar {
   background-image: url("/assets/images/rpgui/progress-red.png");
   background-repeat: repeat-x;
   background-size: 36px 100%;
+}
+
+progress.potisak::-webkit-progress-value {
+  background-color: #848C58;
+}
+
+progress.potisak::-moz-progress-bar {
+  background-color: #848C58;
 }
 
 .progress-wrapper {
@@ -278,6 +292,7 @@ button:hover {
   }
 }
 
+/* top both */
 .komande {
   border-radius: 5px;
   line-height: 1.4;

@@ -14,13 +14,10 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
     - i Bombaš i drugi nivoi baguju, zeza GameLoop?
 - ukloniti poruke iz sablona, ostaviti samo score
+- BUG: ne radi tenkići dodaj igrača
 
 ### 3D
 
-- integrisati oba projekta
-    - integrisati style
-        - Top scena: drugu boju progresa za potisak
-    - integrisati ui i GUI
 - dodati 3D igre: 
     - Savo Mitraljezac (uporediti sa starim, srediti)
         - BUG: kuckanje ne staje kad počne igra
@@ -28,6 +25,9 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - napad na aerodrom
     - avion 3D
     - spomenici?
+- integrisati style
+    - Top scena: drugu boju progresa za potisak
+- integrisati ui i GUI    
 - srediti 3D koliziju
 - dodati 3d model u 1944
 

@@ -1,12 +1,10 @@
-export const progresBar = (energija, tekst) => {
-  const label = tekst || Math.round(energija)
-  return /* html*/`
+export const progresBar = (energija, klasa) =>
+/* html*/`
   <div class="progress-wrapper">
-    <progress value='${energija}' max='100'></progress>
-    <div class="energija">${label}</div>
+    <progress class="${klasa}" value="${energija}" max='100'></progress>
+    <div class="energija">${Math.round(energija)}</div>
   </div>
 `
-}
 
 export const adws = () => /* html*/`
   A - levo<br>
