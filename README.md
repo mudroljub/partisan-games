@@ -23,7 +23,9 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - urban-guerrilla (promeniti NOB grafite)
     - physics-tank
 - srediti 3D igre:
-    - warplane (promeniti da liči na stari)
+    - ukinuti dinamički import svuda
+    - warplane 
+        - promeniti da liči na stari
     - Savo Mitraljezac (uporediti sa starim, srediti)
         - BUG: kuckanje ne staje kad počne igra
 - integrisati stilove
