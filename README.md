@@ -10,7 +10,9 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
+- BUG: Nemci iz rovova ne rade zbog css-a?
 - BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
+- ukloniti poruke iz sablona, ostaviti samo score
 
 ### 3D
 

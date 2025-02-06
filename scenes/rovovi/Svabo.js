@@ -42,7 +42,7 @@ export default class Svabo extends Predmet {
   }
 
   puca() {
-    this.slika.src = '/assets/images/nemac-rov-puca.gif'
+    this.slika.src = '/assets/images/slicice/nemac-rov-puca.gif'
   }
 
   jePogodjen() {
