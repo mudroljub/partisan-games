@@ -20,21 +20,6 @@ progress::-webkit-progress-value {
   border-radius: 7px;
 }
 
-.health-bar {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 220px;
-}
-
-@media (max-width: 500px) {
-  .health-bar {
-    left: 20px;
-    width: 90%;
-    top: 10px;
-  }
-}
-
 /* BUTTONS */
 
 button {

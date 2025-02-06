@@ -247,7 +247,22 @@ button:hover {
   text-shadow: none;
 }
 
-/* SCORE */
+/* GAME UI */
+
+.health-bar {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 220px;
+}
+
+@media (max-width: 500px) {
+  .health-bar {
+    left: 20px;
+    width: 90%;
+    top: 10px;
+  }
+}
 
 .score {
   left: 28px;
@@ -288,8 +303,6 @@ button:hover {
 .komande button {
   margin-top: 2px;
 }
-
-/* CONTROLS */
 
 .controls {
   bottom: 18px;
