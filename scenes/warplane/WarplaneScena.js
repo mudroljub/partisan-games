@@ -73,6 +73,7 @@ export default class WarplaneScena extends Scena3D {
 
     this.gui = new GUI({ subtitle: 'Time left', total: totalTime, endText: 'Bravo! <br>You have completed the mission.', controls, useBlink: true, scoreClass: '' })
     this.gui.showGameScreen({ title: 'Choose your aircraft', subtitle, callback: this.start })
+    this.render()
   }
 
   addMesh(mesh, spread = .33) {

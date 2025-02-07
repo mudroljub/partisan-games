@@ -47,7 +47,7 @@ export default class SavoScena extends Scena3D {
     }
 
     this.setupGUI()
-    this.renderer.render(this.scene, this.camera) // first draw
+    this.render()
   }
 
   setupGUI() {

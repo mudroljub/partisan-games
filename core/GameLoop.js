@@ -1,5 +1,5 @@
 export default class GameLoop {
-  constructor(sceneLoop, autostart = true, usePointerLock = false) {
+  constructor(sceneLoop, usePointerLock = false) {
     this.sceneLoop = sceneLoop
     this.lastTimestamp = 0
     this.time = 0
@@ -12,8 +12,6 @@ export default class GameLoop {
       document.addEventListener('pointerlockchange', this.handlePointerLockChange)
     else
       document.addEventListener('visibilitychange', this.handleVisibilityChange)
-
-    if (autostart) this.start()
   }
 
   get isRunning() {
