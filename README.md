@@ -19,11 +19,12 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### 3D
 
 - dodati 3D igre: 
-    - spomeniks
-    - urban-guerrilla (promeniti NOB grafite)
     - physics-tank
 - srediti 3D igre:
     - ukinuti dinamički import svuda
+    - urban-guerrilla 
+        - promeniti NOB grafite
+        - dodati nemce
     - warplane 
         - promeniti da liči na stari
     - Savo Mitraljezac (uporediti sa starim, srediti)

@@ -2,9 +2,10 @@ import Scena3D from '/core/Scena3D.js'
 import { createGraffitiCity } from '/core3d/city.js'
 import { createSun } from '/core3d/light.js'
 import { getEmptyCoords } from '/core3d/helpers.js'
+import { ResistanceFighterPlayer } from '/core3d/actor/derived/ww2/ResistanceFighter.js'
 
 export default class UrbanaScena extends Scena3D {
-  async init() {
+  init() {
     const mapSize = 200
     const coords = getEmptyCoords({ mapSize })
 
@@ -16,13 +17,12 @@ export default class UrbanaScena extends Scena3D {
     const city = createGraffitiCity({ scene: this.scene, mapSize, coords })
     this.scene.add(city)
 
-    const { ResistanceFighterPlayer } = await import('/core3d/actor/derived/ww2/ResistanceFighter.js')
     this.player = new ResistanceFighterPlayer({ camera: this.camera, solids: city, pos: coords.pop(), showHealthBar: false })
     this.scene.add(this.player.mesh)
   }
 
   update(delta, time) {
     super.update(delta, time)
-    this.player?.update(delta)
+    this.player.update(delta)
   }
 }

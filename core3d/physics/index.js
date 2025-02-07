@@ -1,7 +1,8 @@
 import * as THREE from 'three'
 import { getSize, getMesh } from '/core3d/helpers.js'
+import AmmoPromise from '/libs/ammo.js'
 
-export const Ammo = typeof window.Ammo == 'function' ? await window.Ammo() : window.Ammo
+export const Ammo = await AmmoPromise()
 
 /* WORLD */
 
