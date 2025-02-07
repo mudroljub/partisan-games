@@ -6,6 +6,8 @@ import { createFirTree } from '/core3d/geometry/trees.js'
 import { createWarehouse, createWarehouse2, createWarRuin, createRuin, createAirport } from '/core3d/city.js'
 import { loadModel } from '/core3d/loaders.js'
 import GUI from '/core3d/io/GUI.js'
+import Building from '/core3d/objects/Building.js'
+import Tower from '/core3d/objects/Tower.js'
 
 const { randInt, randFloatSpread } = THREE.MathUtils
 
@@ -24,7 +26,7 @@ const controls = {
 }
 
 const style = 'border: 3px solid black; height: 180px'
-const options = ['Biplane', 'Triplane', 'Messerschmitt', 'Bomber', 'F18'].map(name =>
+const options = ['Biplane', 'Triplane', 'Messerschmitt', 'Bomber'].map(name =>
   `<input type="image" id="${name}" src="/assets/images/airplanes/${name}.png" style="${style}" />`
 ).join('')
 
@@ -35,7 +37,6 @@ const subtitle = `
 `
 
 const createBuilding = async time => {
-  const Building = (await import('/core3d/objects/Building.js')).default
   const minutes = Math.floor(time / 60)
   switch (randInt(1, 7 + minutes)) {
     case 1:
@@ -46,16 +47,13 @@ const createBuilding = async time => {
     case 4: return new Building({ mesh: createRuin(), name: 'civil' })
     case 5: return new Building({ mesh: createWarehouse() })
     case 6: return new Building({ mesh: createWarehouse2() })
-    default:
-      const obj = await import('/core3d/objects/Tower.js')
-      return new obj.default()
+    default: return new Tower()
   }
 }
 
 export default class WarplaneScena extends Scena3D {
   init() {
     this.i = 0
-    this.time = 0
     this.last = Date.now()
     this.warplane
     this.entities = []
@@ -74,7 +72,7 @@ export default class WarplaneScena extends Scena3D {
     this.dodajMesh(this.ground, this.ground2)
 
     this.gui = new GUI({ subtitle: 'Time left', total: totalTime, endText: 'Bravo! <br>You have completed the mission.', controls, useBlink: true, scoreClass: '' })
-    this.gui.showGameScreen({ title: 'Choose your aircraft', subtitle, callback: this.startGame })
+    this.gui.showGameScreen({ title: 'Choose your aircraft', subtitle, callback: this.start })
   }
 
   addMesh(mesh, spread = .33) {
@@ -91,16 +89,16 @@ export default class WarplaneScena extends Scena3D {
 
   addTree = () => this.addMesh(createFirTree(), .4)
 
-  spawnObjects() {
+  spawnObjects(time) {
     if (this.i++ % 5 === 0) this.addTree()
 
     if (Date.now() - this.last >= buildingInterval) {
-      this.addBuilding(this.time)
+      this.addBuilding(time)
       this.last = Date.now()
     }
   }
 
-  startGame = async e => {
+  async start(e) {
     if (e.target.tagName != 'INPUT') return
 
     this.gui.clearScreen()
@@ -111,6 +109,7 @@ export default class WarplaneScena extends Scena3D {
     this.entities.push(this.warplane)
 
     this.gui.showMessage('Destroy enemy factories,<br><br>do not target civilian buildings')
+    super.start()
   }
 
   /* UPDATES */
@@ -151,14 +150,14 @@ export default class WarplaneScena extends Scena3D {
     this.updateEntities(delta)
 
     if (this.warplane.dead)
-      return setTimeout(() => this.gui.renderText('You have failed.'), 2500)
+      return setTimeout(() => this.zavrsi('You have failed.'), 2500)
 
     let timeLeft = totalTime - Math.floor(time)
     if (timeLeft <= 0) timeLeft = 0
 
     this.gui.addScore(0, timeLeft)
 
-    if (time < totalTime - 10) this.spawnObjects()
+    if (time < totalTime - 10) this.spawnObjects(time)
     if (time >= totalTime) this.warplane.land(delta)
   }
 }

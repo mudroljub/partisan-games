@@ -16,6 +16,10 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - ukloniti poruke iz sablona, ostaviti samo score
 - BUG: ne radi tenkići dodaj igrača
 
+- GameLoop da ne kreće automatski?
+    - popraviti sve 3D scene
+    - možda da automatski ide prvi draw
+
 ### 3D
 
 - srediti 3D igre:
@@ -25,11 +29,13 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
         - dodati nemce
     - warplane 
         - promeniti da liči na stari
+        - preimenovati u Operation Ratweek
     - Savo Mitraljezac (uporediti sa starim, srediti)
         - BUG: kuckanje ne staje kad počne igra
 - integrisati stilove
     - spojiti klase za game UI
-- integrisati ui i GUI    
+- integrisati ui i GUI
+    - ukinuti GUI
     - Savo exit prozor ne radi
     - BUG: spinner nije na sredini
 - srediti 3D koliziju

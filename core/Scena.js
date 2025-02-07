@@ -9,6 +9,7 @@ export default class Scena {
     this.gameLoop = new GameLoop(this.loop, autostart, usePointerLock)
     this.ui = new UI(this)
     this.predmeti = []
+    this.start = this.start.bind(this)
     this.handleClick = this.handleClick.bind(this)
     document.addEventListener('click', this.handleClick)
   }
