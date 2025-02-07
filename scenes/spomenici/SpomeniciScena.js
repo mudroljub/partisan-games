@@ -4,18 +4,19 @@ import { loadModel } from '/core3d/loaders.js'
 import { terrainFromHeightmap } from '/core3d/terrain/heightmap.js'
 import { createFlag } from '/core3d/geometry/index.js'
 import { wave } from '/core3d/ground.js'
+import { PartisanPlayer } from '/core3d/actor/derived/ww2/Partisan.js'
+import GUI from '/core3d/io/GUI.js'
 
 export default class SpomeniciScena extends Scena3D {
   async init() {
-    const terrain = await terrainFromHeightmap({ file: 'yu-crop.png', heightFactor: 3, snow: false })
-    this.scene.add(terrain)
+    this.dodajMesh(createSun({ intensity: 2 * Math.PI }))
 
-    const { PartisanPlayer } = await import('/core3d/actor/derived/ww2/Partisan.js')
+    const terrain = await terrainFromHeightmap({ file: 'yu-crop.png', heightFactor: 3, snow: false })
+
     this.player = new PartisanPlayer({ camera: this.camera, solids: terrain, altitude: .7 })
     this.player.position.z = 2
 
-    const GUI = await import('/core3d/io/GUI.js')
-    new GUI.default({ player: this.player, scoreTitle: '' })
+    new GUI({ player: this.player, scoreTitle: '' })
 
     const [kosmaj, kosovskaMitrovica, podgaric, kadinjaca, ilirskaBistrica] = await Promise.all([
       await loadModel({ file: 'building/monument/kosmaj.fbx', size: 30, texture: 'terrain/beton.gif' }),
@@ -36,7 +37,6 @@ export default class SpomeniciScena extends Scena3D {
     ilirskaBistrica.position.set(40, 10.6, 20)
 
     this.camera.position.y = 20
-    this.scene.add(createSun({ intensity: 2 * Math.PI }))
 
     const redFlag = createFlag({ file: 'prva-proleterska.jpg' })
     redFlag.position.set(-1.5, 11.2, 0)
@@ -47,9 +47,10 @@ export default class SpomeniciScena extends Scena3D {
     this.yuCanvas = yuFlag.getObjectByName('canvas')
 
     const solids = [terrain, redFlag, yuFlag, kadinjaca, kosmaj, kosovskaMitrovica, podgaric, kosovskaMitrovica, ilirskaBistrica]
-
     this.player.addSolids(solids)
-    this.scene.add(this.player.mesh, ...solids)
+
+    this.dodajMesh(terrain, ...solids)
+    this.dodaj(this.player)
   }
 
   update(delta, time) {
@@ -58,6 +59,5 @@ export default class SpomeniciScena extends Scena3D {
 
     wave({ geometry: this.redCanvas.geometry, time: time * 2, amplitude: 2.5, frequency: 2 })
     wave({ geometry: this.yuCanvas.geometry, time: time * 2, amplitude: 2.5, frequency: 2 })
-    this.player?.update(delta)
   }
 }
