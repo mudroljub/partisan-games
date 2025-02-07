@@ -3,7 +3,7 @@ import { platno } from '/core/io/platno.js'
 
 const items = {
   SpomeniciScena: 'Spomenici',
-  UrbanaScena: 'Urbana gerila',
+  BeogradScena: 'Oslobođenje Beograda',
   TenkScena: 'Tenk',
   WarplaneScena: 'Warplane',
   SavoScena: 'Savo Mitraljezac',

@@ -18,8 +18,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### 3D
 
-- dodati 3D igre: 
-    - physics-tank
 - srediti 3D igre:
     - ukinuti dinamički import svuda
     - urban-guerrilla 

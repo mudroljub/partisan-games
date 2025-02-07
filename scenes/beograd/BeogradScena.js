@@ -4,13 +4,11 @@ import { createSun } from '/core3d/light.js'
 import { getEmptyCoords } from '/core3d/helpers.js'
 import { ResistanceFighterPlayer } from '/core3d/actor/derived/ww2/ResistanceFighter.js'
 
-export default class UrbanaScena extends Scena3D {
-  init() {
-    const mapSize = 200
-    const coords = getEmptyCoords({ mapSize })
+const mapSize = 200
 
-    this.camera.position.set(0, mapSize * .33, mapSize * .9)
-    this.camera.lookAt(this.scene.position)
+export default class BeogradScena extends Scena3D {
+  init() {
+    const coords = getEmptyCoords({ mapSize })
 
     this.scene.add(createSun({ pos: [50, 100, 50], intensity: 2 * Math.PI }))
 
