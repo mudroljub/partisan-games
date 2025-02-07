@@ -31,8 +31,9 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - spojiti klase za game UI
     - kopirati preostale klase
 - integrisati ui i GUI    
+- BUG: nema nema na spomenici
 - srediti 3D koliziju
-- dodati 3d model u 1944
+- dodati 3d model u 1944?
 
 ### Završno
 - na scenu top dinamičku pozadinu, dim, avione kako lete...

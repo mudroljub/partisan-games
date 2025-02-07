@@ -16,7 +16,7 @@
 /* DEFAULTS */
 
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   user-select: none;
 }
 
@@ -24,11 +24,16 @@ body {
   background-color: #DDD;
   cursor: url(/assets/images/rpgui/cursor/default.png), auto;
   filter: sepia(0.3);
-  font-family: 'Press Start 2P', Courier;
   font-size: 0.8em;
   image-rendering: pixelated;
   line-height: 22px;
   margin: 0;
+}
+
+body, button {
+  color: white;
+  font-family: 'Press Start 2P', Courier;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 h1,
@@ -46,76 +51,21 @@ li {
   margin-left: 20px;
 }
 
-/* PROGRESS */
-
-progress {
-  width: 100%;
-  background-color: transparent;
-  border: 1px solid black;
-  height: 22px;
-  min-width: 210px;
-}
-
-progress::-webkit-progress-bar {
-  background-color: transparent;
-}
-
-progress::-webkit-progress-value {
-  background-color: #D94A38;
-}
-
-progress::-moz-progress-bar {
-  background-color: #D94A38;
-}
-
-progress.rpg::-webkit-progress-value {
-  background-image: url("/assets/images/rpgui/progress-red.png");
-  background-repeat: repeat-x;
-  background-size: 36px 100%;
-}
-
-progress.rpg::-moz-progress-bar {
-  background-image: url("/assets/images/rpgui/progress-red.png");
-  background-repeat: repeat-x;
-  background-size: 36px 100%;
-}
-
-progress.potisak::-webkit-progress-value {
-  background-color: #848C58;
-}
-
-progress.potisak::-moz-progress-bar {
-  background-color: #848C58;
-}
-
-.progress-wrapper {
-  position: relative;
-}
-
-.progress-wrapper .energija {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%,-50%);
-}
-
 /* BUTTONS */
 
 button {
-  background-color: #D94A38;
+  /* background-color: #D94A38; */
+  background-color: transparent;
   border-radius: 6px;
   border: none;
   cursor: url("/assets/images/rpgui/cursor/point.png") 10 0, auto;
-  font-family: inherit;
-  font-size: inherit;
-  min-width: 96px;
   outline: none;
-  padding: 16px 24px;
+  padding: 8px;
   transition: background-color .4s;
 }
 
 button:hover {
-  background-color: red;
+  /* background-color: red; */
 }
 
 .central-screen button {
@@ -171,6 +121,59 @@ button:hover {
   margin-right: -46px;
 }
 
+/* PROGRESS */
+
+progress {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid black;
+  height: 22px;
+  min-width: 210px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+progress::-webkit-progress-value {
+  background-color: #D94A38;
+}
+
+progress::-moz-progress-bar {
+  background-color: #D94A38;
+}
+
+progress.rpg::-webkit-progress-value {
+  background-image: url("/assets/images/rpgui/progress-red.png");
+  background-repeat: repeat-x;
+  background-size: 36px 100%;
+}
+
+progress.rpg::-moz-progress-bar {
+  background-image: url("/assets/images/rpgui/progress-red.png");
+  background-repeat: repeat-x;
+  background-size: 36px 100%;
+}
+
+progress.potisak::-webkit-progress-value {
+  background-color: #848C58;
+}
+
+progress.potisak::-moz-progress-bar {
+  background-color: #848C58;
+}
+
+.progress-wrapper {
+  position: relative;
+}
+
+.progress-wrapper .energija {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
 /* GAME SCREEN */
 
 .central-screen {
@@ -200,7 +203,7 @@ button:hover {
   border-width: 15px;
   box-sizing: border-box;
   padding: 12px;
-  color: #EEE;
+  /* color: #EEE; */
   background-color: #4E4A4E;
   border-image-slice: 6 6 6 6;
   border-image-source: url("/assets/images/rpgui/border-image.png");
@@ -337,6 +340,42 @@ button:hover {
   image-rendering: initial;
   position: absolute;
   right: 20px;
+}
+
+
+/* SCREEN BUTTONS */
+
+.game-btn {
+  background: rgba(126, 126, 126, 0.5);
+  border-radius: 50%;
+  border: #fff solid medium;
+  bottom: 30px;
+  height: 60px;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 60px;
+}
+
+.joystick {
+  height: 80px;
+  left: 50%;
+  width: 80px;
+}
+
+.jump-btn {
+  left: calc(50% - 100px);
+}
+
+.special-btn {
+  left: calc(50% - 190px);
+}
+
+.attack-btn {
+  left: calc(50% + 100px);
+}
+
+.attack2-btn {
+  left: calc(50% + 190px);
 }
 
 /* BOJE */
