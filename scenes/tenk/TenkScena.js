@@ -8,6 +8,8 @@ import { sample } from '/core3d/helpers.js'
 import { createFirTree } from '/core3d/geometry/trees.js'
 import { createWarehouse, createWarehouse2, createWarRuin, createRuin, createAirport } from '/core3d/city.js'
 import { leaveTracks } from '/core3d/physics/leaveTracks.js'
+import Tank from '/core3d/physics/Tank.js'
+import GUI from '/core3d/io/GUI.js'
 
 const { randFloat } = THREE.MathUtils
 
@@ -16,8 +18,7 @@ export default class TenkScena extends Scena3D {
     super(manager, { toon: true })
   }
 
-  async init() {
-    this.i = 0
+  init() {
     this.time = 0
 
     this.scene.add(createSun({ intensity: Math.PI * 2 }))
@@ -57,12 +58,10 @@ export default class TenkScena extends Scena3D {
         this.world.add(warehouse, 0)
       }
 
-    const tankFile = await import('/core3d/physics/Tank.js')
-    this.tank = new tankFile.default({ physicsWorld: this.world.physicsWorld, camera: this.camera, pos: { x: 0, y: 0, z: -20 } })
-    this.scene.add(this.tank.mesh)
+    this.tank = new Tank({ physicsWorld: this.world.physicsWorld, camera: this.camera, pos: { x: 0, y: 0, z: -20 } })
+    this.dodaj(this.tank)
 
-    const GUI = await import('/core3d/io/GUI.js')
-    this.gui = new GUI.default({ scoreTitle: 'Crates left', points: this.countableCrates.length, subtitle: 'Time', total: 0, useBlink: true, controls: { Space: 'break' } })
+    this.gui = new GUI({ scoreTitle: 'Crates left', points: this.countableCrates.length, subtitle: 'Time', total: 0, useBlink: true, controls: { Space: 'break' } })
     this.gui.showMessage('Demolish all crates')
   }
 
@@ -72,7 +71,6 @@ export default class TenkScena extends Scena3D {
 
     const newTime = Math.floor(this.time + dt)
 
-    this.tank.update(dt)
     if ((this.tank.input.left || this.tank.input.right) && this.tank.speed >= 30)
       leaveTracks({ vehicle: this.tank, ground: this.ground, scene: this.scene })
 
@@ -81,13 +79,12 @@ export default class TenkScena extends Scena3D {
     if (Math.floor(this.time) != newTime)
       this.gui.addScore(0, newTime)
 
-    if (this.i++ % 3 === 0)
-      this.countableCrates.forEach(mesh => {
-        if (mesh.position.y <= 0.5) {
-          this.countableCrates.splice(this.countableCrates.findIndex(c => c === mesh), 1)
-          this.gui.addScore(-1, newTime)
-        }
-      })
+    this.countableCrates.forEach(mesh => {
+      if (mesh.position.y <= 0.5) {
+        this.countableCrates.splice(this.countableCrates.findIndex(c => c === mesh), 1)
+        this.gui.addScore(-1, newTime)
+      }
+    })
 
     if (this.countableCrates.length)
       this.time += dt
