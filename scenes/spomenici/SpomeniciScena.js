@@ -9,6 +9,7 @@ import GUI from '/core3d/io/GUI.js'
 
 export default class SpomeniciScena extends Scena3D {
   async init() {
+    this.bojaPozadine = 0x87CEEB
     this.dodajMesh(createSun({ intensity: 2 * Math.PI }))
 
     const terrain = await terrainFromHeightmap({ file: 'yu-crop.png', heightFactor: 3, snow: false })
