@@ -24,6 +24,10 @@ const items = {
 }
 
 export default class GlavniMeni extends Scena2D {
+  constructor(manager) {
+    super(manager, { autostart: true })
+  }
+
   start() {
     super.start()
     platno.style.display = 'none'

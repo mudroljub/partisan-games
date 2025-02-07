@@ -4,7 +4,7 @@ import GameLoop from './GameLoop.js'
 import UI from '../ui/UI.js'
 
 export default class Scena {
-  constructor(manager, { autostart = true, usePointerLock } = {}) {
+  constructor(manager, { autostart = false, usePointerLock } = {}) {
     this.manager = manager
     this.gameLoop = new GameLoop(this.loop, usePointerLock)
     this.ui = new UI(this)
@@ -39,8 +39,8 @@ export default class Scena {
   }
 
   handleClick(e) {
-    if (e.target.id == 'unpause')
-      this.unpause()
+    if (e.target.id == 'start')
+      this.start()
 
     if (e.target.id == 'igraj-opet')
       this.manager.start(this.constructor.name)
@@ -69,13 +69,9 @@ export default class Scena {
 
   /* GLAVNA PETLJA */
 
-  unpause() {
-    this.ui.uvodniTekst = ''
-    this.gameLoop.unpause()
-  }
-
   start() {
     this.gameLoop.start()
+    this.ui.uvodniTekst = ''
   }
 
   end() {

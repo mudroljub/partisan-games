@@ -15,7 +15,7 @@ export default class UI {
     return /* html */`
       <div class="central-screen rpgui-container pointer">
         <p>${this.uvodniTekst}</p>
-        <button id="unpause" class="press-start">Press to START!</button>
+        <button id="start" class="press-start">Press to START!</button>
       </div>
     `
   }
@@ -45,14 +45,22 @@ export default class UI {
     return ''
   }
 
-  renderUI(t) {
-    if (this.upamcenUI !== this.vlasnik.sablon(t)) {
-      this.elementUI.innerHTML = this.vlasnik.sablon(t)
-      this.upamcenUI = this.vlasnik.sablon(t)
-    }
+  renderProzor() {
     if (this.upamcenProzor !== this.prozor()) {
       this.prozorElement.innerHTML = this.prozor()
       this.upamcenProzor = this.prozor()
     }
+  }
+
+  renderGUI(t) {
+    if (this.upamcenUI !== this.vlasnik.sablon(t)) {
+      this.elementUI.innerHTML = this.vlasnik.sablon(t)
+      this.upamcenUI = this.vlasnik.sablon(t)
+    }
+  }
+
+  renderUI(t) {
+    this.renderProzor()
+    this.renderGUI(t)
   }
 }
