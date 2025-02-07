@@ -19,16 +19,12 @@ export default class TenkScena extends Scena3D {
   }
 
   init() {
-    this.time = 0
-
     this.scene.add(createSun({ intensity: Math.PI * 2 }))
 
     this.world = new PhysicsWorld({ scene: this.scene })
 
     this.ground = createGround({ color: 0x509f53 })
     this.world.add(this.ground, 0)
-
-    /* OBJECTS */
 
     const tremplin = createTremplin()
     this.world.add(tremplin, 0)
@@ -65,30 +61,26 @@ export default class TenkScena extends Scena3D {
     this.gui.showMessage('Demolish all crates')
   }
 
-  update(dt) {
+  update(dt, t) {
     super.update(dt)
     if (!this.tank) return
-
-    const newTime = Math.floor(this.time + dt)
+    const time = Math.floor(t)
 
     if ((this.tank.input.left || this.tank.input.right) && this.tank.speed >= 30)
       leaveTracks({ vehicle: this.tank, ground: this.ground, scene: this.scene })
 
     this.world.update(dt)
 
-    if (Math.floor(this.time) != newTime)
-      this.gui.addScore(0, newTime)
+    this.gui.addScore(0, time)
 
     this.countableCrates.forEach(mesh => {
       if (mesh.position.y <= 0.5) {
         this.countableCrates.splice(this.countableCrates.findIndex(c => c === mesh), 1)
-        this.gui.addScore(-1, newTime)
+        this.gui.addScore(-1, time)
       }
     })
 
-    if (this.countableCrates.length)
-      this.time += dt
-    else
-      this.gui.renderText(`Bravo!<br>You demolished everything in ${newTime} seconds.`)
+    if (!this.countableCrates.length)
+      this.zavrsi(`Bravo!<br>You demolished everything in ${time} seconds.`)
   }
 }
