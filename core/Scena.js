@@ -39,6 +39,9 @@ export default class Scena {
   }
 
   handleClick(e) {
+    if (e.target.id == 'unpause')
+      this.unpause()
+
     if (e.target.id == 'igraj-opet')
       this.manager.start(this.constructor.name)
 
@@ -65,6 +68,11 @@ export default class Scena {
   }
 
   /* GLAVNA PETLJA */
+
+  unpause() {
+    this.ui.uvodniTekst = ''
+    this.gameLoop.unpause()
+  }
 
   start() {
     this.gameLoop.start()

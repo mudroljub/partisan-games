@@ -19,6 +19,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - GameLoop da ne kreće automatski?
     - popraviti sve 3D scene
     - možda da automatski ide prvi draw
+- BUG: ne radi TenkiciScena zavrsniProzor
 
 ### 3D
 
@@ -35,6 +36,10 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - integrisati stilove
     - spojiti klase za game UI
 - integrisati ui i GUI
+    - uvodniProzor
+        - Press to START da bude dugme
+        - refaktorisati logiku, da ne pauzira pa pušta, no samo da pušta
+        - first draw (problem: prvih par sek je prazno dok učita slike)
     - ukinuti GUI
     - Savo exit prozor ne radi
     - BUG: spinner nije na sredini

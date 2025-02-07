@@ -2,13 +2,22 @@ export default class UI {
   constructor(vlasnik) {
     this.hoceVan = false
     this.vlasnik = vlasnik
-    this.upamcenUI = this.upamcenProzor = this.zavrsniTekst = ''
+    this.upamcenUI = this.upamcenProzor = this.zavrsniTekst = this.uvodniTekst = ''
     this.elementUI = document.getElementById('ui')
     this.prozorElement = document.getElementById('prozor')
   }
 
   cisti() {
     this.elementUI.innerHTML = this.prozorElement.innerHTML = ''
+  }
+
+  uvodniProzor() {
+    return /* html */`
+      <div class="central-screen rpgui-container pointer">
+        <p>${this.uvodniTekst}</p>
+        <h2 id="unpause">Press to START!</h2>
+      </div>
+    `
   }
 
   izadjiProzor() {
@@ -32,6 +41,7 @@ export default class UI {
   prozor() {
     if (this.hoceVan) return this.izadjiProzor()
     if (this.zavrsniTekst) return this.zavrsniProzor()
+    if (this.uvodniTekst) return this.uvodniProzor()
     return ''
   }
 

@@ -25,6 +25,12 @@ export default class BombasScena extends Scena2D {
       .filter(p => !najdaljeTacke.some(tacka => tacka.x === p.x && tacka.y === p.y))
       .map(p => new Mina(p))
     this.dodaj(this.bunker, this.mitraljezac, this.bombas, ...this.mine)
+
+    this.ui.uvodniTekst = 'Dovedi Žikicu Jovanovića Španca do nemačkog bunkera!'
+
+    setTimeout(() => {
+      this.gameLoop.pause()
+    }, 1)
   }
 
   proveriPobedu() {
