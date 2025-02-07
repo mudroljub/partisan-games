@@ -215,13 +215,17 @@ progress.potisak::-moz-progress-bar {
 
 .rpgui-container h1,
 .rpgui-container h2,
-.rpgui-container h3 {
+.rpgui-container h3,
+.press-start {
   /* order is important */
   background: linear-gradient(to bottom, #ff8a00 0%, yellow 100%);
   background-clip: text;
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: none;
+}
+
+button.press-start {
+  font-size: 1.25em;
 }
 
 .rpgui-container li {

@@ -23,8 +23,16 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### 3D
 
+- integrisati ui i GUI
+    - uvodniProzor
+        - refaktorisati logiku, da ne pauzira pa pušta, no samo da pušta
+        - first draw (problem: prvih par sek je prazno dok učita slike)
+    - ukinuti GUI
+    - Savo exit prozor ne radi
+    - BUG: spinner nije na sredini
+- integrisati stilove
+    - spojiti klase za UI pozicioniranje
 - srediti 3D igre:
-    - ukinuti dinamički import svuda
     - urban-guerrilla 
         - promeniti NOB grafite
         - dodati nemce
@@ -33,17 +41,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
         - preimenovati u Operation Ratweek
     - Savo Mitraljezac (uporediti sa starim, srediti)
         - BUG: kuckanje ne staje kad počne igra
-- integrisati stilove
-    - spojiti klase za game UI
-- integrisati ui i GUI
-    - uvodniProzor
-        - Press to START da bude dugme
-        - refaktorisati logiku, da ne pauzira pa pušta, no samo da pušta
-        - first draw (problem: prvih par sek je prazno dok učita slike)
-    - ukinuti GUI
-    - Savo exit prozor ne radi
-    - BUG: spinner nije na sredini
-- srediti 3D koliziju
 - dodati 3d model u 1944?
 
 ### Završno

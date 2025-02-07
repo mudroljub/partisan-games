@@ -15,7 +15,7 @@ export default class UI {
     return /* html */`
       <div class="central-screen rpgui-container pointer">
         <p>${this.uvodniTekst}</p>
-        <h2 id="unpause">Press to START!</h2>
+        <button id="unpause" class="press-start">Press to START!</button>
       </div>
     `
   }
