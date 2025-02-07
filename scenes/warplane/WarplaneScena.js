@@ -64,14 +64,14 @@ export default class WarplaneScena extends Scena3D {
     this.camera.position.set(0, 29, 0)
     this.scene.fog = new THREE.Fog(0xE5C5AB, mapSize * .25, buildingDistance)
 
-    this.scene.add(new THREE.HemisphereLight(0xD7D2D2, 0x302B2F, .25))
-    this.scene.add(createSun({ pos: [50, 200, 50], intensity: Math.PI * 2 }))
+    this.dodajMesh(new THREE.HemisphereLight(0xD7D2D2, 0x302B2F, .25))
+    this.dodajMesh(createSun({ pos: [50, 200, 50], intensity: Math.PI * 2 }))
 
     const groundParams = { size: mapSize, color: 0x91A566, colorRange: .1, segments: 50, min: 0, max: 15 }
     this.ground = createTerrain(groundParams)
     this.ground2 = createTerrain(groundParams)
     this.ground2.position.z = -groundDistance
-    this.scene.add(this.ground, this.ground2)
+    this.dodajMesh(this.ground, this.ground2)
 
     this.gui = new GUI({ subtitle: 'Time left', total: totalTime, endText: 'Bravo! <br>You have completed the mission.', controls, useBlink: true, scoreClass: '' })
     this.gui.showGameScreen({ title: 'Choose your aircraft', subtitle, callback: this.startGame })
@@ -79,7 +79,7 @@ export default class WarplaneScena extends Scena3D {
 
   addMesh(mesh, spread = .33) {
     mesh.position.copy({ x: randFloatSpread(mapSize * spread), y: 0, z: -buildingDistance })
-    this.scene.add(mesh)
+    this.dodajMesh(mesh)
     this.objects.push(mesh)
   }
 

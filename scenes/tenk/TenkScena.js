@@ -19,7 +19,7 @@ export default class TenkScena extends Scena3D {
   }
 
   init() {
-    this.scene.add(createSun({ intensity: Math.PI * 2 }))
+    this.dodajMesh(createSun({ intensity: Math.PI * 2 }))
 
     this.world = new PhysicsWorld({ scene: this.scene })
 
