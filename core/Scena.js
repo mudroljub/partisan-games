@@ -43,7 +43,7 @@ export default class Scena {
       this.start()
 
     if (e.target.id == 'igraj-opet')
-      this.manager.start(this.constructor.name)
+      this.manager.restart(this.constructor.name)
 
     if (e.target.id == 'menu')
       this.manager.start('GlavniMeni')

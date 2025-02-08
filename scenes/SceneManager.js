@@ -30,20 +30,25 @@ class SceneManager {
     if (SceneManager.instance)
       return SceneManager.instance
 
-    this.currentScene = null
+    this.scene = null
     SceneManager.instance = this
     this.spinner = new Spinner()
   }
 
   async start(ime) {
     this.spinner.show()
-    if (this.currentScene)
-      this.currentScene.end()
+    if (this.scene)
+      this.scene.end()
 
     const SceneClass = await import(putanje[ime])
-    this.currentScene = new SceneClass.default(this)
-    this.currentScene.init()
+    this.scene = new SceneClass.default(this)
+    this.scene.init()
     this.spinner.hide()
+  }
+
+  async restart(ime) {
+    await this.start(ime)
+    this.scene.start()
   }
 }
 

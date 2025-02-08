@@ -24,8 +24,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### 3D
 
 - integrisati ui i GUI
-    - uvodniProzor
-        - skloniti na restart?
     - ukinuti GUI
     - Savo exit prozor ne radi
     - BUG: spinner nije na sredini
