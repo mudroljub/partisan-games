@@ -46,6 +46,7 @@ export default class Scena1942 extends Scena2D {
 
     this.dodaj(this.aerodrom, this.igrac, this.ruina, this.vozilo, ...this.oblaci, ...this.zbunovi, ...this.shume)
     this.pocniParalax()
+    this.ui.uvodniTekst = 'Uništi nemački tenk i bezbedno sleti!'
   }
 
   get ostaliPredmeti() {
@@ -138,13 +139,10 @@ export default class Scena1942 extends Scena2D {
 
   sablon() {
     return /* html */`
-      <main class='absolute full'>
-        <h3 class='centar'>Uništi nemački tenk i bezbedno sleti! </h3>
-        <div class='komande bg-poluprovidno komande1'>
-          Pucanje: Space <br>
-          Prateća: Enter <br>
-        </div>
-      </main>
+      <div class='komande bg-poluprovidno komande1'>
+        Pucanje: Space <br>
+        Prateća: Enter <br>
+      </div>
     `
   }
 }

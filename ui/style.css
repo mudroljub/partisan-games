@@ -182,7 +182,7 @@ progress.potisak::-moz-progress-bar {
 
 .central-screen {
   left: 50%;
-  max-width: 480px;
+  max-width: 420px;
   position: absolute;
   text-align: center;
   top: 50%;

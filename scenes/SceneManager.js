@@ -1,6 +1,6 @@
 import { Spinner } from '/core3d/loaders.js'
 
-const putanje = {
+const paths = {
   SpomeniciScena: './spomenici/SpomeniciScena.js',
   BeogradScena: './beograd/BeogradScena.js',
   TenkScena: './tenk/TenkScena.js',
@@ -35,23 +35,29 @@ class SceneManager {
     this.spinner = new Spinner()
   }
 
-  async start(ime) {
+  handleIntro() {
+    if (this.scene.ui.uvodniTekst) {
+      this.scene.cisti()
+      this.scene.ui.renderProzor()
+      setTimeout(() => this.scene.render(), 100) // TODO: scene predmeti onload
+    } else this.scene.start()
+  }
+
+  async start(name, showIntro = true) {
     this.spinner.show()
     if (this.scene)
       this.scene.end()
 
-    const SceneClass = await import(putanje[ime])
+    const SceneClass = await import(paths[name])
     this.scene = new SceneClass.default(this)
     this.scene.init()
     this.spinner.hide()
 
-    if (this.scene.ui.uvodniTekst)
-      this.scene.ui.renderProzor()
-    else this.scene.start()
+    if (showIntro) this.handleIntro()
   }
 
-  async restart(ime) {
-    await this.start(ime)
+  async restart(name) {
+    await this.start(name, false)
     this.scene.start()
   }
 }
