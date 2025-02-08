@@ -36,7 +36,7 @@ class SceneManager {
   }
 
   handleIntro() {
-    if (this.scene.ui.uvodniTekst) {
+    if (this.scene.ui.uvodniTekst || this.scene.uvodniProzor) {
       this.scene.cisti()
       this.scene.ui.renderProzor()
       setTimeout(() => this.scene.render(), 100) // TODO: scene predmeti onload

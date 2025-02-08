@@ -30,41 +30,6 @@ export default class Scena {
     return platno.height
   }
 
-  /* UI */
-
-  sablon() {
-    return ''
-  }
-
-  handleClick(e) {
-    if (e.target.id == 'start')
-      this.start()
-
-    if (e.target.id == 'igraj-opet')
-      this.manager.restart(this.constructor.name)
-
-    if (e.target.id == 'menu')
-      this.manager.start('GlavniMeni')
-
-    if (e.target.id == 'cancel')
-      this.nastaviIgru()
-  }
-
-  potvrdiIzlaz() {
-    this.gameLoop.pause()
-    this.ui.hoceVan = true
-  }
-
-  nastaviIgru() {
-    this.gameLoop.unpause()
-    this.ui.hoceVan = false
-  }
-
-  zavrsi(text = 'Igra je završena.') {
-    this.ui.zavrsniTekst = text
-    this.gameLoop.stopTime()
-  }
-
   /* GLAVNA PETLJA */
 
   start() {
@@ -108,5 +73,40 @@ export default class Scena {
     this.cisti()
     this.render()
     this.ui.renderUI(t)
+  }
+
+  /* UI */
+
+  sablon() {
+    return ''
+  }
+
+  handleClick(e) {
+    if (e.target.id == 'start')
+      this.start()
+
+    if (e.target.id == 'igraj-opet')
+      this.manager.restart(this.constructor.name)
+
+    if (e.target.id == 'menu')
+      this.manager.start('GlavniMeni')
+
+    if (e.target.id == 'cancel')
+      this.nastaviIgru()
+  }
+
+  potvrdiIzlaz() {
+    this.gameLoop.pause()
+    this.ui.hoceVan = true
+  }
+
+  nastaviIgru() {
+    this.gameLoop.unpause()
+    this.ui.hoceVan = false
+  }
+
+  zavrsi(text = 'Igra je završena.') {
+    this.ui.zavrsniTekst = text
+    this.gameLoop.stopTime()
   }
 }
