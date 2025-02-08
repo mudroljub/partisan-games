@@ -58,6 +58,7 @@ export default class SavoScena extends Scena3D {
     super.start()
     // this.report.stop()
     this.uvodniProzor = null
+    document.body.requestPointerLock() // gameLoop starts
   }
 
   handleClick(e) {
