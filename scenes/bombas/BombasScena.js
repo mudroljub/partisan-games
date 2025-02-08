@@ -28,6 +28,7 @@ export default class BombasScena extends Scena2D {
 
     this.ui.uvodniTekst = 'Dovedi Žikicu Jovanovića Španca do nemačkog bunkera!'
     this.ui.renderProzor()
+    this.bombas.onload = () => this.render()
   }
 
   proveriPobedu() {

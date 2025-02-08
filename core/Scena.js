@@ -77,6 +77,7 @@ export default class Scena {
   end() {
     this.gameLoop.stop()
     this.predmeti = []
+    this.cisti()
     this.ui.cisti()
     document.removeEventListener('click', this.handleClick)
   }
@@ -107,7 +108,7 @@ export default class Scena {
     this.proveriTipke(dt)
     this.update(dt, t)
     this.cisti()
-    this.render(dt, t)
+    this.render()
     this.ui.renderUI(t)
   }
 }

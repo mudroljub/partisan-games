@@ -25,8 +25,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - integrisati ui i GUI
     - uvodniProzor
-        - first draw (problem: prvih par sek je prazno dok učita slike)
-        - restart ne resetuje (možda fali prvi loop)
+        - skloniti na restart?
     - ukinuti GUI
     - Savo exit prozor ne radi
     - BUG: spinner nije na sredini

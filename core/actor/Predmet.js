@@ -14,9 +14,11 @@ export default class Predmet {
     odrazY = 1, odrazX = 1, scaleX = 1, scaleY = 1, senka = false, debug = false,
   } = {}) {
     this.polozaj = new Vector(x, y, z)
-    this.sirina = sirina || 10
-    this.visina = visina || 10
     if (src) this.ucitajSliku(src, sirina, visina, skalar)
+    else {
+      this.sirina = sirina || 10
+      this.visina = visina || 10
+    }
     this.brzina = brzina
     this.zapaljiv = zapaljiv
     this.ishodiste = ishodiste
