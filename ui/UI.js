@@ -13,7 +13,7 @@ export default class UI {
 
   uvodniProzor() {
     return /* html */`
-      <div class="central-screen rpgui-container pointer">
+      <div class="central-screen rpgui-container" style="max-width: 480px">
         <p>${this.uvodniTekst}</p>
         <button id="start" class="press-start">Press to START!</button>
       </div>

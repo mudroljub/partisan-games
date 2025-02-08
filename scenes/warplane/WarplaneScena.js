@@ -111,7 +111,7 @@ export default class WarplaneScena extends Scena3D {
 
   uvodniProzor() {
     return /* html */`
-      <div class="central-screen rpgui-container pointer">
+      <div class="central-screen rpgui-container pointer" style="max-width: 480px">
       <h2>Choose your aircraft</h2>
     
       <div class="game-screen-select">
