@@ -21,7 +21,8 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - uvodniProzor
     - zameniti svuda na 3D
-    - umesto scena uvodniProzor napraviti nesto poput uvodniText, npr uvodniHtml
+    - umesto uvodniProzor napraviti nesto poput uvodniHtml?
+        - problem: restart briše uvodni prozor, a treba nam svaki put
 - integrisati ui i GUI
     - ukinuti GUI
     - Savo exit prozor ne radi

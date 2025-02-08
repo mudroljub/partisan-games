@@ -89,13 +89,14 @@ export default class RajlovacScena extends Scena3D {
 
   handleClick(e) {
     super.handleClick(e)
-    this.startGame()
+    if (e.target.id == 'start-game')
+      this.startGame()
   }
 
   uvodniProzor() {
     return /* html */`
     <div class="central-screen rpgui-container" id="central-screen">
-      <button id="start" class="press-start">Press to START!</button>
+      <button id="start-game" class="press-start">Press to START!</button>
       <div>
         Shoot: MOUSE<br>
         Move: WASD or ARROWS<br>
