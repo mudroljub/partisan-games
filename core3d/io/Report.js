@@ -22,20 +22,22 @@ export default class Report {
     this.init()
   }
 
+  init() {
+    if (this.intervalId) return
+    this.intervalId = setInterval(this.kucaj, 80)
+    this.audio.play()
+  }
+
   kucaj = () => {
     this.p.innerHTML += this.text.charAt(this.i)
     this.p.innerHTML = this.p.innerHTML.replace(/\n/g, '<br>')
-    if (this.i >= this.text.length) {
-      this.audio.pause()
-      clearInterval(this.intervalId)
-    }
-    if (this.container.style.display == 'none') this.audio.volume = 0
+    if (this.i >= this.text.length)
+      this.stop()
     this.i++
   }
 
-  init() {
-    if (this.intervalId) return
-    this.intervalId = window.setInterval(this.kucaj, 80)
-    this.audio.play()
+  stop() {
+    this.audio.pause()
+    clearInterval(this.intervalId)
   }
 }

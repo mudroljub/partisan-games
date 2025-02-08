@@ -25,7 +25,7 @@ export default class RajlovacScena extends Scena3D {
   }
 
   async init() {
-    // this.setupGUI()
+    this.setupGUI()
     this.bojaPozadine = 0x440033
     const ground = createGround({ file: 'terrain/ground.jpg' })
     ground.position.y -= .1
@@ -73,24 +73,28 @@ export default class RajlovacScena extends Scena3D {
 
     this.dodajMesh(ground, floor, createMoon(), airport, airport2, bunker)
     this.dodaj(...this.aircraft, this.player)
+
+    this.report = new Report({ container: document.getElementById('central-screen'), text: 'The German planes that sow death among our combatants are stationed at the Rajlovac Airport near Sarajevo.\n\nEnter the airport and destroy all enemy aircraft.' })
   }
 
   setupGUI() {
     this.gui = new GUI({ subtitle: 'Aircraft left', total: dornierNum + stukaNum + heinkelNum, scoreClass: '', controls: fpsControls, controlsWindowClass: 'white-window' })
-
-    this.gui.showGameScreen({ callback: () => this.start(), usePointerLock: true, subtitle: 'Shoot: MOUSE<br>Move: WASD or ARROWS<br>Run: CAPSLOCK' })
-
-    new Report({ container: this.gui.gameScreen, text: 'The German planes that sow death among our combatants are stationed at the Rajlovac Airport near Sarajevo.\n\nEnter the airport and destroy all enemy aircraft.' })
   }
 
-  start() {
+  startGame() {
     super.start()
+    this.report.stop()
     this.uvodniProzor = null
+  }
+
+  handleClick(e) {
+    super.handleClick(e)
+    this.startGame()
   }
 
   uvodniProzor() {
     return /* html */`
-    <div class="central-screen rpgui-container">
+    <div class="central-screen rpgui-container" id="central-screen">
       <button id="start" class="press-start">Press to START!</button>
       <div>
         Shoot: MOUSE<br>
