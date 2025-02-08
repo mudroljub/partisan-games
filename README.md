@@ -21,8 +21,11 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - uvodniProzor
     - zameniti svuda na 3D
+        - BUG: ne radi pointer lock
     - umesto uvodniProzor napraviti nesto poput uvodniHtml?
         - problem: restart briše uvodni prozor, a treba nam svaki put
+        - apstrahovati gui: WarplaneScena, Rajlovac i Savo
+        - startGame i handleClick su vrv suvišni
 - integrisati ui i GUI
     - ukinuti GUI
     - Savo exit prozor ne radi

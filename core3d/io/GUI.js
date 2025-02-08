@@ -141,12 +141,12 @@ export default class GUI {
   }
 
   closeGameScreen() {
-    this.gameScreen.classList.remove('rpgui-container', 'pointer')
+    this.gameScreen.classList.remove('rpgui-container')
     this.gameScreen.innerHTML = ''
   }
 
   openGameScreen(html) {
-    this.gameScreen.classList.add('rpgui-container', 'pointer')
+    this.gameScreen.classList.add('rpgui-container')
     this.gameScreen.innerHTML = html
   }
 
