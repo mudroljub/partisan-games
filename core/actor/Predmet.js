@@ -35,6 +35,8 @@ export default class Predmet {
   }
 
   ucitajSliku(src, sirina, visina, skalar) {
+    this.sirina = sirina
+    this.visina = visina
     this.slika = new Image()
     this.slika.onload = () => {
       this.dodeliVelicinu(sirina, visina, skalar)

@@ -19,11 +19,11 @@ export function sudar(kvadrat1, kvadrat2) {
   )
 }
 
-export function unutar(tacka, kvadrat) {
+export function unutar(tacka, predmet) {
   return (
-    tacka.x > levo(kvadrat) &&
-    tacka.x < desno(kvadrat) &&
-    tacka.y > gore(kvadrat) &&
-    tacka.y < dole(kvadrat)
+    tacka.x > levo(predmet) &&
+    tacka.x < desno(predmet) &&
+    tacka.y > gore(predmet) &&
+    tacka.y < dole(predmet)
   )
 }
