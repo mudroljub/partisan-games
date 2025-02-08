@@ -62,28 +62,7 @@ export default class WarplaneScena extends Scena3D {
 
     this.gui = new GUI({ subtitle: 'Time left', total: totalTime, endText: 'Bravo! <br>You have completed the mission.', controls, useBlink: true, scoreClass: '' })
     this.startGame = this.startGame.bind(this)
-    // this.gui.showGameScreen({ title: 'Choose your aircraft', subtitle, callback: this.startGame })
     this.render()
-  }
-
-  uvodniProzor() {
-    return /* html */`
-      <div class="central-screen rpgui-container pointer">
-      <h2>Choose your aircraft</h2>
-    
-      <div class="game-screen-select">
-        <input type="image" id="Biplane" src="/assets/images/airplanes/Biplane.png">
-        <input type="image" id="Triplane" src="/assets/images/airplanes/Triplane.png">
-        <input type="image" id="Messerschmitt" src="/assets/images/airplanes/Messerschmitt.png">
-        <input type="image" id="Bomber" src="/assets/images/airplanes/Bomber.png">
-      </div>    
-    </div>
-    `
-  }
-
-  handleClick(e) {
-    super.handleClick(e)
-    this.startGame(e)
   }
 
   addMesh(mesh, spread = .33) {
@@ -112,7 +91,7 @@ export default class WarplaneScena extends Scena3D {
   async startGame(e) {
     if (e.target.tagName != 'INPUT') return
 
-    this.gui.clearScreen()
+    this.uvodniProzor = null
 
     const obj = await import(`/core3d/aircraft/derived/${e.target.id}.js`)
     this.warplane = new obj.default({ camera: this.camera, limit: mapSize * .25 })
@@ -121,6 +100,28 @@ export default class WarplaneScena extends Scena3D {
 
     this.gui.showMessage('Destroy enemy factories,<br><br>do not target civilian buildings')
     super.start()
+  }
+
+  handleClick(e) {
+    super.handleClick(e)
+    this.startGame(e)
+  }
+
+  /* GUI */
+
+  uvodniProzor() {
+    return /* html */`
+      <div class="central-screen rpgui-container pointer">
+      <h2>Choose your aircraft</h2>
+    
+      <div class="game-screen-select">
+        <input type="image" id="Biplane" src="/assets/images/airplanes/Biplane.png">
+        <input type="image" id="Triplane" src="/assets/images/airplanes/Triplane.png">
+        <input type="image" id="Messerschmitt" src="/assets/images/airplanes/Messerschmitt.png">
+        <input type="image" id="Bomber" src="/assets/images/airplanes/Bomber.png">
+      </div>    
+    </div>
+    `
   }
 
   /* UPDATES */
