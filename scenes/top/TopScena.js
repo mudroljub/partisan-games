@@ -21,7 +21,7 @@ export default class TopScena extends Scena2D {
     this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)
   }
 
-  handleClick = e => {
+  handleClick(e) {
     super.handleClick(e)
     if (e.target.id == 'dva-igraca') this.tenk.ai = !this.tenk.ai
   }

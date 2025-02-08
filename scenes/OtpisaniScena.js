@@ -22,7 +22,7 @@ export default class OtpisaniScena extends Scena2D {
     this.predmeti.push(new Okupator({ callback: dt => this.skiniEnergiju(dt * 5) }))
   }
 
-  handleClick = e => {
+  handleClick(e) {
     super.handleClick(e)
     this.predmeti.forEach(svabo => svabo.proveriPogodak(() => this.poeni++))
     this.pesma.play()

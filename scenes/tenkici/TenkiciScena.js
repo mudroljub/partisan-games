@@ -17,7 +17,7 @@ export default class TenkiciScena extends Scena2D {
     this.predmeti = [this.tenk, this.tenk2]
   }
 
-  handleClick = e => {
+  handleClick(e) {
     super.handleClick(e)
     if (e.target.id == 'dva-igraca') this.tenk2.ai = !this.tenk2.ai
   }

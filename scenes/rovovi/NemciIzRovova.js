@@ -33,7 +33,7 @@ export default class NemciIzRovova extends Scena2D {
     })
   }
 
-  handleClick = e => {
+  handleClick(e) {
     super.handleClick(e)
     const ciljaniRovovi = (mish.y <= DALJI_Y) ? this.daljiRovovi : this.bliziRovovi
     this.proveriPogotke(ciljaniRovovi)

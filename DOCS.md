@@ -4,16 +4,16 @@
 
 `Scena2D` automatski poziva razne metode, koje nasledne scene mogu implementirati.
 
-Metode koje poziva jednom:
+Metoda koje poziva jednom:
 
 ```js
 init()
 ```
 
-Metode koje poziva na klik:
+Metoda koje poziva na klik:
 
 ```js
-handleClick = () => {}
+handleClick(e)
 ```
 
 #### Glavna petlja

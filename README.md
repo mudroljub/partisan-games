@@ -10,15 +10,11 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
-- BUG: Nemci iz rovova i Otpisani ne radi nišan (problem: handleClick)
+### BUGFIX
+
+- BUG: Otpisani ne radi nišan
 - BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
     - i Bombaš i drugi nivoi baguju, zeza GameLoop?
-- ukloniti poruke iz sablona, ostaviti samo score
-- BUG: ne radi tenkići dodaj igrača
-
-- GameLoop da ne kreće automatski?
-    - popraviti sve 3D scene
-    - možda da automatski ide prvi draw
 - BUG: ne radi TenkiciScena zavrsniProzor
 - BUG: 1944 nema pozadine
 
