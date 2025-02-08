@@ -10,7 +10,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
-- BUG: Nemci iz rovova i Otpisani ne radi nišan (zbog css-a?)
+- BUG: Nemci iz rovova i Otpisani ne radi nišan (problem: handleClick)
 - BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
     - i Bombaš i drugi nivoi baguju, zeza GameLoop?
 - ukloniti poruke iz sablona, ostaviti samo score

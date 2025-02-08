@@ -182,7 +182,7 @@ progress.potisak::-moz-progress-bar {
 
 .central-screen {
   left: 50%;
-  max-width: 420px;
+  max-width: 480px;
   position: absolute;
   text-align: center;
   top: 50%;
@@ -243,6 +243,11 @@ button.press-start {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.game-screen-select input[type=image] {
+  border: 3px solid black; 
+  height: 100px;
 }
 
 /* REPORT */

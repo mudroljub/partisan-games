@@ -25,17 +25,6 @@ const controls = {
   'Enter': 'attack',
 }
 
-const style = 'border: 3px solid black; height: 180px'
-const options = ['Biplane', 'Triplane', 'Messerschmitt', 'Bomber'].map(name =>
-  `<input type="image" id="${name}" src="/assets/images/airplanes/${name}.png" style="${style}" />`
-).join('')
-
-const subtitle = `
-  <div class="game-screen-select">
-    ${options}
-  </div>
-`
-
 const createBuilding = async time => {
   const minutes = Math.floor(time / 60)
   switch (randInt(1, 7 + minutes)) {
@@ -72,8 +61,29 @@ export default class WarplaneScena extends Scena3D {
     this.dodajMesh(this.ground, this.ground2)
 
     this.gui = new GUI({ subtitle: 'Time left', total: totalTime, endText: 'Bravo! <br>You have completed the mission.', controls, useBlink: true, scoreClass: '' })
-    this.gui.showGameScreen({ title: 'Choose your aircraft', subtitle, callback: this.start })
+    this.startGame = this.startGame.bind(this)
+    // this.gui.showGameScreen({ title: 'Choose your aircraft', subtitle, callback: this.startGame })
     this.render()
+  }
+
+  uvodniProzor() {
+    return /* html */`
+      <div class="central-screen rpgui-container pointer">
+      <h2>Choose your aircraft</h2>
+    
+      <div class="game-screen-select">
+        <input type="image" id="Biplane" src="/assets/images/airplanes/Biplane.png">
+        <input type="image" id="Triplane" src="/assets/images/airplanes/Triplane.png">
+        <input type="image" id="Messerschmitt" src="/assets/images/airplanes/Messerschmitt.png">
+        <input type="image" id="Bomber" src="/assets/images/airplanes/Bomber.png">
+      </div>    
+    </div>
+    `
+  }
+
+  handleClick(e) {
+    super.handleClick(e)
+    this.startGame(e)
   }
 
   addMesh(mesh, spread = .33) {
@@ -99,7 +109,7 @@ export default class WarplaneScena extends Scena3D {
     }
   }
 
-  async start(e) {
+  async startGame(e) {
     if (e.target.tagName != 'INPUT') return
 
     this.gui.clearScreen()
