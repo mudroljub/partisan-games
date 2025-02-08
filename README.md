@@ -22,9 +22,9 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - BUG: ne radi TenkiciScena zavrsniProzor
 - BUG: 1944 nema pozadine
 
-### 3D
+### UI
+
 - uvodniProzor
-    - dodati svuda na 2D
     - zameniti svuda na 3D
 - integrisati ui i GUI
     - ukinuti GUI
@@ -32,6 +32,8 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - BUG: spinner nije na sredini
 - integrisati stilove
     - spojiti klase za UI pozicioniranje
+
+### 3D
 - srediti 3D igre:
     - urban-guerrilla 
         - promeniti NOB grafite
