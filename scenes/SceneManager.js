@@ -44,6 +44,10 @@ class SceneManager {
     this.scene = new SceneClass.default(this)
     this.scene.init()
     this.spinner.hide()
+
+    if (this.scene.ui.uvodniTekst)
+      this.scene.ui.renderProzor()
+    else this.scene.start()
   }
 
   async restart(ime) {

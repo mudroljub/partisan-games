@@ -21,7 +21,7 @@ const dornierNum = 8, stukaNum = 8, heinkelNum = 7
 
 export default class RajlovacScena extends Scena3D {
   constructor(manager) {
-    super(manager, { autostart: true, usePointerLock: true })
+    super(manager, { usePointerLock: true })
   }
 
   async init() {

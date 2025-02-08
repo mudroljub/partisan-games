@@ -10,7 +10,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
-- BUG: Nemci iz rovova ne rade zbog css-a?
+- BUG: Nemci iz rovova i Otpisani ne radi nišan (zbog css-a?)
 - BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
     - i Bombaš i drugi nivoi baguju, zeza GameLoop?
 - ukloniti poruke iz sablona, ostaviti samo score
@@ -20,9 +20,12 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - popraviti sve 3D scene
     - možda da automatski ide prvi draw
 - BUG: ne radi TenkiciScena zavrsniProzor
+- BUG: 1944 nema pozadine
 
 ### 3D
-
+- uvodniProzor
+    - dodati svuda na 2D
+    - zameniti svuda na 3D
 - integrisati ui i GUI
     - ukinuti GUI
     - Savo exit prozor ne radi

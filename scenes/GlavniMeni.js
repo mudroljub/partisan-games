@@ -25,7 +25,8 @@ const items = {
 
 export default class GlavniMeni extends Scena2D {
   constructor(manager) {
-    super(manager, { autostart: true })
+    super(manager)
+    this.start()
   }
 
   start() {

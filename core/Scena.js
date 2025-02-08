@@ -4,7 +4,7 @@ import GameLoop from './GameLoop.js'
 import UI from '../ui/UI.js'
 
 export default class Scena {
-  constructor(manager, { autostart = false, usePointerLock } = {}) {
+  constructor(manager, { usePointerLock } = {}) {
     this.manager = manager
     this.gameLoop = new GameLoop(this.loop, usePointerLock)
     this.ui = new UI(this)
@@ -12,8 +12,6 @@ export default class Scena {
     this.start = this.start.bind(this)
     this.handleClick = this.handleClick.bind(this)
     document.addEventListener('click', this.handleClick)
-
-    if (autostart) this.start()
   }
 
   init() {}

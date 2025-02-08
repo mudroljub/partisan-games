@@ -15,7 +15,7 @@ import FirstAid from '/core3d/objects/FirstAid.js'
 
 export default class SavoScena extends Scena3D {
   constructor(manager) {
-    super(manager, { autostart: false, usePointerLock: true, toon: true })
+    super(manager, { usePointerLock: true, toon: true })
   }
 
   init() {
