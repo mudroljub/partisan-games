@@ -1,9 +1,13 @@
 import config from '/config.js'
 
-function createHtml(container) {
+function createHtml(id) {
   const div = document.createElement('div')
   div.className = 'report'
-  container.prepend(div)
+
+  setTimeout(() => {
+    const container = document.getElementById(id)
+    container.prepend(div)
+  }, 1)
 
   const p = document.createElement('p')
   div.appendChild(p)
@@ -11,12 +15,12 @@ function createHtml(container) {
 }
 
 export default class Report {
-  constructor({ text = 'Destroy all enemy aircraft.', container = document.body } = {}) {
+  constructor({ text = 'Destroy all enemy aircraft.', containerId } = {}) {
     this.i = 0
     this.intervalId
     this.text = text
-    this.container = container
-    this.p = createHtml(container)
+    this.containerId = containerId
+    this.p = createHtml(containerId)
     this.audio = new Audio('/assets/sounds/typing.mp3')
     this.audio.volume = config.volume
     this.init()

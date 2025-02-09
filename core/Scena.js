@@ -52,13 +52,8 @@ export default class Scena {
   }
 
   handlePointerLockChange = () => {
-    // if (!this.isRunning)
-    //   this.start(this.sceneLoop)
-    // else
     if (!document.pointerLockElement)
       this.pokaziProzor()
-    // else
-    //   this.nastaviIgru()
   }
 
   handleVisibilityChange = () => {

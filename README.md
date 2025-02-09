@@ -16,12 +16,13 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - i Bombaš i drugi nivoi baguju, zeza GameLoop?
 - BUG: ne radi TenkiciScena zavrsniProzor
 - BUG: 1944 nema pozadine
-- BUG: Savo nije pauziran na restart
+- BUG: Savo nije pauziran na restart (možda autostart false?)
+- BUG: Savo mrtav nema prozorce
 
 ### UI
 
 - zameniti svuda na 3D
-    - BUG: report nema container na Savo
+    - BUG: Rajlovac nema pointer lock
 - umesto uvodniProzor napraviti nesto poput uvodniHtml?
     - problem: restart briše uvodni prozor, a treba nam svaki put
     - apstrahovati gui: WarplaneScena, Rajlovac i Savo
