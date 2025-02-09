@@ -6,12 +6,17 @@ import UI from '../ui/UI.js'
 export default class Scena {
   constructor(manager, { usePointerLock } = {}) {
     this.manager = manager
-    this.gameLoop = new GameLoop(this.loop, usePointerLock)
+    this.usePointerLock = usePointerLock
+    this.gameLoop = new GameLoop(this.loop)
     this.ui = new UI(this)
     this.predmeti = []
     this.start = this.start.bind(this)
     this.handleClick = this.handleClick.bind(this)
     document.addEventListener('click', this.handleClick)
+    if (usePointerLock)
+      document.addEventListener('pointerlockchange', this.handlePointerLockChange)
+    // else
+    //   document.addEventListener('visibilitychange', this.handleVisibilityChange)
   }
 
   init() {}
@@ -30,7 +35,40 @@ export default class Scena {
     return platno.height
   }
 
-  /* GLAVNA PETLJA */
+  /* EVENTS */
+
+  handleClick(e) {
+    if (e.target.id == 'start')
+      this.start()
+
+    if (e.target.id == 'igraj-opet')
+      this.manager.restart(this.constructor.name)
+
+    if (e.target.id == 'menu')
+      this.manager.start('GlavniMeni')
+
+    if (e.target.id == 'cancel')
+      this.nastaviIgru()
+  }
+
+  handlePointerLockChange = () => {
+    // if (!this.isRunning)
+    //   this.start(this.sceneLoop)
+    // else
+    if (!document.pointerLockElement)
+      this.pokaziProzor()
+    // else
+    //   this.nastaviIgru()
+  }
+
+  handleVisibilityChange = () => {
+    if (document.visibilityState === 'hidden')
+      this.pause()
+    else
+      this.unpause()
+  }
+
+  /* LOOP */
 
   start() {
     this.gameLoop.start()
@@ -43,12 +81,14 @@ export default class Scena {
     this.cisti()
     this.ui.cisti()
     document.removeEventListener('click', this.handleClick)
+    document.removeEventListener('visibilitychange', this.handleVisibilityChange)
+    document.removeEventListener('pointerlockchange', this.handlePointerLockChange)
   }
 
   proveriTipke(dt) {
     if (this.ui.zavrsniTekst) return
 
-    if (keyboard.pressed.Escape) this.potvrdiIzlaz()
+    if (keyboard.pressed.Escape) this.pokaziProzor()
 
     this.predmeti.forEach(predmet => {
       if (predmet.ziv && predmet.proveriTipke) predmet.proveriTipke(dt)
@@ -81,28 +121,15 @@ export default class Scena {
     return ''
   }
 
-  handleClick(e) {
-    if (e.target.id == 'start')
-      this.start()
-
-    if (e.target.id == 'igraj-opet')
-      this.manager.restart(this.constructor.name)
-
-    if (e.target.id == 'menu')
-      this.manager.start('GlavniMeni')
-
-    if (e.target.id == 'cancel')
-      this.nastaviIgru()
-  }
-
-  potvrdiIzlaz() {
-    this.gameLoop.pause()
+  pokaziProzor() {
+    setTimeout(() => this.gameLoop.pause(), 1)
     this.ui.hoceVan = true
   }
 
   nastaviIgru() {
     this.gameLoop.unpause()
     this.ui.hoceVan = false
+    if (this.usePointerLock) document.body.requestPointerLock()
   }
 
   zavrsi(text = 'Igra je završena.') {

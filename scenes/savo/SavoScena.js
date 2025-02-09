@@ -46,7 +46,7 @@ export default class SavoScena extends Scena3D {
       this.dodajMesh(firstAid.mesh)
     }
 
-    this.setupGUI()
+    // this.setupGUI()
     // this.report = new Report({ container: document.getElementById('central-screen'), text: 'After a successful sabotage mission you stayed behind enemy lines.\n\nFind the way out of the enemy base.' })
   }
 
@@ -58,7 +58,7 @@ export default class SavoScena extends Scena3D {
     super.start()
     // this.report.stop()
     this.uvodniProzor = null
-    document.body.requestPointerLock() // gameLoop starts
+    document.body.requestPointerLock()
   }
 
   handleClick(e) {
@@ -96,11 +96,11 @@ export default class SavoScena extends Scena3D {
     const left = this.enemies.length - killed.length
     const won = this.player.position.distanceTo(this.maze.exitPosition) < 5
 
-    if (won)
-      this.gui.renderText(`Bravo!<br>You found a way out<br> and kill ${killed.length} of ${this.enemies.length} enemies`)
+    // if (won)
+    //   this.gui.renderText(`Bravo!<br>You found a way out<br> and kill ${killed.length} of ${this.enemies.length} enemies`)
 
-    const blinkingMessage = won ? '' : 'Find a way out!'
-    this.gui.update({ time: t, points: killed.length, left, dead: this.player.dead, blinkingMessage })
+    // const blinkingMessage = won ? '' : 'Find a way out!'
+    // this.gui.update({ time: t, points: killed.length, left, dead: this.player.dead, blinkingMessage })
 
     if (Math.random() > .998) lightningStrike(this.light, this.scene)
   }

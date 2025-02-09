@@ -1,5 +1,5 @@
 export default class GameLoop {
-  constructor(sceneLoop, usePointerLock = false) {
+  constructor(sceneLoop) {
     this.sceneLoop = sceneLoop
     this.lastTimestamp = 0
     this.time = 0
@@ -7,11 +7,6 @@ export default class GameLoop {
     this.isPaused = this.timeStopped = false
 
     document.addEventListener('keypress', this.handleKeyPress)
-
-    // if (usePointerLock)
-    //   document.addEventListener('pointerlockchange', this.handlePointerLockChange)
-    // else
-    //   document.addEventListener('visibilitychange', this.handleVisibilityChange)
   }
 
   get isRunning() {
@@ -38,8 +33,6 @@ export default class GameLoop {
     this.time = 0
 
     document.removeEventListener('keypress', this.handleKeyPress)
-    document.removeEventListener('visibilitychange', this.handleVisibilityChange)
-    document.removeEventListener('pointerlockchange', this.handlePointerLockChange)
   }
 
   pause() {
@@ -66,22 +59,6 @@ export default class GameLoop {
     if (event.code === 'KeyP')
       if (this.isPaused) this.unpause()
       else this.pause()
-  }
-
-  handlePointerLockChange = () => {
-    if (!this.isRunning)
-      this.start(this.sceneLoop)
-    else if (!document.pointerLockElement)
-      this.pause()
-    else
-      this.unpause()
-  }
-
-  handleVisibilityChange = () => {
-    if (document.visibilityState === 'hidden')
-      this.pause()
-    else
-      this.unpause()
   }
 
   /* LOOP */
