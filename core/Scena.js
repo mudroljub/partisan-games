@@ -52,6 +52,7 @@ export default class Scena {
   }
 
   handlePointerLockChange = () => {
+    if (this.ui.zavrsniTekst) return
     if (!document.pointerLockElement)
       this.pokaziProzor()
   }
@@ -139,5 +140,6 @@ export default class Scena {
   zavrsi(text = 'Igra je završena.') {
     this.ui.zavrsniTekst = text
     this.gameLoop.stopTime()
+    if (this.usePointerLock) document.exitPointerLock()
   }
 }

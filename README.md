@@ -16,14 +16,13 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - i Bombaš i drugi nivoi baguju, zeza GameLoop?
 - BUG: ne radi TenkiciScena zavrsniProzor
 - BUG: 1944 nema pozadine
-- BUG: Savo mrtav nema zavrsniProzor
+- BUG: Savo igraj opet ne ubija neprijatelje
 
 ### UI
 
 - integrisati ui i GUI
     - FIX: Warplane Scena  uvodniProzor()
     - ukinuti GUI
-    - Savo exit prozor ne radi
     - BUG: spinner nije na sredini
     - iskulirati Report, integrisati ga na kraju
 - integrisati stilove

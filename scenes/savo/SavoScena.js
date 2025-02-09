@@ -62,6 +62,19 @@ export default class SavoScena extends Scena3D {
     this.player.end()
   }
 
+  sablon() {
+    const killed = this.enemies.filter(enemy => enemy.energy <= 0)
+    const left = this.enemies.length - killed.length
+    return /* html */`
+      <div class="score ">
+        <p>
+          Score: ${killed.length}<br>
+          <small>Enemy left: ${left}</small>
+        </p>
+      </div>
+    `
+  }
+
   update(dt, t) {
     super.update(dt, t)
 
@@ -72,6 +85,8 @@ export default class SavoScena extends Scena3D {
     if (won)
       this.zavrsi(`Bravo!<br>You found a way out<br> and kill ${killed.length} of ${this.enemies.length} enemies`)
 
+    if (this.player.dead)
+      this.zavrsi('You are dead.')
     // const blinkingMessage = won ? '' : 'Find a way out!'
     // this.gui.update({ time: t, points: killed.length, left, dead: this.player.dead, blinkingMessage })
 
