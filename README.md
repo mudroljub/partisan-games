@@ -21,6 +21,8 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### UI
 
 - integrisati ui i GUI
+    - komande
+    - blinkingMessage
     - FIX: Warplane Scena  uvodniProzor()
     - ukinuti GUI
     - BUG: spinner nije na sredini

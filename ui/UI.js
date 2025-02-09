@@ -1,14 +1,18 @@
+import Controls from './Controls.js'
+
 export default class UI {
-  constructor(vlasnik) {
+  constructor(vlasnik, { pokaziKontrole = true } = {}) {
     this.hoceVan = false
     this.vlasnik = vlasnik
     this.upamcenUI = this.upamcenProzor = this.zavrsniTekst = this.uvodniTekst = ''
     this.elementUI = document.getElementById('ui')
     this.prozorElement = document.getElementById('prozor')
+    if (pokaziKontrole) this.kontrole = new Controls()
   }
 
   cisti() {
     this.elementUI.innerHTML = this.prozorElement.innerHTML = ''
+    if (this.kontrole) this.kontrole.end()
   }
 
   uvodniProzor() {
