@@ -40,8 +40,7 @@ class SceneManager {
       this.scene.cisti()
       this.scene.ui.renderProzor()
       this.scene.render() // TODO: scene predmeti onload za 2D?
-    } 
-    else this.scene.start()
+    } else this.scene.start()
   }
 
   async start(name, showIntro = true) {

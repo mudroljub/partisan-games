@@ -23,7 +23,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - iskulirati Report, integrisati ga na kraju
 
-- Savo ne počinje, Rajlovac počinje odmah
 - umesto uvodniProzor napraviti nesto poput uvodniHtml?
     - problem: restart briše uvodni prozor, a treba nam svaki put
     - apstrahovati gui: WarplaneScena, Rajlovac i Savo

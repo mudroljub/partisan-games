@@ -181,7 +181,7 @@ export default class GUI {
 
       if (callback) callback(e)
       if (autoClose) this.clearScreen()
-      if (usePointerLock) document.body.requestPointerLock() // gameLoop starts
+      if (usePointerLock) document.body.requestPointerLock()
     }
 
     if (usePointerLock) document.addEventListener('pointerlockchange', () =>
