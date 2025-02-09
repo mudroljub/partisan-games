@@ -5,7 +5,7 @@ const baseControls = {
   '↓ or S': 'backward',
 }
 
-const fpsControls = {
+export const fpsControls = {
   ...baseControls,
   'PgUp or Q': 'strafe left',
   'PgDn or E': 'strafe right',
@@ -17,15 +17,15 @@ const fpsControls = {
 
 export default class Controls {
   constructor({
-    controls = fpsControls,
+    controlKeys = baseControls,
     btnClass = '', // rpgui-button
     containerClass = 'rpgui-container',
   } = {}) {
     this.controlsOpen = false
-    this.init(controls, btnClass, containerClass)
+    this.init(controlKeys, btnClass, containerClass)
   }
 
-  init(controls, btnClass, containerClass) {
+  init(controlKeys, btnClass, containerClass) {
     this.div = document.createElement('div')
     this.div.className = 'controls'
 
@@ -34,11 +34,10 @@ export default class Controls {
 
     const content = document.createElement('div')
     content.className = containerClass
-    content.innerHTML = Object.keys(controls)
-      .filter(key => controls[key])
-      .map(key =>
-        `<p><b>${key}</b> - ${controls[key]}</p>`
-      ).join('')
+    content.innerHTML = Object.keys(controlKeys)
+      .filter(key => controlKeys[key])
+      .map(key => `<p><b>${key}</b> - ${controlKeys[key]}</p>`)
+      .join('')
 
     const open = () => {
       content.style.display = 'block'

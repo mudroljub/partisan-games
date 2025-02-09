@@ -2,16 +2,20 @@ import { keyboard } from './io/Keyboard.js'
 import { platno } from './io/platno.js'
 import GameLoop from './GameLoop.js'
 import UI from '../ui/UI.js'
+import Controls from '../ui/Controls.js'
 
 export default class Scena {
-  constructor(manager, { usePointerLock, pokaziKontrole } = {}) {
+  constructor(manager, { usePointerLock, controlKeys, showControls = true } = {}) {
     this.manager = manager
     this.usePointerLock = usePointerLock
     this.gameLoop = new GameLoop(this.loop)
-    this.ui = new UI(this, { pokaziKontrole })
+    this.ui = new UI(this)
     this.predmeti = []
+    if (showControls) this.kontrole = new Controls({ controlKeys })
+
     this.start = this.start.bind(this)
     this.handleClick = this.handleClick.bind(this)
+
     document.addEventListener('click', this.handleClick)
     if (usePointerLock)
       document.addEventListener('pointerlockchange', this.handlePointerLockChange)
@@ -77,6 +81,8 @@ export default class Scena {
     this.predmeti = []
     this.cisti()
     this.ui.cisti()
+    if (this.kontrole) this.kontrole.end()
+
     document.removeEventListener('click', this.handleClick)
     document.removeEventListener('visibilitychange', this.handleVisibilityChange)
     document.removeEventListener('pointerlockchange', this.handlePointerLockChange)
