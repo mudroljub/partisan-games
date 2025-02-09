@@ -8,6 +8,7 @@ const style = `
   left: 0;
   top: 0;
   pointer-events: none;
+  display: block;
 `
 
 let time = 0
@@ -33,6 +34,10 @@ export default class FPSRenderer extends HTMLCanvasElement {
 
   get ctx() {
     return this.getContext('2d')
+  }
+
+  end() {
+    document.body.removeChild(this)
   }
 
   clear() {

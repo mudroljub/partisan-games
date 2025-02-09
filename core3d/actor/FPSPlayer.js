@@ -36,8 +36,15 @@ export default class FPSPlayer extends Player {
     camera.position.set(cameraX, this.cameraHeight, cameraZ)
     camera.rotation.set(0, 0, 0)
     this.mesh.add(camera)
+    this.moveCursor = this.moveCursor.bind(this)
 
-    document.addEventListener('pointermove', e => this.moveCursor(e))
+    document.addEventListener('pointermove', this.moveCursor)
+  }
+
+  end() {
+    document.removeEventListener('pointermove', this.moveCursor)
+    this.fpsRenderer.end()
+    this.fpsRenderer = null
   }
 
   /* GETTERS */

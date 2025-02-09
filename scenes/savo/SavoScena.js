@@ -84,6 +84,11 @@ export default class SavoScena extends Scena3D {
     `
   }
 
+  end() {
+    super.end()
+    this.player.end()
+  }
+
   update(dt, t) {
     super.update(dt, t)
 
