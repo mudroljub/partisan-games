@@ -69,8 +69,8 @@ export default class SavoScena extends Scena3D {
     const left = this.enemies.length - killed.length
     const won = this.player.position.distanceTo(this.maze.exitPosition) < 5
 
-    // if (won)
-    //   this.gui.renderText(`Bravo!<br>You found a way out<br> and kill ${killed.length} of ${this.enemies.length} enemies`)
+    if (won)
+      this.zavrsi(`Bravo!<br>You found a way out<br> and kill ${killed.length} of ${this.enemies.length} enemies`)
 
     // const blinkingMessage = won ? '' : 'Find a way out!'
     // this.gui.update({ time: t, points: killed.length, left, dead: this.player.dead, blinkingMessage })
