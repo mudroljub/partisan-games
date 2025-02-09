@@ -6,7 +6,6 @@ import FPSPlayer from '/core3d/actor/FPSPlayer.js'
 import Maze from '/core3d/mazes/Maze.js'
 import { truePrims } from '/core3d/mazes/algorithms.js'
 import Report from '/core3d/io/Report.js'
-import GUI from '/core3d/io/GUI.js'
 import { GermanMachineGunnerAI } from '/core3d/actor/derived/ww2/GermanMachineGunner.js'
 import { SSSoldierAI } from '/core3d/actor/derived/ww2/SSSoldier.js'
 import { NaziOfficerAI } from '/core3d/actor/derived/ww2/NaziOfficer.js'
@@ -16,7 +15,7 @@ import { fpsControls } from '/ui/Controls.js'
 
 export default class SavoScena extends Scena3D {
   constructor(manager) {
-    super(manager, { usePointerLock: true, toon: true, controlKeys: fpsControls })
+    super(manager, { usePointerLock: true, toon: true, controlKeys: fpsControls, controlsWindowClass: 'white-window' })
   }
 
   init() {
@@ -50,12 +49,6 @@ export default class SavoScena extends Scena3D {
     // this.report = new Report({ containerId: 'central-screen', text: 'After a successful sabotage mission you stayed behind enemy lines.\n\nFind the way out of the enemy base.' })
 
     this.ui.uvodniTekst = '<ul><li>Find the way out</li><li>Bonus: Kill all enemies</li></ul>'
-
-    // this.setupGUI()
-  }
-
-  setupGUI() {
-    this.gui = new GUI({ subtitle: 'Enemy left', total: this.enemies.length, controls: fpsControls, scoreClass: '', controlsWindowClass: 'white-window' })
   }
 
   end() {
@@ -80,7 +73,6 @@ export default class SavoScena extends Scena3D {
     super.update(dt, t)
 
     const killed = this.enemies.filter(enemy => enemy.energy <= 0)
-    const left = this.enemies.length - killed.length
     const won = this.player.position.distanceTo(this.maze.exitPosition) < 5
 
     if (won)
@@ -89,7 +81,6 @@ export default class SavoScena extends Scena3D {
     if (this.player.dead)
       this.zavrsi('You are dead.')
     // const blinkingMessage = won ? '' : 'Find a way out!'
-    // this.gui.update({ time: t, points: killed.length, left, dead: this.player.dead, blinkingMessage })
 
     if (Math.random() > .998) lightningStrike(this.light, this.scene)
   }
