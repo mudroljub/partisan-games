@@ -48,41 +48,13 @@ export default class SavoScena extends Scena3D {
 
     // this.report = new Report({ containerId: 'central-screen', text: 'After a successful sabotage mission you stayed behind enemy lines.\n\nFind the way out of the enemy base.' })
 
-    this.setupGUI()
+    this.ui.uvodniTekst = '<ul><li>Find the way out</li><li>Bonus: Kill all enemies</li></ul>'
+
+    // this.setupGUI()
   }
 
   setupGUI() {
     this.gui = new GUI({ subtitle: 'Enemy left', total: this.enemies.length, controls: fpsControls, scoreClass: '', controlsWindowClass: 'white-window' })
-  }
-
-  startGame() {
-    super.start()
-    // this.report.stop()
-    this.uvodniProzor = null
-    document.body.requestPointerLock()
-  }
-
-  handleClick(e) {
-    super.handleClick(e)
-    if (e.target.id == 'start-game')
-      this.startGame()
-  }
-
-  uvodniProzor() {
-    return /* html */`
-      <div class="central-screen rpgui-container" id="central-screen">
-        <ul>
-          <li>Find the way out</li>
-          <li>Bonus: Kill all enemies</li>
-        </ul>
-        <button id="start-game" class="press-start">Press to START!</button>
-        <div>
-          Shoot: MOUSE<br>
-          Move: WASD or ARROWS<br>
-          Run: CAPSLOCK
-        </div>
-      </div>
-    `
   }
 
   end() {

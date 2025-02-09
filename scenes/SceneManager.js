@@ -36,11 +36,12 @@ class SceneManager {
   }
 
   handleIntro() {
-    if (this.scene.ui.uvodniTekst || this.scene.uvodniProzor) {
+    if (this.scene.ui.uvodniTekst) {
       this.scene.cisti()
       this.scene.ui.renderProzor()
       this.scene.render() // TODO: scene predmeti onload za 2D?
-    } else this.scene.start()
+    } 
+    else this.scene.start()
   }
 
   async start(name, showIntro = true) {
@@ -58,8 +59,7 @@ class SceneManager {
 
   async restart(name) {
     await this.start(name, false)
-    // if (!this.scene.uvodniProzor)
-       this.scene.start()
+    this.scene.start()
   }
 }
 

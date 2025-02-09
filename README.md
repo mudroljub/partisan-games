@@ -22,10 +22,13 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### UI
 
 - iskulirati Report, integrisati ga na kraju
+
+- Savo ne počinje, Rajlovac počinje odmah
 - umesto uvodniProzor napraviti nesto poput uvodniHtml?
     - problem: restart briše uvodni prozor, a treba nam svaki put
     - apstrahovati gui: WarplaneScena, Rajlovac i Savo
     - startGame i handleClick su vrv suvišni
+    - FIX: Warplane Scena  uvodniProzor()
 - integrisati ui i GUI
     - ukinuti GUI
     - Savo exit prozor ne radi

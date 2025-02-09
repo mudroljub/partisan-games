@@ -68,6 +68,7 @@ export default class Scena {
   start() {
     this.gameLoop.start()
     this.ui.uvodniTekst = ''
+    if (this.usePointerLock) document.body.requestPointerLock()
   }
 
   end() {
@@ -111,6 +112,14 @@ export default class Scena {
   }
 
   /* UI */
+
+  // get uvodniTekst() {
+  //   return this.ui.uvodniTekst
+  // }
+
+  // set uvodniTekst(val) {
+  //   this.ui.uvodniTekst = val
+  // }
 
   sablon() {
     return ''

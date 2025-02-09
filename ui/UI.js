@@ -41,7 +41,6 @@ export default class UI {
   prozor() {
     if (this.hoceVan) return this.izadjiProzor()
     if (this.zavrsniTekst) return this.zavrsniProzor()
-    if (this.vlasnik.uvodniProzor) return this.vlasnik.uvodniProzor()
     if (this.uvodniTekst) return this.uvodniProzor()
     return ''
   }

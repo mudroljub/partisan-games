@@ -25,7 +25,6 @@ export default class RajlovacScena extends Scena3D {
   }
 
   async init() {
-    this.setupGUI()
     this.bojaPozadine = 0x440033
     const ground = createGround({ file: 'terrain/ground.jpg' })
     ground.position.y -= .1
@@ -74,6 +73,8 @@ export default class RajlovacScena extends Scena3D {
     this.dodajMesh(ground, floor, createMoon(), airport, airport2, bunker)
     this.dodaj(...this.aircraft, this.player)
 
+    this.ui.uvodniTekst = 'Destroy all enemy aircraft.'
+    this.setupGUI()
     // this.report = new Report({ containerId: 'central-screen', text: 'The German planes that sow death among our combatants are stationed at the Rajlovac Airport near Sarajevo.\n\nEnter the airport and destroy all enemy aircraft.' })
   }
 
@@ -81,35 +82,9 @@ export default class RajlovacScena extends Scena3D {
     this.gui = new GUI({ subtitle: 'Aircraft left', total: dornierNum + stukaNum + heinkelNum, scoreClass: '', controls: fpsControls, controlsWindowClass: 'white-window' })
   }
 
-  startGame() {
-    super.start()
-    // this.report.stop()
-    this.uvodniProzor = null
-    document.body.requestPointerLock()
-  }
-
   end() {
     super.end()
     this.player.end()
-  }
-
-  handleClick(e) {
-    super.handleClick(e)
-    if (e.target.id == 'start-game')
-      this.startGame()
-  }
-
-  uvodniProzor() {
-    return /* html */`
-    <div class="central-screen rpgui-container" id="central-screen">
-      <button id="start-game" class="press-start">Press to START!</button>
-      <div>
-        Shoot: MOUSE<br>
-        Move: WASD or ARROWS<br>
-        Run: CAPSLOCK
-      </div>
-    </div>
-    `
   }
 
   update(dt) {
@@ -117,9 +92,9 @@ export default class RajlovacScena extends Scena3D {
     if (!document.pointerLockElement) return
 
     const destroyed = this.aircraft.filter(plane => plane.energy <= 0)
-    this.gui.update({ points: destroyed.length, left: this.aircraft.length - destroyed.length, dead: this.player.dead })
+    // this.gui.update({ points: destroyed.length, left: this.aircraft.length - destroyed.length, dead: this.player.dead })
 
-    if (destroyed.length == this.aircraft.length)
-      this.gui.renderText('Congratulations!<br>All enemy planes were destroyed.')
+    // if (destroyed.length == this.aircraft.length)
+    //   this.gui.renderText('Congratulations!<br>All enemy planes were destroyed.')
   }
 }
