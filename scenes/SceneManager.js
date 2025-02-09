@@ -39,7 +39,7 @@ class SceneManager {
     if (this.scene.ui.uvodniTekst || this.scene.uvodniProzor) {
       this.scene.cisti()
       this.scene.ui.renderProzor()
-      setTimeout(() => this.scene.render(), 100) // TODO: scene predmeti onload za 2D?
+      this.scene.render() // TODO: scene predmeti onload za 2D?
     } else this.scene.start()
   }
 
@@ -58,7 +58,8 @@ class SceneManager {
 
   async restart(name) {
     await this.start(name, false)
-    this.scene.start()
+    // if (!this.scene.uvodniProzor)
+       this.scene.start()
   }
 }
 

@@ -87,6 +87,11 @@ export default class RajlovacScena extends Scena3D {
     this.uvodniProzor = null
   }
 
+  end() {
+    super.end()
+    this.player.end()
+  }
+
   handleClick(e) {
     super.handleClick(e)
     if (e.target.id == 'start-game')

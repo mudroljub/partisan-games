@@ -15,8 +15,8 @@ export default class Scena {
     document.addEventListener('click', this.handleClick)
     if (usePointerLock)
       document.addEventListener('pointerlockchange', this.handlePointerLockChange)
-    // else
-    //   document.addEventListener('visibilitychange', this.handleVisibilityChange)
+    else
+      document.addEventListener('visibilitychange', this.handleVisibilityChange)
   }
 
   init() {}
@@ -58,9 +58,9 @@ export default class Scena {
 
   handleVisibilityChange = () => {
     if (document.visibilityState === 'hidden')
-      this.pause()
+      this.gameLoop.pause()
     else
-      this.unpause()
+      this.gameLoop.unpause()
   }
 
   /* LOOP */
