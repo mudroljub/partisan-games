@@ -46,8 +46,9 @@ export default class SavoScena extends Scena3D {
       this.dodajMesh(firstAid.mesh)
     }
 
-    this.report = new Report({ containerId: 'central-screen', text: 'After a successful sabotage mission you stayed behind enemy lines.\n\nFind the way out of the enemy base.' })
-    // this.setupGUI()
+    // this.report = new Report({ containerId: 'central-screen', text: 'After a successful sabotage mission you stayed behind enemy lines.\n\nFind the way out of the enemy base.' })
+
+    this.setupGUI()
   }
 
   setupGUI() {

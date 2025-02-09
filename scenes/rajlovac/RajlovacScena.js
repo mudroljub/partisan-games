@@ -74,7 +74,7 @@ export default class RajlovacScena extends Scena3D {
     this.dodajMesh(ground, floor, createMoon(), airport, airport2, bunker)
     this.dodaj(...this.aircraft, this.player)
 
-    this.report = new Report({ containerId: 'central-screen', text: 'The German planes that sow death among our combatants are stationed at the Rajlovac Airport near Sarajevo.\n\nEnter the airport and destroy all enemy aircraft.' })
+    // this.report = new Report({ containerId: 'central-screen', text: 'The German planes that sow death among our combatants are stationed at the Rajlovac Airport near Sarajevo.\n\nEnter the airport and destroy all enemy aircraft.' })
   }
 
   setupGUI() {
@@ -83,8 +83,9 @@ export default class RajlovacScena extends Scena3D {
 
   startGame() {
     super.start()
-    this.report.stop()
+    // this.report.stop()
     this.uvodniProzor = null
+    document.body.requestPointerLock()
   }
 
   end() {

@@ -21,8 +21,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- zameniti svuda na 3D
-    - BUG: Rajlovac nema pointer lock
+- iskulirati Report, integrisati ga na kraju
 - umesto uvodniProzor napraviti nesto poput uvodniHtml?
     - problem: restart briše uvodni prozor, a treba nam svaki put
     - apstrahovati gui: WarplaneScena, Rajlovac i Savo
