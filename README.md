@@ -37,8 +37,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - na 3D scenama fali nebo, možda postaviti plavu kao default?
 - srediti 3D igre:
-    - tenk
-        - srediti boju skakaonice
     - urban-guerrilla 
         - promeniti NOB grafite
         - dodati nemce

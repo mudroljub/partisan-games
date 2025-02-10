@@ -26,7 +26,7 @@ export default class TenkScena extends Scena3D {
     this.ground = createGround({ color: 0x509f53 })
     this.world.add(this.ground, 0)
 
-    const tremplin = createTremplin()
+    const tremplin = createTremplin({ color: 0xFFFCD7 })
     this.world.add(tremplin, 0)
 
     const crates = createCrates({ z: 10 })
