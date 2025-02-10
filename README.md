@@ -21,17 +21,24 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### UI
 
 - integrisati ui i GUI
-    - komande
+    - Report
+        - SavoScena
+        - RajlovacScena
     - blinkingMessage
+        - SavoScena
+    - this.gui.showMessage(), traje par sekundi na početku
+        - TenkScena
     - FIX: Warplane Scena  uvodniProzor()
-    - ukinuti GUI
-    - BUG: spinner nije na sredini
-    - iskulirati Report, integrisati ga na kraju
 - integrisati stilove
     - spojiti klase za UI pozicioniranje
+- BUG: spinner nije na sredini
 
 ### 3D
+
+- na 3D scenama fali nebo, možda postaviti plavu kao default?
 - srediti 3D igre:
+    - tenk
+        - srediti boju skakaonice
     - urban-guerrilla 
         - promeniti NOB grafite
         - dodati nemce

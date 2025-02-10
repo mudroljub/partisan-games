@@ -9,13 +9,13 @@ import { createFirTree } from '/core3d/geometry/trees.js'
 import { createWarehouse, createWarehouse2, createWarRuin, createRuin, createAirport } from '/core3d/city.js'
 import { leaveTracks } from '/core3d/physics/leaveTracks.js'
 import Tank from '/core3d/physics/Tank.js'
-import GUI from '/core3d/io/GUI.js'
+import { baseControls } from '/ui/Controls.js'
 
 const { randFloat } = THREE.MathUtils
 
 export default class TenkScena extends Scena3D {
   constructor(manager) {
-    super(manager, { toon: true })
+    super(manager, { toon: true, controlKeys: { ...baseControls, Space: 'break' } })
   }
 
   init() {
@@ -57,30 +57,36 @@ export default class TenkScena extends Scena3D {
     this.tank = new Tank({ physicsWorld: this.world.physicsWorld, camera: this.camera, pos: { x: 0, y: 0, z: -20 } })
     this.dodaj(this.tank)
 
-    this.gui = new GUI({ scoreTitle: 'Crates left', points: this.countableCrates.length, subtitle: 'Time', total: 0, useBlink: true, controls: { Space: 'break' } })
-    this.gui.showMessage('Demolish all crates')
+    // this.gui.showMessage('Demolish all crates')
+  }
+
+  sablon(t) {
+
+    return /* html */`
+      <div class="score rpgui-button golden">
+        <p>
+          Crates left: ${this.countableCrates.length}
+          <br><small class="blink">Time: ${Math.floor(t)}</small>
+        </p>
+      </div>
+    `
   }
 
   update(dt, t) {
     super.update(dt)
     if (!this.tank) return
-    const time = Math.floor(t)
 
     if ((this.tank.input.left || this.tank.input.right) && this.tank.speed >= 30)
       leaveTracks({ vehicle: this.tank, ground: this.ground, scene: this.scene })
 
     this.world.update(dt)
 
-    this.gui.addScore(0, time)
-
     this.countableCrates.forEach(mesh => {
-      if (mesh.position.y <= 0.5) {
+      if (mesh.position.y <= 0.5)
         this.countableCrates.splice(this.countableCrates.findIndex(c => c === mesh), 1)
-        this.gui.addScore(-1, time)
-      }
     })
 
     if (!this.countableCrates.length)
-      this.zavrsi(`Bravo!<br>You demolished everything in ${time} seconds.`)
+      this.zavrsi(`Bravo!<br>You demolished everything in ${Math.floor(t)} seconds.`)
   }
 }
