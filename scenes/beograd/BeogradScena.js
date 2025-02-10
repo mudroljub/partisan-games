@@ -3,10 +3,15 @@ import { createGraffitiCity } from '/core3d/city.js'
 import { createSun } from '/core3d/light.js'
 import { getEmptyCoords } from '/core3d/helpers.js'
 import { ResistanceFighterPlayer } from '/core3d/actor/derived/ww2/ResistanceFighter.js'
+import { thirdPersonControls } from '/ui/Controls.js'
 
 const mapSize = 200
 
 export default class BeogradScena extends Scena3D {
+  constructor(manager) {
+    super(manager, { controlKeys: thirdPersonControls })
+  }
+
   init() {
     const coords = getEmptyCoords({ mapSize })
 

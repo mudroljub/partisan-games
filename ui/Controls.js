@@ -15,6 +15,13 @@ export const fpsControls = {
   P: 'pause',
 }
 
+export const thirdPersonControls = {
+  ...baseControls,
+  CapsLock: 'run',
+  Enter: 'attack',
+  Space: 'jump',
+}
+
 export default class Controls {
   constructor({
     controlKeys = baseControls,

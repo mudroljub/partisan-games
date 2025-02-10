@@ -5,18 +5,11 @@ import { terrainFromHeightmap } from '/core3d/terrain/heightmap.js'
 import { createFlag } from '/core3d/geometry/index.js'
 import { wave } from '/core3d/ground.js'
 import { PartisanPlayer } from '/core3d/actor/derived/ww2/Partisan.js'
-import { baseControls } from '/ui/Controls.js'
-
-const controlKeys = {
-  ...baseControls,
-  CapsLock: 'run',
-  Enter: 'attack',
-  Space: 'jump',
-}
+import { thirdPersonControls } from '/ui/Controls.js'
 
 export default class SpomeniciScena extends Scena3D {
   constructor(manager) {
-    super(manager, { controlKeys })
+    super(manager, { controlKeys: thirdPersonControls })
   }
 
   async init() {

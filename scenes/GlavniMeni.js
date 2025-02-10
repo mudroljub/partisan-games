@@ -6,7 +6,7 @@ const items = {
   RajlovacScena: 'Napad na aerodrom Rajlovac',
   WarplaneScena: 'Warplane',
   SpomeniciScena: 'Spomenici',
-  BeogradScena: 'Oslobođenje Beograda',
+  BeogradScena: 'Bitka za Beograd',
   TenkScena: 'Tenk',
   DrvarScena: 'Desant na Drvar',
   BombasScena: 'Bombaš',
