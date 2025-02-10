@@ -5,9 +5,20 @@ import { terrainFromHeightmap } from '/core3d/terrain/heightmap.js'
 import { createFlag } from '/core3d/geometry/index.js'
 import { wave } from '/core3d/ground.js'
 import { PartisanPlayer } from '/core3d/actor/derived/ww2/Partisan.js'
-import GUI from '/core3d/io/GUI.js'
+import { baseControls } from '/ui/Controls.js'
+
+const controlKeys = {
+  ...baseControls,
+  CapsLock: 'run',
+  Enter: 'attack',
+  Space: 'jump',
+}
 
 export default class SpomeniciScena extends Scena3D {
+  constructor(manager) {
+    super(manager, { controlKeys })
+  }
+
   async init() {
     this.bojaPozadine = 0x87CEEB
     this.dodajMesh(createSun({ intensity: 2 * Math.PI }))
@@ -17,7 +28,7 @@ export default class SpomeniciScena extends Scena3D {
     this.player = new PartisanPlayer({ camera: this.camera, solids: terrain, altitude: .7 })
     this.player.position.z = 2
 
-    new GUI({ player: this.player, scoreTitle: '' })
+    // new GUI({ player: this.player, scoreTitle: '' })
 
     const [kosmaj, kosovskaMitrovica, podgaric, kadinjaca, ilirskaBistrica] = await Promise.all([
       await loadModel({ file: 'building/monument/kosmaj.fbx', size: 30, texture: 'terrain/beton.gif' }),

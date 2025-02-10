@@ -1,4 +1,4 @@
-const baseControls = {
+export const baseControls = {
   '← or A': 'left',
   '→ or D': 'right',
   '↑ or W': 'forward',
