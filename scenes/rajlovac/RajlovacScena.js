@@ -3,7 +3,7 @@ import { createGround, createFloor } from '/core3d/ground.js'
 import { createMoon } from '/core3d/light.js'
 import { sample, getEmptyCoords } from '/core3d/helpers.js'
 import FPSPlayer from '/core3d/actor/FPSPlayer.js'
-import GUI, { fpsControls } from '/core3d/io/GUI.js'
+import { fpsControls } from '/ui/Controls.js'
 import { createAirport } from '/core3d/city.js'
 import { loadModel } from '/core3d/loaders.js'
 import Report from '/core3d/io/Report.js'
@@ -21,7 +21,7 @@ const dornierNum = 8, stukaNum = 8, heinkelNum = 7
 
 export default class RajlovacScena extends Scena3D {
   constructor(manager) {
-    super(manager, { usePointerLock: true })
+    super(manager, { usePointerLock: true, controlKeys: fpsControls, controlsWindowClass: 'white-window' })
   }
 
   async init() {
@@ -74,12 +74,20 @@ export default class RajlovacScena extends Scena3D {
     this.dodajMesh(ground, floor, createMoon(), airport, airport2, bunker)
     this.dodaj(...this.aircraft, this.player)
 
-    this.setupGUI()
     // this.report = new Report({ containerId: 'central-screen', text: 'The German planes that sow death among our combatants are stationed at the Rajlovac Airport near Sarajevo.\n\nEnter the airport and destroy all enemy aircraft.' })
   }
 
-  setupGUI() {
-    this.gui = new GUI({ subtitle: 'Aircraft left', total: dornierNum + stukaNum + heinkelNum, scoreClass: '', controls: fpsControls, controlsWindowClass: 'white-window' })
+  sablon() {
+    const destroyed = this.aircraft.filter(plane => plane.energy <= 0)
+    const left = this.aircraft.length - destroyed.length
+    return /* html */`
+      <div class="score ">
+        <p>
+          Score: ${destroyed.length}<br>
+          <small>Enemy left: ${left}</small>
+        </p>
+      </div>
+    `
   }
 
   end() {
@@ -92,7 +100,9 @@ export default class RajlovacScena extends Scena3D {
     if (!document.pointerLockElement) return
 
     const destroyed = this.aircraft.filter(plane => plane.energy <= 0)
-    // this.gui.update({ points: destroyed.length, left: this.aircraft.length - destroyed.length, dead: this.player.dead })
+
+    if (this.player.dead)
+      this.zavrsi('You are dead.')
 
     if (destroyed.length == this.aircraft.length)
       this.zavrsi('Congratulations!<br>All enemy planes were destroyed.')
