@@ -22,13 +22,13 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - integrisati ui i GUI
     - Report
-        - SavoScena
-        - RajlovacScena
+        - zaustaviti kuckanje
     - blinkingMessage
         - SavoScena
     - this.gui.showMessage(), traje par sekundi na početku
         - TenkScena
     - FIX: Warplane Scena  uvodniProzor()
+    - prosleđivati uvodniTekst konstruktoru
 - integrisati stilove
     - spojiti klase za UI pozicioniranje
 - BUG: spinner nije na sredini

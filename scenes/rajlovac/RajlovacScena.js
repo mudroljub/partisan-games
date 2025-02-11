@@ -6,7 +6,6 @@ import FPSPlayer from '/core3d/actor/FPSPlayer.js'
 import { fpsControls } from '/ui/Controls.js'
 import { createAirport } from '/core3d/city.js'
 import { loadModel } from '/core3d/loaders.js'
-import Report from '/core3d/io/Report.js'
 import DornierBomber from '/core3d/objects/DornierBomber.js'
 import JunkersStuka from '/core3d/objects/JunkersStuka.js'
 import HeinkelBomber from '/core3d/objects/HeinkelBomber.js'
@@ -21,7 +20,12 @@ const dornierNum = 8, stukaNum = 8, heinkelNum = 7
 
 export default class RajlovacScena extends Scena3D {
   constructor(manager) {
-    super(manager, { usePointerLock: true, controlKeys: fpsControls, controlsWindowClass: 'white-window' })
+    super(manager, {
+      usePointerLock: true,
+      controlKeys: fpsControls,
+      controlsWindowClass: 'white-window',
+      reportText: 'The German planes that sow death among our combatants are stationed at the Rajlovac Airport near Sarajevo.\n\nEnter the airport and destroy all enemy aircraft.',
+    })
   }
 
   async init() {
@@ -73,8 +77,6 @@ export default class RajlovacScena extends Scena3D {
 
     this.dodajMesh(ground, floor, createMoon(), airport, airport2, bunker)
     this.dodaj(...this.aircraft, this.player)
-
-    // this.report = new Report({ containerId: 'central-screen', text: 'The German planes that sow death among our combatants are stationed at the Rajlovac Airport near Sarajevo.\n\nEnter the airport and destroy all enemy aircraft.' })
   }
 
   sablon() {

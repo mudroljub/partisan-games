@@ -5,7 +5,6 @@ import { hemLight, lightningStrike } from '/core3d/light.js'
 import FPSPlayer from '/core3d/actor/FPSPlayer.js'
 import Maze from '/core3d/mazes/Maze.js'
 import { truePrims } from '/core3d/mazes/algorithms.js'
-import Report from '/core3d/io/Report.js'
 import { GermanMachineGunnerAI } from '/core3d/actor/derived/ww2/GermanMachineGunner.js'
 import { SSSoldierAI } from '/core3d/actor/derived/ww2/SSSoldier.js'
 import { NaziOfficerAI } from '/core3d/actor/derived/ww2/NaziOfficer.js'
@@ -15,7 +14,13 @@ import { fpsControls } from '/ui/Controls.js'
 
 export default class SavoScena extends Scena3D {
   constructor(manager) {
-    super(manager, { usePointerLock: true, toon: true, controlKeys: fpsControls, controlsWindowClass: 'white-window', reportText: 'After a successful sabotage mission you stayed behind enemy lines.\n\nFind the way out of the enemy base.' })
+    super(manager, {
+      toon: true,
+      usePointerLock: true,
+      controlKeys: fpsControls,
+      controlsWindowClass: 'white-window',
+      reportText: 'After a successful sabotage mission you stayed behind enemy lines.\n\nFind the way out of the enemy base.',
+    })
   }
 
   init() {
