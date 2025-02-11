@@ -21,8 +21,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### UI
 
 - integrisati ui i GUI
-    - Report
-        - na restart container is null, ne treba ni da kreće
     - blinkingMessage
         - SavoScena
     - this.gui.showMessage(), traje par sekundi na početku
@@ -32,6 +30,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - integrisati stilove
     - spojiti klase za UI pozicioniranje
 - BUG: spinner nije na sredini
+- terminologija: renderGUI i sablon, možda score ili tako nešto
 
 ### 3D
 

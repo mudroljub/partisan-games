@@ -8,8 +8,7 @@ export default class UI {
     this.upamcenUI = this.upamcenProzor = this.zavrsniTekst = ''
     this.elementUI = document.getElementById('ui')
     this.prozorElement = document.getElementById('prozor')
-    if (reportText)
-      this.report = new Report({ text: reportText, containerId: 'uvodni-prozor' })
+    this.reportText = reportText
   }
 
   cisti() {
@@ -18,6 +17,7 @@ export default class UI {
 
   cistiUvod() {
     this.uvodniTekst = ''
+    this.prozorElement.innerHTML = ''
     if (this.report) this.report.stop()
   }
 
@@ -60,6 +60,12 @@ export default class UI {
       this.prozorElement.innerHTML = this.prozor()
       this.upamcenProzor = this.prozor()
     }
+  }
+
+  renderUvodniProzor() {
+    this.prozorElement.innerHTML = this.uvodniProzor()
+    if (this.reportText)
+      this.report = new Report({ text: this.reportText, containerId: 'uvodni-prozor' })
   }
 
   renderGUI(t) {

@@ -38,8 +38,8 @@ class SceneManager {
   handleIntro() {
     if (this.scene.ui.uvodniTekst) {
       this.scene.cisti()
-      this.scene.ui.renderProzor()
-      this.scene.render() // TODO: scene predmeti onload za 2D?
+      this.scene.ui.renderUvodniProzor()
+      this.scene.render() // first draw, TODO: scene predmeti onload za 2D?
     } else this.scene.start()
   }
 
