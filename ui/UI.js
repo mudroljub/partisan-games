@@ -15,6 +15,11 @@ export default class UI {
     this.elementUI.innerHTML = this.prozorElement.innerHTML = ''
   }
 
+  cistiUvod() {
+    this.uvodniTekst = ''
+    if (this.report) this.report.stop()
+  }
+
   uvodniProzor() {
     return /* html */`
       <div class="central-screen rpgui-container" id="uvodni-prozor">

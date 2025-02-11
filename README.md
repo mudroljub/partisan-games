@@ -16,13 +16,13 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - i Bombaš i drugi nivoi baguju, zeza GameLoop?
 - BUG: ne radi TenkiciScena zavrsniProzor
 - BUG: 1944 nema pozadine
-- BUG: Savo igraj opet ne ubija neprijatelje
+- BUG: Savo igraj-opet ne ubija neprijatelje
 
 ### UI
 
 - integrisati ui i GUI
     - Report
-        - zaustaviti kuckanje
+        - na restart container is null, ne treba ni da kreće
     - blinkingMessage
         - SavoScena
     - this.gui.showMessage(), traje par sekundi na početku
@@ -48,6 +48,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - dodati 3d model u 1944?
 
 ### Završno
+- proveriti zaostale TODO poruke
 - na scenu top dinamičku pozadinu, dim, avione kako lete...
 - glavni meni da bude karta jugoslavije sa izborom misija
     - sakriti platno ako ne treba

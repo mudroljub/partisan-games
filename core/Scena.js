@@ -11,7 +11,8 @@ export default class Scena {
     this.gameLoop = new GameLoop(this.loop)
     this.ui = new UI(this, { reportText })
     this.predmeti = []
-    if (showControls) this.kontrole = new Controls({ controlKeys, containerClass: controlsWindowClass })
+    if (showControls)
+      this.kontrole = new Controls({ controlKeys, containerClass: controlsWindowClass })
 
     this.start = this.start.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -72,7 +73,7 @@ export default class Scena {
 
   start() {
     this.gameLoop.start()
-    this.ui.uvodniTekst = ''
+    this.ui.cistiUvod()
     if (this.usePointerLock) document.body.requestPointerLock()
   }
 
@@ -117,16 +118,6 @@ export default class Scena {
     this.render()
     this.ui.renderUI(t)
   }
-
-  /* UI */
-
-  // get uvodniTekst() {
-  //   return this.ui.uvodniTekst
-  // }
-
-  // set uvodniTekst(val) {
-  //   this.ui.uvodniTekst = val
-  // }
 
   sablon() {
     return ''
