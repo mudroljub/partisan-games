@@ -1,10 +1,11 @@
 import Report from './Report.js'
 
 export default class UI {
-  constructor(vlasnik, { reportText } = {}) {
+  constructor(vlasnik, { reportText, uvodniTekst = '' } = {}) {
     this.hoceVan = false
     this.vlasnik = vlasnik
-    this.upamcenUI = this.upamcenProzor = this.zavrsniTekst = this.uvodniTekst = ''
+    this.uvodniTekst = uvodniTekst
+    this.upamcenUI = this.upamcenProzor = this.zavrsniTekst = ''
     this.elementUI = document.getElementById('ui')
     this.prozorElement = document.getElementById('prozor')
     if (reportText)

@@ -19,6 +19,7 @@ export default class SavoScena extends Scena3D {
       usePointerLock: true,
       controlKeys: fpsControls,
       controlsWindowClass: 'white-window',
+      uvodniTekst: '<ul><li>Find the way out</li><li>Bonus: Kill all enemies</li></ul>',
       reportText: 'After a successful sabotage mission you stayed behind enemy lines.\n\nFind the way out of the enemy base.',
     })
   }
@@ -50,8 +51,6 @@ export default class SavoScena extends Scena3D {
       const firstAid = new FirstAid({ pos: coords.pop() })
       this.dodajMesh(firstAid.mesh)
     }
-
-    this.ui.uvodniTekst = '<ul><li>Find the way out</li><li>Bonus: Kill all enemies</li></ul>'
   }
 
   end() {
