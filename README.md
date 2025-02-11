@@ -25,12 +25,11 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
         - SavoScena
     - this.gui.showMessage(), traje par sekundi na početku
         - TenkScena
-    - FIX: Warplane Scena  uvodniProzor()
-    - prosleđivati uvodniTekst konstruktoru
+    - FIX: Warplane Scena uvodniProzor()
 - integrisati stilove
     - spojiti klase za UI pozicioniranje
-- BUG: spinner nije na sredini
 - terminologija: renderGUI i sablon, možda score ili tako nešto
+- BUG: spinner nije na sredini
 
 ### 3D
 
