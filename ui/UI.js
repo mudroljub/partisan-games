@@ -1,10 +1,14 @@
+import Report from '/core3d/io/Report.js'
+
 export default class UI {
-  constructor(vlasnik) {
+  constructor(vlasnik, { reportText } = {}) {
     this.hoceVan = false
     this.vlasnik = vlasnik
     this.upamcenUI = this.upamcenProzor = this.zavrsniTekst = this.uvodniTekst = ''
     this.elementUI = document.getElementById('ui')
     this.prozorElement = document.getElementById('prozor')
+    if (reportText)
+      this.report = new Report({ text: reportText, containerId: 'uvodni-prozor' })
   }
 
   cisti() {
@@ -13,7 +17,7 @@ export default class UI {
 
   uvodniProzor() {
     return /* html */`
-      <div class="central-screen rpgui-container" style="max-width: 480px">
+      <div class="central-screen rpgui-container" id="uvodni-prozor">
         <p>${this.uvodniTekst}</p>
         <button id="start" class="press-start">Press to START!</button>
       </div>

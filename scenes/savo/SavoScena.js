@@ -15,7 +15,7 @@ import { fpsControls } from '/ui/Controls.js'
 
 export default class SavoScena extends Scena3D {
   constructor(manager) {
-    super(manager, { usePointerLock: true, toon: true, controlKeys: fpsControls, controlsWindowClass: 'white-window' })
+    super(manager, { usePointerLock: true, toon: true, controlKeys: fpsControls, controlsWindowClass: 'white-window', reportText: 'After a successful sabotage mission you stayed behind enemy lines.\n\nFind the way out of the enemy base.' })
   }
 
   init() {
@@ -45,8 +45,6 @@ export default class SavoScena extends Scena3D {
       const firstAid = new FirstAid({ pos: coords.pop() })
       this.dodajMesh(firstAid.mesh)
     }
-
-    // this.report = new Report({ containerId: 'central-screen', text: 'After a successful sabotage mission you stayed behind enemy lines.\n\nFind the way out of the enemy base.' })
 
     this.ui.uvodniTekst = '<ul><li>Find the way out</li><li>Bonus: Kill all enemies</li></ul>'
   }
