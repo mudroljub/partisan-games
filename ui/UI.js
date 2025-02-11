@@ -1,4 +1,4 @@
-import Report from '/core3d/io/Report.js'
+import Report from './Report.js'
 
 export default class UI {
   constructor(vlasnik, { reportText } = {}) {
