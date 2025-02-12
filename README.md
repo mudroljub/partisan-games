@@ -23,9 +23,9 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - integrisati ui i GUI
     - RatweekScena
-        - uvodniProzor()
-        - komande
+        - uvodniProzor (možda bez biranja, sa porukom)
         - showMessage
+        - komande
         - score
         - endText
     - prosleđivati stilove za uvodni prozor?
