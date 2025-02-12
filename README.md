@@ -22,9 +22,8 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### UI
 
 - integrisati ui i GUI
-    - this.gui.showMessage(), traje par sekundi na početku
-        - TenkScena
     - FIX: Warplane Scena uvodniProzor()
+    - prosleđivati stilove za uvodni prozor?
 - integrisati stilove
     - spojiti klase za UI pozicioniranje
 - terminologija: renderGUI i sablon, možda score ili tako nešto

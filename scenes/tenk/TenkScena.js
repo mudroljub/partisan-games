@@ -15,7 +15,11 @@ const { randFloat } = THREE.MathUtils
 
 export default class TenkScena extends Scena3D {
   constructor(manager) {
-    super(manager, { toon: true, controlKeys: { ...baseControls, Space: 'break' } })
+    super(manager, {
+      toon: true,
+      controlKeys: { ...baseControls, Space: 'break' },
+      uvodniTekst: 'Demolish all crates',
+    })
   }
 
   init() {
@@ -56,8 +60,6 @@ export default class TenkScena extends Scena3D {
 
     this.tank = new Tank({ physicsWorld: this.world.physicsWorld, camera: this.camera, pos: { x: 0, y: 0, z: -20 } })
     this.dodaj(this.tank)
-
-    // this.gui.showMessage('Demolish all crates')
   }
 
   sablon(t) {
