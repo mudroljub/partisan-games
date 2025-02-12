@@ -17,12 +17,11 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - BUG: ne radi TenkiciScena zavrsniProzor
 - BUG: 1944 nema pozadine
 - BUG: Savo igraj-opet ne ubija neprijatelje
+- BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
 
 ### UI
 
 - integrisati ui i GUI
-    - blinkingMessage
-        - SavoScena
     - this.gui.showMessage(), traje par sekundi na početku
         - TenkScena
     - FIX: Warplane Scena uvodniProzor()

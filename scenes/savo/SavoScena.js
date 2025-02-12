@@ -21,6 +21,7 @@ export default class SavoScena extends Scena3D {
       controlsWindowClass: 'white-window',
       uvodniTekst: '<ul><li>Find the way out</li><li>Bonus: Kill all enemies</li></ul>',
       reportText: 'After a successful sabotage mission you stayed behind enemy lines.\n\nFind the way out of the enemy base.',
+      blinkingMessage: 'Find a way out!',
     })
   }
 
@@ -82,7 +83,6 @@ export default class SavoScena extends Scena3D {
 
     if (this.player.dead)
       this.zavrsi('You are dead.')
-    // const blinkingMessage = won ? '' : 'Find a way out!'
 
     if (Math.random() > .998) lightningStrike(this.light, this.scene)
   }

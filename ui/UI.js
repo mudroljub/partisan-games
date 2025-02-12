@@ -1,7 +1,7 @@
 import Report from './Report.js'
 
 export default class UI {
-  constructor(vlasnik, { reportText, uvodniTekst = '' } = {}) {
+  constructor(vlasnik, { reportText, uvodniTekst = '', blinkingMessage = '' } = {}) {
     this.hoceVan = false
     this.vlasnik = vlasnik
     this.uvodniTekst = uvodniTekst
@@ -9,6 +9,7 @@ export default class UI {
     this.elementUI = document.getElementById('ui')
     this.prozorElement = document.getElementById('prozor')
     this.reportText = reportText
+    this.blinkingMessage = blinkingMessage
   }
 
   cisti() {
@@ -48,6 +49,14 @@ export default class UI {
     `
   }
 
+  blinkingProzor() {
+    return /* html */`
+      <div class="central-screen">
+        <h3 class="blink">${this.blinkingMessage}</h3>
+      </div>
+    `
+  }
+
   prozor() {
     if (this.hoceVan) return this.izadjiProzor()
     if (this.zavrsniTekst) return this.zavrsniProzor()
@@ -75,8 +84,21 @@ export default class UI {
     }
   }
 
+  showBlinkingMessage(t, messageInterval = 20) {
+    if (t > 0 && Math.ceil(t) % messageInterval == 0)
+      this.renderMessage()
+  }
+
+  renderMessage() {
+    this.prozorElement.innerHTML = this.blinkingProzor()
+    setTimeout(() => {
+      this.prozorElement.innerHTML = ''
+    }, 3000)
+  }
+
   renderUI(t) {
     this.renderProzor()
     this.renderGUI(t)
+    if (this.blinkingMessage) this.showBlinkingMessage(t)
   }
 }
