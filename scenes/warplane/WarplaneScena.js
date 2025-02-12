@@ -41,6 +41,20 @@ const createBuilding = async time => {
 }
 
 export default class WarplaneScena extends Scena3D {
+  constructor(manager) {
+    super(manager, {
+      uvodniTekst: /* html */`
+      <h2>Choose your aircraft</h2>
+      <div class="game-screen-select">
+        <input type="image" id="Biplane" src="/assets/images/airplanes/Biplane.png">
+        <input type="image" id="Triplane" src="/assets/images/airplanes/Triplane.png">
+        <input type="image" id="Messerschmitt" src="/assets/images/airplanes/Messerschmitt.png">
+        <input type="image" id="Bomber" src="/assets/images/airplanes/Bomber.png">
+      </div>
+      `,
+    })
+  }
+
   init() {
     this.i = 0
     this.last = Date.now()

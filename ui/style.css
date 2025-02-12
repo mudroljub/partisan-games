@@ -187,6 +187,7 @@ progress.potisak::-moz-progress-bar {
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+  max-width: 512px;
 }
 
 .central-screen button:nth-of-type(n+2) {
@@ -255,8 +256,8 @@ button.press-start {
   background-color: #cccccc;
   background-image: url(/assets/images/document.jpg);
   background-size: cover;
-  height: 25em;
-  width: 40em;
+  height: 290px;
+  width: 460px;
 }
 
 .report p {
@@ -269,7 +270,7 @@ button.press-start {
   margin: 0;
   padding-left: 15%;
   padding-right: 15%;
-  padding-top: 164px;
+  padding-top: 150px;
   text-shadow: none;
 }
 
