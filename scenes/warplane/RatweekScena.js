@@ -40,7 +40,7 @@ const createBuilding = async time => {
   }
 }
 
-export default class WarplaneScena extends Scena3D {
+export default class RatweekScena extends Scena3D {
   constructor(manager) {
     super(manager, {
       uvodniTekst: /* html */`
@@ -105,37 +105,18 @@ export default class WarplaneScena extends Scena3D {
   async startGame(e) {
     if (e.target.tagName != 'INPUT') return
 
-    this.uvodniProzor = null
-
     const obj = await import(`/core3d/aircraft/derived/${e.target.id}.js`)
     this.warplane = new obj.default({ camera: this.camera, limit: mapSize * .25 })
     this.scene.add(this.warplane.mesh)
     this.entities.push(this.warplane)
 
-    this.gui.showMessage('Destroy enemy factories,<br><br>do not target civilian buildings')
+    // this.gui.showMessage('Destroy enemy factories,<br><br>do not target civilian buildings')
     super.start()
   }
 
   handleClick(e) {
     super.handleClick(e)
     this.startGame(e)
-  }
-
-  /* GUI */
-
-  uvodniProzor() {
-    return /* html */`
-      <div class="central-screen rpgui-container" style="max-width: 480px">
-      <h2>Choose your aircraft</h2>
-    
-      <div class="game-screen-select">
-        <input type="image" id="Biplane" src="/assets/images/airplanes/Biplane.png">
-        <input type="image" id="Triplane" src="/assets/images/airplanes/Triplane.png">
-        <input type="image" id="Messerschmitt" src="/assets/images/airplanes/Messerschmitt.png">
-        <input type="image" id="Bomber" src="/assets/images/airplanes/Bomber.png">
-      </div>    
-    </div>
-    `
   }
 
   /* UPDATES */

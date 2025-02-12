@@ -4,7 +4,7 @@ import { platno } from '/core/io/platno.js'
 const items = {
   SavoScena: 'Savo Mitraljezac',
   RajlovacScena: 'Napad na aerodrom Rajlovac',
-  WarplaneScena: 'Warplane',
+  RatweekScena: 'Operation Ratweek',
   SpomeniciScena: 'Spomenici',
   BeogradScena: 'Bitka za Beograd',
   TenkScena: 'Tenk',

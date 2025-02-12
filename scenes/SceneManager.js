@@ -4,7 +4,7 @@ const paths = {
   SpomeniciScena: './spomenici/SpomeniciScena.js',
   BeogradScena: './beograd/BeogradScena.js',
   TenkScena: './tenk/TenkScena.js',
-  WarplaneScena: './warplane/WarplaneScena.js',
+  RatweekScena: './warplane/RatweekScena.js',
   RajlovacScena: './rajlovac/RajlovacScena.js',
   SavoScena: './savo/SavoScena.js',
   BombasScena: './bombas/BombasScena.js',
