@@ -6,11 +6,12 @@ export default class GameLoop {
     this.loopId = null
     this.isPaused = this.timeStopped = false
 
+    this.handleKeyPress = this.handleKeyPress.bind(this)
     document.addEventListener('keypress', this.handleKeyPress)
   }
 
   get isRunning() {
-    return Boolean(this.loopId)
+    return this.loopId !== null
   }
 
   /* METHODS */
@@ -19,7 +20,7 @@ export default class GameLoop {
     if (this.isRunning) return
 
     this.isPaused = this.timeStopped = false
-    this.lastTimestamp = performance.now()
+    this.lastTimestamp = 0
     this.loopId = requestAnimationFrame(this.mainLoop)
   }
 
@@ -29,6 +30,7 @@ export default class GameLoop {
     cancelAnimationFrame(this.loopId)
     this.isPaused = false
     this.sceneLoop = null
+    this.loopId = null
     this.lastTimestamp = 0
     this.time = 0
 
@@ -45,8 +47,7 @@ export default class GameLoop {
     if (!this.isRunning || !this.isPaused) return
 
     this.isPaused = false
-    this.lastTimestamp = performance.now()
-    this.loopId = requestAnimationFrame(this.mainLoop)
+    this.lastTimestamp = 0
   }
 
   stopTime() {
@@ -55,7 +56,7 @@ export default class GameLoop {
 
   /* EVENTS */
 
-  handleKeyPress = event => {
+  handleKeyPress(event) {
     if (event.code === 'KeyP')
       if (this.isPaused) this.unpause()
       else this.pause()
@@ -66,12 +67,15 @@ export default class GameLoop {
   mainLoop = timestamp => {
     if (!this.isRunning) return
     if (this.isPaused) {
-      this.lastTimestamp = timestamp
       requestAnimationFrame(this.mainLoop)
       return
     }
 
+    if (this.lastTimestamp === 0)
+      this.lastTimestamp = timestamp
+
     const deltaTime = timestamp - this.lastTimestamp
+
     this.lastTimestamp = timestamp
     if (!this.timeStopped) this.time += deltaTime
 
