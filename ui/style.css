@@ -23,7 +23,7 @@
 body {
   background-color: #DDD;
   cursor: url(/assets/images/rpgui/cursor/default.png), auto;
-  filter: sepia(0.3);
+  filter: sepia(0.15);
   font-size: 0.8em;
   image-rendering: pixelated;
   line-height: 22px;

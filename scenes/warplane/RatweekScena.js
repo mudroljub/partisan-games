@@ -110,7 +110,7 @@ export default class RatweekScena extends Scena3D {
     this.scene.add(this.warplane.mesh)
     this.entities.push(this.warplane)
 
-    // this.gui.showMessage('Destroy enemy factories,<br><br>do not target civilian buildings')
+    this.gui.showMessage('Destroy enemy factories,<br><br>do not target civilian buildings')
     super.start()
   }
 

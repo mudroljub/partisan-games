@@ -22,7 +22,12 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### UI
 
 - integrisati ui i GUI
-    - FIX: Warplane Scena uvodniProzor()
+    - RatweekScena
+        - uvodniProzor()
+        - komande
+        - showMessage
+        - score
+        - endText
     - prosleđivati stilove za uvodni prozor?
 - integrisati stilove
     - spojiti klase za UI pozicioniranje
@@ -38,7 +43,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
         - dodati nemce
     - warplane 
         - promeniti da liči na stari
-        - preimenovati u Operation Ratweek
     - Savo Mitraljezac (uporediti sa starim, srediti)
         - BUG: kuckanje ne staje kad počne igra
 - dodati 3d model u 1944?

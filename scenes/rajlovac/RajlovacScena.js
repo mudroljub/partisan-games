@@ -30,7 +30,6 @@ export default class RajlovacScena extends Scena3D {
   }
 
   async init() {
-    this.bojaPozadine = 0x440033
     const ground = createGround({ file: 'terrain/ground.jpg' })
     ground.position.y -= .1
     const floor = createFloor({ size: mapSize, file: 'terrain/asphalt.jpg' })

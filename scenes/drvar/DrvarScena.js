@@ -10,7 +10,6 @@ const textureLoader = new THREE.TextureLoader()
 
 export default class DrvarScena extends Scena3D {
   init() {
-    this.bojaPozadine = 0x440033
     this.dodajMesh(createGround())
     elements.forEach(el => {
       for (let i = 0; i < el.number; ++i)

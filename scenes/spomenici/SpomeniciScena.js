@@ -13,15 +13,13 @@ export default class SpomeniciScena extends Scena3D {
   }
 
   async init() {
-    this.bojaPozadine = 0x87CEEB
+    this.bojaPlatna = 'linear-gradient(to bottom, #94c5f8 1%, #a6e6ff 70%, #b1b5ea 100%)'
     this.dodajMesh(createSun({ intensity: 2 * Math.PI }))
 
     const terrain = await terrainFromHeightmap({ file: 'yu-crop.png', heightFactor: 3, snow: false })
 
     this.player = new PartisanPlayer({ camera: this.camera, solids: terrain, altitude: .7 })
     this.player.position.z = 2
-
-    // new GUI({ player: this.player, scoreTitle: '' })
 
     const [kosmaj, kosovskaMitrovica, podgaric, kadinjaca, ilirskaBistrica] = await Promise.all([
       await loadModel({ file: 'building/monument/kosmaj.fbx', size: 30, texture: 'terrain/beton.gif' }),

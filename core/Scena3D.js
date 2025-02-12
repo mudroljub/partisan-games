@@ -17,6 +17,7 @@ export default class Scena3D extends Scena {
     this.renderer.shadowMap.enabled = true
     if (toon) this.createToonRenderer()
 
+    platno3D.style.background = 'linear-gradient(to top, #283e51, #0a2342)'
     platno3D.style.display = 'block'
 
     window.addEventListener('resize', () => {
@@ -28,6 +29,10 @@ export default class Scena3D extends Scena {
 
   set bojaPozadine(boja) {
     this.scene.background = new THREE.Color(boja)
+  }
+
+  set bojaPlatna(boja) {
+    platno3D.style.background = boja
   }
 
   async createToonRenderer(defaultThickness = 0.0025) {

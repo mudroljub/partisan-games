@@ -26,7 +26,6 @@ export default class SavoScena extends Scena3D {
   }
 
   init() {
-    this.bojaPozadine = 0x070b34
     this.light = hemLight({ intensity: Math.PI * 1.5, scene: this.scene })
     this.dodajMesh(createGround({ file: 'terrain/ground.jpg' }))
 
