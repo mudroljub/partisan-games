@@ -2,7 +2,6 @@ import Report from './Report.js'
 
 export default class UI {
   constructor(vlasnik, { reportText, intro = '', blinkingMessage = '' } = {}) {
-    this.hoceVan = false
     this.vlasnik = vlasnik
     this.intro = intro
     this.upamcenUI = this.upamcenProzor = this.outro = ''
@@ -59,7 +58,7 @@ export default class UI {
 
   get modal() {
     if (this.outro) return this.endScreen()
-    if (this.hoceVan) return this.escModal()
+    if (this.vlasnik.paused) return this.escModal()
     if (this.intro) return this.startScreen()
     return ''
   }

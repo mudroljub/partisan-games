@@ -73,6 +73,10 @@ export default class Scena {
 
   /* LOOP */
 
+  get paused() {
+    return this.gameLoop.isPaused
+  }
+
   start() {
     this.gameLoop.start()
     this.ui.clearIntro()
@@ -126,13 +130,11 @@ export default class Scena {
   }
 
   handleEsc() {
-    setTimeout(() => this.gameLoop.pause(), 1)
-    this.ui.hoceVan = true
+    this.gameLoop.pause()
   }
 
   nastaviIgru() {
     this.gameLoop.unpause()
-    this.ui.hoceVan = false
     if (this.usePointerLock) document.body.requestPointerLock()
   }
 
