@@ -64,7 +64,7 @@ export default class UI {
     return ''
   }
 
-  renderProzor() {
+  renderModal() {
     if (this.upamcenProzor !== this.prozor) {
       this.prozorElement.innerHTML = this.prozor
       this.upamcenProzor = this.prozor
@@ -73,7 +73,7 @@ export default class UI {
 
   /* SCORE */
 
-  renderGUI(t) {
+  renderSceneUI(t) {
     if (this.upamcenUI !== this.vlasnik.sceneUI(t)) {
       this.elementUI.innerHTML = this.vlasnik.sceneUI(t)
       this.upamcenUI = this.vlasnik.sceneUI(t)
@@ -113,9 +113,9 @@ export default class UI {
 
   /* LOOP */
 
-  renderUI(t) {
-    this.renderProzor()
-    this.renderGUI(t)
+  render(t) {
+    this.renderModal()
+    this.renderSceneUI(t)
     if (this.blinkingMessage) this.showBlinkingMessage(t)
   }
 }

@@ -118,7 +118,7 @@ export default class Scena {
     this.update(dt, t)
     this.cisti()
     this.render()
-    this.ui.renderUI(t)
+    this.ui.render(t)
   }
 
   sceneUI() {
