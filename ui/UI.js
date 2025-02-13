@@ -1,10 +1,10 @@
 import Report from './Report.js'
 
 export default class UI {
-  constructor(vlasnik, { reportText, intro = '', blinkingMessage = '' } = {}) {
-    this.vlasnik = vlasnik
+  constructor(scene, { reportText, intro = '', blinkingMessage = '' } = {}) {
+    this.scene = scene
     this.intro = intro
-    this.upamcenUI = this.upamcenProzor = this.outro = ''
+    this.cachedSceneUI = this.cachedModal = this.outro = ''
     this.elementUI = document.getElementById('ui')
     this.modalElement = document.getElementById('modal')
     this.reportText = reportText
@@ -58,30 +58,30 @@ export default class UI {
 
   get modal() {
     if (this.outro) return this.endScreen()
-    if (this.vlasnik.paused) return this.escModal()
+    if (this.scene.paused) return this.escModal()
     if (this.intro) return this.startScreen()
     return ''
   }
 
   renderModal() {
-    if (this.upamcenProzor !== this.modal) {
-      this.modalElement.innerHTML = this.modal
-      this.upamcenProzor = this.modal
-    }
+    if (this.cachedModal === this.modal) return
+
+    this.modalElement.innerHTML = this.modal
+    this.cachedModal = this.modal
   }
 
-  /* SCORE */
+  /* SCENE UI */
 
   renderSceneUI(t) {
-    if (this.upamcenUI !== this.vlasnik.sceneUI(t)) {
-      this.elementUI.innerHTML = this.vlasnik.sceneUI(t)
-      this.upamcenUI = this.vlasnik.sceneUI(t)
-    }
+    if (this.cachedSceneUI === this.scene.sceneUI(t)) return
+
+    this.elementUI.innerHTML = this.scene.sceneUI(t)
+    this.cachedSceneUI = this.scene.sceneUI(t)
   }
 
-  /* PORUKA */
+  /* MESSAGE */
 
-  getPoruka(txt, className = '') {
+  getMessage(txt, className = '') {
     return /* html */`
       <div class="central-screen">
         <h3 class="${className}">${txt}</h3>
@@ -90,7 +90,7 @@ export default class UI {
   }
 
   showMessage(txt) {
-    this.modalElement.innerHTML = this.getPoruka(txt)
+    this.modalElement.innerHTML = this.getMessage(txt)
     setTimeout(() => {
       this.modalElement.innerHTML = ''
     }, 3000)
@@ -104,7 +104,7 @@ export default class UI {
   }
 
   renderMessage() {
-    this.modalElement.innerHTML = this.getPoruka(this.blinkingMessage, 'blink')
+    this.modalElement.innerHTML = this.getMessage(this.blinkingMessage, 'blink')
     setTimeout(() => {
       this.modalElement.innerHTML = ''
     }, 3000)
