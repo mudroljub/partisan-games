@@ -62,7 +62,7 @@ export default class TenkScena extends Scena3D {
     this.dodaj(this.tank)
   }
 
-  sablon(t) {
+  sceneUI(t) {
 
     return /* html */`
       <div class="score rpgui-button golden">

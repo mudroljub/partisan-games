@@ -74,9 +74,9 @@ export default class UI {
   /* SCORE */
 
   renderGUI(t) {
-    if (this.upamcenUI !== this.vlasnik.sablon(t)) {
-      this.elementUI.innerHTML = this.vlasnik.sablon(t)
-      this.upamcenUI = this.vlasnik.sablon(t)
+    if (this.upamcenUI !== this.vlasnik.sceneUI(t)) {
+      this.elementUI.innerHTML = this.vlasnik.sceneUI(t)
+      this.upamcenUI = this.vlasnik.sceneUI(t)
     }
   }
 

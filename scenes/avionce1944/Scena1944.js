@@ -48,7 +48,7 @@ export default class Scena1944 extends Scena2D {
     if (!this.igrac.zivoti) this.zavrsi()
   }
 
-  sablon() {
+  sceneUI() {
     return /* html */`
       <div class='komande bg-poluprovidno komande1'>
         Poeni: ${this.igrac.poeni}<br>

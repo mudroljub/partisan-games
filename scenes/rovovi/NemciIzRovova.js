@@ -83,7 +83,7 @@ export default class NemciIzRovova extends Scena2D {
     this.proveriKraj()
   }
 
-  sablon() {
+  sceneUI() {
     const energija = Math.round(this.energija)
     return /* html */`
     <div class="komande komande1 bg-poluprovidno">

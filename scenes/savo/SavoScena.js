@@ -58,7 +58,7 @@ export default class SavoScena extends Scena3D {
     this.player.end()
   }
 
-  sablon() {
+  sceneUI() {
     const killed = this.enemies.filter(enemy => enemy.energy <= 0)
     const left = this.enemies.length - killed.length
     return /* html */`

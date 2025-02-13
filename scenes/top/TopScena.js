@@ -36,7 +36,7 @@ export default class TopScena extends Scena2D {
     if (this.tenk.mrtav) this.zavrsi('Okupator je poražen!')
   }
 
-  sablon() {
+  sceneUI() {
     return /* html */`
     <div class='komande komande1 bg-poluprovidno'>
       ${progresBar(this.top.energija)}

@@ -37,7 +37,7 @@ export default class TenkiciScena extends Scena2D {
     `
   }
 
-  sablon() {
+  sceneUI() {
     return /* html*/`
       <div class='komande bg-poluprovidno komande1'>
         ${this.tenk.ime}

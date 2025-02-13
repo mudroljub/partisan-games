@@ -19,7 +19,7 @@ export default class JasenovacScena extends Scena2D {
     this.tenk.patroliraj()
   }
 
-  sablon() {
+  sceneUI() {
     return /* html */`
       <h1 class="absolute full centar">Bekstvo iz Jasenovca</h1>
       <div class='komande bg-poluprovidno komande1'>

@@ -21,12 +21,13 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - BUG: Savo igraj-opet ne ubija neprijatelje
 - BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
 - BUG: Ratweek se trese
+- Otpisani ugasiti muziku na end
 
 ### UI
 
 - integrisati stilove
     - spojiti klase za UI pozicioniranje
-- terminologija: renderGUI i sablon, možda score ili tako nešto
+- terminologija: renderGUI i sceneUI, možda score ili tako nešto
 - BUG: spinner nije na sredini
 - ujednačiti stil UI za: prozore, dugmiće, boje...
     - uvodni prozor (ili prosleđivati klasu)

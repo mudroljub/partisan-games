@@ -78,7 +78,7 @@ export default class RajlovacScena extends Scena3D {
     this.dodaj(...this.aircraft, this.player)
   }
 
-  sablon() {
+  sceneUI() {
     const destroyed = this.aircraft.filter(plane => plane.energy <= 0)
     const left = this.aircraft.length - destroyed.length
     return /* html */`

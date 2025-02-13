@@ -41,7 +41,7 @@ export default class GlavniMeni extends Scena2D {
 
   proveriTipke() {}
 
-  sablon() {
+  sceneUI() {
     const izbornik = Object.entries(items).map(([kljuc, naziv]) =>
       `<button value='${kljuc}' class='js-start full'>${naziv}</button>`
     ).join('')

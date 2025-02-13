@@ -48,7 +48,7 @@ export default class BombasScena extends Scena2D {
 
   /* UI */
 
-  sablon(t) {
+  sceneUI(t) {
     const preostalo = ZADATO_VREME - Math.floor(t)
     return /* html */`
       <div class='komande bg-poluprovidno komande1'>

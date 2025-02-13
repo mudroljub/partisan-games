@@ -34,7 +34,7 @@ export default class TenkicIde extends Scena2D {
     crtaNeboZemlju(nivoTla)
   }
 
-  sablon() {
+  sceneUI() {
     return /* html */`
       <main class="komande bg-poluprovidno komande1">
         ${komande()}

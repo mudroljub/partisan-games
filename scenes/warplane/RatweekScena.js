@@ -118,7 +118,7 @@ export default class RatweekScena extends Scena3D {
     object.update(delta)
   })
 
-  sablon(time) {
+  sceneUI(time) {
     const timeLeft = totalTime - Math.floor(time)
     return /* html */`
       <div class="score ">

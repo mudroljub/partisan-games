@@ -137,7 +137,7 @@ export default class Scena1942 extends Scena2D {
     this.proveriSmrt()
   }
 
-  sablon() {
+  sceneUI() {
     return /* html */`
       <div class='komande bg-poluprovidno komande1'>
         Pucanje: Space <br>

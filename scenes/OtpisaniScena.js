@@ -47,7 +47,7 @@ export default class OtpisaniScena extends Scena2D {
     if (this.energija === 0) this.zavrsi()
   }
 
-  sablon() {
+  sceneUI() {
     return /* html */`
       <main class='absolute full centar'>
         <h1>Ubij okupatora!</h1>

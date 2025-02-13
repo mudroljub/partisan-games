@@ -26,7 +26,7 @@ loop(dt, t) {
     this.update(dt, t)
     this.cisti()
     this.render(dt, t)
-    this.sablon()
+    this.sceneUI()
 }
 ```
 

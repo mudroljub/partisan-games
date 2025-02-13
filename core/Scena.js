@@ -121,7 +121,7 @@ export default class Scena {
     this.ui.renderUI(t)
   }
 
-  sablon() {
+  sceneUI() {
     return ''
   }
 
