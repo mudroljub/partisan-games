@@ -22,12 +22,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### UI
 
 - integrisati ui i GUI
-    - RatweekScena
-        - uvodniProzor (možda bez biranja, sa porukom)
-        - showMessage
-        - komande
-        - score
-        - endText
     - prosleđivati stilove za uvodni prozor?
 - integrisati stilove
     - spojiti klase za UI pozicioniranje

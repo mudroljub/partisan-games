@@ -5,7 +5,6 @@ import { createTerrain } from '/core3d/ground.js'
 import { createFirTree } from '/core3d/geometry/trees.js'
 import { createWarehouse, createWarehouse2, createWarRuin, createRuin, createAirport } from '/core3d/city.js'
 import { loadModel } from '/core3d/loaders.js'
-import GUI from '/core3d/io/GUI.js'
 import Building from '/core3d/objects/Building.js'
 import Tower from '/core3d/objects/Tower.js'
 import Bomber from '/core3d/aircraft/derived/Bomber.js'
@@ -112,7 +111,7 @@ export default class RatweekScena extends Scena3D {
     if (object.hitAmount) {
       if (object.name == 'factory') this.score++
       if (object.name == 'civil') {
-        // this.gui.showMessage('No! Destruction of civilian buildings is a war crime.')
+        this.ui.showMessage('No! Destruction of civilian buildings is a war crime.')
         this.score--
       }
     }
@@ -120,7 +119,7 @@ export default class RatweekScena extends Scena3D {
   })
 
   sablon(time) {
-    let timeLeft = totalTime - Math.floor(time)
+    const timeLeft = totalTime - Math.floor(time)
     return /* html */`
       <div class="score ">
         <p>

@@ -22,6 +22,8 @@ export default class UI {
     if (this.report) this.report.stop()
   }
 
+  /* CENTRAL SCREEN */
+
   uvodniProzor() {
     return /* html */`
       <div class="central-screen rpgui-container" id="uvodni-prozor">
@@ -49,15 +51,13 @@ export default class UI {
     `
   }
 
-  blinkingProzor() {
-    return /* html */`
-      <div class="central-screen">
-        <h3 class="blink">${this.blinkingMessage}</h3>
-      </div>
-    `
+  renderUvodniProzor() {
+    this.prozorElement.innerHTML = this.uvodniProzor()
+    if (this.reportText)
+      this.report = new Report({ text: this.reportText, containerId: 'uvodni-prozor' })
   }
 
-  prozor() {
+  get prozor() {
     if (this.hoceVan) return this.izadjiProzor()
     if (this.zavrsniTekst) return this.zavrsniProzor()
     if (this.uvodniTekst) return this.uvodniProzor()
@@ -65,17 +65,13 @@ export default class UI {
   }
 
   renderProzor() {
-    if (this.upamcenProzor !== this.prozor()) {
-      this.prozorElement.innerHTML = this.prozor()
-      this.upamcenProzor = this.prozor()
+    if (this.upamcenProzor !== this.prozor) {
+      this.prozorElement.innerHTML = this.prozor
+      this.upamcenProzor = this.prozor
     }
   }
 
-  renderUvodniProzor() {
-    this.prozorElement.innerHTML = this.uvodniProzor()
-    if (this.reportText)
-      this.report = new Report({ text: this.reportText, containerId: 'uvodni-prozor' })
-  }
+  /* SCORE */
 
   renderGUI(t) {
     if (this.upamcenUI !== this.vlasnik.sablon(t)) {
@@ -84,17 +80,38 @@ export default class UI {
     }
   }
 
+  /* PORUKA */
+
+  getPoruka(txt, className = '') {
+    return /* html */`
+      <div class="central-screen">
+        <h3 class="${className}">${txt}</h3>
+      </div>
+    `
+  }
+
+  showMessage(txt) {
+    this.prozorElement.innerHTML = this.getPoruka(txt)
+    setTimeout(() => {
+      this.prozorElement.innerHTML = ''
+    }, 3000)
+  }
+
+  /* BLINKING */
+
   showBlinkingMessage(t, messageInterval = 20) {
     if (t > 0 && Math.ceil(t) % messageInterval == 0)
       this.renderMessage()
   }
 
   renderMessage() {
-    this.prozorElement.innerHTML = this.blinkingProzor()
+    this.prozorElement.innerHTML = this.getPoruka(this.blinkingMessage, 'blink')
     setTimeout(() => {
       this.prozorElement.innerHTML = ''
     }, 3000)
   }
+
+  /* LOOP */
 
   renderUI(t) {
     this.renderProzor()
