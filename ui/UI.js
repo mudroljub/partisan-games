@@ -1,23 +1,24 @@
 import Report from './Report.js'
 
+const elementUI = document.getElementById('ui')
+const modalElement = document.getElementById('modal')
+
 export default class UI {
   constructor(scene, { reportText, intro = '', blinkingMessage = '' } = {}) {
     this.scene = scene
     this.intro = intro
-    this.cachedSceneUI = this.cachedModal = this.outro = ''
-    this.elementUI = document.getElementById('ui')
-    this.modalElement = document.getElementById('modal')
     this.reportText = reportText
     this.blinkingMessage = blinkingMessage
+    this.cachedSceneUI = this.cachedModal = this.outro = ''
   }
 
   clear() {
-    this.elementUI.innerHTML = this.modalElement.innerHTML = ''
+    elementUI.innerHTML = modalElement.innerHTML = ''
   }
 
   clearIntro() {
     this.intro = ''
-    this.modalElement.innerHTML = ''
+    modalElement.innerHTML = ''
     if (this.report) this.report.stop()
   }
 
@@ -35,8 +36,8 @@ export default class UI {
   escModal() {
     return /* html */`
       <div class="central-screen simple-container">
-        <p>Napusti igru?</p>
-        <button id="menu">Da</button><button id="cancel">Ne</button><button id="igraj-opet">Igraj opet</button>
+        <p>Leave game?</p>
+        <button id="menu">Yes</button><button id="cancel">No</button><button id="igraj-opet">Play again</button>
       </div>
     `
   }
@@ -45,13 +46,13 @@ export default class UI {
     return /* html */`
       <div class="central-screen simple-container">
         <p>${this.outro}</p>
-        <button id="igraj-opet">Igraj opet</button><button id="menu">Glavni meni</button>
+        <button id="igraj-opet">Play again</button><button id="menu">Main menu</button>
       </div>
     `
   }
 
   renderStartScreen() {
-    this.modalElement.innerHTML = this.startScreen()
+    modalElement.innerHTML = this.startScreen()
     if (this.reportText)
       this.report = new Report({ text: this.reportText, containerId: 'start-screen' })
   }
@@ -66,7 +67,7 @@ export default class UI {
   renderModal() {
     if (this.cachedModal === this.modal) return
 
-    this.modalElement.innerHTML = this.modal
+    modalElement.innerHTML = this.modal
     this.cachedModal = this.modal
   }
 
@@ -75,7 +76,7 @@ export default class UI {
   renderSceneUI(t) {
     if (this.cachedSceneUI === this.scene.sceneUI(t)) return
 
-    this.elementUI.innerHTML = this.scene.sceneUI(t)
+    elementUI.innerHTML = this.scene.sceneUI(t)
     this.cachedSceneUI = this.scene.sceneUI(t)
   }
 
@@ -90,9 +91,9 @@ export default class UI {
   }
 
   showMessage(txt) {
-    this.modalElement.innerHTML = this.getMessage(txt)
+    modalElement.innerHTML = this.getMessage(txt)
     setTimeout(() => {
-      this.modalElement.innerHTML = ''
+      modalElement.innerHTML = ''
     }, 3000)
   }
 
@@ -104,9 +105,9 @@ export default class UI {
   }
 
   renderMessage() {
-    this.modalElement.innerHTML = this.getMessage(this.blinkingMessage, 'blink')
+    modalElement.innerHTML = this.getMessage(this.blinkingMessage, 'blink')
     setTimeout(() => {
-      this.modalElement.innerHTML = ''
+      modalElement.innerHTML = ''
     }, 3000)
   }
 

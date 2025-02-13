@@ -32,7 +32,7 @@ export default class TenkiciScena extends Scena2D {
       <div class="central-screen bg-black">
         <p class="valencia">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>
         <p class="avocado">${this.tenk.ziv ? this.tenk.ime : this.tenk2.ime} je pobedio ovu borbu.</p>
-        <button id="igraj-opet">Igraj opet</button><button id="menu">Glavni meni</button>
+        <button id="igraj-opet">Play again</button><button id="menu">Main menu</button>
       </div>
     `
   }
