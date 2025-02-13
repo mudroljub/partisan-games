@@ -30,8 +30,8 @@ export default class OtpisaniScena extends Scena2D {
 
   end() {
     super.end()
-    this.audio.pause()
     mish.ukloniNishan()
+    setTimeout(() => this.audio.pause(), 1) // klik na izlaz ponovo pušta
   }
 
   update(dt, t) {

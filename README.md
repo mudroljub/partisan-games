@@ -19,7 +19,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - BUG: Savo igraj-opet ne ubija neprijatelje
 - BUG: 1944 nema pozadine
 - BUG: Ratweek se trese
-- BUG: Otpisani audio.pause() na izlasku ne radi (klik opet pokrene?)
 
 ### UI
 
