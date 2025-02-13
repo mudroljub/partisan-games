@@ -16,12 +16,10 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
     - i Bombaš i drugi nivoi baguju, zeza GameLoop?
-- BUG: ne radi TenkiciScena endScreen
+    - BUG: Savo igraj-opet ne ubija neprijatelje
 - BUG: 1944 nema pozadine
-- BUG: Savo igraj-opet ne ubija neprijatelje
-- BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
 - BUG: Ratweek se trese
-- BUG: Otpisani audio.pause() na izlasku ne radi
+- BUG: Otpisani audio.pause() na izlasku ne radi (klik opet pokrene?)
 
 ### UI
 
@@ -33,6 +31,9 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - uvodni modal (ili prosleđivati klasu)
     - kontrole
     - score
+- BUG: Savo esc pauza ne prikazuje modal
+- BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
+- BUG: ne radi TenkiciScena endScreen
 
 ### 3D
 
