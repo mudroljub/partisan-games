@@ -32,8 +32,8 @@ export default class TopScena extends Scena2D {
 
   update(dt, t) {
     super.update(dt, t)
-    if (this.top.mrtav) this.zavrsi('Izgubio si ovu bitku.')
-    if (this.tenk.mrtav) this.zavrsi('Okupator je poražen!')
+    if (this.top.mrtav) this.finish('Izgubio si ovu bitku.')
+    if (this.tenk.mrtav) this.finish('Okupator je poražen!')
   }
 
   sceneUI() {

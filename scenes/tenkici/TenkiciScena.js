@@ -24,7 +24,7 @@ export default class TenkiciScena extends Scena2D {
 
   update(dt) {
     super.update(dt)
-    if (this.tenk.mrtav || this.tenk2.mrtav) this.zavrsi()
+    if (this.tenk.mrtav || this.tenk2.mrtav) this.finish()
   }
 
   endScreen() {

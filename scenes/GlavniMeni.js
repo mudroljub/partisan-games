@@ -39,7 +39,7 @@ export default class GlavniMeni extends Scena2D {
       this.manager.start(e.target.value)
   }
 
-  proveriTipke() {}
+  handleInput() {}
 
   sceneUI() {
     const izbornik = Object.entries(items).map(([kljuc, naziv]) =>

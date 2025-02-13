@@ -96,13 +96,13 @@ export default class Scena1942 extends Scena2D {
       this.dizePredmete(-DIZAJ * .5)
 
     this.zaustaviParalax()
-    this.zavrsi('Slavno si pao.')
+    this.finish('Slavno si pao.')
   }
 
   proveriTlo() {
     if (this.igrac.jePrizemljen && this.dignutostScene <= 0) {
       this.zaustaviParalax()
-      if (this.igrac.ziv && this.vozilo.mrtav) this.zavrsi('Misija je uspešno završena!')
+      if (this.igrac.ziv && this.vozilo.mrtav) this.finish('Misija je uspešno završena!')
     }
   }
 
@@ -110,8 +110,8 @@ export default class Scena1942 extends Scena2D {
     crtaNebo(nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
   }
 
-  proveriTipke() {
-    super.proveriTipke()
+  handleInput() {
+    super.handleInput()
     if (!this.igrac.ziv) return
 
     if (keyboard.right && this.brzinaScene < MAX_BRZINA)

@@ -59,7 +59,7 @@ export default class NemciIzRovova extends Scena2D {
       poruka += `Ubio si ${this.pogoci} okupatora. To je novi rekord!`
       localStorage.setItem('svabeRekord', this.pogoci)
     }
-    this.zavrsi(poruka)
+    this.finish(poruka)
   }
 
   ucitajRekord() {

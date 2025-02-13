@@ -78,10 +78,10 @@ export default class SavoScena extends Scena3D {
     const won = this.player.position.distanceTo(this.maze.exitPosition) < 5
 
     if (won)
-      this.zavrsi(`Bravo!<br>You found a way out<br> and kill ${killed.length} of ${this.enemies.length} enemies`)
+      this.finish(`Bravo!<br>You found a way out<br> and kill ${killed.length} of ${this.enemies.length} enemies`)
 
     if (this.player.dead)
-      this.zavrsi('You are dead.')
+      this.finish('You are dead.')
 
     if (Math.random() > .998) lightningStrike(this.light, this.scene)
   }

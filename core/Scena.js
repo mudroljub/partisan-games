@@ -55,13 +55,13 @@ export default class Scena {
       this.manager.start('GlavniMeni')
 
     if (e.target.id == 'cancel')
-      this.nastaviIgru()
+      this.unpause()
   }
 
   handlePointerLockChange = () => {
     if (this.ui.outro) return
     if (!document.pointerLockElement)
-      this.handleEsc()
+      this.pause()
   }
 
   handleVisibilityChange = () => {
@@ -95,13 +95,13 @@ export default class Scena {
     document.removeEventListener('pointerlockchange', this.handlePointerLockChange)
   }
 
-  proveriTipke(dt) {
+  handleInput(dt) {
     if (this.ui.outro) return
 
-    if (keyboard.pressed.Escape) this.handleEsc()
+    if (keyboard.pressed.Escape) this.pause()
 
     this.predmeti.forEach(predmet => {
-      if (predmet.ziv && predmet.proveriTipke) predmet.proveriTipke(dt)
+      if (predmet.ziv && predmet.handleInput) predmet.handleInput(dt)
     })
   }
 
@@ -118,7 +118,7 @@ export default class Scena {
   render() {}
 
   loop = (dt, t) => {
-    this.proveriTipke(dt)
+    this.handleInput(dt)
     this.update(dt, t)
     this.clear()
     this.render()
@@ -129,16 +129,16 @@ export default class Scena {
     return ''
   }
 
-  handleEsc() {
+  pause() {
     this.gameLoop.pause()
   }
 
-  nastaviIgru() {
+  unpause() {
     this.gameLoop.unpause()
     if (this.usePointerLock) document.body.requestPointerLock()
   }
 
-  zavrsi(text = 'Igra je završena.') {
+  finish(text = 'Igra je završena.') {
     this.ui.outro = text
     this.gameLoop.stopTime()
     if (this.usePointerLock) document.exitPointerLock()

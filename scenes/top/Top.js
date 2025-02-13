@@ -38,7 +38,7 @@ export default class Top extends Predmet {
     this.sila = this.minSila
   }
 
-  proveriTipke(dt) {
+  handleInput(dt) {
     if (keyboard.space)
       this.sila += 10
     else if (this.sila > this.minSila)

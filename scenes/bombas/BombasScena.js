@@ -32,7 +32,7 @@ export default class BombasScena extends Scena2D {
   proveriPobedu() {
     if (this.bombas.razmakDo(this.bunker) < this.bunker.sirina / 2) {
       this.bunker.umri()
-      this.zavrsi('Neprijateljski bunker je uništen!')
+      this.finish('Neprijateljski bunker je uništen!')
     }
   }
 
@@ -40,8 +40,8 @@ export default class BombasScena extends Scena2D {
     super.update(dt, t)
     this.mine.forEach(mina => mina.proveriSudar(this.bombas))
 
-    if (this.bombas.mrtav) this.zavrsi('Slavno si pao.')
-    if (t > ZADATO_VREME) this.zavrsi('Tvoje vreme je isteklo.')
+    if (this.bombas.mrtav) this.finish('Slavno si pao.')
+    if (t > ZADATO_VREME) this.finish('Tvoje vreme je isteklo.')
 
     this.proveriPobedu()
   }

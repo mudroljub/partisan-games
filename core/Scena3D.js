@@ -54,8 +54,8 @@ export default class Scena3D extends Scena {
     platno3D.style.display = 'none'
   }
 
-  proveriTipke(dt) {
-    super.proveriTipke(dt)
+  handleInput(dt) {
+    super.handleInput(dt)
     this.controls?.update(dt)
   }
 

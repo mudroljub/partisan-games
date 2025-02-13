@@ -103,9 +103,9 @@ export default class RajlovacScena extends Scena3D {
     const destroyed = this.aircraft.filter(plane => plane.energy <= 0)
 
     if (this.player.dead)
-      this.zavrsi('You are dead.')
+      this.finish('You are dead.')
 
     if (destroyed.length == this.aircraft.length)
-      this.zavrsi('Congratulations!<br>All enemy planes were destroyed.')
+      this.finish('Congratulations!<br>All enemy planes were destroyed.')
   }
 }

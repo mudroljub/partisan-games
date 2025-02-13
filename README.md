@@ -21,7 +21,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - BUG: Savo igraj-opet ne ubija neprijatelje
 - BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
 - BUG: Ratweek se trese
-- Otpisani ugasiti muziku na end
+- BUG: Otpisani audio.pause() na izlasku ne radi
 
 ### UI
 

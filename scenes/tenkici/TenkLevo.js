@@ -29,7 +29,7 @@ export default class TenkLevo extends Tenk {
     if (this.cev.ugao >= Math.PI) this.cev.ugao += dt * .5
   }
 
-  proveriTipke(dt) {
+  handleInput(dt) {
     if (keyboard.pressed.KeyA && this.x > 0)
       this.dodajSilu(this.potisak * 0.6, Math.PI)
     if (keyboard.pressed.KeyD && this.x < platno.width / 2)

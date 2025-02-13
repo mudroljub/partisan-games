@@ -8,7 +8,7 @@ export default class Posada extends Predmet {
     this.maxX = x + 10
   }
 
-  proveriTipke(dt) {
+  handleInput(dt) {
     if (keyboard.space)
       this.x = Math.min(this.x + 20 * dt, this.maxX)
     else

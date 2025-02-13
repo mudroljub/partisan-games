@@ -13,7 +13,7 @@ export default class Igrac extends Predmet {
     this.faktorTrenja = .1
   }
 
-  proveriTipke() {
+  handleInput() {
     if (keyboard.left) this.nalevo()
     if (keyboard.right) this.nadesno()
     if (keyboard.up) this.nagore()

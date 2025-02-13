@@ -33,7 +33,7 @@ export default class TenkDesno extends Tenk {
     if (this.cev.ugao >= Math.PI) this.cev.ugao -= dt * .5
   }
 
-  proveriTipke(dt) {
+  handleInput(dt) {
     if (this.ai) return
 
     if (keyboard.pressed.ArrowLeft && this.x > platno.width / 2)

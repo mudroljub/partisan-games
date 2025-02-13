@@ -22,7 +22,7 @@ Metode koje Scena2D poziva unutar glavne petlje:
 
 ```js
 loop(dt, t) {
-    this.proveriTipke(dt)
+    this.handleInput(dt)
     this.update(dt, t)
     this.clear()
     this.render(dt, t)
@@ -33,7 +33,7 @@ loop(dt, t) {
 Ako dodamo predmet sceni, Scena2D na njemu svaki frejm poziva sledeće metode:
 
 ```js
-predmet.proveriTipke()
+predmet.handleInput()
 predmet.update()
     predmet.proveriGranice()
 predmet.render()

@@ -28,8 +28,8 @@ export default class AvionIgrac extends Igrac {
 
   /** KOMANDE ***/
 
-  proveriTipke() {
-    super.proveriTipke()
+  handleInput() {
+    super.handleInput()
     if (keyboard.pressed.Enter)
       this.pucaCiljano()
   }

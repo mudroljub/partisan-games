@@ -10,7 +10,7 @@ export default class OtpisaniScena extends Scena2D {
   init() {
     Object.defineProperties(this, Object.getOwnPropertyDescriptors(praviEnergiju()))
     this.pozadina = new Pozadina('background/rusevine-varsava.jpg')
-    this.pesma = new Audio('/assets/sounds/otpisani.mp3')
+    this.audio = new Audio('/assets/sounds/otpisani.mp3')
     this.vreme = new Vreme()
     this.dodajNeprijatelja()
     mish.dodajNishan()
@@ -25,12 +25,12 @@ export default class OtpisaniScena extends Scena2D {
   handleClick(e) {
     super.handleClick(e)
     this.predmeti.forEach(svabo => svabo.proveriPogodak(() => this.poeni++))
-    this.pesma.play()
+    this.audio.play()
   }
 
   end() {
     super.end()
-    this.pesma.pause()
+    this.audio.pause()
     mish.ukloniNishan()
   }
 
@@ -44,7 +44,7 @@ export default class OtpisaniScena extends Scena2D {
     }
     this.intervalIzlaska -= dt * 100
 
-    if (this.energija === 0) this.zavrsi()
+    if (this.energija === 0) this.finish()
   }
 
   sceneUI() {
