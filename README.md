@@ -10,6 +10,8 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
+- Keyboard je duplirana, obrisati jednu
+
 ### BUGFIX
 
 - BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
@@ -18,15 +20,18 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - BUG: 1944 nema pozadine
 - BUG: Savo igraj-opet ne ubija neprijatelje
 - BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
+- BUG: Ratweek se trese
 
 ### UI
 
-- integrisati ui i GUI
-    - prosleđivati stilove za uvodni prozor?
 - integrisati stilove
     - spojiti klase za UI pozicioniranje
 - terminologija: renderGUI i sablon, možda score ili tako nešto
 - BUG: spinner nije na sredini
+- ujednačiti stil UI za: prozore, dugmiće, boje...
+    - uvodni prozor (ili prosleđivati klasu)
+    - kontrole
+    - score
 
 ### 3D
 
@@ -110,3 +115,8 @@ ubaciti bonuse, da uhvatis novi zivot, novo oruzje, bombu, pojacanje, brzinu...
 
 napraviti partizansku verziju super mario:
 trci, uzima hranu, izbegava metkove, preskace bombe...
+
+## Credits
+
+- [JuniorGeneral](https://www.juniorgeneral.org/) - pixel art soldiers and ideas 
+- [RPGUI](https://ronenness.github.io/RPGUI/) - beautiful old school interface 
