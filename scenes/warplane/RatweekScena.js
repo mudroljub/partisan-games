@@ -8,6 +8,8 @@ import { loadModel } from '/core3d/loaders.js'
 import GUI from '/core3d/io/GUI.js'
 import Building from '/core3d/objects/Building.js'
 import Tower from '/core3d/objects/Tower.js'
+import Bomber from '/core3d/aircraft/derived/Bomber.js'
+import { baseControls } from '/ui/Controls.js'
 
 const { randInt, randFloatSpread } = THREE.MathUtils
 
@@ -16,14 +18,6 @@ const mapSize = 800
 const buildingInterval = 2000
 const buildingDistance = mapSize * .4
 const groundDistance = mapSize * .99
-
-const controls = {
-  '← or A': 'left',
-  '→ or D': 'right',
-  '↑ or W': 'up',
-  '↓ or S': 'down',
-  'Enter': 'attack',
-}
 
 const createBuilding = async time => {
   const minutes = Math.floor(time / 60)
@@ -43,15 +37,10 @@ const createBuilding = async time => {
 export default class RatweekScena extends Scena3D {
   constructor(manager) {
     super(manager, {
-      uvodniTekst: /* html */`
-      <h2>Choose your aircraft</h2>
-      <div class="game-screen-select">
-        <input type="image" id="Biplane" src="/assets/images/airplanes/Biplane.png">
-        <input type="image" id="Triplane" src="/assets/images/airplanes/Triplane.png">
-        <input type="image" id="Messerschmitt" src="/assets/images/airplanes/Messerschmitt.png">
-        <input type="image" id="Bomber" src="/assets/images/airplanes/Bomber.png">
-      </div>
-      `,
+      toon: true,
+      controlKeys: { ...baseControls, Enter: 'attack' },
+      uvodniTekst: 'Destroy enemy factories,<br><br>do not target civilian buildings!',
+      controlsWindowClass: '',
     })
   }
 
@@ -72,8 +61,11 @@ export default class RatweekScena extends Scena3D {
     this.ground2.position.z = -groundDistance
     this.dodajMesh(this.ground, this.ground2)
 
-    this.gui = new GUI({ subtitle: 'Time left', total: totalTime, endText: 'Bravo! <br>You have completed the mission.', controls, useBlink: true, scoreClass: '' })
-    this.startGame = this.startGame.bind(this)
+    this.warplane = new Bomber({ camera: this.camera, limit: mapSize * .25 })
+    this.scene.add(this.warplane.mesh)
+    this.entities.push(this.warplane)
+
+    this.score = 0
     this.render()
   }
 
@@ -100,23 +92,6 @@ export default class RatweekScena extends Scena3D {
     }
   }
 
-  async startGame(e) {
-    if (e.target.tagName != 'INPUT') return
-
-    const obj = await import(`/core3d/aircraft/derived/${e.target.id}.js`)
-    this.warplane = new obj.default({ camera: this.camera, limit: mapSize * .25 })
-    this.scene.add(this.warplane.mesh)
-    this.entities.push(this.warplane)
-
-    this.gui.showMessage('Destroy enemy factories,<br><br>do not target civilian buildings')
-    super.start()
-  }
-
-  handleClick(e) {
-    super.handleClick(e)
-    this.startGame(e)
-  }
-
   /* UPDATES */
 
   moveGround = deltaSpeed => [this.ground, this.ground2].forEach(g => {
@@ -135,14 +110,26 @@ export default class RatweekScena extends Scena3D {
   updateEntities = delta => this.entities.forEach(object => {
     if (!object.scene) this.entities.splice(this.entities.indexOf(object), 1)
     if (object.hitAmount) {
-      if (object.name == 'factory') this.gui.addScore(1)
+      if (object.name == 'factory') this.score++
       if (object.name == 'civil') {
-        this.gui.showMessage('No! Destruction of civilian buildings is a war crime.')
-        this.gui.addScore(-1)
+        // this.gui.showMessage('No! Destruction of civilian buildings is a war crime.')
+        this.score--
       }
     }
     object.update(delta)
   })
+
+  sablon(time) {
+    let timeLeft = totalTime - Math.floor(time)
+    return /* html */`
+      <div class="score ">
+        <p>
+          Score: ${this.score}<br>
+          <small class="blink">Time left: ${Math.max(timeLeft, 0)}</small>
+        </p>
+      </div>
+    `
+  }
 
   update(delta, time) {
     super.update(delta, time)
@@ -157,12 +144,12 @@ export default class RatweekScena extends Scena3D {
     if (this.warplane.dead)
       return setTimeout(() => this.zavrsi('You have failed.'), 2500)
 
-    let timeLeft = totalTime - Math.floor(time)
-    if (timeLeft <= 0) timeLeft = 0
-
-    this.gui.addScore(0, timeLeft)
-
     if (time < totalTime - 10) this.spawnObjects(time)
-    if (time >= totalTime) this.warplane.land(delta)
+    if (time >= totalTime) {
+      this.warplane.land(delta)
+      setTimeout(() => {
+        this.zavrsi('Bravo! <br>You have completed the mission.')
+      }, 2500)
+    }
   }
 }
