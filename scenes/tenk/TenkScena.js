@@ -18,7 +18,7 @@ export default class TenkScena extends Scena3D {
     super(manager, {
       toon: true,
       controlKeys: { ...baseControls, Space: 'break' },
-      uvodniTekst: 'Demolish all crates',
+      intro: 'Demolish all crates',
     })
   }
 

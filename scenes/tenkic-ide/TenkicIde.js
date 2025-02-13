@@ -30,7 +30,7 @@ export default class TenkicIde extends Scena2D {
     this.tenk.ciljevi.push(...ciljevi)
   }
 
-  cisti() {
+  clear() {
     crtaNeboZemlju(nivoTla)
   }
 

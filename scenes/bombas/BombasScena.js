@@ -26,7 +26,7 @@ export default class BombasScena extends Scena2D {
       .map(p => new Mina(p))
     this.dodaj(this.bunker, this.mitraljezac, this.bombas, ...this.mine)
 
-    this.ui.uvodniTekst = 'Dovedi Žikicu Jovanovića Španca do nemačkog bunkera!'
+    this.ui.intro = 'Dovedi Žikicu Jovanovića Španca do nemačkog bunkera!'
   }
 
   proveriPobedu() {

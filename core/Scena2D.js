@@ -15,8 +15,8 @@ export default class Scena2D extends Scena {
     platno.style.display = 'none'
   }
 
-  cisti() {
-    this.renderer.cisti({ pozadina: this.pozadina, bojaPozadine: this.bojaPozadine })
+  clear() {
+    this.renderer.clear({ pozadina: this.pozadina, bojaPozadine: this.bojaPozadine })
   }
 
   render() {

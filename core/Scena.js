@@ -6,12 +6,12 @@ import Controls from '../ui/Controls.js'
 
 export default class Scena {
   constructor(manager, {
-    usePointerLock, controlKeys, uvodniTekst, controlsWindowClass, reportText, blinkingMessage, showControls = true
+    usePointerLock, controlKeys, intro, controlsWindowClass, reportText, blinkingMessage, showControls = true
   } = {}) {
     this.manager = manager
     this.usePointerLock = usePointerLock
     this.gameLoop = new GameLoop(this.loop)
-    this.ui = new UI(this, { reportText, uvodniTekst, blinkingMessage })
+    this.ui = new UI(this, { reportText, intro, blinkingMessage })
     this.predmeti = []
     if (showControls)
       this.kontrole = new Controls({ controlKeys, containerClass: controlsWindowClass })
@@ -59,9 +59,9 @@ export default class Scena {
   }
 
   handlePointerLockChange = () => {
-    if (this.ui.zavrsniTekst) return
+    if (this.ui.outro) return
     if (!document.pointerLockElement)
-      this.pokaziProzor()
+      this.handleEsc()
   }
 
   handleVisibilityChange = () => {
@@ -75,15 +75,15 @@ export default class Scena {
 
   start() {
     this.gameLoop.start()
-    this.ui.cistiUvod()
+    this.ui.clearIntro()
     if (this.usePointerLock) document.body.requestPointerLock()
   }
 
   end() {
     this.gameLoop.stop()
     this.predmeti = []
-    this.cisti()
-    this.ui.cisti()
+    this.clear()
+    this.ui.clear()
     if (this.kontrole) this.kontrole.end()
 
     document.removeEventListener('click', this.handleClick)
@@ -92,9 +92,9 @@ export default class Scena {
   }
 
   proveriTipke(dt) {
-    if (this.ui.zavrsniTekst) return
+    if (this.ui.outro) return
 
-    if (keyboard.pressed.Escape) this.pokaziProzor()
+    if (keyboard.pressed.Escape) this.handleEsc()
 
     this.predmeti.forEach(predmet => {
       if (predmet.ziv && predmet.proveriTipke) predmet.proveriTipke(dt)
@@ -109,14 +109,14 @@ export default class Scena {
     this.predmeti.forEach(rekurzivnoAzuriraj)
   }
 
-  cisti() {}
+  clear() {}
 
   render() {}
 
   loop = (dt, t) => {
     this.proveriTipke(dt)
     this.update(dt, t)
-    this.cisti()
+    this.clear()
     this.render()
     this.ui.render(t)
   }
@@ -125,7 +125,7 @@ export default class Scena {
     return ''
   }
 
-  pokaziProzor() {
+  handleEsc() {
     setTimeout(() => this.gameLoop.pause(), 1)
     this.ui.hoceVan = true
   }
@@ -137,7 +137,7 @@ export default class Scena {
   }
 
   zavrsi(text = 'Igra je završena.') {
-    this.ui.zavrsniTekst = text
+    this.ui.outro = text
     this.gameLoop.stopTime()
     if (this.usePointerLock) document.exitPointerLock()
   }

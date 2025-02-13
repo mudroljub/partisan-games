@@ -13,7 +13,7 @@ export default class Renderer2D {
     this.kameraX = this.kameraY = 0 // TODO: integriši sa kamerom
   }
 
-  cisti({ pozadina, bojaPozadine } = {}) {
+  clear({ pozadina, bojaPozadine } = {}) {
     if (pozadina)
       pozadina.render()
     else if (bojaPozadine) {

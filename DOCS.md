@@ -24,7 +24,7 @@ Metode koje Scena2D poziva unutar glavne petlje:
 loop(dt, t) {
     this.proveriTipke(dt)
     this.update(dt, t)
-    this.cisti()
+    this.clear()
     this.render(dt, t)
     this.sceneUI()
 }

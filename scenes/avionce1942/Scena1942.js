@@ -46,7 +46,7 @@ export default class Scena1942 extends Scena2D {
 
     this.dodaj(this.aerodrom, this.igrac, this.ruina, this.vozilo, ...this.oblaci, ...this.zbunovi, ...this.shume)
     this.pocniParalax()
-    this.ui.uvodniTekst = 'Uništi nemački tenk i bezbedno sleti!'
+    this.ui.intro = 'Uništi nemački tenk i bezbedno sleti!'
   }
 
   get ostaliPredmeti() {
@@ -106,7 +106,7 @@ export default class Scena1942 extends Scena2D {
     }
   }
 
-  cisti() {
+  clear() {
     crtaNebo(nivoTla + this.dignutostScene, 'blue', 'lightblue', this.dignutostScene)
   }
 

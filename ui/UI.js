@@ -1,39 +1,39 @@
 import Report from './Report.js'
 
 export default class UI {
-  constructor(vlasnik, { reportText, uvodniTekst = '', blinkingMessage = '' } = {}) {
+  constructor(vlasnik, { reportText, intro = '', blinkingMessage = '' } = {}) {
     this.hoceVan = false
     this.vlasnik = vlasnik
-    this.uvodniTekst = uvodniTekst
-    this.upamcenUI = this.upamcenProzor = this.zavrsniTekst = ''
+    this.intro = intro
+    this.upamcenUI = this.upamcenProzor = this.outro = ''
     this.elementUI = document.getElementById('ui')
-    this.prozorElement = document.getElementById('prozor')
+    this.modalElement = document.getElementById('modal')
     this.reportText = reportText
     this.blinkingMessage = blinkingMessage
   }
 
-  cisti() {
-    this.elementUI.innerHTML = this.prozorElement.innerHTML = ''
+  clear() {
+    this.elementUI.innerHTML = this.modalElement.innerHTML = ''
   }
 
-  cistiUvod() {
-    this.uvodniTekst = ''
-    this.prozorElement.innerHTML = ''
+  clearIntro() {
+    this.intro = ''
+    this.modalElement.innerHTML = ''
     if (this.report) this.report.stop()
   }
 
   /* CENTRAL SCREEN */
 
-  uvodniProzor() {
+  startScreen() {
     return /* html */`
-      <div class="central-screen rpgui-container" id="uvodni-prozor">
-        <p>${this.uvodniTekst}</p>
+      <div class="central-screen rpgui-container" id="start-screen">
+        <p>${this.intro}</p>
         <button id="start" class="press-start">Press to START!</button>
       </div>
     `
   }
 
-  izadjiProzor() {
+  escModal() {
     return /* html */`
       <div class="central-screen simple-container">
         <p>Napusti igru?</p>
@@ -42,32 +42,32 @@ export default class UI {
     `
   }
 
-  zavrsniProzor() {
+  endScreen() {
     return /* html */`
       <div class="central-screen simple-container">
-        <p>${this.zavrsniTekst}</p>
+        <p>${this.outro}</p>
         <button id="igraj-opet">Igraj opet</button><button id="menu">Glavni meni</button>
       </div>
     `
   }
 
-  renderUvodniProzor() {
-    this.prozorElement.innerHTML = this.uvodniProzor()
+  renderStartScreen() {
+    this.modalElement.innerHTML = this.startScreen()
     if (this.reportText)
-      this.report = new Report({ text: this.reportText, containerId: 'uvodni-prozor' })
+      this.report = new Report({ text: this.reportText, containerId: 'start-screen' })
   }
 
-  get prozor() {
-    if (this.hoceVan) return this.izadjiProzor()
-    if (this.zavrsniTekst) return this.zavrsniProzor()
-    if (this.uvodniTekst) return this.uvodniProzor()
+  get modal() {
+    if (this.outro) return this.endScreen()
+    if (this.hoceVan) return this.escModal()
+    if (this.intro) return this.startScreen()
     return ''
   }
 
   renderModal() {
-    if (this.upamcenProzor !== this.prozor) {
-      this.prozorElement.innerHTML = this.prozor
-      this.upamcenProzor = this.prozor
+    if (this.upamcenProzor !== this.modal) {
+      this.modalElement.innerHTML = this.modal
+      this.upamcenProzor = this.modal
     }
   }
 
@@ -91,9 +91,9 @@ export default class UI {
   }
 
   showMessage(txt) {
-    this.prozorElement.innerHTML = this.getPoruka(txt)
+    this.modalElement.innerHTML = this.getPoruka(txt)
     setTimeout(() => {
-      this.prozorElement.innerHTML = ''
+      this.modalElement.innerHTML = ''
     }, 3000)
   }
 
@@ -105,9 +105,9 @@ export default class UI {
   }
 
   renderMessage() {
-    this.prozorElement.innerHTML = this.getPoruka(this.blinkingMessage, 'blink')
+    this.modalElement.innerHTML = this.getPoruka(this.blinkingMessage, 'blink')
     setTimeout(() => {
-      this.prozorElement.innerHTML = ''
+      this.modalElement.innerHTML = ''
     }, 3000)
   }
 

@@ -27,7 +27,7 @@ export default class TenkiciScena extends Scena2D {
     if (this.tenk.mrtav || this.tenk2.mrtav) this.zavrsi()
   }
 
-  zavrsniProzor() {
+  endScreen() {
     return /* html*/`
       <div class="central-screen bg-black">
         <p class="valencia">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>

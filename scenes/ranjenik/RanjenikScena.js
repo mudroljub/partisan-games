@@ -61,7 +61,7 @@ export default class RanjenikScena extends Scena2D {
   }
 
   update(dt, t) {
-    if (this.zavrsniTekst) return
+    if (this.outro) return
     super.update(dt, t)
     this.proveriSudare()
     this.proveriPobedu()

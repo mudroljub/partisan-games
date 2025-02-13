@@ -16,7 +16,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
     - i Bombaš i drugi nivoi baguju, zeza GameLoop?
-- BUG: ne radi TenkiciScena zavrsniProzor
+- BUG: ne radi TenkiciScena endScreen
 - BUG: 1944 nema pozadine
 - BUG: Savo igraj-opet ne ubija neprijatelje
 - BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
@@ -30,7 +30,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - terminologija: renderGUI i sceneUI, možda score ili tako nešto
 - BUG: spinner nije na sredini
 - ujednačiti stil UI za: prozore, dugmiće, boje...
-    - uvodni prozor (ili prosleđivati klasu)
+    - uvodni modal (ili prosleđivati klasu)
     - kontrole
     - score
 

@@ -26,7 +26,7 @@ export default class TopScena extends Scena2D {
     if (e.target.id == 'dva-igraca') this.tenk.ai = !this.tenk.ai
   }
 
-  cisti() {
+  clear() {
     crtaNeboZemlju(tlo, { linija: true })
   }
 
