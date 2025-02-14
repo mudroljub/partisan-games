@@ -22,15 +22,13 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- integrisati stilove
-    - spojiti klase za UI pozicioniranje
-- terminologija: renderGUI i sceneUI, možda score ili tako nešto
-- BUG: spinner nije na sredini
 - ujednačiti stil UI za: prozore, dugmiće, boje...
     - uvodni modal (ili prosleđivati klasu)
     - kontrole
     - score
 - ukinuti komande(), komande2
+- sakriti kontrole gde treba (drvar...)
+- BUG: spinner nije na sredini
 - BUG: Savo esc pauza ne prikazuje modal
 - BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
 - BUG: ne radi TenkiciScena endScreen

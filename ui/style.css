@@ -264,7 +264,7 @@ progress.potisak::-moz-progress-bar {
   text-shadow: none;
 }
 
-/* GAME UI */
+/* SCENE UI */
 
 .top-left, 
 .top-right, 
@@ -276,6 +276,14 @@ progress.potisak::-moz-progress-bar {
     margin-bottom: 2px;
     margin-top: 2px;
   }
+
+  & p:first-of-type {
+    margin-top: 0;
+  }
+  
+  & p:last-of-type {
+    margin-bottom: 0;
+  }  
 }
 
 .top-left {
