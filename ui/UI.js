@@ -26,7 +26,7 @@ export default class UI {
 
   startScreen() {
     return /* html */`
-      <div class="central-screen rpgui-container" id="start-screen">
+      <div class="central-screen simple-container" id="start-screen">
         <p>${this.intro}</p>
         <button id="start" class="press-start">Press to START!</button>
       </div>

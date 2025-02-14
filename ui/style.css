@@ -70,56 +70,11 @@ button {
 }
 
 button:hover {
-  outline: 1px solid white;
+  /* outline: 1px solid white; */
 }
 
 .dva-igraca {
   padding: 5px 10px;
-}
-
-.rpgui-button {
-  background: url("/assets/images/rpgui/button.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 100%;
-  min-width: 160px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 35px;
-  padding-right: 35px;
-}
-
-.rpgui-button:hover {
-  background-image: url("/assets/images/rpgui/button-hover.png");
-}
-
-.rpgui-button.golden {
-  background-image: url("/assets/images/rpgui/button-golden.png");
-  background-size: 100% 90%;
-  padding-top: 5px;
-  justify-content: space-between;
-}
-
-.rpgui-button.golden:before,
-.rpgui-button.golden:after {
-  content: "";
-  width: 34px;
-  height: 110%;
-  margin-top: -5%;
-}
-
-.rpgui-button.golden:before {
-  background: transparent url("/assets/images/rpgui/button-golden-left.png") no-repeat right center;
-  background-size: 100% 100%;
-  margin-left: -46px;
-}
-
-.rpgui-button.golden:after {
-  background: transparent url("/assets/images/rpgui/button-golden-right.png") no-repeat left center;
-  background-size: 100% 100%;
-  margin-right: -46px;
 }
 
 /* PROGRESS */
@@ -143,18 +98,6 @@ progress::-webkit-progress-value {
 
 progress::-moz-progress-bar {
   background-color: #D94A38;
-}
-
-progress.health-bar::-webkit-progress-value {
-  background-image: url("/assets/images/rpgui/progress-red.png");
-  background-repeat: repeat-x;
-  background-size: 36px 100%;
-}
-
-progress.health-bar::-moz-progress-bar {
-  background-image: url("/assets/images/rpgui/progress-red.png");
-  background-repeat: repeat-x;
-  background-size: 36px 100%;
 }
 
 progress.potisak::-webkit-progress-value {
@@ -187,8 +130,7 @@ progress.potisak::-moz-progress-bar {
   max-width: 512px;
 }
 
-.simple-container,
-.rpgui-container {
+.simple-container {
   max-width: 512px;
   text-align: center;
 
@@ -206,33 +148,18 @@ progress.potisak::-moz-progress-bar {
   border-radius: var(--zaobljenost);
   color: #848C58;
   padding: 20px;
-}
+  /* border: 1px solid #e5e5e5; */
 
-.rpgui-container {
-  border-image-repeat: repeat;
-  border-image-width: 18px;
   border-style: solid;
-  border-width: 15px;
-  box-sizing: border-box;
-  padding: 12px;
-  background-color: #4E4A4E;
-  border-image-slice: 6 6 6 6;
-  border-image-source: url("/assets/images/rpgui/border-image.png");
-}
-
-.rpgui-container .press-start {
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-image: linear-gradient(to bottom, #ff8a00 0%, yellow 100%);
-  text-shadow: none;
+  border-image-source: url(/assets/images/rpgui/border-image-grey.png);
+  border-image-repeat: repeat;
+  border-image-slice: 3 3 3 3;
+  border-image-width: 7px;
+  border-width: 7px;
 }
 
 .press-start {
   font-size: 1.25em;
-}
-
-.rpgui-container li {
-  color: yellow;
 }
 
 .white-window {
@@ -378,6 +305,10 @@ progress.potisak::-moz-progress-bar {
 
 .valencia {
   color: #D94A38;
+}
+
+.bg-valencia {
+  background-color: #D94A38;
 }
 
 .avocado {

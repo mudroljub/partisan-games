@@ -12,15 +12,15 @@
     }
 
     .white-window p {
-    margin-bottom: 2px;
-    margin-top: 2px;
-  }
+      margin-bottom: 2px;
+      margin-top: 2px;
+    }
   </style>
 </head>
 
 <body>
 
-  <h1>Simple GUI</h1>
+  <h1>Simple Game UI</h1>
 
   <h3>Start screen</h3>
 
@@ -52,6 +52,23 @@
     <button id="menu">Yes</button><button id="cancel">No</button><button id="igraj-opet">Play again</button>
   </div>
 
+  <h3>End screen</h3>
+
+  <div class="simple-container">
+    <p>Slavno si pao.</p>
+    <button id="igraj-opet">Play again</button><button id="menu">Main menu</button>
+  </div>
+
+  <h3>Buttons</h3>
+
+  <button class="bg-avocado">
+    Zeleno
+  </button>
+
+  <button class="bg-valencia">
+    Crveno
+  </button>
+
   <h3>Controls</h3>
 
   <button class="">CONTROLS ▼</button>
@@ -72,9 +89,8 @@
 
   <h3>Progres</h3>
 
-  <progress max="100" value="100" class="health-bar"></progress>
-  <progress class="rpg" value="100" max="100" style="width: 220px;"></progress>
-
+  <progress class="rpg" value="70" max="100" style="width: 220px"></progress>
+  <progress class="potisak" value="70" max="100" style="width: 220px"></progress>
 </body>
 
 </html>

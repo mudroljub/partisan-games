@@ -39,7 +39,7 @@ export const topKomande = () => /* html*/`
 `
 
 export const centralScreen = () => /* html*/`
-  <div class="central-screen rpgui-container">
+  <div class="central-screen simple-container">
     <ul>
       <li>Find the way out</li>
       <li>Bonus: Kill all enemies</li>

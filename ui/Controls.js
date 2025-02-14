@@ -26,7 +26,7 @@ export default class Controls {
   constructor({
     controlKeys = baseControls,
     btnClass = '', // rpgui-button
-    containerClass = 'rpgui-container levo',
+    containerClass = 'white-window levo',
   } = {}) {
     this.controlsOpen = false
     this.init(controlKeys, btnClass, containerClass)
