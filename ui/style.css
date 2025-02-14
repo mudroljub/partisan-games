@@ -9,20 +9,15 @@
 }
 
 /*
-⚫ #3B3024 (Tamno smeđa)
+#3B3024 (Tamno smeđa)
+#C4B99C (Bež ton zemlje)
 
-🌾 #C4B99C (Bež ton zemlje)
-☁  #ECEBE4 (Blago siva)
-
-⚫ #1B1B1B (Grafitno crna)
-⚪ #F8F7F3 (Krem-bela)
+#1B1B1B (Grafitno crna)
+#F8F7F3 (Krem-bela)
 */
 
 :root {
   --razmak: 8px;
-}
-
-:root {
   --zaobljenost: 2px;
 }
 
@@ -46,7 +41,7 @@ body {
 body, button {
   color: white;
   font-family: 'Press Start 2P', Courier;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  text-shadow: -2px 0 #1B1B1B, 0 2px #1B1B1B, 2px 0 #1B1B1B, 0 -2px #1B1B1B;
 }
 
 h1 {
@@ -69,14 +64,15 @@ canvas {
 /* BUTTONS */
 
 button {
-  background-color: #848C58;
   background-color: transparent;
+  /* background-color: #848C58; */
   border-radius: var(--zaobljenost);
   border: none;
   cursor: url("/assets/images/rpgui/cursor/point.png") 10 0, auto;
   outline: none;
   padding: 8px 16px;
   transition: background-color .4s;
+  text-transform: uppercase;
 }
 
 .dva-igraca {
@@ -88,7 +84,7 @@ button {
 progress {
   width: 100%;
   background-color: transparent;
-  border: 1px solid black;
+  border: 1px solid #1B1B1B;
   height: 22px;
   min-width: 210px;
   border-radius: var(--zaobljenost);
@@ -141,11 +137,7 @@ progress.potisak::-moz-progress-bar {
   text-align: center;
 
   & button {
-    text-transform: uppercase;
-  }
-
-  & button:nth-of-type(n+2) {
-    margin-left: 20px;
+    margin: 0 var(--razmak);
   }
 }
 
