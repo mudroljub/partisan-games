@@ -12,11 +12,15 @@
   --razmak: 8px;
 }
 
+:root {
+  --zaobljenost: 5px;
+}
+
 /* DEFAULTS */
 
 * {
   user-select: none;
-  box-sizing: border-boxx;
+  box-sizing: border-box;
 }
 
 body {
@@ -55,18 +59,18 @@ canvas {
 /* BUTTONS */
 
 button {
-  /* background-color: #D94A38; */
+  background-color: #848C58;
   background-color: transparent;
-  border-radius: 6px;
+  border-radius: var(--zaobljenost);
   border: none;
   cursor: url("/assets/images/rpgui/cursor/point.png") 10 0, auto;
   outline: none;
-  padding: 8px;
+  padding: 8px 16px;
   transition: background-color .4s;
 }
 
 button:hover {
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+  outline: 1px solid white;
 }
 
 .dva-igraca {
@@ -126,6 +130,7 @@ progress {
   border: 1px solid black;
   height: 22px;
   min-width: 210px;
+  border-radius: var(--zaobljenost);
 }
 
 progress::-webkit-progress-bar {
@@ -198,7 +203,7 @@ progress.potisak::-moz-progress-bar {
 
 .simple-container {
   background-color: rgba(0,0,0, 0.8);
-  border-radius: 5px;
+  border-radius: var(--zaobljenost);
   color: #848C58;
   padding: 20px;
 }
@@ -234,6 +239,7 @@ progress.potisak::-moz-progress-bar {
   margin-top: 10px;
   border: 2px solid white;
   padding: 10px;
+  border-radius: var(--zaobljenost);
 }
 
 .game-screen-select {

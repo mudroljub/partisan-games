@@ -35,7 +35,7 @@ export default class UI {
 
   escModal() {
     return /* html */`
-      <div class="central-screen rpgui-container">
+      <div class="central-screen simple-container">
         <p>Leave game?</p>
         <button id="menu">Yes</button><button id="cancel">No</button><button id="igraj-opet">Play again</button>
       </div>
