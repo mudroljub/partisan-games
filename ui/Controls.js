@@ -43,7 +43,7 @@ export default class Controls {
     content.className = containerClass
     content.innerHTML = Object.keys(controlKeys)
       .filter(key => controlKeys[key])
-      .map(key => `<p>${key} - ${controlKeys[key]}</p>`)
+      .map(key => `${key} - ${controlKeys[key]}<br>`)
       .join('')
 
     const open = () => {
