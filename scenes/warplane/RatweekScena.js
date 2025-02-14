@@ -121,7 +121,7 @@ export default class RatweekScena extends Scena3D {
   sceneUI(time) {
     const timeLeft = totalTime - Math.floor(time)
     return /* html */`
-      <div class="score ">
+      <div class="top-left">
         <p>
           Score: ${this.score}<br>
           <small class="blink">Time left: ${Math.max(timeLeft, 0)}</small>

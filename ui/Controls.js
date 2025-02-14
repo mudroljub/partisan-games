@@ -7,8 +7,8 @@ export const baseControls = {
 
 export const fpsControls = {
   ...baseControls,
-  'PgUp or Q': 'strafe left',
-  'PgDn or E': 'strafe right',
+  Q: 'strafe left',
+  E: 'strafe right',
   CapsLock: 'run',
   Mouse: 'attack',
   Space: 'jump',
@@ -34,7 +34,7 @@ export default class Controls {
 
   init(controlKeys, btnClass, containerClass) {
     this.div = document.createElement('div')
-    this.div.className = 'controls'
+    this.div.className = 'bottom-left'
 
     const button = document.createElement('button')
     button.className = btnClass

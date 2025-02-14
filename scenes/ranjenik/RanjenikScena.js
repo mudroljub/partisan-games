@@ -67,15 +67,4 @@ export default class RanjenikScena extends Scena2D {
     this.proveriPobedu()
     if (this.scena === 1) this.pali()
   }
-
-  sceneUI() {
-    return /* html */`
-      <div class='komande bg-poluprovidno komande1'>
-        A - levo<br>
-        D - desno<br>
-        W - napred<br>
-        S - nazad<br>
-      </div>
-    `
-  }
 }

@@ -36,7 +36,7 @@ export default class TenkicIde extends Scena2D {
 
   sceneUI() {
     return /* html */`
-      <main class="komande bg-poluprovidno komande1">
+      <main class="top-left">
         ${komande()}
         ${progresBar(this.tenk.energija)}
       </main>

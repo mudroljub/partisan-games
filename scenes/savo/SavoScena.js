@@ -62,7 +62,7 @@ export default class SavoScena extends Scena3D {
     const killed = this.enemies.filter(enemy => enemy.energy <= 0)
     const left = this.enemies.length - killed.length
     return /* html */`
-      <div class="score ">
+      <div class="top-left ">
         <p>
           Score: ${killed.length}<br>
           <small>Enemy left: ${left}</small>

@@ -38,13 +38,13 @@ export default class TopScena extends Scena2D {
 
   sceneUI() {
     return /* html */`
-    <div class='komande komande1 bg-poluprovidno'>
+    <div class='top-left'>
       ${progresBar(this.top.energija)}
       ${topKomande()}
       <progress class="potisak" value="${this.top.sila}" max="${this.top.minSila * 3}"></progress>
     </div>
 
-    <div class='komande komande2 bg-poluprovidno'>
+    <div class='top-right'>
       ${progresBar(this.tenk.energija)}
       ${!this.tenk.ai ? komande2() : ''}
       <button id="dva-igraca" class="bg-avocado full dva-igraca">

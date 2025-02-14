@@ -139,7 +139,7 @@ export default class Scena1942 extends Scena2D {
 
   sceneUI() {
     return /* html */`
-      <div class='komande bg-poluprovidno komande1'>
+      <div class='top-left'>
         Pucanje: Space <br>
         Prateća: Enter <br>
       </div>

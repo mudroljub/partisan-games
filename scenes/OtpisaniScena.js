@@ -52,7 +52,7 @@ export default class OtpisaniScena extends Scena2D {
       <main class='absolute full centar'>
         <h1>Ubij okupatora!</h1>
         <p>Oslobođenje se bliži</p>
-        <div class="komande komande1 bg-poluprovidno">
+        <div class="top-left">
           Pogoci: ${this.poeni} <br>
           Energija 
           ${progresBar(this.energija)}

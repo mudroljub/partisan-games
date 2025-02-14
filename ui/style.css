@@ -8,6 +8,10 @@
   src: url("/assets/fonts/PressStart2P.ttf");
 }
 
+:root {
+  --razmak: 8px;
+}
+
 /* DEFAULTS */
 
 * {
@@ -141,13 +145,13 @@ progress::-moz-progress-bar {
   background-color: #D94A38;
 }
 
-progress.rpg::-webkit-progress-value {
+progress.health-bar::-webkit-progress-value {
   background-image: url("/assets/images/rpgui/progress-red.png");
   background-repeat: repeat-x;
   background-size: 36px 100%;
 }
 
-progress.rpg::-moz-progress-bar {
+progress.health-bar::-moz-progress-bar {
   background-image: url("/assets/images/rpgui/progress-red.png");
   background-repeat: repeat-x;
   background-size: 36px 100%;
@@ -262,90 +266,53 @@ progress.potisak::-moz-progress-bar {
 
 /* GAME UI */
 
-/* top right */
-.health-bar {
+.top-left, 
+.top-right, 
+.bottom-left,
+.bottom-right {
   position: absolute;
-  right: 20px;
-  top: 20px;
+
+  & p {
+    margin-bottom: 2px;
+    margin-top: 2px;
+  }
+}
+
+.top-left {
+  left: var(--razmak);
+  top: var(--razmak);
+}
+
+.top-right {
+  right: var(--razmak);
+  top: var(--razmak);
+}
+
+.bottom-left {
+  left: var(--razmak);
+  bottom: var(--razmak);
+}
+
+.bottom-right {
+  right: var(--razmak);
+  bottom: var(--razmak);
+}
+
+.health-bar {
   width: 220px;
 }
 
 @media (max-width: 500px) {
   .health-bar {
-    left: 20px;
-    width: 90%;
-    top: 10px;
+    width: 96%;
   }
-}
-
-:root {
-  --razmak: 8px;
-}
-
-/* top left */
-.score {
-  left: 28px;
-  position: absolute;
-  top: 12px;
-}
-
-.score p {
-  padding: 0 8px;
 }
 
 @media (max-width: 500px) {
-  .score {
+  .top-left {
     top: 40px;
   }
 }
-
-/* top both */
-.komande {
-  border-radius: 5px;
-  line-height: 1.4;
-  padding: 4px;
-  position: absolute;
-  top: var(--razmak);
-}
-
-/* top left */
-.komande1 {
-  left: var(--razmak);
-}
-
-/* top right */
-.komande2 {
-  right: var(--razmak);
-}
-
-.komande .tipke {
-  margin-top: 4px;
-}
-
-.komande button {
-  margin-top: 2px;
-}
-
-/* bottom left */
-.controls {
-  bottom: var(--razmak);
-  left: var(--razmak);
-  position: absolute;
-}
-
-.controls p {
-  margin-bottom: 2px;
-  margin-top: 2px;
-}
-
-/* bottom right */
-.change-camera {
-  bottom: var(--razmak);
-  image-rendering: initial;
-  position: absolute;
-  right: var(--razmak);
-}
-
 
 /* SCREEN BUTTONS */
 
@@ -401,10 +368,6 @@ progress.potisak::-moz-progress-bar {
 }
 
 /* UTILS */
-
-.bg-poluprovidno {
-  background-color: rgba(255, 255, 255, 0.5);
-}
 
 .absolute {
   position: absolute;

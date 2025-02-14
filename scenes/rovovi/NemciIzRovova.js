@@ -86,7 +86,7 @@ export default class NemciIzRovova extends Scena2D {
   sceneUI() {
     const energija = Math.round(this.energija)
     return /* html */`
-    <div class="komande komande1 bg-poluprovidno">
+    <div class="top-left">
       Pogoci: ${this.pogoci} <br>
       Rekord: ${this.rekord} <br>
       Energija 

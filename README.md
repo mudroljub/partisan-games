@@ -30,6 +30,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - uvodni modal (ili prosleđivati klasu)
     - kontrole
     - score
+- ukinuti komande(), komande2
 - BUG: Savo esc pauza ne prikazuje modal
 - BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
 - BUG: ne radi TenkiciScena endScreen

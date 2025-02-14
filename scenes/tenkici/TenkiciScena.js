@@ -39,13 +39,13 @@ export default class TenkiciScena extends Scena2D {
 
   sceneUI() {
     return /* html*/`
-      <div class='komande bg-poluprovidno komande1'>
+      <div class='top-left'>
         ${this.tenk.ime}
         ${progresBar(this.tenk.energija, 'rpg')}
         ${komande()}
       </div>
 
-      <div class='komande bg-poluprovidno komande2'>
+      <div class='top-right'>
         ${this.tenk2.ime}
         ${progresBar(this.tenk2.energija, 'rpg')}
         ${this.tenk2.ai ? '' : komande2()}

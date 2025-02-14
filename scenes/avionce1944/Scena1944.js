@@ -50,7 +50,7 @@ export default class Scena1944 extends Scena2D {
 
   sceneUI() {
     return /* html */`
-      <div class='komande bg-poluprovidno komande1'>
+      <div class='top-left'>
         Poeni: ${this.igrac.poeni}<br>
         Životi: ${this.igrac.zivoti}<br>
       </div>

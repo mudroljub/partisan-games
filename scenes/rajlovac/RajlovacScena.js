@@ -82,7 +82,7 @@ export default class RajlovacScena extends Scena3D {
     const destroyed = this.aircraft.filter(plane => plane.energy <= 0)
     const left = this.aircraft.length - destroyed.length
     return /* html */`
-      <div class="score ">
+      <div class="top-left">
         <p>
           Score: ${destroyed.length}<br>
           <small>Enemy left: ${left}</small>
