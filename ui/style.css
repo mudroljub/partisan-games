@@ -9,20 +9,12 @@
 }
 
 /*
-🟠 #E0A458 (Topla zlatna)
-🟡 #F2E394 (Pastelno žuta)
 ⚫ #3B3024 (Tamno smeđa)
 
 🌾 #C4B99C (Bež ton zemlje)
 ☁  #ECEBE4 (Blago siva)
-🌲 #4A5D23 (Duboko zelena)
 
-🎨 #283618 (Duboka tamnozelena)
-⚪ #EAE0D5 (Svetla neutralna)
 ⚫ #1B1B1B (Grafitno crna)
-
-💙 #3A6EA5 (Intenzivno plava)
-💛 #F2C14E (Zlatno-žuta)
 ⚪ #F8F7F3 (Krem-bela)
 */
 
@@ -42,7 +34,7 @@
 }
 
 body {
-  background-color: #DDD;
+  background-color: #ECEBE4;
   cursor: url(/assets/images/rpgui/cursor/default.png), auto;
   filter: sepia(0.15);
   font-size: 0.8em;
@@ -177,17 +169,6 @@ progress.potisak::-moz-progress-bar {
   border: 2px solid white;
   padding: 10px;
   border-radius: var(--zaobljenost);
-}
-
-.game-screen-select {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.game-screen-select input[type=image] {
-  border: 3px solid black; 
-  height: 110px;
 }
 
 /* REPORT */
