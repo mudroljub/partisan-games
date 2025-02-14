@@ -26,7 +26,7 @@ export default class Controls {
   constructor({
     controlKeys = baseControls,
     btnClass = '', // rpgui-button
-    containerClass = 'rpgui-container',
+    containerClass = 'rpgui-container levo',
   } = {}) {
     this.controlsOpen = false
     this.init(controlKeys, btnClass, containerClass)
@@ -43,7 +43,7 @@ export default class Controls {
     content.className = containerClass
     content.innerHTML = Object.keys(controlKeys)
       .filter(key => controlKeys[key])
-      .map(key => `<p><b>${key}</b> - ${controlKeys[key]}</p>`)
+      .map(key => `<p>${key} - ${controlKeys[key]}</p>`)
       .join('')
 
     const open = () => {

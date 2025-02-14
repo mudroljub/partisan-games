@@ -65,7 +65,7 @@ export default class TenkScena extends Scena3D {
   sceneUI(t) {
 
     return /* html */`
-      <div class="score rpgui-button golden">
+      <div class="top-left rpgui-button golden">
         <p>
           Crates left: ${this.countableCrates.length}
           <br><small class="blink">Time: ${Math.floor(t)}</small>
