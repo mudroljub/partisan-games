@@ -75,7 +75,7 @@ button {
   border: 1px solid transparent;
   padding: 8px 16px;
   transition: outline 0.66s, border 0.66s;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 button:hover {
@@ -251,12 +251,14 @@ progress.potisak::-moz-progress-bar {
   position: absolute;
   transform: translateX(-50%);
   width: 60px;
+  padding: 0;
 }
 
 .joystick {
   height: 80px;
   left: 50%;
   width: 80px;
+  box-sizing: content-box;
 }
 
 .jump-btn {
