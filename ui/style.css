@@ -175,7 +175,8 @@ progress.potisak::-moz-progress-bar {
 
 .white-window {
   margin-top: 10px;
-  border: 2px solid var(--bela);
+  border: 1px solid var(--crna);
+  outline: 1px solid var(--bela);
   padding: 10px;
   border-radius: var(--oblost);
 }
