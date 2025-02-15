@@ -24,9 +24,11 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - UI book: dodati screen buttons
 - dugmići (primary, secondary, default) boja i hover
+- probati START maskirna slova
 - ukinuti komande(), komande2
 - gledati ekran kroz slomljeno staklo?
 - ikonice na dumiće
+- report srediti responzivno
 - sakriti kontrole gde treba (drvar...)
 
 - BUG: spinner nije na sredini

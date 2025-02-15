@@ -75,7 +75,12 @@ button {
   border: 1px solid transparent;
   padding: 8px 16px;
   transition: outline 0.66s, border 0.66s;
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
+
+  & span {
+    font-size: 1.4em;
+    vertical-align: text-bottom;
+  }
 }
 
 button:hover {
@@ -85,6 +90,12 @@ button:hover {
 
 .dva-igraca {
   padding: 5px 10px;
+}
+
+#cancel {
+  & span {
+    font-size: 1.1em;
+  }
 }
 
 /* PROGRESS */
@@ -120,13 +131,14 @@ progress.potisak::-moz-progress-bar {
 
 .progress-wrapper {
   position: relative;
-}
+  display: inline-block;
 
-.progress-wrapper .energija {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%,-50%);
+  & .energija {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
 }
 
 /* GAME SCREEN */
@@ -141,15 +153,6 @@ progress.potisak::-moz-progress-bar {
 }
 
 .simple-container {
-  max-width: 512px;
-  text-align: center;
-
-  & button {
-    margin: 0 var(--razmak);
-  }
-}
-
-.simple-container {
   background-color: rgba(0,0,0, 0.8);
   border-image-repeat: repeat;
   border-image-slice: 3 3 3 3;
@@ -157,7 +160,13 @@ progress.potisak::-moz-progress-bar {
   border-image-width: 7px;
   border-radius: var(--oblost);
   color: var(--maslinasta);
+  max-width: 512px;
   padding: 20px;
+  text-align: center;
+
+  /* & button {
+    margin: 0 var(--razmak);
+  } */
 }
 
 .press-start {
@@ -177,22 +186,18 @@ progress.potisak::-moz-progress-bar {
   background-color: #cccccc;
   background-image: url(/assets/images/document.jpg);
   background-size: cover;
-  height: 290px;
-  width: 460px;
-}
 
-.report p {
-  color: #333;
-  font-family: Courier;
-  font-size: initial;
-  font-weight: bold;
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  margin: 0;
-  padding-left: 15%;
-  padding-right: 15%;
-  padding-top: 150px;
-  text-shadow: none;
+  & p {
+    color: #333;
+    font-family: Courier;
+    font-size: initial;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    margin: 0;
+    padding: 150px 15% 8px;
+    text-shadow: none;
+  }
 }
 
 /* SCENE UI */
@@ -224,12 +229,12 @@ progress.potisak::-moz-progress-bar {
   bottom: var(--razmak);
 }
 
-.health-bar {
+.progress {
   width: 220px;
 }
 
 @media (max-width: 500px) {
-  .health-bar {
+  .progress {
     width: 96%;
   }
 }

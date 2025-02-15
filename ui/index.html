@@ -29,7 +29,7 @@
   <h3>Start screen</h3>
 
   <div class="simple-container" id="start-screen">
-    <p>Destroy enemy factories,<br><br>do not target civilian buildings!</p>
+    <p>Destroy enemy factories, do not target civilian buildings!</p>
     <button id="start" class="press-start">Press to START!</button>
   </div>
 
@@ -53,14 +53,17 @@
 
   <div class="simple-container">
     <p>Leave game?</p>
-    <button id="menu">Yes</button><button id="cancel">No</button><button id="igraj-opet">Play again</button>
+    <button id="menu"><span>☰</span> Yes</button>
+    <button id="cancel"><span>⚔️</span> No</button>
+    <button id="igraj-opet"><span>↻</span> Play again</button>
   </div>
 
   <h3>End screen</h3>
 
   <div class="simple-container">
     <p>Slavno si pao.</p>
-    <button id="igraj-opet">Play again</button><button id="menu">Main menu</button>
+    <button id="menu"><span>☰</span> Main menu</button>
+    <button id="igraj-opet"><span>↻</span> Play again</button>
   </div>
 
   <h3>Controls window</h3>
@@ -75,8 +78,14 @@
 
   <h3>Progres</h3>
 
-  <progress class="rpg" value="70" max="100" style="width: 220px"></progress>
-  <progress class="potisak" value="70" max="100" style="width: 220px"></progress>
+  <div class="progress-wrapper progress">
+    <progress value="70" max='100'></progress>
+    <div class="energija">70</div>
+  </div>
+
+  <progress class="progress" value="70" max="100"></progress>
+
+  <progress class="progress potisak" value="70" max="100"></progress>
 
   <h3>Game buttons</h3>
 

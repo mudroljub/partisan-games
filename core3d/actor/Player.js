@@ -67,7 +67,7 @@ export default class Player extends Actor {
   crateHealthBar() {
     this.healthBar = document.createElement('progress')
     this.healthBar.value = this.healthBar.max = this.energy
-    this.healthBar.className = 'health-bar top-right'
+    this.healthBar.className = 'progress top-right'
     document.body.appendChild(this.healthBar)
   }
 
