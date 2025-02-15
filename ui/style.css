@@ -15,7 +15,7 @@
 
 :root {
   --razmak: 8px;
-  --zaobljenost: 2px;
+  --zaobljenost: 4px;
 }
 
 /* DEFAULTS */
@@ -66,10 +66,16 @@ button {
   border-radius: var(--zaobljenost);
   border: none;
   cursor: url("/assets/images/rpgui/cursor/point.png") 10 0, auto;
-  outline: none;
+  outline: 1px solid transparent;
+  border: 1px solid transparent;
   padding: 8px 16px;
-  transition: background-color .4s;
+  transition: outline 0.66s, border 0.66s;
   text-transform: uppercase;
+}
+
+button:hover {
+  border: 1px solid #5B5B5B;
+  outline: 1px solid white;
 }
 
 .dva-igraca {

@@ -22,17 +22,16 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- ujednačiti stil UI za: prozore, dugmiće, boje...
-    - uvodni modal (ili prosleđivati klasu)
-    - kontrole
-    - score
+- dugmići (primary, secondary, default) boja i hover
 - ukinuti komande(), komande2
+- gledati ekran kroz slomljeno staklo?
+- ikonice na dumiće
 - sakriti kontrole gde treba (drvar...)
+
 - BUG: spinner nije na sredini
 - BUG: Savo esc pauza ne prikazuje modal
 - BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
 - BUG: ne radi TenkiciScena endScreen
-- gledati ekran kroz slomljeno staklo?
 
 ### 3D
 
