@@ -84,6 +84,8 @@ button {
   padding: 8px 16px;
   transition: outline-color 0.66s, border-color 0.66s;
   text-transform: uppercase;
+  border-color: var(--crna);
+  outline-color: var(--bela);
 
   & span {
     font-size: 1.4em;
@@ -101,8 +103,8 @@ button:has(span) {
 }
 
 button:hover {
-  border-color: var(--crna);
-  outline-color: var(--bela);
+  outline-color: var(--crna);
+  border-color: var(--bela);
 }
 
 #cancel {
@@ -152,7 +154,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
 }
 
 /* REPORT */
