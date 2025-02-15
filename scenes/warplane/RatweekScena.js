@@ -38,7 +38,7 @@ export default class RatweekScena extends Scena3D {
     super(manager, {
       toon: true,
       controlKeys: { ...baseControls, Enter: 'attack' },
-      intro: 'Destroy enemy factories,<br><br>do not target civilian buildings!',
+      intro: 'Destroy enemy factories, do not target civilian buildings!',
       controlsWindowClass: '',
     })
   }

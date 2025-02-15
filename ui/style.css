@@ -23,6 +23,14 @@
   --maslinasta: #848C58;
 }
 
+.btn-primary {
+  background-color: #D94A38;
+}
+
+.btn-secondary {
+  background-color: var(--maslinasta);
+}
+
 /* DEFAULTS */
 
 * {
@@ -68,7 +76,6 @@ canvas {
 
 button {
   background-color: transparent;
-  /* background-color: var(--maslinasta); */
   border-radius: var(--oblost);
   border: none;
   cursor: url("/assets/images/rpgui/cursor/point.png") 10 0, auto;
@@ -105,14 +112,6 @@ button:hover {
   }
 }
 
-.btn-primary {
-  background-color: var(--crvena);
-}
-
-.btn-secondary {
-  background-color: var(--maslinasta);
-}
-
 /* GAME SCREEN */
 
 .central-screen {
@@ -132,14 +131,9 @@ button:hover {
   border-image-width: 7px;
   border-radius: var(--oblost);
   color: var(--maslinasta);
-  max-width: 512px;
+  max-width: 480px;
   padding: 20px;
   text-align: center;
-
-  /* & button {
-    display: block;
-    width: 100%;
-  } */
 }
 
 .press-start {
@@ -152,6 +146,13 @@ button:hover {
   outline: 1px solid var(--bela);
   padding: 10px;
   border-radius: var(--oblost);
+}
+
+.game-paused {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
 /* REPORT */

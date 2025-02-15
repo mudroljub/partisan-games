@@ -31,6 +31,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - report srediti responzivno
 - sakriti kontrole gde treba (drvar...)
 - ukinuti pauzu na P?
+- možda promena boje dugmeta na hover?
 
 - BUG: spinner nije na sredini
 - BUG: Savo esc pauza ne prikazuje modal
