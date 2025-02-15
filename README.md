@@ -22,6 +22,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
+- UI book: dodati screen buttons
 - dugmići (primary, secondary, default) boja i hover
 - ukinuti komande(), komande2
 - gledati ekran kroz slomljeno staklo?
@@ -31,7 +32,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - BUG: spinner nije na sredini
 - BUG: Savo esc pauza ne prikazuje modal
 - BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
-- BUG: ne radi TenkiciScena endScreen
+- BUG: ne radi TenkiciScena endScreen, možda obrisati bg-black
 
 ### 3D
 

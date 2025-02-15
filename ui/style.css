@@ -15,7 +15,11 @@
 
 :root {
   --razmak: 8px;
-  --zaobljenost: 4px;
+  --oblost: 4px;
+  --bela: #FFFFFF;
+  --crna: #1B1B1B;
+  --crvena: #D94A38;
+  --maslinasta: #848C58;
 }
 
 /* DEFAULTS */
@@ -36,9 +40,9 @@ body {
 }
 
 body, button {
-  color: white;
+  color: var(--bela);
   font-family: 'Press Start 2P', Courier;
-  text-shadow: -2px 0 #1B1B1B, 0 2px #1B1B1B, 2px 0 #1B1B1B, 0 -2px #1B1B1B;
+  text-shadow: -2px 0 var(--crna), 0 2px var(--crna), 2px 0 var(--crna), 0 -2px var(--crna);
 }
 
 h1 {
@@ -62,8 +66,8 @@ canvas {
 
 button {
   background-color: transparent;
-  /* background-color: #848C58; */
-  border-radius: var(--zaobljenost);
+  /* background-color: var(--maslinasta); */
+  border-radius: var(--oblost);
   border: none;
   cursor: url("/assets/images/rpgui/cursor/point.png") 10 0, auto;
   outline: 1px solid transparent;
@@ -75,7 +79,7 @@ button {
 
 button:hover {
   border: 1px solid #5B5B5B;
-  outline: 1px solid white;
+  outline: 1px solid var(--bela);
 }
 
 .dva-igraca {
@@ -87,10 +91,10 @@ button:hover {
 progress {
   width: 100%;
   background-color: transparent;
-  border: 1px solid #1B1B1B;
+  border: 1px solid var(--crna);
   height: 22px;
   min-width: 210px;
-  border-radius: var(--zaobljenost);
+  border-radius: var(--oblost);
 }
 
 progress::-webkit-progress-bar {
@@ -98,19 +102,19 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background-color: #D94A38;
+  background-color: var(--crvena);
 }
 
 progress::-moz-progress-bar {
-  background-color: #D94A38;
+  background-color: var(--crvena);
 }
 
 progress.potisak::-webkit-progress-value {
-  background-color: #848C58;
+  background-color: var(--maslinasta);
 }
 
 progress.potisak::-moz-progress-bar {
-  background-color: #848C58;
+  background-color: var(--maslinasta);
 }
 
 .progress-wrapper {
@@ -150,8 +154,8 @@ progress.potisak::-moz-progress-bar {
   border-image-slice: 3 3 3 3;
   border-image-source: url(/assets/images/rpgui/border-image-grey.png);
   border-image-width: 7px;
-  border-radius: var(--zaobljenost);
-  color: #848C58;
+  border-radius: var(--oblost);
+  color: var(--maslinasta);
   padding: 20px;
 }
 
@@ -161,9 +165,9 @@ progress.potisak::-moz-progress-bar {
 
 .white-window {
   margin-top: 10px;
-  border: 2px solid white;
+  border: 2px solid var(--bela);
   padding: 10px;
-  border-radius: var(--zaobljenost);
+  border-radius: var(--oblost);
 }
 
 /* REPORT */
@@ -240,7 +244,7 @@ progress.potisak::-moz-progress-bar {
 .game-btn {
   background: rgba(126, 126, 126, 0.5);
   border-radius: 50%;
-  border: #fff solid medium;
+  border: var(--bela) solid medium;
   bottom: 30px;
   height: 60px;
   position: absolute;
@@ -277,19 +281,19 @@ progress.potisak::-moz-progress-bar {
 }
 
 .valencia {
-  color: #D94A38;
+  color: var(--crvena);
 }
 
 .bg-valencia {
-  background-color: #D94A38;
+  background-color: var(--crvena);
 }
 
 .avocado {
-  color: #848C58;
+  color: var(--maslinasta);
 }
 
 .bg-avocado {
-  background-color: #848C58;
+  background-color: var(--maslinasta);
 }
 
 /* UTILS */
