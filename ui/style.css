@@ -31,6 +31,18 @@
   background-color: var(--maslinasta);
 }
 
+.btn-camo {
+  background: linear-gradient(to bottom, #556B2F, #8B4513, #3B3024);
+}
+
+.press-start {
+  font-size: 1.25em;
+  background: linear-gradient(to bottom, #6A7F3E 30%, #A0522D 50%, #3B3024 80%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
 /* DEFAULTS */
 
 * {
@@ -84,8 +96,8 @@ button {
   padding: 8px 16px;
   transition: outline-color 0.66s, border-color 0.66s;
   text-transform: uppercase;
-  border-color: var(--crna);
-  outline-color: var(--bela);
+  /* border-color: var(--crna);
+  outline-color: var(--bela); */
 
   & span {
     font-size: 1.4em;
@@ -136,10 +148,6 @@ button:hover {
   max-width: 480px;
   padding: 20px;
   text-align: center;
-}
-
-.press-start {
-  font-size: 1.25em;
 }
 
 .white-window {

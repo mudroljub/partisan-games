@@ -22,7 +22,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- UI book: dodati screen buttons
 - dugmići (primary, secondary, default) boja i hover
 - probati START maskirna slova
 - ukinuti komande(), komande2
