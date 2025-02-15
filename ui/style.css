@@ -105,6 +105,14 @@ button:hover {
   }
 }
 
+.btn-primary {
+  background-color: var(--crvena);
+}
+
+.btn-secondary {
+  background-color: var(--maslinasta);
+}
+
 /* GAME SCREEN */
 
 .central-screen {
