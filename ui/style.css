@@ -18,6 +18,7 @@
   --oblost: 4px;
   --bela: #FFFFFF;
   --crna: #1B1B1B;
+  --siva: #ECEBE4;
   --crvena: #D94A38;
   --maslinasta: #848C58;
 }
@@ -30,7 +31,7 @@
 }
 
 body {
-  background-color: #ECEBE4;
+  background-color: var(--siva);
   cursor: url(/assets/images/rpgui/cursor/default.png), auto;
   filter: sepia(0.15);
   font-size: 0.8em;
@@ -78,7 +79,7 @@ button {
 }
 
 button:hover {
-  border: 1px solid #5B5B5B;
+  border: 1px solid var(--crna);
   outline: 1px solid var(--bela);
 }
 
@@ -277,7 +278,7 @@ progress.potisak::-moz-progress-bar {
 /* BOJE */
 
 .bg-black {
-  background-color: black;
+  background-color: var(--crna);
 }
 
 .valencia {
