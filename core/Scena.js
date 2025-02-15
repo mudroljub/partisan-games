@@ -138,7 +138,7 @@ export default class Scena {
     if (this.usePointerLock) document.body.requestPointerLock()
   }
 
-  finish(text = 'Igra je završena.') {
+  finish(text = 'The game is over.') {
     this.ui.outro = text
     this.gameLoop.stopTime()
     if (this.usePointerLock) document.exitPointerLock()

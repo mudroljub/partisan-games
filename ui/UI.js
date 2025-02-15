@@ -37,7 +37,9 @@ export default class UI {
     return /* html */`
       <div class="central-screen simple-container">
         <p>Leave game?</p>
-        <button id="menu">Yes</button><button id="cancel">No</button><button id="igraj-opet">Play again</button>
+        <button id="menu"><span>☰</span> Yes</button>
+        <button id="cancel"><span>⚔️</span> No</button>
+        <button id="igraj-opet"><span>↻</span> Play again</button>
       </div>
     `
   }
@@ -46,7 +48,8 @@ export default class UI {
     return /* html */`
       <div class="central-screen simple-container">
         <p>${this.outro}</p>
-        <button id="igraj-opet">Play again</button><button id="menu">Main menu</button>
+        <button id="menu"><span>☰</span> Main menu</button>
+        <button id="igraj-opet"><span>↻</span> Play again</button>
       </div>
     `
   }
