@@ -40,7 +40,8 @@ body {
   margin: 0;
 }
 
-body, button {
+body,
+button {
   color: var(--bela);
   font-family: 'Press Start 2P', Courier;
   text-shadow: -2px 0 var(--crna), 0 2px var(--crna), 2px 0 var(--crna), 0 -2px var(--crna);
@@ -79,8 +80,17 @@ button {
 
   & span {
     font-size: 1.4em;
-    vertical-align: text-bottom;
+    color: white;
+    line-height: 1;
+    position: absolute;
+    left: 16px;
+    top: 2px;
   }
+}
+
+button:has(span) {
+  position: relative;
+  padding-left: 40px;
 }
 
 button:hover {
@@ -91,6 +101,7 @@ button:hover {
 #cancel {
   & span {
     font-size: 1.1em;
+    top: 6px;
   }
 }
 
@@ -106,7 +117,7 @@ button:hover {
 }
 
 .simple-container {
-  background-color: rgba(0,0,0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   border-image-repeat: repeat;
   border-image-slice: 3 3 3 3;
   border-image-source: url(/assets/images/rpgui/border-image-grey.png);
@@ -157,8 +168,8 @@ button:hover {
 
 /* SCENE UI */
 
-.top-left, 
-.top-right, 
+.top-left,
+.top-right,
 .bottom-left,
 .bottom-right {
   position: absolute;
@@ -238,7 +249,7 @@ progress.potisak::-moz-progress-bar {
     left: 50%;
     position: absolute;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
   }
 }
 
