@@ -9,7 +9,7 @@ import { thirdPersonControls } from '/ui/Controls.js'
 
 export default class SpomeniciScena extends Scena3D {
   constructor(manager) {
-    super(manager, { controlKeys: thirdPersonControls })
+    super(manager, { controlKeys: thirdPersonControls, toon: true })
   }
 
   async init() {

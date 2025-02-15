@@ -74,7 +74,7 @@ button {
   outline: 1px solid transparent;
   border: 1px solid transparent;
   padding: 8px 16px;
-  transition: outline 0.66s, border 0.66s;
+  transition: outline-color 0.66s, border-color 0.66s;
   text-transform: uppercase;
 
   & span {
@@ -84,8 +84,8 @@ button {
 }
 
 button:hover {
-  border: 1px solid var(--crna);
-  outline: 1px solid var(--bela);
+  border-color: var(--crna);
+  outline-color: var(--bela);
 }
 
 .dva-igraca {
@@ -251,7 +251,8 @@ progress.potisak::-moz-progress-bar {
 .game-btn {
   background: rgba(126, 126, 126, 0.5);
   border-radius: 50%;
-  border: var(--bela) solid medium;
+  border: 2px solid var(--bela);
+  outline: 2px solid var(--crna);
   bottom: 30px;
   height: 60px;
   position: absolute;
