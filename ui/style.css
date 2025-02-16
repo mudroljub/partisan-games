@@ -1,16 +1,7 @@
 @font-face {
-  font-family: 'Special Elite';
-  src: url('/assets/fonts/SpecialElite.ttf');
-}
-
-@font-face {
   font-family: "Press Start 2P";
   src: url("/assets/fonts/PressStart2P.ttf");
 }
-
-/*
-#3B3024
-*/
 
 :root {
   --spacing: 8px;
@@ -48,6 +39,7 @@ button {
 
 h1 {
   text-align: center;
+  color: var(--olive);
 }
 
 ul {
