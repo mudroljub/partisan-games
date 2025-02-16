@@ -5,6 +5,14 @@ export const baseControls = {
   '↓ or S': 'backward',
 }
 
+export const tankLeftControls = {
+  'A': 'left',
+  'D': 'right',
+  'W': 'up',
+  'S': 'down',
+  Space: 'shoot'
+}
+
 export const fpsControls = {
   ...baseControls,
   Q: 'strafe left',

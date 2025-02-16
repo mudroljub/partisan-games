@@ -1,12 +1,13 @@
 import platno, { crtaNeboZemlju } from '/core/io/platno.js'
 import Scena2D from '/core/Scena2D.js'
-import { progresBar, komande } from '/ui/components.js'
+import { progresBar } from '/ui/components.js'
 import Zbun from '/core/objects/Zbun.js'
 import Shuma from '/core/objects/Shuma.js'
 import Planina from '/core/objects/Planina.js'
 import Oblak from '/core/objects/Oblak.js'
 import TenkLevo from '../tenkici/TenkLevo.js'
 import Vracanje from '/core/objects/Vracanje.js'
+import { tankLeftControls } from '/ui/Controls.js'
 
 const BROJ_OBLAKA = 3
 const BROJ_ZBUNOVA = 10
@@ -14,6 +15,10 @@ const PARALAX_1 = -160
 const nivoTla = platno.height * .75
 
 export default class TenkicIde extends Scena2D {
+  constructor(manager) {
+    super(manager, { controlKeys: tankLeftControls })
+  }
+
   init() {
     this.tenk = new TenkLevo({ y: nivoTla, skalar: .4 })
 
@@ -37,7 +42,6 @@ export default class TenkicIde extends Scena2D {
   sceneUI() {
     return /* html */`
       <main class="top-left">
-        ${komande()}
         ${progresBar(this.tenk.energija)}
       </main>
     `
