@@ -22,15 +22,13 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- dugmići (primary, secondary, default) boja i hover
-- probati START maskirna slova
+- dugmići
+    - crvena je super za hover, posebno na default
+    - srediti maskirna slova, dole malo svetlije
 - ukinuti komande(), komande2
 - gledati ekran kroz slomljeno staklo?
-- ikonice na dumiće
-- report srediti responzivno
 - sakriti kontrole gde treba (drvar...)
 - ukinuti pauzu na P?
-- možda promena boje dugmeta na hover?
 
 - BUG: spinner nije na sredini
 - BUG: Savo esc pauza ne prikazuje modal

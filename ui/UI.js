@@ -38,7 +38,7 @@ export default class UI {
       <div class="central-screen simple-container">
         <p>Leave game?</p>
         <button id="menu"><span>☰</span> Yes</button>
-        <button id="cancel"><span>⚔️</span> No</button>
+        <button id="continue"><span>⚔️</span> No</button>
         <button id="igraj-opet"><span>↻</span> Play again</button>
       </div>
     `

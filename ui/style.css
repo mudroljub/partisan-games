@@ -10,7 +10,6 @@
 
 /*
 #3B3024
-#C4B99C
 */
 
 :root {
@@ -21,26 +20,6 @@
   --siva: #ECEBE4;
   --crvena: #D94A38;
   --maslinasta: #848C58;
-}
-
-.btn-primary {
-  background-color: #D94A38;
-}
-
-.btn-secondary {
-  background-color: var(--maslinasta);
-}
-
-.btn-camo {
-  background: linear-gradient(to bottom, #556B2F, #8B4513, #3B3024);
-}
-
-.press-start {
-  font-size: 1.25em;
-  background: linear-gradient(to bottom, #6A7F3E 30%, #A0522D 50%, #3B3024 80%);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
 }
 
 /* DEFAULTS */
@@ -114,12 +93,33 @@ button:has(span) {
   padding-left: 40px;
 }
 
-button:hover {
-  outline-color: var(--crna);
-  border-color: var(--bela);
+button:not(.btn-secondary):hover {
+  /* outline-color: var(--crna);
+  border-color: var(--bela); */
+  background-color: #D94A38;
 }
 
-#cancel {
+.btn-primary {
+  background-color: #D94A38;
+}
+
+.btn-secondary {
+  background-color: var(--maslinasta);
+}
+
+.btn-camo {
+  background: linear-gradient(to bottom, #556B2F, #8B4513, #3B3024);
+}
+
+.press-start {
+  font-size: 1.25em;
+  background: linear-gradient(to bottom, #6A7F3E 30%, #A0522D 50%, #3B3024 80%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+#continue {
   & span {
     font-size: 1.1em;
     top: 6px;

@@ -54,7 +54,7 @@ export default class Scena {
     if (e.target.id == 'menu')
       this.manager.start('GlavniMeni')
 
-    if (e.target.id == 'cancel')
+    if (e.target.id == 'continue')
       this.unpause()
   }
 
