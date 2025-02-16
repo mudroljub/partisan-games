@@ -14,30 +14,30 @@ export default class Scena1944 extends Scena2D {
     this.oblaci = Array.from({ length: brojOblaka }, () => new Oblak(brzina))
     this.ostrvo = new Pokretno('nature/ostrvo.gif', { potisak: brzina, skalar: 2 })
     this.zdravlje = new Pokretno('items/zdravlje.png', { potisak: brzina, skalar: .66, faktorY: 10, senka: true })
-    this.igrac = new Avionce()
+    this.player = new Avionce()
     this.neprijatelji = [
       new Neprijatelj('slicice/nemci/avioni/avion-odozgo-01.png', { potisak: brzina }),
       new Neprijatelj('slicice/nemci/avioni/avion-odozgo-03.png', { potisak: brzina }),
       new Neprijatelj('slicice/nemci/avioni/avion-odozgo-05.png', { potisak: brzina }),
       new Neprijatelj('slicice/nemci/avioni/Reggiane-Re-2005.png', { potisak: brzina }),
     ]
-    this.igrac.ciljevi = this.neprijatelji
-    this.neprijatelji.forEach(neprijatelj => neprijatelj.ciljevi.push(this.igrac))
+    this.player.ciljevi = this.neprijatelji
+    this.neprijatelji.forEach(neprijatelj => neprijatelj.ciljevi.push(this.player))
     const pozadina = new PokretnaPozadina(brzina, platno.width)
-    this.dodaj(pozadina, this.zdravlje, this.ostrvo, ...this.neprijatelji, this.igrac, ...this.oblaci)
+    this.dodaj(pozadina, this.zdravlje, this.ostrvo, ...this.neprijatelji, this.player, ...this.oblaci)
   }
 
   proveriSudare() {
-    if (!this.igrac.ziv) return
+    if (!this.player.ziv) return
 
-    if (this.igrac.sudara(this.zdravlje)) {
+    if (this.player.sudara(this.zdravlje)) {
       this.zdravlje.reset()
-      this.igrac.zivoti++
+      this.player.zivoti++
     }
     this.neprijatelji.forEach(neprijatelj => {
-      if (neprijatelj.ziv && this.igrac.sudara(neprijatelj)) {
+      if (neprijatelj.ziv && this.player.sudara(neprijatelj)) {
         neprijatelj.umri()
-        this.igrac.umri()
+        this.player.umri()
       }
     })
   }
@@ -45,14 +45,14 @@ export default class Scena1944 extends Scena2D {
   update(dt, t) {
     super.update(dt, t)
     this.proveriSudare()
-    if (!this.igrac.zivoti) this.finish()
+    if (!this.player.zivoti) this.finish()
   }
 
   sceneUI() {
     return /* html */`
       <div class='top-left'>
-        Poeni: ${this.igrac.poeni}<br>
-        Životi: ${this.igrac.zivoti}<br>
+        Poeni: ${this.player.poeni}<br>
+        Životi: ${this.player.zivoti}<br>
       </div>
     `
   }

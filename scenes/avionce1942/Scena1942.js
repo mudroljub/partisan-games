@@ -33,18 +33,18 @@ export default class Scena1942 extends Scena2D {
 
     this.aerodrom = new Vracanje({src: 'buildings/aerodrom.png', tlo: nivoTla, procenat: .25 })
     this.ruina = new Vracanje({ src: 'buildings/ruina.png', tlo: nivoTla, x: -400 })
-    this.igrac = new AvionIgrac(nivoTla)
-    this.vozilo = new VoziloBocno('slicice/hummel.png', { x: 150, y: nivoTla, skalar: .75, ciljevi: [this.igrac] })
+    this.player = new AvionIgrac(nivoTla)
+    this.vozilo = new VoziloBocno('slicice/hummel.png', { x: 150, y: nivoTla, skalar: .75, ciljevi: [this.player] })
 
-    this.igrac.cvrstaTela.push(this.vozilo, this.ruina)
-    this.igrac.ciljevi.push(this.vozilo)
-    this.vozilo.ciljevi.push(this.igrac)
+    this.player.cvrstaTela.push(this.vozilo, this.ruina)
+    this.player.ciljevi.push(this.vozilo)
+    this.vozilo.ciljevi.push(this.player)
 
     this.oblaci = Array.from({ length: BROJ_OBLAKA }, () => new Oblak())
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun())
     this.shume = Array.from({ length: BROJ_SHUME }, () => new Shuma())
 
-    this.dodaj(this.aerodrom, this.igrac, this.ruina, this.vozilo, ...this.oblaci, ...this.zbunovi, ...this.shume)
+    this.dodaj(this.aerodrom, this.player, this.ruina, this.vozilo, ...this.oblaci, ...this.zbunovi, ...this.shume)
     this.pocniParalax()
     this.ui.intro = 'Uništi nemački tenk i bezbedno sleti!'
   }
@@ -90,7 +90,7 @@ export default class Scena1942 extends Scena2D {
 
   proveriSmrt() {
     if (this.vozilo.mrtav) this.vozilo.dx = PARALAX_1 - this.brzinaScene
-    if (!this.igrac.mrtav) return
+    if (!this.player.mrtav) return
 
     if (this.dignutostScene > 0)
       this.dizePredmete(-DIZAJ * .5)
@@ -100,9 +100,9 @@ export default class Scena1942 extends Scena2D {
   }
 
   proveriTlo() {
-    if (this.igrac.jePrizemljen && this.dignutostScene <= 0) {
+    if (this.player.jePrizemljen && this.dignutostScene <= 0) {
       this.zaustaviParalax()
-      if (this.igrac.ziv && this.vozilo.mrtav) this.finish('Misija je uspešno završena!')
+      if (this.player.ziv && this.vozilo.mrtav) this.finish('Misija je uspešno završena!')
     }
   }
 
@@ -112,7 +112,7 @@ export default class Scena1942 extends Scena2D {
 
   handleInput() {
     super.handleInput()
-    if (!this.igrac.ziv) return
+    if (!this.player.ziv) return
 
     if (keyboard.right && this.brzinaScene < MAX_BRZINA)
       this.ubrzavaOstale(Math.PI, POTISAK)
@@ -121,7 +121,7 @@ export default class Scena1942 extends Scena2D {
       this.ubrzavaOstale(Math.PI, -POTISAK)
 
     if (keyboard.up && this.dignutostScene - DIZAJ < MAX_DIGNUTOST) {
-      if (this.igrac.y < this.visina * 0.5)
+      if (this.player.y < this.visina * 0.5)
         this.dizePredmete(DIZAJ)
       if (this.brzinaScene === 0) this.pocniParalax() // kada avion ponovo uzlece
     }
