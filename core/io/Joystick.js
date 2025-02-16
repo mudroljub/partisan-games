@@ -23,6 +23,9 @@ export default class Joystick {
     if (animDict?.special) this.addButton('special', 'Spl')
 
     this.handleCursor = this.handleCursor.bind(this)
+    this.handleMove = this.handleMove.bind(this)
+    this.handleEnd = this.handleEnd.bind(this)
+
     this.thumb.addEventListener('pointerdown', this.handleCursor)
   }
 
@@ -127,7 +130,7 @@ export default class Joystick {
     document.onpointerup = this.handleEnd
   }
 
-  handleMove = e => {
+  handleMove(e) {
     const mouse = getCursorPosition(e)
 
     let left = mouse.x - this.offset.x
@@ -150,7 +153,7 @@ export default class Joystick {
     this.turn = (left - this.origin.left + this.thumb.clientWidth / 2) / this.maxRadius
   }
 
-  handleEnd = () => {
+  handleEnd() {
     document.onpointermove = document.onpointerup = null
 
     this.thumb.style.top = `${this.origin.top}px`
