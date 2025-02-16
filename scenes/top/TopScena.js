@@ -47,7 +47,7 @@ export default class TopScena extends Scena2D {
     <div class='top-right'>
       ${progresBar(this.tenk.energija)}
       ${!this.tenk.ai ? komande2() : ''}
-      <button id="dva-igraca" class="bg-avocado full">
+      <button id="dva-igraca" class="bg-olive full">
         ${this.tenk.ai ? 'Dodaj igrača' : 'Uključi<br> neprijatelja'}
       </button>
     </div>

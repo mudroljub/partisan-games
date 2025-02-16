@@ -30,8 +30,8 @@ export default class TenkiciScena extends Scena2D {
   endScreen() {
     return /* html*/`
       <div class="central-screen bg-black">
-        <p class="valencia">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>
-        <p class="avocado">${this.tenk.ziv ? this.tenk.ime : this.tenk2.ime} je pobedio ovu borbu.</p>
+        <p class="red">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>
+        <p class="olive">${this.tenk.ziv ? this.tenk.ime : this.tenk2.ime} je pobedio ovu borbu.</p>
         <button id="igraj-opet">Play again</button><button id="menu">Main menu</button>
       </div>
     `
@@ -49,7 +49,7 @@ export default class TenkiciScena extends Scena2D {
         ${this.tenk2.ime}
         ${progresBar(this.tenk2.energija, 'rpg')}
         ${this.tenk2.ai ? '' : komande2()}
-        <button id="dva-igraca" class="bg-avocado full">
+        <button id="dva-igraca" class="bg-olive full">
           ${this.tenk2.ai ? 'Dodaj igrača' : 'Uključi<br> neprijatelja'}
         </button>
       </div>

@@ -23,7 +23,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### UI
 
 - dugmići
-    - videti šta sa ivicama
+    - videti šta sa border i outline
     - boja naslova?
 - primeni novo u klasu UI
 - ukinuti komande(), komande2

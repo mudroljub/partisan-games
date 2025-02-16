@@ -13,13 +13,13 @@
 */
 
 :root {
-  --razmak: 8px;
-  --oblost: 4px;
-  --bela: #FFFFFF;
-  --crna: #1B1B1B;
-  --siva: #ECEBE4;
-  --crvena: #D94A38;
-  --maslinasta: #848C58;
+  --spacing: 8px;
+  --radius: 4px;
+  --white: #FFFFFF;
+  --black: #1B1B1B;
+  --gray: #ECEBE4;
+  --red: #D94A38;
+  --olive: #848C58;
 }
 
 /* DEFAULTS */
@@ -30,7 +30,7 @@
 }
 
 body {
-  background-color: var(--siva);
+  background-color: var(--gray);
   cursor: url(/assets/images/rpgui/cursor/default.png), auto;
   filter: sepia(0.15);
   font-size: 0.8em;
@@ -41,9 +41,9 @@ body {
 
 body,
 button {
-  color: var(--bela);
+  color: var(--white);
   font-family: 'Press Start 2P', Courier;
-  text-shadow: -2px 0 var(--crna), 0 2px var(--crna), 2px 0 var(--crna), 0 -2px var(--crna);
+  text-shadow: -2px 0 var(--black), 0 2px var(--black), 2px 0 var(--black), 0 -2px var(--black);
 }
 
 h1 {
@@ -67,7 +67,7 @@ canvas {
 
 button {
   background-color: transparent;
-  border-radius: var(--oblost);
+  border-radius: var(--radius);
   border: none;
   cursor: url("/assets/images/rpgui/cursor/point.png") 10 0, auto;
   outline: 1px solid transparent;
@@ -75,8 +75,8 @@ button {
   padding: 8px 16px;
   transition: outline-color 0.66s, border-color 0.66s;
   text-transform: uppercase;
-  /* border-color: var(--crna);
-  outline-color: var(--bela); */
+  /* border-color: var(--black);
+  outline-color: var(--white); */
 
   & span {
     font-size: 1.4em;
@@ -93,18 +93,10 @@ button:has(span) {
   padding-left: 40px;
 }
 
-button:not(.btn-secondary):hover {
-  /* outline-color: var(--crna);
-  border-color: var(--bela); */
-  background-color: #D94A38;
-}
-
-.btn-primary {
-  background-color: #D94A38;
-}
-
-.btn-secondary {
-  background-color: var(--maslinasta);
+button:not(.bg-olive):hover {
+  /* outline-color: var(--black);
+  border-color: var(--white); */
+  background-color: var(--red);
 }
 
 #start,
@@ -124,6 +116,7 @@ button:not(.btn-secondary):hover {
   transform: translate(-50%, -50%);
   z-index: 1;
   max-width: 512px;
+  min-width: 320px;
 }
 
 .simple-container {
@@ -132,8 +125,8 @@ button:not(.btn-secondary):hover {
   border-image-slice: 3 3 3 3;
   border-image-source: url(/assets/images/rpgui/border-image-grey.png);
   border-image-width: 7px;
-  border-radius: var(--oblost);
-  color: var(--maslinasta);
+  border-radius: var(--radius);
+  color: var(--olive);
   max-width: 480px;
   padding: 20px;
   text-align: center;
@@ -141,10 +134,10 @@ button:not(.btn-secondary):hover {
 
 .white-window {
   margin-top: 10px;
-  border: 1px solid var(--crna);
-  outline: 1px solid var(--bela);
+  border: 1px solid var(--black);
+  outline: 1px solid var(--white);
   padding: 10px;
-  border-radius: var(--oblost);
+  border-radius: var(--radius);
 }
 
 .game-paused {
@@ -184,23 +177,23 @@ button:not(.btn-secondary):hover {
 }
 
 .top-left {
-  left: var(--razmak);
-  top: var(--razmak);
+  left: var(--spacing);
+  top: var(--spacing);
 }
 
 .top-right {
-  right: var(--razmak);
-  top: var(--razmak);
+  right: var(--spacing);
+  top: var(--spacing);
 }
 
 .bottom-left {
-  left: var(--razmak);
-  bottom: var(--razmak);
+  left: var(--spacing);
+  bottom: var(--spacing);
 }
 
 .bottom-right {
-  right: var(--razmak);
-  bottom: var(--razmak);
+  right: var(--spacing);
+  bottom: var(--spacing);
 }
 
 .progress {
@@ -224,10 +217,10 @@ button:not(.btn-secondary):hover {
 progress {
   width: 100%;
   background-color: transparent;
-  border: 1px solid var(--crna);
+  border: 1px solid var(--black);
   height: 22px;
   min-width: 210px;
-  border-radius: var(--oblost);
+  border-radius: var(--radius);
 }
 
 progress::-webkit-progress-bar {
@@ -235,19 +228,19 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background-color: var(--crvena);
+  background-color: var(--red);
 }
 
 progress::-moz-progress-bar {
-  background-color: var(--crvena);
+  background-color: var(--red);
 }
 
 progress.potisak::-webkit-progress-value {
-  background-color: var(--maslinasta);
+  background-color: var(--olive);
 }
 
 progress.potisak::-moz-progress-bar {
-  background-color: var(--maslinasta);
+  background-color: var(--olive);
 }
 
 .progress-wrapper {
@@ -266,8 +259,8 @@ progress.potisak::-moz-progress-bar {
 .game-btn {
   background: rgba(126, 126, 126, 0.5);
   border-radius: 50%;
-  border: 2px solid var(--bela);
-  outline: 2px solid var(--crna);
+  border: 2px solid var(--white);
+  outline: 2px solid var(--black);
   bottom: 30px;
   height: 60px;
   position: absolute;
@@ -302,23 +295,23 @@ progress.potisak::-moz-progress-bar {
 /* BOJE */
 
 .bg-black {
-  background-color: var(--crna);
+  background-color: var(--black);
 }
 
-.valencia {
-  color: var(--crvena);
+.red {
+  color: var(--red);
 }
 
-.bg-valencia {
-  background-color: var(--crvena);
+.bg-red {
+  background-color: var(--red);
 }
 
-.avocado {
-  color: var(--maslinasta);
+.olive {
+  color: var(--olive);
 }
 
-.bg-avocado {
-  background-color: var(--maslinasta);
+.bg-olive {
+  background-color: var(--olive);
 }
 
 /* UTILS */
