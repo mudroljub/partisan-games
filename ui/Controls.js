@@ -13,6 +13,14 @@ export const tankLeftControls = {
   Space: 'shoot'
 }
 
+export const tankRightControls = {
+  '←': 'left',
+  '→': 'right',
+  '↑': 'up',
+  '↓': 'down',
+  Enter: 'shoot'
+}
+
 export const fpsControls = {
   ...baseControls,
   Q: 'strafe left',
@@ -33,22 +41,20 @@ export const thirdPersonControls = {
 export default class Controls {
   constructor({
     controlKeys = baseControls,
-    btnClass = '', // icons-button
-    containerClass = 'white-window levo',
+    containerClass = 'bottom-left',
   } = {}) {
     this.controlsOpen = false
-    this.init(controlKeys, btnClass, containerClass)
+    this.init(controlKeys, containerClass)
   }
 
-  init(controlKeys, btnClass, containerClass) {
+  init(controlKeys, containerClass) {
     this.div = document.createElement('div')
-    this.div.className = 'bottom-left'
+    this.div.className = containerClass
 
     const button = document.createElement('button')
-    button.className = btnClass
 
     const content = document.createElement('div')
-    content.className = containerClass
+    content.className = 'white-window'
     content.innerHTML = Object.keys(controlKeys)
       .filter(key => controlKeys[key])
       .map(key => `${key} - ${controlKeys[key]}<br>`)

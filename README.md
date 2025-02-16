@@ -14,7 +14,9 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- ukinuti komande(), komande2
+- ukinuti komande2
+    - jel moguće dodati controls u drugi ugao?
+    - ukinuti containerClass: controlsWindowClass i ostalo suvišno
 - gledati ekran kroz slomljeno staklo?
 - sakriti kontrole gde treba (drvar...)
 - ukinuti pauzu na P?

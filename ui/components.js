@@ -13,13 +13,6 @@ export const adws = () => /* html*/`
   S - dole<br>
 `
 
-export const komande = () => /* html*/`
-  <div class="tipke">
-    ${adws()}
-    space - pucanje
-  </div>
-`
-
 export const komande2 = () => /* html*/`
   <div class="tipke">
     ← levo<br> 

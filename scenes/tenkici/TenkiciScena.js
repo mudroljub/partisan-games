@@ -1,14 +1,19 @@
 import { platno } from '/core/io/platno.js'
 import Scena2D from '/core/Scena2D.js'
 import Pozadina from '/core/objects/Pozadina.js'
-import { progresBar, komande, komande2 } from '/ui/components.js'
+import { progresBar } from '/ui/components.js'
 import TenkLevo from './TenkLevo.js'
 import TenkDesno from './TenkDesno.js'
+import Controls, { tankLeftControls, tankRightControls } from '/ui/Controls.js'
 
 const nivoTla = platno.height * 0.8
 let aiPlayer = true
 
 export default class TenkiciScena extends Scena2D {
+  constructor(manager) {
+    super(manager, { controlKeys: tankLeftControls })
+  }
+
   init() {
     this.pozadina = new Pozadina('background/razrusen-grad-savremen.jpg')
     this.tenk = new TenkLevo({ y: nivoTla })
@@ -16,6 +21,7 @@ export default class TenkiciScena extends Scena2D {
     this.tenk.ciljevi.push(this.tenk2)
     this.tenk2.ciljevi.push(this.tenk)
     this.predmeti = [this.tenk, this.tenk2]
+    this.controls2 = new Controls({ containerClass: 'bottom-right', controlKeys: tankRightControls })
   }
 
   handleClick(e) {
@@ -44,13 +50,11 @@ export default class TenkiciScena extends Scena2D {
       <div class='top-left'>
         ${this.tenk.ime}
         ${progresBar(this.tenk.energija, 'rpg')}
-        ${komande()}
       </div>
 
       <div class='top-right'>
         ${this.tenk2.ime}
         ${progresBar(this.tenk2.energija, 'rpg')}
-        ${this.tenk2.ai ? '' : komande2()}
         <button id="dva-igraca" class="bg-olive full">
           ${this.tenk2.ai ? 'Dodaj igrača' : 'Uključi<br> neprijatelja'}
         </button>
