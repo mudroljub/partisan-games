@@ -1,7 +1,7 @@
 import { Vector3, MathUtils } from 'three'
 
 import Actor from './Actor.js'
-import Keyboard from '/core3d/io/Keyboard.js'
+import Keyboard from '/core/io/Keyboard.js'
 import { getAIState } from './states/ai/index.js'
 import { jumpStyles, attackStyles, baseStates, dir } from '/core3d/constants.js'
 import { belongsTo, directionBlocked } from '/core3d/helpers.js'

@@ -11,10 +11,11 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ## TODO
 
 - Keyboard je duplirana, obrisati jednu
+    - obrisati get enter
+    - dodati input u Bombas i ponegde
 
 ### UI
 
-- BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
 - BUG: ne radi TenkiciScena endScreen, možda obrisati bg-black
 - Spomenici i ostali FPS ne briše zdravlje po izlasku
 

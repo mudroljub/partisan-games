@@ -59,7 +59,6 @@ export default class Scena {
   }
 
   handlePointerLockChange = () => {
-    console.log('handlePointerLockChange')
     if (this.ui.outro) return
     if (!document.pointerLockElement) {
       this.gameLoop.pause()

@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import Input from '/core3d/io/Input.js'
+import Input from '/core/io/Input.js'
 import { getMesh, getGroundY } from '/core3d/helpers.js'
 import ChaseCamera from '/core3d/actor/ChaseCamera.js'
 import GameObject from '/core3d/objects/GameObject.js'

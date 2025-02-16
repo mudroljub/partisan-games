@@ -1,4 +1,4 @@
-import { keyboard } from '/core3d/io/Keyboard.js'
+import { keyboard } from '/core/io/Keyboard.js'
 
 const targetSrc = '/assets/images/crosshair.png'
 

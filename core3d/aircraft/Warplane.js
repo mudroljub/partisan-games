@@ -1,4 +1,4 @@
-import Input from '/core3d/io/Input.js'
+import Input from '/core/io/Input.js'
 import GameObject from '/core3d/objects/GameObject.js'
 import Missile from './Missile.js'
 import { Explosion } from '/core3d/Particles.js'

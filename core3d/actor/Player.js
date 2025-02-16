@@ -1,4 +1,4 @@
-import Input from '/core3d/io/Input.js'
+import Input from '/core/io/Input.js'
 import { jumpStyles, attackStyles, reactions } from '/core3d/constants.js'
 import { getPlayerState } from './states/index.js'
 import Actor from './Actor.js'
