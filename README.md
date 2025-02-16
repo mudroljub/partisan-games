@@ -10,14 +10,16 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
-- Keyboard je duplirana, obrisati jednu
-    - obrisati get enter
-    - dodati input u Bombas i ponegde
+- dodati input u Bombas i ponegde
+    - brisati džojstik po napuštanju scene
 
 ### UI
 
+- Savo mrtav nema prozora
+- loader prevelik?
 - BUG: ne radi TenkiciScena endScreen, možda obrisati bg-black
 - Spomenici i ostali FPS ne briše zdravlje po izlasku
+- meni ipak bolje burger?
 
 ### BUGFIX
 
@@ -26,6 +28,9 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - BUG: Savo igraj-opet ne ubija neprijatelje
 - Savo nebo nije tamno
 - BUG: Ratweek se trese
+- BUG: Nemci iz rovova mrtav igrač može da ubija
+- čamac reka nije plava
+- BUG: Top scena, pa Čamac -> reka bude zelena
 
 ### 3D
 

@@ -22,6 +22,7 @@ export default class Screen {
     if (animDict?.attack2) this.addButton('attack2', 'Atk')
     if (animDict?.special) this.addButton('special', 'Spl')
 
+    this.handleCursor = this.handleCursor.bind(this)
     this.thumb.addEventListener('pointerdown', this.handleCursor)
   }
 
@@ -82,9 +83,9 @@ export default class Screen {
   /* BUTTONS */
 
   addJoystick() {
-    const circle = document.createElement('div')
-    circle.classList.add('game-btn', 'joystick')
-    document.body.appendChild(circle)
+    this.circle = document.createElement('div')
+    this.circle.classList.add('game-btn', 'joystick')
+    document.body.appendChild(this.circle)
 
     const thumb = document.createElement('div')
     // style is required here to set origin
@@ -97,7 +98,7 @@ export default class Screen {
       border-radius: 50%; 
       background: #fff;
     `
-    circle.appendChild(thumb)
+    this.circle.appendChild(thumb)
     this.thumb = thumb
 
     this.origin = { left: thumb.offsetLeft, top: thumb.offsetTop }
@@ -120,7 +121,7 @@ export default class Screen {
 
   /* HANDLERS */
 
-  handleCursor = e => {
+  handleCursor(e) {
     this.offset = getCursorPosition(e)
     document.onpointermove = this.handleMove
     document.onpointerup = this.handleEnd
@@ -156,5 +157,11 @@ export default class Screen {
     this.thumb.style.left = `${this.origin.left}px`
 
     this.forward = this.turn = 0
+  }
+
+  end() {
+    this.thumb.removeEventListener('pointerdown', this.handleCursor)
+    this.circle.remove()
+    document.querySelectorAll('.game-btn').forEach(el => el.remove())
   }
 }

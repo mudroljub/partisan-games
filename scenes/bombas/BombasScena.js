@@ -17,18 +17,18 @@ export default class BombasScena extends Scena2D {
     const pozicije = slucajnePozicije(BROJ_PREPREKA + 2, 100)
     const najdaljeTacke = nadjiNajdaljeTacke(pozicije)
 
-    this.bombas = new Bombas(najdaljeTacke[0])
+    this.player = new Bombas(najdaljeTacke[0])
     this.bunker = new Bunker(najdaljeTacke[1])
-    this.mitraljezac = new Mitraljezac(this.bunker.x + 60, this.bunker.y + 20, this.bombas)
+    this.mitraljezac = new Mitraljezac(this.bunker.x + 60, this.bunker.y + 20, this.player)
 
     this.mine = pozicije
       .filter(p => !najdaljeTacke.some(tacka => tacka.x === p.x && tacka.y === p.y))
       .map(p => new Mina(p))
-    this.dodaj(this.bunker, this.mitraljezac, this.bombas, ...this.mine)
+    this.dodaj(this.bunker, this.mitraljezac, this.player, ...this.mine)
   }
 
   proveriPobedu() {
-    if (this.bombas.razmakDo(this.bunker) < this.bunker.sirina / 2) {
+    if (this.player.razmakDo(this.bunker) < this.bunker.sirina / 2) {
       this.bunker.umri()
       this.finish('Neprijateljski bunker je uništen!')
     }
@@ -36,9 +36,9 @@ export default class BombasScena extends Scena2D {
 
   update(dt, t) {
     super.update(dt, t)
-    this.mine.forEach(mina => mina.proveriSudar(this.bombas))
+    this.mine.forEach(mina => mina.proveriSudar(this.player))
 
-    if (this.bombas.mrtav) this.finish('Slavno si pao.')
+    if (this.player.mrtav) this.finish('Slavno si pao.')
     if (t > ZADATO_VREME) this.finish('Tvoje vreme je isteklo.')
 
     this.proveriPobedu()

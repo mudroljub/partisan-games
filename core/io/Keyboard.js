@@ -85,10 +85,6 @@ class Keyboard {
     return this.pressed.Space
   }
 
-  get enter() {
-    return this.pressed.Enter
-  }
-
   get attack() {
     return this.pressed[this.attackKey]
   }

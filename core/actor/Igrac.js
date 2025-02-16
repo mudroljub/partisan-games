@@ -1,6 +1,7 @@
 import { KRUZNICA } from '/core/konstante.js'
-import { keyboard } from '/core/io/Keyboard.js'
+// import { keyboard } from '/core/io/Keyboard.js'
 import Predmet from './Predmet.js'
+import Input from '/core/io/Input.js'
 
 export default class Igrac extends Predmet {
   constructor(src, params = {}) {
@@ -11,14 +12,15 @@ export default class Igrac extends Predmet {
     this.cvrstaTela = []
     this.okret = 0.047
     this.faktorTrenja = .1
+    this.input = new Input()
   }
 
   handleInput() {
-    if (keyboard.left) this.nalevo()
-    if (keyboard.right) this.nadesno()
-    if (keyboard.up) this.nagore()
-    if (keyboard.down) this.nadole()
-    if (keyboard.space) this.puca()
+    if (this.input.left) this.nalevo()
+    if (this.input.right) this.nadesno()
+    if (this.input.up) this.nagore()
+    if (this.input.down) this.nadole()
+    if (this.input.keyboard.space) this.puca()
   }
 
   nalevo() {
@@ -53,5 +55,9 @@ export default class Igrac extends Predmet {
   update(dt) {
     super.update(dt)
     this.trenje(this.faktorTrenja)
+  }
+
+  end() {
+    this.input.end()
   }
 }

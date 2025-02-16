@@ -1,7 +1,7 @@
 import Screen from './Screen.js'
 import Keyboard from './Keyboard.js'
 
-const isTouchScreen = 'ontouchstart' in window
+const isTouchScreen = 'ontouchstart' in window // TODO: isMobile
 
 /**
  * Interface for all user inputs
@@ -72,6 +72,10 @@ class Input {
 
   get touched() {
     return this.keyboard?.touched
+  }
+
+  end() {
+    this.screen.end()
   }
 }
 
