@@ -38,7 +38,7 @@ export default class UI {
       <div class="central-screen simple-container game-paused">
         <p>Game paused</p>
         <button id="continue"><span>⚔️</span> Continue</button>
-        <button id="menu"><span>☰</span> Main menu</button>
+        <button id="menu"><span>↩</span> Main menu</button>
         <button id="igraj-opet"><span>↻</span> Play again</button>
       </div>
     `
@@ -48,7 +48,7 @@ export default class UI {
     return /* html */`
       <div class="central-screen simple-container">
         <p>${this.outro}</p>
-        <button id="menu"><span>☰</span> Main menu</button>
+        <button id="menu"><span>↩</span> Main menu</button>
         <button id="igraj-opet"><span>↻</span> Play again</button>
       </div>
     `
