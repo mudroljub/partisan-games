@@ -14,9 +14,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- BUG: pauza ne radi sa pointer lock
-    - BUG: Savo esc pauza ne prikazuje modal
-    - BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
+- BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
 - BUG: ne radi TenkiciScena endScreen, možda obrisati bg-black
 - Spomenici i ostali FPS ne briše zdravlje po izlasku
 
@@ -25,7 +23,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
     - i Bombaš i drugi nivoi baguju, zeza GameLoop?
     - BUG: Savo igraj-opet ne ubija neprijatelje
-- BUG: 1944 nema pozadine
+- Savo nebo nije tamno
 - BUG: Ratweek se trese
 
 ### 3D

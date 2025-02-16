@@ -59,9 +59,12 @@ export default class Scena {
   }
 
   handlePointerLockChange = () => {
+    console.log('handlePointerLockChange')
     if (this.ui.outro) return
-    if (!document.pointerLockElement)
+    if (!document.pointerLockElement) {
       this.gameLoop.pause()
+      this.ui.renderModal()
+    }
   }
 
   handleVisibilityChange = () => {
