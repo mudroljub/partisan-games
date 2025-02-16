@@ -9,6 +9,7 @@ import { progresBar } from '/ui/components.js'
 import Controls, { tankRightControls } from '/ui/Controls.js'
 
 const tlo = platno.height * .75
+let aiPlayer = true
 
 export default class TopScena extends Scena2D {
   constructor(manager) {
@@ -20,7 +21,7 @@ export default class TopScena extends Scena2D {
     this.top = new Top({ x: 230, y: tlo - 32 })
     const posada = new Posada(110, tlo + 8)
     const strelac = new Strelac(300, tlo + 8)
-    this.tenk = new TenkDesno({ y: tlo, skalar: .6, vremePunjenjaAI: 3000 })
+    this.tenk = new TenkDesno({ y: tlo, skalar: .6, vremePunjenjaAI: 3000, ai: aiPlayer })
     this.tenk.ciljevi.push(this.top)
     this.top.ciljevi.push(this.tenk)
     this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)
@@ -29,7 +30,8 @@ export default class TopScena extends Scena2D {
 
   handleClick(e) {
     super.handleClick(e)
-    if (e.target.id == 'dva-igraca') this.tenk.ai = !this.tenk.ai
+    if (e.target.id == 'dva-igraca')
+      this.tenk.ai = aiPlayer = !aiPlayer
   }
 
   clear() {
