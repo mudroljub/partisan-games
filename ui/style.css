@@ -145,6 +145,7 @@ button:hover {
   background-color: #cccccc;
   background-image: url(/assets/images/document.jpg);
   background-size: cover;
+  width: 420px;
 
   & p {
     color: #333;
