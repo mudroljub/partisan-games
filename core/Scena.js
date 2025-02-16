@@ -88,7 +88,6 @@ export default class Scena {
     this.ui.clear()
     if (this.controlsUI) this.controlsUI.end()
     if (this.controls2UI) this.controls2UI.end()
-    if (this.player) this.player.end()
 
     document.removeEventListener('click', this.handleClick)
     document.removeEventListener('visibilitychange', this.handleVisibilityChange)

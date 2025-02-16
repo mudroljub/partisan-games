@@ -13,6 +13,7 @@ export default class Scena2D extends Scena {
   end() {
     super.end()
     platno.style.display = 'none'
+    if (this.player) this.player.end()
   }
 
   clear() {
