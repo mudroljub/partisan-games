@@ -10,8 +10,9 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
-- dodati input u Bombas i ponegde
-    - brisati džojstik po napuštanju scene
+- dodati input u Igrac
+    - džojstik end
+    - keyboard end
 
 ### UI
 

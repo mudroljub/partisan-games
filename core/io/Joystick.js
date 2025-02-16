@@ -22,11 +22,11 @@ export default class Joystick {
     if (animDict?.attack2) this.addButton('attack2', 'Atk')
     if (animDict?.special) this.addButton('special', 'Spl')
 
-    this.handleCursor = this.handleCursor.bind(this)
+    this.handleDown = this.handleDown.bind(this)
     this.handleMove = this.handleMove.bind(this)
     this.handleEnd = this.handleEnd.bind(this)
 
-    this.thumb.addEventListener('pointerdown', this.handleCursor)
+    this.thumb.addEventListener('pointerdown', this.handleDown)
   }
 
   /* GETTERS */
@@ -124,7 +124,7 @@ export default class Joystick {
 
   /* HANDLERS */
 
-  handleCursor(e) {
+  handleDown(e) {
     this.offset = getCursorPosition(e)
     document.onpointermove = this.handleMove
     document.onpointerup = this.handleEnd
@@ -163,7 +163,7 @@ export default class Joystick {
   }
 
   end() {
-    this.thumb.removeEventListener('pointerdown', this.handleCursor)
+    this.thumb.removeEventListener('pointerdown', this.handleDown)
     this.circle.remove()
     document.querySelectorAll('.game-btn').forEach(el => el.remove())
   }
