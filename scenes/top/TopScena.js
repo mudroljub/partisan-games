@@ -25,7 +25,7 @@ export default class TopScena extends Scena2D {
     this.tenk.ciljevi.push(this.top)
     this.top.ciljevi.push(this.tenk)
     this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)
-    this.controls2 = new Controls({ containerClass: 'bottom-right', controlKeys: tankRightControls })
+    this.controls2UI = new Controls({ containerClass: 'bottom-right', controlKeys: tankRightControls })
   }
 
   handleClick(e) {

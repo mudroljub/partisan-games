@@ -9,6 +9,10 @@ import { createOrbitControls } from '/core3d/helpers.js'
 const textureLoader = new THREE.TextureLoader()
 
 export default class DrvarScena extends Scena3D {
+  constructor(manager) {
+    super(manager, { showControls: false })
+  }
+
   init() {
     this.dodajMesh(createGround())
     elements.forEach(el => {

@@ -14,7 +14,7 @@ export default class Scena {
     this.ui = new UI(this, { reportText, intro, blinkingMessage })
     this.predmeti = []
     if (showControls)
-      this.controls = new Controls({ controlKeys, containerClass: controlsWindowClass })
+      this.controlsUI = new Controls({ controlKeys, containerClass: controlsWindowClass })
 
     this.start = this.start.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -88,8 +88,8 @@ export default class Scena {
     this.predmeti = []
     this.clear()
     this.ui.clear()
-    if (this.controls) this.controls.end()
-    if (this.controls2) this.controls2.end()
+    if (this.controlsUI) this.controlsUI.end()
+    if (this.controls2UI) this.controls2UI.end()
 
     document.removeEventListener('click', this.handleClick)
     document.removeEventListener('visibilitychange', this.handleVisibilityChange)

@@ -15,7 +15,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### UI
 
 - gledati ekran kroz slomljeno staklo?
-- sakriti kontrole gde treba (drvar...)
 - ukinuti pauzu na P?
 - ukloniti uvodni prozor iz Bombaš
 
