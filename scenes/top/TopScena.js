@@ -5,11 +5,16 @@ import Strelac from './Strelac.js'
 import Zastavnik from './Zastavnik.js'
 import Posada from './Posada.js'
 import TenkDesno from '../tenkici/TenkDesno.js'
-import { progresBar, topKomande, komande2 } from '/ui/components.js'
+import { progresBar } from '/ui/components.js'
+import Controls, { tankRightControls } from '/ui/Controls.js'
 
 const tlo = platno.height * .75
 
 export default class TopScena extends Scena2D {
+  constructor(manager) {
+    super(manager, { controlKeys: { W: 'up', S: 'down', Space: 'shoot ' } })
+  }
+
   init() {
     const zastavnik = new Zastavnik(40, tlo + 1)
     this.top = new Top({ x: 230, y: tlo - 32 })
@@ -19,6 +24,7 @@ export default class TopScena extends Scena2D {
     this.tenk.ciljevi.push(this.top)
     this.top.ciljevi.push(this.tenk)
     this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)
+    this.controls2 = new Controls({ containerClass: 'bottom-right', controlKeys: tankRightControls })
   }
 
   handleClick(e) {
@@ -40,13 +46,11 @@ export default class TopScena extends Scena2D {
     return /* html */`
     <div class='top-left'>
       ${progresBar(this.top.energija)}
-      ${topKomande()}
       <progress class="potisak" value="${this.top.sila}" max="${this.top.minSila * 3}"></progress>
     </div>
 
     <div class='top-right'>
       ${progresBar(this.tenk.energija)}
-      ${!this.tenk.ai ? komande2() : ''}
       <button id="dva-igraca" class="bg-olive full">
         ${this.tenk.ai ? 'Dodaj igrača' : 'Uključi<br> neprijatelja'}
       </button>
