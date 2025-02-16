@@ -25,7 +25,7 @@ export const thirdPersonControls = {
 export default class Controls {
   constructor({
     controlKeys = baseControls,
-    btnClass = '', // rpgui-button
+    btnClass = '', // icons-button
     containerClass = 'white-window levo',
   } = {}) {
     this.controlsOpen = false
