@@ -16,7 +16,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - BUG: Savo esc pauza ne prikazuje modal
 - BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
-    - Controls ide dole van ekrana
 - BUG: ne radi TenkiciScena endScreen, možda obrisati bg-black
 - Spomenici ne briše zdravlje po izlasku
 

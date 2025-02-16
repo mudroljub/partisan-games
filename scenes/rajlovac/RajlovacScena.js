@@ -23,7 +23,6 @@ export default class RajlovacScena extends Scena3D {
     super(manager, {
       usePointerLock: true,
       controlKeys: fpsControls,
-      controlsWindowClass: 'white-window',
       intro: 'Destroy all enemy aircraft.',
       reportText: 'The German planes that sow death among our combatants are stationed at the Rajlovac Airport near Sarajevo.\n\nEnter the airport and destroy all enemy aircraft.',
     })
