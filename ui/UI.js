@@ -34,6 +34,7 @@ export default class UI {
   }
 
   escModal() {
+    // menu alt: ☰
     return /* html */`
       <div class="central-screen simple-container game-paused">
         <p>Game paused</p>

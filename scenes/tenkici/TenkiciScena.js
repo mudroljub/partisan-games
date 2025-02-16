@@ -32,28 +32,25 @@ export default class TenkiciScena extends Scena2D {
 
   update(dt) {
     super.update(dt)
-    if (this.tenk.mrtav || this.tenk2.mrtav) this.finish()
-  }
+    const porazeni = this.tenk2.mrtav ? 'Nemački' : 'Partizanski'
+    const pobednicki = this.tenk2.mrtav ? 'Partizanski' : 'Nemački'
 
-  endScreen() {
-    return /* html*/`
-      <div class="central-screen bg-black">
-        <p class="red">${this.tenk.mrtav ? this.tenk.ime : this.tenk2.ime} je uništen.</p>
-        <p class="olive">${this.tenk.ziv ? this.tenk.ime : this.tenk2.ime} je pobedio ovu borbu.</p>
-        <button id="igraj-opet">Play again</button><button id="menu">Main menu</button>
-      </div>
+    const poruka = `
+      <p class="red">${porazeni} tenk je uništen.</p>
+      <p class="olive">${pobednicki} tenk je pobedio ovu borbu.</p>
     `
+    if (this.tenk.mrtav || this.tenk2.mrtav) this.finish(poruka)
   }
 
   sceneUI() {
     return /* html*/`
       <div class='top-left'>
-        ${this.tenk.ime}
+        Partizanski tenk
         ${progresBar(this.tenk.energija, 'rpg')}
       </div>
 
       <div class='top-right'>
-        ${this.tenk2.ime}
+        Nemački tenk
         ${progresBar(this.tenk2.energija, 'rpg')}
         <button id="dva-igraca" class="bg-olive full">
           ${this.tenk2.ai ? 'Dodaj igrača' : 'Uključi<br> neprijatelja'}

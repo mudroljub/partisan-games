@@ -13,7 +13,6 @@ export default class TenkDesno extends Tenk {
   }) {
     super(src, { cevSlika, x, ...rest })
     this.ugao = Math.PI
-    this.ime = 'Nemački tenk'
     this.odrazX = this.odrazY = -1
     this.cev.ugao = Math.PI * 1.1
     this.cev.ishodiste = 'DOLE_DESNO'

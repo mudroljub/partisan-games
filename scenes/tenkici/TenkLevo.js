@@ -11,7 +11,6 @@ export default class TenkLevo extends Tenk {
     ...rest
   } = {}) {
     super(src, { cevSlika, x, ...rest })
-    this.ime = 'Partizanski tenk'
     this.cev.ugao = Math.PI * 1.9
     this.cev.ishodiste = 'GORE_LEVO'
   }

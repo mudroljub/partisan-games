@@ -12,11 +12,10 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- Savo mrtav nema prozora
-- loader prevelik?
-- BUG: ne radi TenkiciScena endScreen, možda obrisati bg-black
 - Spomenici i ostali FPS ne briše zdravlje po izlasku
-- meni ipak bolje burger?
+- meni vratiti burger?
+- za uvodni ekran staviti neku art pozadinu?
+- drugačiji završni ekran za pobedu i poraz
 
 ### BUGFIX
 
