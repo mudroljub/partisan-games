@@ -13,17 +13,17 @@ export default class RanjenikScena extends Scena2D {
   init() {
     this.scena = 0
     this.pozadina = new Pozadina('slicice/shumarak-pozadina.png')
-    this.ranjenik = new Ranjenik(this.sirina / 4, this.visina / 2)
-    this.patrola = new Patrola('slicice/nemci-patrola.gif', this.ranjenik)
+    this.player = new Ranjenik(this.sirina / 4, this.visina / 2)
+    this.patrola = new Patrola('slicice/nemci-patrola.gif', this.player)
     this.patrola.postavi(this.sirina * 3 / 4, this.visina * 3 / 4)
     this.strelica = new Strelica()
     this.vreme = new Vreme()
     this.pocetakPaljbe = 500
-    this.dodaj(this.ranjenik, this.patrola, this.strelica)
+    this.dodaj(this.player, this.patrola, this.strelica)
   }
 
   proveriSudare() {
-    if (!this.patrola.sudara(this.ranjenik)) return
+    if (!this.patrola.sudara(this.player)) return
 
     this.patrola.stani()
     this.patrola.pustiNadjen()
@@ -31,7 +31,7 @@ export default class RanjenikScena extends Scena2D {
   }
 
   proveriPobedu() {
-    if (izasaoDesno(this.ranjenik)) this.promeniScenu()
+    if (izasaoDesno(this.player)) this.promeniScenu()
 
     if (this.scena === 2) {
       this.patrola.nestani()
@@ -45,7 +45,7 @@ export default class RanjenikScena extends Scena2D {
     this.pozadina.slika.src = '/assets/images/textures/sprzena-zemlja.jpg'
     this.patrola.slika.src = '/assets/images/slicice/talijani-patrola.gif'
     this.patrola.postavi(this.sirina * 3 / 4, this.visina * 3 / 4)
-    this.ranjenik.x = 10
+    this.player.x = 10
     this.scena++
   }
 
@@ -56,7 +56,7 @@ export default class RanjenikScena extends Scena2D {
     this.predmeti.unshift(krater)
     this.vreme.reset()
 
-    if (this.ranjenik.sudara(krater))
+    if (this.player.sudara(krater))
       this.finish('Hrabro si pao u pokušaju bega.')
   }
 
