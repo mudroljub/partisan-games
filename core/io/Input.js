@@ -1,4 +1,4 @@
-import Screen from './Screen.js'
+import Joystick from './Joystick.js'
 import Keyboard from './Keyboard.js'
 
 const isTouchScreen = 'ontouchstart' in window // TODO: isMobile
@@ -7,9 +7,9 @@ const isTouchScreen = 'ontouchstart' in window // TODO: isMobile
  * Interface for all user inputs
  */
 class Input {
-  constructor({ useKeyboard = !isTouchScreen, useScreen = true, animDict, attackKey } = {}) {
+  constructor({ useKeyboard = !isTouchScreen, useJoystick = true, animDict, attackKey } = {}) {
     if (useKeyboard) this.keyboard = new Keyboard({ attackKey })
-    if (useScreen) this.screen = new Screen({ animDict })
+    if (useJoystick) this.screen = new Joystick({ animDict })
   }
 
   /* GETTERS */

@@ -4,7 +4,7 @@ import { getCursorPosition } from '/core3d/helpers.js'
  * Joystick and screen controls
  * credit to Nicholas Lever
  */
-export default class Screen {
+export default class Joystick {
   #jump = false
   #attack = false
   #attack2 = false
