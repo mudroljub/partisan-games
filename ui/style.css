@@ -91,14 +91,6 @@ button:hover {
   background-color: var(--red);
 }
 
-#start,
-#continue {
-  & span {
-    font-size: 1.1em;
-    top: 8px;
-  }
-}
-
 /* GAME SCREEN */
 
 .central-screen {
