@@ -33,6 +33,7 @@ body {
   image-rendering: pixelated;
   line-height: 22px;
   margin: 0;
+  min-height: 100vh;
 }
 
 body,

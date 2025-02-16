@@ -175,7 +175,6 @@ export class Spinner {
     this.img = document.createElement('img')
     this.img.src = '/assets/images/loader.gif'
     this.img.classList.add('central-screen')
-    this.img.style.zIndex = 9
     document.body.appendChild(this.img)
   }
 

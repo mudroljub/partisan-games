@@ -79,7 +79,7 @@ export default class ChaseCamera {
     const button = document.createElement('button')
     button.className = `bottom-right ${cameraClass}`
     const img = document.createElement('img')
-    img.src = '/assets/images/change-camera.png'
+    img.src = '/assets/images/icons/change-camera.png'
     img.alt = 'change camera'
 
     button.addEventListener('pointerdown', this.toggleCamera)
