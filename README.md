@@ -14,8 +14,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- dugmići
-    - joystick css i hover
+- animirati otvaranje kontrola
 - ukinuti komande(), komande2
 - gledati ekran kroz slomljeno staklo?
 - sakriti kontrole gde treba (drvar...)
