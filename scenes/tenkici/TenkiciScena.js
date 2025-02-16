@@ -6,12 +6,13 @@ import TenkLevo from './TenkLevo.js'
 import TenkDesno from './TenkDesno.js'
 
 const nivoTla = platno.height * 0.8
+let aiPlayer = true
 
 export default class TenkiciScena extends Scena2D {
   init() {
     this.pozadina = new Pozadina('background/razrusen-grad-savremen.jpg')
     this.tenk = new TenkLevo({ y: nivoTla })
-    this.tenk2 = new TenkDesno({ y: nivoTla })
+    this.tenk2 = new TenkDesno({ y: nivoTla, ai: aiPlayer })
     this.tenk.ciljevi.push(this.tenk2)
     this.tenk2.ciljevi.push(this.tenk)
     this.predmeti = [this.tenk, this.tenk2]
@@ -19,7 +20,8 @@ export default class TenkiciScena extends Scena2D {
 
   handleClick(e) {
     super.handleClick(e)
-    if (e.target.id == 'dva-igraca') this.tenk2.ai = !this.tenk2.ai
+    if (e.target.id == 'dva-igraca')
+      this.tenk2.ai = aiPlayer = !aiPlayer
   }
 
   update(dt) {
