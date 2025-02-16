@@ -95,7 +95,7 @@ button:hover {
 #continue {
   & span {
     font-size: 1.1em;
-    top: 6px;
+    top: 8px;
   }
 }
 

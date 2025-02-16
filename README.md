@@ -12,8 +12,8 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- Spomenici i ostali FPS ne briše zdravlje po izlasku
 - meni vratiti burger?
+- Spomenici i ostali FPS ne briše zdravlje po izlasku
 - za uvodni ekran staviti neku art pozadinu?
 - drugačiji završni ekran za pobedu i poraz
 
