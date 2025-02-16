@@ -62,7 +62,7 @@ export default class UI {
 
   get modal() {
     if (this.outro) return this.endScreen()
-    if (this.scene.paused) return this.escModal()
+    if (this.scene.gameLoop.isPaused) return this.escModal()
     if (this.intro) return this.startScreen()
     return ''
   }

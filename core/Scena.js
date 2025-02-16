@@ -61,7 +61,7 @@ export default class Scena {
   handlePointerLockChange = () => {
     if (this.ui.outro) return
     if (!document.pointerLockElement)
-      this.pause()
+      this.gameLoop.pause()
   }
 
   handleVisibilityChange = () => {
@@ -72,10 +72,6 @@ export default class Scena {
   }
 
   /* LOOP */
-
-  get paused() {
-    return this.gameLoop.isPaused
-  }
 
   start() {
     this.gameLoop.start()
@@ -99,7 +95,7 @@ export default class Scena {
   handleInput(dt) {
     if (this.ui.outro) return
 
-    if (keyboard.pressed.Escape) this.pause()
+    if (keyboard.pressed.Escape) this.gameLoop.pause()
 
     this.predmeti.forEach(predmet => {
       if (predmet.ziv && predmet.handleInput) predmet.handleInput(dt)
@@ -128,10 +124,6 @@ export default class Scena {
 
   sceneUI() {
     return ''
-  }
-
-  pause() {
-    this.gameLoop.pause()
   }
 
   unpause() {
