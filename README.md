@@ -23,8 +23,9 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### UI
 
 - dugmići
-    - crvena je super za hover, posebno na default
-    - srediti maskirna slova, dole malo svetlije
+    - videti šta sa ivicama
+    - boja naslova?
+- primeni novo u klasu UI
 - ukinuti komande(), komande2
 - gledati ekran kroz slomljeno staklo?
 - sakriti kontrole gde treba (drvar...)

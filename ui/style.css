@@ -107,18 +107,7 @@ button:not(.btn-secondary):hover {
   background-color: var(--maslinasta);
 }
 
-.btn-camo {
-  background: linear-gradient(to bottom, #556B2F, #8B4513, #3B3024);
-}
-
-.press-start {
-  font-size: 1.25em;
-  background: linear-gradient(to bottom, #6A7F3E 30%, #A0522D 50%, #3B3024 80%);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
-}
-
+#start,
 #continue {
   & span {
     font-size: 1.1em;
