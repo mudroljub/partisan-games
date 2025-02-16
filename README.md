@@ -12,6 +12,21 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - Keyboard je duplirana, obrisati jednu
 
+### UI
+
+- dugmići
+    - joystick css i hover
+- ukinuti komande(), komande2
+- gledati ekran kroz slomljeno staklo?
+- sakriti kontrole gde treba (drvar...)
+- ukinuti pauzu na P?
+- ukloniti uvodni prozor iz Bombaš
+
+- BUG: spinner nije na sredini
+- BUG: Savo esc pauza ne prikazuje modal
+- BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
+- BUG: ne radi TenkiciScena endScreen, možda obrisati bg-black
+
 ### BUGFIX
 
 - BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
@@ -19,21 +34,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - BUG: Savo igraj-opet ne ubija neprijatelje
 - BUG: 1944 nema pozadine
 - BUG: Ratweek se trese
-
-### UI
-
-- dugmići
-    - videti šta sa border i outline
-- primeni novo u klasu UI
-- ukinuti komande(), komande2
-- gledati ekran kroz slomljeno staklo?
-- sakriti kontrole gde treba (drvar...)
-- ukinuti pauzu na P?
-
-- BUG: spinner nije na sredini
-- BUG: Savo esc pauza ne prikazuje modal
-- BUG: Savo tokom igre promeni tab i ne može da se vrati u igru (pauza?)
-- BUG: ne radi TenkiciScena endScreen, možda obrisati bg-black
 
 ### 3D
 
