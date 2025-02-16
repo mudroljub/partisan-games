@@ -14,9 +14,8 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- gledati ekran kroz slomljeno staklo?
-- ukinuti pauzu na P?
 - ukloniti uvodni prozor iz Bombaš
+- gledati ekran kroz slomljeno staklo?
 
 - BUG: spinner nije na sredini
 - BUG: Savo esc pauza ne prikazuje modal

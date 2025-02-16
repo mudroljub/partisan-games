@@ -5,9 +5,6 @@ export default class GameLoop {
     this.time = 0
     this.loopId = null
     this.isPaused = this.timeStopped = false
-
-    this.handleKeyPress = this.handleKeyPress.bind(this)
-    document.addEventListener('keypress', this.handleKeyPress)
   }
 
   get isRunning() {
@@ -33,8 +30,6 @@ export default class GameLoop {
     this.loopId = null
     this.lastTimestamp = 0
     this.time = 0
-
-    document.removeEventListener('keypress', this.handleKeyPress)
   }
 
   pause() {
@@ -52,14 +47,6 @@ export default class GameLoop {
 
   stopTime() {
     this.timeStopped = true
-  }
-
-  /* EVENTS */
-
-  handleKeyPress(event) {
-    if (event.code === 'KeyP')
-      if (this.isPaused) this.unpause()
-      else this.pause()
   }
 
   /* LOOP */
