@@ -23,6 +23,9 @@ export default class Screen {
     if (animDict?.special) this.addButton('special', 'Spl')
 
     this.handleCursor = this.handleCursor.bind(this)
+    this.handleMove = this.handleMove.bind(this)
+    this.handleEnd = this.handleEnd.bind(this)
+
     this.thumb.addEventListener('pointerdown', this.handleCursor)
   }
 
@@ -123,8 +126,8 @@ export default class Screen {
 
   handleCursor(e) {
     this.offset = getCursorPosition(e)
-    document.onpointermove = this.handleMove
-    document.onpointerup = this.handleEnd
+    document.addEventListener('pointermove', this.handleMove)
+    document.addEventListener('pointerup', this.handleEnd)
   }
 
   handleMove = e => {
@@ -161,7 +164,11 @@ export default class Screen {
 
   end() {
     this.thumb.removeEventListener('pointerdown', this.handleCursor)
+    document.removeEventListener('pointermove', this.handleMove)
+    document.removeEventListener('pointerup', this.handleEnd)
+
     this.circle.remove()
     document.querySelectorAll('.game-btn').forEach(el => el.remove())
+    this.circle = this.thumb = null
   }
 }
