@@ -25,8 +25,6 @@ export default class BombasScena extends Scena2D {
       .filter(p => !najdaljeTacke.some(tacka => tacka.x === p.x && tacka.y === p.y))
       .map(p => new Mina(p))
     this.dodaj(this.bunker, this.mitraljezac, this.bombas, ...this.mine)
-
-    this.ui.intro = 'Dovedi Žikicu Jovanovića Španca do nemačkog bunkera!'
   }
 
   proveriPobedu() {
@@ -51,9 +49,12 @@ export default class BombasScena extends Scena2D {
   sceneUI(t) {
     const preostalo = ZADATO_VREME - Math.floor(t)
     return /* html */`
-      <div class='top-left'>
-        Vreme: ${preostalo} <br>
-      </div>
+      <main class='absolute full'>
+        <h3 class="centar">Dovedi Žikicu Jovanovića Španca do nemačkog bunkera!</h3>
+        <div class='top-left'>
+          Vreme: ${preostalo} <br>
+        </div>
+      </main>
     `
   }
 }

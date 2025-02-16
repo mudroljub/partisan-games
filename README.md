@@ -14,7 +14,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- ukloniti uvodni prozor iz Bombaš
 - gledati ekran kroz slomljeno staklo?
 
 - BUG: spinner nije na sredini
