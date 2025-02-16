@@ -75,7 +75,8 @@ class Input {
   }
 
   end() {
-    this.screen.end()
+    this.screen?.end()
+    this.keyboard?.end()
   }
 }
 

@@ -10,10 +10,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
-- dodati input u Igrac
-    - džojstik end
-    - keyboard end
-
 ### UI
 
 - Savo mrtav nema prozora

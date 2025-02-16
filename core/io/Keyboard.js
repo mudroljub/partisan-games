@@ -13,16 +13,16 @@ class Keyboard {
 
     if (!listen) return
 
+    this.handlePointerDown = this.handlePointerDown.bind(this)
+    this.handlePointerUp = this.handlePointerUp.bind(this)
+    this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.handleKeyUp = this.handleKeyUp.bind(this)
+    this.reset = this.reset.bind(this)
+
     document.addEventListener('contextmenu', e => e.preventDefault())
 
-    document.addEventListener('keydown', e => {
-      preventSome(e)
-      this.pressed[e.code] = true
-    })
-    document.addEventListener('keyup', e => {
-      this.pressed[e.code] = false
-      this.run = e.getModifierState('CapsLock')
-    })
+    document.addEventListener('keydown', this.handleKeyDown)
+    document.addEventListener('keyup', this.handleKeyUp)
 
     document.addEventListener('pointerdown', this.handlePointerDown)
     document.addEventListener('pointerup', this.handlePointerUp)
@@ -31,15 +31,27 @@ class Keyboard {
     window.addEventListener('blur', this.reset)
   }
 
-  handlePointerDown = e => {
+  /* EVENT LISTENERS */
+
+  handlePointerDown(e) {
     if (e.button === 0) this.pressed.pointer = true
   }
 
-  handlePointerUp = e => {
+  handlePointerUp(e) {
     if (e.button === 0) this.pressed.pointer = false
   }
 
-  reset = () => {
+  handleKeyDown(e) {
+    preventSome(e)
+    this.pressed[e.code] = true
+  }
+
+  handleKeyUp(e) {
+    this.pressed[e.code] = false
+    this.run = e.getModifierState('CapsLock')
+  }
+
+  reset() {
     for (const key in this.pressed) delete this.pressed[key]
   }
 
@@ -117,6 +129,17 @@ class Keyboard {
 
   get touched() {
     return Object.keys(this.pressed).length > 0
+  }
+
+  end() {
+    document.removeEventListener('keydown', this.handleKeyDown)
+    document.removeEventListener('keyup', this.handleKeyUp)
+
+    document.removeEventListener('pointerdown', this.handlePointerDown)
+    document.removeEventListener('pointerup', this.handlePointerUp)
+
+    document.removeEventListener('visibilitychange', this.reset)
+    window.removeEventListener('blur', this.reset)
   }
 }
 
