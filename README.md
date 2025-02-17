@@ -14,6 +14,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - drugačiji završni ekran za pobedu i poraz
     - prvo u UI book
+- promeniti ikonicu kamere (bela unutra, okolo crna kao ostalo)
 - za uvodni ekran staviti neku art pozadinu?
 
 ### BUGFIX

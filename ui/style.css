@@ -16,6 +16,7 @@
   --gray: #ECEBE4;
   --red: #D94A38;
   --olive: #848C58;
+  --dust: #C9C1B5 ;
 }
 
 /* DEFAULTS */
@@ -46,6 +47,10 @@ button {
 h1 {
   text-align: center;
   color: var(--olive);
+}
+
+h2 {
+  color: var(--dust);
 }
 
 ul {
