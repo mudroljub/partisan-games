@@ -16,7 +16,6 @@
   --gray: #ECEBE4;
   --red: #D94A38;
   --olive: #848C58;
-  --dust: #C9C1B5;
 }
 
 /* DEFAULTS */
@@ -111,7 +110,7 @@ button:hover {
   border-image-source: url(/assets/images/ui/border-image-grey.png);
   border-image-width: 7px;
   border-radius: var(--radius);
-  color: var(--dust);
+  color: #8D9573;
   max-width: 480px;
   padding: 20px;
   text-align: center;
