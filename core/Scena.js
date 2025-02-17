@@ -146,7 +146,7 @@ export default class Scena {
   }
 
   victory(text = '') {
-    let html = '<h3 class="gold"><span class="medal">🎖️</span> Victory!</h3>'
+    let html = '<h3 class="olive"><span class="medal">🎖️</span> Victory!</h3>'
     if (text) html += `<p>${text}</p>`
     this.finish(html)
   }

@@ -36,7 +36,7 @@ export default class UI {
   escModal() {
     return /* html */`
       <div class="central-screen simple-container game-paused">
-        <h3>Game paused</h3>
+        <h3 class="olive">Game paused</h3>
         <button id="continue"><span>🔥</span> Continue</button>
         <button id="menu"><span>☰</span> Main menu</button>
         <button id="igraj-opet"><span>↻</span> Play again</button>
@@ -47,7 +47,7 @@ export default class UI {
   endScreen() {
     return /* html */`
       <div class="central-screen simple-container">
-        <h3>${this.outro}</h3>
+        ${this.outro}
         <button id="menu"><span>☰</span> Main menu</button>
         <button id="igraj-opet"><span>↻</span> Play again</button>
       </div>

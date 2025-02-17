@@ -17,7 +17,6 @@
   --red: #D94A38;
   --olive: #848C58;
   --dust: #C9C1B5;
-  --gold: #EAC537;;
 }
 
 /* DEFAULTS */
@@ -48,10 +47,6 @@ button {
 h1 {
   text-align: center;
   color: var(--olive);
-}
-
-h2 {
-  color: var(--dust);
 }
 
 ul {
@@ -116,7 +111,7 @@ button:hover {
   border-image-source: url(/assets/images/ui/border-image-grey.png);
   border-image-width: 7px;
   border-radius: var(--radius);
-  color: var(--olive);
+  color: var(--dust);
   max-width: 480px;
   padding: 20px;
   text-align: center;
@@ -298,10 +293,6 @@ progress.potisak::-moz-progress-bar {
 
 .bg-olive {
   background-color: var(--olive);
-}
-
-.gold {
-  color: var(--gold);
 }
 
 /* UTILS */
