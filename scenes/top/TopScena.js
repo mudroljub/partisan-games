@@ -40,8 +40,8 @@ export default class TopScena extends Scena2D {
 
   update(dt, t) {
     super.update(dt, t)
-    if (this.top.mrtav) this.finish('Partizanski top je uništen.')
-    if (this.tenk.mrtav) this.finish('Fašistički okupator je poražen!')
+    if (this.top.mrtav) this.defeat('Partizanski top je uništen.')
+    if (this.tenk.mrtav) this.victory('Nemački tenk je uništen!')
   }
 
   sceneUI() {

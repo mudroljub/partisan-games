@@ -33,13 +33,10 @@ export default class TenkiciScena extends Scena2D {
   update(dt) {
     super.update(dt)
     const porazeni = this.tenk2.mrtav ? 'Nemački' : 'Partizanski'
-    const pobednicki = this.tenk2.mrtav ? 'Partizanski' : 'Nemački'
+    const poruka = `${porazeni} tenk je uništen.`
 
-    const poruka = `
-      <p class="red">${porazeni} tenk je uništen.</p>
-      <p class="olive">${pobednicki} tenk je pobedio ovu borbu.</p>
-    `
-    if (this.tenk.mrtav || this.tenk2.mrtav) this.finish(poruka)
+    if (this.tenk2.mrtav) this.victory(poruka)
+    if (this.tenk.mrtav) this.defeat(poruka)
   }
 
   sceneUI() {
