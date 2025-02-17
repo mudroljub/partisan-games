@@ -59,18 +59,13 @@ export default class Scena {
   }
 
   handlePointerLockChange = () => {
-    if (this.ui.outro) return
-    if (!document.pointerLockElement) {
-      this.gameLoop.pause()
-      this.ui.renderModal()
-    }
+    if (!document.pointerLockElement)
+      this.pause()
   }
 
   handleVisibilityChange = () => {
     if (document.visibilityState === 'hidden')
-      this.gameLoop.pause()
-    else
-      this.gameLoop.unpause()
+      this.pause()
   }
 
   /* LOOP */
@@ -93,6 +88,18 @@ export default class Scena {
     document.removeEventListener('click', this.handleClick)
     document.removeEventListener('visibilitychange', this.handleVisibilityChange)
     document.removeEventListener('pointerlockchange', this.handlePointerLockChange)
+  }
+
+  pause() {
+    if (this.ui.outro) return
+
+    this.gameLoop.pause()
+    this.ui.renderModal()
+  }
+
+  unpause() {
+    this.gameLoop.unpause()
+    if (this.usePointerLock) document.body.requestPointerLock()
   }
 
   handleInput(dt) {
@@ -125,18 +132,13 @@ export default class Scena {
     this.ui.render(t)
   }
 
-  sceneUI() {
-    return ''
-  }
-
-  unpause() {
-    this.gameLoop.unpause()
-    if (this.usePointerLock) document.body.requestPointerLock()
-  }
-
   finish(text = 'The game is over.') {
     this.ui.outro = text
     this.gameLoop.stopTime()
     if (this.usePointerLock) document.exitPointerLock()
+  }
+
+  sceneUI() {
+    return ''
   }
 }
