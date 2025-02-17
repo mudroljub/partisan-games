@@ -45,7 +45,6 @@ export default class RatweekScena extends Scena3D {
   init() {
     this.i = 0
     this.last = Date.now()
-    this.warplane
     this.entities = []
     this.objects = []
 
@@ -59,9 +58,9 @@ export default class RatweekScena extends Scena3D {
     this.ground2.position.z = -groundDistance
     this.dodajMesh(this.ground, this.ground2)
 
-    this.warplane = new Bomber({ camera: this.camera, limit: mapSize * .25 })
-    this.scene.add(this.warplane.mesh)
-    this.entities.push(this.warplane)
+    this.player = new Bomber({ camera: this.camera, limit: mapSize * .25 })
+    this.dodajMesh(this.player.mesh)
+    this.entities.push(this.player)
 
     this.score = 0
     this.render()
@@ -105,16 +104,16 @@ export default class RatweekScena extends Scena3D {
     }
   })
 
-  updateEntities = delta => this.entities.forEach(object => {
-    if (!object.scene) this.entities.splice(this.entities.indexOf(object), 1)
-    if (object.hitAmount) {
-      if (object.name == 'factory') this.score++
-      if (object.name == 'civil') {
+  updateEntities = delta => this.entities.forEach(entity => {
+    if (!entity.scene) this.entities.splice(this.entities.indexOf(entity), 1)
+    if (entity.hitAmount) {
+      if (entity.name == 'factory') this.score++
+      if (entity.name == 'civil') {
         this.ui.showMessage('No! Destruction of civilian buildings is a war crime.')
         this.score--
       }
     }
-    object.update(delta)
+    entity.update(delta)
   })
 
   sceneUI(time) {
@@ -131,20 +130,18 @@ export default class RatweekScena extends Scena3D {
 
   update(delta, time) {
     super.update(delta, time)
-    if (!this.warplane) return
-
-    const deltaSpeed = this.warplane.speed * delta
+    const deltaSpeed = this.player.speed * delta
 
     this.moveGround(deltaSpeed)
     this.moveObjects(deltaSpeed)
     this.updateEntities(delta)
 
-    if (this.warplane.dead)
+    if (this.player.dead)
       return setTimeout(() => this.finish('You have failed.'), 2500)
 
     if (time < totalTime - 10) this.spawnObjects(time)
     if (time >= totalTime) {
-      this.warplane.land(delta)
+      this.player.land(delta)
       setTimeout(() => {
         this.finish('Bravo! <br>You have completed the mission.')
       }, 2500)

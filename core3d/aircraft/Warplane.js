@@ -140,6 +140,10 @@ export default class Warplane extends GameObject {
     this.land(delta, true)
   }
 
+  end() {
+    this.input.end()
+  }
+
   update(delta) {
     this.chaseCamera?.update(delta)
 
