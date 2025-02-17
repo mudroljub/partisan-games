@@ -133,18 +133,22 @@ export default class Scena {
     this.ui.render(t)
   }
 
-  finish(text = 'Game over.', className) {
-    this.ui.outro = className ? `<span class="${className}">${text}</span>` : text
+  finish(html) {
+    this.ui.outro = html
     this.gameLoop.stopTime()
     if (this.usePointerLock) document.exitPointerLock()
   }
 
-  victory(text = 'Victory!') {
-    this.finish('<span class="medal">🎖️</span> ' + text)
+  defeat(text) {
+    let html = '<h3 class="red">☠️ Game over</h3>'
+    if (text) html += `<p>${text}</p>`
+    this.finish(html)
   }
 
-  defeat(text) {
-    this.finish(text, 'red')
+  victory(text = '') {
+    let html = '<h3 class="gold"><span class="medal">🎖️</span> Victory!</h3>'
+    if (text) html += `<p>${text}</p>`
+    this.finish(html)
   }
 
   sceneUI() {

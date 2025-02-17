@@ -16,7 +16,8 @@
   --gray: #ECEBE4;
   --red: #D94A38;
   --olive: #848C58;
-  --dust: #C9C1B5 ;
+  --dust: #C9C1B5;
+  --gold: #FFC765;
 }
 
 /* DEFAULTS */
@@ -297,6 +298,10 @@ progress.potisak::-moz-progress-bar {
 
 .bg-olive {
   background-color: var(--olive);
+}
+
+.gold {
+  color: var(--gold);
 }
 
 /* UTILS */
