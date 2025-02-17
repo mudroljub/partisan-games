@@ -140,10 +140,6 @@ export default class Warplane extends GameObject {
     this.land(delta, true)
   }
 
-  end() {
-    this.input.end()
-  }
-
   update(delta) {
     this.chaseCamera?.update(delta)
 
@@ -163,5 +159,10 @@ export default class Warplane extends GameObject {
     this.handleInput(delta)
 
     this.time += delta * 15
+  }
+
+  end() {
+    this.input.end()
+    this.chaseCamera?.end()
   }
 }

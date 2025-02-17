@@ -76,15 +76,15 @@ export default class ChaseCamera {
   /* UTILS */
 
   addButton(cameraClass) {
-    const button = document.createElement('button')
-    button.className = `bottom-right ${cameraClass}`
+    this.button = document.createElement('button')
+    this.button.className = `bottom-right ${cameraClass}`
     const img = document.createElement('img')
     img.src = '/assets/images/icons/change-camera.png'
     img.alt = 'change camera'
 
-    button.addEventListener('pointerdown', this.toggleCamera)
-    button.appendChild(img)
-    document.body.appendChild(button)
+    this.button.addEventListener('pointerdown', this.toggleCamera)
+    this.button.appendChild(img)
+    document.body.appendChild(this.button)
   }
 
   alignCamera() {
@@ -154,5 +154,9 @@ export default class ChaseCamera {
 
     this.camera.position.copy(this.currentPosition)
     this.camera.lookAt(this.currentLookAt)
+  }
+
+  end() {
+    this.button.remove()
   }
 }

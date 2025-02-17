@@ -121,5 +121,6 @@ export default class Player extends Actor {
   end() {
     this.input.end()
     this.healthBar?.remove()
+    this.chaseCamera?.end()
   }
 }
