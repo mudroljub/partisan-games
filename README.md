@@ -12,8 +12,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- za uvodni ekran staviti neku art pozadinu?
-
 ### BUGFIX
 
 - BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
