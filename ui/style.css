@@ -90,6 +90,9 @@ button:has(span) {
 button:hover {
   background-color: var(--red);
 }
+button.no-hover:hover {
+  background-color: unset;
+}
 
 /* GAME SCREEN */
 
