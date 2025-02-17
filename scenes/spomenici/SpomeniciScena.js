@@ -14,7 +14,7 @@ export default class SpomeniciScena extends Scena3D {
 
   async init() {
     this.bojaPlatna = 'linear-gradient(to bottom, #94c5f8 1%, #a6e6ff 70%, #b1b5ea 100%)'
-    this.dodajMesh(createSun({ intensity: 2 * Math.PI }))
+    this.addMesh(createSun({ intensity: 2 * Math.PI }))
 
     const terrain = await terrainFromHeightmap({ file: 'yu-crop.png', heightFactor: 3, snow: false })
 
@@ -52,8 +52,8 @@ export default class SpomeniciScena extends Scena3D {
     const solids = [terrain, redFlag, yuFlag, kadinjaca, kosmaj, kosovskaMitrovica, podgaric, kosovskaMitrovica, ilirskaBistrica]
     this.player.addSolids(solids)
 
-    this.dodajMesh(terrain, ...solids)
-    this.dodaj(this.player)
+    this.addMesh(terrain, ...solids)
+    this.add(this.player)
   }
 
   update(delta, time) {

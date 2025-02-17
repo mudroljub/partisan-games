@@ -12,7 +12,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- prevesti dodaj, dodajMesh, ukinuti scene.add
 - za uvodni ekran staviti neku art pozadinu?
 - drugačiji završni ekran za pobedu i poraz
 - BUG: scena pauzirana, promenim tab, vratim se ona sama krene

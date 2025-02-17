@@ -24,7 +24,7 @@ export default class BombasScena extends Scena2D {
     this.mine = pozicije
       .filter(p => !najdaljeTacke.some(tacka => tacka.x === p.x && tacka.y === p.y))
       .map(p => new Mina(p))
-    this.dodaj(this.bunker, this.mitraljezac, this.player, ...this.mine)
+    this.add(this.bunker, this.mitraljezac, this.player, ...this.mine)
   }
 
   proveriPobedu() {

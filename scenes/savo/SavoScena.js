@@ -26,15 +26,15 @@ export default class SavoScena extends Scena3D {
 
   init() {
     this.light = hemLight({ intensity: Math.PI * 1.5, scene: this.scene })
-    this.dodajMesh(createGround({ file: 'terrain/ground.jpg' }))
+    this.addMesh(createGround({ file: 'terrain/ground.jpg' }))
 
     this.maze = new Maze(8, 8, truePrims, 5)
     const walls = this.maze.toTiledMesh({ texture: 'terrain/concrete.jpg' })
-    this.dodajMesh(walls)
+    this.addMesh(walls)
 
     const player = this.player = new FPSPlayer({ camera: this.camera, solids: walls })
     player.putInMaze(this.maze)
-    this.dodaj(player)
+    this.add(player)
 
     const coords = this.maze.getEmptyCoords(true)
     this.enemies = []
@@ -43,12 +43,12 @@ export default class SavoScena extends Scena3D {
       const EnemyClass = sample(soldiers)
       const enemy = new EnemyClass({ pos: coords.pop(), target: player.mesh, solids: walls })
       this.enemies.push(enemy)
-      this.dodaj(enemy)
+      this.add(enemy)
     }
 
     for (let i = 0; i < 2; i++) {
       const firstAid = new FirstAid({ pos: coords.pop() })
-      this.dodajMesh(firstAid.mesh)
+      this.addMesh(firstAid.mesh)
     }
   }
 

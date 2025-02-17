@@ -15,12 +15,12 @@ export default class BeogradScena extends Scena3D {
   init() {
     const coords = getEmptyCoords({ mapSize })
 
-    this.dodajMesh(createSun({ pos: [50, 100, 50], intensity: 2 * Math.PI }))
+    this.addMesh(createSun({ pos: [50, 100, 50], intensity: 2 * Math.PI }))
 
     const city = createGraffitiCity({ scene: this.scene, mapSize, coords })
-    this.dodajMesh(city)
+    this.addMesh(city)
 
     this.player = new ResistanceFighterPlayer({ camera: this.camera, solids: city, pos: coords.pop(), showHealthBar: false })
-    this.dodaj(this.player)
+    this.add(this.player)
   }
 }

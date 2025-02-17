@@ -44,7 +44,7 @@ export default class Scena1942 extends Scena2D {
     this.zbunovi = Array.from({ length: BROJ_ZBUNOVA }, () => new Zbun())
     this.shume = Array.from({ length: BROJ_SHUME }, () => new Shuma())
 
-    this.dodaj(this.aerodrom, this.player, this.ruina, this.vozilo, ...this.oblaci, ...this.zbunovi, ...this.shume)
+    this.add(this.aerodrom, this.player, this.ruina, this.vozilo, ...this.oblaci, ...this.zbunovi, ...this.shume)
     this.pocniParalax()
     this.ui.intro = 'Uništi nemački tenk i bezbedno sleti!'
   }

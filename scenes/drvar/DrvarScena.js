@@ -14,12 +14,12 @@ export default class DrvarScena extends Scena3D {
   }
 
   init() {
-    this.dodajMesh(createGround())
+    this.addMesh(createGround())
     elements.forEach(el => {
       for (let i = 0; i < el.number; ++i)
         this.dodajSprite(el, i)
     })
-    this.dodajMesh(praviPanoramu())
+    this.addMesh(praviPanoramu())
     this.controls = createOrbitControls(this.camera, this.renderer.domElement)
     this.controls.enablePan = false
     this.controls.minAzimuthAngle = -Math.PI / 8
@@ -29,7 +29,7 @@ export default class DrvarScena extends Scena3D {
     this.vozila = []
     this.partizani = []
     this.eksplozija = new Sprite('assets/images/sprites/efekti/eksplozija-01.png', 8, 4)
-    this.dodajMesh(this.eksplozija.mesh)
+    this.addMesh(this.eksplozija.mesh)
   }
 
   dodajSprite(el, i) {
@@ -50,7 +50,7 @@ export default class DrvarScena extends Scena3D {
       const y = origin.y + randSpread(range.y)
       const z = origin.z + randSpread(range.z)
       mesh.position.set(x, y + texture.image.height * skalar * .5, z)
-      this.dodajMesh(mesh)
+      this.addMesh(mesh)
 
       if (el.type) this[el.type].push(mesh)
     })

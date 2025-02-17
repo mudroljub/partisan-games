@@ -11,7 +11,7 @@ export default class JasenovacScena extends Scena2D {
     this.player = new Ranjenik(this.sirina / 4, this.visina / 2)
 
     const zica = new Predmet('items/bodljikava-zica.gif', { x: 400, y: 100 })
-    this.dodaj(zica, this.player, this.tenk)
+    this.add(zica, this.player, this.tenk)
   }
 
   update(dt) {

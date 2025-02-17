@@ -50,35 +50,35 @@ export default class RatweekScena extends Scena3D {
 
     this.camera.position.set(0, 29, 0)
     this.scene.fog = new THREE.FogExp2(0xFFFFFF, 0.003)
-    this.dodajMesh(createSun({ pos: [50, 200, 50], intensity: Math.PI * 2 }))
+    this.addMesh(createSun({ pos: [50, 200, 50], intensity: Math.PI * 2 }))
 
     const groundParams = { size: mapSize, color: 0x91A566, colorRange: .1, segments: 50, min: 0, max: 15 }
     this.ground = createTerrain(groundParams)
     this.ground2 = createTerrain(groundParams)
     this.ground2.position.z = -groundDistance
-    this.dodajMesh(this.ground, this.ground2)
+    this.addMesh(this.ground, this.ground2)
 
     this.player = new Bomber({ camera: this.camera, limit: mapSize * .25 })
-    this.dodajMesh(this.player.mesh)
+    this.addMesh(this.player.mesh)
     this.entities.push(this.player)
 
     this.score = 0
     this.render()
   }
 
-  addMesh(mesh, spread = .33) {
+  pushMesh(mesh, spread = .33) {
     mesh.position.copy({ x: randFloatSpread(mapSize * spread), y: 0, z: -buildingDistance })
-    this.dodajMesh(mesh)
+    this.addMesh(mesh)
     this.objects.push(mesh)
   }
 
   async addBuilding(time) {
     const building = await createBuilding(time)
     this.entities.push(building)
-    this.addMesh(building.mesh)
+    this.pushMesh(building.mesh)
   }
 
-  addTree = () => this.addMesh(createFirTree(), .4)
+  addTree = () => this.pushMesh(createFirTree(), .4)
 
   spawnObjects(time) {
     if (this.i++ % 5 === 0) this.addTree()

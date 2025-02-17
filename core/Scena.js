@@ -28,7 +28,7 @@ export default class Scena {
 
   init() {}
 
-  dodaj(...predmeti) {
+  add(...predmeti) {
     this.predmeti.push(...predmeti)
   }
 

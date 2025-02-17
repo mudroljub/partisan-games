@@ -19,7 +19,7 @@ export default class RanjenikScena extends Scena2D {
     this.strelica = new Strelica()
     this.vreme = new Vreme()
     this.pocetakPaljbe = 500
-    this.dodaj(this.player, this.patrola, this.strelica)
+    this.add(this.player, this.patrola, this.strelica)
   }
 
   proveriSudare() {

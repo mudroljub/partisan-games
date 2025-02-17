@@ -45,7 +45,7 @@ export default class RajlovacScena extends Scena3D {
     ]
 
     ;[[-75, -75], [-75, 75], [75, -75], [75, 75]].forEach(([x, z]) => {
-      this.dodaj(new AirportTower(x, z))
+      this.add(new AirportTower(x, z))
     })
 
     const airport = createAirport()
@@ -66,15 +66,15 @@ export default class RajlovacScena extends Scena3D {
       const RandomClass = sample(soldiers)
       const soldier = new RandomClass({ pos: coords.pop(), target: this.player.mesh, mapSize })
       soldier.addSolids(this.solids)
-      this.dodaj(soldier)
+      this.add(soldier)
     }
 
     const tank = new TankAI({ mapSize })
     tank.addSolids(this.solids)
-    this.dodaj(tank)
+    this.add(tank)
 
-    this.dodajMesh(ground, floor, createMoon(), airport, airport2, bunker)
-    this.dodaj(...this.aircraft, this.player)
+    this.addMesh(ground, floor, createMoon(), airport, airport2, bunker)
+    this.add(...this.aircraft, this.player)
   }
 
   sceneUI() {

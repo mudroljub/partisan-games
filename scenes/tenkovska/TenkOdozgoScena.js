@@ -6,6 +6,6 @@ export default class TenkOdozgoScena extends Scena2D {
   init() {
     this.pozadina = new Pozadina('slicice/shumarak-pozadina.png')
     this.player = new VoziloIgracOdozgo('slicice/tenk-rdjavi.gif', { skalar: .5 })
-    this.dodaj(this.player)
+    this.add(this.player)
   }
 }

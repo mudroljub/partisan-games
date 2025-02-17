@@ -23,7 +23,7 @@ export default class TenkScena extends Scena3D {
   }
 
   init() {
-    this.dodajMesh(createSun({ intensity: Math.PI * 2 }))
+    this.addMesh(createSun({ intensity: Math.PI * 2 }))
 
     this.world = new PhysicsWorld({ scene: this.scene })
 
@@ -59,7 +59,7 @@ export default class TenkScena extends Scena3D {
       }
 
     this.tank = new Tank({ physicsWorld: this.world.physicsWorld, camera: this.camera, pos: { x: 0, y: 0, z: -20 } })
-    this.dodaj(this.tank)
+    this.add(this.tank)
   }
 
   sceneUI(t) {

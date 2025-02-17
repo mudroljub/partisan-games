@@ -40,12 +40,12 @@ export default class Scena3D extends Scena {
     this.renderer = new OutlineEffect(this.renderer, { defaultThickness })
   }
 
-  dodaj(...predmeti) {
+  add(...predmeti) {
     this.predmeti.push(...predmeti)
     this.scene.add(...predmeti.map(arg => arg.mesh))
   }
 
-  dodajMesh(...predmeti) {
+  addMesh(...predmeti) {
     this.scene.add(...predmeti)
   }
 

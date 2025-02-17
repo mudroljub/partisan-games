@@ -6,7 +6,7 @@ export default class CamacScena extends Scena2D {
   init() {
     this.player = new CamacIgracOdozgo()
     this.obala = new Obala()
-    this.dodaj(this.obala, this.player)
+    this.add(this.obala, this.player)
     this.poslednjiX = this.player.x
     this.bojaPozadine = 0x000066
   }

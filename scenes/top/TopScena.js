@@ -24,7 +24,7 @@ export default class TopScena extends Scena2D {
     this.tenk = new TenkDesno({ y: tlo, skalar: .6, vremePunjenjaAI: 3000, ai: aiPlayer })
     this.tenk.ciljevi.push(this.top)
     this.top.ciljevi.push(this.tenk)
-    this.dodaj(this.tenk, this.top, strelac, posada, zastavnik)
+    this.add(this.tenk, this.top, strelac, posada, zastavnik)
     this.controls2UI = new Controls({ containerClass: 'bottom-right', controlKeys: tankRightControls })
   }
 

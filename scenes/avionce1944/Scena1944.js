@@ -24,7 +24,7 @@ export default class Scena1944 extends Scena2D {
     this.player.ciljevi = this.neprijatelji
     this.neprijatelji.forEach(neprijatelj => neprijatelj.ciljevi.push(this.player))
     const pozadina = new PokretnaPozadina(brzina, platno.width)
-    this.dodaj(pozadina, this.zdravlje, this.ostrvo, ...this.neprijatelji, this.player, ...this.oblaci)
+    this.add(pozadina, this.zdravlje, this.ostrvo, ...this.neprijatelji, this.player, ...this.oblaci)
   }
 
   proveriSudare() {
