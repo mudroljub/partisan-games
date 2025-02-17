@@ -28,17 +28,16 @@ export default class UI {
     return /* html */`
       <div class="central-screen simple-container" id="start-screen">
         <p>${this.intro}</p>
-        <button id="start"><span>☭</span> To battle</button>
+        <button id="start"><span>🔥</span> To battle</button>
       </div>
     `
   }
 
   escModal() {
-    // menu alt: ☰
     return /* html */`
       <div class="central-screen simple-container game-paused">
-        <p>Game paused</p>
-        <button id="continue"><span>☭</span> Continue</button>
+        <h3>Game paused</h3>
+        <button id="continue"><span>🔥</span> Continue</button>
         <button id="menu"><span>☰</span> Main menu</button>
         <button id="igraj-opet"><span>↻</span> Play again</button>
       </div>
@@ -48,7 +47,7 @@ export default class UI {
   endScreen() {
     return /* html */`
       <div class="central-screen simple-container">
-        <p>${this.outro}</p>
+        <h3>${this.outro}</h3>
         <button id="menu"><span>☰</span> Main menu</button>
         <button id="igraj-opet"><span>↻</span> Play again</button>
       </div>
