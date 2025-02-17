@@ -25,6 +25,7 @@ export default class SavoScena extends Scena3D {
   }
 
   init() {
+    this.bojaPozadine = 0x301934
     this.light = hemLight({ intensity: Math.PI * 1.5, scene: this.scene })
     this.addMesh(createGround({ file: 'terrain/ground.jpg' }))
 
@@ -55,19 +56,7 @@ export default class SavoScena extends Scena3D {
   end() {
     super.end()
     this.player.end()
-  }
-
-  sceneUI() {
-    const killed = this.enemies.filter(enemy => enemy.energy <= 0)
-    const left = this.enemies.length - killed.length
-    return /* html */`
-      <div class="top-left ">
-        <p>
-          Score: ${killed.length}<br>
-          <small>Enemy left: ${left}</small>
-        </p>
-      </div>
-    `
+    this.enemies = []
   }
 
   update(dt, t) {
@@ -83,5 +72,18 @@ export default class SavoScena extends Scena3D {
       this.defeat('You are dead.')
 
     if (Math.random() > .998) lightningStrike(this.light, this.scene)
+  }
+
+  sceneUI() {
+    const killed = this.enemies.filter(enemy => enemy.energy <= 0)
+    const left = this.enemies.length - killed.length
+    return /* html */`
+      <div class="top-left ">
+        <p>
+          Score: ${killed.length}<br>
+          <small>Enemy left: ${left}</small>
+        </p>
+      </div>
+    `
   }
 }

@@ -14,12 +14,11 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### BUGFIX
 
-- BUG: Savo igraj-opet ne ubija neprijatelje
-- Savo nebo nije tamno
 - BUG: Ratweek se trese
 - BUG: Nemci iz rovova mrtav igrač može da ubija
 - čamac reka nije plava
 - BUG: Top scena, pa Čamac -> reka bude zelena
+- BUG: Savo igraj-opet ne ubija neprijatelje
 
 ### 3D
 
@@ -32,6 +31,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
         - promeniti da liči na stari
     - Savo Mitraljezac (uporediti sa starim, srediti)
         - BUG: kuckanje ne staje kad počne igra
+        - brzo gine, preteško?
 - dodati 3d model u 1944?
 
 ### Završno
