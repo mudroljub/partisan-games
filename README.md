@@ -42,6 +42,10 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - dodati 3d model u 1944?
 
 ### Završno
+
+- Nema pobedu
+    - 1944 
+    - Nemci iz rovova (dodati vremensku pobedu? onda prekida igraču partiju ranije...)
 - proveriti zaostale TODO poruke
 - na scenu top dinamičku pozadinu, dim, avione kako lete...
 - glavni meni da bude karta jugoslavije sa izborom misija

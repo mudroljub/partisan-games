@@ -89,6 +89,6 @@ export default class TenkScena extends Scena3D {
     })
 
     if (!this.countableCrates.length)
-      this.finish(`Bravo!<br>You demolished everything in ${Math.floor(t)} seconds.`)
+      this.victory(`You demolished everything in ${Math.floor(t)} seconds.`)
   }
 }

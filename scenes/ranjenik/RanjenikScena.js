@@ -27,7 +27,7 @@ export default class RanjenikScena extends Scena2D {
 
     this.patrola.stani()
     this.patrola.pustiNadjen()
-    this.finish('Uhvaćen si. Sva nada je izgubljena...')
+    this.defeat('Uhvaćen si. Sva nada je izgubljena...')
   }
 
   proveriPobedu() {
@@ -37,7 +37,7 @@ export default class RanjenikScena extends Scena2D {
       this.patrola.nestani()
       this.pozadina.slika.src = '/assets/images/shumarak-pozadina.png'
       this.predmeti = this.predmeti.filter(p => p.constructor.name !== 'Paljba')
-      this.finish('Uspeo si da pronađeš spas!')
+      this.victory('Uspeo si da pronađeš spas!')
     }
   }
 
@@ -57,7 +57,7 @@ export default class RanjenikScena extends Scena2D {
     this.vreme.reset()
 
     if (this.player.sudara(krater))
-      this.finish('Hrabro si pao u pokušaju bega.')
+      this.defeat('Hrabro si pao u pokušaju bega.')
   }
 
   update(dt, t) {
