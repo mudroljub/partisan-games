@@ -14,9 +14,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### BUGFIX
 
-- BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
-    - i Bombaš i drugi nivoi baguju, zeza GameLoop?
-    - BUG: Savo igraj-opet ne ubija neprijatelje
+- BUG: Savo igraj-opet ne ubija neprijatelje
 - Savo nebo nije tamno
 - BUG: Ratweek se trese
 - BUG: Nemci iz rovova mrtav igrač može da ubija

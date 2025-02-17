@@ -83,7 +83,7 @@ export default class UI {
   }
 
   victory(text) {
-    let html = '<h3 class="olive"><span class="medal">🎖️</span> Victory!</h3>'
+    let html = '<h3 class="olive"><span class="medal">🎖️</span> Pobeda!</h3>'
     if (text) html += `<p>${text}</p>`
     this.outro = html
   }

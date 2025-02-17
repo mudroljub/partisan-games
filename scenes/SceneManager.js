@@ -43,17 +43,19 @@ class SceneManager {
     } else this.scene.start()
   }
 
-  async start(name, showIntro = true) {
+  async start(name, firstTime = true) {
     this.spinner.show()
     if (this.scene)
       this.scene.end()
 
-    const SceneClass = await import(paths[name])
-    this.scene = new SceneClass.default(this)
+    const SceneClass = firstTime
+      ? (await import(paths[name])).default
+      : this.scene.constructor
+    this.scene = new SceneClass(this)
     this.scene.init()
     this.spinner.hide()
 
-    if (showIntro) this.handleIntro()
+    if (firstTime) this.handleIntro()
   }
 
   async restart(name) {
