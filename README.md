@@ -12,7 +12,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- BUG: igraj opet (i sve ostalo) ne radi kada pritisnem ikonicu
 - za uvodni ekran staviti neku art pozadinu?
 
 ### BUGFIX

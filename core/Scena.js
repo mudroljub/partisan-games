@@ -46,16 +46,18 @@ export default class Scena {
   /* EVENTS */
 
   handleClick(e) {
-    if (e.target.id == 'start')
+    const target = e.target.closest('button')
+
+    if (target?.id == 'start')
       this.start()
 
-    if (e.target.id == 'igraj-opet')
+    if (target?.id == 'igraj-opet')
       this.manager.restart(this.constructor.name)
 
-    if (e.target.id == 'menu')
+    if (target?.id == 'menu')
       this.manager.start('GlavniMeni')
 
-    if (e.target.id == 'continue')
+    if (target?.id == 'continue')
       this.unpause()
   }
 

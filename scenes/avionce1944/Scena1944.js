@@ -45,7 +45,7 @@ export default class Scena1944 extends Scena2D {
   update(dt, t) {
     super.update(dt, t)
     this.proveriSudare()
-    if (!this.player.zivoti) this.defeat()
+    if (this.player.zivoti <= 0) this.defeat()
   }
 
   sceneUI() {
