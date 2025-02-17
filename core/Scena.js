@@ -16,8 +16,9 @@ export default class Scena {
     if (showControls)
       this.controlsUI = new Controls({ controlKeys, containerClass: controlsWindowClass })
 
-    this.start = this.start.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handlePointerLockChange = this.handlePointerLockChange.bind(this)
+    this.handleVisibilityChange = this.handleVisibilityChange.bind(this)
 
     document.addEventListener('click', this.handleClick)
     if (usePointerLock)
@@ -58,12 +59,12 @@ export default class Scena {
       this.unpause()
   }
 
-  handlePointerLockChange = () => {
+  handlePointerLockChange() {
     if (!document.pointerLockElement)
       this.pause()
   }
 
-  handleVisibilityChange = () => {
+  handleVisibilityChange() {
     if (document.visibilityState === 'hidden')
       this.pause()
   }

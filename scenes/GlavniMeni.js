@@ -41,6 +41,8 @@ export default class GlavniMeni extends Scena2D {
 
   handleInput() {}
 
+  handleVisibilityChange() {}
+
   sceneUI() {
     const izbornik = Object.entries(items).map(([kljuc, naziv]) =>
       `<button value='${kljuc}' class='js-start full'>${naziv}</button>`
