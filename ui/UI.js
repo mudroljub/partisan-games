@@ -74,6 +74,20 @@ export default class UI {
     this.cachedModal = this.modal
   }
 
+  /* OUTRO */
+
+  defeat(text) {
+    let html = '<h3 class="red">☠️ Game over</h3>'
+    if (text) html += `<p>${text}</p>`
+    this.outro = html
+  }
+
+  victory(text) {
+    let html = '<h3 class="olive"><span class="medal">🎖️</span> Victory!</h3>'
+    if (text) html += `<p>${text}</p>`
+    this.outro = html
+  }
+
   /* SCENE UI */
 
   renderSceneUI(t) {
