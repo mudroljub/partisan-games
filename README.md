@@ -13,7 +13,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### UI
 
 - drugačiji završni ekran za pobedu i poraz
-    - prvo u UI book
+    - ostaviti neutralnu varijantu?
 - promeniti ikonicu kamere (bela unutra, okolo crna kao ostalo)
 - za uvodni ekran staviti neku art pozadinu?
 

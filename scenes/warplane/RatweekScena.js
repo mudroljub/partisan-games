@@ -137,13 +137,13 @@ export default class RatweekScena extends Scena3D {
     this.updateEntities(delta)
 
     if (this.player.dead)
-      return setTimeout(() => this.finish('You have failed.'), 2500)
+      return setTimeout(() => this.defeat('You have failed.'), 2500)
 
     if (time < totalTime - 10) this.spawnObjects(time)
     if (time >= totalTime) {
       this.player.land(delta)
       setTimeout(() => {
-        this.finish('Bravo! <br>You have completed the mission.')
+        this.victory('You have completed the mission.')
       }, 2500)
     }
   }
