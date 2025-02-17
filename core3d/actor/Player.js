@@ -117,4 +117,9 @@ export default class Player extends Actor {
     if (this.healthBar) this.updateHealthBar()
     if (this.healths) this.checkHealths()
   }
+
+  end() {
+    this.input.end()
+    this.healthBar?.remove()
+  }
 }

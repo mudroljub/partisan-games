@@ -41,12 +41,6 @@ export default class FPSPlayer extends Player {
     document.addEventListener('pointermove', this.moveCursor)
   }
 
-  end() {
-    document.removeEventListener('pointermove', this.moveCursor)
-    this.fpsRenderer.end()
-    this.fpsRenderer = null
-  }
-
   /* GETTERS */
 
   get cameraHeight() {
@@ -112,5 +106,11 @@ export default class FPSPlayer extends Player {
       this.fpsRenderer.clear()
 
     if (this.hurting) this.fpsRenderer.drawPain()
+  }
+
+  end() {
+    super.end()
+    this.fpsRenderer.remove()
+    document.removeEventListener('pointermove', this.moveCursor)
   }
 }

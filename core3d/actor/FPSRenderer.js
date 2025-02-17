@@ -36,10 +36,6 @@ export default class FPSRenderer extends HTMLCanvasElement {
     return this.getContext('2d')
   }
 
-  end() {
-    document.body.removeChild(this)
-  }
-
   clear() {
     this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
   }
