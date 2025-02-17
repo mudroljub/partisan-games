@@ -96,13 +96,13 @@ export default class Scena1942 extends Scena2D {
       this.dizePredmete(-DIZAJ * .5)
 
     this.zaustaviParalax()
-    this.finish('Slavno si pao.')
+    this.defeat('Slavno si pao.')
   }
 
   proveriTlo() {
     if (this.player.jePrizemljen && this.dignutostScene <= 0) {
       this.zaustaviParalax()
-      if (this.player.ziv && this.vozilo.mrtav) this.finish('Misija je uspešno završena!')
+      if (this.player.ziv && this.vozilo.mrtav) this.victory('Misija je uspešno završena!')
     }
   }
 

@@ -44,7 +44,7 @@ export default class OtpisaniScena extends Scena2D {
     }
     this.intervalIzlaska -= dt * 100
 
-    if (this.energija === 0) this.finish()
+    if (this.energija === 0) this.defeat()
   }
 
   sceneUI() {

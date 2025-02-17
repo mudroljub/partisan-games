@@ -119,7 +119,6 @@ button:hover {
   max-width: 480px;
   padding: 20px;
   text-align: center;
-  text-shadow: none;
 }
 
 .white-window {
@@ -320,6 +319,10 @@ progress.potisak::-moz-progress-bar {
 
 .bold {
   font-weight: bold;
+}
+
+.medal {
+  font-size: 1.25em;
 }
 
 .blink {
