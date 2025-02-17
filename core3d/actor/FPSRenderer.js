@@ -1,6 +1,6 @@
 import { keyboard } from '/core/io/Keyboard.js'
 
-const targetSrc = '/assets/images/crosshair.png'
+const targetSrc = '/assets/images/ui/crosshair.png'
 
 const style = `
   background-color: transparent;

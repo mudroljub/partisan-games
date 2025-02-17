@@ -27,7 +27,7 @@
 
 body {
   background-color: var(--gray);
-  cursor: url(/assets/images/icons/cursor/default.png), auto;
+  cursor: url(/assets/images/ui/cursor/default.png), auto;
   filter: sepia(0.15);
   font-size: 0.8em;
   image-rendering: pixelated;
@@ -67,7 +67,7 @@ button {
   background-color: transparent;
   border-radius: var(--radius);
   border: none;
-  cursor: url("/assets/images/icons/cursor/point.png") 10 0, auto;
+  cursor: url("/assets/images/ui/cursor/point.png") 10 0, auto;
   padding: 8px 16px;
   transition: background-color 0.45s;
   text-transform: uppercase;
@@ -107,7 +107,7 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.8);
   border-image-repeat: repeat;
   border-image-slice: 3 3 3 3;
-  border-image-source: url(/assets/images/icons/border-image-grey.png);
+  border-image-source: url(/assets/images/ui/border-image-grey.png);
   border-image-width: 7px;
   border-radius: var(--radius);
   color: var(--olive);
@@ -136,7 +136,7 @@ button:hover {
 
 .report {
   background-color: #cccccc;
-  background-image: url(/assets/images/document.jpg);
+  background-image: url(/assets/images/ui/document.jpg);
   background-size: cover;
   width: 420px;
 

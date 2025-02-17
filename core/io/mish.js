@@ -14,7 +14,7 @@ const mish = {
   dodajNishan() {
     mish.pucanj = new Audio('/assets/sounds/pucanj.wav')
     document.body.addEventListener('click', mish.pucaj)
-    document.body.setAttribute('style', 'cursor:url(/assets/images/nisan.png) 50 50, crosshair')
+    document.body.setAttribute('style', 'cursor:url(/assets/images/ui/nisan.png) 50 50, crosshair')
   },
 
   ukloniNishan() {

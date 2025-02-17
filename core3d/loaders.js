@@ -173,7 +173,7 @@ export const loadModel = async param => {
 export class Spinner {
   constructor() {
     this.img = document.createElement('img')
-    this.img.src = '/assets/images/loader.gif'
+    this.img.src = '/assets/images/ui/loader.gif'
     this.img.classList.add('central-screen')
     document.body.appendChild(this.img)
   }

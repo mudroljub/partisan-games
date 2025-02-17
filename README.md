@@ -12,8 +12,9 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### UI
 
-- za uvodni ekran staviti neku art pozadinu?
 - drugačiji završni ekran za pobedu i poraz
+    - prvo u UI book
+- za uvodni ekran staviti neku art pozadinu?
 
 ### BUGFIX
 
