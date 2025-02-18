@@ -12,8 +12,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### BUGFIX
 
-- čamac reka nije plava
-- BUG: Top scena, pa Čamac -> reka bude zelena
 - BUG: Savo igraj-opet ne ubija neprijatelje
 - BUG: Ratweek se trese
 

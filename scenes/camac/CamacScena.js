@@ -8,7 +8,7 @@ export default class CamacScena extends Scena2D {
     this.obala = new Obala()
     this.add(this.obala, this.player)
     this.poslednjiX = this.player.x
-    this.bojaPozadine = 0x000066
+    this.bojaPozadine = '#000066'
   }
 
   update(dt, t) {
