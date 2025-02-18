@@ -1,1 +1,0 @@
-https://sketchfab.com/3d-models/dromon-medieval-ship-740f6d7c5e92476f98d5507ab8422b4c
