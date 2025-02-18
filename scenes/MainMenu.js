@@ -23,7 +23,7 @@ const items = {
   TenkOdozgoScena: 'Tenk odozgo',
 }
 
-export default class GlavniMeni extends Scena2D {
+export default class MainMenu extends Scena2D {
   constructor(manager) {
     super(manager, { showControls: false })
     this.start()

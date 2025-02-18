@@ -20,7 +20,7 @@ const paths = {
   DrvarScena: './drvar/DrvarScena.js',
   JasenovacScena: './tenkovska/JasenovacScena.js',
   TenkOdozgoScena: './tenkovska/TenkOdozgoScena.js',
-  GlavniMeni: './GlavniMeni.js'
+  MainMenu: './MainMenu.js'
 }
 
 class SceneManager {

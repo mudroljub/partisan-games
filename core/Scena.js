@@ -55,7 +55,7 @@ export default class Scena {
       this.manager.restart(this.constructor.name)
 
     if (target?.id == 'menu')
-      this.manager.start('GlavniMeni')
+      this.manager.start('MainMenu')
 
     if (target?.id == 'continue')
       this.unpause()
