@@ -10,8 +10,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
-### UI
-
 ### BUGFIX
 
 - BUG: Top nakon igraj opet (par puta) ne skida lepo energiju
@@ -39,6 +37,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### Završno
 
+- dodati mapu
 - Nema pobedu
     - 1944 
     - Nemci iz rovova (dodati vremensku pobedu? onda prekida igraču partiju ranije...)
@@ -56,7 +55,14 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 - proveriti sve nivoe sa sporijim i bržim fps
 - probati neki build
 
-### Ideje za kasnije
+# Ideje za kasnije
+
+- smisliti osnovnu mehaniku bitke
+    - probati sa figuricama i kockama
+    - estetika kao desant na drvar
+    - dodavanje novih vojnika?
+    - pucanje automatsko ili izbor neprijatelja
+    - potezno ili polu-automatsko?
 
 Avion leti
 - probati da tenkovi dolaze i pucaju
@@ -69,21 +75,12 @@ Ideje za nivoe:
 - desant na drvar (padobranci)
 - skijaši
 - podmornica
+- last stand: kamera odozgo, nadiru sa svih strana
 
 Možda preraditi:
 - pucacina funkcionalna
 - prost-frp
 - komanchi
-
-# Scene
-
-## Tenk puca
-
-* tenk ide i puca (možda iskoristiti logiku avion puca sa strane)
-* može i dva tenkića
-
-## 1944 (avion puca odozgo)
-* iskoristiti avionce.gif
 
 ## Avionce puca (sa strane)
 * pozadina se pomera (moze horizontalno i vertikalno)
@@ -114,4 +111,4 @@ trci, uzima hranu, izbegava metkove, preskace bombe...
 ## Credits
 
 - [JuniorGeneral](https://www.juniorgeneral.org/) - pixel art soldiers and ideas 
-- [RPGUI](https://ronenness.github.io/RPGUI/) - beautiful old school interface 
+
