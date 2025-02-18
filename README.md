@@ -68,18 +68,12 @@ Avion leti
 
 Ideje za nivoe:
 - odbrani bunker
-- odbrani polozaj
+- odbrani polozaj (kamera odozgo, nadiru sa svih strana)
 - hercegovina 1942, četnici iskaču iza kamenja, pa zajedno sa italijanima
 - sremski front (top)
 - desant na drvar (padobranci)
 - skijaši
 - podmornica
-- last stand: kamera odozgo, nadiru sa svih strana
-
-Možda preraditi:
-- pucacina funkcionalna
-- prost-frp
-- komanchi
 
 ## Avionce puca (sa strane)
 * pozadina se pomera (moze horizontalno i vertikalno)
