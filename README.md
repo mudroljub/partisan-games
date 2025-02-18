@@ -35,6 +35,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - Savo Mitraljezac (uporediti sa starim, srediti)
         - BUG: kuckanje ne staje kad počne igra
 - dodati 3d model u 1944?
+- obrisati ne-ww2 modele
 
 ### Završno
 
