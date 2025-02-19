@@ -85,7 +85,7 @@ export default class FPSPlayer extends Player {
   }
 
   checkHit() {
-    if (this.hitAmount) this.painEffect()
+    if (this.damageAmount) this.painEffect()
     super.checkHit()
   }
 

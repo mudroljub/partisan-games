@@ -44,7 +44,7 @@ export default class Missile extends GameObject {
     this.enemies.forEach(mesh => {
       if (this.distanceTo(mesh) < getSize(mesh, 'x')) {
         if (mesh.userData.energy <= 0) return
-        mesh.userData.hitAmount = 1000
+        mesh.userData.damageAmount = 1000
       }
     })
 

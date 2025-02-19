@@ -117,7 +117,7 @@ export default class Warplane extends GameObject {
   }
 
   checkHit() {
-    if (!this.hitAmount) return
+    if (!this.damageAmount) return
 
     this.applyDamage()
 

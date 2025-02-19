@@ -19,7 +19,7 @@ export default class GameObject {
 
     this.name = name
     this.energy = this.maxEnergy = energy
-    this.hitAmount = 0
+    this.damageAmount = 0
 
     if (pos) this.position = pos
 
@@ -60,12 +60,12 @@ export default class GameObject {
     else this.mesh.userData.energy = newEnergy
   }
 
-  get hitAmount() {
-    return this.mesh.userData.hitAmount
+  get damageAmount() {
+    return this.mesh.userData.damageAmount
   }
 
-  set hitAmount(hitAmount) {
-    this.mesh.userData.hitAmount = hitAmount
+  set damageAmount(damageAmount) {
+    this.mesh.userData.damageAmount = damageAmount
   }
 
   get dead() {
@@ -119,12 +119,12 @@ export default class GameObject {
   }
 
   applyDamage() {
-    this.energy -= this.hitAmount
-    this.hitAmount = 0
+    this.energy -= this.damageAmount
+    this.damageAmount = 0
   }
 
   checkHit() {
-    if (this.hitAmount) this.applyDamage()
+    if (this.damageAmount) this.applyDamage()
   }
 
   /* UPDATE */

@@ -217,7 +217,7 @@ export default class Actor extends GameObject {
   hit(mesh, damage = [35, 55]) {
     const distance = this.distanceTo(mesh)
     if (distance <= this.attackDistance)
-      mesh.userData.hitAmount = randInt(...damage)
+      mesh.userData.damageAmount = randInt(...damage)
   }
 
   playAttackSound() {
@@ -324,7 +324,7 @@ export default class Actor extends GameObject {
   }
 
   checkHit() {
-    if (!this.hitAmount) return
+    if (!this.damageAmount) return
 
     this.applyDamage()
 

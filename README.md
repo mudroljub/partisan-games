@@ -15,10 +15,13 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### Scene dorada
 
 Savo Mitraljezac 
-- brzo gine, preteško?
+- BUG: nekad nema prozora kad pogine
+- BUG: nema prozora za pobedu nakon izlaza, neće ni na ESC
+    - debug: staviti besmrtnost i ići do izlaza
 - uporediti sa starim, dodati kišu?
-- BUG: gine, nema prozora
 - BUG: igraj-opet ne ubija neprijatelje
+- dodati neke ukrase (buriće, kutije, tenk na izlazu?) prazno je
+- brzo gine, preteško?
 
 urban-guerrilla 
 - promeniti NOB grafite

@@ -16,7 +16,7 @@ export default class AIIdleState extends IdleState {
 
     actor.turnEvery(this.interval, Math.PI / 4)
 
-    if (actor.hitAmount)
+    if (actor.damageAmount)
       actor.lookAtTarget()
 
     /* TRANSIT */

@@ -17,7 +17,7 @@ export default class PatrolState extends WalkState {
       this.distance = 0
     }
 
-    if (actor.hitAmount)
+    if (actor.damageAmount)
       actor.lookAtTarget()
 
     actor.updateMove(delta)

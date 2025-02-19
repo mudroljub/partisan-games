@@ -106,7 +106,7 @@ export default class RatweekScena extends Scena3D {
 
   updateEntities = delta => this.entities.forEach(entity => {
     if (!entity.scene) this.entities.splice(this.entities.indexOf(entity), 1)
-    if (entity.hitAmount) {
+    if (entity.damageAmount) {
       if (entity.name == 'factory') this.score++
       if (entity.name == 'civil') {
         this.ui.showMessage('No! Destruction of civilian buildings is a war crime.')

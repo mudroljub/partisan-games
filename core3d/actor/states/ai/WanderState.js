@@ -17,7 +17,7 @@ export default class WanderState extends WalkState {
     actor.turnEvery(this.interval)
     actor.updateMove(delta)
 
-    if (actor.hitAmount)
+    if (actor.damageAmount)
       actor.lookAtTarget()
 
     /* TRANSIT */
