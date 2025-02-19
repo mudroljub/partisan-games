@@ -1,6 +1,6 @@
-import Igrac from '/core/actor/Igrac.js'
+import Player2D from '/core/actor/Player2D.js'
 
-export default class VoziloIgracOdozgo extends Igrac {
+export default class VoziloIgracOdozgo extends Player2D {
 
   constructor(src, param = {}) {
     super(src, param)

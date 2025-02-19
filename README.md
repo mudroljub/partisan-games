@@ -17,6 +17,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 Savo Mitraljezac 
 - brzo gine, preteško?
 - uporediti sa starim, dodati kišu?
+- BUG: gine, nema prozora
 - BUG: igraj-opet ne ubija neprijatelje
 
 urban-guerrilla 
@@ -29,17 +30,12 @@ urban-guerrilla
 Glavni meni
 - dodati kartu jugoslavije sa izborom misija
 
-Avion leti
+Avion 1942
 - probati da tenkovi dolaze i pucaju
-
-Avionce puca (sa strane)
-- pozadina se pomera (moze horizontalno i vertikalno)
-- zgrade i objekti se nasumicno pojavljuju
-- granatom razara i pali kuce
+- granatom razara i pali kuce?
 - ubaciti bonuse, da uhvatis novi zivot, novo oruzje, bombu, pojacanje, brzinu...
 
 Bekstvo iz Jasenovca
-
 - Tenk patrolira nasumično levo desno ispred žice.
 - Nikad ne ide do kraja, uvek se okrene u drugo vreme.
 - Ranjeni i isprebijani lik (četnik, partizan, Jevrej, nebitno, zatvorenik) puže.
@@ -64,12 +60,17 @@ Nemci iz rovova
 
 ### Završno
 
+- prevesti nazive klasa na engleski
 - proveriti zaostale TODO poruke
 - prebaciti potisak na predmet?
+
+UI
 - dodati komande i ciljeve svuda, možda i izveštaj
 - dodati profil korisnika i medalje za misije
+- prozor premali na prevelikim ekranima?
 
 ### Test i optimizacija
+
 - proveriti sve nivoe sa sporijim i bržim fps
 - probati neki build
 
@@ -89,11 +90,11 @@ Ideje za nivoe:
 - podmornica
 
 Odbrani bunker
-- napraviti partizansku verziju tower defense (odbrana Užica, Kadinjača, Bihać...)
+- partizanska verzija tower defense (odbrana Užica, Kadinjača, Bihać...)
 - svaki nivo prelaziš tako što izgubiš (bilo ih je previše), ali se gleda koliko si ih ubio
 
 Partizanski kurir
-- napraviti partizansku verziju super mario:
+- partizanska verzija super mario ili endless runner:
 - trci, uzima hranu, izbegava metkove, preskace bombe...
 
 ## Credits

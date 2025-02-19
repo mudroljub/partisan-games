@@ -1,7 +1,7 @@
-import Igrac from '/core/actor/Igrac.js'
+import Player2D from '/core/actor/Player2D.js'
 import Sprite from '/core/actor/Sprite.js'
 
-export default class Bombas extends Igrac {
+export default class Bombas extends Player2D {
 
   constructor({ x = 100, y = 100 } = {}) {
     super('slicice/partizani/vojnici/bombasi/partizan-bombas.gif', { x, y })

@@ -1,8 +1,8 @@
-import Igrac from '/core/actor/Igrac.js'
+import Player2D from '/core/actor/Player2D.js'
 import platno from '/core/io/platno.js'
 import { praviPucanje } from '/core/actor/prosirenja/pucanje.js'
 
-export class Avionce extends Igrac {
+export class Avionce extends Player2D {
   constructor() {
     super('slicice/avionce.gif', { skalar: .75, zapaljiv: true, senka: true })
     this.brzina = 0

@@ -1,6 +1,6 @@
-import Igrac from '/core/actor/Igrac.js'
+import Player2D from '/core/actor/Player2D.js'
 
-export default class Ranjenik extends Igrac {
+export default class Ranjenik extends Player2D {
   constructor(x, y) {
     super('slicice/ranjeni-partizan.png', { x, y })
     this.komandeNapredne = true

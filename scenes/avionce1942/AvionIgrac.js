@@ -1,12 +1,12 @@
 import { keyboard } from '/core/io/Keyboard.js'
-import Igrac from '/core/actor/Igrac.js'
+import Player2D from '/core/actor/Player2D.js'
 import { praviRakete } from '/core/actor/prosirenja/pucanje.js'
 
 const OKRET = 0.01
 const MOGUCNOST_OKRETA = 0.066
 const gravitacija = 3
 
-export default class AvionIgrac extends Igrac {
+export default class AvionIgrac extends Player2D {
   constructor(nivoTla, src = 'slicice/partizani/potez-25.png') {
     super(src, { skalar: .55, zapaljiv: true })
     this.brzina = 0

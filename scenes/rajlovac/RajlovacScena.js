@@ -90,11 +90,6 @@ export default class RajlovacScena extends Scena3D {
     `
   }
 
-  end() {
-    super.end()
-    this.player.end()
-  }
-
   update(dt) {
     super.update(dt)
     if (!document.pointerLockElement) return

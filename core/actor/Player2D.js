@@ -1,9 +1,8 @@
 import { KRUZNICA } from '/core/konstante.js'
-// import { keyboard } from '/core/io/Keyboard.js'
 import Predmet from './Predmet.js'
 import Input from '/core/io/Input.js'
 
-export default class Igrac extends Predmet {
+export default class Player2D extends Predmet {
   constructor(src, params = {}) {
     super(src, params)
     this.oznake.add('igrac')
