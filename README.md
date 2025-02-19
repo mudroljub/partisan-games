@@ -16,7 +16,11 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - prazna mapa sa ikonicama
     - yu-geografija.jpg ili Jugoslavija.png
-- ikonice spomenici bitaka ili predmeti igre (kule, tenkovi, avioni, vojnici)
+    - ikonice spomenici bitaka ili predmeti igre (kule, tenkovi, avioni, vojnici)
+- prava leaflet mapa
+    - https://znaci.org/na-danasnji-dan.php
+    - https://mudroljub.github.io/spomenici/
+    - neki treći stil
 - dobre slike ne-mape (možda za loader)
     - Ustanak_u_Jugoslaviji_1943.png
     - captured-joe/Spanish Civil War -- Charge by CapturedJoe.png
@@ -86,6 +90,12 @@ Profil
 
 - proveriti sve nivoe sa sporijim i bržim fps
 - probati neki build
+    - vite
+    - polymer-bundler
+```
+npm install -g polymer-bundler
+polymer-bundler --inline-scripts ulaz.html > izlaz.html
+```
 
 ### Ideje za kasnije
 
