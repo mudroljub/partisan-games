@@ -11,6 +11,7 @@ import { NaziOfficerAI } from '/core3d/actor/derived/ww2/NaziOfficer.js'
 import { GermanFlameThrowerAI } from '/core3d/actor/derived/ww2/GermanFlameThrower.js'
 import FirstAid from '/core3d/objects/FirstAid.js'
 import { fpsControls } from '/ui/Controls.js'
+import { Snow } from '/core3d/Particles.js'
 
 export default class SavoScena extends Scena3D {
   constructor(manager) {
@@ -50,6 +51,9 @@ export default class SavoScena extends Scena3D {
       const firstAid = new FirstAid({ pos: coords.pop() })
       this.addMesh(firstAid.mesh)
     }
+
+    this.rain = new Snow()
+    this.addMesh(this.rain.mesh)
   }
 
   end() {
@@ -59,6 +63,7 @@ export default class SavoScena extends Scena3D {
 
   update(dt, t) {
     super.update(dt, t)
+    this.rain.update()
 
     const killed = this.enemies.filter(enemy => enemy.energy <= 0)
     const won = this.player.position.distanceTo(this.maze.exitPosition) < 5

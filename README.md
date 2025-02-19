@@ -15,7 +15,8 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### Scene dorada
 
 Savo Mitraljezac 
-- uporediti sa starim, dodati kišu?
+- dodati kišu? ili sneg
+- možda nebeski svod (zvezde ili planine u pozadini)
 - BUG: igraj-opet ne ubija neprijatelje
 - dodati neke ukrase (buriće, kutije, tenk na izlazu?) prazno je
 - brzo gine, preteško?
