@@ -12,6 +12,16 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 - nazivi nivoa: Bitka za Krupanj, Franjo Kluz...
 
+### Naslovna
+
+- prazna mapa sa ikonicama
+    - yu-geografija.jpg ili Jugoslavija.png
+- ikonice spomenici bitaka ili predmeti igre (kule, tenkovi, avioni, vojnici)
+- dobre slike ne-mape (možda za loader)
+    - Ustanak_u_Jugoslaviji_1943.png
+    - captured-joe/Spanish Civil War -- Charge by CapturedJoe.png
+    - captured-joe/Partisans and Chetniks by CapturedJoe.png
+
 ### Scene dorada
 
 Savo Mitraljezac 
