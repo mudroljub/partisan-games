@@ -10,46 +10,70 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
-### BUGFIX
+- nazivi nivoa: Bitka za Krupanj, Franjo Kluz...
 
-- BUG: Savo igraj-opet ne ubija neprijatelje
-- BUG: Ratweek se trese
+### Scene dorada
 
-### 3D
+Savo Mitraljezac 
+- brzo gine, preteško?
+- uporediti sa starim, dodati kišu?
+- BUG: igraj-opet ne ubija neprijatelje
 
-- srediti 3D igre:
-    - urban-guerrilla 
-        - promeniti NOB grafite
-        - dodati nemce
-    - warplane 
-        - promeniti da liči na stari
-    - Savo Mitraljezac (uporediti sa starim, srediti)
-        - BUG: kuckanje ne staje kad počne igra
-        - brzo gine, preteško?
-- dodati 3d model u 1944?
+urban-guerrilla 
+- promeniti NOB grafite
+- dodati nemce
+
+ Ratweek 
+- BUG: warplane se trese
+
+Glavni meni
+- dodati kartu jugoslavije sa izborom misija
+
+Avion leti
+- probati da tenkovi dolaze i pucaju
+
+Avionce puca (sa strane)
+- pozadina se pomera (moze horizontalno i vertikalno)
+- zgrade i objekti se nasumicno pojavljuju
+- granatom razara i pali kuce
+- ubaciti bonuse, da uhvatis novi zivot, novo oruzje, bombu, pojacanje, brzinu...
+
+Bekstvo iz Jasenovca
+
+- Tenk patrolira nasumično levo desno ispred žice.
+- Nikad ne ide do kraja, uvek se okrene u drugo vreme.
+- Ranjeni i isprebijani lik (četnik, partizan, Jevrej, nebitno, zatvorenik) puže.
+- Mora da pređe ulicu a da ga ne zgazi tenk.
+- Možda scena noć sa reflektorima ili rasvetom?
+- izbegava mine, spasava decu/ranjenike
+
+Top scena
+- dodati dinamičku pozadinu, dim, avione kako lete...
+- smisliti naziv (proboj sa Sutjeske, sremski front, ustanak...)
+
+Bombas 
+- broj prepreka da zavisi od veličine ekrana, na većim ekranima prazno
+
+Nemci iz rovova 
+- smisliti naziv (Kadinjača, Neretva...)
+- dodati vremensku pobedu, ali da ne prekida partiju ranije (pobeda: Odbranio si položaj, ranjenici su spašeni.)
+- hercegovina 1942, četnici iskaču iza kamenja, pa zajedno sa italijanima
+
+1944
+- smisliti pobedu
 
 ### Završno
 
-- dodati mapu
-- Bombas: broj prepreka da zavisi od veličine ekrana, na većim ekranima prazno
-- Nema pobedu
-    - 1944 
-    - Nemci iz rovova (dodati vremensku pobedu? onda prekida igraču partiju ranije...)
 - proveriti zaostale TODO poruke
-- na scenu top dinamičku pozadinu, dim, avione kako lete...
-- glavni meni da bude karta jugoslavije sa izborom misija
-    - sakriti platno ako ne treba
-- nazivi nivoa: Bitka za Krupanj, Franjo Kluz...
 - prebaciti potisak na predmet?
-- možda različita boja dugmića ili ikonice na dugmiće. pogledati rpg game ui 
-- dodati razliku između pobede i poraza (druga boja prozora, zvuk, slavlje / tuga...)
-- dodati komande i ciljeve svuda
+- dodati komande i ciljeve svuda, možda i izveštaj
+- dodati profil korisnika i medalje za misije
 
 ### Test i optimizacija
 - proveriti sve nivoe sa sporijim i bržim fps
 - probati neki build
 
-# Ideje za kasnije
+### Ideje za kasnije
 
 - smisliti osnovnu mehaniku bitke
     - probati sa figuricama i kockama
@@ -58,43 +82,19 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - pucanje automatsko ili izbor neprijatelja
     - potezno ili polu-automatsko?
 
-Avion leti
-- probati da tenkovi dolaze i pucaju
-
 Ideje za nivoe:
-- odbrani bunker
+
+- sremski front (topovi)
 - odbrani polozaj (kamera odozgo, nadiru sa svih strana)
-- hercegovina 1942, četnici iskaču iza kamenja, pa zajedno sa italijanima
-- sremski front (top)
-- desant na drvar (padobranci)
-- skijaši
 - podmornica
 
-## Avionce puca (sa strane)
-* pozadina se pomera (moze horizontalno i vertikalno)
-* zgrade i objekti se nasumicno pojavljuju
-* granatom razara i pali kuce
+Odbrani bunker
+- napraviti partizansku verziju tower defense (odbrana Užica, Kadinjača, Bihać...)
+- svaki nivo prelaziš tako što izgubiš (bilo ih je previše), ali se gleda koliko si ih ubio
 
-ubaciti bonuse, da uhvatis novi zivot, novo oruzje, bombu, pojacanje, brzinu...
-
-## Bekstvo iz Jasenovca
-
-* Tenk patrolira nasumično levo desno ispred žice.
-* Nikad ne ide do kraja, uvek se okrene u drugo vreme.
-* Ranjeni i isprebijani lik (četnik, partizan, Jevrej, nebitno, zatvorenik) puže.
-* Mora da pređe ulicu a da ga ne zgazi tenk.
-* Možda scena noć sa reflektorima ili rasvetom?
-* izbegava mine, spasava decu/ranjenike
-
-## Odbrani bunker
-
-* napraviti partizansku verziju bunker puca (odbrana Užica, Kadinjača, Bihać...)
-* svaki nivo prelaziš tako što izgubiš (bilo ih je previše), ali se gleda koliko si ih ubio
-
-## Partizanski kurir
-
-napraviti partizansku verziju super mario:
-trci, uzima hranu, izbegava metkove, preskace bombe...
+Partizanski kurir
+- napraviti partizansku verziju super mario:
+- trci, uzima hranu, izbegava metkove, preskace bombe...
 
 ## Credits
 
