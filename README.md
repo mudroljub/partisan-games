@@ -15,9 +15,8 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### Scene dorada
 
 Savo Mitraljezac 
-- dodati neke ukrase
-    - buriće, kutije (razuditi malo, uvek je nasred polja)
-    - tenk na izlazu?
+- razuditi buriće, kutije (uvek je nasred polja)
+- dodati tenk na izlazu?
 - BUG: igraj-opet ne ubija neprijatelje
 
 urban-guerrilla 
@@ -66,8 +65,12 @@ Nemci iz rovova
 
 UI
 - dodati komande i ciljeve svuda, možda i izveštaj
-- dodati profil korisnika i medalje za misije
 - prozor premali na prevelikim ekranima?
+
+Profil 
+- dodati profil korisnika
+- izbor slike partizana ili partizanke
+- dodati medalje za misije
 
 ### Test i optimizacija
 
