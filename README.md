@@ -17,7 +17,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### 3D
 
-- na 3D scenama fali nebo, možda postaviti plavu kao default?
 - srediti 3D igre:
     - urban-guerrilla 
         - promeniti NOB grafite
@@ -32,6 +31,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### Završno
 
 - dodati mapu
+- Bombas: broj prepreka da zavisi od veličine ekrana, na većim ekranima prazno
 - Nema pobedu
     - 1944 
     - Nemci iz rovova (dodati vremensku pobedu? onda prekida igraču partiju ranije...)

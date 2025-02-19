@@ -4,9 +4,8 @@ export const ctx = platno.getContext('2d')
 platno.style.display = 'none'
 
 const resize = () => {
-  platno.width = window.innerWidth * devicePixelRatio | 0
-  platno.height = window.innerHeight * devicePixelRatio | 0
-  ctx.scale(devicePixelRatio, devicePixelRatio)
+  platno.width = window.innerWidth
+  platno.height = window.innerHeight
 }
 
 resize()
