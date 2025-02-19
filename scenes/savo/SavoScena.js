@@ -12,6 +12,7 @@ import { GermanFlameThrowerAI } from '/core3d/actor/derived/ww2/GermanFlameThrow
 import FirstAid from '/core3d/objects/FirstAid.js'
 import { fpsControls } from '/ui/Controls.js'
 import { Snow } from '/core3d/Particles.js'
+import { createCrate, createRustyBarrel, createMetalBarrel } from '/core3d/geometry/index.js'
 
 export default class SavoScena extends Scena3D {
   constructor(manager) {
@@ -50,6 +51,12 @@ export default class SavoScena extends Scena3D {
     for (let i = 0; i < 2; i++) {
       const firstAid = new FirstAid({ pos: coords.pop() })
       this.addMesh(firstAid.mesh)
+    }
+
+    const createObject = [createCrate, createRustyBarrel, createMetalBarrel]
+    for (let i = 0; i < 30; i++) {
+      const mesh = sample(createObject)({ pos: coords.pop() })
+      this.addMesh(mesh)
     }
 
     this.rain = new Snow()

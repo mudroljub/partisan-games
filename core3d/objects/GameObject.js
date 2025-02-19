@@ -80,7 +80,7 @@ export default class GameObject {
     if (Array.isArray(pos))
       this.mesh.position.set(...pos)
     else
-      this.mesh.position.copy(pos)
+      this.mesh.position.set(pos.x, pos.y, pos.z)
   }
 
   get scene() {

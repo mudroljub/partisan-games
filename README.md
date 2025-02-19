@@ -15,11 +15,10 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### Scene dorada
 
 Savo Mitraljezac 
-- dodati kišu? ili sneg
-- možda nebeski svod (zvezde ili planine u pozadini)
+- dodati neke ukrase
+    - buriće, kutije (razuditi malo, uvek je nasred polja)
+    - tenk na izlazu?
 - BUG: igraj-opet ne ubija neprijatelje
-- dodati neke ukrase (buriće, kutije, tenk na izlazu?) prazno je
-- brzo gine, preteško?
 
 urban-guerrilla 
 - promeniti NOB grafite

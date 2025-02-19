@@ -27,7 +27,7 @@ export function createBox({ size = 1, width = size, height = size, depth = size,
   if (translateHeight) translateY(mesh, height / 2)
   else mesh.translateY(height / 2)
 
-  if (pos) mesh.position.copy(pos)
+  if (pos) mesh.position.set(pos.x, pos.y, pos.z)
   if (quat) mesh.quaternion.copy(quat)
 
   mesh.castShadow = castShadow
