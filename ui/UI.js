@@ -4,11 +4,10 @@ const elementUI = document.getElementById('ui')
 const modalElement = document.getElementById('modal')
 
 export default class UI {
-  constructor(scene, { reportText, intro = '', blinkingMessage = '' } = {}) {
+  constructor(scene, { reportText, intro = '' } = {}) {
     this.scene = scene
     this.intro = intro
     this.reportText = reportText
-    this.blinkingMessage = blinkingMessage
     this.cachedSceneUI = this.cachedModal = this.outro = ''
   }
 
@@ -114,25 +113,10 @@ export default class UI {
     }, 3000)
   }
 
-  /* BLINKING */
-
-  showBlinkingMessage(t, messageInterval = 20) {
-    if (t > 0 && Math.ceil(t) % messageInterval == 0)
-      this.renderMessage()
-  }
-
-  renderMessage() {
-    modalElement.innerHTML = this.getMessage(this.blinkingMessage, 'blink')
-    setTimeout(() => {
-      modalElement.innerHTML = ''
-    }, 3000)
-  }
-
   /* LOOP */
 
   render(t) {
     this.renderModal()
     this.renderSceneUI(t)
-    if (this.blinkingMessage) this.showBlinkingMessage(t)
   }
 }

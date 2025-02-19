@@ -20,7 +20,6 @@ export default class SavoScena extends Scena3D {
       controlKeys: fpsControls,
       intro: '<ul><li>Find the way out</li><li>Bonus: Kill all enemies</li></ul>',
       reportText: 'After a successful sabotage mission you stayed behind enemy lines.\n\nFind the way out of the enemy base.',
-      blinkingMessage: 'Find a way out!',
     })
   }
 
@@ -33,16 +32,16 @@ export default class SavoScena extends Scena3D {
     const walls = this.maze.toTiledMesh({ texture: 'terrain/concrete.jpg' })
     this.addMesh(walls)
 
-    const player = this.player = new FPSPlayer({ camera: this.camera, solids: walls })
-    player.putInMaze(this.maze)
-    this.add(player)
+    this.player = new FPSPlayer({ camera: this.camera, solids: walls })
+    this.player.putInMaze(this.maze)
+    this.add(this.player)
 
     const coords = this.maze.getEmptyCoords(true)
     this.enemies = []
     const soldiers = [GermanMachineGunnerAI, SSSoldierAI, NaziOfficerAI, GermanFlameThrowerAI]
     for (let i = 0; i < 10; i++) {
       const EnemyClass = sample(soldiers)
-      const enemy = new EnemyClass({ pos: coords.pop(), target: player.mesh, solids: walls })
+      const enemy = new EnemyClass({ pos: coords.pop(), target: this.player.mesh, solids: walls })
       this.enemies.push(enemy)
       this.add(enemy)
     }
