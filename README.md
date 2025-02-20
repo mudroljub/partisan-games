@@ -10,7 +10,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
-- nazivi nivoa: Bitka za Krupanj, Franjo Kluz...
 - spojiti rečnike u main menu i scene manager
 
 ### Naslovna
