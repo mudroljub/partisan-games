@@ -33,7 +33,6 @@ Savo Mitraljezac
 - probati minimapu, dodati je negde, bar u dokumentaciju
 
 urban-guerrilla 
-- promeniti NOB grafite
 - dodati nemce
 
  Ratweek 
