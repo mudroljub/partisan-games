@@ -26,7 +26,7 @@ const MAX_BRZINA = 600
 const DIZAJ = 10
 const MAX_DIGNUTOST = 5555
 
-export default class Scena1942 extends Scena2D {
+export default class FranjoKluzScena extends Scena2D {
   init() {
     this.brzinaScene = 0
     this.dignutostScene = 0

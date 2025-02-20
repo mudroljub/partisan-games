@@ -9,7 +9,7 @@ const paths = {
   SavoScena: './savo/SavoScena.js',
   KrupanjScena: './krupanj/KrupanjScena.js',
   NemciIzRovova: './rovovi/NemciIzRovova.js',
-  Scena1942: './avionce1942/Scena1942.js',
+  FranjoKluzScena: './franjo-kluz/FranjoKluzScena.js',
   CamacScena: './camac/CamacScena.js',
   OtpisaniScena: './OtpisaniScena.js',
   Scena1944: './avionce1944/Scena1944.js',

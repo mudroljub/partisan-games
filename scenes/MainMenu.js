@@ -10,7 +10,7 @@ const items = {
   TenkScena: 'Tenk',
   DrvarScena: 'Desant na Drvar',
   KrupanjScena: 'Battle of Krupanj',
-  Scena1942: 'Avionče 1942',
+  FranjoKluzScena: 'Franjo Kluz',
   NemciIzRovova: 'Nemci iz rovova',
   TopScena: 'Top',
   Scena1944: 'Avionče 1944',
