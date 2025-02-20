@@ -10,8 +10,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
-- spojiti rečnike u main menu i scene manager
-
 ### Naslovna
 
 - prazna mapa sa ikonicama
