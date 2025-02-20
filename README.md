@@ -10,8 +10,6 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
-- nazivi nivoa: Bitka za Krupanj, Franjo Kluz...
-
 ### Naslovna
 
 - prazna mapa sa ikonicama
@@ -28,13 +26,14 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ### Scene dorada
 
+- FPS Kontrole - Čučanj: Ctrl, Trk: Shift
+
 Savo Mitraljezac 
 - razuditi buriće, kutije (uvek je nasred polja)
 - dodati tenk na izlazu?
-- BUG: igraj-opet ne ubija neprijatelje
+- probati minimapu, dodati je negde, bar u dokumentaciju
 
 urban-guerrilla 
-- promeniti NOB grafite
 - dodati nemce
 
  Ratweek 

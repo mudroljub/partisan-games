@@ -1,0 +1,22 @@
+export const scenes = {
+  SpomeniciScena: { path: './spomenici/SpomeniciScena.js', name: 'Spomenici' },
+  BeogradScena: { path: './beograd/BeogradScena.js', name: 'Battle of Belgrade' },
+  TenkScena: { path: './tenk/TenkScena.js', name: 'Tenk' },
+  RatweekScena: { path: './warplane/RatweekScena.js', name: 'Operation Ratweek' },
+  RajlovacScena: { path: './rajlovac/RajlovacScena.js', name: 'Attack on Rajlovac Airport' },
+  SavoScena: { path: './savo/SavoScena.js', name: 'Savo Mitraljezac' },
+  KrupanjScena: { path: './krupanj/KrupanjScena.js', name: 'Battle of Krupanj' },
+  NemciIzRovova: { path: './rovovi/NemciIzRovova.js', name: 'Nemci iz rovova' },
+  FranjoKluzScena: { path: './franjo-kluz/FranjoKluzScena.js', name: 'Franjo Kluz' },
+  DrinaScena: { path: './drina/DrinaScena.js', name: 'Crossing the Drina' },
+  OtpisaniScena: { path: './OtpisaniScena.js', name: 'Otpisani scena' },
+  Scena1944: { path: './avionce1944/Scena1944.js', name: 'Avionče 1944' },
+  TopScena: { path: './top/TopScena.js', name: 'Top' },
+  TenkicIde: { path: './tenkic-ide/TenkicIde.js', name: 'Tenkić ide' },
+  TenkiciScena: { path: './tenkici/TenkiciScena.js', name: 'Tenkići' },
+  RanjenikScena: { path: './ranjenik/RanjenikScena.js', name: 'Ranjenik na Sutjesci' },
+  DrvarScena: { path: './drvar/DrvarScena.js', name: 'Raid on Drvar' },
+  JasenovacScena: { path: './tenkovska/JasenovacScena.js', name: 'Bekstvo iz Jasenovca' },
+  TenkOdozgoScena: { path: './tenkovska/TenkOdozgoScena.js', name: 'Tenk odozgo' },
+  MainMenu: { path: './MainMenu.js', name: 'Main Menu' }
+}
