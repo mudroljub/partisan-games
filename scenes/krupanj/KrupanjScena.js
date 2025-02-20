@@ -10,7 +10,7 @@ import Mitraljezac from './Mitraljezac.js'
 const ZADATO_VREME = 30
 const BROJ_PREPREKA = 20
 
-export default class BombasScena extends Scena2D {
+export default class KrupanjScena extends Scena2D {
   init() {
     this.vreme = new Vreme()
     this.pozadina = new Pozadina('textures/terrain/beton.gif')

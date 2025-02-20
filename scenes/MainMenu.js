@@ -9,7 +9,7 @@ const items = {
   BeogradScena: 'Bitka za Beograd',
   TenkScena: 'Tenk',
   DrvarScena: 'Desant na Drvar',
-  BombasScena: 'Bombaš',
+  KrupanjScena: 'Battle of Krupanj',
   Scena1942: 'Avionče 1942',
   NemciIzRovova: 'Nemci iz rovova',
   TopScena: 'Top',
