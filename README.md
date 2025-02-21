@@ -10,19 +10,13 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 
 ## TODO
 
-### Naslovna
+- BUG: Tank scena ne čisti džojstik
 
-- prazna mapa sa ikonicama
-    - yu-geografija.jpg ili Jugoslavija.png
-    - ikonice spomenici bitaka ili predmeti igre (kule, tenkovi, avioni, vojnici)
-- prava leaflet mapa
-    - https://znaci.org/na-danasnji-dan.php
-    - https://mudroljub.github.io/spomenici/
-    - neki treći stil
-- dobre slike ne-mape (možda za loader)
-    - Ustanak_u_Jugoslaviji_1943.png
-    - captured-joe/Spanish Civil War -- Charge by CapturedJoe.png
-    - captured-joe/Partisans and Chetniks by CapturedJoe.png
+### Glavni meni
+
+- izabrati mapu za pozadinu
+    - probati na svakoj ikonice (kule, tenkovi, avioni, vojnici)
+- kasnije prava leaflet mapa?
 
 ### Scene dorada
 
@@ -38,9 +32,6 @@ urban-guerrilla
 
  Ratweek 
 - BUG: warplane se trese
-
-Glavni meni
-- dodati kartu jugoslavije sa izborom misija
 
 Avion 1942
 - probati da tenkovi dolaze i pucaju
@@ -105,11 +96,18 @@ polymer-bundler --inline-scripts ulaz.html > izlaz.html
     - pucanje automatsko ili izbor neprijatelja
     - potezno ili polu-automatsko?
 
-Ideje za nivoe:
+- iskoristi dobre slike (možda za loader)
+    - Ustanak_u_Jugoslaviji_1943.png
+    - captured-joe/Spanish Civil War -- Charge by CapturedJoe.png
+    - captured-joe/Partisans and Chetniks by CapturedJoe.png
 
+Ideje za nivoe:
 - sremski front (topovi)
 - odbrani polozaj (kamera odozgo, nadiru sa svih strana)
 - podmornica
+
+Glavni meni
+- nakon pređene misije bitka postaje spomenik
 
 Odbrani bunker
 - partizanska verzija tower defense (odbrana Užica, Kadinjača, Bihać...)

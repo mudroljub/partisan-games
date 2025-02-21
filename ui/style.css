@@ -34,9 +34,10 @@ body {
   line-height: 22px;
   margin: 0;
   min-height: 100vh;
-  background-image: url("/assets/images/art/fantasy-map.jpeg");
+  background-image: url("/assets/images/art/mapa1.png");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 150%;
+  background-position: 50%;
 }
 
 body,
