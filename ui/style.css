@@ -35,7 +35,7 @@ body {
   line-height: 22px;
   margin: 0;
   min-height: 100vh;
-  background-image: url("/assets/images/art/milan-vasek-maphd.jpg");
+  background-image: url("/assets/images/art/mapa-stara.jpg");
   background-repeat: no-repeat;
   background-size: 150%;
   background-position: 50%;
@@ -64,6 +64,10 @@ li {
 
 canvas {
   display: none;
+}
+
+#ui {
+  overflow: auto;
 }
 
 /* BUTTONS */
@@ -102,12 +106,12 @@ button.no-hover:hover {
 .menu-btn {
   position: absolute; 
   text-transform: none;
-  width: 180px;
+  max-width: 180px;
   background-color: rgba(0,0,0,0);
   /* color: var(--sand); */
 
   & img {
-    filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.85));
+    filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, .75));
   }
 }
 

@@ -18,6 +18,8 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
     - probati na svakoj ikonice (kule, tenkovi, avioni, vojnici)
 - kasnije prava leaflet mapa?
 
+- dodati naslovnu, kao na main grani, sa menijem: play, about, settings
+
 ### Scene dorada
 
 - FPS Kontrole - Čučanj: Ctrl, Trk: Shift
