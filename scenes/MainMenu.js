@@ -107,8 +107,8 @@ export default class MainMenu extends Scena2D {
   handleVisibilityChange() {}
 
   sceneUI() {
+    // <h1>Partisan Games ★</h1>
     return `
-      <h1>Partisan Games ★</h1>
       ${this.manuIcons}
     `
   }
