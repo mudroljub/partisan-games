@@ -34,7 +34,7 @@ export default class FranjoKluzScena extends Scena2D {
     this.aerodrom = new Vracanje({src: 'buildings/aerodrom.png', tlo: nivoTla, procenat: .25 })
     this.ruina = new Vracanje({ src: 'buildings/ruina.png', tlo: nivoTla, x: -400 })
     this.player = new AvionIgrac(nivoTla)
-    this.vozilo = new VoziloBocno('slicice/hummel.png', { x: 150, y: nivoTla, skalar: .75, ciljevi: [this.player] })
+    this.vozilo = new VoziloBocno('armies/hummel.png', { x: 150, y: nivoTla, skalar: .75, ciljevi: [this.player] })
 
     this.player.cvrstaTela.push(this.vozilo, this.ruina)
     this.player.ciljevi.push(this.vozilo)

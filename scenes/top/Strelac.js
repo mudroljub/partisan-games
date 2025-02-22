@@ -2,7 +2,7 @@ import Predmet from '/core/actor/Predmet.js'
 
 export default class Strelac extends Predmet {
   constructor(x, y) {
-    super('slicice/partizani/vojnici/partizan-30.png', { x, y })
+    super('armies/partizani/vojnici/partizan-30.png', { x, y })
     this.pocetniX = x
     this.ucestalost = 3
     this.poslednje = 0

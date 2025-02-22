@@ -4,7 +4,7 @@ import Sprite from '/core/actor/Sprite.js'
 export default class Bombas extends Player2D {
 
   constructor({ x = 100, y = 100 } = {}) {
-    super('slicice/partizani/vojnici/bombasi/partizan-bombas.gif', { x, y })
+    super('armies/partizani/vojnici/bombasi/partizan-bombas.gif', { x, y })
     this.potisak = 75
     this.faktorTrenja = 0.3
     this.krv = new Sprite('sprites/efekti/krv-mala.png', {

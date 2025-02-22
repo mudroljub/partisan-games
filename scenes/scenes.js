@@ -1,12 +1,14 @@
 export const scenes = {
   SpomeniciScena: {
     path: './spomenici/SpomeniciScena.js',
-    name: 'Spomenici'
+    name: 'Spomenici',
+    icon: 'buildings/kosmaj.png',
+    height: 48
   },
   BeogradScena: {
     path: './beograd/BeogradScena.js',
     name: 'Liberation of Belgrade',
-    icon: 'slicice/partizani/vojnici/partizan-21.png',
+    icon: 'armies/partizani/vojnici/partizan-21.png',
   },
   TenkScena: {
     path: './tenk/TenkScena.js',
@@ -19,7 +21,7 @@ export const scenes = {
   RajlovacScena: {
     path: './rajlovac/RajlovacScena.js',
     name: 'Attack on Rajlovac Airport',
-    icon: 'slicice/nemci/avioni/avion-03.png',
+    icon: 'armies/nemci/avioni/avion-03.png',
   },
   SavoScena: {
     path: './savo/SavoScena.js',
@@ -28,7 +30,7 @@ export const scenes = {
   KrupanjScena: {
     path: './krupanj/KrupanjScena.js',
     name: 'Battle of Krupanj',
-    icon: 'slicice/partizani/vojnici/bombasi/partizan-bombas.gif',
+    icon: 'armies/partizani/vojnici/bombasi/partizan-bombas.gif',
     height: 48
   },
   NemciIzRovova: {
@@ -38,12 +40,12 @@ export const scenes = {
   FranjoKluzScena: {
     path: './franjo-kluz/FranjoKluzScena.js',
     name: 'Franjo Kluz',
-    icon: 'slicice/partizani/potez-25.png',
+    icon: 'armies/partizani/potez-25.png',
   },
   DrinaScena: {
     path: './drina/DrinaScena.js',
     name: 'Crossing the Drina',
-    icon: 'slicice/camac.png',
+    icon: 'armies/camac.png',
   },
   OtpisaniScena: {
     path: './OtpisaniScena.js',
@@ -53,12 +55,13 @@ export const scenes = {
   Scena1944: {
     path: './avionce1944/Scena1944.js',
     name: 'Avionče 1944',
-    icon: 'slicice/avionce.gif',
+    icon: 'armies/avionce.gif',
+    height: 60
   },
   TopScena: {
     path: './top/TopScena.js',
     name: 'Top',
-    icon: 'slicice/nemci/artiljerija/top-01.png',
+    icon: 'armies/nemci/artiljerija/top-01.png',
     height: 32
   },
   TenkicIde: {
@@ -67,18 +70,19 @@ export const scenes = {
   },
   TenkiciScena: {
     path: './tenkici/TenkiciScena.js',
-    name: 'Tenkići'
+    name: 'Tenkići',
+    icon: 'armies/partizani/tenkovi/tenk-04.png'
   },
   RanjenikScena: {
     path: './ranjenik/RanjenikScena.js',
     name: 'Ranjenik na Sutjesci',
-    icon: 'slicice/ranjeni-partizan.png',
+    icon: 'armies/ranjeni-partizan.png',
     height: 21
   },
   DrvarScena: {
     path: './drvar/DrvarScena.js',
     name: 'Raid on Drvar',
-    icon: 'slicice/nemci/padobranci/padobranac-01.png',
+    icon: 'armies/nemci/padobranci/padobranac-01.png',
     height: 90
   },
   JasenovacScena: {

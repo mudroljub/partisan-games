@@ -3,7 +3,7 @@ import { keyboard } from '/core/io/Keyboard.js'
 
 export default class Posada extends Predmet {
   constructor(x, y) {
-    super('slicice/partizani/artiljerija/posada-01.png', { x, y })
+    super('armies/partizani/artiljerija/posada-01.png', { x, y })
     this.pocetniX = x
     this.maxX = x + 10
   }

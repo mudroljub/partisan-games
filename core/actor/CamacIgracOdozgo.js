@@ -4,7 +4,7 @@ import platno from '/core/io/platno.js'
 const JACINA_STRUJE = 6
 
 export default class CamacIgracOdozgo extends VoziloIgracOdozgo {
-  constructor(src = 'slicice/camac.png') {
+  constructor(src = 'armies/camac.png') {
     super(src, { skalar: .5 })
     this.potisak = 50
     this.faktorTrenja = 0.15

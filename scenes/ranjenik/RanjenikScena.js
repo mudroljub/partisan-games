@@ -12,9 +12,9 @@ const RITAM_PALJBE = 1500
 export default class RanjenikScena extends Scena2D {
   init() {
     this.scena = 0
-    this.pozadina = new Pozadina('slicice/shumarak-pozadina.png')
+    this.pozadina = new Pozadina('armies/shumarak-pozadina.png')
     this.player = new Ranjenik(this.sirina / 4, this.visina / 2)
-    this.patrola = new Patrola('slicice/nemci-patrola.gif', this.player)
+    this.patrola = new Patrola('armies/nemci-patrola.gif', this.player)
     this.patrola.postavi(this.sirina * 3 / 4, this.visina * 3 / 4)
     this.strelica = new Strelica()
     this.vreme = new Vreme()
@@ -43,7 +43,7 @@ export default class RanjenikScena extends Scena2D {
 
   promeniScenu() {
     this.pozadina.slika.src = '/assets/images/textures/sprzena-zemlja.jpg'
-    this.patrola.slika.src = '/assets/images/slicice/talijani-patrola.gif'
+    this.patrola.slika.src = '/assets/images/armies/talijani-patrola.gif'
     this.patrola.postavi(this.sirina * 3 / 4, this.visina * 3 / 4)
     this.player.x = 10
     this.scena++
