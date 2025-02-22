@@ -31,7 +31,6 @@ body {
   cursor: url(/assets/images/ui/cursor/default.png), auto;
   filter: sepia(0.15);
   font-size: 0.8em;
-  image-rendering: pixelated;
   line-height: 22px;
   margin: 0;
   min-height: 100vh;
@@ -111,7 +110,7 @@ button.no-hover:hover {
   /* color: var(--sand); */
 
   & img {
-    filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, .75));
+    filter: drop-shadow(-3px -3px 1px rgba(0, 0, 0, .5));
   }
 }
 
