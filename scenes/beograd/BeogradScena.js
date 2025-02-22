@@ -9,7 +9,7 @@ const mapSize = 200
 
 export default class BeogradScena extends Scena3D {
   constructor(manager) {
-    super(manager, { controlKeys: thirdPersonControls })
+    super(manager, { controlKeys: thirdPersonControls, toon: true })
   }
 
   init() {

@@ -27,13 +27,23 @@ Savo Mitraljezac
 - dodati tenk na izlazu?
 - probati minimapu, dodati je negde, bar u dokumentaciju
 
-urban-guerrilla 
+urban-guerrilla
+- proveriti jel grad lavirint
+- spaliti i uništiti zgrade 
 - dodati nemce
+- preimenovati?? možda banja luka, tuzla, sarajevo
+    - probati manje zgrade
+- ukloniti banksyArt, staviti partizansku umetnost
+- dodati ćirilicu
+- probati asfalt podlogu
+- BUG: nekad počinje suprotno okrenut od scene
 
  Ratweek 
 - BUG: warplane se trese
 
-Avion 1942
+Franjo Kluz
+- ukloniti uvodni ekran?
+- UI u kontrole
 - probati da tenkovi dolaze i pucaju
 - granatom razara i pali kuce?
 - ubaciti bonuse, da uhvatis novi zivot, novo oruzje, bombu, pojacanje, brzinu...

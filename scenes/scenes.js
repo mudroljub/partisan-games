@@ -1,6 +1,6 @@
 export const scenes = {
   SpomeniciScena: { path: './spomenici/SpomeniciScena.js', name: 'Spomenici' },
-  BeogradScena: { path: './beograd/BeogradScena.js', name: 'Battle of Belgrade' },
+  BeogradScena: { path: './beograd/BeogradScena.js', name: 'Liberation of Belgrade' },
   TenkScena: { path: './tenk/TenkScena.js', name: 'Tenk' },
   RatweekScena: { path: './warplane/RatweekScena.js', name: 'Operation Ratweek' },
   RajlovacScena: { path: './rajlovac/RajlovacScena.js', name: 'Attack on Rajlovac Airport' },

@@ -81,9 +81,6 @@ export default class Renderer2D {
       .sort((a, b) => b.polozaj?.z - a.polozaj?.z)
       .forEach(predmet => predmet.render ? predmet.render() : this.crtaPredmet(predmet))
 
-    // ctx.fillStyle = 'rgba(112, 66, 20, 0.1)'
-    // ctx.fillRect(0, 0, platno.width, platno.height)
-
     ctx.restore()
   }
 }
