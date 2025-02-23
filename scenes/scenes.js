@@ -66,7 +66,8 @@ export const scenes = {
   },
   TenkicIde: {
     path: './tenkic-ide/TenkicIde.js',
-    name: 'Tenkić ide'
+    name: 'Tenkić ide',
+    icon: 'armies/partizani/tenkovi/tenk-02.png'
   },
   TenkiciScena: {
     path: './tenkici/TenkiciScena.js',
