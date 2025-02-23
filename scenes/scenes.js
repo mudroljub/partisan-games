@@ -16,7 +16,9 @@ export const scenes = {
   },
   RatweekScena: {
     path: './warplane/RatweekScena.js',
-    name: 'Operation Ratweek'
+    name: 'Operation Ratweek',
+    icon: 'armies/britanci/avioni/bomber-lancaster2.png',
+    height: 72
   },
   RajlovacScena: {
     path: './rajlovac/RajlovacScena.js',
@@ -26,7 +28,8 @@ export const scenes = {
   },
   SavoScena: {
     path: './savo/SavoScena.js',
-    name: 'Savo Mitraljezac'
+    name: 'Savo Mitraljezac',
+    icon: 'armies/mitraljez.png'
   },
   KrupanjScena: {
     path: './krupanj/KrupanjScena.js',
@@ -91,12 +94,12 @@ export const scenes = {
     path: './tenkovska/JasenovacScena.js',
     name: 'Bekstvo iz Jasenovca',
     icon: 'items/bodljikava-zica.gif',
-    height: 32
+    height: 30
   },
-  TenkOdozgoScena: {
-    path: './tenkovska/TenkOdozgoScena.js',
-    name: 'Tenk odozgo'
-  },
+  // TenkOdozgoScena: {
+  //   path: './tenkovska/TenkOdozgoScena.js',
+  //   name: 'Tenk odozgo'
+  // },
   MainMenu: {
     path: './MainMenu.js',
     name: 'Main Menu'
