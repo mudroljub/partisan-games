@@ -8,7 +8,8 @@ export const scenes = {
   BeogradScena: {
     path: './beograd/BeogradScena.js',
     name: 'Liberation of Belgrade',
-    icon: 'armies/partizani/vojnici/partizan-21.png',
+    icon: 'ui/resistance-fighter.png',
+    height: 54
   },
   TenkScena: {
     path: './tenk/TenkScena.js',
@@ -29,7 +30,7 @@ export const scenes = {
   SavoScena: {
     path: './savo/SavoScena.js',
     name: 'Savo Mitraljezac',
-    icon: 'armies/mitraljez.png'
+    icon: 'ui/mitraljez.png'
   },
   KrupanjScena: {
     path: './krupanj/KrupanjScena.js',
@@ -39,7 +40,9 @@ export const scenes = {
   },
   NemciIzRovova: {
     path: './rovovi/NemciIzRovova.js',
-    name: 'Nemci iz rovova'
+    name: 'Nemci iz rovova',
+    icon: 'armies/nemac-rov.gif',
+    height: 60
   },
   FranjoKluzScena: {
     path: './franjo-kluz/FranjoKluzScena.js',

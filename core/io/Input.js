@@ -7,7 +7,7 @@ const isTouchScreen = 'ontouchstart' in window // TODO: isMobile
  * Interface for all user inputs
  */
 class Input {
-  constructor({ useKeyboard = !isTouchScreen, useJoystick = true, animDict, attackKey } = {}) {
+  constructor({ useKeyboard = !isTouchScreen, useJoystick = isTouchScreen, animDict, attackKey } = {}) {
     if (useKeyboard) this.keyboard = new Keyboard({ attackKey })
     if (useJoystick) this.screen = new Joystick({ animDict })
   }
