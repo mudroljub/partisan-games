@@ -5,9 +5,9 @@ export const scenes = {
     icon: 'buildings/kosmaj.png',
     height: 56
   },
-  BeogradScena: {
-    path: './beograd/BeogradScena.js',
-    name: 'Liberation of Belgrade',
+  BanjaLukaScena: {
+    path: './banja-luka/BanjaLukaScena.js',
+    name: 'Banja Luka',
     icon: 'ui/resistance-fighter.png',
     height: 54
   },
