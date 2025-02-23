@@ -14,7 +14,7 @@ const style = `
 let time = 0
 
 export default class FPSRenderer extends HTMLCanvasElement {
-  constructor({ weaponSrc = '/assets/images/savo.png', targetY = 0.5 } = {}) {
+  constructor({ weaponSrc = '/assets/images/ui/savo.png', targetY = 0.5 } = {}) {
     super()
     this.width = window.innerWidth
     this.height = window.innerHeight

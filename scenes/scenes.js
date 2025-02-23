@@ -13,7 +13,9 @@ export const scenes = {
   },
   TenkScena: {
     path: './tenk/TenkScena.js',
-    name: 'Tenk'
+    name: 'Tenk',
+    icon: 'armies/nemci/tenkovi/tenk-odozgo-02.png',
+    height: 90
   },
   RatweekScena: {
     path: './warplane/RatweekScena.js',
@@ -25,7 +27,7 @@ export const scenes = {
     path: './rajlovac/RajlovacScena.js',
     name: 'Attack on Rajlovac Airport',
     icon: 'buildings/kula-01.png',
-    height: 60
+    height: 78
   },
   SavoScena: {
     path: './savo/SavoScena.js',
@@ -53,6 +55,7 @@ export const scenes = {
     path: './drina/DrinaScena.js',
     name: 'Crossing the Drina',
     icon: 'armies/camac.png',
+    height: 38
   },
   OtpisaniScena: {
     path: './OtpisaniScena.js',
