@@ -4,7 +4,7 @@ import { scenes } from './scenes.js'
 import { shuffle } from '/core3d/helpers.js'
 import { slucajnePozicije } from '/core/utils.js'
 
-// TODO: prave slike, prave veličine: ranjenik, padobranac...
+// TODO: prave slike, prave veličine: sutjeska, padobranac...
 const icons = [
   'buildings/crkva-01.png',
   'buildings/kuca-bunker.png',

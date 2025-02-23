@@ -23,6 +23,7 @@ Repo: [github.com/partisan-games/partisan-games.github.io](https://github.com/pa
 ### Scene dorada
 
 - FPS Kontrole - Čučanj: Ctrl, Trk: Shift
+- dodati ciljeve na Sutjesku, Jasenovac i dr.
 
 Savo Mitraljezac 
 - razuditi buriće, kutije (uvek je nasred polja)
@@ -31,7 +32,7 @@ Savo Mitraljezac
 
 urban-guerrilla
 - proveriti jel grad lavirint
-- spaliti i uništiti zgrade 
+- spaliti i uništiti zgrade (nalepiti ruina tekstura)
 - dodati nemce
 - preimenovati?? možda banja luka, tuzla, sarajevo
     - probati manje zgrade

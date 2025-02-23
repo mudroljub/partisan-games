@@ -9,7 +9,7 @@ import Paljba from './Paljba.js'
 
 const RITAM_PALJBE = 1500
 
-export default class RanjenikScena extends Scena2D {
+export default class SutjeskaScena extends Scena2D {
   init() {
     this.scena = 0
     this.pozadina = new Pozadina('armies/shumarak-pozadina.png')

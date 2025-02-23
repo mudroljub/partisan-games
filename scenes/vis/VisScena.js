@@ -9,7 +9,7 @@ import Neprijatelj from './Neprijatelj.js'
 const brojOblaka = 3
 const brzina = 150
 
-export default class Scena1944 extends Scena2D {
+export default class VisScena extends Scena2D {
   init() {
     this.oblaci = Array.from({ length: brojOblaka }, () => new Oblak(brzina))
     this.ostrvo = new Pokretno('nature/ostrvo.gif', { potisak: brzina, skalar: 2 })

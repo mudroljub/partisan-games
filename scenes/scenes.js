@@ -1,9 +1,9 @@
 export const scenes = {
   SpomeniciScena: {
     path: './spomenici/SpomeniciScena.js',
-    name: 'Spomenici',
+    name: 'Spomeniks',
     icon: 'buildings/kosmaj.png',
-    height: 52
+    height: 56
   },
   BeogradScena: {
     path: './beograd/BeogradScena.js',
@@ -25,7 +25,7 @@ export const scenes = {
   },
   RajlovacScena: {
     path: './rajlovac/RajlovacScena.js',
-    name: 'Attack on Rajlovac Airport',
+    name: 'Rajlovac',
     icon: 'buildings/kula-01.png',
     height: 78
   },
@@ -36,7 +36,7 @@ export const scenes = {
   },
   KrupanjScena: {
     path: './krupanj/KrupanjScena.js',
-    name: 'Battle of Krupanj',
+    name: 'Krupanj',
     icon: 'armies/partizani/vojnici/bombasi/partizan-bombas.gif',
     height: 48
   },
@@ -59,12 +59,12 @@ export const scenes = {
   },
   OtpisaniScena: {
     path: './OtpisaniScena.js',
-    name: 'Otpisani scena',
-    icon: 'buildings/ruina-03.png',
+    name: 'Belgrade',
+    icon: 'buildings/ruina-04.png',
   },
-  Scena1944: {
-    path: './avionce1944/Scena1944.js',
-    name: 'Avionče 1944',
+  VisScena: {
+    path: './vis/VisScena.js',
+    name: 'Vis',
     icon: 'armies/avionce.gif',
     height: 60
   },
@@ -84,21 +84,21 @@ export const scenes = {
     name: 'Tenkići',
     icon: 'armies/partizani/tenkovi/tenk-04.png'
   },
-  RanjenikScena: {
-    path: './ranjenik/RanjenikScena.js',
-    name: 'Ranjenik na Sutjesci',
+  SutjeskaScena: {
+    path: './sutjeska/SutjeskaScena.js',
+    name: 'Sutjeska',
     icon: 'armies/ranjeni-partizan.png',
     height: 21
   },
   DrvarScena: {
     path: './drvar/DrvarScena.js',
-    name: 'Raid on Drvar',
+    name: 'Drvar',
     icon: 'armies/nemci/padobranci/padobranac-01.png',
     height: 90
   },
   JasenovacScena: {
     path: './jasenovac/JasenovacScena.js',
-    name: 'Bekstvo iz Jasenovca',
+    name: 'Jasenovac',
     icon: 'items/bodljikava-zica.gif',
     height: 28
   },

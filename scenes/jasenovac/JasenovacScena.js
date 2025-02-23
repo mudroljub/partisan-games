@@ -2,7 +2,7 @@ import Scena2D from '/core/Scena2D.js'
 import Predmet from '/core/actor/Predmet.js'
 import Pozadina from '/core/objects/Pozadina.js'
 import TenkOdozgo from './TenkOdozgo.js'
-import Ranjenik from '../ranjenik/Ranjenik.js'
+import Ranjenik from '../sutjeska/Ranjenik.js'
 
 export default class JasenovacScena extends Scena2D {
   init() {
