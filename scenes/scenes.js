@@ -3,7 +3,7 @@ export const scenes = {
     path: './spomenici/SpomeniciScena.js',
     name: 'Spomenici',
     icon: 'buildings/kosmaj.png',
-    height: 48
+    height: 52
   },
   BeogradScena: {
     path: './beograd/BeogradScena.js',
@@ -97,13 +97,13 @@ export const scenes = {
     height: 90
   },
   JasenovacScena: {
-    path: './tenkovska/JasenovacScena.js',
+    path: './jasenovac/JasenovacScena.js',
     name: 'Bekstvo iz Jasenovca',
     icon: 'items/bodljikava-zica.gif',
-    height: 30
+    height: 28
   },
   // TenkOdozgoScena: {
-  //   path: './tenkovska/TenkOdozgoScena.js',
+  //   path: './jasenovac/TenkOdozgoScena.js',
   //   name: 'Tenk odozgo'
   // },
   MainMenu: {
