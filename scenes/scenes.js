@@ -21,7 +21,8 @@ export const scenes = {
   RajlovacScena: {
     path: './rajlovac/RajlovacScena.js',
     name: 'Attack on Rajlovac Airport',
-    icon: 'armies/nemci/avioni/avion-03.png',
+    icon: 'buildings/kula-01.png',
+    height: 60
   },
   SavoScena: {
     path: './savo/SavoScena.js',

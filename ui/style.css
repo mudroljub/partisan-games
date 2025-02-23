@@ -110,7 +110,11 @@ button.no-hover:hover {
   /* color: var(--sand); */
 
   & img {
-    filter: drop-shadow(3px -1px 0px rgba(0, 0, 0, .6));
+    filter: 
+        drop-shadow(1px 1px 0px rgba(0, 0, 0, .4)) 
+        drop-shadow(-1px -1px 0px rgba(0, 0, 0, .4)) 
+        drop-shadow(1px -1px 0px rgba(0, 0, 0, .4)) 
+        drop-shadow(-1px 1px 0px rgba(0, 0, 0, .4));
   }
 }
 
